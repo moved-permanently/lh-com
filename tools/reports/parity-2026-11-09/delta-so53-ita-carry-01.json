@@ -1,0 +1,738 @@
+[
+ {
+  "path": "/it/it/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "o il sistema di ingressi/uscite</h2>",
+    "text": "o il sistema di ingressi/uscite {heading-medium}</h2>"
+   },
+   {
+    "after": "gresso</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "t le système d’entrée/de sortie</h2>",
+    "text": "t le système d’entrée/de sortie {heading-medium}</h2>"
+   },
+   {
+    "after": "chéant</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "e utilizan el Sistema de Entradas y Salidas</h2>",
+    "text": "e utilizan el Sistema de Entradas y Salidas {heading-medium}</h2>"
+   },
+   {
+    "after": "roceda</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "nsetzen</h2>",
+    "text": "nsetzen {heading-medium}</h2>"
+   },
+   {
+    "after": "effend</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "bruiken</h2>",
+    "text": "bruiken {heading-medium}</h2>"
+   },
+   {
+    "after": "assing</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "usam o Sistema de Entrada/Saída</h2>",
+    "text": "usam o Sistema de Entrada/Saída {heading-medium}</h2>"
+   },
+   {
+    "after": "icável</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "οιούν το Σύστημα Εισόδου/Εξόδου</h2>",
+    "text": "οιούν το Σύστημα Εισόδου/Εξόδου {heading-medium}</h2>"
+   },
+   {
+    "after": "ίπτωση</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "replace": "\"01\">01</h3>",
+    "text": "\"01\">01 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"02\">02</h3>",
+    "text": "\"02\">02 {heading-medium}</h3>"
+   },
+   {
+    "replace": "\"03\">03</h3>",
+    "text": "\"03\">03 {heading-medium}</h3>"
+   },
+   {
+    "replace": "用する欧州諸国</h2>",
+    "text": "用する欧州諸国 {heading-medium}</h2>"
+   },
+   {
+    "after": "、入国の拒否</div></div></div>",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "istenza</h2>",
+    "text": "istenza {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "istance</h2>",
+    "text": "istance {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "stencia</h2>",
+    "text": "stencia {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "zhunden</h2>",
+    "text": "zhunden {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "phonden</h2>",
+    "text": "phonden {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "serviço</h2>",
+    "text": "serviço {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "νοδείας</h2>",
+    "text": "νοδείας {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "助犬とのご旅行</h2>",
+    "text": "助犬とのご旅行 {heading-small}</h2>"
+   },
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-20}</p><p>{spacer-20 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "inserts": [
+   {
+    "before": "<div><div class=\"columns-media",
+    "text": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": "bagagli</h2>",
+    "text": "bagagli {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": ">Assistance bagages</h2>",
+    "text": ">Assistance bagages {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": "tención de equipaje</h2>",
+    "text": "tención de equipaje {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": "ckhilfe</h2>",
+    "text": "ckhilfe {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": "istentie met bagage</h2>",
+    "text": "istentie met bagage {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": "istência de bagagem</h2>",
+    "text": "istência de bagagem {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": "οσκευές</h2>",
+    "text": "οσκευές {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/travel-information/baggage/checked-baggage",
+  "inserts": [
+   {
+    "replace": "関するサポート</h2>",
+    "text": "関するサポート {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "inserts": [
+   {
+    "replace": " voyage</h2>",
+    "text": " voyage {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "inserts": [
+   {
+    "replace": "e viaje</h2>",
+    "text": "e viaje {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "inserts": [
+   {
+    "replace": "klassen</h2>",
+    "text": "klassen {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "inserts": [
+   {
+    "replace": "klassen</h2>",
+    "text": "klassen {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "inserts": [
+   {
+    "replace": " viagem</h2>",
+    "text": " viagem {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "inserts": [
+   {
+    "replace": "αξιδίου</h2>",
+    "text": "αξιδίου {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "inserts": [
+   {
+    "replace": "きな座席を選択</h2>",
+    "text": "きな座席を選択 {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": "viaggio</h2>",
+    "text": "viaggio {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": " voyage</h2>",
+    "text": " voyage {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": "e viaje</h2>",
+    "text": "e viaje {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": "eklasse</h2>",
+    "text": "eklasse {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": " kiezen</h2>",
+    "text": " kiezen {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": " viagem</h2>",
+    "text": " viagem {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": "αξιδίου</h2>",
+    "text": "αξιδίου {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "inserts": [
+   {
+    "replace": "きな座席を選択</h2>",
+    "text": "きな座席を選択 {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "A321neo</h2>",
+    "text": "A321neo {heading-medium}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/support/utilities/invoicing",
+  "inserts": [
+   {
+    "replace": " Volato</h2>",
+    "text": " Volato {heading-small}</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "umicino</h3>",
+    "text": "umicino {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "umicino</h3>",
+    "text": "umicino {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "umicino</h3>",
+    "text": "umicino {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "umicino</h3>",
+    "text": "umicino {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "Airport</h3>",
+    "text": "Airport {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "de Roma</h3>",
+    "text": "de Roma {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "ς Ρώμης</h3>",
+    "text": "ς Ρώμης {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "inserts": [
+   {
+    "replace": "ジア・ラウンジ</h3>",
+    "text": "ジア・ラウンジ {heading-medium}</h3>"
+   }
+  ]
+ }
+]
