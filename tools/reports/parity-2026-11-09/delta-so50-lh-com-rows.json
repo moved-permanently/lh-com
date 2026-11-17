@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/special-meals",
+  "inserts": [
+   {
+    "replace": "<p>{column-end}</p></div>",
+    "text": "<p>{spacer-30 below-768}</p></div>"
+   }
+  ]
+ }
+]
