@@ -1,0 +1,64 @@
+[
+ {
+  "path": "/de/en/book-and-manage/rebook/voluntary-rebooking",
+  "inserts": [
+   {
+    "replace": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   },
+   {
+    "replace": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/arrival-services",
+  "inserts": [
+   {
+    "after": "ces-at-the-airport</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/support/contact/passenger-duty-united-kingdom",
+  "inserts": [
+   {
+    "after": "itle</div><div>Contact</div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/pax-receipt",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-80}</p>",
+    "text": "<p>{spacer-80 from-768}</p><p>{spacer-57 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/shopping",
+  "inserts": [
+   {
+    "replace": "<p>{divider-60}</p>",
+    "text": "<p>{divider-100 from-768}</p><p>{divider-60 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<p>{column-end}</p><p>{divider-25}</p>",
+    "text": "<p>{column-end}</p><p>{divider-25 from-768}</p><p>{divider-9 below-768}</p>"
+   }
+  ]
+ }
+]
