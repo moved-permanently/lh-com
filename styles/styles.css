@@ -2857,3 +2857,20 @@ body.brand-lufthansa main:has(.article-header) .columns-media-wrapper:has(> .col
     margin-top: -7px;
   }
 }
+
+/* Insights articles: a Columns Media video with its caption keeps 26px more under the caption (www's
+   allegris-new-york, lh-parity-015: 60px from the caption "Take one! ..." to the next paragraph at 1440 and 390, ours
+   34; standing order 49) */
+/* stylelint-disable-next-line no-descending-specificity -- a video block in an article, not the insights-flow rows above */
+body.brand-lufthansa main:has(.article-header) .columns-media:has(.media-video + p.caption:last-child) {
+  padding-bottom: 26px;
+}
+
+/* lufthansa.com hubs on phones: a stage picture alone in the first section, then the blog overview's H1: 40px between
+   them, as www's (explore-flying at 390, lh-parity-015: the H1 8px lower on ours under the same picture; standing
+   order 49) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section:first-child:has(> .default-content-wrapper:last-child > p:only-child > picture):has(+ .section.blog-overview-container) {
+    margin-bottom: 40px;
+  }
+}

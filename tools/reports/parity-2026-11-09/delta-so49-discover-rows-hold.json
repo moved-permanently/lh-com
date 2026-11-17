@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/de/en/discover/travel-classes/business-class/services-long-haul",
+  "inserts": [
+   {
+    "replace": "class=\"columns-media title-compact\"",
+    "text": "class=\"columns-media title-compact divider-above\""
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/discover/travel-classes/business-class/services-long-haul",
+  "inserts": [
+   {
+    "replace": "class=\"columns-media title-compact\"",
+    "text": "class=\"columns-media title-compact divider-above\""
+   }
+  ]
+ }
+]
