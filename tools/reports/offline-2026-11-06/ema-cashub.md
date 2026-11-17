@@ -10804,3 +10804,192 @@ gaps are fixed.
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so63. No background job of mine is
 running.
+
+## Standing order 64 (2026-11-17, from about 17:35 CET)
+
+**Carried over:** nothing. Order 63's last commit (f2584534) was on main and my worktree was clean. The main checkout's
+dirty entries (blocks/notifications/notifications.css, import-progress.json, importer reports, urls-*.txt) belong to
+other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so64 (not in git): DA's 13 copies, drafts, dry runs, the merged SWISS recording
+assets (swiss-parity-001, -002a, -002b's CSS and fonts as one folder, for the offline layouts), b2b-parity-001 to -017
+(each in its own folder), the render, toggle and member-page scripts with their outputs, logs.
+
+**Requests:** every render refused lh-proxy, www.* and every airline host per request and counted them; none were sent.
+www's pages were read only from the recordings on disk.
+
+**DA:** read only, 13 single GETs, one per command (lh-swiss ch/en advance-seat-reservation; lh-b2b de/de and de/en
+experts-members, fund, history, home, lhghome, reports). Nothing was written. No upload, preview, publish or
+da-upload.mjs by me. /de/en/overview-manage has no row.
+
+### Item 1: SWISS seat sections, then the button rule
+
+**What www does differently** (advance-seat-reservation, swiss-parity-002b; its markup laid out offline with its own CSS,
+and its PNGs):
+- **Disclaimers:** the 14 "The reservation is free of charge for HON Circle Members…" paragraphs are www's small print
+  (`p.copytext-small`, 14 px on 15 px lines). At 390 the long one takes five lines (75 px); ours took six lines of
+  running text (132 px). This is the document.
+- **The gaps around the Features accordion:** each seat row is a column view with 32 px padding above and below. The
+  accordion between rows has 20 px above it and none below on phones, and 40 px above and below from 768 px. So www has
+  72 px from row to accordion and 72 px from accordion to the next row from 768 px; ours had 64 and 64. On phones www has
+  70 px from the disclaimer's last line to the accordion (ours 24) and 32 px from the accordion to the next picture (ours
+  64, the gap you noted). This is our layout.
+- **The 11 px taller picture** is the tab panel's width: on phones www insets an open panel's content 20 px on the right
+  (326 of 346 px, on all 8 recorded SWISS tab pages), so its pictures are 162 px high and ours 173. Also our layout.
+
+**Pushed (77139270, live): the seat-section rule** (swiss.css). A spaced accordion right after a picture row gets 28 px
+more above it on phones (48 from 768 px). One right before a row keeps 8 px below it on phones (48 from 768 px). That
+gives www's 70 / 32 on phones and 72 / 72 from 768 px.
+
+- **Reach:** I ran an in-page toggle on all 172 recorded SWISS page-widths, and on the 34 unrecorded documents that have
+  both a spaced accordion and a picture row (68 page-widths). The rule reaches only the 13 advance-seat-reservation
+  documents. Nothing scrolls sideways anywhere.
+- **The recorded page (ch/en, www 7,124 / 9,348):**
+
+  | Width | As served | Rule only | Small print only | Both (live) |
+  | --- | --- | --- | --- | --- |
+  | 1440 | 6,838 (−4.01 %) | 6,950 (−2.44 %) | 6,835 (−4.06 %) | 6,947 (−2.48 %) |
+  | 390 | 9,636 (+3.08 %) | 9,608 (+2.78 %) | 9,328 (−0.21 %) | 9,300 (−0.51 %, 0.30 points from the small print alone) |
+
+- **The 12 unrecorded copies:** 1440 +56 px (ch/de +112), 390 −224 px (ch/de −28). In 11 of them the button and the
+  disclaimer stand outside the picture row (an import difference), so only the space below the accordion applies.
+- Test: test/swiss-seat-sections-so64.test.mjs.
+
+**READY, already live: the small print** (delta-so64-swiss-advance-seat-small-print.txt / .json, text-inserts-apply.mjs).
+The row adds " {copytext-small}" at the end of each of the 14 disclaimers. Each insert is anchored on the markup after
+its paragraph, because the 14 texts repeat.
+- **Dry run on DA's copy:** 14 inserted, byte for byte back, and a second run reports 14 present.
+- **Applied:** the helpers applied it (cb04af44). The page now renders exactly as drafted: 6,947 / 9,300.
+- **Not in the list:** the other 12 language copies. They aren't recorded, and 11 have the import difference above.
+
+**HOLD, not in git: the panel inset** (`body.brand-swiss` tab panels below 768 px, content padding-right 42 px). It
+fails the half point on two recorded pages:
+
+| Page (390) | www | As served | With the inset | Points |
+| --- | --- | --- | --- | --- |
+| ch/de swiss-economy | 6,755 | 6,708 (−0.70 %) | 6,629 (−1.87 %) | +1.17 |
+| ch/en swiss-recraft-collection | 5,441 | 5,259 (−3.34 %) | 5,201 (−4.41 %) | +1.07 |
+
+- **Closer with the inset:** entertainment-on-board (−7.47 → −6.70 %), animals-travelling (−2.97 → +0.42 %),
+  baggage-irregularities (−1.20 → −1.02 %) and advance-seat-reservation (−0.51 → −0.12 %).
+- **What the inset gets right:** on swiss-economy it brings the row pitch to www's within 3 px (457 / 478 / 545 against
+  ours 454 / 477 / 543; 464 / 487 / 531 without it).
+- **Why the page still goes further:** that page is short elsewhere, so the inset uncovers that shortfall rather than
+  causing it. Located on its PNG: 92 px less space than www between "Mehr zu Miles More" and the card list (53 px
+  against 145), and 45 px less after the last card before the "Interkontinental" toggle (5 px against 50).
+- Saved in so64/rule-inset.css.
+
+**Pushed: the 64 px button form** (99f4a801; see the checks for its push). I gated it after the rule and the small print
+went live, as you asked. Of the 172 recorded SWISS page-widths it moves three, all at 390:
+
+| Page (390) | www | Before | With the 64 px form | Points |
+| --- | --- | --- | --- | --- |
+| ch/en advance-seat-reservation | 9,348 | 9,300 (−0.51 %) | 9,356 (+0.09 %) | −0.42 |
+| ch/de baggage-irregularities | 5,081 | 5,020 (−1.20 %) | 5,034 (−0.94 %) | −0.26 |
+| ch/de internet-overview | 3,961 | 4,077 (+2.93 %) | 4,091 (+3.28 %) | +0.35 |
+
+- **No-breakage toggle** on order 62's 116 page-widths whose labels lh-com cut: no sideways scroll; 110 grow (median
+  14 px, max 202; the 68 px form's median was 18, max 246); 6 are unchanged (swiss-senses copies, unchanged under the
+  68 px form too); none shrink.
+- **Homepages:** no cut label at either width (four roots checked in the page), so the rule doesn't reach them. The
+  census's moving homepage figures were loads still filling.
+- Test: test/swiss-button-label-wrap-so64.test.mjs.
+
+### Item 2: Group for Business's 12 member documents (delta-so64-b2b-member-empty-ending.txt / .json)
+
+**Cause, the same on all 12:** DA's copy holds the page's metadata block in a section of its own, as order 42 found
+elsewhere, but writes it without a line break (`</div></div><div><div class="metadata">`). So order 42's string, which
+has the line break, is found 0 times. The served copy leaves that section empty, and each of the 12 ended with
+`<div></div>`.
+
+**The row:** that section break goes (11 bytes fewer), and every other byte stays as DA's.
+- **Tool:** text-inserts-apply.mjs, one replace per document. ita-fragment-replace-apply.mjs refuses this row, because
+  its "to" is part of its "from".
+- **Dry run on DA's 12 current copies:** each "1 inserted", byte for byte back, and a second run reports "present".
+
+**Renders:** signed-out visitors are sent to login, and www has no recording behind it. So each page was drawn at its own
+path inside the market's login page as served, with its own .plain.html as main and the member API answering 404
+(so64/b2bm.mjs).
+
+| Documents | What the empty section draws | State |
+| --- | --- | --- |
+| fund, history, home, lhghome, reports (de/de, de/en) | 0 px at both widths: its margins fold into the block section's 48 px, and the footer stays where it is, to the px | 10 rows **READY**. Already applied (bac7fbcb); the served copies equal the drafts byte for byte and render as drafted |
+| experts-members (de/de, de/en) | It is the page's end gap: 48 px under the last link. Without it the last section keeps its own 8 px, and the footer moves up 40 px at both widths | **HOLD**, no row: the same ending order 42 kept out on discover-airlines |
+
+### Item 3: Group for Business recorded pages (sweep-so64-b2b.txt)
+
+**The set:** b2b-parity-001 to -017 from the drop's shared folder. Each sha256 matches its sidecar, except -001's, which
+has none. I took the newest recording per page and width, leaving out the state files: 184 page-widths on 102 pages.
+Each was a fresh load as served.
+
+**Result:** 169 of 184 are within 2 %. All 15 outside are located:
+- **12 have their cause on file, unchanged:**
+  - kuala-lumpur 1440 / 390 (www's recorded flight table);
+  - meals-on-board 390 on ch/en, de/en and xx/en, and corporates-start-of-booking 390 (the tab control, re-import
+    pending);
+  - lhg-ita-airways 1440 / 390 and sap 1440 / 390 (fonts);
+  - de/en lhg-history 1440 (held for ema-test);
+  - de/de partner-plus-benefit 390 (the dropped modal link, which needs a new document);
+  - de/de our-european-fares 390 (the stacked fare tables).
+- **3 located this order:**
+  - **de/en our-european-fares 390** (+2.53 %, against -015's phone first load): the headings are within 24 px of www's
+    until the fare details, then +372 px before the FAQs (the fare tables stacked, as on de/de). Order 40's 12,166 came
+    from its capture method. Renders with order 35's and order 40's code give today's 12,358, and the document is
+    unchanged since 15 Nov, so nothing moved.
+  - **de/de our-european-fares 390** (+2.16 %): the same kind of figure shift, against order 40's 13,355.
+  - **de/de lhg-invoice-receipt-download 1440** (+2.53 %): +44 px between the title and the text (our H1's 40 px margin
+    over the news column view; www has 50 px), −18 at the title, +12 in the link list. Not a drift either: order 35's
+    code renders 1,542 too.
+
+**One B2B rule tried, HOLD (so64/rule-b2b-news.css): the news title without its margin before the news column view.**
+- **Reach:** an in-page toggle on the 16 recorded news page-widths; it reaches 8, each −32 to −40 px.
+- **Where it matches www:** it puts the text under the title where www has it, to the px, on invoice de/de and
+  celebrating-shared-stories de/de.
+- **Figures:**
+  - invoice de/de: 1440 +2.53 → −0.13 %, 390 +1.61 → +0.17 %;
+  - invoice de/en: 1440 +1.20 → −1.62 % (0.42 points further), 390 equal;
+  - celebrating-shared-stories de/en: 1440 −0.98 → −1.46 %, 390 −1.65 → −1.91 %;
+  - celebrating-shared-stories de/de: 390 −1.94 → −2.20 % (0.26 points further), 1440 −1.68 → −2.19 %. **That is 0.52
+    points further, so it fails.**
+- **Why it fails:** that page is short further down (−477 px at "Ein Jahrhundert ikonischer Ziele"), which the rule
+  uncovers.
+
+No new row.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint`, exit 0 before each push: 77139270 (round 2, after a rebase over other jobs'
+  commits), 99f4a801, and this docs commit.
+- **Stylelint** on styles/themes/swiss.css after each change: exit 0. No block CSS file changed.
+- **Tests before the pushes:** the folder-reading tests (order 62's list), every test that reads the SWISS theme or the
+  accordion block or uses text-inserts-apply, and the new tests: 318 files, 1,438 pass, 0 failures, 3 skipped before
+  77139270; 319 files, 1,441 pass, 0 failures, 3 skipped before 99f4a801. The new tests fail on the code before them.
+- **Full suite** on 99f4a801: 1,274 files, 4,780 pass, 0 failures, 5 skipped.
+- **Live checks:** advance-seat-reservation after both pushes and the row, as gated, to the px (1440 6,947; 390 9,356;
+  baggage-irregularities 5,034; internet-overview 4,091). The ten B2B member copies as served equal the drafts byte for
+  byte; fund's footer stays at 392 / 461.
+- **Pushed:** 77139270 (items 1 and 2: the seat-section rule, both lists, the test), 99f4a801 (the button form), and this
+  docs commit (this section and sweep-so64-b2b.txt).
+
+### Final section (about 19:09 CET, 2026-11-17)
+
+**Done and live:**
+- SWISS advance-seat-reservation's seat sections. The rule (77139270) and the small-print row (READY, applied by the
+  helpers) are live as drafted: ch/en 1440 −4.01 → −2.48 %, 390 +3.08 → −0.51 %.
+- The SWISS button form, 64 px (99f4a801). It is live as gated, and none of the three page-widths it moves goes further
+  than 0.35 points.
+- Group for Business: 10 member documents without their empty closing section (READY, applied, 0 px moved).
+
+**READY lists:** delta-so64-swiss-advance-seat-small-print.txt (1 path), delta-so64-b2b-member-empty-ending.txt
+(10 paths). Both have been applied.
+
+**Held, with figures:**
+- The SWISS tab-panel inset (the 11 px picture): it takes swiss-economy +1.17 points and swiss-recraft-collection +1.07
+  points further. Those pages are short elsewhere first.
+- experts-members de/de and de/en: there the empty section is the end gap.
+- The B2B news-title rule: it takes celebrating-shared-stories de/de 1440 0.52 points further.
+
+**Your calls:** none new.
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so64. No background job of mine is
+running.
