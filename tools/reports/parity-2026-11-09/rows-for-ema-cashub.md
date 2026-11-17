@@ -27,3 +27,16 @@ the files it last changed). Each row says what was found, the evidence and what 
 - **Superseded the same hour:** 55714cf3 (15:13 UTC) moved row 53's spacing into blocks/carousel-cards/carousel-cards.css,
   so austrian.css no longer names the dots and the strict test passes; a110d97c (my loosening, pushed on its retry at
   15:25 UTC) is taken back in the next commit: the test is strict again (no theme rule names a carousel's dots).
+
+## 3. SWISS: 1,076 documents end with the same empty section (standing order 43, from ema-lufthansa's order-42 census)
+
+- **Found:** in the order-42 census (unrecorded-so42-swiss.md, 468ce020), 1,076 of SWISS's 4,179 distinct documents
+  (the 3,196 language documents, each from its language's main market, the 955 magazine documents, nav and footers)
+  end their served `.plain.html` with an empty `<div></div>`. The render counts an empty section on 1,140 documents.
+  styles/themes/swiss.css has no rule that reads an empty section (no `:empty`).
+- **Measured** (full Chrome, served CSS, airline hosts refused per request; the served copy and the copy without that
+  section, both through the same served page shell): a 40-document sample (seed 42) draws the section 0 px on 37 pages
+  at 390 and 38 at 1440, and 24 px on 2 at each width (one page 5 px at 390). Nothing else changes (H1s, pictures,
+  blocks, words, width).
+- **Left:** no rule and no rows. The section has no visible effect on almost every page; the recorded SWISS pages
+  among the 1,076 were not gated. SWISS is ema-cashub's since its order 62, so this is only a note.

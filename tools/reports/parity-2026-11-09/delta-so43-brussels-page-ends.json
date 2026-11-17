@@ -1,0 +1,23 @@
+{
+ "/be/en/check-in-options-and-info": [
+  {
+   "from": "Check-in now</a></h4></div></div></div>",
+   "to": "Check-in now</a></h4></div></div></div><p>{spacer-208 below-768}</p><p>{spacer-79 from-768}</p>",
+   "count": 1
+  }
+ ],
+ "/be/fr/check-in-options-and-info": [
+  {
+   "from": "S’enregistrer maintenant</a></h4></div></div></div>",
+   "to": "S’enregistrer maintenant</a></h4></div></div></div><p>{spacer-208 below-768}</p><p>{spacer-79 from-768}</p>",
+   "count": 1
+  }
+ ],
+ "/be/en/legal-notices/us-traveling-with-disabilities": [
+  {
+   "from": "U.S. Department of Transportation</a>.</p><p>Please note that with this link you are visiting an external website that may not follow the same privacy, security or accessibility policies.</p></div></div></div>",
+   "to": "U.S. Department of Transportation</a>.</p><p>Please note that with this link you are visiting an external website that may not follow the same privacy, security or accessibility policies.</p></div></div></div><p>{spacer-52 from-768}</p><p>{spacer-62 below-768}</p>",
+   "count": 1
+  }
+ ]
+}
