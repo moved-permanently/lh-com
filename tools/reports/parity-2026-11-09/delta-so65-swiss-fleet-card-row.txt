@@ -1,0 +1,19 @@
+# ema-cashub, standing order 65 (2026-11-17), item 5: SWISS /ch/en/discover/fleet, the space around its two-up teaser row.
+# www (swiss-parity-002b, 1440 and 390, measurement files and PNGs): the two teasers stand in a column view of their own, so
+# at 1440 "Long-haul fleet" is 734 px down (ours 693, 41 px higher) and the footer 1,040 (ours 953): 48 px less above the row
+# and 46 px less under it. The only recorded SWISS document with a two-up grid, so a row, not a rule.
+# The row: "{spacer-47}" right before the teaser row and "{spacer-61}" after it, at the section's end (a spacer there draws
+# N-15). Every width.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so65-swiss-fleet-card-row.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-swiss/ch/en/discover/
+# fleet.html, ~20:55 CET): "2 inserted", "without the inserts DA's copy byte for byte: true"; a second run "2 present".
+# Drafted on swiss.turnsthe.page (so53/hostv.mjs, the served .plain.html with the two markers as main; unhinted; airline
+# hosts, www.* and lh-proxy refused per request). Measured at 1440: "Long-haul fleet" at 737 (www 734), the footer at 1,043
+# (www 1,040). 768: 1,657 -> 1,747.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/en/discover/fleet	1440	swiss-parity-002b	1635	1550 (-5.20 %)	1640 (+0.31 %)	the teaser row 48 px lower and 46 px over the footer, within 3 px of www's
+READY	/ch/en/discover/fleet	390	swiss-parity-002b	2040	1949 (-4.46 %)	2039 (-0.05 %)	the teaser headings and the footer top 20 px above www's on phones (footer 1,490, www 1,510)
+#
+# DA change: lh-swiss /ch/en/discover/fleet: "<p>{spacer-47}</p>" before the two-up teasers and "<p>{spacer-61}</p>" after
+# them. The other language copies are not recorded and get no row here.

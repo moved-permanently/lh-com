@@ -1,0 +1,15 @@
+[
+ {
+  "path": "/ch/en/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "ong-haul fleet</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ }
+]
