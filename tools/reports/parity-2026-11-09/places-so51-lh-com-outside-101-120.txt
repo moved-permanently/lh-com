@@ -22,4 +22,4 @@
 117	/de/en/cancellations-and-refunds	390	7.78	3130 -> 3115 (-15)	located	aligner swing (+-99), -25 at a column-end mark	Not changed.
 118	/de/en/fly-more-sustainabl	390	7.73	5940 -> 5958 (+18)	located	aligner swing (+-368), +12 / +36 / +24 / +29 at the grey sections and the accordion, -34, +205 / -245	Section starts a little lower on phones; not changed.
 119	/de/en/hotel-offers	1440	7.72	3435 -> 3395 (-40)	READY	+93 / -86 at the hotel search panel, +26 at "Earn miles with every stay", -24 at the column-end mark, -38 at the closing spacer	READY row (delta-so51-lh-com-rows.txt): {spacer-108 from-768} with {spacer-70 below-768}; 1440 7.72 -> 5.22 %, 390 unchanged.
-120	/de/en/passengers-using-wheelchairs	390	7.70	8000 -> 8000 (cut)	located	+23 / -24 at the stage, -21 and -16 at the jump links, +41 at a Columns Media section, -23, -19, +49	Small steps; not changed.
+120	/de/en/passengers-using-wheelchairs	390	7.70	8000 -> 8000 (cut)	located	+23 / -24 at the stage, -21 and -16 at the jump links, +41 at a Columns Media section, -23, -19, +49	Small steps; gap-after-small-below-768 before the two 48 px section gaps read worse in order 52 (7.70 -> 7.98); not changed.

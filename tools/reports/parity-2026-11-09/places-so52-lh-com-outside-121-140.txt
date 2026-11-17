@@ -5,7 +5,7 @@
 # Columns: place, path, width, % now, heights www -> ours, status, cause, fix.
 121	/de/en/services-munich-airport	390	7.67	2089 -> 2079 (-10)	located	-16 at the spaced FAQ accordion, then one aligner swing (-204 / +204)	Small; not changed.
 122	/de/en/uebergepaeck	390	7.65	4747 -> 4812 (+65)	located	aligner swing at the intro (+187 / -186), -17 at a column-start mark, +45 at the fee note ("1. Please note that the fee is calculated"), +-62, +27 at the footer	gap-after-small-below-768 on the last section read worse (7.65 -> 7.82); the +45 sits in the note's text block, not a mark; not changed.
-123	/de/en/upgrade-to-business-class	390	7.54	3725 -> 3706 (-19)	located	aligner swing (+-375), -31, +49 at "Further information about your upgrade", -23 at the subpage navigation, -21 at the footer	Mixed steps; not changed.
+123	/de/en/upgrade-to-business-class	390	7.54	3725 -> 3706 (-19)	located	aligner swing (+-375), -31, +49 at "Further information about your upgrade", -23 at the subpage navigation, -21 at the footer	gap-after-small-below-768 before the grey band read worse (7.54 -> 8.63); not changed.
 124	/de/en/support/feedback-and-contact-airlines	390	7.54	4183 -> 4132 (-51)	located	aligner swing (+354 / -358), -36 near the end	Not changed.
 125	/de/en/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge	1440	7.51	2279 -> 2217 (-62)	located	+14, an aligner swing (-108 / +108), -37, -15, -38 at "The exact surcharge amount will be displayed"	Ours tighter down the text; not changed.
 126	/de/en/lufthansa-am-flughafen-frankfurt	1440	7.48	4115 -> 4068 (-47)	located	aligner swings at the top (+279 / +27 / -306), -26 at y 1300, -17 at the footer	Not changed.
