@@ -10041,3 +10041,134 @@ their gated figures, to the px.
 
 **Not in git** (scratch under migration-work/parity-588/so58): the served copies, the census and gate outputs, the
 drafts and controls, DA's two copies, the locating dumps, test outputs and logs.
+
+## Standing order 59 (2026-11-17, from about 04:30 CET)
+
+**Carried over:** nothing. Order 58's three commits (7952e2c9, fd5f3e78, d86d6a75) were on main and my worktree was clean.
+The checkout's 88 dirty entries belong to other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so59. It holds the recording, the served copies, the census, the locating dumps,
+the code exports for the bisects, test outputs and logs.
+
+**Renders:** about 300 page loads, all unhinted. lh-proxy, www.* (except www.mynewsdesk.com) and every airline host were
+refused and counted: 0 to 21 per render, none sent. Recordings were laid out offline from the archive only, with nothing
+sent.
+
+**DA:** nothing read, nothing written. No upload, preview, publish or da-upload.mjs by me. /de/en/overview-manage has no
+row.
+
+### Item 1: airdolomiti-parity-014 (gate-so59-airdolomiti-faq-accordion-end.txt)
+
+**The archive:** it landed in the Air Dolomiti folder at about 04:46 CET, before you named it. Its sha256 equals its
+sidecar (dcb82f74…3095cc9). It holds /servizi-digitali and /de/flughaefen/frankfurt-de, each width its own first load, plus
+the CardNews boxes.
+
+**The accordion's end: SHIPPED below 930 px (28aaa10d), not from 930 px.**
+- **www:** "Altri servizi" stands 110 px under the FAQ accordion at 390 and 120 px at 1440 (TogleTariffe's margin). Ours
+  is 24 px at 390 and 768, and 99 px at 1440.
+- **390 passes:** with the 110 px the gap is www's to the px. The page goes 4,012 (-1.04 %) -> 4,098 (+1.09 %), and the
+  footer top -1.42 -> +1.49 %. That's 0.05 and 0.07 points further, within the half point.
+- **1440 fails both ways:**
+  - The 120 px rule makes the page 2,846 (+3.12 %) -> 2,942 (+6.59 %).
+  - www's own gap (+21 px) makes it 2,867 (+3.88 %), 0.76 points further.
+  - Our 1440 is already long at the intro (+72: the accordion starts at 576 against www's 504) and between "Altri
+    servizi" and the second accordion (+32).
+  - So from 930 px order 58's rule (before a carousel only) stays as it was.
+- **Census:** in-page toggle on the 76 documents whose FAQ accordion is followed by text, at 390 and 768 (152 renders,
+  none broken). The served copies were fresh: all 1,569 refetched, only the two intro-row pages had changed since
+  order 58.
+  - Exactly the six left-out pages change, +86 px at both widths.
+  - No sideways scroll, no overlap, no lost picture.
+  - The code override equals the toggle to the px.
+- **Live:** pushed at about 05:12 CET. All twelve page-widths measure at the census figures to the px (for example
+  servizi-digitali 390: 4,098), and 1440 is unchanged (2,846).
+
+**The 1440 cards: no correction.**
+- www's three CardNews on /de/flughaefen/frankfurt-de measure 432 x 470 at x 36 / 504 / 972 (36 px apart), 66 px under the
+  title. Ours as served are the same to the px. So order 58's 470 px (30vw wide, 2.5vw apart) stands for the 111 pages.
+- **The page itself (just for the record):** at 1440 ours is 9.56 % short, 11,372 against 12,574. Most of it (-783) is
+  www's embedded Google map (810 px) under the cards, where our document has the link "Karte auf Google Maps". At 390 the
+  page is within 2 % (+0.37 %).
+
+### Item 2: places 321 to 350 (sweep-so59-places-321-350.txt)
+
+**Live as gated (2):** 342 /assistenza and 346 /en/assistance at 1440, order 55's accordion text stack (4,797 and 4,778).
+
+**Within 2 %, located (28):** every page-width's "today" equals order 43's to the px, except the two above. Each has its
+steps in the file. None has a step a rule or row could take without moving others the wrong way.
+- **Title and section steps that cancel:** the Austrian special-requirements, extra-services and travel-classes pages
+  (-50 at the title, +52 at the next section).
+- **The notice:** 336 Cargo /en/speed-zoom, gated on www less its 80 px service notice (2,186), ends -6.
+- **337 Cargo /en/home 390:** the eBooking box's button sits 171 px higher, and the box is -49 in all.
+- **339 / 340 Austrian homepages:** the flight search's texts match fare labels lower on our page, so they are not
+  steps. 340, read with austrian-api-004's answers replayed, gives the same 5,872.
+- **The rest:** small steps, or text wraps.
+
+**No rows or rules:** none of the 30 has a cause a row or rule could fix.
+
+### Item 3: the Cargo and Austrian page-widths still outside 2 % (sweep-so59-outside-cargo-austrian.txt)
+
+**How measured:** I measured all 60 Cargo and Austrian page-widths of order 43's places 1 to 70 again today, as served.
+The 17 homepages that have a same-hour widget archive were read with our host's answers replayed. Each page-width was
+compared with its newest recording.
+
+**Result:** 32 are outside 2 %, and every one has its cause on file.
+
+| kind | count | pages |
+| --- | --- | --- |
+| www-side states | 10 | the Austrian homepages' fare and AI bands |
+| non-Latin text | 9 | jp/ja, cn/zh, ru/ru, gr/el |
+| your calls or decisions | 8 | IFE flag, terms-of-use, bangkok-airways, upload widget, facts-figures |
+| explained, no fix | 4 | data-protection page, de facts-figures slider, eaw |
+| live as gated | 1 | ca/fr 390, the stretcher row (-4.79 -> +2.47 %, closer) |
+
+**None is unexplained, and none is waiting on a recording.**
+
+**Three moved since order 43**, each traced with code overrides of the commit and its parent:
+- **/at/en/bangkok-airways 390:** +22 px from order 46's standalone flight search (e653cb39), which brings it closer
+  (-5.76 -> -5.28 %).
+- **/jp/ja/contact 390 and 1440:** -12 px from order 56's help app end (1a1a12d4). It takes them 0.39 and 0.49 points
+  further, on pages the font question already leaves unrankable. That rule was gated on the Latin help-center pages.
+
+**Two looked newly outside but are not:**
+- **/eg/en/homepage 390:** order 48's first load (austrian-parity-027, 6,068) has it at +0.71 %. The older -008
+  recording is out of date.
+- **/ca/fr/homepage 390:** this is the stretcher row's gated figure (4,903).
+
+**Now within 2 %:** 14 page-widths that were outside in order 43 are now within, through orders 45 to 56's rows and rules.
+
+### Final section (about 05:35 CET, 2026-11-17)
+
+All three items are done well before 07:30, and nothing is left running.
+
+**On main:**
+- `28aaa10d`: the accordion's end below 930 px (theme rule, test, gate file).
+- This commit: both sweep files and this order's section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before each push. Origin moved before the first push (one data commit),
+  so I put the commit on top and ran lint again: exit 0.
+- **Stylelint:** styles/themes/airdolomiti.css, exit 0.
+- **Tests before the code push:** 498 files (every test naming Air Dolomiti, accordion-columns or carousel-cards, and
+  the folder-reading tests): 2,114 pass, 0 failures, 4 skipped. The first run's runners were stopped part-way when a
+  foreground command timed out, so the remaining 166 files were run again, detached.
+- **Full suite:** on 28aaa10d with this commit's files in the tree: 1,260 files, 4,745 tests, 4,740 pass, 0 failures,
+  5 skipped.
+
+**Live:** the rule since about 05:13 CET. The six pages measure at their census figures to the px at 390 and 768, and
+/servizi-digitali at 1440 is unchanged.
+
+**For you:**
+- **/de/flughaefen/frankfurt-de 1440** is 9.56 % short. Most of it is www's embedded Google map, where our document has
+  a link. Embedding it would be a document or block decision, so I've left it.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: nothing read, nothing written.
+- No upload, preview, publish or da-upload.mjs by me.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+- The finder button rule stays on HOLD.
+
+**Not in git** (scratch under migration-work/parity-588/so59): the recording and its download, the served copies, the
+census, gate and locating outputs, the code exports for the bisects, test outputs and logs.
