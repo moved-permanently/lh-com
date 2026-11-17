@@ -1,0 +1,33 @@
+[
+ {
+  "path": "/de/en/free2move",
+  "inserts": [
+   {
+    "replace": "fer/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><p>* From EUR",
+    "text": "fer/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><p>{spacer-59 below-768}</p><p>* From EUR"
+   },
+   {
+    "replace": "/en/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><p>* From EUR",
+    "text": "/en/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><p>{spacer-59 below-768}</p><p>* From EUR"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/rail-and-fly",
+  "inserts": [
+   {
+    "after": "ey</div></div></div>",
+    "text": "<p>{spacer-96 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/flights/wetlease-hub",
+  "inserts": [
+   {
+    "after": "ey</div></div></div>",
+    "text": "<p>{spacer-92 from-768}</p><p>{spacer-77 below-768}</p>"
+   }
+  ]
+ }
+]
