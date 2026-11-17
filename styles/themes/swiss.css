@@ -1240,6 +1240,15 @@ body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.
   padding-bottom: 40px;
 }
 
+/* standing order 65, item 5: the icon teasers (usp) are not framed cards, so they keep their own 20 px under the title
+   (www's teaser usp: h1.teaser-heading padding-bottom 20, swiss-parity-002b ch/de terms-conditions laid out offline):
+   the rule above gave them 40, each teaser 20 px taller than www's (pitch 205 against 180 px on phones). Reach: the
+   two recorded documents with usp grids (ch/de and ch/en terms-conditions), in-page toggle on every recorded SWISS
+   page-width. ch/de www 3,147 / 1,818: 390 3,506 -> 3,266 (+11.41 -> +3.78 %), 1440 1,957 -> 1,877 (+7.65 -> +3.25 %) */
+body.brand-swiss .carousel-cards.usp:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only, .carousel-cards-wide) .carousel-cards-body:not(:has(> .carousel-cards-cta:last-child)) {
+  padding-bottom: 20px;
+}
+
 /* a page that ends with plain-view teasers (SWISS row 54; standing order 12, item 2; the importer's option plain-view:
    the special requests and travel information hubs, /ch/en/prepare in swiss-parity-005): www's footer 20px under the
    last teaser on phones, 40px from 768px; ours kept the section gap (48px). Grids without plain-view as before
