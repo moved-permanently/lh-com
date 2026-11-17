@@ -1,0 +1,72 @@
+[
+ {
+  "path": "/de/en/lufthansa-terminal-muenchen",
+  "from": "so52",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-23 from-768}</p><p>{spacer-70 below-768}</p>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/pax-receipt",
+  "from": "so53",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-80 from-768}</p><p>{spacer-57 below-768}</p>",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/flight-disruptions",
+  "from": "so53",
+  "inserts": [
+   {
+    "replace": "<p>{divider-25 from-768}</p><p>{divider-9 below-768}</p>",
+    "text": "<div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lufthansa-first-class-entertainment",
+  "from": "so55",
+  "inserts": [
+   {
+    "replace": "<p>{divider-50 from-768}</p><p>{divider-25 below-768}</p>",
+    "text": "<div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/payment-options-at-the-airport",
+  "from": "so54",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-25 below-768}</p>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/de/en/cancellations-and-refunds",
+  "from": "so55",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-4 below-768}</p>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/de/en/special-meals",
+  "from": "so50",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-30 below-768}</p>",
+    "text": ""
+   }
+  ]
+ }
+]

@@ -1,0 +1,560 @@
+[
+ {
+  "path": "/gb/en/all-check-in",
+  "from": "/de/en/all-check-in",
+  "inserts": [
+   {
+    "after": "e\">/gb/en/homepage</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/arrival-services",
+  "from": "/de/en/arrival-services",
+  "inserts": [
+   {
+    "after": "ces-at-the-airport</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/pax-receipt",
+  "from": "/de/en/book-and-manage/pax-receipt",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-80}</p>",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/rebook",
+  "from": "/de/en/book-and-manage/rebook",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>padded",
+    "text": "<div>style</div><div>padded, gap-after-small-below-768, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/rebook/involuntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "inserts": [
+   {
+    "replace": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/rebook/voluntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/voluntary-rebooking",
+  "inserts": [
+   {
+    "replace": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   },
+   {
+    "replace": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/flight-disruptions",
+  "from": "/de/en/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<p>{column-end}</p><p>{divider-25}</p>",
+    "text": "<p>{column-end}</p><div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/flying-with-small-children",
+  "from": "/de/en/flying-with-small-children",
+  "inserts": [
+   {
+    "after": "ok\">My logbook</a></p></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/lufthansa-first-class-entertainment",
+  "from": "/de/en/lufthansa-first-class-entertainment",
+  "inserts": [
+   {
+    "replace": "<p>{divider-25}</p>",
+    "text": "<div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/lufthansa-terminal-muenchen",
+  "from": "/de/en/lufthansa-terminal-muenchen",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-70}</p>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "from": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "inserts": [
+   {
+    "after": "/en/entryprocesses</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/support/contact/passenger-duty-united-kingdom",
+  "from": "/de/en/support/contact/passenger-duty-united-kingdom",
+  "inserts": [
+   {
+    "after": "itle</div><div>Contact</div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-business-class-long-haul",
+  "from": "/de/en/upgrade-business-class-long-haul",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-first-class",
+  "from": "/de/en/upgrade-first-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-options",
+  "from": "/de/en/upgrade-options",
+  "inserts": [
+   {
+    "after": "nner.</p><p><a href=\"https://www.lufthansa.com/artifacts/flight-upgrades/fix-price-upgrade/gb-en\">Go to fixed-price upgrade</a></p><p><a href=\"/gb/en/bid-upgrade\">Go to upgrade at the price you want</a></p><p><a href=\"https://www.miles-and-more.com/row/en/spend/flights.html\">Go to upgrade award</a></p></div></div></div><p>{column-end}</p>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-premium-economy-class",
+  "from": "/de/en/upgrade-premium-economy-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/all-check-in",
+  "from": "/de/en/all-check-in",
+  "inserts": [
+   {
+    "after": "e\">/de/de/homepage</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/arrival-services",
+  "from": "/de/en/arrival-services",
+  "inserts": [
+   {
+    "after": "vices-am-flughafen</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/flights/lufthansa-voucher",
+  "from": "/de/en/book-and-manage/flights/lufthansa-voucher",
+  "inserts": [
+   {
+    "after": "ansa Geschenkgutschein</div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/pax-receipt",
+  "from": "/de/en/book-and-manage/pax-receipt",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-80}</p>",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/rebook",
+  "from": "/de/en/book-and-manage/rebook",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>padded",
+    "text": "<div>style</div><div>padded, gap-after-small-below-768, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/rebook/involuntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "inserts": [
+   {
+    "replace": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/rebook/voluntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/voluntary-rebooking",
+  "inserts": [
+   {
+    "replace": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   },
+   {
+    "replace": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/kinder-an-bord",
+  "from": "/de/en/children-on-board",
+  "inserts": [
+   {
+    "after": "liegen-mit-kindern</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/flugunregelmaessigkeiten",
+  "from": "/de/en/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<p>{column-end}</p><p>{divider-25}</p>",
+    "text": "<p>{column-end}</p><div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/fliegen-mit-kleinkind",
+  "from": "/de/en/flying-with-small-children",
+  "inserts": [
+   {
+    "after": "\">Mein Logbuch</a></p></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/lufthansa-first-class-entertainment",
+  "from": "/de/en/lufthansa-first-class-entertainment",
+  "inserts": [
+   {
+    "replace": "<p>{divider-25}</p>",
+    "text": "<div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/lufthansa-terminal-muenchen",
+  "from": "/de/en/lufthansa-terminal-muenchen",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-70}</p>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/de/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "from": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "inserts": [
+   {
+    "after": "/de/entryprocesses</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/support/contact/passenger-duty-united-kingdom",
+  "from": "/de/en/support/contact/passenger-duty-united-kingdom",
+  "inserts": [
+   {
+    "after": "itle</div><div>Kontakt</div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/upgrade-business-class-langstrecke",
+  "from": "/de/en/upgrade-business-class-long-haul",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/upgrade-first-class",
+  "from": "/de/en/upgrade-first-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/upgrademoeglichkeiten",
+  "from": "/de/en/upgrade-options",
+  "inserts": [
+   {
+    "after": "n.</p><p><a href=\"https://www.lufthansa.com/artifacts/flight-upgrades/fix-price-upgrade/de-de\">Zum Festpreis-Upgrade</a></p><p><a href=\"/de/de/bid-upgrade\">Zum Wunschpreis-Upgrade</a></p><p><a href=\"https://www.miles-and-more.com/row/de/spend/flights.html\">Zur Upgrade-Prämie</a></p></div></div></div><p>{column-end}</p>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/upgrade-premium-economy-class",
+  "from": "/de/en/upgrade-premium-economy-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/all-check-in",
+  "from": "/de/en/all-check-in",
+  "inserts": [
+   {
+    "after": "e\">/at/de/homepage</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/arrival-services",
+  "from": "/de/en/arrival-services",
+  "inserts": [
+   {
+    "after": "vices-am-flughafen</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/pax-receipt",
+  "from": "/de/en/book-and-manage/pax-receipt",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-80}</p>",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/rebook",
+  "from": "/de/en/book-and-manage/rebook",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>padded",
+    "text": "<div>style</div><div>padded, gap-after-small-below-768, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/rebook/involuntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "inserts": [
+   {
+    "replace": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/rebook/voluntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/voluntary-rebooking",
+  "inserts": [
+   {
+    "replace": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": ".</p><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   },
+   {
+    "replace": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "icture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/kinder-an-bord",
+  "from": "/de/en/children-on-board",
+  "inserts": [
+   {
+    "after": "liegen-mit-kindern</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/flugunregelmaessigkeiten",
+  "from": "/de/en/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<p>{column-end}</p><p>{divider-25}</p>",
+    "text": "<p>{column-end}</p><div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/fliegen-mit-kleinkind",
+  "from": "/de/en/flying-with-small-children",
+  "inserts": [
+   {
+    "after": "\">Mein Logbuch</a></p></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/lufthansa-first-class-entertainment",
+  "from": "/de/en/lufthansa-first-class-entertainment",
+  "inserts": [
+   {
+    "replace": "<p>{divider-25}</p>",
+    "text": "<div class=\"divider\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/lufthansa-terminal-muenchen",
+  "from": "/de/en/lufthansa-terminal-muenchen",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-70}</p>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/at/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "from": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "inserts": [
+   {
+    "after": "/de/entryprocesses</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/support/contact/passenger-duty-united-kingdom",
+  "from": "/de/en/support/contact/passenger-duty-united-kingdom",
+  "inserts": [
+   {
+    "after": "itle</div><div>Kontakt</div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/upgrade-business-class-langstrecke",
+  "from": "/de/en/upgrade-business-class-long-haul",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/upgrade-first-class",
+  "from": "/de/en/upgrade-first-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/upgrademoeglichkeiten",
+  "from": "/de/en/upgrade-options",
+  "inserts": [
+   {
+    "after": "n.</p><p><a href=\"https://www.lufthansa.com/artifacts/flight-upgrades/fix-price-upgrade/at-de\">Zum Festpreis-Upgrade</a></p><p><a href=\"/at/de/bid-upgrade\">Zum Wunschpreis-Upgrade</a></p><p><a href=\"https://www.miles-and-more.com/row/de/spend/flights.html\">Zur Upgrade-Prämie</a></p></div></div></div><p>{column-end}</p>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/upgrade-premium-economy-class",
+  "from": "/de/en/upgrade-premium-economy-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ }
+]
