@@ -6173,3 +6173,68 @@ lh-edge files and 1,279 site files, 0 failing; only reports after it.
 - Ended at about 03:05 CET. Pushed: the switch branch 6c838dd (not merged), c031f61 (item 2), 1637c1d (the switch plan 919 and the ITA note) and this section's commit.
   Held: item 1's carrier rules (gaps measured, carriers missing), item 3 (no rule: the font).
 - Left out of git: logs/b655 (copies, collapsed documents, captures, runs), /tmp/wt-tf919 and /tmp/wt-m40.
+
+## Standing order 56 (2026-11-18 18:20 CET to about 02:00 CET): carriers first, then the switch
+
+Order 55 left nothing finished unpushed. Out of git by design: logs/b655 (copies, collapsed documents, captures,
+runs) and its /tmp worktrees. The plan with the full table is
+[lufthansa-switch-plan-923.md](../token-free/lufthansa-switch-plan-923.md).
+
+1. **M at 40.**
+   - **lufthansa.com: adopted on the branch.** On all 670 recorded page-widths, switched, M at 60 -> 40 takes the sum
+     from 6,034.55 to 5,767.70 and the median from 7.32 to 7.17. 78 page-widths come closer by more than 0.5 points
+     and 75 go further; most of the 75 are flow pages with one of www's 60 px separators (the plan's §4 lists them
+     with www's own sizes).
+   - **Two refinements, measured.** The 100-years page type keeps M at 60: www's separators there are 60, 86 of 98
+     (85546ae). M from 768 px stays 60 (variant B, 204e35c): 42 page-widths, sum 471.5 -> 408.3, median
+     7.44 -> 6.96.
+   - **A bug, fixed (45f3af3).** Spacer blocks drew the base M of 60 whatever the theme said.
+   - **SWISS and ITA: HOLD.** Their 100 recorded page-widths have no M separator in the published documents, so the
+     sum can't go down. ITA was held in ema-test's order 45 too.
+   - **The other brands** have no recordings here. ema-test's orders adopted M at 40 on Brussels and Discover
+     (ea672c5) and held it on Austrian, TAP and Cargo (f098b64).
+2. **The carriers, on the branch** (the plan's §5):
+   - **(a)** limited-headings: 26 documents; miles-and-more 1440 18.6 -> 4.4 (today 2.3).
+   - **(b)** H2 small: 70 documents; airport-information 390 15.0 -> 6.3 (5.6).
+   - **(c)** the hub view's last section, carried by h2-small: digital-self-services 1440 5.8 -> 4.7 (2.9). Each
+     view's opening is still 36 px short.
+   - **(d)** info and legal column marks: not closed (terms-of-service-group 1440 13.7, today 4.5; separators in
+     block cells, the outer views' chapters 32 px lower).
+   - **(e)** width pairs: 3 documents.
+   - **(f)** width-scoped section styles: on main as 7ccaff7.
+   - **Two new carriers:**
+     - **Spacer s** (25 px, www's 21-31 px separators): 141 page-widths, sum 1,667.1 -> 1,439.7.
+     - **H2 heading-large as the choice H2 large:** 20 page-widths, sum 382.7 -> 217.8, none further.
+   - **Held:** a "none" cut at half of M (variant A): 70 page-widths, sum 951.7 -> 984.8.
+   - The branch is 0a18699, rebased on main and never merged; branch lint exit 0; 376 collapse/theme and 1,849
+     importer tests pass on it.
+3. **The switch gate: it does not pass.**
+
+   | | today | switched |
+   | --- | --- | --- |
+   | sum of % off www (670 page-widths) | 4,347.02 | 5,767.70 |
+   | median | 5.61 | 7.17 |
+   | worse than today by more than 0.5 | | 369 |
+   | better by more than 0.5 | | 57 |
+
+   - On 19 of the 369, www's own 60 px explains it.
+   - 230 have a column view carrier on the page, with 869 of the 1,496 points over today. Each view's opening space
+     is on the first element with the marks but on the section with the carrier, and outer views' chapters land 32 px
+     lower.
+   - Next come the text width and size marks (61 and 53) and video marks (39) handed to the theme.
+   - The plan's §7 lists every worse page-width with its first moved box and the marker kinds the theme took; §8 is
+     the full table.
+4. **The bundles (dc563d0).** The 14 import bundles were rebuilt on main from today's sources, so ITA's keepSizesIn
+   and the old keepSizes rules are gone from them. The importers' tests and the full suite pass.
+
+- **Also on main.** 06bb987 fixes the collapse: a section it splits now keeps its market (data-markets). Without it,
+  cash-and-miles drew its Flight Search twice and fluege and free2move were worse. It touched 3 of the 335 recorded
+  documents. 7ecdbbc updates the test for item 2f's new section-style fields.
+- **Smoke before and after the style-markers pushes.** 11 hosts: 0 checks differ. ita, swiss-cn and tap needed a
+  retry after a connection drop. Discover's before run failed on the network twice; its after run has the baseline's
+  statuses, and 42 page bodies differ from the 13-day-old baseline (Discover documents published since).
+- **Full suite on c03909b.** lh-edge 73 files, site 1,288 files, none failing.
+- **Pushed.** On main: 7ccaff7, 7ecdbbc, dc563d0, 06bb987 and this section's commit with the plan. The branch:
+  0a18699.
+- **Held.** Variant A, items 2(c) and 2(d), and the switch itself (the gate).
+- **Left out of git.** logs/b656 (documents, captures, runs, runners) and the /tmp/wt-tf56* worktrees.
