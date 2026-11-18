@@ -1,0 +1,212 @@
+[
+ {
+  "path": "/de/en/hotel-offers",
+  "from": "/de/en/hotel-offers",
+  "inserts": [
+   {
+    "replace": "p>{spacer-108 from-768}</p><p>{spacer-70 below-768}</p><div class=\"metadata\"><div><div>Title</div><div>Hotel offers | Lufthansa</div></div><div><div>Description</div><div>Whether it’s an exciting sightseeing tour, a special cultural experience or pure relaxation, with our partner Booking.com you can discover offers that are tailored exactly to your needs.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotel offers</div></div><div><div>Theme</div><div>flow-spacing</div></div><div><div>Parent</div><div><a href=\"/de/en/partner\">/de/en/partner</a>",
+    "text": "div class=\"metadata\"><div><div>Title</div><div>Hotel offers | Lufthansa</div></div><div><div>Description</div><div>Whether it’s an exciting sightseeing tour, a special cultural experience or pure relaxation, with our partner Booking.com you can discover offers that are tailored exactly to your needs.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotel offers</div></div><div><div>Theme</div><div>flow-spacing</div></div><div><div>Parent</div><div><a href=\"/de/en/partner\">/de/en/partner</a></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-below-l-768, space-below-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/rail-and-fly",
+  "from": "/de/en/rail-and-fly",
+  "inserts": [
+   {
+    "replace": "</div></div></div><p>{spacer-96 from-768}</p",
+    "text": ", space-below-l-768</div></div></div"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/flights/wetlease-hub",
+  "from": "/de/en/book-and-manage/flights/wetlease-hub",
+  "inserts": [
+   {
+    "replace": "</div></div></div><p>{spacer-92 from-768}</p><p>{spacer-77 below-768}</p",
+    "text": ", space-below-l-768, space-below-m-below-768</div></div></div"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "inserts": [
+   {
+    "replace": "</div></div></div><p>{spacer-84 from-768}</p",
+    "text": ", space-below-m-768</div></div></div"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/mobility-partner-program-healthcare",
+  "from": "/de/en/mobility-partner-program-healthcare",
+  "inserts": [
+   {
+    "replace": "p>{spacer-25}</p><p>{spacer-40 below-768}</p><div class=\"subpage-nav\"><div><div><p>More information around this topic</p><h2 id=\"assistance-requirements\">Assistance requirements</h2><ul> <li><a href=\"/de/en/accessible-travel\">Accessible travel</a></li> <li><a href=\"/de/en/travelling-healthy\">A healthy journey</a></li> <li><a href=\"/de/en/tips-senior-travellers\">Older travellers</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/de/en/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medical travel companions</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare and Medical Services | Lufthansa</div></div><div><div>Description</div><div>Lufthansa offers a wide range of services worldwide to international patients, persons who are injured and persons with health impairments. In cooperation with healthcare providers, we are able to offer a broad portfolio of global expert services.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare and Medical Services</div></div><div><div>Parent</div><div><a href=\"/de/en/travelling-with-special-requirements\">/de/en/travelling-with-special-requirements</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare",
+    "text": "div class=\"subpage-nav\"><div><div><p>More information around this topic</p><h2 id=\"assistance-requirements\">Assistance requirements</h2><ul> <li><a href=\"/de/en/accessible-travel\">Accessible travel</a></li> <li><a href=\"/de/en/travelling-healthy\">A healthy journey</a></li> <li><a href=\"/de/en/tips-senior-travellers\">Older travellers</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/de/en/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medical travel companions</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare and Medical Services | Lufthansa</div></div><div><div>Description</div><div>Lufthansa offers a wide range of services worldwide to international patients, persons who are injured and persons with health impairments. In cooperation with healthcare providers, we are able to offer a broad portfolio of global expert services.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare and Medical Services</div></div><div><div>Parent</div><div><a href=\"/de/en/travelling-with-special-requirements\">/de/en/travelling-with-special-requirements</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare</div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/services-at-the-airport",
+  "from": "/de/en/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": " {spacer-34 below-768}</p></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Services at the airport | Lufthansa</div></div><div><div>Description</div><div>Our offer to you: more time for what matters Thanks to our arrival, baggage, orientation and check-in services, you have more time to focus on the essentials.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Services at the airport</div></div><div><div>Parent</div><div><a href=\"/de/en/airport-information\">/de/en/airport-information</a>",
+    "text": "</p></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Services at the airport | Lufthansa</div></div><div><div>Description</div><div>Our offer to you: more time for what matters Thanks to our arrival, baggage, orientation and check-in services, you have more time to focus on the essentials.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Services at the airport</div></div><div><div>Parent</div><div><a href=\"/de/en/airport-information\">/de/en/airport-information</a></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-below-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "inserts": [
+   {
+    "replace": "ore-padded</div></di",
+    "text": "ore-padded, space-below-m-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/flights/wetlease-hub",
+  "from": "/de/en/book-and-manage/flights/wetlease-hub",
+  "inserts": [
+   {
+    "replace": "><div>grey</div></di",
+    "text": "><div>grey, space-below-l-768, space-below-m-below-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/hotel-offers",
+  "from": "/de/en/hotel-offers",
+  "inserts": [
+   {
+    "replace": "p>{spacer-70}</p><div class=\"metadata\"><div><div>Title</div><div>Hotel offers | Lufthansa</div></div><div><div>Description</div><div>Whether it’s an exciting sightseeing tour, a special cultural experience or pure relaxation, with our partner Booking.com you can discover offers that are tailored exactly to your needs.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotel offers</div></div><div><div>Parent</div><div><a href=\"/gb/en/partner\">/gb/en/partner</a>",
+    "text": "div class=\"metadata\"><div><div>Title</div><div>Hotel offers | Lufthansa</div></div><div><div>Description</div><div>Whether it’s an exciting sightseeing tour, a special cultural experience or pure relaxation, with our partner Booking.com you can discover offers that are tailored exactly to your needs.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotel offers</div></div><div><div>Parent</div><div><a href=\"/gb/en/partner\">/gb/en/partner</a></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-below-l-768, space-below-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/mobility-partner-program-healthcare",
+  "from": "/de/en/mobility-partner-program-healthcare",
+  "inserts": [
+   {
+    "replace": "p>{spacer-25}</p><div class=\"subpage-nav\"><div><div><p>More information around this topic</p><h2 id=\"assistance-requirements\">Assistance requirements</h2><ul> <li><a href=\"/gb/en/accessible-travel\">Accessible travel</a></li> <li><a href=\"/gb/en/travelling-healthy\">A healthy journey</a></li> <li><a href=\"/gb/en/tips-senior-travellers\">Older travellers</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/gb/en/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/gb/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medical travel companions</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare and Medical Services | Lufthansa</div></div><div><div>Description</div><div>Lufthansa offers a wide range of services worldwide to international patients, persons who are injured and persons with health impairments. In cooperation with healthcare providers, we are able to offer a broad portfolio of global expert services.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare and Medical Services</div></div><div><div>Parent</div><div><a href=\"/gb/en/travelling-with-special-requirements\">/gb/en/travelling-with-special-requirements</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare",
+    "text": "div class=\"subpage-nav\"><div><div><p>More information around this topic</p><h2 id=\"assistance-requirements\">Assistance requirements</h2><ul> <li><a href=\"/gb/en/accessible-travel\">Accessible travel</a></li> <li><a href=\"/gb/en/travelling-healthy\">A healthy journey</a></li> <li><a href=\"/gb/en/tips-senior-travellers\">Older travellers</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/gb/en/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/gb/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medical travel companions</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare and Medical Services | Lufthansa</div></div><div><div>Description</div><div>Lufthansa offers a wide range of services worldwide to international patients, persons who are injured and persons with health impairments. In cooperation with healthcare providers, we are able to offer a broad portfolio of global expert services.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare and Medical Services</div></div><div><div>Parent</div><div><a href=\"/gb/en/travelling-with-special-requirements\">/gb/en/travelling-with-special-requirements</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare</div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/rail-and-fly",
+  "from": "/de/en/rail-and-fly",
+  "inserts": [
+   {
+    "replace": "band, grey</div></di",
+    "text": "band, grey, space-below-l-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "inserts": [
+   {
+    "replace": "ore-padded</div></di",
+    "text": "ore-padded, space-below-m-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/flights/wetlease-hub",
+  "from": "/de/en/book-and-manage/flights/wetlease-hub",
+  "inserts": [
+   {
+    "replace": "><div>grey</div></di",
+    "text": "><div>grey, space-below-l-768, space-below-m-below-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/hotelangebote",
+  "from": "/de/en/hotel-offers",
+  "inserts": [
+   {
+    "replace": "p>{spacer-70}</p><div class=\"metadata\"><div><div>Title</div><div>Hotelangebote | Lufthansa</div></div><div><div>Description</div><div>Ob spannende Sightseeing-Tour, besonderes Kultur-Erlebnis oder Entspannung pur. Mit unserem Partner Booking.com können Sie Angebote entdecken, die genau auf Ihre Bedürfnisse abgestimmt sind.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotelangebote</div></div><div><div>primary-language-url</div><div>/de/en/hotel-offers</div></div><div><div>Parent</div><div><a href=\"/de/de/partner\">/de/de/partner</a>",
+    "text": "div class=\"metadata\"><div><div>Title</div><div>Hotelangebote | Lufthansa</div></div><div><div>Description</div><div>Ob spannende Sightseeing-Tour, besonderes Kultur-Erlebnis oder Entspannung pur. Mit unserem Partner Booking.com können Sie Angebote entdecken, die genau auf Ihre Bedürfnisse abgestimmt sind.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotelangebote</div></div><div><div>primary-language-url</div><div>/de/en/hotel-offers</div></div><div><div>Parent</div><div><a href=\"/de/de/partner\">/de/de/partner</a></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-below-l-768, space-below-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/mobility-partner-program-healthcare",
+  "from": "/de/en/mobility-partner-program-healthcare",
+  "inserts": [
+   {
+    "replace": "p>{spacer-25}</p><div class=\"subpage-nav\"><div><div><p>Weitere Informationen zu diesem Thema</p><h2 id=\"besondere-anforderungen\">Besondere Anforderungen</h2><ul> <li><a href=\"/de/de/accessible-travel\">Barrierefrei reisen</a></li> <li><a href=\"/de/de/gesund-reisen\">Gesund reisen</a></li> <li><a href=\"/de/de/tips-senior-travellers\">Ältere Reisende</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/de/de/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/de/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medizinische Reisebegleitung</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare und Medical Services | Lufthansa</div></div><div><div>Description</div><div>Internationalen Patienten, Verletzten sowie gesundheitlich beeinträchtigten Personen stehen mit Lufthansa weltweit umfangreiche Services zur Verfügung. Gemeinsam mit Healthcare Providern bieten wir ein umfassendes Portfolio an globalen und hochqualifizierten Leistungen an.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare und Medical Services</div></div><div><div>Parent</div><div><a href=\"/de/de/reisen-mit-besonderen-anforderungen\">/de/de/reisen-mit-besonderen-anforderungen</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare",
+    "text": "div class=\"subpage-nav\"><div><div><p>Weitere Informationen zu diesem Thema</p><h2 id=\"besondere-anforderungen\">Besondere Anforderungen</h2><ul> <li><a href=\"/de/de/accessible-travel\">Barrierefrei reisen</a></li> <li><a href=\"/de/de/gesund-reisen\">Gesund reisen</a></li> <li><a href=\"/de/de/tips-senior-travellers\">Ältere Reisende</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/de/de/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/de/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medizinische Reisebegleitung</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare und Medical Services | Lufthansa</div></div><div><div>Description</div><div>Internationalen Patienten, Verletzten sowie gesundheitlich beeinträchtigten Personen stehen mit Lufthansa weltweit umfangreiche Services zur Verfügung. Gemeinsam mit Healthcare Providern bieten wir ein umfassendes Portfolio an globalen und hochqualifizierten Leistungen an.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare und Medical Services</div></div><div><div>Parent</div><div><a href=\"/de/de/reisen-mit-besonderen-anforderungen\">/de/de/reisen-mit-besonderen-anforderungen</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare</div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/rail-and-fly",
+  "from": "/de/en/rail-and-fly",
+  "inserts": [
+   {
+    "replace": "band, grey</div></di",
+    "text": "band, grey, space-below-l-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "inserts": [
+   {
+    "replace": "ore-padded</div></di",
+    "text": "ore-padded, space-below-m-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/flights/wetlease-hub",
+  "from": "/de/en/book-and-manage/flights/wetlease-hub",
+  "inserts": [
+   {
+    "replace": "><div>grey</div></di",
+    "text": "><div>grey, space-below-l-768, space-below-m-below-768</div></di"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/hotelangebote",
+  "from": "/de/en/hotel-offers",
+  "inserts": [
+   {
+    "replace": "p>{spacer-70}</p><div class=\"metadata\"><div><div>Title</div><div>Hotelangebote | Lufthansa</div></div><div><div>Description</div><div>Ob spannende Sightseeing-Tour, besonderes Kultur-Erlebnis oder Entspannung pur. Mit unserem Partner Booking.com können Sie Angebote entdecken, die genau auf Ihre Bedürfnisse abgestimmt sind.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotelangebote</div></div><div><div>primary-language-url</div><div>/de/en/hotel-offers</div></div><div><div>Parent</div><div><a href=\"/at/de/partner\">/at/de/partner</a>",
+    "text": "div class=\"metadata\"><div><div>Title</div><div>Hotelangebote | Lufthansa</div></div><div><div>Description</div><div>Ob spannende Sightseeing-Tour, besonderes Kultur-Erlebnis oder Entspannung pur. Mit unserem Partner Booking.com können Sie Angebote entdecken, die genau auf Ihre Bedürfnisse abgestimmt sind.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Hotelangebote</div></div><div><div>primary-language-url</div><div>/de/en/hotel-offers</div></div><div><div>Parent</div><div><a href=\"/at/de/partner\">/at/de/partner</a></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-below-l-768, space-below-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/mobility-partner-program-healthcare",
+  "from": "/de/en/mobility-partner-program-healthcare",
+  "inserts": [
+   {
+    "replace": "p>{spacer-25}</p><div class=\"subpage-nav\"><div><div><p>Weitere Informationen zu diesem Thema</p><h2 id=\"besondere-anforderungen\">Besondere Anforderungen</h2><ul> <li><a href=\"/at/de/accessible-travel\">Barrierefrei reisen</a></li> <li><a href=\"/at/de/gesund-reisen\">Gesund reisen</a></li> <li><a href=\"/at/de/tips-senior-travellers\">Ältere Reisende</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/at/de/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medizinische Reisebegleitung</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare und Medical Services | Lufthansa</div></div><div><div>Description</div><div>Internationalen Patienten, Verletzten sowie gesundheitlich beeinträchtigten Personen stehen mit Lufthansa weltweit umfangreiche Services zur Verfügung. Gemeinsam mit Healthcare Providern bieten wir ein umfassendes Portfolio an globalen und hochqualifizierten Leistungen an.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare und Medical Services</div></div><div><div>Parent</div><div><a href=\"/at/de/reisen-mit-besonderen-anforderungen\">/at/de/reisen-mit-besonderen-anforderungen</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare",
+    "text": "div class=\"subpage-nav\"><div><div><p>Weitere Informationen zu diesem Thema</p><h2 id=\"besondere-anforderungen\">Besondere Anforderungen</h2><ul> <li><a href=\"/at/de/accessible-travel\">Barrierefrei reisen</a></li> <li><a href=\"/at/de/gesund-reisen\">Gesund reisen</a></li> <li><a href=\"/at/de/tips-senior-travellers\">Ältere Reisende</a></li> <li><strong>Global Healthcare</strong></li> <li><a href=\"/at/de/doctor-on-board\">Doctor on Board</a></li> <li><a href=\"/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions\">Medizinische Reisebegleitung</a></li> </ul></div></div></div><div class=\"metadata\"><div><div>Title</div><div>Lufthansa Global Healthcare und Medical Services | Lufthansa</div></div><div><div>Description</div><div>Internationalen Patienten, Verletzten sowie gesundheitlich beeinträchtigten Personen stehen mit Lufthansa weltweit umfangreiche Services zur Verfügung. Gemeinsam mit Healthcare Providern bieten wir ein umfassendes Portfolio an globalen und hochqualifizierten Leistungen an.</div></div><div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/etc/designs/dcep/logo-lh-og.jpg\" alt=\"\"></picture></div></div><div><div>og:title</div><div>Lufthansa Global Healthcare und Medical Services</div></div><div><div>Parent</div><div><a href=\"/at/de/reisen-mit-besonderen-anforderungen\">/at/de/reisen-mit-besonderen-anforderungen</a></div></div><div><div>Breadcrumb title</div><div>Global Healthcare</div></div></div><div class=\"section-metadata\"><div><div>style</div><div>space-m-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/rail-and-fly",
+  "from": "/de/en/rail-and-fly",
+  "inserts": [
+   {
+    "replace": "band, grey</div></di",
+    "text": "band, grey, space-below-l-768</div></di"
+   }
+  ]
+ }
+]
