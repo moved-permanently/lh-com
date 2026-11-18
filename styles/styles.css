@@ -2563,6 +2563,20 @@ body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4
   margin-top: var(--theme-heading-gap, 32px);
 }
 
+/* lufthansa.com's legal pages (template legal): a chapter heading keeps no heading gap with the theme on either, after
+   a divider or after text (www's legal chapters: the text's own margin, or the .separator, is the space, as the marks
+   drew it; standing order 57: terms-of-use's and sepa-terms-and-conditions' chapters 32 px lower each). Elsewhere www
+   keeps the gap after a divider (miles-and-more, europa-tarife-economy-class: a chapter 32 px short without it) */
+body.theme-live.brand-lufthansa.legal.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + :is(h2, h3) {
+  margin-top: 0;
+}
+
+/* ... and a related-teasers section's heading (section style H2 small) right after its Divider: no gap either (www's
+   "This might also be of interest to you" below the hub views' last rule; digital-self-services +32 px without it) */
+body.theme-live.brand-lufthansa main > .section.h2-small > .default-content-wrapper > p.spacer.divider + h2 {
+  margin-top: 0;
+}
+
 /* ... also when a separator hidden at this width stands between that content and the heading: it is not there at this
    width (standing order 34; ITA group-boarding's phones lost 8px to a desktop-only spacer before a heading) */
 @media (width < 768px) {

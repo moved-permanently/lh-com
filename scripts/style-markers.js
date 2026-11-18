@@ -171,7 +171,10 @@ export const THEMES = {
     // the column view carrier: a section of its own per www column view (the collapse writes it
     // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
     // carrier")
-    columnViews: { carrier: 'column-view' },
+    // a view's opening Spacer (a view section that holds only it) at 60: www's hub views open 60 px
+    // below what comes before (standing order 57; with the related-teasers heading rule:
+    // digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either alone moves it further)
+    columnViews: { carrier: 'column-view', opening: 60 },
     // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
     // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
     // the H1 default, which the collapse would take, so a choice of their own the collapse

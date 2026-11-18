@@ -95,7 +95,8 @@ function addUnmarked(el, cls, marked) {
  * App Spacer, App Divider and App Text the paragraphs of "{spacer: medium}", "{divider}" and
  * "{small}" (scripts/library-page.js decorateAppScreen).
  */
-function decoratePurposeBlocks(main) {
+function decoratePurposeBlocks(main, theme = {}) {
+  const opening = (theme.columnViews || {}).opening;
   const selector = ['spacer', 'divider', 'app-spacer', 'app-divider', 'app-text'].map((n) => `:scope > div > div.${n}`).join(', ');
   main.querySelectorAll(selector).forEach((block) => {
     const [name, ...options] = [...block.classList];
@@ -105,7 +106,12 @@ function decoratePurposeBlocks(main) {
       // a Spacer block draws the page's M / L (a theme's own space, e.g. lufthansa.com's M at 40)
       const sizes = what.fromTablet ? PAGE_SPACE_768 : PAGE_SPACE;
       const sized = what.px === SMALL_SPACE ? SMALL_SPACE : sizes[what.px === SPACE.l ? 'l' : 'm'];
-      const px = what.kind === 'spacer' ? sized : what.px;
+      // a column view's opening Spacer (the view section holds only it): the theme's view opening
+      const sec = block.parentElement;
+      const alone = sec && sec.classList.contains('column-view')
+        && [...sec.children].filter((c) => !c.classList.contains('section-metadata')).length === 1;
+      const viewOpening = opening && what.kind === 'spacer' && alone && what.px !== SPACE.l && what.px !== SMALL_SPACE;
+      const px = what.kind === 'spacer' ? (viewOpening ? opening : sized) : what.px;
       const p = separatorParagraph(px, what.kind === 'divider');
       // from 768px only (styles.css hides p.spacer.from-768 below), or below 768px only
       // (p.spacer.below-768, hidden from 768px)
@@ -464,7 +470,7 @@ export default function decorateTokenFree(main, { brand = '', path = '', read = 
       body.style.setProperty('--theme-heading-gap', `${theme.columnViews.headingGap}px`);
     }
   }
-  decoratePurposeBlocks(main);
+  decoratePurposeBlocks(main, theme);
   decorateNavTools(main);
   decorateBlockOptions(main, theme);
   decorateSectionStyles(main, theme, readSectionStyle(read('headings') || '').headings);
