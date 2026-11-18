@@ -98,7 +98,9 @@ function decoratePurposeBlocks(main) {
     const what = readPurposeBlock(name, options);
     if (!what) return;
     if (what.kind === 'spacer' || what.kind === 'divider') {
-      const p = separatorParagraph(what.px, what.kind === 'divider');
+      // a Spacer block draws the page's M / L (a theme's own space, e.g. lufthansa.com's M at 40)
+      const px = what.kind === 'spacer' ? PAGE_SPACE[what.px === SPACE.l ? 'l' : 'm'] : what.px;
+      const p = separatorParagraph(px, what.kind === 'divider');
       // from 768px only (styles.css hides p.spacer.from-768 below), or below 768px only
       // (p.spacer.below-768, hidden from 768px)
       if (what.fromTablet) p.classList.add('from-768');

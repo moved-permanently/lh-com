@@ -50,6 +50,12 @@ test('the page: limited-headings and title-small draw their classes; M is 40 px'
   assert.ok(sep, main.innerHTML);
   assert.equal(sep.style.getPropertyValue('--spacer-size'), '40px');
   assert.equal(themeFor('lufthansa').space.m, 40);
+  const { document: d2 } = parseHTML('<html><body><main><div><p>a</p><div class="spacer"><div><div></div></div></div><div class="spacer l"><div><div></div></div></div><p>b</p></div></main></body></html>');
+  globalThis.document = d2;
+  const m2 = d2.querySelector('main');
+  decorateTokenFree(m2, { brand: 'lufthansa', path: '/gb/en/baggage', read: () => '' });
+  const sizes = [...m2.querySelectorAll('p.spacer')].map((x) => x.style.getPropertyValue('--spacer-size'));
+  assert.deepEqual(sizes, ['40px', '120px'], m2.innerHTML);
   assert.equal(Boolean(themeFor('swiss').space), false, 'other brands keep 60');
 });
 
