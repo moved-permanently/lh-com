@@ -699,10 +699,19 @@ function headingWish(theme, level, size) {
 
 function collapseHeadings(main, doc, stats, marks, theme) {
   const wishes = new Map(); // heading -> choice
+  // two-thirds headings (standing order 56, the switch plan's {limited-width} headings): on a theme with
+  // limitedHeadings, a section whose own headings are mostly marked limited-width takes the section style
+  // limited-headings (its headings two thirds wide); elsewhere the width goes as before
+  const limited = new Map(); // section -> marked own headings
   marks.forEach((tokens, el) => {
     if (!/^H[1-6]$/.test(el.tagName)) return;
     const size = tokens.find((t) => SIZE_TOKEN.test(t));
-    tokens.filter((t) => t === 'limited-width').forEach(() => count(stats, 'theme', 'heading'));
+    tokens.filter((t) => t === 'limited-width').forEach(() => {
+      if (theme.limitedHeadings && !blockOf(el, main)) {
+        const s = sectionOf(el, main);
+        limited.set(s, (limited.get(s) || 0) + 1);
+      } else count(stats, 'theme', 'heading');
+    });
     if (!size) return;
     // a size the theme keeps as written (Discover's heading-copytext-large: www's 16 / 18 px bold eyebrows and
     // column-view headings, in mixed sections and blocks alike; rows-for-ema-test.md row 3): the marker stays on the
@@ -722,6 +731,13 @@ function collapseHeadings(main, doc, stats, marks, theme) {
     else if (w.kind === 'none') count(stats, 'theme', 'heading-no-choice');
     else wishes.set(el, w.choice);
   });
+  limited.forEach((n, section) => {
+    const all = ownText(section).filter((el) => /^H[2-6]$/.test(el.tagName)).length;
+    if (n * 2 > all) {
+      addSectionStyle(section, 'limited-headings', doc);
+      count(stats, 'carrier', 'heading-width', n);
+    } else count(stats, 'theme', 'heading', n);
+  });
   // in blocks: the block's title option when most of its headings ask for the same choice
   const blocks = new Map();
   const sections = new Map();
@@ -739,7 +755,7 @@ function collapseHeadings(main, doc, stats, marks, theme) {
   });
   blocks.forEach((choices, block) => {
     const all = block.querySelectorAll(HEADING).length;
-    const top = ['large', 'compact'].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
+    const top = ['large', 'compact', 'small'].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
     if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, 'carrier', 'heading', top[1]);
     else count(stats, 'theme', 'heading-aligned', choices.length);
   });
@@ -1114,6 +1130,23 @@ function collapseSeparators(main, doc, stats, ctx) {
       const seps = run.els.map(parse);
       const divider = seps.some((m) => m[1] === 'divider');
       const px = seps.reduce((a, m) => a + Number(m[2]), 0);
+      // a pair of width-scoped separators (www's own breakpoints: "{spacer-80 from-768}" with "{spacer-57 below-768}",
+      // ema-test's pax-receipt; standing order 56): one Spacer block per width with its own size (the block options
+      // from-768 / below-768), not their sum as one size; a part of 31 px or less is none
+      const at = (q) => seps.filter((m) => m[3] === q).reduce((a, m) => a + Number(m[2]), 0);
+      if (!divider && seps.every((m) => m[3] === ' from-768' || m[3] === ' below-768')
+        && seps.some((m) => m[3] === ' from-768') && seps.some((m) => m[3] === ' below-768')) {
+        [['from-768', at(' from-768')], ['below-768', at(' below-768')]].forEach(([opt, n]) => {
+          if (n <= 31) { count(stats, 'theme', `separator-${opt}`, 1); return; }
+          const blk = doc.createElement('div');
+          blk.className = `spacer${n >= 90 ? ' l' : ''} ${opt}`;
+          blk.innerHTML = '<div><div></div></div>';
+          run.els[0].before(blk);
+          count(stats, 'carrier', `separator-${opt}`, 1);
+        });
+        run.els.forEach((el) => el.remove());
+        return;
+      }
       // "from-768" (none on phones): a run of such separators only keeps it as the Spacer / Divider
       // block's option from-768 (no section style or block option says "from 768px"); in a run
       // with others the qualifier goes (counted)

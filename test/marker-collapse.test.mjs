@@ -59,7 +59,10 @@ test('column views on the brand sites: the marks go; an outside group over its w
 });
 
 test('heading sizes: a step from the default goes; two steps a level-scoped style, a page row or a block option', () => {
-  assert.equal(out('<div><h2 id="t-heading-small">T {heading-small}</h2></div>'), '<div><h2 id="t">T</h2></div>');
+  // standing order 56: lufthansa.com keeps an H2 in heading-small as its choice H2 small (the switch's card titles);
+  // a brand without it takes the default as before
+  assert.equal(out('<div><h2 id="t-heading-small">T {heading-small}</h2></div>'), `<div><h2 id="t">T</h2>${meta('h2-small')}</div>`);
+  assert.equal(run('<div><h2 id="t-heading-small">T {heading-small}</h2></div>', { brand: 'austrian' }).html, '<div><h2 id="t">T</h2></div>');
   assert.equal(out('<div><h2>A {heading-copytext-large}</h2><h2>B {heading-copytext-large}</h2><h2>C</h2></div><div><h2>D</h2></div>'), `<div><h2>A</h2><h2>B</h2><h2>C</h2>${meta('h2-compact')}</div><div><h2>D</h2></div>`);
   assert.equal(out('<div><h2>A {heading-copytext-large}</h2><h2>B</h2><h2>C</h2></div>'), '<div><h2>A</h2><h2>B</h2><h2>C</h2></div>', 'a minority goes to the default');
   const row = out('<div><h3>A {heading-large}</h3></div><div><h3>B {heading-medium}</h3></div><div><div class="metadata"><div><div>Title</div><div>t</div></div></div></div>');
@@ -158,7 +161,7 @@ test('the importers\' table form: blocks as tables, sections between <hr>, new o
   const main = document.querySelector('main');
   collapseMain(main, { path: '/de/en/x', document, force: true });
   // the page's wrappers read through (Markdown does), new and changed blocks as WebImporter writes them, the rest as it was
-  assert.equal(main.innerHTML, '<h2>A</h2><p>Text</p><table><thead><tr><th colspan="2">Columns Media (padded, divider-above)</th></tr></thead><tbody><tr><td><p>x</p></td><td><p>y</p></td></tr></tbody></table><table><thead><tr><th colspan="2">Section Metadata</th></tr></thead><tbody><tr><td>Style</td><td>space-m</td></tr></tbody></table><hr><p>B</p><table><thead><tr><th>Spacer (l)</th></tr></thead><tbody><tr><td></td></tr></tbody></table><p>C</p><hr><table><tr><th colspan="2">Metadata</th></tr><tr><td>Title</td><td>t</td></tr></table>');
+  assert.equal(main.innerHTML, '<h2>A</h2><p>Text</p><table><thead><tr><th colspan="2">Columns Media (padded, divider-above)</th></tr></thead><tbody><tr><td><p>x</p></td><td><p>y</p></td></tr></tbody></table><table><thead><tr><th colspan="2">Section Metadata</th></tr></thead><tbody><tr><td>Style</td><td>h2-small, space-m</td></tr></tbody></table><hr><p>B</p><table><thead><tr><th>Spacer (l)</th></tr></thead><tbody><tr><td></td></tr></tbody></table><p>C</p><hr><table><tr><th colspan="2">Metadata</th></tr><tr><td>Title</td><td>t</td></tr></table>');
   const plain = parseHTML('<html><body><main><div class="w"><p>No markers</p><table><tr><th>Cards</th></tr></table></div></main></body></html>').document;
   const before = plain.querySelector('main').innerHTML;
   collapseMain(plain.querySelector('main'), { path: '/de/en/y', document: plain, force: true });

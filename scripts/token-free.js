@@ -69,10 +69,14 @@ function isBand(section) {
   return !!row && /(^|,)\s*grey\s*(,|$)/i.test(row.lastElementChild?.textContent || '');
 }
 
+// the page's sizes of M and L: the theme's own (THEMES[brand].space, standing order 56: M at
+// 40 where that brings a brand closer to www), else SPACE; set by decorateTokenFree per page
+let PAGE_SPACE = SPACE;
+
 /** A space or divider choice as a separator paragraph (null: none). */
 function separatorFor(space, divider) {
   if (divider) return separatorParagraph(DIVIDER_SPACE, true);
-  return space ? separatorParagraph(SPACE[space]) : null;
+  return space ? separatorParagraph(PAGE_SPACE[space]) : null;
 }
 
 /** Adds a class unless a marker already gave the element one of its kind. */
@@ -199,6 +203,8 @@ function decorateSectionStyles(main, theme, pageHeadings) {
       if (level && headings[`h${level[1]}`]) {
         addUnmarked(el, headingChoice(theme, Number(level[1]), headings[`h${level[1]}`]), MARKED_SIZE);
       }
+      // the section style limited-headings: its own headings two thirds wide (.limited-width)
+      if (level && level[1] !== '1' && style.headingWidth === 'limited') addUnmarked(el, 'limited-width', MARKED_WIDTH);
       // the section's images in the parallax window, its quotes narrow (the "{parallax}" and
       // "{narrow}" classes)
       if (style.quote === 'narrow' && el.tagName === 'BLOCKQUOTE') {
@@ -227,7 +233,7 @@ function decorateSectionStyles(main, theme, pageHeadings) {
     // separator per width, shown from 768 px or below it only (styles.css p.spacer.from-768)
     const scoped = (size, divider, cls) => {
       if (!size) return null;
-      const p = separatorParagraph(SPACE[size], divider);
+      const p = separatorParagraph(PAGE_SPACE[size], divider);
       p.classList.add(cls);
       return p;
     };
@@ -339,7 +345,7 @@ function applyThemeRules(main, theme) {
     // what follows the section's first element (its metadata aside)
     const afterFirst = first && first.nextElementSibling;
     if (i > 0 && first && !isSeparator(first)) {
-      if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(SPACE.m));
+      if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(PAGE_SPACE.m));
       // a chapter's rule, not above the Related Articles and not above a heading a block follows
       // right away (www's teaser sections draw none: ema-adobe's handover item 7)
       else if (theme.rules.includes('ruled-chapters') && isChapterStart(first)
@@ -438,6 +444,7 @@ function applyThemeRules(main, theme) {
 export default function decorateTokenFree(main, { brand = '', path = '', read = () => '' } = {}) {
   const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector('.article-header'), themes: read('theme') });
   const theme = themeFor(brand || 'lufthansa', pageType);
+  PAGE_SPACE = { ...SPACE, ...(theme.space || {}) };
   // a live theme's rules for the page's CSS too (styles.css "theme rules")
   if (theme.live) {
     const { body } = main.ownerDocument;

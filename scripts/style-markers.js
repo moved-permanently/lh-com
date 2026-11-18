@@ -173,8 +173,18 @@ export const THEMES = {
     // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
     // the H1 default, which the collapse would take, so a choice of their own the collapse
     // keeps (section style H1 compact)
-    headingChoices: { h1: { compact: 'heading-medium' } },
-    nearChoices: { h1: { 'heading-medium': 'compact' } },
+    // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in Cards
+    // Teaser, www's smaller headings) keep it as the choice "small" (block option title-small,
+    // section style H2 small); {limited-width} headings as limited-headings
+    headingChoices: {
+      h1: { compact: 'heading-medium' },
+      h2: { large: 'heading-large', compact: 'heading-copytext-large', small: 'heading-small' },
+    },
+    nearChoices: { h1: { 'heading-medium': 'compact' }, h2: { 'heading-small': 'small' } },
+    limitedHeadings: true,
+    // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
+    // decision 3 lifted)
+    space: { m: 40 },
     pageTypes: {
       // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
       // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
@@ -183,7 +193,11 @@ export const THEMES = {
       // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
       flow: {
         headingChoices: { h3: { large: 'heading-small' } },
-        nearChoices: { h1: { 'heading-medium': 'compact' }, h3: { 'heading-small': 'large' } },
+        nearChoices: {
+          h1: { 'heading-medium': 'compact' },
+          h2: { 'heading-small': 'small' },
+          h3: { 'heading-small': 'large' },
+        },
       },
       // Insights articles: a rule above an info box (Columns Media) after any content but a
       // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
@@ -195,6 +209,8 @@ export const THEMES = {
       // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
       'insights-tag': { rules: ['rule-before-info-box'] },
     },
+    // the switch (standing orders 55-56, branch token-free-lufthansa-live: never merged from here)
+    live: true,
   },
   // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
   // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
@@ -360,10 +376,14 @@ export const SECTION_STYLES = {
   'divider-m-768': { dividerTablet: 'm' },
   'divider-m-below-768': { dividerPhone: 'm' },
   'wide-text': { width: 'full' },
+  // the section's own headings two thirds wide ({limited-width} headings; .limited-width)
+  'limited-headings': { headingWidth: 'limited' },
   'small-print': { size: 'small' },
   'h1-compact': { headings: { h1: 'compact' } },
   'h2-large': { headings: { h2: 'large' } },
   'h2-compact': { headings: { h2: 'compact' } },
+  // an H2 in heading-small where the theme has that choice (lufthansa.com's card titles)
+  'h2-small': { headings: { h2: 'small' } },
   'h3-large': { headings: { h3: 'large' } },
   // an H3 one size smaller (Group for Business: heading-copytext-large; without the choice: none)
   'h3-compact': { headings: { h3: 'compact' } },
@@ -399,10 +419,12 @@ export const SECTION_STYLE_LABELS = {
   'divider-m-768': 'Divider above: M from 768',
   'divider-m-below-768': 'Divider above: M on phones',
   'wide-text': 'Wide text',
+  'limited-headings': 'Headings two thirds',
   'small-print': 'Small print',
   'h1-compact': 'H1 compact',
   'h2-large': 'H2 large',
   'h2-compact': 'H2 compact',
+  'h2-small': 'H2 small',
   'h3-large': 'H3 large',
   'h3-compact': 'H3 compact',
   'h4-large': 'H4 large',
@@ -434,6 +456,7 @@ export function readSectionStyle(classes) {
     dividerTablet: null,
     dividerPhone: null,
     width: null,
+    headingWidth: null,
     size: null,
     headings: {},
     image: null,
@@ -475,6 +498,7 @@ export const BLOCK_OPTIONS = {
   // Columns Media: a cell's picture further above the heading after it (the brand theme's size;
   // Group for Business: 80 px, www's column-view picture to headline; standing order 69)
   'spaced-pictures': { pictures: 'spaced' },
+  'title-small': { title: 'small' },
   'background-video': { video: 'background' },
   // Article Header: its video on phones too
   'mobile-video': { video: 'mobile' },
@@ -499,6 +523,7 @@ export const BLOCK_OPTION_LABELS = {
   'links-vertical': 'links stacked',
   'h3-compact': 'H3 compact (its other headings as they are)',
   'spaced-pictures': 'pictures further above the heading after them',
+  'title-small': 'small title',
   'background-video': 'background video (autoplay, muted, loop)',
   'mobile-video': 'video on phones too',
   'picture-half-start': 'picture in the cell\'s first half',

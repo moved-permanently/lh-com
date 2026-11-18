@@ -80,10 +80,15 @@ test('the collapse: a run of below-768 separators becomes the block with the opt
   const mixed = run('<div><p>a</p><p>{spacer-30 below-768}</p><p>{spacer-30}</p><p>b</p></div>');
   assert.ok(mixed.html.includes('<div class="spacer">'), mixed.html);
   assert.equal(mixed.stats.theme['separator-below-768'], 1);
+  // standing order 56: a pair of a from-768 and a below-768 separator is two blocks, one per width, each its own size
+  // (31 px or less: none), not their sum (ema-test's pax-receipt: 80 from 768 px with 57 on phones was one L)
   const both = run('<div><p>a</p><p>{spacer-30 below-768}</p><p>{spacer-30 from-768}</p><p>b</p></div>');
-  assert.ok(both.html.includes('<div class="spacer">'), both.html);
-  assert.equal(both.stats.theme['separator-below-768'], 1);
-  assert.equal(both.stats.theme['separator-from-768'], 1);
+  assert.equal(both.html, '<div><p>a</p><p>b</p></div>', both.html);
+  const pair = run('<div><p>a</p><p>{spacer-80 from-768}</p><p>{spacer-57 below-768}</p><p>b</p></div>');
+  assert.ok(pair.html.includes('<div class="spacer from-768"><div><div></div></div></div><div class="spacer below-768">'), pair.html);
+  assert.equal(pair.stats.carrier['separator-from-768'], 1);
+  assert.equal(pair.stats.carrier['separator-below-768'], 1);
+  assert.equal(run(pair.html).html, pair.html, 'idempotent');
   // on a theme that keeps small text spacers (Brussels) a phone-only one is not kept as an all-widths {spacer-N}
   const small = run('<div><p>a</p><p>{spacer-28 below-768}</p><p>b</p></div>', 'brussels');
   assert.ok(!small.html.includes('{spacer-28}'), small.html);
