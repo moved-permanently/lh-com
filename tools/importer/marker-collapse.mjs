@@ -995,15 +995,13 @@ function columnViewSections(main, doc, marks, carrier) {
     own.forEach((el, i) => {
       tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
         if (t.startsWith('column-start')) {
-          if (depth === 0) { outerOf = t === 'column-start-outer'; cur = { first: el, outer: outerOf }; }
-          else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
+          if (depth === 0) { outerOf = t === 'column-start-outer'; cur = { first: el, outer: outerOf }; } else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
             cur.last = own[i - 1]; groups.push(cur); cur = { first: el, outer: false };
           }
           depth += 1;
         } else if (depth > 0) {
           depth -= 1;
-          if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; }
-          else if (cur && own[i + 1]) { cur.last = el; groups.push(cur); cur = { first: own[i + 1], outer: outerOf }; }
+          if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; } else if (cur && own[i + 1]) { cur.last = el; groups.push(cur); cur = { first: own[i + 1], outer: outerOf }; }
         }
       });
     });
@@ -1089,7 +1087,9 @@ function collapseSeparators(main, doc, stats, ctx) {
   // ruled-chapters)
   // (standing order 55: no separator stays a marker; one of 31 px or less is a near value the theme draws, on every
   // brand: Brussels' textSpacers and Discover's componentSpacers kept them as {spacer-N} and are gone)
-  const { rules } = themeFor(ctx.brand, ctx.pageType);
+  const { rules, space } = themeFor(ctx.brand, ctx.pageType);
+  // www's small separators (21-31 px) as the Spacer block option s where the theme has it (lufthansa.com: 25 px)
+  const small = !!(space && space.s);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
@@ -1156,7 +1156,7 @@ function collapseSeparators(main, doc, stats, ctx) {
       const phone = seps.every((m) => m[3] === ' below-768');
       if (!phone) seps.filter((m) => m[3] === ' below-768').forEach(() => count(stats, 'theme', 'separator-below-768'));
       let size = null;
-      if (!divider && px <= 31) size = 'none';
+      if (!divider && px <= 31) size = small && px > 20 ? 's' : 'none';
       else if (!divider) size = px < 90 ? 'm' : 'l';
       const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
       const before = run.els[0].previousElementSibling;
@@ -1168,11 +1168,21 @@ function collapseSeparators(main, doc, stats, ctx) {
       if (tablet || phone) {
         const opt = tablet ? 'from-768' : 'below-768';
         const b = doc.createElement('div');
-        b.className = divider ? `divider ${opt}` : `spacer${size === 'l' ? ' l' : ''} ${opt}`;
+        b.className = divider ? `divider ${opt}` : `spacer${size === 'l' ? ' l' : ''}${size === 's' ? ' s' : ''} ${opt}`;
         b.innerHTML = '<div><div></div></div>';
         run.els[0].before(b);
         remove();
         count(stats, 'carrier', `separator-${opt}`, run.els.length);
+        return;
+      }
+      // a small one: a Spacer block s where it stands (no section style or block option says S)
+      if (size === 's') {
+        const b = doc.createElement('div');
+        b.className = 'spacer s';
+        b.innerHTML = '<div><div></div></div>';
+        run.els[0].before(b);
+        remove();
+        count(stats, 'carrier', 'separator-s', run.els.length);
         return;
       }
       // page-type gaps: the theme's

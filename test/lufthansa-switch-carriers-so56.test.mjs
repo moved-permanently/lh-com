@@ -14,7 +14,9 @@ import { parseHTML } from 'linkedom';
 import { collapseHtml } from '../tools/importer/marker-collapse.mjs';
 import { themeFor, headingChoice } from '../scripts/style-markers.js';
 
-const run = (html, brand = 'lufthansa') => collapseHtml(html, { path: '/gb/en/miles-and-more', brand, parse: parseHTML, force: true }).html;
+const run = (html, brand = 'lufthansa') => collapseHtml(html, {
+  path: '/gb/en/miles-and-more', brand, parse: parseHTML, force: true,
+}).html;
 const MARKER = /\{[a-z][^}]*\}/;
 
 test('(a) limited-width headings: the section style limited-headings, no marker; a minority goes; other brands as before', () => {
@@ -63,4 +65,19 @@ test('(e) a width pair: one Spacer block per width', () => {
   const out = run('<div><p>a</p><p>{spacer-80 from-768}</p><p>{spacer-57 below-768}</p><p>b</p></div>');
   assert.ok(out.includes('<div class="spacer from-768"><div><div></div></div></div><div class="spacer below-768"><div><div></div></div></div>'), out);
   assert.ok(!MARKER.test(out));
+});
+
+test('(B, S) M at 60 from 768 px; a 21-31 px separator is the Spacer block s (25 px); other brands as before', async () => {
+  const small = run('<div><h2>A</h2><p>a</p><p>{spacer-25}</p><p>b</p></div>');
+  assert.ok(small.includes('<div class="spacer s"><div><div></div></div></div>'), small);
+  assert.ok(!MARKER.test(small));
+  assert.ok(!/spacer s/.test(run('<div><h2>A</h2><p>a</p><p>{spacer-25}</p><p>b</p></div>', 'austrian')), 'austrian: none, as before');
+  assert.ok(!/spacer s/.test(run('<div><p>a</p><p>{spacer-20}</p><p>b</p></div>')), '20 px or less: none');
+  const { document: d3 } = parseHTML('<html><body><main><div><p>a</p><div class="spacer s"><div><div></div></div></div><div class="spacer from-768"><div><div></div></div></div><div class="spacer"><div><div></div></div></div><p>b</p></div></main></body></html>');
+  globalThis.document = d3;
+  const { default: decorateTokenFree } = await import('../scripts/token-free.js');
+  const m3 = d3.querySelector('main');
+  decorateTokenFree(m3, { brand: 'lufthansa', path: '/gb/en/baggage', read: () => '' });
+  assert.deepEqual([...m3.querySelectorAll('p.spacer')].map((x) => x.style.getPropertyValue('--spacer-size')), ['25px', '60px', '40px'], m3.innerHTML);
+  assert.equal(themeFor('lufthansa', '100-years').space.m, 60, '100-years: www\'s 60');
 });

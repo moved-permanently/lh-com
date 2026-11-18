@@ -20,6 +20,7 @@
 import {
   readPurposeBlock, readBlockOptions, readSectionStyle, headingChoice, themeFor, pageTypeOf,
   isCaptionParagraph, readNavRole, MARKED_SIZE, MARKED_WIDTH, SPACE, DIVIDER_SPACE, CHAPTER_SPACE,
+  SMALL_SPACE,
 } from './style-markers.js';
 
 const TEXT = ['P', 'UL', 'OL'];
@@ -72,6 +73,9 @@ function isBand(section) {
 // the page's sizes of M and L: the theme's own (THEMES[brand].space, standing order 56: M at
 // 40 where that brings a brand closer to www), else SPACE; set by decorateTokenFree per page
 let PAGE_SPACE = SPACE;
+// the same for separators shown from 768 px only (THEMES[brand].space.from768:
+// lufthansa.com's M at 60 there)
+let PAGE_SPACE_768 = SPACE;
 
 /** A space or divider choice as a separator paragraph (null: none). */
 function separatorFor(space, divider) {
@@ -99,7 +103,9 @@ function decoratePurposeBlocks(main) {
     if (!what) return;
     if (what.kind === 'spacer' || what.kind === 'divider') {
       // a Spacer block draws the page's M / L (a theme's own space, e.g. lufthansa.com's M at 40)
-      const px = what.kind === 'spacer' ? PAGE_SPACE[what.px === SPACE.l ? 'l' : 'm'] : what.px;
+      const sizes = what.fromTablet ? PAGE_SPACE_768 : PAGE_SPACE;
+      const sized = what.px === SMALL_SPACE ? SMALL_SPACE : sizes[what.px === SPACE.l ? 'l' : 'm'];
+      const px = what.kind === 'spacer' ? sized : what.px;
       const p = separatorParagraph(px, what.kind === 'divider');
       // from 768px only (styles.css hides p.spacer.from-768 below), or below 768px only
       // (p.spacer.below-768, hidden from 768px)
@@ -235,7 +241,7 @@ function decorateSectionStyles(main, theme, pageHeadings) {
     // separator per width, shown from 768 px or below it only (styles.css p.spacer.from-768)
     const scoped = (size, divider, cls) => {
       if (!size) return null;
-      const p = separatorParagraph(PAGE_SPACE[size], divider);
+      const p = separatorParagraph((cls === 'from-768' ? PAGE_SPACE_768 : PAGE_SPACE)[size], divider);
       p.classList.add(cls);
       return p;
     };
@@ -446,7 +452,9 @@ function applyThemeRules(main, theme) {
 export default function decorateTokenFree(main, { brand = '', path = '', read = () => '' } = {}) {
   const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector('.article-header'), themes: read('theme') });
   const theme = themeFor(brand || 'lufthansa', pageType);
-  PAGE_SPACE = { ...SPACE, ...(theme.space || {}) };
+  const { from768, ...space } = theme.space || {};
+  PAGE_SPACE = { ...SPACE, ...space };
+  PAGE_SPACE_768 = { ...PAGE_SPACE, ...(from768 || {}) };
   // a live theme's rules for the page's CSS too (styles.css "theme rules")
   if (theme.live) {
     const { body } = main.ownerDocument;

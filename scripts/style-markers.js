@@ -107,6 +107,9 @@ export const SPACE = { m: 60, l: 120 };
 export const DIVIDER_SPACE = 25;
 // the chapter gap in a block's cells (block option chapters)
 export const CHAPTER_SPACE = 25;
+// a Spacer block's option "s": www's small separators (lufthansa.com's {spacer-25}), where a
+// theme has them
+export const SMALL_SPACE = 25;
 
 /**
  * The collapse table's separator size (step 2): 0-30px none, 32-80px M, 90-150px L; any other
@@ -184,7 +187,10 @@ export const THEMES = {
     limitedHeadings: true,
     // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
     // decision 3 lifted)
-    space: { m: 40 },
+    // M at 60 from 768 px (the separators shown from 768 px only: www's {spacer-60 from-768}, 41 of
+    // the 68 such on the recorded service pages); a small separator, the Spacer block option s
+    // (25 px: www's {spacer-25}; standing order 56, plan 923)
+    space: { m: 40, s: 25, from768: { m: 60 } },
     pageTypes: {
       // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
       // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
@@ -207,7 +213,7 @@ export const THEMES = {
       // lh-com-pass-check.md, ema-adobe's handover item 2). Their separators keep M at 60: www's
       // are 60 there (86 of the 98 {spacer-N} markers of the 16 recorded 100-years documents; 40
       // on 12), while the service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
-      '100-years': { space: { m: 60 } },
+      '100-years': { space: { m: 60, s: 25 } },
       // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
       // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
       'insights-tag': { rules: ['rule-before-info-box'] },
@@ -642,6 +648,12 @@ const dividerPx = (opts) => {
   return opts.includes('m') ? SPACE.m : DIVIDER_SPACE;
 };
 
+// a Spacer block's size from its options (l, s, else M)
+const spacerPx = (opts) => {
+  if (opts.includes('l')) return SPACE.l;
+  return opts.includes('s') ? SMALL_SPACE : SPACE.m;
+};
+
 /**
  * What a purpose block draws, from its block name and options (class names), or null for
  * another block.
@@ -657,7 +669,7 @@ export function readPurposeBlock(name, options = []) {
     // option from-768: the space from 768px only, none on phones (as "{spacer-60 from-768}");
     // option below-768: on phones only, none from 768px (as "{spacer-60 below-768}")
     case 'spacer': return {
-      kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m, fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
+      kind: 'spacer', px: spacerPx(opts), fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
     };
     // option m / l: the divider's space M or L (www's divider with space,
     // "{divider-100 from-768}"; standing order 57)
