@@ -183,7 +183,7 @@ export const THEMES = {
       h1: { compact: 'heading-medium' },
       h2: { large: 'heading-large', compact: 'heading-copytext-large', small: 'heading-small' },
     },
-    nearChoices: { h1: { 'heading-medium': 'compact' }, h2: { 'heading-small': 'small' } },
+    nearChoices: { h1: { 'heading-medium': 'compact' }, h2: { 'heading-small': 'small', 'heading-large': 'large' } },
     limitedHeadings: true,
     // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
     // decision 3 lifted)
@@ -201,7 +201,7 @@ export const THEMES = {
         headingChoices: { h3: { large: 'heading-small' } },
         nearChoices: {
           h1: { 'heading-medium': 'compact' },
-          h2: { 'heading-small': 'small' },
+          h2: { 'heading-small': 'small', 'heading-large': 'large' },
           h3: { 'heading-small': 'large' },
         },
       },

@@ -81,3 +81,12 @@ test('(B, S) M at 60 from 768 px; a 21-31 px separator is the Spacer block s (25
   assert.deepEqual([...m3.querySelectorAll('p.spacer')].map((x) => x.style.getPropertyValue('--spacer-size')), ['25px', '60px', '40px'], m3.innerHTML);
   assert.equal(themeFor('lufthansa', '100-years').space.m, 60, '100-years: www\'s 60');
 });
+
+test('(L) an H2 marked heading-large (one step from the default) is the choice H2 large; other brands as before', () => {
+  const sec = run('<div><h2>Writing stories {heading-large}</h2><p>x</p></div><div><h2>Plain</h2><p>y</p></div>');
+  assert.ok(/h2-large/.test(sec), sec);
+  assert.ok(!MARKER.test(sec));
+  const block = run('<div><h1>T</h1><div class="columns-media"><div><div>p</div><div><h2>Berlin {heading-large}</h2></div></div></div></div>');
+  assert.ok(/class="columns-media title-large"/.test(block), block);
+  assert.ok(!/h2-large/.test(run('<div><h2>A {heading-large}</h2><p>x</p></div><div><h2>B</h2></div>', 'austrian')), 'austrian: the default, as before');
+});
