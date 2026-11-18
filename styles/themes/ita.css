@@ -980,6 +980,16 @@ body.brand-ita main .columns-media.padded .columns-media-text h2:not([class*="he
   line-height: 1.1;
 }
 
+/* a padded column view whose text closes with links (ita-airways-app's "Plan your next trip" with the app store links)
+   keeps its H2 in www's heading-small (28 px at 1440, 22 at 390, heading-small's margin under it), not the padded
+   views' heading-medium above (contact's countries, entry-exit-system: text only): the carrier of the size the eight
+   language copies marked "{heading-small}" until standing order 46 (token-free content). Gated on all 80 recorded ITA
+   page-widths; /it/en's H2 (unmarked since order 44, 36 px) back to www's 28 */
+body.brand-ita main .columns-media.padded .columns-media-text:has(> p.link-wrapper) > h2:first-child:not([class*="heading-"]) {
+  margin-bottom: var(--heading-margin-l);
+  font-size: var(--heading-font-size-l);
+}
+
 /* the H3 that opens a column view's text in heading-small as ITA draws it: bold (ITA's headings, --heading-light-weight)
    in the size Columns Media already gives an unmarked H3 (its rule's light 300 is lufthansa.com's). The carrier of the
    weight the import marked as {heading-small} until standing order 45 (token-free content: ita-airways-app's five

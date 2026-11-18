@@ -876,3 +876,20 @@ body.brand-discover main > .section.divider-below > div:not(.default-content-wra
 body.brand-discover main .default-content-wrapper > p.spacer[style*="--spacer-size: 60px"]:not(.divider) {
   height: 41px;
 }
+
+/* discover-airlines.com: default content that opens with an H2 right after an accordion, or after a column view whose
+   text ends with a link (customer-service, families: www's next view starts there): 48 px more above the heading from
+   768 px, 31 on phones after an accordion. The carrier of the space their "{spacer-30}" gave until standing order 46
+   (token-free content; the marker drew 67 px from 768, 31 on phones after an accordion, none after a column view):
+   customer-service de/de 1440 +0.81 -> -0.07 %, de/en +0.55 -> -0.32 %, families de/de +0.81 -> +0.14 %, the phones
+   as today; families de/en (no marker) -1.46 -> +0.23 % at 1440. After a column view ending in running text
+   (santorini, punta-cana) the heading keeps its place: the gap there was further from www */
+body.brand-discover main .section > .accordion-columns-wrapper + .default-content-wrapper > h2:first-child {
+  padding-top: 31px;
+}
+
+@media (width >= 768px) {
+  body.brand-discover main .section > :is(.accordion-columns-wrapper, .columns-media-wrapper:has(.columns-media-row:last-child .columns-media-text > p.link-wrapper:last-child)) + .default-content-wrapper > :is(h2:first-child, p.column-mark:first-child + h2) {
+    padding-top: 48px;
+  }
+}
