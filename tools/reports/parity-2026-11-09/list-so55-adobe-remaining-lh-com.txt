@@ -1,0 +1,42 @@
+# ema-adobe, standing order 55 (2026-11-18), item 4: the lufthansa.com documents no check of mine had covered after
+# list-so54-adobe-de-sources.txt: the 1,831 pages order 54 had fetched but not rendered (de/en 560, de/de 686, gb/en 585),
+# the same checks (logs/b654/rcheck.cjs: 1440 then 390 in one load on lufthansa.turnsthe.page as served, every host but
+# ours and aem refused; gb/en copies' H1 count against their de/en source). 1,828 rendered (3 not reached when the order's
+# time ran out). Together with list-so53 and list-so54 every lufthansa.com page of the 3,393 is now checked but those 3;
+# the 846 data documents are list-so54's one line (served as noindex HTML, no site pages).
+#
+# Results
+# - 1,520 clean in every check; 2 load errors (de/de articles/tags/kuala-lumpur, gb/en upgrades-at-online-check-in).
+# - Breakage that takes a row: none. No row written (token-free rows only; none was needed).
+# - Not breakage: failed pictures (181 pages at 1440, 177 at 390, nearly all articles) and empty Related Articles (11 /
+#   7) are the parallel loads meeting our host's limits, as in list-so53 and -so54: three sampled pages render clean one
+#   at a time; gb/en articles/tags/my-world's empty breadcrumb and missing H1 come back on a second load (H1 1, the
+#   blocks drawn). H1 counts are the sources' own (fleet detail pages and tag pages 0; hubs, author and campaign pages
+#   www's h1 components). Lost words (16): closed tabs and accordions and the same article loads. Empty at runtime:
+#   micro-frontends (a refused host), message-center (no current message).
+#
+# The classes with their documents (logs/b655/classes.txt):
+# documents 1828; served and clean in every check 1520; not served 2 {'error': 2}
+#   181  failed picture at 1440  e.g. /de/de/100-years/history, /de/de/articles/explore-flying/welcome-to-my-world-emilia-schuele, /de/de/articles/explore-the-world, /de/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day
+#   177  failed picture at 390  e.g. /de/de/articles/explore-the-world, /de/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day, /de/de/articles/explore-the-world/a-perfect-day-art-basel-miami-beach-in-one-day, /de/de/articles/explore-the-world/a-perfect-day-athens-in-one-day
+#    56  H1 0: no source (de/de, de/en, xx own documents)  e.g. /de/de/31h, /de/de/320, /de/de/321, /de/de/32n
+#    24  H1 0: as its source (de/en)  e.g. /gb/en/articles/tags/dallas, /gb/en/articles/tags/houston, /gb/en/articles/tags/my-world, /gb/en/boeing787
+#    16  lost words  e.g. /de/de/advance-seat-reservation, /de/de/articles/explore-the-world/eat-see-do-malaga, /de/de/articles/explore-the-world/eat-see-do-nice, /de/de/articles/explore-the-world/eat-see-do-riyadh
+#    16  H1 2: no source (de/de, de/en, xx own documents)  e.g. /de/de/articles, /de/de/articles/explore-flying, /de/de/articles/explore-the-world, /de/de/articles/explore-the-world/a-perfect-day-hong-kong-in-one-day
+#    11  empty block at 1440: related-articles  e.g. /de/de/articles/explore-the-world/be-picky-helsinkis-insider-tips, /de/de/articles/explore-the-world/eat-see-do-malaga, /de/de/articles/explore-the-world/eat-see-do-nairobi, /de/de/articles/explore-the-world/eat-see-do-nice
+#     8  empty block at 390: micro-frontend  e.g. /de/de/book-and-manage/trip-management, /de/de/culinaryjourney, /de/de/help-and-contact, /de/de/lufthansa-city/culinaryjourney
+#     8  H1 2: as its source (de/en)  e.g. /gb/en/articles/highlights/soccer-event-in-north-america, /gb/en/articles/tags/amsterdam, /gb/en/articles/tags/athens, /gb/en/articles/tags/barcelona
+#     7  empty block at 390: related-articles  e.g. /de/de/articles/explore-the-world/be-picky-helsinkis-insider-tips, /de/de/articles/explore-the-world/eat-see-do-nice, /de/de/articles/explore-the-world/eat-see-do-riyadh, /de/de/articles/explore-the-world/essentials-bangkok-facts
+#     7  empty block at 1440: micro-frontend  e.g. /de/de/book-and-manage/trip-management, /de/de/culinaryjourney, /de/de/lufthansa-city/culinaryjourney, /de/en/book-and-manage/trip-management
+#     5  H1 3: no source (de/de, de/en, xx own documents)  e.g. /de/de/articles/authors/alexandra-mikamo, /de/de/articles/authors/florian-schwebel, /de/de/articles/authors/florian-tomberg, /de/de/articles/authors/julia-buth
+#     3  empty block at 1440: message-center  e.g. /de/de/prepare-for-your-trip/current-travel-information, /de/en/prepare-for-your-trip/current-travel-information, /gb/en/prepare-for-your-trip/current-travel-information
+#     3  empty block at 390: message-center  e.g. /de/de/prepare-for-your-trip/current-travel-information, /de/en/prepare-for-your-trip/current-travel-information, /gb/en/prepare-for-your-trip/current-travel-information
+#     2  not served (error)  e.g. /de/de/articles/tags/kuala-lumpur, /gb/en/upgrades-at-online-check-in
+#     2  H1 3: copy 3 / source None  e.g. /gb/en/book-and-manage/offers-and-destination/business-class-special, /gb/en/unhide-fashion
+#     1  H1 7: no source (de/de, de/en, xx own documents)  e.g. /de/en/discover-lufthansa/miles-and-more-credit-card
+#     1  H1 8: no source (de/de, de/en, xx own documents)  e.g. /de/de/discover-lufthansa/miles-and-more-credit-card
+#     1  empty block at 1440: breadcrumb  e.g. /gb/en/articles/tags/my-world
+#     1  empty block at 390: breadcrumb  e.g. /gb/en/articles/tags/my-world
+#     1  H1 2: copy 2 / source None  e.g. /gb/en/autumn-campaign22
+#     1  H1 7: as its source (de/en)  e.g. /gb/en/discover-lufthansa/miles-and-more-credit-card
+#     1  H1 0: copy 0 / source None  e.g. /gb/en/local-page/ski-campaign-2026

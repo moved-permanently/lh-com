@@ -6112,3 +6112,64 @@ blocks/columns-media or the themes.
 - Left out of git: logs/b654 (copies, renders, gates, captures, runners). A capture runner without --state appended 206
   lines to the tracked tools/reports/parity/state/captures.jsonl; they were mine only and were taken out again before
   the push.
+
+### Standing order 55 (2026-11-17 23:40 to about 03:05 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host (every render refused every host
+but ours and aem in the browser). `.migration/project.json` untouched; /de/en/overview-manage has no row. Order 54 left
+nothing uncommitted or unpushed (10e42e3 on main). Token-free from this order on: nothing below writes a style token
+into a document; no row was written.
+
+Each push: the tests named for it passed and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (the
+switch branch: `npm run lint` in its worktree, exit 0). Full suite on item 2's code: ce46523 (rebased to c031f61), 73
+lh-edge files and 1,279 site files, 0 failing; only reports after it.
+
+1. **lufthansa.com's token-free switch (tools/reports/token-free/lufthansa-switch-plan-919.md; branch pushed, rules HELD).**
+   - The branch `token-free-lufthansa-live` rebuilt from today's main (192f617): `live: true` for lufthansa and all 14
+     bundles rebuilt; pushed as 6c838dd, never merged.
+   - 335 of the 374 recorded pages that answer carry markers; all 335 collapse with the branch's CLI (3,621 markers, 1
+     left, 0 not idempotent). Measured: 81 pages, 162 page-widths (the 10 Nov plan's 8, the 36 hub and campaign pages
+     with column marks, 40 at random), today against switched, each with M at 60 and at 40.
+   - Sum of % off www 1,137.0 today, 1,500.9 switched (median 5.17 -> 6.58); 92 page-widths worse by more than 0.5 with
+     M at 60, 83 with M at 40. 5 come back with M at 40 alone (baggage 1440 11.96 -> 1.97, food-and-beverages 390
+     21.97 -> 5.27 ...), 15 in part; 72 are not B2.
+   - The gaps beyond B2: H2s drawn full width where they carry `{limited-width}` (miles-and-more 1440 2.3 -> 18.6, x4),
+     card H2s marked heading-small (airport-information 390 5.6 -> 15.7), the hub column-view carrier (digital-self-
+     services x4, +4.4 both widths, +2.9 / +3.5 with M at 40), the legal and receipt pages' column marks
+     (terms-of-service-group +10 / +9), and per-page steps on campaign and fleet pages (first-class, san-diego at/de,
+     crane, flight-search).
+   - No carrier rule on the branch: the candidates need carriers the collapse doesn't write yet (two-thirds headings,
+     compact card titles). The one trial, no padding on campaign carrier views, took miles-and-more to 29.9. The gate
+     (every recorded page-width with markers, none worse by more than 0.5) is far from met. B2's per-page cost (M at 60
+     against M at 40) is in the plan's §4 for Ben.
+2. **The importer emits no style marker (pushed c031f61).**
+   - The collapse kept a separator of 31 px or less as `{spacer-N}` on two themes: Discover's componentSpacers
+     (3771d3a3) and Brussels' textSpacers. Both are gone; such a separator is a near value and goes on every brand,
+     and the two flags are out of THEMES. 4c010541's phone-only separators already leave the collapse as the Spacer
+     block's option below-768 (a block option), not as a marker; the new test checks that too.
+   - test/collapse-token-free-so55.test.mjs is red without the change (3 of 4) and green with it. The four keep-tests
+     now expect the token-free output: brussels-heading-spacers-so8, brussels-panel-separators-so18,
+     discover-component-spacers-so6, text-spacers-so5. The importers' tests: 1,854 passed.
+   - Bundles: all 14 rebuilt (lufthansa.com's 11 templates and the 3 Austrian ones; they also picked up source changes
+     their bundles were behind on). The brand importers that use the collapse directly (swiss, ita, b2b, cargo, tap,
+     airdolomiti, brussels, austrian, discover) need no bundle; only Brussels' and Discover's output changes.
+   - Still in the collapse, and not in this item's two commits: ITA's keepSizesIn (heading markers kept in Columns Media
+     cells) and Discover's oneElementViews (a one-paragraph view keeps its marks). Both keep a marker in place. They
+     are ema-lufthansa's brands, so they're left for a coordinated change.
+   - The row tools under tools/importer (text-spacers-apply, cell-end-spacers-apply, section-end-spacer-apply,
+     view-spacer-apply, b2b-view-spacers-apply) still write `{spacer-N}` if they are run. No row of mine uses them
+     anymore, and the helpers refuse such rows.
+3. **ITA's footer on phones: HOLD (note-so55-adobe-ita-footer.txt).**
+   - The +84 px (1,355 against 1,271) is this machine's font: there's no Arial here. The legal links ask for
+     `arial, helvetica, sans-serif`, get DejaVu Sans (about 12 % wider), and wrap into 9 rows instead of www's 7.
+   - Narrowing the text to roughly Arial's width takes one row off at once (footer 1,313).
+   - A rule that fit DejaVu would be wrong on browsers with Arial, so none is written. Neither ita.css nor styles.css
+     was touched.
+4. **The remaining lufthansa.com pages (list-so55-adobe-remaining-lh-com.txt).** The 1,831 pages order 54 had fetched
+   but not rendered, 1,828 of them rendered at 390 and 1440 (3 not reached in time): 1,520 clean in every check, 2 load
+   errors, no breakage that takes a row (none written). Failed pictures (181) and empty Related Articles (11) are the
+   parallel loads on our host (sampled pages clean one at a time); H1 counts are the sources' own; the rest runtime-
+   empty widgets and closed panels. With list-so53 and -so54, every one of the 3,393 pages but those 3 is checked.
+- Ended at about 03:05 CET. Pushed: the switch branch 6c838dd (not merged), c031f61 (item 2), 1637c1d (the switch plan 919 and the ITA note) and this section's commit.
+  Held: item 1's carrier rules (gaps measured, carriers missing), item 3 (no rule: the font).
+- Left out of git: logs/b655 (copies, collapsed documents, captures, runs), /tmp/wt-tf919 and /tmp/wt-m40.
