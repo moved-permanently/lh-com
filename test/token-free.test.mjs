@@ -79,7 +79,7 @@ test('page types', () => {
 
 test('section styles: class names and the friendly "Label=value" spelling', () => {
   assert.deepEqual(readSectionStyle(['grey', 'space-m', 'wide-text', 'h2-large']), {
-    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, spaceTablet: null, spacePhone: null, spaceBelowTablet: null, spaceBelowPhone: null, dividerTablet: null, dividerPhone: null, width: 'full', size: null, headings: { h2: 'large' }, image: null, quote: null,
+    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, spaceTablet: null, spacePhone: null, spaceBelowTablet: null, spaceBelowPhone: null, dividerTablet: null, dividerPhone: null, width: 'full', headingWidth: null, size: null, headings: { h2: 'large' }, image: null, quote: null,
   });
   const friendly = readSectionStyle('Space=L, Small print, H3 large, Divider below');
   assert.equal(friendly.space, 'l');
@@ -148,7 +148,8 @@ test('section styles on the section\'s own default content; a marker wins; block
   assert.equal(section.querySelector(':scope > p:has(picture)').className, '');
   assert.equal(section.querySelector('.columns-media h2').className, '');
   assert.equal(section.querySelector('.columns-media p').className, '');
-  assert.equal(shape(section.firstElementChild), SEP(60));
+  // the switch branch: lufthansa.com's M is 40 px (standing order 56)
+  assert.equal(shape(section.firstElementChild), SEP(40));
   assert.equal(shape(section.lastElementChild), SEP(25, true));
 });
 

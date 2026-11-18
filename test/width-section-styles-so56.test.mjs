@@ -9,7 +9,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
-import { readSectionStyle, SECTION_STYLES, SECTION_STYLE_LABELS, SPACE } from '../scripts/style-markers.js';
+import {
+  readSectionStyle, SECTION_STYLES, SECTION_STYLE_LABELS, SPACE as BASE, themeFor,
+} from '../scripts/style-markers.js';
+
+// the theme's M / L (the switch branch: lufthansa.com's M at 40 px)
+const SPACE = { ...BASE, ...(themeFor('lufthansa').space || {}) };
 
 const NAMES = ['space-below-l-768', 'space-below-m-below-768', 'space-below-m-768', 'space-m-below-768', 'space-m-768', 'space-l-768', 'divider-l-768', 'divider-m-below-768', 'divider-m-768'];
 
