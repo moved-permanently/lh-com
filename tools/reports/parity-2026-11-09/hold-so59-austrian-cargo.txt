@@ -1,0 +1,52 @@
+# ema-test, standing order 59, items 1 and 2 (2026-11-18): the held Austrian and Cargo pages. No token-free carrier on main passes this order's gate
+# (no recorded page-width more than 0.5 points further from www than today), so every row stays HOLD. The figures below are for the proposals.
+# Method: html-folder full pages of the served copy (austrian / cargo .turnsthe.page ~19:20 UTC, the same text as DA's current copy, section
+#   for section) in the served page's shell, on lh-austrian / lh-cargo code at origin/main a53bbea0. Full Chrome, every other host refused
+#   (airline hosts included), www's fonts from the drops. Compared with the recordings: austrian-parity-015 (1440) / -027 (390);
+#   cargo-parity-001-012, the newest per page and width (todoor: 1440 only).
+# Each line: % off www, height in px.
+
+## Item 1: Austrian /at/en/entryregulations
+# Its markers: column marks ({column-end-outer} on the intro picture, {column-start-outer} / {column-end-outer} around "General information"),
+#   the closing small print's {column-start} / {column-end} and its {copytext-small}, and three phone spacers ({spacer-35/55/78 below-768}).
+# What the marks draw (boxes at 1440): an outer column view pads 40 px (20 px on phones) above its first and below its last element, with the
+#   neighbouring headings' 32 px margins kept and no section gap. The inner pair pads 32 px above and below the small print. {copytext-small}
+#   keeps the small print 33 px shorter than body text.
+#   - Without the marks: section 0 is 112 px shorter at 1440 and the small print 31 px. The phone spacers, as the collapse's Spacer
+#     (below-768) blocks, keep 390 where it is.
+# variant	1440	390
+# served (with the markers)	8.62 % (5,523)	15.19 % (7,207)	www 5,538 / 7,236
+# R: the collapse (every marker out; the spacers as Spacer (below-768) blocks)	28.04 % (5,356)	16.54 % (7,204)
+# K: only the column marks out	28.48 % (5,347)	16.65 % (7,147)
+# V1: the column views as sections of their own ("General information" Padded), the small print Small print	10.88 % (5,499)	29.68 % (7,319)
+# V2: as V1, "General information" Padded + flush	16.57 % (5,451)	24.98 % (7,271)
+# V3: as V2, the small print Small print + Padded	11.28 % (5,531)	26.41 % (7,311)
+# V4: column marks out, the small print a Small print section	27.33 % (5,371)	18.16 % (7,183)
+# Proposals, measured with the CSS in the trial page only (not in any file):
+#   V6, Austrian column-view sections without gaps: { padding: var(--section-padding) 0; margin-bottom: 0 } and none on the section before	27.29 % (5,267)	27.30 % (7,007)
+#   V6b, the same with the headings' 32 px kept: padding calc(section-padding + 32px) 0 section-padding, margin-bottom 32px; small print 56 / 32 px	13.91 % (5,451)	22.86 % (7,231)
+HOLD	/at/en/entryregulations	every section-level carrier tried is at least 2.3 points further from www at 1440 or 9.8 at 390. The marks pad single elements inside a section and keep the margins around them; the existing carriers (sections, Padded, Small print) add section gaps at both widths. Needed: an Austrian theme rule (austrian.css, ema-adobe or this order's owner) drawing an Austrian column view inside its section. The nearest measured, V1 at 1440 (5,499 px, 39 px from www), needs the gap removed on phones.
+
+## Item 2: Cargo
+# variant	1440	390
+# /en/ecsd: {spacer-18 from-768} before the H1, {limited-width} on the H1
+#   served	57.61 % (1,347)	32.90 % (1,750)	www 1,343 / 1,751
+#   R: both out (the collapse)	61.99 % (1,280)	32.90 % (1,750)
+#   E1: only the spacer out	58.48 % (1,328)	32.90 % (1,750)
+HOLD	/en/ecsd	the H1's limited width keeps www's two lines (49 px): 59 of the 60 recorded Cargo H1s carry no width marker, so no theme default fits; no heading-width carrier on main (a block option or section style for the H1's text width, for ema-adobe). The 18 px spacer alone costs 0.87 points (19 px)
+# /en/add-on-services/todoor: {spacer-140} at the end of the first tab panel's cell (accordion-columns faq tabs, the grey section's only block)
+#   served	45.35 % (2,283)	not recorded	www 2,348
+#   R: removed	56.39 % (2,142)
+#   C1: removed, Space below: L from 768 on the grey section	48.23 % (2,247)
+#   C2: removed, Space below: L	48.23 % (2,247)
+HOLD	/en/add-on-services/todoor	the nearest carrier (C1) is 2.88 points further from www: the cell's spacer draws 141 px, an L at the section's end 105; needed: the tab panel's own space below (a tabs option, for ema-adobe), or the reason www's panel is 140 px taller than its content
+# /en/add-on-services/smartuld: {spacer-163} in a table cell of the first tab panel (the same block)
+#   served	33.72 % (2,582)	51.64 % (1,120)	www 2,578 / 1,120
+#   R: removed	44.83 % (2,418)	51.64 % (1,120)
+#   C1: removed, Space below: L from 768 on the grey section	37.16 % (2,523)	51.64 % (1,120)
+#   C2: removed, Space below: L	37.16 % (2,523)	49.34 % (1,225)
+HOLD	/en/add-on-services/smartuld	C1 is 3.44 points further at 1440 (the cell's spacer draws 164 px, the L 105); the same carrier is needed as on todoor
+# /de/passive-temp-support: {full-width} on a list item in a tab panel's cell (the en twin carries no marker: its English lines fit at the text width)
+#   served	10.56 % (2,206)	10.61 % (1,286)	www 2,168 / 1,282
+#   R: removed	16.17 % (2,278)	10.61 % (1,286)
+HOLD	/de/passive-temp-support	the German list item wraps at the text width (+72 px at 1440, 5.6 points); a section's Wide text doesn't reach a block's cells; needed: the tabs block's own full-width option or a Cargo theme rule giving tab panels' lists the full width (for ema-adobe or the Cargo theme's owner)

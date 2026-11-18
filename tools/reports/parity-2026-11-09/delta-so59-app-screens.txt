@@ -1,0 +1,103 @@
+# ema-test, standing order 59, item 3 (2026-11-18): lufthansa.com's documents outside the sitemap (navs, footers, app screens, market roots).
+# The census, again on our host (lufthansa.turnsthe.page, the live copies), every document of the upload state (tools/importer/da-upload-state.json):
+#   - navs (253) and footers (251): no marker on any of them, live or in DA (sample read from DA: /de/en/nav, /gb/en/nav, /de/en/footer,
+#     /de/de/footer). Nav roles are the Nav Tools table already.
+#   - app screens (/content/mobile/**, 75): 74 with markers, 511 in all: {small} 218, {spacer: medium} 201, {spacer: medium, v2} 48,
+#     {spacer: x-small} 42, {divider} 2. The census's 291 "{spacer: medium}" are the three spacer spellings together.
+#   - no market-root document (/xx/yy) in the upload state.
+#   - the other documents with markers are the lufthansa.com pages themselves (7,881), waiting for lufthansa.com's switch and its collapse
+#     pass; not rows here.
+# Does marker-collapse-cli (--brand lufthansa --force) take each spelling out? One example document per spelling from the whole census
+#   (93 spellings, 72 documents): 86 out (theme default or carrier), 7 kept:
+#   - data placeholders, rightly kept: {origin} {destination} {duration} {cabin} (a flight-offer URL template, /dz/de/homepage), {language}
+#     and {locale} (redirect URLs in /data/lufthansa-group/ancillary/tmc/catalog/*), {n} (a form's "Flight {n}" fieldset);
+#   - {links-vertical} alone on a link list (3 documents: /fr/fr, /xx/es and /xx/fr data-collection-canada; sitemap pages): the collapse
+#     doesn't know the bare spelling, while it takes out {links-horizontal}, {links-responsive} and "{links-vertical column-end-outer}".
+#     For ema-adobe: marker-collapse.mjs, the list tokens (LIST_TOKENS in style-markers.js already lists links-vertical).
+# The app screens: lh-edge renders them from these documents. It reads App Spacer (size, v2), App Divider and App Text (small) exactly as
+#   the markers (tools/workers/lh-edge/src/sdui.js, readPurposeBlock; its token-free.test.mjs). The carriers are on main.
+# READY rows: each marker paragraph becomes the block the collapse writes; a run of {small} paragraphs one App Text (small) block, as the
+#   collapse writes it.
+#   - Each copy's result equals marker-collapse-cli's output of the same DA copy (entities decoded: the collapse writes " for &quot;). One
+#     difference is kept on purpose: a trailing &nbsp; before {small} goes, as lh-edge's marker stripping drops it today; the collapse
+#     keeps it (de 100-years-of-lufthansa part 1; for ema-adobe).
+#   - Gate: lh-edge's own model (readDocument + screenModel) from DA's copy and from the copy with the row: the same JSON for all 74.
+#     No web page-width: the app renders these screens, not a browser page.
+#   - DA's copies read ~19:15-19:30 UTC, one page per command. Dry run (text-inserts-apply --check): each insert made once, each copy
+#     byte for byte without it. No "{...}" style marker left in any of the 74.
+# Each line: READY, path, the markers it takes out, the gate.
+
+READY	/content/mobile/lh/de/articles	5 x {spacer: x-small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles	5 x {spacer: x-small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/a-perfect-day-in-singapore	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/a-perfect-day-in-new-york	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/discover-allegris	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/essentials-of-rio-de-janeiro	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/a-perfect-day-in-munich	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/a-perfect-day-in-london	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/essentials-of-shanghai	5 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/essentials-of-mexico-city	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/help-alliance-leading-self-determined-lives	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/essentials-of-barcelona	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/a-perfect-day-in-chicago	7 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/essentials-of-paris	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/europe	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/asia	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/what-the-hack-best-seats	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/africa	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/a-perfect-day-in-frankfurt	7 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/what-the-hack-travel-with-kids	7 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/south-america	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/north-america	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/a-perfect-day-in-singapore	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/a-perfect-day-in-new-york	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/essentials-of-rio-de-janeiro	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/a-perfect-day-in-munich	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/a-perfect-day-in-london	4 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/essentials-of-shanghai	5 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/essentials-of-mexico-city	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/help-alliance-leading-self-determined-lives	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/essentials-of-barcelona	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/a-perfect-day-in-chicago	7 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/comfort-on-board	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/essentials-of-paris	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/europe	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/asia	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/what-the-hack-best-seats	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/africa	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/a-perfect-day-in-frankfurt	7 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/what-the-hack-travel-with-kids	7 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/south-america	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/north-america	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/south-america/a-perfect-day-in-buenos-aires	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/south-america/a-perfect-day-in-rio-de-janeiro	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/africa/a-perfect-day-johannesburg-in-one-day	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/africa/a-perfect-day-in-cape-town	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/africa/essentials-cape-town-facts	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/asia/a-perfect-day-in-hong-kong	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/discover-allegris/allegris-essentials	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/discover-allegris/allegris-fox	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/south-america/a-perfect-day-in-buenos-aires	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/south-america/a-perfect-day-in-rio-de-janeiro	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/africa/a-perfect-day-johannesburg-in-one-day	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/africa/a-perfect-day-in-cape-town	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/africa/essentials-cape-town-facts	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/asia/a-perfect-day-in-hong-kong	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/discover-allegris/allegris-essentials	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/discover-allegris/allegris-fox	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/discover-allegris/lufthansa-allegris-what-type-of-passenger-are-you	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/discover-allegris/the-perfect-flight-with-dirk-nowitzki	3 x {spacer: medium}, 1 x {small}, 1 x {spacer: medium, vN}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/content-pages/100-years-of-lufthansa	5 x {spacer: x-small}, 1 x {small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/content-pages/100-years-of-lufthansa	5 x {spacer: x-small}, 1 x {small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1	22 x {small}, 3 x {spacer: x-small}, 1 x {divider}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2	32 x {small}, 3 x {spacer: x-small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3	30 x {small}, 3 x {spacer: x-small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-1	22 x {small}, 3 x {spacer: x-small}, 1 x {divider}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-2	30 x {small}, 3 x {spacer: x-small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/content-pages/100-years-of-lufthansa/100-years-of-lufthansa-part-3	30 x {small}, 3 x {spacer: x-small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/homepage	2 x {spacer: x-small}, 1 x {small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/homepage	2 x {spacer: x-small}, 1 x {small}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/en/articles/discover-allegris	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
+READY	/content/mobile/lh/de/articles/comfort-on-board	2 x {spacer: medium}	lh-edge model the same; equal to the collapse; DA dry run byte for byte (1 insert); token-free
