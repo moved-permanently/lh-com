@@ -6199,3 +6199,66 @@ List: delta-so58-lh-com-rows.txt / .json.
   migration-work/ and tools/importer/reports/* (not mine); the old autostash.
 - **Cleanup:** servers stopped by PID; the gate worktrees removed.
 - The full suite at 16c792c9 (the last list's commit): npm run lint exit 0, stylelint exit 0, 1,284 test files passed, 0 failed. If the last pull brings commits, the checks run again before the push.
+
+## Standing order 59 (received about 19:00 UTC, 2026-11-18)
+
+No theme, block or importer file was changed. The Austrian and Cargo proposals are written with figures; this order didn't give me those
+themes.
+
+### Item 1: Austrian /at/en/entryregulations (HOLD)
+
+List: tools/reports/parity-2026-11-09/hold-so59-austrian-cargo.txt.
+
+- **Today:** 1440 8.62 % (5,523 px, www 5,538); 390 15.19 % (7,207 px, www 7,236).
+- **The collapse:** 1440 28.04 % (5,356 px); 390 16.54 % (7,204 px).
+- **Where the loss comes from:** the column marks alone take 176 px at 1440. An outer view pads 40 px (20 px on phones) above its first and below
+  its last element, keeping the neighbouring headings' margins. The inner pair around the small print pads 32 px. {copytext-small} keeps that
+  paragraph 33 px shorter.
+- **Every carrier on main is further from www** by at least 2.3 points at 1440 or 9.8 at 390 (sections of their own, Padded, Small print), since
+  they add section gaps at both widths.
+- **Two candidate Austrian column-view rules**, tried in the trial page only: 5,267 and 5,451 px at 1440 against today's 5,523; neither passes.
+- **Needed:** an Austrian theme rule that draws a column view inside its section (ema-adobe, or whoever holds austrian.css).
+
+### Item 2: Cargo (4 HOLD)
+
+- **/en/ecsd:** the H1's {limited-width} keeps www's two lines (removal 1,347 -> 1,280 px at 1440, +4.4 points).
+  - 59 of the 60 recorded Cargo H1s carry no width marker, so a theme default doesn't fit. No heading-width carrier exists on main.
+- **/en/add-on-services/todoor and /smartuld:** a spacer inside the first tab panel's cell (141 / 164 px).
+  - Space below L from 768 on the grey section draws 105 px: +2.88 / +3.44 points.
+  - Needed: the tab panel's own space below.
+- **/de/passive-temp-support:** {full-width} on a list item in a tab panel's cell, +72 px at 1440 without it.
+  - The en twin's English lines fit at the text width; Wide text doesn't reach a block's cells.
+  - Needed: a tabs full-width option or a Cargo theme rule.
+
+### Item 3: lufthansa.com documents outside the sitemap
+
+List: delta-so59-app-screens.txt / .json.
+
+- **The census on our host** covered every upload-state document.
+  - Navs and footers: no markers, live or in DA.
+  - App screens: 74 of 75 with markers: {small} 218, {spacer: medium} 201, {spacer: medium, v2} 48, {spacer: x-small} 42, {divider} 2.
+- **marker-collapse-cli on one example per spelling** (93 spellings): 86 out, 7 kept.
+  - Six are data placeholders and rightly stay: {origin} {destination} {duration} {cabin} {language} {locale} {n}.
+  - The bare {links-vertical} (3 data-collection-canada pages) the collapse doesn't know: for ema-adobe.
+- **READY: 74 app-screen rows**, App Spacer / App Divider / App Text (small) in place of the markers.
+  - Each equals the collapse's output. One exception: a trailing &nbsp; before {small} goes, as lh-edge drops it; the collapse keeps it, for
+    ema-adobe.
+  - lh-edge's own model (readDocument + screenModel) is the same JSON from DA's copy and from the copy with the row, for all 74.
+  - DA dry run byte for byte.
+
+### Final section (about 19:45 UTC)
+
+- **Pushed:** "docs(delta): standing order 59 …" and this section.
+- **Checks at the list's commit:** whole-repo lint 0, the folder-reading tests 669 with 0 failed, brand.test.mjs passed. The full suite is below.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA write. DA reads only, 79 single literal-URL GETs, each its own
+  command. No guard block.
+- **Requests:** our hosts, DA and GitHub's API; no airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off; .agents/settings.json not written.
+- **Not in git:** logs/p4/so59 (copies, captures, scans, scratch); the drops; content/, migration-work/ and tools/importer/reports/* (not mine).
+- **Cleanup:** servers stopped by PID; gate worktree removed.
+- The full suite at 349f0632 (the list's commit): npm run lint exit 0, stylelint exit 0, 1,284 test files passed, 0 failed. If the last pull brings commits, the checks run again before the push.
+- The last pull brought seven commits, code among them: the collapse's market split, the Brussels / Discover / ITA themes, the SWISS / B2B
+  themes and style-markers.
+  - The 74 app screens collapsed again with the new code: the same output, so the rows stand.
+  - The whole-repo lint, the folder-reading tests and the full suite ran again at the rebased HEAD before the push.
+  - A last pull brought two more (docs and an upload state): after it the whole-repo lint, the folder-reading tests and the upload-state and brand tests, not the suite again.
