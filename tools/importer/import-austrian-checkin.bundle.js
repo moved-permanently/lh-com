@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_151399_exports = {};
-  __export(tmp_bundle_austrian_checkin_151399_exports, {
-    default: () => tmp_bundle_austrian_checkin_151399_default
+  var tmp_bundle_austrian_checkin_349922_exports = {};
+  __export(tmp_bundle_austrian_checkin_349922_exports, {
+    default: () => tmp_bundle_austrian_checkin_349922_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -8345,6 +8345,8 @@ var CustomImportScript = (() => {
   function splitSection(section, els, doc, styles = []) {
     const next = doc.createElement("div");
     if (section.dataset && "mcSection" in section.dataset) next.dataset.mcSection = "";
+    const markets = section.getAttribute && section.getAttribute("data-markets");
+    if (markets != null) next.setAttribute("data-markets", markets);
     section.after(next);
     next.append(...els);
     sectionStyles(section).forEach((s) => addSectionStyle(next, s, doc));
@@ -9566,7 +9568,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_151399_default = {
+  var tmp_bundle_austrian_checkin_349922_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9606,5 +9608,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_151399_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_349922_exports);
 })();

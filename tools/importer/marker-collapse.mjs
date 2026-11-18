@@ -309,6 +309,11 @@ function pageMetaCell(main, key, doc, create = false) {
 function splitSection(section, els, doc, styles = []) {
   const next = doc.createElement('div');
   if (section.dataset && 'mcSection' in section.dataset) next.dataset.mcSection = '';
+  // a market section's part stays in its market ("de" / "-de": one of the two renders, scripts/markets);
+  // without it a split-off part showed on every market (standing order 56: cash-and-miles drew its
+  // Flight Search twice)
+  const markets = section.getAttribute && section.getAttribute('data-markets');
+  if (markets != null) next.setAttribute('data-markets', markets);
   section.after(next);
   next.append(...els);
   sectionStyles(section).forEach((s) => addSectionStyle(next, s, doc));
