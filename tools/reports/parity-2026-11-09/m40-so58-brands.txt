@@ -1,0 +1,71 @@
+# ema-test, standing order 58, item 1 (2026-11-18): M at 40 px instead of 60 (decision 3 lifted, Ben 18 Nov), measured per brand on every recorded
+#   page-width reachable: Austrian, TAP, Cargo, Air Dolomiti.
+# Method: one load per page-width on our brand host (austrian / tap / cargo .turnsthe.page, the code and content as served now), full Chrome,
+#   every other host refused (airline hosts included), www's fonts from the drops. A scratch copy of tools/parity/capture.js (not in git) captures
+#   the page, then, in the same load, adds the candidate theme rule and captures again:
+#     main p.spacer:not(.divider)[style*="--spacer-size: 60px"] { --spacer-size: 40px !important; }
+#   The rule moves every M separator (the Spacer block, Space above / below M, a block's space-m: token-free.js draws them all as a 60 px
+#   separator) to 40 px.
+#   - A page-width without a visible 60 px separator draws the same page and is counted at the same value both ways.
+#   - Both captures are compared with the recording (tools/parity/compare.js, live boxes masked).
+# Recordings: the drops' default-state recordings, the newest drop per page and width; each archive's sha256 checked (published sidecar, or the
+#   hash its brief or ema-lufthansa's report records).
+#   - austrian-parity-001/003/005-031 (29), tap-parity-001-014 (14), cargo-parity-001-012 (12).
+#   - Air Dolomiti's drops (airdolomiti-parity-001-014) are not under any R2 folder I can read: not measured.
+# Rule: adopt 40 when the sum of % off www goes down and the median does not go up.
+
+| brand | page-widths | with M (separators) | sum % at 60 | sum % at 40 | median at 60 | median at 40 | > 0.5 better | > 0.5 worse | result |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Austrian | 246 | 48 (57) | 4,698.33 | 4,731.05 | 16.13 | 16.15 | 16 | 23 | HOLD |
+| TAP | 52 | 0 (0) | 575.70 | 575.70 | 9.42 | 9.42 | 0 | 0 | HOLD |
+| Cargo | 113 | 1 (1) | 2,990.74 | 2,992.46 | 22.35 | 22.35 | 0 | 1 | HOLD |
+| Air Dolomiti | not measured | (no M: ema-adobe's census found no separator in its 1,569 documents, near-values-531.md; its theme has no rule that writes one) | | | | | | | HOLD (nothing to change) |
+
+# Austrian: HOLD. The sum goes up by 32.72 points and the median by 0.02. Not pushed; austrian.css unchanged.
+# TAP: HOLD, nothing to change. None of its 26 recorded pages carries a Spacer block or a space style (their served documents read for it too). Not pushed.
+# Cargo: HOLD. One M separator on its recorded pages, and that page-width goes worse. Not pushed.
+#
+# The page-widths more than 0.5 points worse at 40 (www draws 60 or more there), worst first:
+# brand	path	width	% at 60 -> 40	our height 60 -> 40 (www)	M separators	cause	recording
+WORSE	austrian	/at/en/fly/on-board/culinary-services	390	27.90 -> 34.52	8,000 -> 8,000 (9,176)	1	both pages past the recorded 8,000 px: the content below the M moves up 20 px per separator inside the window	austrian-parity-027
+WORSE	austrian	/at/en/austrian-app	1440	11.73 -> 17.37	5,337 -> 5,257 (5,362)	4	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-015
+WORSE	austrian	/us/en/local-page/ski-campaign-2026	1440	4.27 -> 9.81	2,911 -> 2,891 (2,910)	1	ours is taller than www at 60 but by less than 20 px a separator: 40 overshoots	austrian-parity-025
+WORSE	austrian	/at/en/accessible-travel	1440	5.34 -> 10.63	8,000 -> 8,000 (12,859)	2	both pages past the recorded 8,000 px: the content below the M moves up 20 px per separator inside the window	austrian-parity-015
+WORSE	austrian	/at/en/austrian-app	390	16.40 -> 21.47	6,175 -> 6,095 (6,165)	4	ours is taller than www at 60 but by less than 20 px a separator: 40 overshoots	austrian-parity-020
+WORSE	austrian	/gb/en/local-page/ski-campaign-2026	1440	33.54 -> 36.44	2,993 -> 2,973 (2,992)	1	ours is taller than www at 60 but by less than 20 px a separator: 40 overshoots	austrian-parity-027
+WORSE	austrian	/at/de/bearbeitungsgebuehren	1440	7.26 -> 9.62	3,117 -> 3,097 (3,141)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-003
+WORSE	austrian	/at/en/travel-id	1440	5.35 -> 7.24	5,709 -> 5,689 (5,714)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-015
+WORSE	austrian	/at/en/online-check-in	390	14.83 -> 16.68	5,165 -> 5,145 (5,255)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-020
+WORSE	austrian	/at/en/online-check-in	1440	10.15 -> 11.92	4,435 -> 4,415 (4,477)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-017
+WORSE	austrian	/at/en/travel-id	390	11.85 -> 13.55	6,091 -> 6,051 (6,190)	2	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-019
+WORSE	austrian	/gb/en/local-page/ski-campaign-2026	390	31.53 -> 33.06	3,497 -> 3,477 (3,515)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-027
+WORSE	austrian	/th/en/book/flights/promptpay	1440	11.86 -> 13.39	2,655 -> 2,635 (2,689)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-003
+WORSE	austrian	/at/de/bearbeitungsgebuehren	390	12.75 -> 14.27	4,059 -> 4,039 (4,125)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-003
+WORSE	austrian	/ca/en/homepage	390	9.29 -> 10.56	4,527 -> 4,507 (4,526)	1	ours is taller than www at 60 but by less than 20 px a separator: 40 overshoots	austrian-parity-026
+WORSE	austrian	/at/en/bangkok-airways	1440	28.95 -> 30.02	3,305 -> 3,285 (3,700)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-025
+WORSE	austrian	/cn/zh/baggage	1440	23.49 -> 24.41	4,093 -> 4,073 (4,226)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-003
+WORSE	austrian	/ru/en/homepage	390	16.59 -> 17.51	5,278 -> 5,258 (5,299)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-026
+WORSE	austrian	/by/en/homepage	390	16.58 -> 17.49	5,278 -> 5,258 (5,299)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-026
+WORSE	austrian	/by/ru/homepage	390	16.83 -> 17.67	5,341 -> 5,321 (5,351)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-008
+WORSE	austrian	/ru/ru/homepage	390	16.96 -> 17.78	5,317 -> 5,297 (5,330)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-016
+WORSE	austrian	/jp/ja/baggage	1440	28.39 -> 29.17	4,117 -> 4,097 (4,322)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-003
+WORSE	austrian	/at/en/footer-pages/help-and-contact/bagdamage	1440	4.85 -> 5.53	4,948 -> 4,928 (5,012)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	austrian-parity-003
+WORSE	cargo	/en/meta/meta/company/general-terms1	1440	71.30 -> 73.02	1,105 -> 1,085 (1,129)	1	ours is shorter than www already at 60 (www keeps 60 or more there): 40 takes another 20 px per separator off	cargo-parity-003
+#
+# The page-widths more than 0.5 points better at 40:
+BETTER	austrian	/at/en/accessible-travel	390	9.21 -> 7.11	8,000 -> 8,000 (19,409)	2		austrian-parity-019
+BETTER	austrian	/at/de/book/overview-inspiration	1440	6.27 -> 4.31	1,795 -> 1,775 (1,777)	1		austrian-parity-001
+BETTER	austrian	/at/en/book/overview-inspiration	1440	6.14 -> 4.18	1,795 -> 1,775 (1,777)	1		austrian-parity-001
+BETTER	austrian	/at/en/book/overview-services-on-board	1440	4.35 -> 2.69	2,444 -> 2,424 (2,423)	1		austrian-parity-001
+BETTER	austrian	/at/de/book/overview-services-on-board	1440	4.43 -> 2.79	2,468 -> 2,448 (2,447)	1		austrian-parity-001
+BETTER	austrian	/at/en/fly/travel-classes	390	13.77 -> 12.20	2,915 -> 2,895 (2,889)	1		austrian-parity-001
+BETTER	austrian	/at/de/fly/travel-classes	390	14.05 -> 12.49	2,915 -> 2,895 (2,889)	1		austrian-parity-001
+BETTER	austrian	/at/en/book/overview-inspiration	390	12.37 -> 10.92	2,318 -> 2,298 (2,300)	1		austrian-parity-001
+BETTER	austrian	/at/de/book/overview-inspiration	390	12.44 -> 11.00	2,366 -> 2,346 (2,348)	1		austrian-parity-001
+BETTER	austrian	/th/en/book/flights/promptpay	390	17.50 -> 16.12	3,418 -> 3,398 (3,382)	1		austrian-parity-003
+BETTER	austrian	/ca/en/homepage	1440	16.88 -> 15.85	3,219 -> 3,199 (3,162)	1		austrian-parity-026
+BETTER	austrian	/es/es/baggage	1440	6.54 -> 5.64	4,326 -> 4,306 (4,298)	1		austrian-parity-003
+BETTER	austrian	/pl/pl/baggage	1440	6.61 -> 5.71	4,350 -> 4,330 (4,322)	1		austrian-parity-003
+BETTER	austrian	/us/en/local-page/ski-campaign-2026	390	7.44 -> 6.58	3,535 -> 3,515 (3,515)	1		austrian-parity-025
+BETTER	austrian	/at/de/fly/travel-classes	1440	6.15 -> 5.48	2,428 -> 2,408 (2,414)	1		austrian-parity-001
+BETTER	austrian	/at/en/fly/travel-classes	1440	6.03 -> 5.36	2,428 -> 2,408 (2,414)	1		austrian-parity-001
