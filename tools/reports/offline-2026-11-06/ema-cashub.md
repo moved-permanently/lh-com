@@ -11758,3 +11758,162 @@ The +8 px is the FAQ section's, as on de/en. The code has to be live before the 
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so68. No background job of mine is
 running.
+
+## Standing order 69 (2026-11-18, from about 19:40 CET)
+
+**Carried over:** nothing.
+- Order 68's commits (7b1c5423, 2397c05b) were on main, and my worktree was clean.
+- The main checkout's dirty entries belong to other jobs and were left alone: blocks/notifications/notifications.css,
+  import-progress.json, importer reports and urls-*.txt.
+
+**Scratch:** migration-work/parity-588/so69 (not in git).
+- The scripts: heads.js, flow.js, gaps.py, loss.py, gate.py, pkg.py, pngruns.py, pngcols.py, variants.py, mkrows.py.
+- The served copies (5,335 SWISS, 733 B2B), the drafts, the DA copies, and hold-lead/.
+
+**Requests:**
+- Every render refused lh-proxy, www.* and every airline host per request and counted them. None was sent.
+- www's pages were read only from the recordings on disk: swiss-parity-001, -002a, -002b; b2b-parity-001, -009.
+
+**DA:**
+- Read only: 5 single GETs, one per command (lh-b2b businesstogo de/de, xx/de, de/en, xx/en at 19:34 CET;
+  celebrating-shared-stories de/en at 20:30). Nothing was written.
+- No upload, preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row.
+
+**Token-free:** nothing this order puts a style token into a document.
+- The SWISS aside rule is a theme rule.
+- businesstogo's carriers are a block option, a Spacer block and a second Spacer (l) block.
+- celebrating's row changes a section style.
+- The lists' test checks that no insert adds a `{…}`.
+
+### Item 1: the SWISS aside after a Spacer block, 81 px (pushed, 9f86e8d2)
+
+**The rule (styles/themes/swiss.css):** below 768 px, an aside that starts with a Spacer block gets 20 px above it.
+- The gap is 20 + 61 (M drawn) = 81 px, www's 80.
+- **Reach:** 16 asides in the 5,335 served SWISS copies, which is the ten documents. entertainment-on-board's aside does
+  not start with it in the page, so that page does not move.
+- **Gate base:** the page before the cleanup, as you set it: +1 px per aside.
+- Measured with the code against the host's code, then live after the push (mobile-apps 2,546 to the px).
+
+| Page (390) | Before the cleanup | Today (before the push) | With the rule (live) | www |
+| --- | --- | --- | --- | --- |
+| ch/de additional-bag | 2,770 | 2,791 | 2,771 | 2,816 |
+| ch/de swiss-business | 6,721 | 6,742 | 6,722 | 6,821 |
+| ch/en swiss-premium-economy | 7,454 | 7,475 | 7,455 | 7,682 |
+| ch/en miles-and-more | 5,075 | 5,096 | 5,076 | 5,194 |
+| ch/en upgrade-options | 3,763 | 3,784 | 3,764 | 3,904 |
+| ch/en swiss-recraft-collection (two asides) | 5,339 | 5,381 | 5,341 | 5,441 |
+| ch/en mobile-apps | 2,545 | 2,566 | 2,546 | 2,643 |
+| ch/en animals-travelling | 7,580 | 7,601 | 7,581 | 7,771 |
+| ch/en health-and-travel | 4,772 | 4,793 | 4,773 | 4,873 |
+
+### Item 2: Group for Business businesstogo, all four token-free (pushed, 9f86e8d2; READY, live)
+
+**The carriers:**
+- **{spacer-39} under the feature pictures:** the new block option spaced-pictures (scripts/style-markers.js with its
+  label, styles/themes/b2b.css, counted as a carrier by marker-collapse-cli).
+  - It puts a cell's picture 80 px above the heading after it, as the markers drew it.
+  - www's column-view picture to headline is 81 px (pixel rows of b2b-parity-009 at 1440 and 390). Without the markers
+    ours was 40.
+  - The first marker of each document ends its cell and drew 0 px.
+- **{heading-medium}:**
+  - The case-study H2 is heading-medium without it (0 / +1 px).
+  - On de/en and xx/en the feature block H2 had it against the block's title-compact. Without the marker it lost 81 px at
+    1440. The block takes h3-compact (order 68's option), so the H2 keeps the theme's heading-medium.
+- **de/de and xx/de {column-start-outer} x2:** www wraps these two pages in an extra one-column view, so the title is
+  40 px lower at 1440 and 20 px lower at 390 than on de/en. The carrier is a Spacer block (from-768) before the H1 (61 px
+  from 768, none on phones).
+  - Tried first: Style padded on the first section. That section holds the breadcrumb, so the theme takes its top padding
+    away. It only added 72 / 48 px under "Lösungen für alle", further from www's tabs.
+  - A Spacer M at both widths was further at 390 (7,317).
+- **de/de and xx/de {spacer-140}** (right after a Spacer (l) block): a second Spacer (l) block, as the collapse writes
+  it. Taking it out would be closer locally (www's gap before "Haben Sie Fragen?" is 491 px, ours 632 with it). The draft
+  that took it out, with padded first and last sections, failed both widths (4,989 / 7,223: +0.57 and +0.64 points).
+
+**The list:** delta-so69-b2b-businesstogo-token-free.txt / .json (text-inserts-apply).
+- Dry run on DA's current copies: 8 / 7 inserted, byte for byte back, a second run present, no `{…}` left.
+- marker-collapse-cli on the output changes nothing.
+- The helper applied it (59374af8). The served copies hold no marker and measure what was drafted.
+
+| Page | Width | www | As served | With the rows (live) | Points |
+| --- | --- | --- | --- | --- | --- |
+| de/de, xx/de businesstogo | 1440 | 5,069 | 5,018 (-1.01 %) | 5,019 (-0.99 %) | -0.02 |
+| de/de, xx/de businesstogo | 390 | 7,283 | 7,296 (+0.18 %) | 7,256 (-0.37 %) | +0.19 |
+| de/en, xx/en businesstogo | 1440 | 4,931 | 4,911 (-0.41 %) | 4,911 | 0 |
+| de/en, xx/en businesstogo | 390 | 6,685 | 6,733 (+0.72 %) | 6,733 | 0 |
+
+The helper's collapse (4,918 / 7,136 and 4,791 / 6,554) is reproduced to the px from the served copies. The 4 spacer
+gaps were 40 px each where pictures stack. de/en's -81 px was its block H2 losing heading-medium to title-compact.
+
+### Item 3: where the nine aside pages lose height (tools/reports/token-free/swiss-aside-loss-so69.md, pushed 275ef3f0)
+
+**Per region against the recordings:** top, intro (H1 to the first heading), body, end, footer.
+
+- **The intro is the biggest loss on every page:** -21 to -140 px.
+  - www's lead under the H1 is `p.copytext-large`, 18 / 30 px with 0.2 px spacing (22 recorded pages). Ours is body
+    text (16 / 22).
+  - Under the lead www has 64 / 44 px to the next heading (96 / 76 with a column view), ours 48.
+  - The collapse counts a SWISS `{copytext-large}` as body text (BODY_PX 16, no TEXT_PX entry).
+- **Every SWISS page:** the H1 is 8 to 10 px lower than www's, and on phones the footer is 19 px taller (its legal
+  lines 24 px apart where www's are 15).
+
+**The lead rule: HOLD.**
+- The rule: the H1's paragraph, when it ends its section's text, takes copytext-large (as Austrian's intro-after-h1),
+  18 / 30 / 300 / 0.2 px. Files in so69/hold-lead.
+- In-page on all 172 recorded SWISS page-widths: 34 move, and the sum of |%| drops from 70.33 to 57.33.
+- 4 fail. Each was already longer than www elsewhere:
+  - duty-free-shop 390: +1.71 points (the page end).
+  - unaccompanied-minors 390: +0.89 (its table, 808 px).
+  - miles-and-more 1440: +0.70 (www shows the open panel's picture beside its list).
+  - swiss-recraft-collection 1440: +0.59.
+- On every H1 + paragraph, 10 fail. The six text pages, group-travel, rebook and airrail are among them.
+- With the footer and the top in the package, 17 / 27 fail.
+- The nine pages with it, at 390: additional-bag 2,795, swiss-business 6,762, swiss-premium-economy 7,517,
+  miles-and-more 5,124, upgrade-options 3,842, recraft 5,427, mobile-apps 2,586, animals 7,629, health 4,813.
+
+**Fleet hub intro (390): HOLD.**
+- www's cards start 102 px under the intro, ours 81.
+- +21 px takes ch/en fleet from 2,051 to 2,072 against www's 2,040: +0.54 to +1.57 %, +1.03 points.
+- Its content is 8 px short: no lead (-40), card pictures about 45 px taller. The page is long only by the footer (+19).
+
+**celebrating-shared-stories: de/en READY, live.** The list is delta-so69-b2b-celebrating-space-below-l.
+- The card section before "Anniversary of an icon" goes from space-below-m to space-below-l. The gap is 133 -> 193 px at
+  1440 (www 219) and 113 -> 173 at 390 (www 179).
+- 1440: 8,216 -> 8,276 (www 8,265, -0.59 -> +0.13 %). 390: 12,345 -> 12,405 (www 12,438, -0.75 -> -0.27 %).
+- DA dry run: 1 inserted, byte for byte back.
+- The helper applied it (584564ee), and the served page measures 8,276 / 12,405.
+- de/de is HOLD: its card section has no space below to enlarge, and its 1440 page is already 23 px longer than www's.
+
+### Checks
+
+- **Lint:**
+  - Whole-repo `npm run lint`: exit 0 before each push, and again after each rebase over other sessions' commits.
+  - stylelint on styles/themes/swiss.css and b2b.css: exit 0. Its first run found no-descending-specificity against
+    B2B's icon-card text rule, so the spaced-pictures rule moved above it. The drafts read the same after the move.
+- **Tests before the push:** the folder-reading tests (order 62's list), every test naming the SWISS or B2B theme,
+  style-markers, marker-collapse, token-free, section-aside, carousel-cards, text-inserts-apply, keepSizes, a delta-so6
+  list or spaced-pictures, and the new test b2b-spaced-pictures-so69: 442 files, 1,913 pass, 0 failures, 3 skipped.
+- **Full suite** on 275ef3f0: 1,288 files, 4,826 pass, 0 failures, 5 skipped.
+
+### Final section (about 21:05 CET, 2026-11-18)
+
+**Pushed:**
+- **9f86e8d2:** the SWISS aside rule (item 1); the block option spaced-pictures; the businesstogo list (item 2); the test.
+- **275ef3f0:** the loss report and the celebrating list (item 3).
+
+**READY lists (all applied by the helper and served at the drafted figures):**
+
+| List | Paths | 1440 as served -> with the row | 390 as served -> with the row |
+| --- | --- | --- | --- |
+| delta-so69-b2b-businesstogo-token-free | /de/de, /xx/de /program/businesstogo | 5,018 -> 5,019 (www 5,069) | 7,296 -> 7,256 (www 7,283) |
+| delta-so69-b2b-businesstogo-token-free | /de/en, /xx/en /program/businesstogo | 4,911 -> 4,911 (www 4,931) | 6,733 -> 6,733 (www 6,685) |
+| delta-so69-b2b-celebrating-space-below-l | /de/en/news/celebrating-shared-stories | 8,216 -> 8,276 (www 8,265) | 12,345 -> 12,405 (www 12,438) |
+
+**Held, with figures:**
+- **The SWISS lead rule:** 34 page-widths move (sum 70.33 -> 57.33). 4 fail, all pages long elsewhere: duty-free 390
+  +1.71, unaccompanied-minors 390 +0.89, miles-and-more 1440 +0.70, recraft 1440 +0.59. It awaits your word, or those
+  four fixed first.
+- **The fleet hub intro (+21 px at 390):** +1.03 points.
+- **celebrating de/de:** no carrier to change, and its 1440 page is already long.
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so69. No background job of mine is
+running.

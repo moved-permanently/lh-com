@@ -13,7 +13,8 @@
 #   and nothing on phones. Section style "padded" was tried: the first section holds the breadcrumb, so it gets no padding
 #   above, only 72 / 48 px below its last H2 (further from www's tabs). A Spacer M on phones too was closer at no width.
 # - de/de, xx/de {spacer-140} (right after a Spacer (l) block): a second Spacer (l) block, as the collapse writes it. Taking
-#   it out (www's gap before "Haben Sie Fragen?" is 491 px, ours 632 with it) takes 1440 0.57 points and 390 0.64 points further.
+#   it out would be closer there (www's gap before "Haben Sie Fragen?" is 491 px, ours 632 with it), but the draft that took
+#   it out (with padded first and last sections) ended 1440 0.57 points and 390 0.64 points further (4,989 / 7,223).
 # No row puts a style marker in: every insert takes one out or changes a block's options; the result has no {…} token.
 # The code (spaced-pictures) has to be live before these rows are applied: without it the pictures sit 40 px above
 # their H3 (de/de 1440 -40 px, 390 -120).
