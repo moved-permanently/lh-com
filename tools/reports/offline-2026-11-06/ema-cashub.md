@@ -11592,3 +11592,169 @@ I read order 66's heading-by-heading matches (so66/mt). None of the three pages 
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so67. No background job of mine is
 running.
+
+## Standing order 68 (2026-11-18, from about 18:20 CET)
+
+**Carried over:** nothing. Order 67's two commits (040d0326, 919bdac4) were on main, and my worktree was clean. The main
+checkout's dirty entries belong to other jobs and were left alone: blocks/notifications/notifications.css,
+import-progress.json, importer reports and urls-*.txt.
+
+**Scratch:** migration-work/parity-588/so68 (not in git).
+- The scripts: togm.mjs (order 67's togs.mjs, plus the JS steps' answers as a column), m40.js (the M toggle), msum.py,
+  mgaps.js, wrec.py (www's gaps from the recordings laid out offline), afterbtn.py, wwwafterbtn.py, crun.sh (the host's
+  code against this checkout's).
+- The censuses, the drafts, the DA copies, and hold-aside/ (item 3's rule and figures).
+
+**Requests:**
+- Every render refused lh-proxy, www.* and every airline host per request and counted them. None was sent.
+- www's pages were read only from the recordings on disk: swiss-parity-001, -002a, -002b; b2b-parity-001 to -017.
+
+**DA:**
+- Read only: 2 single GETs, one per command (lh-b2b businesstogo de/de and xx/de, 18:53 CET). Nothing was written.
+- No upload, preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row.
+
+**Token-free:** nothing this order puts a style token into a document.
+- The SWISS small print is a theme rule.
+- The businesstogo carriers are a block option, section metadata (Style) and section breaks. The list's test checks
+  that no insert adds a `{…}` its anchor doesn't hold.
+
+### Item 1: M at 40 px: HOLD for both brands (tools/reports/token-free/m40-swiss-b2b-so68.md)
+
+**Method:** M at 60 against M at 40, in the same load, on every recorded page-width.
+- After the load settled, every separator paragraph drawn at SPACE.m (Spacer M, the space-m options and styles) got
+  40 px. Then the height was read again.
+- Not measured: SWISS's homepages and /ch/en/offers were still filling (no M on them), and B2B lhg4b-search-prelogin
+  were broken loads.
+
+| Brand | Page-widths | Sum % off www (60 / 40) | Median (60 / 40) | Moved | Further > 0.5 points | Verdict |
+| --- | --- | --- | --- | --- | --- | --- |
+| SWISS | 162 | 418.78 / 423.74 (+4.97) | 1.267 / 1.404 | 21 | 8 | HOLD: sum and median both up |
+| Group for Business | 180 | 165.75 / 172.32 (+6.57) | 0.549 / 0.629 | 57 | 21 | HOLD: sum and median both up |
+
+**The page-widths further by more than half a point** are listed in the report with www's own gap at each M. The gap
+was read from the recording laid out offline with the brand's CSS, text box to text box.
+
+**The cause is mostly not "www uses 60 there":**
+- Where www's layout answers, M at 40 is locally right or closer: hygiene-and-safety www 100 / 80 against ours 125 / 105,
+  partner-plus-benefit 390 www 79 against 101, celebrating's intro www 60 against 85, recraft 80 against 101.
+- These pages get further because they are already short of www elsewhere. Taking 20 px per M off moves their height
+  away from www's: the shrinking-rule arithmetic.
+- www uses more than 60 in two places: the SWISS fleet hub's intro (102 px) and celebrating-shared-stories' last H2
+  (219 / 179 px).
+- Five of SWISS's eight are the aside pages of item 3 (their leading Spacer is M). Two are pax-receipt, 25 to 29 % short
+  of www (www's form).
+
+### Item 2: SWISS advance-seat-reservation (pushed, 7b1c5423)
+
+- **Against www:** ch/en 390 now 9,684 against www's 9,348 (+3.59 %). That is further than before the cleanup, which
+  had 9,376 (+0.30 %). 1440 is 6,950 (www 7,124), unchanged.
+- **The cause:** the 14 markers the cleanup took out were the HON Circle note in each picture-and-text row, after the row's
+  button. www draws it in copytext-small: in the recordings the richtext right after a maui-link button is copytext-small
+  15 of 15 times.
+- **The rule (styles/themes/swiss.css):** text paragraphs after a Columns Media row's button, at the end of its text, are
+  small print (not in a sidebar row).
+- **Reach:** the 5,332 served SWISS copies (order 67's, 17 Nov; the cleanup only took markers out) match only in ch/en and ch/de advance-seat-reservation (14 paragraphs each).
+- **Gate:** an in-page toggle on all 172 recorded SWISS page-widths.
+  - ch/en 390 9,684 -> 9,376 (+3.59 -> +0.30 %, -3.29 points), 1440 6,950 -> 6,947.
+  - Nothing else moves. The homepages that "moved" were loads still filling; terms-conditions was read again alone and
+    did not move.
+  - With the code itself (the host's code against this checkout's): ch/en 9,376 / 6,947 to the px, ch/de 390 10,009 ->
+    9,701 (unrecorded), golf-traveller (a sidebar row) unchanged.
+
+### Item 3: the SWISS aside's Spacer block: HOLD with figures (so68/hold-aside)
+
+**What happens today:** the cleanup turned order 65's {spacer-39 below-768} rows in the ten documents into a Spacer
+block (below-768) at the aside's start.
+- Order 67's rule already recognises it: the Spacer block becomes the same spacer paragraph, so the aside keeps
+  lh-com's 40 px.
+- So phones get 40 + 61 (M drawn) = 101 px, where the rows gave 40 + 40 = 80, which is www's 80. The +21 comes from M
+  being 60, not from the rule missing the block.
+
+**Two variants, toggled in-page on every recorded SWISS 390** (nine pages move):
+- **A, the Spacer block is the gap (61 px):** 8 of 9 more than half a point further (+0.52 to +1.51).
+- **C, the aside 20 px + the Spacer (81 = www's 80):** 4 of 9 further:
+  - mobile-apps +0.76
+  - recraft +0.74
+  - additional-bag +0.71
+  - upgrade-options +0.51
+
+**Why both fail:** all nine pages are 0.9 to 3.1 % short of www elsewhere, so any take-back of the +21 moves them
+further.
+
+**What C restores:** the pages as they were before the cleanup, which order 65's rows gave and gated, 1 px per aside
+more (additional-bag 2,770 -> 2,771, mobile-apps 2,545 -> 2,546, recraft 5,339 -> 5,341).
+
+**Held for your word:** whether the gate's base for these ten documents is today's page or the page before the
+cleanup. With the latter, C passes everywhere.
+
+### Item 4: Group for Business businesstogo de/de and xx/de (pushed, 7b1c5423; list READY)
+
+**The code:** the block option h3-compact (scripts/style-markers.js BLOCK_OPTIONS and its label; scripts/token-free.js).
+- The block's H3s take the theme's compact choice. Its other headings stay as the theme draws them, so the H2
+  "Optimieren Sie Ihre Geschäftsreisen" keeps heading-medium (www's). With title-compact it went heading-copytext-large
+  too.
+- No served document has the option today, so the code moves no page. The host's code against this checkout's on de/en
+  businesstogo and lufthansa-group-wifi (title-compact blocks): the same heights.
+- marker-collapse-cli counts it as a carrier.
+
+**The rows (delta-so68-b2b-businesstogo-h3-compact.txt / .json):** order 67's rows for the two documents, with
+h3-compact in place of title-compact. The four H3 markers go out, and the FAQ H2 gets a section of its own (wide-text,
+h2-compact).
+- Dry run on DA's current copies (byte for byte order 67's): 6 inserted each, byte for byte back; a second run 6
+  present.
+- Order 67's list keeps its title-compact rows for these two paths HOLD.
+
+| Page | www | As served | With the row | Points |
+| --- | --- | --- | --- | --- |
+| de/de and xx/de businesstogo 390 | 7,283 | 7,288 (+0.07 %) | 7,296 (+0.18 %) | +0.11 |
+| de/de and xx/de businesstogo 1440 | 5,069 | 5,010 (-1.16 %) | 5,018 (-1.01 %) | -0.16 (closer) |
+
+The +8 px is the FAQ section's, as on de/en. The code has to be live before the rows are applied.
+
+### Checks
+
+- **Lint:**
+  - Whole-repo `npm run lint`: exit 0 on the commit, and exit 0 again after its rebase over 7ccaff75, dc563d0d and
+    7ecdbbcb (other sessions' token-free width styles, bundles and a test). It was pushed as 7b1c5423.
+  - stylelint on styles/themes/swiss.css: exit 0. The first run found no-descending-specificity against the cards'
+    description rule; it now has a disable-next-line with its reason, as the theme does elsewhere.
+- **Tests before the push:** the folder-reading tests (order 62's list), every test naming the SWISS or B2B theme,
+  style-markers, marker-collapse, token-free, section-aside, carousel-cards, text-inserts-apply, keepSizes or a delta-so6
+  list, and the new test: 440 files, 1,904 pass, 0 failures, 3 skipped.
+- **Bundles:** they hold no block-option code (BLOCK_OPTIONS, readBlockOptions), so no rebuild.
+- **Full suite** on 7b1c5423: 1,284 files, 4,814 pass, 0 failures, 5 skipped.
+
+### Final section (about 19:25 CET, 2026-11-18)
+
+**Pushed (7b1c5423):**
+- **SWISS (styles/themes/swiss.css):** small print after a picture-and-text row's button. advance-seat-reservation ch/en
+  390 back to 9,376 (www 9,348); no other recorded page-width moves.
+- **Group for Business:** the block option h3-compact (scripts/style-markers.js, scripts/token-free.js; marker-collapse-cli
+  counts it).
+- **Docs:** the M report tools/reports/token-free/m40-swiss-b2b-so68.md, and the test b2b-h3-compact-so68.
+
+**READY list (token-free, pushed with the code):**
+- delta-so68-b2b-businesstogo-h3-compact.txt: /de/de/program/businesstogo and /xx/de/program/businesstogo. 390 +0.11
+  points, 1440 -0.16.
+  - The helper applied the rows within the hour (316fe592: uploaded and previewed, not published).
+  - The served copies hold h3-compact and no {heading-copytext-large}.
+  - de/de reads 7,296 / 5,018 with the deployed code, as drafted.
+
+**The M table:**
+
+| Brand | Page-widths | Sum (60 / 40) | Median (60 / 40) | Verdict |
+| --- | --- | --- | --- | --- |
+| SWISS | 162 | 418.78 / 423.74 | 1.267 / 1.404 | HOLD at 60 |
+| Group for Business | 180 | 165.75 / 172.32 | 0.549 / 0.629 | HOLD at 60 |
+
+**Held, with figures:**
+- **M at 40 (both brands):** sum and median both up. 8 SWISS and 21 B2B page-widths are more than half a point further.
+  At most M www's gap is nearer 40 than 60; the pages are short of www elsewhere (report).
+- **Item 3, the aside's Spacer block:**
+  - A (the Spacer is the gap, 61 px) fails 8 of 9 recorded pages.
+  - C (aside 20 + Spacer, www's 80) fails 4 (+0.51 to +0.76) against today's page, and equals the pre-cleanup pages
+    (+1 px per aside).
+  - It awaits your word on the gate's base (so68/hold-aside).
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so68. No background job of mine is
+running.
