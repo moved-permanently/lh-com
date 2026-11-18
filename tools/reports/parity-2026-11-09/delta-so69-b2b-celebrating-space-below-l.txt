@@ -1,0 +1,18 @@
+# ema-cashub, standing order 69 (2026-11-18), item 3: Group for Business celebrating-shared-stories, the gap before
+# the grey band "Anniversary of an icon" (order 68: www 219 px at 1440 and 179 at 390 text to text, read from the
+# recording laid out offline; ours 133 / 113). The card section before it ends with Style "space-m, space-below-m" (a
+# Spacer M, 61 px drawn, then the section gap and the band's padding). With space-below-l (L, 121 px) the gap is 193 / 173.
+# Token-free: a section style changes (M to L); no row puts a style marker in.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so69-b2b-celebrating-space-below-l.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (1 read-only GET, 20:30 CET): "1 inserted", "without the inserts DA's copy byte for byte:
+# true"; a second run "1 present".
+# Drafted on b2b.turnsthe.page (so67/hostv2.mjs, the served .plain.html with the same change as main, this checkout's
+# code; unhinted; airline hosts, www.* and lh-proxy refused per request, none sent). Gate: |after %| - |before %| <= 0.5.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/en/news/celebrating-shared-stories	1440	b2b-parity-001	8265	8216 (-0.59 %)	8276 (+0.13 %)	-0.46 points; the gap 133 -> 193 (www 219)
+READY	/de/en/news/celebrating-shared-stories	390	b2b-parity-001	12438	12345 (-0.75 %)	12405 (-0.27 %)	-0.48 points; the gap 113 -> 173 (www 179)
+HOLD	/de/de/news/celebrating-shared-stories	1440	b2b-parity-001	7754	7777 (+0.30 %)	-	no row: its card section has no Style below (no separator to enlarge: a new one adds a section style and about 120 px), and the page is already 23 px longer than www's; www's gap there was not found in order 68's offline read
+#
+# DA change (lh-b2b), READY path: the section before "Anniversary of an icon" (its cards end with "From satellite phones to
+# high-speed internet"): Style "space-m, space-below-m" -> "space-m, space-below-l".

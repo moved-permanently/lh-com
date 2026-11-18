@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/news/celebrating-shared-stories",
+  "inserts": [
+   {
+    "replace": "<p>From satellite phones to high-speed internet</p></div></div></div><div class=\"section-metadata\"><div><div>Style</div><div>space-m, space-below-m</div></div></div>",
+    "text": "<p>From satellite phones to high-speed internet</p></div></div></div><div class=\"section-metadata\"><div><div>Style</div><div>space-m, space-below-l</div></div></div>"
+   }
+  ]
+ }
+]

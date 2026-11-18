@@ -70,6 +70,22 @@ test('applied to a copy shaped as DA\'s: no token left, byte for byte back, a se
   });
 });
 
+test('item 3: celebrating-shared-stories de/en READY, de/de HOLD; its one insert changes a section style M to L, no token', () => {
+  const list = read('../tools/reports/parity-2026-11-09/delta-so69-b2b-celebrating-space-below-l.txt');
+  const data = JSON.parse(read('../tools/reports/parity-2026-11-09/delta-so69-b2b-celebrating-space-below-l.json'));
+  assert.deepEqual([...new Set(listPaths(list))], ['/de/en/news/celebrating-shared-stories']);
+  assert.match(list, /^HOLD\t\/de\/de\/news\/celebrating-shared-stories\t/m);
+  assert.equal(data.length, 1);
+  const [{ replace, text }] = data[0].inserts;
+  assert.equal(data[0].inserts.length, 1);
+  assert.equal(replace.replace('<div>space-m, space-below-m</div>', '<div>space-m, space-below-l</div>'), text);
+  assert.equal((text.match(TOKEN) || []).length, 0);
+  const doc = `<body><main><div><p>x</p>${replace}</div></main></body>`;
+  const r = applyTextInserts(doc, data[0].inserts);
+  assert.equal(r.results.join(), 'inserted');
+  assert.equal(removeTextInserts(r.html, r.inserts) === doc, true);
+});
+
 test('SWISS: an aside that starts with a spacer 20 px under the content on phones, after order 67\'s 60 px rule', () => {
   const css = read('../styles/themes/swiss.css');
   const i67 = css.indexOf('.section-aside:not(:empty, :has(> .default-content-wrapper:first-child > p.spacer:first-child))');
