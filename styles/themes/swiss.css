@@ -1473,3 +1473,17 @@ body.brand-swiss main .table-striped-wrapper:has(+ .accordion-columns-wrapper) >
     margin: -4px 0;
   }
 }
+
+/* standing order 70, item 4 (travel-insurances): a grey note band between the title's padded section and a padded one
+   sits as www's: 40 px under the title (the title's margin; ours added the section's padding and gap, 139 px of ink to
+   the band where www has 50) and the next section's padding alone under it (www 47 px of ink, ours 92). ch/de
+   travel-insurances 1440 2,405 -> 2,269 (www 2,272), 390 2,272 -> 2,156 (www 2,092); no other recorded page-width moves */
+/* stylelint-disable-next-line no-descending-specificity -- another page shape than the one-section page above */
+body.brand-swiss main > .section.padded:first-of-type:has(+ .section.grey.flush + .section.padded) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+body.brand-swiss main > .section.padded:first-of-type + .section.grey.flush:has(+ .section.padded) {
+  margin-bottom: 0;
+}

@@ -12098,3 +12098,24 @@ change is a theme rule.
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so70. No background job of mine is
 running.
+
+### Standing order 70, addendum (about 23:55 CET, 2026-11-18): item 4's travel-insurances rule (pushed)
+
+**The rule (styles/themes/swiss.css):** a grey note band between the title's padded section and a padded section sits
+as www's.
+- Under the title, the title's own 40 px only: the title section loses its bottom padding and gap. www has 50 px of ink
+  from the title to the band, ours had 139.
+- Under the band, the next section's padding only: www 47 px of ink, ours 92.
+- **Reach:** the 11 travel-insurances documents (no other served SWISS document has a padded title section, a grey
+  flush band and a padded section in that order).
+
+**Gate (in-page on all 172 recorded SWISS page-widths, then the code as a CODE override):**
+- 2 page-widths moved, 0 further, and the sum of |%| is 598.77 -> 587.50 (that run's sum, with the homepages' loads
+  still filling).
+- ch/de travel-insurances 1440: 2,405 -> 2,269 (www 2,272), +5.85 -> -0.13 %.
+- ch/de travel-insurances 390: 2,272 -> 2,156 (www 2,092), +8.60 -> +3.06 %.
+- The CODE override gave the same figures to the px.
+
+**Checks:** whole-repo `npm run lint` exit 0, stylelint on swiss.css exit 0, and the targeted tests before the push
+(order 62's folder list and the SWISS / B2B ones: 491 files, 2,084 pass, 0 failures, 3 skipped;
+test/swiss-lead-so70.test.mjs now has 4 tests).

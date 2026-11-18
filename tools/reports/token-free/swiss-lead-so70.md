@@ -79,3 +79,11 @@ test/swiss-lead-so70.test.mjs). Every rule is token-free: a theme rule or theme 
 - Three loads in the parallel sweep were broken (swiss-first 1440, contact-us 390, ch/en homepage 1440). Read again
   alone they gave 4,274, 2,338 and 4,346: unchanged, the footer's -8, and the code-override figure.
 - online-check-in 390's booking form varies by 24 px per load. With the code it is 5,555 (www 5,567).
+
+## Item 4: travel-insurances (shipped with the addendum)
+
+- **The rule:** a grey note band between the title's padded section and a padded section. The title section loses its
+  bottom padding and gap, and the band loses its gap.
+  - www: 50 px of ink from the title to the band and 47 under it. Ours: 139 and 92.
+- **Reach:** the 11 travel-insurances documents.
+- **Result:** 1440 2,405 -> 2,269 (www 2,272), 390 2,272 -> 2,156 (www 2,092). No other recorded page-width moves.

@@ -84,3 +84,9 @@ test('item 3: celebrating de/de READY, its first section\'s Style M on phones on
   assert.equal(removeTextInserts(once.html, once.inserts) === copy, true);
   assert.deepEqual(applyTextInserts(once.html, data[0].inserts).results, ['present']);
 });
+
+test('item 4: travel-insurances\' grey note band under the title as www\'s (title section and band without their gaps)', () => {
+  const css = read('../styles/themes/swiss.css');
+  assert.match(css, /body\.brand-swiss main > \.section\.padded:first-of-type:has\(\+ \.section\.grey\.flush \+ \.section\.padded\) \{\s*padding-bottom: 0;\s*margin-bottom: 0;/);
+  assert.match(css, /body\.brand-swiss main > \.section\.padded:first-of-type \+ \.section\.grey\.flush:has\(\+ \.section\.padded\) \{\s*margin-bottom: 0;/);
+});
