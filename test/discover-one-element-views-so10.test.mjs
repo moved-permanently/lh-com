@@ -19,11 +19,15 @@ const run = (html, brand = 'discover') => collapseHtml(html, {
 }).html;
 const doc = '<div><h1>Additional services</h1><p>Everything ready for take-off? {column-start-outer column-end-outer}</p><div class="carousel-cards grid two-up"><div><div>a</div><div><h2>Card</h2></div></div></div></div>';
 
-test('Discover: a one-paragraph view keeps both its marks on the paragraph', () => {
-  assert.ok(themeFor('discover').columnViews.oneElementViews === true);
+/* Standing order 45 of 2026-11-18 (token-free content): the keep rule is gone. discover.css draws the intro's view from
+   the structure (the paragraph after the H1, the last of its text, before a card grid; test/token-free-so45), so the
+   collapse drops the view's marks as it does any other's. */
+test('Discover since standing order 45: a one-paragraph view\'s marks go, the paragraph stays', () => {
+  assert.ok(!themeFor('discover').columnViews.oneElementViews);
   const once = run(doc);
-  assert.ok(once.includes('<p>Everything ready for take-off? {column-start-outer column-end-outer}</p>'), once.slice(0, 300));
-  assert.ok(run(once).includes('take-off? {column-start-outer column-end-outer}</p>'), 'second run');
+  assert.ok(once.includes('<p>Everything ready for take-off?</p>'), once.slice(0, 300));
+  assert.doesNotMatch(once, /\{column-/);
+  assert.doesNotMatch(run(once), /\{column-/, 'second run');
 });
 
 test('Discover: a view over several elements goes as before; other brands drop the one-paragraph view', () => {

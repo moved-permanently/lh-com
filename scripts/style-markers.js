@@ -221,10 +221,9 @@ export const THEMES = {
   // of its own (www: 26 of 33 not at a section's start)
   discover: {
     live: true,
-    // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
-    // one-column view after the title) keeps its marks in the collapse (standing order 10 of
-    // 2026-11-12; import time only)
-    columnViews: { oneElementViews: true },
+    // (no columnViews.oneElementViews since standing order 45 of 2026-11-18: the intro's
+    // one-paragraph view after the title is discover.css's, drawn from the structure, so the
+    // collapse drops its marks like any other view's)
     // (no keepSizes since standing order 44 of 2026-11-17: heading-copytext-large is the H3 and
     // H4 default, and for an H2 the title-compact block option or the h2-compact section style;
     // the collapse writes that carrier or nothing, no marker)
