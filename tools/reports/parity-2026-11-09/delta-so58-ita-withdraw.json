@@ -1,0 +1,658 @@
+[
+ {
+  "path": "/br/pt/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "de Roma {heading-medium}</h3>",
+    "text": "de Roma</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "serviço {heading-small}</h2>",
+    "text": "serviço</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "istência de bagagem {heading-medium}</h2>",
+    "text": "istência de bagagem</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": " viagem {heading-medium}</h2>",
+    "text": " viagem</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "usam o Sistema de Entrada/Saída {heading-medium}</h2>",
+    "text": "usam o Sistema de Entrada/Saída</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": " viagem {heading-small}</h2>",
+    "text": " viagem</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "umicino {heading-medium}</h3>",
+    "text": "umicino</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "zhunden {heading-small}</h2>",
+    "text": "zhunden</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "ckhilfe {heading-medium}</h2>",
+    "text": "ckhilfe</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "klassen {heading-medium}</h2>",
+    "text": "klassen</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "nsetzen {heading-medium}</h2>",
+    "text": "nsetzen</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "eklasse {heading-small}</h2>",
+    "text": "eklasse</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "umicino {heading-medium}</h3>",
+    "text": "umicino</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "stencia {heading-small}</h2>",
+    "text": "stencia</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "tención de equipaje {heading-medium}</h2>",
+    "text": "tención de equipaje</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "e viaje {heading-medium}</h2>",
+    "text": "e viaje</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "e utilizan el Sistema de Entradas y Salidas {heading-medium}</h2>",
+    "text": "e utilizan el Sistema de Entradas y Salidas</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "e viaje {heading-small}</h2>",
+    "text": "e viaje</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "umicino {heading-medium}</h3>",
+    "text": "umicino</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "istance {heading-small}</h2>",
+    "text": "istance</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": ">Assistance bagages {heading-medium}</h2>",
+    "text": ">Assistance bagages</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": " voyage {heading-medium}</h2>",
+    "text": " voyage</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "t le système d’entrée/de sortie {heading-medium}</h2>",
+    "text": "t le système d’entrée/de sortie</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": " voyage {heading-small}</h2>",
+    "text": " voyage</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "ς Ρώμης {heading-medium}</h3>",
+    "text": "ς Ρώμης</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "νοδείας {heading-small}</h2>",
+    "text": "νοδείας</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "οσκευές {heading-medium}</h2>",
+    "text": "οσκευές</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "αξιδίου {heading-medium}</h2>",
+    "text": "αξιδίου</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "οιούν το Σύστημα Εισόδου/Εξόδου {heading-medium}</h2>",
+    "text": "οιούν το Σύστημα Εισόδου/Εξόδου</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "αξιδίου {heading-small}</h2>",
+    "text": "αξιδίου</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "umicino {heading-medium}</h3>",
+    "text": "umicino</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "istenza {heading-small}</h2>",
+    "text": "istenza</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "bagagli {heading-medium}</h2>",
+    "text": "bagagli</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "o il sistema di ingressi/uscite {heading-medium}</h2>",
+    "text": "o il sistema di ingressi/uscite</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/support/utilities/invoicing",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": " Volato {heading-small}</h2>",
+    "text": " Volato</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "viaggio {heading-small}</h2>",
+    "text": "viaggio</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "ジア・ラウンジ {heading-medium}</h3>",
+    "text": "ジア・ラウンジ</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "助犬とのご旅行 {heading-small}</h2>",
+    "text": "助犬とのご旅行</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "関するサポート {heading-medium}</h2>",
+    "text": "関するサポート</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "きな座席を選択 {heading-medium}</h2>",
+    "text": "きな座席を選択</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "用する欧州諸国 {heading-medium}</h2>",
+    "text": "用する欧州諸国</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "きな座席を選択 {heading-small}</h2>",
+    "text": "きな座席を選択</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/other-requests/families-and-children/unaccompained-minors",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "Airport {heading-medium}</h3>",
+    "text": "Airport</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "phonden {heading-small}</h2>",
+    "text": "phonden</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/travel-information/baggage/checked-baggage",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "istentie met bagage {heading-medium}</h2>",
+    "text": "istentie met bagage</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "klassen {heading-medium}</h2>",
+    "text": "klassen</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "\"01\">01 {heading-medium}</h3>",
+    "text": "\"01\">01</h3>"
+   },
+   {
+    "replace": "\"02\">02 {heading-medium}</h3>",
+    "text": "\"02\">02</h3>"
+   },
+   {
+    "replace": "\"03\">03 {heading-medium}</h3>",
+    "text": "\"03\">03</h3>"
+   },
+   {
+    "replace": "bruiken {heading-medium}</h2>",
+    "text": "bruiken</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": " kiezen {heading-small}</h2>",
+    "text": " kiezen</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "from": "delta-so53-ita-carry-01 (withdrawn)",
+  "inserts": [
+   {
+    "replace": "A321neo {heading-medium}</h2>",
+    "text": "A321neo</h2>"
+   }
+  ]
+ }
+]

@@ -6,7 +6,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/it/it/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -15,7 +16,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/fr/fr/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -24,7 +26,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/es/es/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -33,7 +36,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -42,7 +46,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/nl/nl/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -51,7 +56,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/br/pt/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -60,7 +66,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/gr/el/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -69,7 +76,8 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  },
  {
   "path": "/jp/ja/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
@@ -78,6 +86,7 @@
     "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
     "text": "<p>{spacer-40 from-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "standing order 58: Ben's token-free rule (17 Nov): the row puts style markers into the document. not in DA: the collapse took the gap section's spacers to a Spacer block (option from-768) before this row reached it; nothing to take out"
  }
 ]

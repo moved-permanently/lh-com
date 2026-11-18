@@ -6,7 +6,8 @@
     "replace": "To the Lufthansa Guide Service</a></p>",
     "text": "To the Lufthansa Guide Service</a> {spacer-34 below-768}</p>"
    }
-  ]
+  ],
+  "withdrawn": "WITHDRAWN by ema-test, standing order 58: Ben's token-free rule (17 Nov), the row puts a style marker in a card's cell, where no carrier exists (the collapse would drop it). The gap matters beyond a near value (390 8.03 -> 6.41 % with it). Replacement: HOLD for the section style space-below-m-below-768 (M at the section's end on phones; named in delta-so57-lh-com-token-cleanup.txt, not on main yet); its removal waits with it"
  },
  {
   "path": "/at/de/articles/highlights/the-art-of-flying-extra-space-seat",
