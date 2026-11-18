@@ -79,7 +79,7 @@ test('page types', () => {
 
 test('section styles: class names and the friendly "Label=value" spelling', () => {
   assert.deepEqual(readSectionStyle(['grey', 'space-m', 'wide-text', 'h2-large']), {
-    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, width: 'full', size: null, headings: { h2: 'large' }, image: null, quote: null,
+    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, spaceTablet: null, spacePhone: null, spaceBelowTablet: null, spaceBelowPhone: null, dividerTablet: null, dividerPhone: null, width: 'full', size: null, headings: { h2: 'large' }, image: null, quote: null,
   });
   const friendly = readSectionStyle('Space=L, Small print, H3 large, Divider below');
   assert.equal(friendly.space, 'l');
