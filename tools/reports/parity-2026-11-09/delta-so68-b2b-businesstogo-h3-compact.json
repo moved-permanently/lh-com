@@ -1,0 +1,60 @@
+[
+ {
+  "path": "/de/de/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media divider-above nested equal-cells\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience: {heading-copytext-large}",
+    "text": "<div class=\"columns-media divider-above nested equal-cells h3-compact\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience:"
+   },
+   {
+    "replace": ">Maximale Kostenersparnis und Prämien: {heading-copytext-large}</",
+    "text": ">Maximale Kostenersparnis und Prämien:</"
+   },
+   {
+    "replace": ">Gewinnen Sie Kontrolle und Flexibilität: {heading-copytext-large}</",
+    "text": ">Gewinnen Sie Kontrolle und Flexibilität:</"
+   },
+   {
+    "replace": ">Priorisieren Sie die Sicherheit Ihrer Reisenden: {heading-copytext-large}</",
+    "text": ">Priorisieren Sie die Sicherheit Ihrer Reisenden:</"
+   },
+   {
+    "replace": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ) {heading-copytext-large}</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text</div></div></div></div><div><h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)</h2>"
+   },
+   {
+    "before": "<h2 id=\"modernste-technologie-maximales-vertrauen\">Modernste Technologie. Maximales Vertrauen.</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text, h2-compact</div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/de/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media divider-above nested equal-cells\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience: {heading-copytext-large}",
+    "text": "<div class=\"columns-media divider-above nested equal-cells h3-compact\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience:"
+   },
+   {
+    "replace": ">Maximale Kostenersparnis und Prämien: {heading-copytext-large}</",
+    "text": ">Maximale Kostenersparnis und Prämien:</"
+   },
+   {
+    "replace": ">Gewinnen Sie Kontrolle und Flexibilität: {heading-copytext-large}</",
+    "text": ">Gewinnen Sie Kontrolle und Flexibilität:</"
+   },
+   {
+    "replace": ">Priorisieren Sie die Sicherheit Ihrer Reisenden: {heading-copytext-large}</",
+    "text": ">Priorisieren Sie die Sicherheit Ihrer Reisenden:</"
+   },
+   {
+    "replace": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ) {heading-copytext-large}</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text</div></div></div></div><div><h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)</h2>"
+   },
+   {
+    "before": "<h2 id=\"modernste-technologie-maximales-vertrauen\">Modernste Technologie. Maximales Vertrauen.</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text, h2-compact</div></div></div></div><div>"
+   }
+  ]
+ }
+]

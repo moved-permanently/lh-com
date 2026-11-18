@@ -1253,6 +1253,17 @@ body.brand-swiss main .accordion-columns-wrapper:has(+ .columns-media-wrapper) >
   }
 }
 
+/* standing order 68, item 2 (token-free, in place of the 14 {copytext-small} markers the cleanup took out of
+   advance-seat-reservation): text after a picture-and-text row's button, at the end of its text, is small print. www
+   draws the richtext right after a maui-link button as copytext-small (15 of 15 in swiss-parity-001, -002a, -002b).
+   Reach: the ch/en and ch/de advance-seat-reservation documents only (28 paragraphs; a sidebar row's thanks line is
+   not reached). ch/en (www 7,124 / 9,348): 390 9,684 -> 9,376 (+3.59 -> +0.30 %, the page as it was with the markers),
+   1440 6,950 -> 6,947; no other recorded SWISS page-width moves (in-page toggle on all 172) */
+/* stylelint-disable-next-line no-descending-specificity -- another component than the cards' descriptions */
+body.brand-swiss main .columns-media:not(.sidebar) .columns-media-text > p.button-wrapper ~ p:not(.button-wrapper, .link-wrapper, :has(a, picture, img), :has(~ :not(p)), :has(~ p.button-wrapper)) {
+  font-size: var(--body-font-size-xs);
+}
+
 /* the grid cards' text 40px over the card's foot as www's .card-content (20px / 40px; SWISS row 53); a card ending in its link
    row keeps its 8px */
 body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only, .carousel-cards-wide) .carousel-cards-body:not(:has(> .carousel-cards-cta:last-child)) {

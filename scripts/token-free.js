@@ -164,9 +164,11 @@ function decorateBlockOptions(main, theme) {
         if (!(el.tagName === 'P' && hasPicture(el) && !el.textContent.trim())) addUnmarked(el, theme.text.small, MARKED_SIZE);
       });
     }
-    if (opts.title) {
+    if (opts.title || opts.headings) {
       block.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((h) => {
-        addUnmarked(h, headingChoice(theme, Number(h.tagName[1]), opts.title), MARKED_SIZE);
+        // a level-scoped option (h3-compact) for its level, the title option for the others
+        const choice = (opts.headings || {})[h.tagName.toLowerCase()] || opts.title;
+        if (choice) addUnmarked(h, headingChoice(theme, Number(h.tagName[1]), choice), MARKED_SIZE);
       });
     }
   });

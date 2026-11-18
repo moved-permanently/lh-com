@@ -438,6 +438,10 @@ export const BLOCK_OPTIONS = {
   'small-print': { size: 'small' },
   'title-large': { title: 'large' },
   'title-compact': { title: 'compact' },
+  // one heading level's choice in the block, the block's other headings as the theme draws them
+  // (Group for Business's businesstogo: its H3s compact, its H2 the theme's heading-medium, which
+  // title-compact would make compact too; standing order 68): as the section style of that name
+  'h3-compact': { headings: { h3: 'compact' } },
   'background-video': { video: 'background' },
   // Article Header: its video on phones too
   'mobile-video': { video: 'mobile' },
@@ -456,6 +460,7 @@ export const BLOCK_OPTION_LABELS = {
   'small-print': 'small print',
   'title-large': 'large title',
   'title-compact': 'compact title',
+  'h3-compact': 'H3 compact (its other headings as they are)',
   'background-video': 'background video (autoplay, muted, loop)',
   'mobile-video': 'video on phones too',
   'picture-half-start': 'picture in the cell\'s first half',
@@ -463,12 +468,19 @@ export const BLOCK_OPTION_LABELS = {
   'picture-three-quarters': 'picture three quarters of the cell',
 };
 
-/** What a block's options ask for (class names of the block element). */
+/**
+ * What a block's options ask for (class names of the block element); headings (a level-scoped
+ * option such as h3-compact) only when the block has one.
+ */
 export function readBlockOptions(classes) {
   const out = {
     space: null, divider: false, size: null, title: null, video: null, picture: null,
   };
-  [...classes].forEach((c) => Object.assign(out, BLOCK_OPTIONS[c] || {}));
+  [...classes].forEach((c) => {
+    const o = BLOCK_OPTIONS[c] || {};
+    if (o.headings) out.headings = { ...(out.headings || {}), ...o.headings };
+    else Object.assign(out, o);
+  });
   return out;
 }
 

@@ -84,7 +84,7 @@ results.forEach((res) => {
 // the section styles a carrier writes (scripts/style-markers.js SECTION_STYLES; flush: a column view's
 // section that its original section goes on after)
 const STYLE_WORDS = [...Object.keys(SECTION_STYLES), 'flush'];
-const OPTION_WORDS = ['space-m', 'space-l', 'divider-above', 'small-print', 'title-large', 'title-compact', 'background-video', 'mobile-video'];
+const OPTION_WORDS = ['space-m', 'space-l', 'divider-above', 'small-print', 'title-large', 'title-compact', 'h3-compact', 'background-video', 'mobile-video'];
 const PURPOSE = ['spacer', 'divider', 'app-spacer', 'app-divider', 'app-text', 'nav-tools'];
 function carriersOf(html) {
   const { document } = parseHTML(`<main>${html}</main>`);

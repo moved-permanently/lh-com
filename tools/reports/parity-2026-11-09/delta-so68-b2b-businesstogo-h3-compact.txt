@@ -1,0 +1,30 @@
+# ema-cashub, standing order 68 (2026-11-18), item 4: Group for Business businesstogo de/de and xx/de without the
+# {heading-copytext-large} marker (token-free). These two were HOLD in order 67's list (delta-so67-b2b-heading-carriers):
+# their Columns Media block's H2 ("Optimieren Sie Ihre Geschäftsreisen") has no size in the document (www:
+# heading-medium, the H2 default), so the block option title-compact made it heading-copytext-large too (-70 px at 390).
+# The block now takes the new block option h3-compact (scripts/style-markers.js BLOCK_OPTIONS, as the section style of
+# that name): its four H3s get B2B's compact choice (heading-copytext-large, what the markers gave), and its H2 keeps the
+# theme's heading-medium. The rest is order 67's rows for these two documents: the four H3 markers out, and the FAQ H2
+# (marker out) in a section of its own with Style "wide-text, h2-compact", as on de/en and xx/en.
+# No row puts a style marker in: every insert takes {heading-copytext-large} out, and the rest is a block option,
+# section metadata (Style) and section breaks. The document's other markers ({heading-medium}, {spacer-39},
+# {spacer-140}, the column marks) are not these rows' business: the documents are held from the token-free cleanup.
+# Order 67's list keeps these two paths HOLD (its .json has the title-compact version); this list supersedes them.
+# The code (h3-compact) has to be live before these rows are applied: without it the H3s draw at the flow default.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so68-b2b-businesstogo-h3-compact.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (2 read-only GETs, one per command, 18:53 CET; both byte for byte order 67's copies):
+# "6 inserted" each, "without the inserts DA's copy byte for byte: true"; a second run on the output "6 present" each.
+# Drafted on b2b.turnsthe.page (so67/hostv2.mjs: the served .plain.html with the change as main, this checkout's code,
+# the form's Turnstile challenge aborted on both sides of a pair; unhinted; airline hosts, www.* and lh-proxy refused per
+# request, none sent). Gate: |after %| - |before %| <= 0.5 at each recorded width.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/de/program/businesstogo	390	b2b-parity-009	7283	7288 (+0.07 %)	7296 (+0.18 %)	+0.11 points; block h3-compact (its H2 keeps heading-medium); the FAQ H2 in a section of its own (h2-compact): +8 px, as de/en
+READY	/de/de/program/businesstogo	1440	b2b-parity-009	5069	5010 (-1.16 %)	5018 (-1.01 %)	-0.16 points; as 390
+READY	/xx/de/program/businesstogo	390	b2b-parity-009	7283	7288 (+0.07 %)	7296 (+0.18 %)	+0.11 points; as de/de (the same document)
+READY	/xx/de/program/businesstogo	1440	b2b-parity-009	5069	5010 (-1.16 %)	5018 (-1.01 %)	-0.16 points; as de/de
+#
+# DA change (lh-b2b), READY paths: the block "Columns Media (divider-above, nested, equal-cells)" whose H2 is "Optimieren Sie
+# Ihre Geschäftsreisen" gets h3-compact and its four H3s lose " {heading-copytext-large}"; a section break before the FAQ
+# H2 (marker off, the section before keeps its Style wide-text) and one before "Modernste Technologie. Maximales
+# Vertrauen.", the FAQ part with Style "wide-text, h2-compact".
