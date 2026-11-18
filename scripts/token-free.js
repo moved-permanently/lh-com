@@ -205,6 +205,28 @@ function decorateSectionStyles(main, theme, pageHeadings) {
       if (last) last.after(below);
       else section.append(below);
     }
+    // width-scoped ones (space-m-below-768, space-below-l-768, divider-l-768 ...): one
+    // separator per width, shown from 768 px or below it only (styles.css p.spacer.from-768)
+    const scoped = (size, divider, cls) => {
+      if (!size) return null;
+      const p = separatorParagraph(SPACE[size], divider);
+      p.classList.add(cls);
+      return p;
+    };
+    const tops = [
+      scoped(style.dividerTablet, true, 'from-768'), scoped(style.dividerPhone, true, 'below-768'),
+      scoped(style.spaceTablet, false, 'from-768'), scoped(style.spacePhone, false, 'below-768'),
+    ].filter(Boolean);
+    if (tops.length && !isSeparator(section.firstElementChild)) section.prepend(...tops);
+    const ends = [
+      scoped(style.spaceBelowTablet, false, 'from-768'),
+      scoped(style.spaceBelowPhone, false, 'below-768'),
+    ].filter(Boolean);
+    if (ends.length) {
+      const end = [...section.children].filter((el) => !el.classList.contains('section-metadata')).pop();
+      if (end && !isSeparator(end)) end.after(...ends);
+      else if (!end) section.append(...ends);
+    }
   });
 }
 
