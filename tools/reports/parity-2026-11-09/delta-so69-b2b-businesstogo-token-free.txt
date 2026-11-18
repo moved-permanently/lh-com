@@ -1,0 +1,41 @@
+# ema-cashub, standing order 69 (2026-11-18), item 2: Group for Business businesstogo de/de, xx/de, de/en and xx/en
+# token-free. The helper's collapse on DA's copies held all four (the pages ended further from www: 1440 4,918 / 4,791,
+# 390 7,136 / 6,554). These rows take every remaining style marker out and give what the markers drew a carrier:
+# - {spacer-39} (4 per document, under the feature block's pictures): the block option spaced-pictures (new,
+#   styles/themes/b2b.css): a cell's picture 80 px above the heading after it, as the markers drew it (www's column-view
+#   picture to headline: 81 px in the recordings' three-column cells, 1440 and 390). The first marker of each document
+#   ends its cell and drew 0 px; it goes out with the others.
+# - {heading-medium}: the case-study H2 is heading-medium without it (the H2 default; 0 / +1 px). de/en and xx/en's feature
+#   block H2 had it against the block's title-compact: the block takes h3-compact instead (order 68's option), so its H3s
+#   stay compact and its H2 keeps the theme's heading-medium (with title-compact and no marker: -81 px at 1440).
+# - de/de, xx/de {column-start-outer} x2 before the H1 (www wraps these two pages in an extra one-column view: the title
+#   40 px lower at 1440, 20 at 390 than on de/en): a Spacer block (from-768) before the H1. It draws M (61 px) from 768 px
+#   and nothing on phones. Section style "padded" was tried: the first section holds the breadcrumb, so it gets no padding
+#   above, only 72 / 48 px below its last H2 (further from www's tabs). A Spacer M on phones too was closer at no width.
+# - de/de, xx/de {spacer-140} (right after a Spacer (l) block): a second Spacer (l) block, as the collapse writes it. Taking
+#   it out (www's gap before "Haben Sie Fragen?" is 491 px, ours 632 with it) takes 1440 0.57 points and 390 0.64 points further.
+# No row puts a style marker in: every insert takes one out or changes a block's options; the result has no {…} token.
+# The code (spaced-pictures) has to be live before these rows are applied: without it the pictures sit 40 px above
+# their H3 (de/de 1440 -40 px, 390 -120).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so69-b2b-businesstogo-token-free.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (4 read-only GETs, one per command, 19:34 CET): de/de and xx/de "8 inserted", de/en and
+# xx/en "7 inserted", each "without the inserts DA's copy byte for byte: true"; a second run on the output "8 present" /
+# "7 present"; no {…} left in any of the four; marker-collapse-cli on the output changes nothing.
+# Drafted on b2b.turnsthe.page (so67/hostv2.mjs: the served .plain.html with the same change as main, this checkout's
+# code, the form's Turnstile challenge aborted on both sides of a pair; unhinted; airline hosts, www.* and lh-proxy
+# refused per request, none sent). Gate: |after %| - |before %| <= 0.5 at each recorded width (b2b-parity-009).
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/de/program/businesstogo	1440	b2b-parity-009	5069	5018 (-1.01 %)	5019 (-0.99 %)	-0.02 points; the title at 294 (www 275, today 273), the pictures 80 px above their H3 as today
+READY	/de/de/program/businesstogo	390	b2b-parity-009	7283	7296 (+0.18 %)	7256 (-0.37 %)	+0.19 points; the title at 193 (www 215, today 213: no Spacer on phones), the second Spacer (l) 20 px less than {spacer-140}
+READY	/xx/de/program/businesstogo	1440	b2b-parity-009	5069	5018 (-1.01 %)	5019 (-0.99 %)	-0.02 points; as de/de
+READY	/xx/de/program/businesstogo	390	b2b-parity-009	7283	7296 (+0.18 %)	7256 (-0.37 %)	+0.19 points; as de/de
+READY	/de/en/program/businesstogo	1440	b2b-parity-009	4931	4911 (-0.41 %)	4911 (-0.41 %)	0; every heading at today's place
+READY	/de/en/program/businesstogo	390	b2b-parity-009	6685	6733 (+0.72 %)	6733 (+0.72 %)	0; as 1440
+READY	/xx/en/program/businesstogo	1440	b2b-parity-009	4931	4911 (-0.41 %)	4911 (-0.41 %)	0; as de/en
+READY	/xx/en/program/businesstogo	390	b2b-parity-009	6685	6733 (+0.72 %)	6733 (+0.72 %)	0; as de/en
+#
+# DA change (lh-b2b), READY paths: in the feature block ("Optimieren Sie Ihre Geschäftsreisen" / "Unlock smarter business
+# travel") the four {spacer-39} paragraphs out and the option spaced-pictures in (de/en, xx/en: title-compact -> h3-compact);
+# " {heading-medium}" out of every H2; de/de, xx/de: the two {column-start-outer} paragraphs -> a Spacer block (from-768)
+# before the H1, {spacer-140} -> a Spacer (l) block.

@@ -247,6 +247,13 @@ body.brand-b2b .columns-media .columns-media-row:has(> .columns-media-text) .med
   object-fit: cover;
 }
 
+/* the block option spaced-pictures (standing order 69, in place of businesstogo's {spacer-39} under its feature
+   pictures): a cell's picture 80 px above the heading after it (www's column-view picture to headline: 81 px in the
+   three-column cells at 1440 and 390; ours 40, the {spacer-39} rows' 80) */
+body.brand-b2b main .columns-media.spaced-pictures .columns-media-text > p:is(:has(> picture), :has(> a > picture)):has(+ :is(h2, h3, h4, h5, h6)) {
+  margin-bottom: 80px;
+}
+
 /* the cards' copy as www's icon modules (18 / 24 regular), the partner tiles' title its teaser
    heading (18 / 24 bold, www's heading-copytext-large) */
 body.brand-b2b .cards-icon-text.stacked .cards-icon-text-body > p:not(.cards-icon-text-link) {

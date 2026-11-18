@@ -442,6 +442,9 @@ export const BLOCK_OPTIONS = {
   // (Group for Business's businesstogo: its H3s compact, its H2 the theme's heading-medium, which
   // title-compact would make compact too; standing order 68): as the section style of that name
   'h3-compact': { headings: { h3: 'compact' } },
+  // Columns Media: a cell's picture further above the heading after it (the brand theme's size;
+  // Group for Business: 80 px, www's column-view picture to headline; standing order 69)
+  'spaced-pictures': { pictures: 'spaced' },
   'background-video': { video: 'background' },
   // Article Header: its video on phones too
   'mobile-video': { video: 'mobile' },
@@ -461,6 +464,7 @@ export const BLOCK_OPTION_LABELS = {
   'title-large': 'large title',
   'title-compact': 'compact title',
   'h3-compact': 'H3 compact (its other headings as they are)',
+  'spaced-pictures': 'pictures further above the heading after them',
   'background-video': 'background video (autoplay, muted, loop)',
   'mobile-video': 'video on phones too',
   'picture-half-start': 'picture in the cell\'s first half',

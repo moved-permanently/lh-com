@@ -1,0 +1,142 @@
+[
+ {
+  "path": "/de/de/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "</picture><p>{spacer-39}</p>",
+    "text": "</picture>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "class=\"columns-media divider-above nested equal-cells h3-compact\"",
+    "text": "class=\"columns-media divider-above nested equal-cells h3-compact spaced-pictures\""
+   },
+   {
+    "replace": " {heading-medium}</h2>",
+    "text": "</h2>"
+   },
+   {
+    "replace": "<p>{column-start-outer}</p><p>{column-start-outer}</p><h1 id=\"businesstogo-is-your-go-to\">",
+    "text": "<div class=\"spacer from-768\"><div><div></div></div></div><h1 id=\"businesstogo-is-your-go-to\">"
+   },
+   {
+    "replace": "<div class=\"spacer l\"><div><div></div></div></div><p>{spacer-140}</p>",
+    "text": "<div class=\"spacer l\"><div><div></div></div></div><div class=\"spacer l\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/de/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "</picture><p>{spacer-39}</p>",
+    "text": "</picture>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "class=\"columns-media divider-above nested equal-cells h3-compact\"",
+    "text": "class=\"columns-media divider-above nested equal-cells h3-compact spaced-pictures\""
+   },
+   {
+    "replace": " {heading-medium}</h2>",
+    "text": "</h2>"
+   },
+   {
+    "replace": "<p>{column-start-outer}</p><p>{column-start-outer}</p><h1 id=\"businesstogo-is-your-go-to\">",
+    "text": "<div class=\"spacer from-768\"><div><div></div></div></div><h1 id=\"businesstogo-is-your-go-to\">"
+   },
+   {
+    "replace": "<div class=\"spacer l\"><div><div></div></div></div><p>{spacer-140}</p>",
+    "text": "<div class=\"spacer l\"><div><div></div></div></div><div class=\"spacer l\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "</picture><p>{spacer-39}</p>",
+    "text": "</picture>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "class=\"columns-media divider-above title-compact\"",
+    "text": "class=\"columns-media divider-above h3-compact spaced-pictures\""
+   },
+   {
+    "replace": "<h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform {heading-medium}</h2>",
+    "text": "<h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform</h2>"
+   },
+   {
+    "replace": "<h2 id=\"case-study-optimizing-travel-management-for-peak-performance\">Case Study: Optimizing Travel Management for Peak Performance {heading-medium}</h2>",
+    "text": "<h2 id=\"case-study-optimizing-travel-management-for-peak-performance\">Case Study: Optimizing Travel Management for Peak Performance</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/en/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "</picture><p>{spacer-39}</p>",
+    "text": "</picture>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><p>{spacer-39}</p>",
+    "text": "<img src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   },
+   {
+    "replace": "class=\"columns-media divider-above title-compact\"",
+    "text": "class=\"columns-media divider-above h3-compact spaced-pictures\""
+   },
+   {
+    "replace": "<h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform {heading-medium}</h2>",
+    "text": "<h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform</h2>"
+   },
+   {
+    "replace": "<h2 id=\"case-study-optimizing-travel-management-for-peak-performance\">Case Study: Optimizing Travel Management for Peak Performance {heading-medium}</h2>",
+    "text": "<h2 id=\"case-study-optimizing-travel-management-for-peak-performance\">Case Study: Optimizing Travel Management for Peak Performance</h2>"
+   }
+  ]
+ }
+]

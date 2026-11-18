@@ -836,6 +836,16 @@ body.brand-swiss .flight-search .flight-search-dates::after {
   }
 }
 
+/* standing order 69 (order 68 item 3): an aside that starts with a Spacer block (the token-free cleanup's
+   version of order 65's {spacer-39 below-768} rows, M = 61 px drawn) 20 px under the content, so the gap is
+   20 + 61 = 81 px, www's 80 (the rows gave 40 + 40); the pages as before the cleanup, 1 px more per aside.
+   Reach: the ten ch/en and ch/de documents with those rows (5,335 served SWISS copies, 18 Nov) */
+@media (width < 768px) {
+  body.brand-swiss main > .section.with-aside > .section-aside:has(> .default-content-wrapper:first-child > p.spacer:first-child) {
+    margin-top: 20px;
+  }
+}
+
 /* the text's h3 and h4 (www's h3.heading-copytext-large in text and column views): 16 / 17.6 px
    bold, 18 / 19.8 px from 1025 px, 20 px to the text (lh-com's 20 to 24 px) */
 body.brand-swiss main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]),
