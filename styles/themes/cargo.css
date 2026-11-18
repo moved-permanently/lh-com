@@ -2461,3 +2461,28 @@ body.brand-cargo main .columns-media .columns-media-text > :is(ul, ol):last-chil
     padding-bottom: 0;
   }
 }
+
+/* standing order 60, item 2 (token-free carriers for Cargo's last markers):
+   - a page title's text width: www's introduction (a title with its intro paragraph, Introduction-CF1) is two thirds wide from
+     1025 px (856 px of the 1,296 px grid on 50 of the 61 recorded pages; ecsd's title wraps at it), as "{limited-width}" drew it on
+     /en/ecsd; a title without an intro is www's heading component, the whole width (efreight: 1,296 px);
+   - Tabs (panels-space-below): its panels end 150 px lower when they show as tabs (from 768 px; on phones an accordion), www's empty
+     paragraphs and headings at a panel's end (todoor 141 px, smartuld 164 px, the cells' former spacers; www's other panels end without
+     them: a default for every tab set made 24 of the 62 recorded tab page-widths worse);
+   - Tabs (wide-text): its panels' lists across the panel, not the 66 % (de/passive-temp-support's Features list, as "{full-width}"
+     drew it; www's other panel lists stay two-thirds wide) */
+@media (width >= 768px) {
+  body.brand-cargo .accordion-columns.tabs.panels-space-below:not(.filter).is-tabbed > .accordion-columns-item > .accordion-columns-panel {
+    padding-bottom: 150px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo main .default-content-wrapper > h1:has(+ p) {
+    max-width: 66%;
+  }
+
+  body.brand-cargo .accordion-columns.faq.wide-text .accordion-columns-panel :is(ul, ol) {
+    max-width: none;
+  }
+}

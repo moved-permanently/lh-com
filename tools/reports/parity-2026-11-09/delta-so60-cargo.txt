@@ -1,0 +1,24 @@
+# ema-test, standing order 60, item 2 (2026-11-18): the four held Cargo pages token-free (DA moved-permanently/lh-cargo). Data: delta-so60-cargo.json
+#   (the READY rows).
+# The carriers: styles/themes/cargo.css, "standing order 60, item 2" (this order):
+#   - Cargo's introduction H1 (a title with its intro paragraph) two thirds wide from 1025 px, as "{limited-width}" drew it on /en/ecsd: www draws
+#     its introductions 856 px wide (50 of 61 recorded pages). A title without an intro stays the whole width: www's heading component, efreight
+#     1,296 px; the first try without that condition made efreight 6.0 / 6.8 points worse.
+#   - Tabs (panels-space-below), a Cargo variant class: its panels end 150 px lower from 768 px, as www's trailing empty lines in these panels.
+#     The same space as a default for every tab set made 24 of the 62 recorded tab page-widths worse (up to 11.8 points), so it is the two
+#     blocks' own class.
+#   - Tabs (wide-text), a Cargo variant class: its panels' lists across the panel (de/passive-temp-support's Features list).
+# Gate of the rule, on all recorded Cargo page-widths (113, cargo-parity-001-012, newest per page and width, our host as served, full Chrome,
+#   airline hosts refused), the rule in the same load as today:
+#   - none further from www by more than 0.5 points;
+#   - the sum of % off www 2,984.67 -> 2,984.67, the median 22.35 -> 22.35;
+#   - the variant classes are on no served document yet.
+# The pages with the rows: html-folder full pages of the served copy (the same text as DA's current copy, read ~21:15 UTC) with the rule,
+#   against the recordings. Dry run: text-inserts-apply --check on DA's copies: 7 inserts made once, each copy byte for byte without them. No
+#   row adds a "{...}" marker.
+# Each line: READY / HOLD, path, the change, % off www and height as served -> with the row (1440 / 390), the gate.
+READY	/en/ecsd	{limited-width} out of the H1 (the theme's introduction width carries it)	1440 57.61 -> 57.61 % (1,347 -> 1,347 px, www 1,343); 390 32.90 -> 32.90 % (1,750 -> 1,750 px, www 1,751)	the same at both widths; DA dry run byte for byte (1 insert)
+HOLD	/en/ecsd	{spacer-18 from-768} out (before the H1)	1440 57.61 -> 58.48 % (1,347 -> 1,328 px, www 1,343); 390 unchanged	0.87 points further at 1440. 18 px is a near value (0-31 px: none) with no carrier from 768 px (Space above M from 768 would be 60). Held for the near value, or a smaller space carrier
+READY	/en/add-on-services/todoor	{spacer-140} out of the first panel's cell, the tabs block Tabs (panels-space-below)	1440 45.35 -> 44.59 % (2,283 -> 2,292 px, www 2,348); 390 not recorded	nearer www at 1440; DA dry run byte for byte (2 inserts)
+READY	/en/add-on-services/smartuld	{spacer-163} out of the first panel's table cell, the tabs block Tabs (panels-space-below)	1440 33.72 -> 33.86 % (2,582 -> 2,568 px, www 2,578); 390 51.64 -> 51.64 % (1,120 -> 1,120 px)	0.14 points at 1440, within 0.5; DA dry run byte for byte (2 inserts)
+READY	/de/passive-temp-support	{full-width} out of the Features list's item, the tabs block Tabs (wide-text)	1440 10.56 -> 10.56 % (2,206 -> 2,206 px, www 2,168); 390 10.61 -> 10.61 % (1,286 -> 1,286 px)	the same at both widths; DA dry run byte for byte (2 inserts)

@@ -1,0 +1,17 @@
+# ema-test, standing order 60, item 1 (2026-11-18): /at/en/entryregulations token-free (DA moved-permanently/lh-austrian; austrian-parity-015 at 1440,
+#   -027 at 390). Data: delta-so60-austrian-entryregulations.json (the READY row).
+# The carrier: styles/themes/austrian.css "Austrian column views" (this order). The existing section style Column view draws an Austrian
+#   column view in a section of its own, as the importer's column marks drew it inside one:
+#   - Column view + Padded, an outer view: the section padding above and below (20 px, 40 px from 768 px), no section gap, the section before
+#     it ending as the view's top neighbour did;
+#   - Column view alone, an inner view: 32 px above and below.
+#   The heading that opens a view keeps the theme's heading gap. Not the importer's grey column-view bands.
+# Gate of the rule, on all recorded Austrian page-widths (246 of austrian-parity-001/003/005-031, newest per page and width, our host as served, full
+#   Chrome, airline hosts refused): the rule in the same load as today. It styles no element on any of them (no served Austrian document
+#   has a non-grey Column view yet), so none moves: 245 page-widths the same to the decimal, one load failed and retried (below).
+# The page with the row: html-folder full page of DA's current copy (read ~21:05 UTC, the same as order 59's) with the rule. Every heading, the
+#   small print, the footer and the page height at their positions as served: 1440 to the pixel, 390 to the pixel.
+# Dry run: text-inserts-apply --check on DA's copy: 4 inserts made once, the copy byte for byte without them. The row adds no "{...}" marker.
+# Each line: READY / HOLD, path, the change, % off www and height as served -> with the row (1440 / 390), the gate.
+READY	/at/en/entryregulations	the column marks and {copytext-small} out (6 markers): "General information" a section of its own (Column view, Padded), the closing small print a section of its own (Column view, Small print)	1440 8.62 -> 8.62 % (5,523 -> 5,523 px, www 5,538); 390 15.19 -> 15.19 % (7,207 -> 7,207 px, www 7,236)	the same at both widths; token-free (takes 6 markers out); DA dry run byte for byte (4 inserts)
+HOLD	/at/en/entryregulations	the three phone spacers ({spacer-55 / 78 / 35 below-768}) as the collapse's Spacer (below-768) blocks, M (60 px) each	1440 8.62 -> 8.62 % (5,523 -> 5,523 px); 390 15.19 -> 18.24 % (7,207 -> 7,219 px, www 7,236)	3.05 points further at 390: M is a phone spacer's only token-free size (55 -> 60, 78 -> 60, 35 -> 60); the page's height comes nearer www, its lines don't. Held until a phone spacer of another size exists, or Ben takes the near value

@@ -1078,6 +1078,44 @@ body.brand-austrian .hero-banner .hero-banner-tab {
   }
 }
 
+/* Austrian column views (section style Column view, the token-free carrier of the importer's column marks; standing order 60,
+   /at/en/entryregulations): a view drawn in a section of its own as the marks drew it inside one.
+   - Column view + Padded, an outer view ({column-start-outer} / {column-end-outer}): the section padding (20 px, 40 px from 768 px)
+     above and below, its last element's margin none (the phone Spacer blocks after it stay inside), no gap after it; the section before
+     it ends as the view's top neighbour did: no gap, its last element's margin none and the section padding below it.
+   - Column view alone, an inner view ({column-start} / {column-end}): 32 px above and below, 24 px after the section before it, the
+     section gap after it.
+   - A heading that opens a view, or the section after an outer view, keeps the theme's heading gap it had after text (from 768 px).
+   Not the importer's grey column-view bands (their own rules above). */
+body.brand-austrian main > .section.column-view:not(.padded, .grey) {
+  padding: 32px 0;
+}
+
+body.brand-austrian main > .section:has(+ .section.column-view:not(.padded, .grey)) {
+  margin-bottom: 24px;
+}
+
+body.brand-austrian main > .section.column-view.padded:not(.grey),
+body.brand-austrian main > .section:has(+ .section.column-view.padded:not(.grey)) {
+  margin-bottom: 0;
+}
+
+body.brand-austrian main > .section.column-view.padded:not(.grey) > .default-content-wrapper:last-child > :is(:last-child:not(p.spacer), :has(+ p.spacer:last-child)) {
+  margin-bottom: 0;
+}
+
+body.brand-austrian main > .section:has(+ .section.column-view.padded:not(.grey)) > .default-content-wrapper:last-child > :is(:last-child:not(p.spacer), :has(+ p.spacer:last-child)) {
+  margin-bottom: 0;
+  padding-bottom: var(--section-padding);
+}
+
+@media (width >= 768px) {
+  body.brand-austrian.theme-live.flow-spacing main > .section.column-view:not(.grey) > .default-content-wrapper:first-child > :is(h2, h3):first-child,
+  body.brand-austrian.theme-live.flow-spacing main > .section.column-view.padded:not(.grey) + .section > .default-content-wrapper:first-child > :is(h2, h3):first-child {
+    margin-top: var(--theme-heading-gap, 32px);
+  }
+}
+
 /* brief 444: the footer's spacing as www's (austrian-parity-002, the same on every page; ours was about
    100 px shorter): the payment heading 23 px further from the link columns; below 1025 px the follow-us
    group 46 px further from the payment badges, the legal links 19 px closer to the social icons and 38 px

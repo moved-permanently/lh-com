@@ -1,0 +1,24 @@
+[
+ {
+  "path": "/at/en/entryregulations",
+  "inserts": [
+   {
+    "replace": "</picture> {column-end-outer}</p><p>{spacer-55 below-768}</p><h2 id=\"general-information\">General information {column-start-outer}</h2>",
+    "text": "</picture></p><p>{spacer-55 below-768}</p></div><div><h2 id=\"general-information\">General information</h2>"
+   },
+   {
+    "replace": "Austrian citizens</a> {column-end-outer}</p><p>{spacer-78 below-768}</p>",
+    "text": "Austrian citizens</a></p><p>{spacer-78 below-768}</p><div class=\"section-metadata\"><div><div>style</div><div>column-view, padded</div></div></div></div><div>"
+   },
+   {
+    "replace": "<p>{column-start}</p>",
+    "text": "</div><div>"
+   },
+   {
+    "replace": " {copytext-small}</p><p>{column-end}</p>",
+    "text": "</p><div class=\"section-metadata\"><div><div>style</div><div>column-view, small-print</div></div></div>"
+   }
+  ],
+  "from": "so60 item 1"
+ }
+]

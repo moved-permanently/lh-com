@@ -1,0 +1,54 @@
+[
+ {
+  "path": "/en/ecsd",
+  "from": "so60 item 2",
+  "inserts": [
+   {
+    "replace": " {limited-width}</h1>",
+    "text": "</h1>"
+   }
+  ]
+ },
+ {
+  "path": "/en/add-on-services/todoor",
+  "from": "so60 item 2",
+  "inserts": [
+   {
+    "replace": "</li></ul><p>{spacer-140}</p></div>",
+    "text": "</li></ul></div>"
+   },
+   {
+    "replace": "<div class=\"accordion-columns faq tabs\">",
+    "text": "<div class=\"accordion-columns faq tabs panels-space-below\">"
+   }
+  ]
+ },
+ {
+  "path": "/en/add-on-services/smartuld",
+  "from": "so60 item 2",
+  "inserts": [
+   {
+    "replace": "</li></ul><p>{spacer-163}</p></td>",
+    "text": "</li></ul></td>"
+   },
+   {
+    "replace": "<div class=\"accordion-columns faq tabs\">",
+    "text": "<div class=\"accordion-columns faq tabs panels-space-below\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/passive-temp-support",
+  "from": "so60 item 2",
+  "inserts": [
+   {
+    "replace": " {full-width}</li>",
+    "text": "</li>"
+   },
+   {
+    "replace": "<div class=\"accordion-columns faq tabs\">",
+    "text": "<div class=\"accordion-columns faq tabs wide-text\">"
+   }
+  ]
+ }
+]
