@@ -11917,3 +11917,184 @@ gaps were 40 px each where pictures stack. de/en's -81 px was its block H2 losin
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so69. No background job of mine is
 running.
+
+## Standing order 70 (2026-11-18, from about 21:40 CET)
+
+**Carried over:** nothing.
+- Order 69's commits were on main and my worktree was clean.
+- The main checkout's dirty entries belong to other jobs and were left alone: blocks/notifications/notifications.css,
+  import-progress.json and the importer reports.
+
+**Scratch:** migration-work/parity-588/so70 (not in git).
+- The scripts:
+  - gate2.py: the gate of each step in a toggle run.
+  - togc.mjs: togm with a CODE override, read with cvgate.py.
+  - wend.mjs: www's last ink above the footer.
+  - reach.py, cmpheads.py and crop.mjs.
+- The runs: pk3 (the package per rule), cv1 (the code), live1 (live) and b2b0 (B2B as served).
+
+**Requests:**
+- Every render refused lh-proxy, www.* and every airline host per request and counted them. None was sent.
+- www was read only from the recordings on disk: swiss-parity-001, -002a, -002b (parity-497/archives) and
+  b2b-parity-001 to -017 (so64/arch).
+
+**DA:**
+- Read only: 1 single GET (lh-b2b /de/de/news/celebrating-shared-stories, 22:21 CET). Nothing was written.
+- No upload, preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row.
+
+**Token-free:** nothing this order puts a style token into a document.
+- The SWISS rules are a theme rule (lead-after-h1) and theme CSS.
+- The B2B row changes a section style. Its test checks that the insert adds no `{…}`.
+
+### Item 1: the SWISS lead, and the four page-widths (pushed, 50e7c40d)
+
+Report: tools/reports/token-free/swiss-lead-so70.md.
+
+**The lead:**
+- THEMES.swiss rules `lead-after-h1`: the H1's paragraph, when nothing but metadata follows it in its section, gets
+  copytext-large.
+- swiss.css draws it as www's, 18 / 30 px light with 0.2 px letter spacing, 20 px below it.
+- Gate base, as you set it: the lead matches www.
+- Reach: 972 of the 4,661 served SWISS documents.
+
+**The four page-widths, each closed by a SWISS rule:**
+
+| Page-width | Cause (from the recording) | Rule | Today -> now (live) |
+| --- | --- | --- | --- |
+| duty-free-shop 390 | One padded section. www keeps its padding under the breadcrumb (+20 / +41 px) and has no section gap under the last text (40 / 60 px to the footer, ours 88 / 108). | One-section padded page: the padding under the breadcrumb, no margin under its last text (11 documents). | 1,182 -> 1,186 (www 1,173): +0.77 -> +1.11 %; 1440 1,516 -> 1,515 (www 1,516) |
+| unaccompanied-minors 390 | www's table cells are at least 200 px wide (the table scrolls in its box), with 24 px lines and 30 px above and below. Its table is 648 px, ours 808. www has 107 / 128 px before the accordion, ours 40 / 64. | www's cell metrics, 200 px on phones; 107 / 104 px from a table to an accordion. | 4,519 -> 4,464 (www 4,483): +0.80 -> -0.42 %; 1440 3,266 -> 3,345 (www 3,414) |
+| miles-and-more 1440 | In the open panel, www puts the card picture beside the list; ours stacks it (+262 px). | From 768 px, a panel's picture before a titled list sits beside it (22 documents). | 3,543 -> 3,310 (www 3,427): +3.38 -> -3.41 %, +0.03 points |
+| swiss-recraft-collection 1440 | The column beside the aside: www 794 px, ours 842. The video and pictures draw taller. | No rule of its own: a column-width rule failed five 1440 page-widths. It passes with item 2's title rule. | 4,106 -> 4,121 (www 4,053): +1.31 -> +1.68 %, +0.37 points |
+
+**The gate with every rule together, live:**
+- 156 page-widths (homepages, offers and culinaryjourney still filling). 103 moved: 53 closer, 49 further.
+- The sum of |%| is 395.21 -> 380.87.
+- The most any page-width went further is +0.47 points (arrival-departure 390).
+- Before the push, the code (CODE override) and the in-page toggle agreed. The new test is test/swiss-lead-so70.test.mjs.
+
+### Item 2: the SWISS title and footer (pushed, 50e7c40d; parts HOLD)
+
+**The title:**
+- **Where the offset is:** only under a hero picture. Ours is 40 px under the picture, www's 30. That is 21 page-widths
+  at each width: +8 or +9 at 1440, +10 at 390. Without a picture the H1s match.
+- **From 768 px (shipped):** 31 px. Reach: 1,393 documents.
+- **Phones (HOLD):** 30 px fails two customer-support pages that are short of www.
+  - refunds 390: -0.88 -> -1.86 %.
+  - payment-options 390: -2.06 -> -3.02 %.
+  - Why they are short: www's H2s there are heading-medium (9 of 9), ours are the flow pages' heading-small.
+
+**The footer on phones:**
+- Shipped: -8 px, the legal row 4 px closer to the logos above and below it (549 -> 541, www 530).
+- The other 10 px is the legal lines' 24 px spacing (www 14). It is kept for WCAG 2.5.8 target spacing: a deliberate
+  choice in swiss.css that I did not reverse. If you want www's 14 px anyway, it is one line, but it fails the target
+  spacing.
+- -9 px (5 px below the row) would take arrival-departure 390 +0.53 points further.
+
+**The fleet hub intro (+21 at 390): HOLD.**
+- 2,043 -> 2,064 against www's 2,040: +0.15 -> +1.18 %, +0.64 points further than today.
+- It passes only with the whole 19 px off the footer.
+
+### Item 3: celebrating-shared-stories de/de (READY, live)
+
+**The list:** delta-so70-b2b-celebrating-de-space-phones.
+- The first section's Style goes from "wide-text, space-below-m" to "wide-text, space-below-m-below-768": M on phones
+  only.
+- At 1440, "Jubiläum einer Ikone" goes from +56 px against www to +11.
+- 390 is unchanged by construction, 1 px off www's height.
+- DA dry run: 1 inserted, byte for byte back, a second run present.
+- The helper applied it (ebe50620). The served page measures 7,732 / 12,091.
+
+| Path | Width | www | As served | With the row (live) | Points |
+| --- | --- | --- | --- | --- | --- |
+| /de/de/news/celebrating-shared-stories | 1440 | 7,754 | 7,777 (+0.30 %) | 7,732 (-0.28 %) | -0.02 |
+| /de/de/news/celebrating-shared-stories | 390 | 12,092 | 12,091 (-0.01 %) | 12,091 (-0.01 %) | 0 |
+
+### Item 4: the page-widths furthest from www (causes; no further rule)
+
+**SWISS, top 20 by % off www (live, after this order's rules):**
+
+| Page-width | % | Cause |
+| --- | --- | --- |
+| /ch/en/offers 390, 1440 | -95.0, -92.9 | www lists every priced fare (32,000 px, its fares API); ours is the finder without the list |
+| pax-receipt 390, 1440 | -28.9, -24.7 | www's receipt request form (an h2.primary component, about 800 px) where ours has two links |
+| magazine overviews 390 (/magazine/de, /en, /de/inside-swiss, /en/travel) | -11.8 to -14.0 | www's story grids have "Advertisement" slots (about 300 px plus label, two per page) |
+| magazine articles 390 (a350-special-livery de/en, hello-boston, jungfrau-region, up-front-and-flying-high, swiss-behind-the-wings) and hello-boston 1440 | -5.2 to -14.5 | an ad slot in the article. www's body pictures are taller on phones (a350: -505 px to "Weitere Beiträge") and its related list longer (-757 px to the footer) |
+| up-front-and-flying-high 1440 | +7.9 | the reverse: our article body is 1,077 px longer than www's to "Weitere Beiträge" (pictures at full width) |
+| travel-insurances 390, 1440 | +8.6, +5.9 | the grey "Nur für Personen …" note after the title: its band padding and section gaps, +88 px above and +48 below at 1440 |
+| culinaryjourney 390 | +8.4 | the micro-frontend's entry screen |
+| health-and-travel 1440 | -6.3 | www's accordions open into column views: 51 and 84 px more before two of them, and 84 at the end |
+| travel-regulations 1440 | -5.5 | the teaser rows before the footer (-85 px in total) |
+| refunds 1440, payment-options 1440 | -5.1, -4.8 | www's customer-support H2s are heading-medium (36 / 40 px at 1440), ours heading-small |
+| newsletter 1440 | +4.8 | the newsletter form is 98 px taller than www's between the title and the footer |
+
+**A rule that could fit: HOLD.** The customer-support H2s at heading-medium, as www draws them (9 of 9 on four pages).
+- Simulated in the same load on the 14 recorded customer-support page-widths: 9 moved, the sum 26.14 -> 22.75.
+- 2 fail:
+  - faq 1440: +1.68 -> +2.96 %, +1.28 points. It is already long.
+  - feedback 390: -1.11 -> +1.85 %, +0.74 points.
+- With it, the phone title rule (item 2) would pass on refunds 390 (-1.29 -> -0.47 %) and payment-options 390
+  (+0.15 points).
+
+**Group for Business, top 20 by % off www (as served tonight):**
+
+| Page-width | % | Cause |
+| --- | --- | --- |
+| kuala-lumpur 1440 | -7.8 | www's flight table fills its 840 px scroll box: rows 258 / 282 / 302 px, ours 88 / 112 / 112. +530 px on www. |
+| kuala-lumpur 390 | +3.8 | the reverse: every section about 55 px longer than www's on phones (+24, +54, +63, +14, +62) |
+| meals-on-board 390 (ch, de, xx en) | -5.4 | www shows 10 tabs, ours 9, and www's tab list starts 20 px lower |
+| lhg-history 1440 | -5.1 | www's title is 40 px lower under the breadcrumb and its cards 56 px lower (a padded intro on www) |
+| lhg-ita-airways 1440, 390 | +3.8, +2.7 | the intro +54 px; at "Worldwide routes" our first accordion panel draws open (+241); +24 px per later H2 |
+| celebrating-shared-stories/sap 1440, 390 | +3.4, +2.2 | +132 px in the "A conversation with Anne Delgado" section, +32 after each later H2 |
+| alliances-and-joint-ventures 1440 | -3.0 | 110 px shorter than www before "Beyond the skies" (one section), 46 more to the footer |
+| our-european-fares de/en, de/de 390 | +2.5, +2.2 | +240 px in the section before "Exclusive benefits for status customers"; our FAQ items are 24 px shorter each |
+| lhg-invoice-receipt-download de/de 1440 | +2.5 | +54 px between the last text and the footer |
+| partner-plus-benefit de/de 390 | -2.4 | order 68's M figures: before "Register now" www 79, ours 101 (page short) |
+| program 1440, 390 | -2.3, -2.3 | the intro: "Our bonus programs" 37 px higher than www's (1440) |
+| corporates-start-of-booking 390 | +2.2 | +38 px in the intro, then -38, +22, +41, and +94 at the page end |
+| intermediaries-start-of-booking 390, special-assistance-and-services 390 (de, xx), meals-on-board 1440 (ch, de) | +2.1 to -2.0 | not traced |
+
+**A B2B rule that could fit:** a short table at its box's height, as www's maui-table draws it.
+- HOLD: kuala-lumpur 390 is already +3.8 %, and the same table there would take it about 9 points further.
+- It needs the 390 sections' +55 px found first.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint` exit 0 before the push (after the rebase over 0082d659). stylelint on
+  styles/themes/swiss.css exit 0, with one no-descending-specificity line disabled for the title's picture against the
+  cards' paragraphs.
+- **Tests before the push:** the folder-reading tests (order 62's list), every test naming the SWISS or B2B theme,
+  style-markers, marker-collapse, token-free, section-aside, carousel-cards, text-inserts-apply, keepSizes,
+  table-striped, footer-legal, a delta-so6 or delta-so70 list, and the new test: 491 files, 2,083 pass, 0 failures,
+  3 skipped.
+- **Full suite** on 50e7c40d: 1,289 files, 4,829 pass, 0 failures, 5 skipped.
+
+### Final section (about 23:45 CET, 2026-11-18)
+
+**Pushed:**
+- **50e7c40d** (code, the list and the test):
+  - Item 1: the lead and the three SWISS rules for duty-free, unaccompanied-minors and miles-and-more.
+  - Item 2: the title from 768 px and the phone footer (-8).
+  - Item 3: the celebrating de/de list.
+- **This commit:** the report tools/reports/token-free/swiss-lead-so70.md and this section.
+
+**READY lists:**
+
+| List | Path | 1440 as served -> with the row | 390 as served -> with the row |
+| --- | --- | --- | --- |
+| delta-so70-b2b-celebrating-de-space-phones | /de/de/news/celebrating-shared-stories | 7,777 -> 7,732 (www 7,754) | 12,091 -> 12,091 (www 12,092) |
+
+The helper applied it (ebe50620), and the served page measures the drafted figures. SWISS needed no list: every
+change is a theme rule.
+
+**Held, with figures:**
+- **The title on phones (30 px):** refunds 390 -0.88 -> -1.86 % and payment-options 390 -2.06 -> -3.02 %. It passes
+  with the customer-support H2 rule, which is held itself (faq 1440 +1.28, feedback 390 +0.74 points).
+- **The footer's last 10 px on phones:** the legal lines' 24 px (www 14), kept for WCAG 2.5.8 target spacing. It is
+  your call if you want www's 14 px.
+- **The fleet hub intro (+21 at 390):** +0.15 -> +1.18 %, +0.64 points; it needs the whole footer.
+- **The with-aside column at www's 794 px (1440):** fails newsletter, food-and-beverage, green-fare,
+  swiss-premium-economy and accessible-travel 1440.
+- **B2B short tables at their box's height (kuala-lumpur 1440 -7.8 %):** kuala-lumpur 390 is already +3.8 %.
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so70. No background job of mine is
+running.
