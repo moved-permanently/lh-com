@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_24966_exports = {};
-  __export(tmp_bundle_austrian_checkin_24966_exports, {
-    default: () => tmp_bundle_austrian_checkin_24966_default
+  var tmp_bundle_austrian_checkin_151399_exports = {};
+  __export(tmp_bundle_austrian_checkin_151399_exports, {
+    default: () => tmp_bundle_austrian_checkin_151399_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -5674,11 +5674,9 @@ var CustomImportScript = (() => {
     ita: {
       live: true,
       text: { width: "full" },
-      headingsBefore: { "carousel-cards": { h2: "heading-small" }, "cards-icon": { h2: "heading-small" } },
-      // keepSizesIn: in a Columns Media cell (www's column-view items) a heading keeps its marker in
-      // heading-medium or heading-small, which the page reads as the class (www has both there: 36
-      // and 28 px; rows-for-ema-test.md row 6, standing order 10 of 2026-11-12; import time only)
-      keepSizesIn: { "columns-media": ["heading-medium", "heading-small"] }
+      headingsBefore: { "carousel-cards": { h2: "heading-small" }, "cards-icon": { h2: "heading-small" } }
+      // (no keepSizesIn since standing order 44: a Columns Media heading keeps no size marker;
+      // ita.css draws a padded view's H2 in heading-medium, the other views' in heading-small)
     },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
@@ -5692,9 +5690,9 @@ var CustomImportScript = (() => {
       // one-column view after the title) keeps its marks in the collapse (standing order 10 of
       // 2026-11-12; import time only)
       columnViews: { oneElementViews: true },
-      // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
-      // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
-      keepSizes: ["heading-copytext-large"],
+      // (no keepSizes since standing order 44 of 2026-11-17: heading-copytext-large is the H3 and
+      // H4 default, and for an H2 the title-compact block option or the h2-compact section style;
+      // the collapse writes that carrier or nothing, no marker)
       pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } }
     },
     // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
@@ -5704,11 +5702,13 @@ var CustomImportScript = (() => {
       live: true,
       // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
       // two steps under the H1 default, which the collapse dropped (section style H1 compact)
-      headingChoices: { h1: { compact: "heading-small" } },
-      // keepSizes: www's H2s in heading-copytext-large (18 / 24 px bold; route-network, businesstogo)
-      // keep their marker in the collapse, which the page reads as the class (standing order 9 of
-      // 2026-11-12: 6 of 12 page-widths better, none worse); heading-small not (9 worse)
-      keepSizes: ["heading-copytext-large"],
+      // an H3 in heading-copytext-large (18 / 24 px bold, www's column-view headings: businesstogo's
+      // and Wi-Fi's) a choice of its own, one step under the flow pages' H3 and the default
+      // elsewhere, which the collapse writes as a carrier (in a block its option title-compact, in a
+      // section H3 compact) in place of the {heading-copytext-large} marker it kept until standing
+      // order 67 (token-free: no document keeps a size marker); an H2 in that size is H2 compact
+      headingChoices: { h1: { compact: "heading-small" }, h3: { large: "heading-medium", compact: "heading-copytext-large" } },
+      nearChoices: { h3: { "heading-copytext-large": "compact" } },
       pageTypes: {
         // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
         // brief after 550 narrows it); in a grey band no edge above a block right after a heading
@@ -9566,7 +9566,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_24966_default = {
+  var tmp_bundle_austrian_checkin_151399_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9606,5 +9606,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_24966_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_151399_exports);
 })();
