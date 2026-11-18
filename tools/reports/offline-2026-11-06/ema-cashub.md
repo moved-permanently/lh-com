@@ -12119,3 +12119,16 @@ as www's.
 **Checks:** whole-repo `npm run lint` exit 0, stylelint on swiss.css exit 0, and the targeted tests before the push
 (order 62's folder list and the SWISS / B2B ones: 491 files, 2,084 pass, 0 failures, 3 skipped;
 test/swiss-lead-so70.test.mjs now has 4 tests).
+
+**Closing (about 00:10 CET, 2026-11-19):**
+- **Full suite on 3a5f3c51** (with the addendum's rule): 1,289 files, 4,830 pass, 0 failures, 5 skipped.
+- **Also tried for item 4, and held:** on phones, Group for Business's tab list 20 px lower under the content before
+  it. meals-on-board's www tab list starts 20 to 22 px lower than ours.
+  - In the same load on the 34 recorded tabbed B2B page-widths at 390: 15 fail. news +1.2 to +4.2 points,
+    entertainment-on-board +2.9 to +3.9, programs-and-groups +2.4, special-assistance +1.4, corporates-start-of-booking
+    +0.5. The sum goes from 48.91 to 77.35.
+  - The gap is not www's on those pages, so there is no rule.
+- **The SWISS accordions' start:** on the 15 recorded accordion pages it differs page by page (-61 to +90 px against
+  www at the first item). It is not one rule.
+- **Left uncommitted:** nothing of mine. No background job of mine is running. Scratch stays in
+  migration-work/parity-588/so70.
