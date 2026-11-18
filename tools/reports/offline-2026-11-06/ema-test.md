@@ -6122,3 +6122,80 @@ List: delta-so57-lh-com-token-cleanup.txt. Inserts of the READY rows: delta-so57
     lint, the folder-reading tests (668, 0 failed) and the full suite (lint 0, stylelint 0, 1,282 test files passed, 0 failed).
   - The last pull brought one upload-state file (ITA's). After it, before the push: the whole-repo lint, the folder-reading tests and the
     upload-state and brand tests.
+
+## Standing order 58 (received about 17:10 UTC, 2026-11-18)
+
+No theme, block or importer file was changed this order. The Austrian, TAP, Cargo and Air Dolomiti themes stay as they were, because none of the
+M measurements passed.
+
+### Item 1: M at 40 px
+
+List: tools/reports/parity-2026-11-09/m40-so58-brands.txt.
+
+- **Method.** One load per recorded page-width on our brand host, captured with M at 60 and, in the same load, with the candidate theme rule.
+  The rule sets every M separator (Spacer block, Space above / below M) to 40 px: `p.spacer:not(.divider)` with an inline 60 px size.
+  Recordings are the default-state ones in the drops, newest per page and width, each archive's sha256 checked.
+
+| brand | page-widths | with M (separators) | sum 60 -> 40 | median 60 -> 40 | >0.5 better / worse | result |
+| --- | --- | --- | --- | --- | --- | --- |
+| Austrian | 246 | 48 (57) | 4,698.33 -> 4,731.05 | 16.13 -> 16.15 | 16 / 23 | HOLD |
+| TAP | 52 | 0 | 575.70 -> 575.70 | 9.42 -> 9.42 | 0 / 0 | HOLD (no M on TAP) |
+| Cargo | 113 | 1 (1) | 2,990.74 -> 2,992.46 | 22.35 -> 22.35 | 0 / 1 | HOLD |
+| Air Dolomiti | - | - | - | - | - | not measured; no M in its census |
+
+- **Austrian's 23 worse page-widths:**
+  - 17 are shorter than www's already at 60, consistent with www drawing 60 or more there;
+  - 4 are within 20 px of www's height at 60, so 40 overshoots;
+  - 2 are changes below the recordings' 8,000 px.
+- **Air Dolomiti's drops** are under no R2 folder in my transcripts or reports. Its documents carry no separators by ema-adobe's census
+  (near-values-531.md), so M at 40 would change nothing there.
+- **Nothing pushed for item 1** beyond the list.
+
+### Item 2: my ITA marker rows withdrawn
+
+- **73 rows marked WITHDRAWN** in their own lists, each with its reason and replacement: 64 in delta-so53-ita-carry-01, 9 in delta-so55-ita-rows.
+  - The JSON rows carry "withdrawn".
+- **DA's 65 copies read** one page per command; all 200.
+  - My spacer and gap-section markers are no longer there: the collapse put its token-free Spacer blocks (from-768 / below-768) in their places,
+    so those parts need no row.
+  - Order 55's 9 rows never reached DA in that form.
+- **delta-so58-ita-withdraw.txt / .json: 56 READY removal rows.**
+  - They take out my 63 {heading-medium} and 17 {heading-small} marks, which ITA's theme now draws itself (ita.css, standing order 44).
+  - Dry run: 80 inserts, byte for byte.
+  - No breakage at 1440 and 390 on all 112 load pairs.
+- **ema-adobe's services-at-the-airport spacer** (order 53) is marked WITHDRAWN in delta-so53-adobe-rows. Its replacement is READY in item 3.
+
+### Item 3: the held rows with ema-adobe's width-scoped section styles (7ccaff75)
+
+List: delta-so58-lh-com-rows.txt / .json.
+
+- **21 READY:**
+  - 5 of order 57's 8 de/en HOLD rows: hotel-offers, rail-and-fly, wetlease-hub, advice-usa, mobility-partner;
+  - 15 of the 22 carried HOLD rows (the same five pages on gb/en, de/de and at/de);
+  - services-at-the-airport.
+  - Gated on the recordings for de/en and no breakage for the copies. The copies' only new flag is the separator's own wrapper overlap
+    (−16 px, nothing drawn; traced).
+  - DA reads one page per command; dry runs byte for byte.
+- **10 HOLD:** payment-options, free2move, shopping and their 7 copies. Their markers stand inside a section (before a column end, before a
+  small print, between a block and a heading), and the section styles draw at a section's edge.
+  - Splitting the section costs a section gap: shopping 1440 4.10 -> 7.70 %, free2move 1440 4.88 -> 5.87 %. payment-options' space would
+    land outside the column view (+44 px at 1440).
+  - They need a carrier inside a section (a Divider / Spacer option, or a column view's own space below) from ema-adobe.
+
+### Final section (about 18:40 UTC)
+
+- **Pushed:**
+  - "docs(delta): standing order 58 item 2 …";
+  - "docs(m40): standing order 58 item 1 …";
+  - "docs(delta): standing order 58 item 3 …";
+  - this section.
+- **Checks at the last commit before this section:** whole-repo lint 0, the folder-reading tests 669 with 0 failed, brand.test.mjs passed.
+  The full suite is below.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA write. DA reads only, 87 single literal-URL GETs, each its own
+  command. No guard block.
+- **Requests:** our hosts, DA, R2 (the drops) and GitHub's API. No airline host: renders refuse them per request.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off; .agents/settings.json not written.
+- **Not in git:** logs/p4/so58 (captures, DA copies, scratch scripts, the capture copy); the drops (logs/drops, ~5 GB); content/,
+  migration-work/ and tools/importer/reports/* (not mine); the old autostash.
+- **Cleanup:** servers stopped by PID; the gate worktrees removed.
+- The full suite at 16c792c9 (the last list's commit): npm run lint exit 0, stylelint exit 0, 1,284 test files passed, 0 failed. If the last pull brings commits, the checks run again before the push.
