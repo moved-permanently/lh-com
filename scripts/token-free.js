@@ -290,6 +290,16 @@ function applyThemeRules(main, theme) {
         if (p.textContent.trim() && !hasPicture(p)) addUnmarked(p, 'copytext-large', MARKED_SIZE);
       });
     }
+    // lead-after-h1 (SWISS, standing order 70): the paragraph right after the page title when it
+    // ends its section's text (nothing but metadata after it) is www's lead, p.copytext-large; a
+    // title's paragraph that more text, a heading or a block follows is running text (text pages)
+    if (theme.rules.includes('lead-after-h1')) {
+      section.querySelectorAll(':scope > h1 + p').forEach((p) => {
+        let next = p.nextElementSibling;
+        while (next && isMeta(next)) next = next.nextElementSibling;
+        if (!next && p.textContent.trim() && !hasPicture(p)) addUnmarked(p, 'copytext-large', MARKED_SIZE);
+      });
+    }
     // what follows the section's first element (its metadata aside)
     const afterFirst = first && first.nextElementSibling;
     if (i > 0 && first && !isSeparator(first)) {

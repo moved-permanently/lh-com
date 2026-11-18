@@ -216,7 +216,9 @@ export const THEMES = {
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
   // (a heading right before them starts the group's column view, as its marker did)
-  swiss: { live: true, rules: ['teaser-groups'], pageTypes: { flow: { headings: { h2: 'heading-small' } } } },
+  // the H1's paragraph when it ends its section is the lead (www's p.copytext-large, 22 recorded
+  // pages; standing order 70)
+  swiss: { live: true, rules: ['teaser-groups', 'lead-after-h1'], pageTypes: { flow: { headings: { h2: 'heading-small' } } } },
   // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
   // of its own (www: 26 of 33 not at a section's start)
   discover: {

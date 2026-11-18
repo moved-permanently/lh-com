@@ -1,0 +1,19 @@
+# ema-cashub, standing order 70 (2026-11-18), item 3: Group for Business celebrating-shared-stories de/de. Its first
+# section (the intro, "We are the journey" and the history cards, ending "Mit den besten Verbindungen") has Style
+# "wide-text, space-below-m": a Spacer M before the grey band "Jubiläum einer Ikone". At 1440 that band starts 56 px
+# lower than www's (b2b-parity-001; the H2s after it +32 to +48), at 390 43 px higher. With "space-below-m-below-768" the
+# M stays on phones and goes from 768 px: "Jubiläum einer Ikone" +56 -> +11 px at 1440, the page 7,777 -> 7,732 (www
+# 7,754: +0.30 -> -0.28 %); 390 unchanged by construction (12,091, www 12,092: the page is 1 px off there).
+# Token-free: a section style changes (M on every width to M on phones only); no row puts a style marker in.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so70-b2b-celebrating-de-space-phones.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (1 read-only GET, 22:21 CET): "1 inserted", "without the inserts DA's copy byte for byte:
+# true"; a second run "1 present"; no {…} in the output.
+# Drafted on b2b.turnsthe.page (so67/hostv2.mjs, the served .plain.html with the first section's class changed, main's
+# code; unhinted; airline hosts, www.* and lh-proxy refused per request, none sent), and in the same load as served
+# (in-page toggle: 7,777 -> 7,732 / 12,091 -> 12,091). Gate: |after %| - |before %| <= 0.5.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/de/news/celebrating-shared-stories	1440	b2b-parity-001	7754	7777 (+0.30 %)	7732 (-0.28 %)	-0.02 points; "Jubiläum einer Ikone" +56 -> +11 px against www
+READY	/de/de/news/celebrating-shared-stories	390	b2b-parity-001	12092	12091 (-0.01 %)	12091 (-0.01 %)	0 points; the style keeps M below 768 px
+#
+# DA change (lh-b2b), READY path: the first section's Style "wide-text, space-below-m" -> "wide-text, space-below-m-below-768".

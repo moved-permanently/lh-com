@@ -1372,3 +1372,104 @@ body.brand-swiss .destination-finder:not(.grid) .destination-finder-notes .desti
 body.brand-swiss .destination-finder:not(.grid) .destination-finder-notes .destination-finder-conditions {
   display: none;
 }
+
+/* standing order 70, item 1: the lead under the page title (token-free.js lead-after-h1: the H1's paragraph when it
+   ends its section) is www's p.copytext-large, SwissText light 18 / 30 px with 0.2 px letter spacing (22 recorded
+   pages, swiss-parity-001, -002a, -002b; ours drew body text, 16 / 22); 20 px below it as the text's paragraphs (a classed
+   paragraph that ends its wrapper had none, which shows in a padded section) */
+body.brand-swiss main .default-content-wrapper > h1 + p.copytext-large {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 30px;
+  letter-spacing: 0.2px;
+}
+
+/* standing order 70, item 1 (duty-free-shop): a page that is one padded section (breadcrumb, picture, title, lead), as
+   www's: the section's padding (20 px, 40 from 768) between the breadcrumb and the picture (www's picture 20 / 41 px
+   lower than ours), and no section gap under it when it ends with running text (www: 40 / 60 px from the lead to the
+   footer, ours 88 / 108) */
+body.brand-swiss main > .section.padded:first-of-type:last-of-type > .breadcrumb-wrapper:first-child + .default-content-wrapper:not(:has(> h1:first-child)) {
+  margin-top: calc(var(--spacing-default) + var(--section-padding));
+}
+
+body.brand-swiss main > .section.padded:first-of-type:last-of-type:has(> .default-content-wrapper:last-child > p:last-child:not(.link-wrapper, .button-wrapper, .spacer)) {
+  margin-bottom: 0;
+}
+
+/* standing order 70, item 1 (unaccompanied-minors): the table's cells as www's maui-table cells (16 px text on 24 px
+   lines, 30 px above and below, at least 200 px wide: on phones the table scrolls sideways inside its box, as www's
+   does, where ours squeezed its columns into the width; ch/de unaccompanied-minors 390: its table 808 -> 648 px, www
+   648). A table right before an accordion keeps www's space between the two components (107 px, 128 from 768; ours 40
+   / 64) */
+body.brand-swiss main .table-striped td {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  line-height: 24px;
+}
+
+@media (width < 768px) {
+  body.brand-swiss main .table-striped table {
+    width: auto;
+    min-width: 100%;
+    table-layout: auto;
+  }
+
+  body.brand-swiss main .table-striped :is(th, td) {
+    min-width: 200px;
+  }
+}
+
+body.brand-swiss main .table-striped-wrapper:has(+ .accordion-columns-wrapper) > .table-striped {
+  margin-bottom: 107px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main .table-striped-wrapper:has(+ .accordion-columns-wrapper) > .table-striped {
+    margin-bottom: 104px;
+  }
+}
+
+/* standing order 70, item 1 (miles-and-more): from 768 px an accordion panel's picture followed by a titled list sits
+   beside it, as www's (swiss-parity-002b ch/en miles-and-more 1440: the card picture 377 px wide on the left, the
+   "Privileges" list from 22 px right of it, 57 px of ink above the picture and 73 below; ours stacked it, 262 px taller) */
+@media (width >= 768px) {
+  body.brand-swiss main .accordion-columns-intro > p:has(> picture:only-child):has(+ :is(h2, h3, h4, h5, h6) + :is(ul, ol)) {
+    float: left;
+    width: calc(50% - 11px);
+    max-width: none;
+    margin: 28px 22px 25px 0;
+  }
+
+  body.brand-swiss main .accordion-columns-intro > p:has(> picture:only-child):has(+ :is(h2, h3, h4, h5, h6) + :is(ul, ol)) ~ * {
+    margin-left: calc(50% + 11px);
+  }
+
+  body.brand-swiss main .accordion-columns-intro:has(> p > picture:only-child)::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+/* standing order 70, item 2: from 768 px the page title 31 px under the picture above it, as www's (the 21 recorded
+   1440 page-widths with a picture before the H1: ours 8 or 9 px lower, 40 px under the picture). Phones keep 40 (www 30
+   there): with 30 the two customer-support pages short of www (refunds, payment-options; www's H2s are heading-medium
+   there) end more than half a point further */
+@media (width >= 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the title's picture, not the cards' paragraphs */
+  body.brand-swiss main .section > .default-content-wrapper > p:has(> picture):has(+ h1):not(.column-end) {
+    margin-bottom: 31px;
+  }
+}
+
+/* standing order 70, item 2: below 768 px the footer's legal links 4 px closer to the logo above them and 4 px to the
+   one below (www's first legal line 106 px under the divider, ours 109; the Star Alliance logo 35 px under the last
+   line, ours 41): the footer 549 -> 541 px, www 530. The lines stay 24 px apart (www 14), so the rows' targets keep
+   WCAG 2.5.8's spacing (above); 5 px below would take arrival-departure 390 (short of www) more than half a point
+   further */
+@media (width < 768px) {
+  body.brand-swiss .footer .footer-legal {
+    margin: -4px 0;
+  }
+}
