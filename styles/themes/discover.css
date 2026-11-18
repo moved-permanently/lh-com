@@ -739,6 +739,30 @@ body.brand-discover main .accordion-columns-wrapper {
   }
 }
 
+/* the same view without its marks (standing order 45, token-free content: THEMES.discover oneElementViews gone, the
+   documents' " {column-start-outer column-end-outer}" removed by delta-so45-discover-token-free): the paragraph right
+   after the H1, the last of its text, followed by a card grid (in its section or at the start of the next) is www's
+   one-paragraph view: the section padding above and below, no margin under it; the cards right under it on phones
+   (styles.css's column-end gap), 40 px under it from 768 px. additional-services de/de and de/en without the marks:
+   4511 / 4052 and 4402 / 3672 (390 / 1440), as served with them; all 54 recorded Discover page-widths unchanged */
+body.brand-discover main .default-content-wrapper:has(+ .carousel-cards-wrapper) > h1 + p:last-child:not([class]),
+body.brand-discover main > .section:has(+ .section > .carousel-cards-wrapper:first-child) > .default-content-wrapper:last-child > h1 + p:last-child:not([class]) {
+  margin-bottom: 0;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+body.brand-discover main .default-content-wrapper:has(> h1 + p:last-child:not([class])) + .carousel-cards-wrapper {
+  margin-top: 0;
+}
+
+@media (width >= 768px) {
+  body.brand-discover main .default-content-wrapper:has(> h1 + p:last-child:not([class])) + .carousel-cards-wrapper,
+  body.brand-discover main > .section:has(> .default-content-wrapper:last-child > h1 + p:last-child:not([class])) + .section:has(> .carousel-cards-wrapper:first-child) {
+    margin-top: 40px;
+  }
+}
+
 /* from 768 px a page that ends with the flight search (the price calendar) keeps 54 px under it:
    www's footer about 46 px under the search box at 1440, ours 20 (standing order 11; at 390 the
    section gap is there already). The section's class keeps it above flight-search.css's
@@ -843,4 +867,12 @@ body.brand-discover .search-bar .search-bar-form {
    de/de, de/en and xx/fr, the line 4px above the Columns Media's last row; standing order 49) */
 body.brand-discover main > .section.divider-below > div:not(.default-content-wrapper) + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
   margin-top: 0;
+}
+
+/* discover-airlines.com: an M separator (space-m, 60 px in the documents) 40 px, its 1 px included as for every
+   separator (standing order 45: decision 3's M at 60 lifted; all 54 recorded page-widths with M at 60 and at 40 on the
+   same load: the sum of % off www 358.64 -> 358.04, the median 0.813 -> 0.813; 10 moved, 6 closer, 2 more than 0.5
+   points further, listed with their cause in report-so45-ema-lufthansa.md) */
+body.brand-discover main .default-content-wrapper > p.spacer[style*="--spacer-size: 60px"]:not(.divider) {
+  height: 41px;
 }

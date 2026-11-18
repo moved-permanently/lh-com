@@ -980,6 +980,16 @@ body.brand-ita main .columns-media.padded .columns-media-text h2:not([class*="he
   line-height: 1.1;
 }
 
+/* the H3 that opens a column view's text in heading-small as ITA draws it: bold (ITA's headings, --heading-light-weight)
+   in the size Columns Media already gives an unmarked H3 (its rule's light 300 is lufthansa.com's). The carrier of the
+   weight the import marked as {heading-small} until standing order 45 (token-free content: ita-airways-app's five
+   feature headings, 28 px / 22 px bold as served). Gated on all 80 recorded ITA page-widths: 79 unchanged,
+   seats-selection-economy 390 within 0.5 points (1.37 -> 1.76 %: its six seat headings bold, as www's
+   heading-copytext-large are, one line wrapping) */
+body.brand-ita main .columns-media:not(.title-large, .title-compact, .sidebar) .columns-media-text > h3:first-child:not([class*="heading-"]) {
+  font-weight: var(--heading-light-weight, 300);
+}
+
 /* small print under a text (ITA row 32): www's copytext-small is the last paragraph of the text's richtext, 24px under
    the text and 42px over the next component (its 18px margin and the component's 24); the import gives it a section of
    its own (Style small-print), 48px from either */

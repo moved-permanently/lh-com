@@ -1,0 +1,29 @@
+{
+ "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app": [
+  {
+   "from": "<h3 id=\"mobile-check-in\">Mobile check-in {heading-small}</h3>",
+   "to": "<h3 id=\"mobile-check-in\">Mobile check-in</h3>",
+   "count": 1
+  },
+  {
+   "from": "<h3 id=\"keeping-an-eye-on-your-baggage\">Keeping an eye on your baggage {heading-small}</h3>",
+   "to": "<h3 id=\"keeping-an-eye-on-your-baggage\">Keeping an eye on your baggage</h3>",
+   "count": 1
+  },
+  {
+   "from": "<h3 id=\"faster-through-security\">Faster through security {heading-small}</h3>",
+   "to": "<h3 id=\"faster-through-security\">Faster through security</h3>",
+   "count": 1
+  },
+  {
+   "from": "<h3 id=\"check-the-availability-of-wi-fi-and-in-flight-entertainment\">Check the availability of Wi-Fi and in-flight entertainment {heading-small}</h3>",
+   "to": "<h3 id=\"check-the-availability-of-wi-fi-and-in-flight-entertainment\">Check the availability of Wi-Fi and in-flight entertainment</h3>",
+   "count": 1
+  },
+  {
+   "from": "<h3 id=\"get-information-about-transfers\">Get information about transfers {heading-small}</h3>",
+   "to": "<h3 id=\"get-information-about-transfers\">Get information about transfers</h3>",
+   "count": 1
+  }
+ ]
+}

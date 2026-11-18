@@ -1,0 +1,104 @@
+{
+ "/de/en/travel-inspiration/inspiration/destinations/santorini": [
+  {
+   "from": "s of the sun and sea {heading-copytext-large}</h2><h1 id=\"vacatio",
+   "to": "s of the sun and sea</h2><h1 id=\"vacatio",
+   "count": 1
+  },
+  {
+   "from": "iscover Airlines.</p></div>\n<div><div cl",
+   "to": "iscover Airlines.</p><div class=\"section-metadata\"><div><div>Style</div><div>h2-compact</div></div></div></div>\n<div><div cl",
+   "count": 1
+  },
+  {
+   "from": "cture></div></div></div></div><div><div class=\"columns-media\"><div><div><p><picture><img src=\"https://www.discover-airli",
+   "to": "cture></div></div></div></div><div><div class=\"columns-media title-compact\"><div><div><p><picture><img src=\"https://www.discover-airli",
+   "count": 1
+  },
+  {
+   "from": "ead to the Red Beach {heading-copytext-large}</h2><p>The Red Beac",
+   "to": "ead to the Red Beach</h2><p>The Red Beac",
+   "count": 1
+  },
+  {
+   "from": "fs and gravel coasts {heading-copytext-large}</h2><p>Long beach w",
+   "to": "fs and gravel coasts</h2><p>Long beach w",
+   "count": 1
+  },
+  {
+   "from": "y accessible by boat {heading-copytext-large}</h2><p>White Beach ",
+   "to": "y accessible by boat</h2><p>White Beach ",
+   "count": 1
+  }
+ ],
+ "/de/de/travel-inspiration/inspiration/destinations/santorini": [
+  {
+   "from": "s von Sonne und Meer {heading-copytext-large}</h2><h1 id=\"santori",
+   "to": "s von Sonne und Meer</h2><h1 id=\"santori",
+   "count": 1
+  },
+  {
+   "from": "antorini fliegen.</p></div>\n<div><div cl",
+   "to": "antorini fliegen.</p><div class=\"section-metadata\"><div><div>Style</div><div>h2-compact</div></div></div></div>\n<div><div cl",
+   "count": 1
+  },
+  {
+   "from": "cture></div></div></div></div><div><div class=\"columns-media\"><div><div><p><picture><img src=\"https://www.discover-airli",
+   "to": "cture></div></div></div></div><div><div class=\"columns-media title-compact\"><div><div><p><picture><img src=\"https://www.discover-airli",
+   "count": 1
+  },
+  {
+   "from": "h\">Auf zum Red Beach {heading-copytext-large}</h2><p>Der Red Beac",
+   "to": "h\">Auf zum Red Beach</h2><p>Der Red Beac",
+   "count": 1
+  },
+  {
+   "from": "teil- und Kiesküsten {heading-copytext-large}</h2><p>Langer Stran",
+   "to": "teil- und Kiesküsten</h2><p>Langer Stran",
+   "count": 1
+  },
+  {
+   "from": "em Boot zu erreichen {heading-copytext-large}</h2><p>Der White Be",
+   "to": "em Boot zu erreichen</h2><p>Der White Be",
+   "count": 1
+  }
+ ],
+ "/de/en/my-bookings/check-in": [
+  {
+   "from": "class=\"columns-media\"><div><div><h2 id=\"",
+   "to": "class=\"columns-media title-compact\"><div><div><h2 id=\"",
+   "count": 1
+  },
+  {
+   "from": "in with booking code {heading-copytext-large}</h2><p>You can chec",
+   "to": "in with booking code</h2><p>You can chec",
+   "count": 1
+  }
+ ],
+ "/de/de/my-bookings/check-in": [
+  {
+   "from": "class=\"columns-media\"><div><div><h2 id=\"",
+   "to": "class=\"columns-media title-compact\"><div><div><h2 id=\"",
+   "count": 1
+  },
+  {
+   "from": "-in mit Buchungscode {heading-copytext-large}</h2><p>Für Ihren Di",
+   "to": "-in mit Buchungscode</h2><p>Für Ihren Di",
+   "count": 1
+  }
+ ],
+ "/de/de/my-bookings/services/additional-services": [
+  {
+   "from": "hr Komfort, weitere Gepäckstücke oder Ihren Wunschsitzplatz. {column-start-outer column-end-outer}</p>",
+   "to": "hr Komfort, weitere Gepäckstücke oder Ihren Wunschsitzplatz.</p>",
+   "count": 1
+  }
+ ],
+ "/de/en/my-bookings/services/additional-services": [
+  {
+   "from": "ed comfort, extra baggage allowance and your preferred seat. {column-start-outer column-end-outer}</p>",
+   "to": "ed comfort, extra baggage allowance and your preferred seat.</p>",
+   "count": 1
+  }
+ ]
+}

@@ -1597,3 +1597,11 @@ body.brand-brussels main > .section.flush.grey:not(.column-view):has(> .carousel
     font-style: normal;
   }
 }
+
+/* brusselsairlines.com: an M separator (space-m, 60 px in the documents) 40 px, its 1 px included as for every
+   separator (standing order 45: decision 3's M at 60 lifted; all 208 recorded page-widths with M at 60 and at 40 on the
+   same load: the sum of % off www 393.96 -> 383.60, the median 1.180 -> 0.990; 55 moved, 31 closer, 18 more than 0.5
+   points further, listed with their cause in report-so45-ema-lufthansa.md) */
+body.brand-brussels main .default-content-wrapper > p.spacer[style*="--spacer-size: 60px"]:not(.divider) {
+  height: 41px;
+}
