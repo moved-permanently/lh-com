@@ -204,7 +204,10 @@ export const THEMES = {
       article: { rules: ['rule-before-info-box', 'ruled-chapters'] },
       // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
       // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
-      // lh-com-pass-check.md, ema-adobe's handover item 2)
+      // lh-com-pass-check.md, ema-adobe's handover item 2). Their separators keep M at 60: www's
+      // are 60 there (86 of the 98 {spacer-N} markers of the 16 recorded 100-years documents; 40
+      // on 12), while the service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
+      '100-years': { space: { m: 60 } },
       // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
       // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
       'insights-tag': { rules: ['rule-before-info-box'] },
