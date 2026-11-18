@@ -1116,6 +1116,21 @@ body.brand-austrian main > .section:has(+ .section.column-view.padded:not(.grey)
   }
 }
 
+/* a Columns Media right under the page title on phones (standing order 60, item 3): www's column view starts 13 px
+   lower there (the H1's 36 px and the view's own 13), ours on the title's margin: the first picture 309 against www's
+   322 on every recorded page of this kind (baggage in seven languages, book/*, additional-services, special-requirements,
+   travel-classes), and every item under it 13 px high. From 768 px www's view starts on the title's margin, as ours.
+   Gate, all 246 recorded Austrian page-widths, the rule in the same load: 24 nearer www, none further by more than
+   0.5 points, the sum 4,695.05 -> 4,547.13, the median 16.13 -> 13.96 % (overview-manage 390 17.66 -> 6.18 %). Greek
+   left out:
+   gr/el/baggage's first item wraps 37 px longer than www's, so its lines meet www's only at today's offset (32.27 ->
+   34.06 % with the rule) */
+@media (width < 768px) {
+  body.brand-austrian main:not(:lang(el)) > .section > .default-content-wrapper:has(> h1:last-child) + .columns-media-wrapper:has(> .columns-media:not(.steps, .sidebar)) {
+    padding-top: 13px;
+  }
+}
+
 /* brief 444: the footer's spacing as www's (austrian-parity-002, the same on every page; ours was about
    100 px shorter): the payment heading 23 px further from the link columns; below 1025 px the follow-us
    group 46 px further from the payment badges, the legal links 19 px closer to the social icons and 38 px

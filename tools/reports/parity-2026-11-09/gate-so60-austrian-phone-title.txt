@@ -1,0 +1,33 @@
+# ema-test, standing order 60, item 3 (2026-11-18): Austrian parity, the rule "a Columns Media right under the page title on phones"
+#   (styles/themes/austrian.css, this order). Gate: all 246 recorded Austrian page-widths (austrian-parity-001/003/005-031, newest per page
+#   and width), our host as served, full Chrome, airline hosts refused, the rule in the same load as today; a page-width it does not reach
+#   is captured once.
+# Sum of % off www 4,695.05 -> 4,547.13, median 16.13 -> 13.96 % (1440: 2,518.90 -> 2,518.90, median 21.92 -> 21.92; 390: 2,176.15 ->
+#   2,028.23, median 16.04 -> 13.33). 25 page-widths move, 24 nearer, none further by more than 0.5 points (ru/ru baggage +0.03).
+#   gr/el/baggage 390 (32.27 -> 34.06 % with the rule: its first item wraps 37 px longer than www's) is left out by language (:lang(el)).
+# Each line: path, width, % off www today -> with the rule, height today -> with (www's).
+/at/en/book/overview-manage	390	17.66 -> 6.18 %	5,051 -> 5,064 px (www 5,103)
+/at/de/book/overview-manage	390	16.37 -> 5.09 %	5,243 -> 5,256 px (www 5,259)
+/at/de/besondere-anforderungen	390	16.40 -> 5.74 %	5,483 -> 5,496 px (www 5,498)
+/at/en/special-requirements	390	18.48 -> 8.14 %	5,436 -> 5,449 px (www 5,456)
+/fr/fr/baggage	390	17.42 -> 7.62 %	5,979 -> 5,992 px (www 6,012)
+/it/it/baggage	390	17.07 -> 7.35 %	6,034 -> 6,047 px (www 6,087)
+/at/de/book/overview-extra-services	390	17.24 -> 7.91 %	5,130 -> 5,143 px (www 5,156)
+/pl/pl/baggage	390	16.15 -> 7.26 %	6,024 -> 6,037 px (www 6,012)
+/es/es/baggage	390	15.97 -> 7.12 %	6,079 -> 6,092 px (www 6,067)
+/at/en/book/overview-extra-services	390	16.11 -> 7.47 %	4,940 -> 4,953 px (www 4,964)
+/at/de/book/flights	390	16.63 -> 8.33 %	4,843 -> 4,856 px (www 4,851)
+/at/en/book/flights	390	16.04 -> 7.84 %	4,686 -> 4,699 px (www 4,693)
+/at/en/book/overview-services-on-board	390	12.57 -> 6.36 %	2,931 -> 2,944 px (www 2,921)
+/at/de/book/overview-services-on-board	390	12.74 -> 6.77 %	2,979 -> 2,992 px (www 2,969)
+/at/en/book/overview-inspiration	390	12.37 -> 7.43 %	2,318 -> 2,331 px (www 2,300)
+/at/de/book/overview-inspiration	390	12.44 -> 7.56 %	2,366 -> 2,379 px (www 2,348)
+/at/en/additional-services	390	13.80 -> 11.52 %	3,541 -> 3,554 px (www 3,554)
+/at/en/fly/travel-classes	390	13.77 -> 11.86 %	2,915 -> 2,928 px (www 2,889)
+/at/de/fly/travel-classes	390	14.05 -> 12.19 %	2,915 -> 2,928 px (www 2,889)
+/cn/zh/baggage	390	50.78 -> 49.34 %	5,327 -> 5,340 px (www 5,676)
+/jp/ja/baggage	390	50.93 -> 49.94 %	5,348 -> 5,361 px (www 5,871)
+/il/en/legal/cancellation-refund-via-document-upload	390	19.26 -> 18.46 %	3,759 -> 3,772 px (www 4,041)
+/at/en/book/overview-travel-information	390	16.18 -> 15.50 %	4,084 -> 4,097 px (www 4,070)
+/at/de/book/overview-travel-information	390	16.07 -> 15.57 %	4,149 -> 4,162 px (www 4,135)
+/ru/ru/baggage	390	34.14 -> 34.17 %	6,435 -> 6,448 px (www 6,200)
