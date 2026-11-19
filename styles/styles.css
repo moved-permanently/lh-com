@@ -2120,6 +2120,16 @@ body.theme-live.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .
   margin-bottom: 40px;
 }
 
+/* ... and on phones the same before a view that opens with text (standing order 60: upgrades-at-online-check-in 390
+   8.29 -> 4.89 %, travel-expense-management 390 8.60 -> 6.38; the 9 phone page-widths it reaches sum 68.49 -> 60.26, none
+   further; from 768 px it moved first-class-personal-assistant further, so it stays on phones) */
+@media (width < 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the section before a view, not a campaign-section's */
+  body.theme-live.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey) > .default-content-wrapper:first-child > p:first-child:not(.spacer, .button-wrapper)):has(> .default-content-wrapper:last-child > p:last-child > picture, > .default-content-wrapper:last-child > p:last-child > a > picture) {
+    margin-bottom: 40px;
+  }
+}
+
 /* not on flow pages (Theme flow-spacing) once the theme is live (the collapsed column-mark
    documents, info and hub alike): their headings keep the full width, as www's (6,500 of the 6,978
    H2 / H3 of the 1,862 published column-mark documents had no {limited-width}; /de/en/bid-upgrade:
@@ -2592,6 +2602,16 @@ body.theme-live.brand-lufthansa.legal.flow-spacing main .default-content-wrapper
    "This might also be of interest to you" below the hub views' last rule; digital-self-services +32 px without it) */
 body.theme-live.brand-lufthansa main > .section.h2-small > .default-content-wrapper > p.spacer.divider + h2 {
   margin-top: 0;
+}
+
+/* ... and on phones a flow page's H3 right after text (a paragraph or a list): no gap either, the text's own margin is the
+   space as the marks drew it (standing order 60: security-check-time-slot 390 5.75 -> 4.40 %, immigration-regulations-uk
+   390 7.10 -> 5.69; the 11 phone page-widths it reaches sum 75.15 -> 72.12, none further; from 768 px it moved
+   child-in-businessclass further, so it stays on phones) */
+@media (width < 768px) {
+  body.theme-live.brand-lufthansa.flow-spacing main .default-content-wrapper > :is(p:not(.spacer), ul, ol) + h3 {
+    margin-top: 0;
+  }
 }
 
 /* ... also when a separator hidden at this width stands between that content and the heading: it is not there at this
