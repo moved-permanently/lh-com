@@ -1716,3 +1716,14 @@ body.brand-brussels main .section.section.section .accordion-columns.title-large
     padding-top: 33px;
   }
 }
+
+/* standing order 50 (the full-site sweep): in a link-list column view (carry-on baggage's travel classes, six
+   languages) the column's first H4, the fare name without an icon, keeps its item headings' 18 px on phones too: the
+   icon headings (columns-media.css, www's heading-copytext-large) stay 18 px there while a plain H4 scaled down to 16,
+   so the fare name drew smaller than the items under it. From 768 both were 18 px already */
+@media (width < 768px) {
+  body.brand-brussels .columns-media.link-list.link-list .columns-media-row > .columns-media-text > h4:first-child:not(:has(> picture)):has(~ h4 > picture) {
+    font-size: 18px;
+    line-height: 110%;
+  }
+}
