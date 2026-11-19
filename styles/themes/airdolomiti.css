@@ -2193,7 +2193,8 @@ body.brand-airdolomiti main:has(.manage-booking) .default-content-wrapper > h1 +
 }
 
 /* the text under the form (www's second TitleDescriptionPnr; brief 456): 40px under it, its
-   paragraphs 19.44px / 33px grey and centred, a blank line between them (www's empty paragraphs) */
+   paragraphs 19.44px / 33px grey from the column's start edge as www's (its text-align left at 1440
+   and 390, standing order 67; brief 456 had them centred), a blank line between them (www's empty paragraphs) */
 /* stylelint-disable-next-line no-descending-specificity -- the text under the form, not the newsletter strip's */
 body.brand-airdolomiti main:has(.manage-booking) .manage-booking-wrapper ~ .default-content-wrapper {
   margin-top: 40px;
@@ -2211,7 +2212,7 @@ body.brand-airdolomiti main:has(.manage-booking) .manage-booking-wrapper ~ .defa
   color: #494949;
   font-size: 19.44px;
   line-height: 33px;
-  text-align: center;
+  text-align: start;
 }
 
 /* (AD row 103) www's blank lines there are empty paragraphs after the first two only: the phone paragraph, the opening

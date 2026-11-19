@@ -1,5 +1,6 @@
 /* Air Dolomiti's manage booking text (parity row 40, brief 456): under the form, www's second
-   TitleDescriptionPnr: 40px under the form, its paragraphs 19.44 / 33 px grey (#494949), centred,
+   TitleDescriptionPnr: 40px under the form, its paragraphs 19.44 / 33 px grey (#494949), from the
+   column's start edge (www's text-align left at 1440 and 390, standing order 67; brief 456 centred them),
    a blank line (33px, www's empty paragraphs) between them; the column as the title's (50vw from
    930px).
    Run: node --max-old-space-size=512 --test test/airdolomiti-manage-text-456.test.mjs */
@@ -20,12 +21,12 @@ test('the text 40px under the form (the form\'s own 48px margin off when text fo
   assert.match(body('body.brand-airdolomiti main .manage-booking-wrapper:has(~ .default-content-wrapper) > .manage-booking'), /margin-bottom: 0;/);
 });
 
-test('its paragraphs 19.44 / 33 px grey, centred, a blank line between them', () => {
+test('its paragraphs 19.44 / 33 px grey, from the start edge, a blank line between them', () => {
   const p = body(`${W} > p`);
   assert.match(p, /max-width: none;/);
   assert.match(p, /margin: 0 0 33px;/);
   assert.match(p, /color: #494949;/);
   assert.match(p, /font-size: 19\.44px;/);
   assert.match(p, /line-height: 33px;/);
-  assert.match(p, /text-align: center;/);
+  assert.match(p, /text-align: start;/);
 });
