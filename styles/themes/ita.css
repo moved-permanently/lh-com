@@ -1379,6 +1379,14 @@ body.brand-ita main :is(td, th) > p.spacer {
    row on the cells); from 768px www's 80px under the panel's last table (ours 24). A cell's paragraph right before a spacer
    has no margin: www's empty lines follow the text. Strollers 1440 -4.70 -> -0.76 %, 390 -4.47 -> +0.14 %; checked-baggage
    and electronic-devices (the other recorded pages with accordion tables) unchanged */
+
+/* Standing order 48: the token-free re-import of 18 Nov removed the cells' "{spacer-27}" / "{spacer-54}" (www's empty
+   lines, "No baggage<br><br><br>"), and ita-parity-014 measures www's frame through the maui-table shadow DOM: the
+   header row 97 px (two lines of the column header type, 24 px above and below), 32 px under the table, the first body
+   row 199 px in every table of the panel from 768 (the four tables side by side share their rows' height) and 172 px
+   on phones (www 172 or 199 there, by the cell's empty lines). Gated on all 80 recorded ITA page-widths: strollers
+   1440 4,358 -> 4,456 (www 4,446), 390 7,635 -> 7,887 (7,882), the others unchanged; the nine language copies of
+   strollers are the only documents with such a panel */
 /* stylelint-disable-next-line no-descending-specificity -- a table cell's paragraph, not the cards' text above */
 body.brand-ita main :is(td, th) > p:has(+ p.spacer) {
   margin-bottom: 0;
@@ -1389,7 +1397,9 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
 }
 
 body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table th {
-  height: 144px;
+  height: 97px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   box-shadow: inset 0 1px 0 #d1d1d5, inset 0 -1px 0 #d1d1d5;
   font-size: 22px;
   font-weight: 300;
@@ -1397,7 +1407,19 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
 }
 
 body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table thead + tbody tr:first-child > * {
+  height: 204px;
   border-top: 32px solid var(--background-color, #fff);
+  vertical-align: top;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table {
+  padding-bottom: 32px;
+}
+
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table thead + tbody tr:first-child > * {
+    height: 231px;
+  }
 }
 
 @media (width >= 768px) {
