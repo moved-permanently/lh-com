@@ -467,6 +467,40 @@ async function decorateTap(block, locale) {
   if (wrapper) tap.keepHeaderBelow(wrapper);
 }
 
+/**
+ * Air Dolomiti: the notice as www.airdolomiti.it's (NavbarAllert): a bar above the header, the
+ * message's title and www's line under it, the whole bar the link. The block leaves its section
+ * (which goes when nothing else is in it) for a wrapper first in the body, as TAP's alerts bar
+ * (scripts/alerts-bar.js); the fixed header stays under it while it is in view (keepHeaderBelow).
+ * Standing order 64; the look is styles/themes/airdolomiti.css's.
+ */
+const AIRDOLOMITI_MORE = {
+  it: 'Per maggiori informazioni, consulta la pagina dedicata.',
+  en: 'For more information, please refer to the dedicated page.',
+  de: 'Für weitere Informationen besuchen Sie bitte die entsprechende Seite.',
+};
+
+function airdolomitiBar(block, region, locale) {
+  const section = block.closest('.section');
+  const wrapper = document.createElement('div');
+  wrapper.className = 'alerts-bar alerts-bar-airdolomiti';
+  wrapper.append(block);
+  document.body.prepend(wrapper);
+  if (section && !section.querySelector('.block, .default-content-wrapper > *')) section.remove();
+  region.querySelectorAll('.flash-teaser-text').forEach((text) => {
+    const more = document.createElement('span');
+    more.className = 'flash-teaser-more';
+    more.textContent = AIRDOLOMITI_MORE[locale.lang] || AIRDOLOMITI_MORE.en;
+    text.after(more);
+  });
+  // the bar's own height for the stage under it (the window's height less the header and the bar)
+  const root = document.documentElement;
+  const size = () => root.style.setProperty('--alerts-bar-height', `${wrapper.offsetHeight}px`);
+  size();
+  window.addEventListener('resize', size);
+  import('./flash-teaser-tap.js').then((tap) => tap.keepHeaderBelow(wrapper)).catch(() => {});
+}
+
 export default async function decorate(block) {
   // lh-com and the sites with roots: getLocale(); the sites without: the page's language
   const locale = messageLocale();
@@ -488,6 +522,7 @@ export default async function decorate(block) {
   const labels = { ...(LABELS[locale.lang] || LABELS.en) };
   const view = buildStrip(messages, labels, ctiRows, locale);
   block.append(view.region);
+  if (document.body.classList.contains('brand-airdolomiti')) airdolomitiBar(block, view.region, locale);
   // the live label bundle (the built-in copies are the same texts; only screen reader labels):
   // scripts/lh-api.js loaded here, not with the block, so the visible strip doesn't wait for it
   import('../../scripts/lh-api.js').then(({ fetchLabels }) => fetchLabels(['flashteaser'], locale)).then((live) => {

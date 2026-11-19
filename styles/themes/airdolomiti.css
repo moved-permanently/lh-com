@@ -5238,6 +5238,105 @@ body.brand-airdolomiti main .poi-map:not(.poi-map-with-aside) .poi-map-view {
   }
 }
 
+/*
+ * standing order 64, item 2: the notice as www's NavbarAllert, a bar above the header (blocks/flash-teaser airdolomitiBar
+ * moves it there; the homepages of the three languages carry it): teal #00889a, white, 10 px in (10 px 30 px from 930 px,
+ * 10 px 40 px from 1230 px), the title in capitals 15.12 / 16 px semibold (www's 1.4rem on its 10.8 px root), www's line
+ * under it 10.8 px, its arrow on the right (20 px); 89 px tall at 390 and 54 px at 1440 as www's (it was a grey pill
+ * inside the stage, under the header)
+ */
+body.brand-airdolomiti .alerts-bar-airdolomiti {
+  background-color: #00889a;
+  color: #fff;
+}
+
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-strip {
+  --flash-teaser-color: #fff;
+
+  background-color: transparent;
+}
+
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-bar {
+  height: auto;
+  max-height: 90px;
+  padding: 10px;
+}
+
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-controls,
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-icon {
+  display: none;
+}
+
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-link,
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-link:any-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  color: #fff;
+  font-weight: 400;
+}
+
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-link::after {
+  content: '';
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 11h12.2l-5.6-5.6L12 4l8 8-8 8-1.4-1.4 5.6-5.6H4z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-text {
+  display: block;
+  grid-column: 1;
+  font-size: 15.12px;
+  font-weight: 600;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-more {
+  display: block;
+  grid-column: 1;
+  margin-right: 5px;
+  font-size: 10.8px;
+  line-height: 1.3;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-bar {
+    max-height: 65px;
+    padding: 10px 30px;
+  }
+}
+
+@media (width >= 1230px) {
+  body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-bar {
+    padding: 10px 40px;
+  }
+}
+
+@media (width >= 1450px) {
+  body.brand-airdolomiti .alerts-bar-airdolomiti .flash-teaser-slides {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+/* (the stage right under the header once the notice is above it, as it was when the notice stood first in the content) */
+/* stylelint-disable-next-line no-descending-specificity -- the page's first section, not the card bands' */
+body.brand-airdolomiti:has(> .alerts-bar-airdolomiti) main > .section:first-child {
+  margin-top: 0;
+}
+
+/* (the stage the window's height under the header and the notice, as www's: 100vh less its header with the notice, 169 px
+   at 390, 175 at 1440) */
+body.brand-airdolomiti:has(> .alerts-bar-airdolomiti) main > .section:has(.hero-campaign-services) .hero-campaign.hero-campaign-services {
+  min-height: calc(100svh - var(--nav-height) - var(--alerts-bar-height, 0px));
+}
+
 /* a blog post's end as www's BlogLayout wrapper (margin-bottom 0 below 930px, 100px from 930): the last section,
    when it ends with the post's text, keeps no margin of its own below 930px and its last element none either (www's
    text runs to 4 to 12px above the footer at 390), 100px from 930px (ours was 48 at every width; standing order 52) */

@@ -2579,3 +2579,13 @@ body.brand-cargo main > .section.breadcrumb-container:first-child:has(> .default
     margin-inline: -16px;
   }
 }
+
+/* standing order 64, item 3: a list in the text 21 px in, as www's paragraph-div lists (their text at x 37 on a 16 px margin;
+   ours 40 px in from lh-com's styles, 19 px narrower): industries-in-focus' "Hand-in-hand" list 2 lines shorter per item group.
+   From 768 px: on phones en/ebooking-info's list (www's CF7, a paragraph per item) went 2.6 points further with it. Gate, the
+   62 recorded Cargo 1440 page-widths: none further, the sum 696.26 -> 688.09 (en/industries-in-focus 15.86 -> 7.71 %) */
+@media (width >= 768px) {
+  body.brand-cargo main :is(.default-content-wrapper, .columns-media-text) > ul {
+    padding-left: 21px;
+  }
+}
