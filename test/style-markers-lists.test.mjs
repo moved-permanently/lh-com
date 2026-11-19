@@ -34,6 +34,7 @@ test('styles.css: the text sizes on lists as on paragraphs', () => {
 
 test('scripts.js reads the shared lists (no copy of its own)', () => {
   const js = read('../scripts/scripts.js');
-  assert.match(js, /import \{\s*HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR,(?: BLANK_LINE,)?\s*\} from '\.\/style-markers\.js';/);
+  // the shared lists, and since standing order 60 hasStyleMarkers (the switch waits for a document's collapse)
+  assert.match(js, /import \{\s*HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR,(?: BLANK_LINE,)?(?: hasStyleMarkers,)?\s*\} from '\.\/style-markers\.js';/);
   assert.ok(!/const LIST_STYLE =/.test(js));
 });
