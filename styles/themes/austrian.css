@@ -1900,6 +1900,24 @@ body.brand-austrian main .columns-media:not(.steps, .sidebar) .columns-media-tex
   padding-bottom: 4px;
 }
 
+/* standing order 67, item 1: on phones the same grid cells' text 24 px under their heading, as www's (ours 28: the text 4-5 px low
+   in every cell of the book and baggage grids, its link line too), 8 px under the cell where the 4 above were (the next cell stays
+   where www's is). The same at 1281 px and wider failed the gate (entryregulations 1440 at and de: +0.99 and +0.55); phones only.
+   sustainable-flying's two cells had 12 px and grow toward www's height (5,861 -> 5,893 px, www 5,929).
+   Gate, the 123 recorded Austrian page-widths at 390: none further, 2,145.75 -> 2,133.09 (sustainable-flying 14.66 -> 11.14 %,
+   besondere-anforderungen 5.14 -> 4.18, book/overview-manage 4.59 -> 3.75) */
+@media (width < 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- a grid cell's heading, not the carousel cards' titles */
+  body.brand-austrian main .columns-media:not(.steps, .sidebar) .columns-media-text:has(> p.link-wrapper:last-child):has(> p:first-child > picture, > p:first-child > a > picture) > :is(h2, h3):has(+ p:not(.link-wrapper)) {
+    margin-bottom: 24px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- the same grid cells */
+  body.brand-austrian main .columns-media:not(.steps, .sidebar) .columns-media-text:has(> p.link-wrapper:last-child):has(> p:first-child > picture, > p:first-child > a > picture):has(> p:first-child + :is(h2, h3)) {
+    padding-bottom: 8px;
+  }
+}
+
 /* the end of online-check-in (standing order 14; the nine documents with option steps: the steps row, the App part, the
    FAQ button, the Travel ID row, then the divider section): against austrian-parity-017's full-page screenshots, www's
    FAQ button 84 px over "Experience a seamless travel experience with Travel ID" (ours 34: the H2's 32 over the
