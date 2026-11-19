@@ -6371,3 +6371,60 @@ estimate are in [lufthansa-switch-plan-923.md](../token-free/lufthansa-switch-pl
 - **Full suite on main e474e4b.** lh-edge 73 files, site 1,293 files, none failing.
 - **Held.** R2, R3, the item-4 carriers, the switch itself.
 - **Left out of git.** logs/b658 (probes, trials, DA copies, captures, runners) and the /tmp worktrees.
+
+## Standing order 59 (2026-11-19 06:40 CET to about 13:00 CET): kinds, near-value steps, structural predictors, shared patterns, the gate once more
+
+Order 58 left nothing finished unpushed. Out of git by design: logs/b658 and the /tmp worktrees. The plugin stays off,
+as asked. Tables and lists are in [lufthansa-switch-plan-923.md](../token-free/lufthansa-switch-plan-923.md) §13.
+
+1. **The 348 worse page-widths by kind** (first moved box and the marker behind it):
+
+   | kind | page-widths | points |
+   | --- | --- | --- |
+   | (a) separator size rounded | 120 | 496 |
+   | (b) heading-size marks | 43 | 191 |
+   | (c) width marks | 34 | 102 |
+   | (d) text-size marks | 22 | 61 |
+   | (e) anything else | 129 | 486 |
+
+   Kind (a)'s values: {spacer-70} drawn 40 on 29 page-widths; 10-20 px dropped on about 35; 50, 60 and 80 drawn 40;
+   40 from 768 px drawn 60. The full table is in §13.
+2. **Near-value steps (branch, cf9bc8b).**
+   - A separator takes the nearest of XS 16, S 25, M 40, M+ 60, L− 80, L 120 (a tie to the larger). The new steps are
+     Spacer block options (xs, m-plus, l-minus); M and L are written as before, no marker. The M from 768 px value goes.
+   - Recorded separators' rounding: 5,843 -> 2,068 px.
+   - In the full gate it closes 11 of the 326 failing page-widths and newly fails 4 (lufthansa-express-bus 390,
+     wheelchair-batteries both widths, articles/explore-flying 1440), so 319 fail.
+   - The sum drops by 201 points; 75 page-widths closer, 24 further. Shipped as a net gain.
+3. **Structural predictors for (b) to (d): none (held).**
+   - No section, block, neighbour, position or language context gives one marked size 70 % or more. The only one is
+     an H2 after a list in Columns Media, heading-small 9 of 12.
+   - No width or text-size context does either (footnotes: 36 % full-width, 42 % small).
+4. **Shared patterns: two tried, held.**
+   - The articles' divider before an info box keeping its section gap: 26 page-widths, 278.3 -> 279.3.
+   - The largest remaining signatures are about 20 points each (§13.4).
+5. **The gate (plan 923 §13).**
+
+   | | order 58 | order 59 |
+   | --- | --- | --- |
+   | worse than today by more than 0.5 | 348 | 329 |
+   | of these explained by www (pass with M at 60) | 22 | 10 |
+   | not passing | 326 | 319 |
+   | better by more than 0.5 | 65 | 61 |
+   | sum today / switched | 4,361.78 / 5,608.63 | 4,361.78 / 5,407.58 |
+   | median today / switched | 5.63 / 6.98 | 5.63 / 6.79 |
+
+   It does not pass. Of the 319:
+   - 88 (215 points) share a signature with at least two other pages: about 7-12 more orders at tonight's rate.
+   - 241 (914 points) no shared rule or step reaches; §13.3 lists each with page, width and points.
+   - Points come off much faster than failing page-widths, because most pages carry several small causes. A gate on
+     every page-width at 0.5 points needs either a decision per page or another gate measure from the migration
+     session.
+
+- **Pushed.**
+  - The branch: cf9bc8b (the steps, their tests, bundles; rebased on main 433e52e), never merged.
+  - main: this section's commit with plan 923 §13.
+- **No main code tonight**, so no smoke was needed.
+- **Full suite on main 433e52e.** lh-edge 73 files, site 1,294 files, none failing.
+- **Held.** The structural rules for (b) to (d) (no predictor), R5, the switch itself.
+- **Left out of git.** logs/b659 (sorts, trials, probes, captures, runners) and the /tmp worktrees (wt-tf57, wt-tf59u).
