@@ -303,6 +303,17 @@ main > .section.flight-status-container + .section {
     min-width: 0;
     padding-inline: 4px;
   }
+
+  /* SWISS (standing order 77): www's maui-tab-control spreads its tabs from their own width
+     (.tab.spread: flex-grow 1 on a content-sized tab, the label one line), so a long label takes a
+     wider tab, not a third of the bar (ch/en "Flight number" 144 px wide on www's 390 recording,
+     140 here). A label that does not fit even then wraps inside its tab instead of running into the
+     next one (ch/el "Δρομολόγιο πτήσης", ch/ru "Маршрут рейса" ran 26 / 3 px over at 390) */
+  body.brand-swiss .flight-status .flight-status-tab {
+    flex: 1 1 auto;
+    min-width: auto;
+    white-space: normal;
+  }
 }
 
 @media (width >= 768px) {
