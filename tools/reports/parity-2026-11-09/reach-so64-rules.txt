@@ -1,0 +1,19 @@
+# ema-test, standing order 64 (2026-11-19): the reach of this order's rules on the served documents (their .plain.html from our hosts,
+#   decorated as scripts.js decorates sections; logs/p4/so64/reach-ul.py, reach-tapc.py), and renders of served pages after the push
+#   (our host, full Chrome, airline hosts refused).
+
+Air Dolomiti, the notice above the header (10979b8f): the 3 documents with a flash-teaser (index, de/index, en/index); no other.
+  Rendered live, 1440 and 390, each: the bar first in the body, the header right under it (1440: bar 55 px, header at 55; 390: bar 85-87
+  px, header at 85-87), no flash-teaser left in main, the first section without its margin, the stage under the header (1440 at 175,
+  725 px high; 390 at 165-167, 730-733 px), the page 1440 / 390 px wide (nothing sideways).
+
+Cargo, a list in the text 21 px in from 768 px (10979b8f): 75 of the 978 served documents (49 with a list in default content, 30 in a
+  Columns Media text; de 30, en 35, es 2, fr 2, it 2, pt 2, message-center 2).
+  Rendered live, six unrecorded ones at 1440 and 390 (de/ci/2506-tl-raffle, de/industrien-kunst, de/privacy-statement (6 lists),
+  en/industries-agriculture-food, en/news/lwvi, it/ci/environmental): at 1440 padding 21 px (the first item 37 px from its column's
+  left edge; en/news/lwvi 21), at 390 40 px as before (56; lwvi 40); no item past its column, no page wider than the screen.
+
+TAP, a section title alone above a stacked Columns Media block centred (ac5f0868): 8 of the 892 served documents, economy-prime in its
+  8 languages (en-pt, pt-pt, pt-br, es-es, fr-fr, it-it, de-de, pl-pl).
+  Rendered live: en-pt 1440 and pl-pl 1440 the title centred, its box at x 325 w 790 (centre 720, www's 720); de-de 390 centred,
+  three lines, as www's phone title.

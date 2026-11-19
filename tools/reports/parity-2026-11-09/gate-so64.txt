@@ -1,0 +1,60 @@
+# ema-test, standing order 64 (2026-11-19): every rule and change gated in this order, on the brand's recorded page-widths (our host as
+#   served, full Chrome, airline hosts refused, captures up to 20,000 px). The gate: no page-width more than 0.5 points further from www
+#   than before, and the sum down. Same-load gate (logs/p4/so64: crun.sh / gate.sh; crun-n.sh / gate-n2.sh for the importer simulation).
+# Recordings: Austrian on austrian-parity-033 (sha256 0efe9e7b50638beabd7a6ce1173437c96fd0376eb09c590312be7bcf1589f861, replacing the
+#   withdrawn 032; 246 page-widths); Air Dolomiti with the cards re-recordings of airdolomiti-cards-recordings-2026-11-19.json
+#   (airdolomiti-parity-018/019/020, 11 page-widths at 1440; 118 in all); Cargo 113, TAP 52 as in order 63.
+
+## Shipped
+
+Air Dolomiti, the notice above the header (blocks/flash-teaser/flash-teaser.js airdolomitiBar, styles/themes/airdolomiti.css): 10979b8f
+  www's NavbarAllert: a teal bar first in the page, the header under it, the stage the window's height less both. On the 3 documents that
+  carry a flash-teaser (index, de/index, en/index), measured before the push:
+    /     1440 16.36 -> 14.87 %    390 25.05 -> 23.84 %
+    /de/  1440 17.16 -> 15.72 %    390 23.67 -> 22.65 %
+    /en/  1440 16.77 -> 15.35 %    390 23.98 -> 22.99 %
+  Air Dolomiti's sum 1,083.55 -> 1,075.98 (118 page-widths; no other page carries the block). PASS.
+
+Cargo, a list in the text 21 px in from 768 px (styles/themes/cargo.css): 10979b8f
+  At every width: sum 1,422.28 -> 1,414.80, but en/ebooking-info 390 12.52 -> 16.42 (its www list is a paragraph per item; 2.6 points
+  further on phones): HOLD at every width. From 768 px: the 62 recorded 1440 page-widths none further, 696.26 -> 688.09
+  (en/industries-in-focus 15.86 -> 7.71 %). PASS.
+
+TAP, a section title alone above a stacked Columns Media block centred across the page (styles/themes/tap.css): ac5f0868
+  52 page-widths, none further, sum 581.05 -> 580.94 (economy-prime 390 16.02 -> 15.95, 1440 6.20 -> 6.16). PASS.
+
+## Held
+
+Austrian, order 62's spacing parts on austrian-parity-033 (each alone, and a + d together):
+  part a   4,586.88 -> 4,716.74   35 page-widths further by more than 0.5   HOLD
+  part b   2,168.57 -> 2,287.13   29 further (its 123 page-widths)           HOLD
+  part c   2,168.57 -> 2,357.20   24 further                                 HOLD
+  part d   2,418.28 -> 2,463.23   24 further                                 HOLD
+  a + d    4,586.88 -> 4,688.94   25 further                                 HOLD
+  The same family fails each time: the Columns Media item grids (book/*, baggage, special-requirements), where www's spacing differs
+  from the parts' by page kind.
+
+Air Dolomiti, www's no-break spaces kept by the importer (tools/importer/airdolomiti-import.mjs; patch logs/p4/so64/nbsp-edge-importer.patch,
+  not in git). The cause of the destinations wraps: www's WordPress text binds a bold word or a link to its neighbours with &nbsp;
+  ("begin in&nbsp;<b>Germany</b>, where&nbsp;<a><b>Munich</b></a>&nbsp;fascinates"); our importer wrote plain spaces. Put into our
+  served page (simulated in the same load), destinations at 390 gets www's paragraph heights exactly (524 -> 561 and 337 -> 374 px).
+  Three variants, all 118 page-widths:
+    every no-break space kept          1,083.52 -> 1,051.58   frankfurt-de 390 13.87 -> 17.64 (+3.77)   HOLD
+    runs up to 28 characters only      1,075.92 -> 1,064.88   frankfurt-de 390 13.87 -> 15.10 (+1.23)   HOLD
+    only next to an element (edge)     1,075.85 -> 1,048.34   frankfurt-de 390 13.87 -> 14.44 (+0.57, re-measured: the same)   HOLD
+  The edge variant (best: destinations 390 32.02 -> 13.76, voli-europa 390 14.94 -> 11.55, sistema-di-intrattenimento 390 8.39 ->
+  5.64, fleet 390 12.61 -> 9.97) misses by 0.07 points on one page-width. Its cause: frankfurt-de's text is pasted from Word with
+  &nbsp; between whole sentences' words; on www those runs reach past the 351 px column (one line 657 px wide; www's page at 390 is
+  1,892 px wide), where our main text breaks a word that does not fit (styles.css, overflow-wrap: break-word, so nothing runs off a
+  phone's screen). Four of its five changed paragraphs move to www's height (Ebene 0 163 -> 190, www 198; "Am Flughafen Frankfurt
+  steht" 363 -> 330, www 330); one moves away (429 -> 462, www 429: "Frankfurt~sind~die~Bereiche~für~Shopping" 360 px on www's
+  351 px line). No token-free rule draws text past its column, so it stays HOLD.
+  It would reach documents only by re-importing them: the importer's snapshots (content-sites/lh-airdolomiti/snapshots) are not on this
+  machine.
+
+Cargo, the boxed cards' three-line clip removed (with 38 px under the text) at 390, the list indent at every width included:
+  de/industries-in-focus 390 39.59 -> 47.41, en 34.95 -> 47.17: HOLD.
+  The cause is not the font: Cargo's font file is www's (sha256 d9f86fb0..., the same file), and www's own de Pharma card also wraps to
+  4 lines at 390 without a clip. www's cards stand further apart (pitch 413 / 437 px against our 395: www's teaserboxText has 55 px
+  under it), and the content above the cards is about 152 px longer on ours (the list 40 px in against www's 21 at 390, a hyphenated H2,
+  an inset picture). Unclipped, our cards make the page 216 px longer where www's is not; the clip stays.

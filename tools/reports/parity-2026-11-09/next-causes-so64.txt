@@ -1,0 +1,50 @@
+# ema-test, standing order 64 (2026-11-19): each brand's next causes, worst first, with what was found and done. % off www as in
+#   gate-so64.txt's base runs. Austrian ranked without ja, zh, ko and el (234 of its 246 page-widths).
+
+## Austrian (on austrian-parity-033)
+- The homepages lead (cz/en 1440 64.96 %, ge/en 63.15, ro/en and md/en 60.1, fr/en, pl/en, ch/en, it/en about 59, ch/de 58.77, then
+  pt/en, au/en, me/en, rs/en, jp/en): content and function, as order 61's austrian-homepages-so61.txt (another hero campaign, other
+  carousel cards, the fare finder's grid or link). No rule.
+- /ru/ru/baggage 390 34.17 % (ours 6,448 px, www 6,200), 1440 24.56 % (4,556 / 4,423): Portada has no Cyrillic letters (both its
+  files, ours and www's the same: sha256 41a5e564... SemiBold, e843ce03... Regular), so Russian headings are drawn in each machine's
+  fallback font. www's recording drew "Опасные личные вещи" 320 px wide at 28 px bold, our capture browser's fallback (Liberation Sans
+  Bold) 363 px: one line on www, two on ours, and so on down the page (each section +23 to +54 px). The capture machine's fonts, not
+  a theme rule; the 28.11 px against www's 28 px (lh-com's fluid size at 390) moves nothing (6,448 -> 6,446). No rule.
+- /at/de/unterhaltung-an-bord 1440 33.25 %: content (www's tab panels hold one more text block and its button; ours 405 px shorter).
+- /at/de and /at/en discover/inspiration/fly-with-austrian 390 32.29 / 31.77 % (ours 150 / 139 px shorter): its inspiration tiles
+  stack from the fourth on; no single cause.
+- /at/en/bangkok-airways 1440 28.95 %, 390 24.42 %: content (www closes with a booking band ours lacks).
+- /at/de/entryregulations 1440 26.58 %, 390 24.33 %: order 59-61's rows (READY there).
+- /at/en/fly/on-board/culinary-services 1440 25.72 %, 390 24.63 %: the culinary tiles under the menu band 29 px higher than www's.
+- /at/de/local-page/feels-like-flying/os401crewstory 390 24.88 %, 1440 21.92 % (ours 230 / 210 px longer): www sets this article's
+  headings per heading (its h3s and the closing h2 18 px CoreSans, class heading-copytext-large; the subtitle h2 28 px, heading-small);
+  ours are the default sizes (h2 36 px, h3 and h4 28 px Portada), so each is a line taller. Carrying www's choice into the documents
+  would put a style token in them (token-free): no rule, no row.
+- /it/it/form-confirmation 1440 23.82 %, 390 22.74 %: content (www's confirmation page holds more).
+
+## Cargo
+- /en/data-protection-notice-google-analytics 1440 69.83 %, 390 65.36 %: function (www's opt-out widget).
+- /de and /en industries-in-focus 390 39.59 / 34.95 %: the boxed card clip (HOLD, gate-so64.txt; the cause is the card pitch and the
+  content above, not the font).
+- /en/meta/meta/company/general-terms1 390 32.98 %: content order (www's links first, the picture after).
+- /de and /en ci/whats-up-now 1440 25.6 %: the stage done in order 63; the rest content (the mosaic teaser cards).
+- /de/ci/facts-figures 1440 23.85 %, 390 23.42 % (ours 293 px longer at 390, 113 shorter at 1440): content and order (www a key-figures
+  band and a timeline by year where ours has the board section first). No rule.
+- /de and /en ci/newsroom 1440 22.3 %: function (www's newsroom feed).
+- /en/industries-healthcare 1440 22.15 %: the Carousel Images stage (order 62's).
+- /en/footer/bottomnav/terms-of-use 390 21.54 % (ours 5,078 px, www 4,780): measured with order 63's legal text rule live; the
+  remaining 298 px not looked at in this order.
+- /de/eservices-app 390 20.25 % (86 px longer), /de and /en fleet-ulds/fleet: www draws its content lists (ul.list_view) with tick
+  icons and 20 px between the items only in an icon-list component an author picks list by list; our documents carry no such mark and
+  one would be a style token. No rule.
+
+## TAP
+- /en-pt and /pt-pt 1440 27.9 %, 390 21.5 / 20.2 %: content (another hero campaign, other quick links).
+- /en-pt/on-board/fly-business 390 24.17 % (ours 73 px longer): drift on a long page, 2-6 px per block; no single cause.
+- /pt-pt/miles-and-go/promocoes/navigator-experiences 390 22.00 %: live data (the experiences carousel).
+- /en-pt/destinations/get-inspired and /pt-pt/destinos/inspire-se 390 19.6 / 17.4 %: order 62's carousel titles (live from 768 px; on
+  phones www's 40 px titles wrap where ours don't line up: HOLD there).
+- /en-pt/manage-booking/extras/lounges 390 16.60 %: content (the lounge notices changed).
+- /en-pt/information/baggage/locate-baggage 390 16.42 %: function (www's inline baggage-status form).
+- /en-pt/on-board/economy-prime 390 16.02 %, 1440 6.20 %: "Benefits that enhance your journey" centred on www, start on ours: the rule
+  shipped in this order (ac5f0868; 8 documents, gate-so64.txt).

@@ -6683,3 +6683,96 @@ List: reach-so63-rules.txt.
   tools/importer/reports/* (not mine).
 - **The full suite at 06f05b9d** (this section's base): npm run lint exit 0, stylelint exit 0, 1,294 test files passed, 0 failed.
 - **Cleanup:** no folder server was started this order; the suite worktree removed.
+
+## Standing order 64 (received about 08:20 UTC, 2026-11-19)
+
+Themes: Austrian, Cargo, TAP and Air Dolomiti (their theme files, the flash-teaser block for Air Dolomiti's notice, their lists). The gate
+as before: all recorded page-widths of the brand, the change in the same load, captures to the page's full length; none more than 0.5
+points further, the sum down. Lists: tools/reports/parity-2026-11-09/gate-so64.txt, reach-so64-rules.txt, next-causes-so64.txt.
+
+### Item 1: Austrian on austrian-parity-033 (no rule)
+
+- **The swap:** austrian-parity-033 (sha256 0efe9e7b...f589f861, checked) replaces the withdrawn 032 everywhere 032 stood. Austrian on it:
+  4,586.88 / 16.39 % over 246 page-widths; 4,331.39 / 16.49 % over 234 without ja, zh, ko and el.
+- **Order 62's spacing parts, each alone and a + d (all HOLD):** a 4,586.88 -> 4,716.74 (35 further), b 2,168.57 -> 2,287.13 (29),
+  c 2,168.57 -> 2,357.20 (24), d 2,418.28 -> 2,463.23 (24), a + d 4,586.88 -> 4,688.94 (25). The Columns Media item grids (book/*,
+  baggage, special-requirements) fail each time.
+- **Next causes, worst first:** the homepages are content and function (order 61). /ru/ru/baggage (390 34.17 %, 1440 24.56 %): Portada
+  has no Cyrillic letters, so Russian is drawn in each machine's fallback font: www's recording draws "Опасные личные вещи" 320 px wide,
+  our capture browser 363 px, so it wraps. That is the capture machine's fonts, not a rule. The crew story (os401crewstory, +230 / +210 px):
+  www sizes its headings one by one (18 px CoreSans h3s); copying that would put style tokens in the documents. The rest: content.
+
+### Item 2: Air Dolomiti (notice bar SHIPPED in 10979b8f; the line wraps HOLD)
+
+- **The cards re-recordings:** the index's sha256 checked; airdolomiti-parity-018 / -019 / -020 replace the 11 page-widths at 1440 it lists.
+  Air Dolomiti on them: 1,083.55 / 7.31 %.
+- **The notice above the header (SHIPPED):** on Air Dolomiti pages the flash-teaser block moves the notice into a bar at the top of the
+  page, www's NavbarAllert (teal #00889a, its title in capitals and www's "for more information" line). The header sits under it, and the
+  stage is the window's height less both. It reaches the 3 documents that carry the block (the homepages in it, de and en).
+  - 1440: 16.36 -> 14.87, 17.16 -> 15.72, 16.77 -> 15.35 %. 390: 25.05 -> 23.84, 23.67 -> 22.65, 23.98 -> 22.99 %.
+  - Sum 1,083.55 -> 1,075.98. Rendered live: the bar first, the header under it, nothing sideways. test/airdolomiti-notice-bar-so64.
+- **The line wraps (cause found, change HOLD):** the importer turned www's no-break spaces into plain ones. Put back into our served
+  destinations page, its paragraphs take www's heights exactly (524 -> 561 and 337 -> 374 px at 390).
+  - Kept only where they touch a bold word or a link: 118 page-widths, 1,075.85 -> 1,048.34 (destinations 390 32.02 -> 13.76 %).
+  - It misses the gate on one page-width: frankfurt-de 390, 13.87 -> 14.44 (+0.57, re-measured the same). That page's Word-pasted runs
+    reach past www's 351 px column (www's page at 390 is 1,892 px wide); ours break inside the column instead. No token-free rule draws
+    text past its column. Every no-break space kept: +3.77 there; runs of up to 28 characters only: +1.23.
+  - The patch is in logs/p4/so64/nbsp-edge-importer.patch (not in git). It would reach the documents only by re-importing them, and the
+    importer's snapshots are not on this machine.
+
+### Item 3: Cargo (the list indent SHIPPED in 10979b8f; the card clip HOLD)
+
+- **The cause of the German wraps:** not the font. Cargo's font file is www's (the same sha256), and www's own de Pharma card also takes 4
+  lines at 390 without a clip. www's cards stand further apart (pitch 413 / 437 px against our 395; 55 px under www's teaserboxText) and the
+  content above the cards is about 152 px longer on ours (the list indent, a hyphenated H2, an inset picture).
+- **The list in the text 21 px in, from 768 px (SHIPPED):** as www's lists. At every width en/ebooking-info 390 went 12.52 -> 16.42, so
+  from 768 px only. 62 page-widths at 1440, none further, 696.26 -> 688.09 (en/industries-in-focus 15.86 -> 7.71 %). It reaches 75 of 978
+  documents; six rendered live, nothing past its column.
+- **The clip removal, gated again:** de/industries-in-focus 390 39.59 -> 47.41, en 34.95 -> 47.17. HOLD: unclipped, our cards make the
+  page 216 px longer.
+- **Next causes:** facts-figures is content and order; eservices-app and fleet: www's tick-icon lists are an icon-list component an author
+  picks per list (a token for us). The rest are function or content (next-causes-so64.txt).
+
+### Item 4: TAP (a centred section title SHIPPED in ac5f0868)
+
+- **The next cause that is a rule:** a section title alone above a stacked Columns Media block (economy-prime's "Benefits that enhance
+  your journey") is centred across the page on www; ours sat at the 790 px column's start.
+  - 52 page-widths, none further, 581.05 -> 580.94 (economy-prime 390 16.02 -> 15.95, 1440 6.20 -> 6.16).
+  - It reaches 8 of 892 documents, economy-prime in its 8 languages. Rendered live, centred at x 720 as www's.
+- **The rest, worst first:** the homepages (content), fly-business 390 (drift), navigator-experiences (live data), the carousel titles on
+  phones (order 62's HOLD), lounges (content), locate-baggage (function).
+
+### Item 5: the reach of this order's rules
+
+reach-so64-rules.txt. The notice bar reaches 3 documents, the Cargo list rule 75 of 978, and the TAP title rule 8 of 892. All were rendered live after the
+push at 1440 and 390, and nothing was broken.
+
+### Each brand's sum and median at the end
+
+| brand | page-widths | sum | median |
+| --- | --- | --- | --- |
+| Austrian | 246 | 4,586.88 | 16.39 % |
+| Cargo | 113 | 1,414.11 | 9.20 % |
+| TAP | 52 | 580.94 | 9.61 % |
+| Air Dolomiti | 118 | 1,075.85 | 7.29 % |
+
+- Austrian is on 033 (order 63's 4,570.70 was on 032); without ja, zh, ko and el: 4,331.39 / 16.49 % over 234.
+- Cargo: 1,422.28 before the list rule; its 1440 page-widths with the rule live.
+- TAP: 581.05 before the rule in this order's base run (order 63's run: 577.34; TAP's live carousels move about 1 % between loads).
+- Air Dolomiti: with the cards re-recordings and the notice bar live (1,083.55 before the bar); 1,048.34 / 7.23 % if the held importer
+  change were in the documents.
+
+### Final section (about 11:05 UTC, 2026-11-19)
+
+- **Pushed:** 10979b8f (Air Dolomiti notice bar, Cargo list indent), ac5f0868 (TAP centred title), both Build success; this section
+  and the three lists follow.
+- **Checks before each push:** whole-repo lint 0; stylelint on the changed theme and block files 0; folder-reading tests 0 failed (681,
+  683 after the last rebase); brand tests and, for a data-only pull, da-upload-sites and loc-sites passed.
+- **The full suite at ac5f0868:** npm run lint exit 0, stylelint exit 0, 1,301 test files passed, 0 failed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA write.
+- **Requests:** our four hosts, the R2 drops and GitHub's API. No airline host (www renders offline from the archives, every request
+  answered from the files or refused).
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off.
+- **Not in git:** logs/p4/so64 (captures, probes, trial CSS, the held importer patch and its test), the drops; content/, migration-work/
+  and tools/importer/reports/* (not mine).
+- **Cleanup:** the two local servers (3101, 3102) stopped by PID and their worktrees removed; the suite worktree removed.
