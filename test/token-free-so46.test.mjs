@@ -37,7 +37,8 @@ test('the rows remove markers only; what they add is a block option', () => {
 
 test('Brussels: the two page ends', () => {
   const b = css('brussels.css');
-  assert.ok(b.includes('body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1):has(> .default-content-wrapper:last-child > ul:last-child):not(:has(~ .section:not(:empty))) { padding-bottom: 54px; }'));
+  // standing order 47: on the closing list itself, a list of links only (test/token-free-so47)
+  assert.ok(b.includes('body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1, :has(~ .section:not(:empty))) > .default-content-wrapper:last-child > ul:last-child:has(> li > a):not(:has(> li > :not(a))) { padding-bottom: 54px; }'));
   assert.ok(b.includes('body.brand-brussels main > .section.padded:has(> .columns-media-wrapper:last-child > .columns-media.sidebar) + .section:has(> .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up):not(:has(~ .section:not(:empty))) { padding-bottom: 96px; }'));
 });
 

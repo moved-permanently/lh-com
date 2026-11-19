@@ -1611,13 +1611,17 @@ body.brand-brussels main .default-content-wrapper > p.spacer[style*="--spacer-si
    of the space its "{spacer-77 from-768}" / "{spacer-23 below-768}" gave until standing order 46 (token-free content);
    with it be/en legal-notices is www's height at both widths (1,428 / 1,867; today 1,428 / 1,843). The padding also
    keeps the list's 10 px margin, so 54 / 88 px. be/fr's (a padded section) keeps its own end, 15 px from www's */
-/* stylelint-disable-next-line no-descending-specificity -- another section than the sidebar link-list rule above */
-body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1):has(> .default-content-wrapper:last-child > ul:last-child):not(:has(~ .section:not(:empty))) {
+
+/* standing order 47: on the list itself, and only a list of links (every item a link): order 46's form also took the
+   closing bullet lists of 21 terms pages (conditions-seat-reservation, terms-and-conditions-baggage-sale, ...; the
+   census of all 1,801 served Brussels documents), 54 / 88 px they never had */
+/* stylelint-disable-next-line no-descending-specificity -- another list than the sidebar link-list rule above */
+body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1, :has(~ .section:not(:empty))) > .default-content-wrapper:last-child > ul:last-child:has(> li > a):not(:has(> li > :not(a))) {
   padding-bottom: 54px;
 }
 
 @media (width >= 768px) {
-  body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1):has(> .default-content-wrapper:last-child > ul:last-child):not(:has(~ .section:not(:empty))) {
+  body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1, :has(~ .section:not(:empty))) > .default-content-wrapper:last-child > ul:last-child:has(> li > a):not(:has(> li > :not(a))) {
     padding-bottom: 88px;
   }
 }
@@ -1633,5 +1637,39 @@ body.brand-brussels main > .section.padded:has(> .columns-media-wrapper:last-chi
 @media (width >= 768px) {
   body.brand-brussels main > .section.padded:has(> .columns-media-wrapper:last-child > .columns-media.sidebar) + .section:has(> .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up):not(:has(~ .section:not(:empty))) {
     padding-bottom: 33px;
+  }
+}
+
+/* brusselsairlines.com: a legal notice whose text opens with its title, a paragraph and a list, in a sidebar-h1 section
+   (the Israeli Aviation Services Law notice: ao/fr and il/en aviation-services-law). www's default-state recording of
+   it (brussels-parity-015, accordions closed): the list 32 px lower under the opening paragraph from 768 (50 on
+   phones), each heading after text 17 px lower (12 on phones), and 90 / 72 px from the closing accordion to the footer
+   where ours had 48. The carrier of the space ao/fr's four "{spacer-28}" gave until standing order 47 (token-free):
+   without them and with these rules ao/fr is 2,678 / 4,742 (www 2,682 / 4,771; today 2,635 / 4,702). The same carriers
+   page-wide took privacy-notice-applicants and five other legal pages more than 0.5 points further, so they stay with
+   this notice's shape */
+body.brand-brussels main > .section.sidebar-h1:has(> .default-content-wrapper > h1 + p + :is(ul, ol)) > .default-content-wrapper > h1 + p + :is(ul, ol) {
+  padding-top: 50px;
+}
+
+body.brand-brussels main > .section.sidebar-h1:has(> .default-content-wrapper > h1 + p + :is(ul, ol)) > .default-content-wrapper > :is(p, ul, ol) + h2 {
+  padding-top: 12px;
+}
+
+body.brand-brussels main > .section.sidebar-h1:has(> .default-content-wrapper > h1 + p + :is(ul, ol)):has(> .accordion-columns-wrapper:last-child):not(:has(~ .section:not(:empty))) {
+  padding-bottom: 22px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section.sidebar-h1:has(> .default-content-wrapper > h1 + p + :is(ul, ol)) > .default-content-wrapper > h1 + p + :is(ul, ol) {
+    padding-top: 32px;
+  }
+
+  body.brand-brussels main > .section.sidebar-h1:has(> .default-content-wrapper > h1 + p + :is(ul, ol)) > .default-content-wrapper > :is(p, ul, ol) + h2 {
+    padding-top: 17px;
+  }
+
+  body.brand-brussels main > .section.sidebar-h1:has(> .default-content-wrapper > h1 + p + :is(ul, ol)):has(> .accordion-columns-wrapper:last-child):not(:has(~ .section:not(:empty))) {
+    padding-bottom: 40px;
   }
 }
