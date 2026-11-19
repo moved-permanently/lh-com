@@ -2614,6 +2614,14 @@ body.theme-live.brand-lufthansa main > .section.h2-small > .default-content-wrap
   }
 }
 
+/* ... and inside a column view an H2 or H3 right after text at every width: the marks drew a view's headings with the
+   text's margin only; the gap is the view's padding where a heading opens a view (standing order 60: get-your-guide 390
+   8.86 -> 7.27 %, online-check-in-info 390 8.53 -> 7.55; the 34 page-widths it reaches sum 490.36 -> 485.96, none
+   further) */
+body.theme-live.brand-lufthansa.flow-spacing main > .section.column-view > .default-content-wrapper > :is(p:not(.spacer), ul, ol) + :is(h2, h3) {
+  margin-top: 0;
+}
+
 /* ... also when a separator hidden at this width stands between that content and the heading: it is not there at this
    width (standing order 34; ITA group-boarding's phones lost 8px to a desktop-only spacer before a heading) */
 @media (width < 768px) {

@@ -6,6 +6,10 @@
    D2: on phones a picture that ends its section right before a view that opens with text keeps its 40 px below, as R16b does
        before a view's heading (upgrades-at-online-check-in 390 8.29 -> 4.89 %; 9 page-widths 68.49 -> 60.26). From 768 px it
        moved first-class-personal-assistant 1440 1.12 further: phones only.
+   G: an article's chapter right after a section that ends with a block gets no chapter rule (scripts/token-free.js; its
+       tests: test/chapter-rule-teaser-532.test.mjs, test/token-free.test.mjs).
+   I: inside a column view an H2 or H3 right after text keeps no heading gap, at every width (get-your-guide 390 8.86 ->
+       7.27 %; 34 page-widths 490.36 -> 485.96).
    Run: node --test test/lufthansa-shared-patterns-so60.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -30,4 +34,14 @@ test('D2: a picture before a view that opens with text keeps 40 px, on phones on
   assert.equal(media(rule), '@media (width < 768px)');
   // no :has() inside :has() (dropped silently by the browsers: test/styles-no-nested-has.test.mjs)
   assert.ok(!/:has\([^()]*:has\(/.test(rule));
+});
+
+test('I: an H2 / H3 after text inside a column view, no heading gap, at every width, with the live theme', () => {
+  const rule = 'body.theme-live.brand-lufthansa.flow-spacing main > .section.column-view > .default-content-wrapper > :is(p:not(.spacer), ul, ol) + :is(h2, h3) {\n  margin-top: 0;';
+  const at = css.indexOf(rule);
+  assert.ok(at > 0);
+  // not inside an @media block: the last @media before it is closed before the rule
+  const open = css.lastIndexOf('@media', at);
+  const block = css.slice(open, at);
+  assert.equal((block.match(/\{/g) || []).length, (block.match(/\}/g) || []).length);
 });
