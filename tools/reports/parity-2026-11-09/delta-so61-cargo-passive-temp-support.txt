@@ -1,0 +1,9 @@
+# ema-test, standing order 61 (2026-11-19, found under item 3's Cargo ranking): /en/passive-temp-support's tab panel list as www's, across the
+#   panel (DA moved-permanently/lh-cargo). Data: delta-so61-cargo-passive-temp-support.json.
+# The carrier: the Cargo tabs variant wide-text (styles/themes/cargo.css, standing order 60: a panel's lists across the panel from 1025 px),
+#   a class the theme draws; no marker. www's English list runs the panel's whole width on its re-recording (cargo-parity-013); ours wraps
+#   at two thirds, 86 px longer. The de twin carries the variant since order 60.
+# The page with the row: the served page with the variant's rule added for its tabs block, in the same load, against cargo-parity-013.
+# Dry run: text-inserts-apply --check on DA's current copy (read ~03:30 UTC): 1 insert made once, the copy byte for byte without it.
+# Each line: READY / HOLD, path, the change, % off www and height as served -> with the row (1440 / 390), the gate.
+READY	/en/passive-temp-support	the tabs block Tabs (wide-text)	1440 14.07 -> 7.58 % (2,234 -> 2,138 px, www 2,148); 390 not recorded	no marker added; DA dry run byte for byte (1 insert)
