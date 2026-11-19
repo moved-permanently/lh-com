@@ -1,0 +1,49 @@
+# ema-test, standing order 66 (2026-11-19): every rule gated in this order, on the brand's recorded page-widths (our host as served,
+#   full Chrome, airline hosts refused, captures at full length, the rule in the same load; logs/p4/so66 gate.sh). The gate: no
+#   page-width more than 0.5 points further from www than before, the sum down; a failing pattern gets one narrower second try.
+
+## Shipped
+
+Austrian, Cyrillic text in Arial's metrics (item 1): 17ac5304, ad2978be.
+  Liberation Sans 2.1.5 (SIL Open Font License 1.1; Copyright (c) 2010 Google Corporation, (c) 2012 Red Hat, Inc.), its two files and
+  licence in fonts/austrian/, served from our own hosts for the Cyrillic ranges only, named after Portada and CoreSans.
+  Order 65's gate 4,586.88 -> 4,555.40; the by/ru and ru/ru homepages further, accepted by the migration session.
+  Live (re-measured after the code sync): 246 page-widths 4,555.52 / 16.05 % (ru/ru/baggage 390 34.17 -> 11.91, 1440 24.56 -> 6.27).
+  The first push's code sync took the file from before the commit (lh-austrian's live CDN kept the old copy, the code bus the new
+  one); ad2978be, a comment-only change, made the next sync carry it.
+
+Cargo, a product page's short introduction 39 px above the grey tabs band (item 3, Cargo's tabs): db16c0e8.
+  www's band 9 px higher (728 against our 737 at 1440), the tabs and the panel with it. From 768 px.
+  First try, every section before a grey tabs band: 62 page-widths at 1440, 688.09 -> 613.24, but en/speed-zoom (+1.26, the
+  breadcrumb section above) and de/live-animals (+1.12, a long introduction) further.
+  Second, narrower try (the introduction an H1 and one paragraph): none further, 688.09 -> 616.20 (airmail 6.89 -> 2.19 %,
+  perishables 7.23 -> 2.45, passive-temp-support 10.56 -> 5.54).
+
+Austrian, a Columns Media grid cell's heading 36 px under its picture, the 4 px given back under the cell (item 3, Austrian's open
+  page-widths): 0eba7fcd. The heading pass showed one shared departure on 44 page-widths: every grid heading 4 px low at 1440 and 5 at
+  390, the pictures where www's are. Order 62's part a had moved the gap alone and shortened each cell.
+  246 page-widths: none further, 4,555.51 -> 4,547.40 (besondere-anforderungen 390 5.74 -> 5.14 %, book/overview-manage 390 5.09 ->
+  4.59). Live: the headings at www's y, the cells unchanged.
+
+## Held
+
+Austrian footer toggles (item 3, footers): www's phone toggles CoreSans Medium 18.72 px, 0.19 px tracking, 22 px in, 45 px apart.
+  First try (the look and the inset), 123 page-widths at 390: 2,200.16 -> 2,200.28. Second try (the type only): after 37 page-widths
+  462.28 -> 462.77, stopped. HOLD: the footer's mismatch is its offset from the content above, not its look.
+Cargo footer links bold (item 3, footers; www's measurements: 14 px 700): first try, all 113: 1,414.11 -> 1,419.30 (none further, the
+  sum up). Second try, the legal links on phones only: after 20 page-widths 255.71 -> 257.09, stopped. HOLD.
+Cargo phone tab titles in the heading font: no change on any page-width (726.02 -> 726.02): our visible phone titles (the accordion's
+  summary) are already LufthansaHead Bold; the hidden tab buttons were what the first probe read. Dropped; the stroke difference is
+  www's older LufthansaHeadWeb-Bold file (font).
+Air Dolomiti, the H1 28 px under the breadcrumb at 1440 (www 190, ours 186 on 15 accordion pages): first try, every breadcrumb section:
+  28 page-widths measured, 7 further (bagagli 0.53 -> 4.15, de/unterstutzung-und-kontakte 4.53 -> 9.04: pages already aligned).
+  Second try, accordion sections only: 2 further (en/faq-eu/baggage 7.22 -> 7.85, de/faq-de/gepaeck-faq 7.31 -> 7.91; both already
+  16 px longer than www). HOLD.
+Austrian link lines in regular weight (www's .os.link): 101 of 246 measured, 11 further (order 65's measure; not tried again).
+
+## Footers, one cause per brand
+  Austrian: the footer's look differs (toggles) but its mismatch follows the page above (held, above).
+  Cargo: the footer is www's height (600 px at 390); the legal links' weight differs (held); the rest is the offset from above.
+  TAP: content: its footer document lists other links than the recording (an extra destination line, 11 px).
+  Air Dolomiti: the footer is www's height (813 px at 1440); the mismatch is the offset from above (the article index pages: the
+    latest-articles list, live data).

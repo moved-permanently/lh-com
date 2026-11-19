@@ -6894,3 +6894,98 @@ closing-so65-ema-test.txt, counts per brand and cause class:
 - **Not in git:** logs/p4/so65 (captures, probes, trial CSS: the held Cyrillic, grid-cell and card-spacing rules), the drops; content/,
   migration-work/ and tools/importer/reports/* (not mine).
 - **Cleanup:** no local server started; the suite worktree removed.
+
+## Standing order 66 (received about 14:10 UTC, 2026-11-19)
+
+Themes: Austrian, Cargo, TAP and Air Dolomiti. Gate as before, one narrower second try per failing pattern. Lists:
+tools/reports/parity-2026-11-09/gate-so66.txt and closing-so66-ema-test.txt.
+
+### Item 1: Austrian's Cyrillic fallback (SHIPPED in 17ac5304, ad2978be)
+
+- **The rule:** Liberation Sans 2.1.5, SIL Open Font License 1.1, named in the commit. Its two files and the licence are in
+  fonts/austrian/, served from our own hosts for the Cyrillic ranges only, after Portada and CoreSans. test/austrian-cyrillic-so66.
+- **Live:** 246 page-widths 4,555.52 / 16.05 %; ru/ru/baggage 390 34.17 -> 11.91 %, 1440 24.56 -> 6.27 %.
+- **A stale sync:** the first push's code sync carried the file from before the commit. lh-austrian's live CDN kept the old copy;
+  ad2978be, a comment-only change, made the next sync carry it.
+- **Reach:** 192 of 2,108 documents carry Cyrillic. Four unrecorded Russian pages rendered live at 1440 and 390 (accessible-travel,
+  airbus-a321-111, at-the-airport, wetlease-hub): both faces load, the stack names the face, nothing scrolls sideways.
+
+### Item 2: Air Dolomiti as served with the re-import
+
+- **Measured again:** 118 page-widths, 1,052.36 / 7.26 % (1,075.85 before). en/destinations 390 32.02 -> 14.02 %, voli-europa 390
+  14.94 -> 11.55 %.
+- **The 41 page-widths waiting for the re-import:** now measured as served. Their rows carry the cause found for each, or leave the list
+  where they are at 3 % or less.
+
+### Item 3: the open groups
+
+- **Footers:** one cause per brand (gate-so66.txt). The Austrian toggles and the Cargo legal-link weight are held after two tries each;
+  their mismatch follows the page above. TAP's footer document differs (content). Air Dolomiti's footer is www's height, and the
+  article index pages' latest-articles list is live data.
+- **Cargo's tabs (SHIPPED in db16c0e8):**
+  - A product page's short introduction stands 39 px above the grey tabs band, as www's.
+  - Second, narrower try: 62 page-widths at 1440, 688.09 -> 616.20, none further.
+  - Reach: 34 of 978 documents; four unrecorded ones rendered (de/airmail, de/precheck, en/qdo, de/products/customer-owned-tracker).
+  - The phone tab titles are already LufthansaHead Bold; the stroke difference is www's older font file.
+- **Austrian (SHIPPED in 0eba7fcd):**
+  - A heading pass found one shared departure on 44 page-widths: grid headings 4 / 5 px low.
+  - The rule: the heading 36 px under its picture, the 4 px given back under the cell. 246 page-widths: 4,555.51 -> 4,547.40, none
+    further.
+  - Reach: 267 of 2,108 documents; three unrecorded ones rendered (fr/fr/book/overview-extra-services, pl/pl/book/overview-inspiration,
+    de/de/book/flights).
+- **Air Dolomiti:**
+  - The H1 is 4 px high at 1440 on 15 accordion pages. HOLD after two tries: the FAQ pages are already longer than www.
+  - The −10 px hero H1 is a padding artifact: the text stands where www's does.
+- **TAP:** the departures differ page by page; no shared one.
+
+### Item 4: "font (inferred)" checked, three page-widths per brand
+
+- **Austrian, TAP, Air Dolomiti:** not confirmed (layout offsets, a different form field, picture corners). Back to open.
+- **Cargo:** confirmed. The same line breaks, heavier strokes on www: www's older LufthansaHeadWeb file against our LufthansaHead.
+
+### Item 5: the closing list
+
+closing-so66-ema-test.txt:
+
+| brand | > 3 % | content | live data | function | font | pattern < 3 | open (held pattern) | open |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Austrian | 230 of 246 | 120 | 0 | 0 | 15 | 46 | 0 | 49 |
+| Cargo | 103 of 113 | 18 | 0 | 6 | 26 | 28 | 4 | 21 |
+| TAP | 50 of 52 | 14 | 5 | 2 | 0 | 28 | 0 | 1 |
+| Air Dolomiti | 98 of 118 | 8 | 14 | 0 | 0 | 24 | 0 | 52 |
+
+- **TAP:** done but for one page-width, an aligned-layout page.
+- **Austrian, Cargo and Air Dolomiti:** not done. Their open groups are named in the list:
+  - the aligned-layout pages (in-block drawing: Austrian 17, Air Dolomiti 9);
+  - Austrian's language families of /baggage and the /book pages;
+  - Cargo's ebooking-info, live-animals and support-and-contact families;
+  - Air Dolomiti's shared −4 px H1 at 1440 (14, held) and its other shared phone departures.
+
+### Item 6: reach
+
+As above: the Cyrillic rule on 192 documents, the Cargo gap on 34, the Austrian grid on 267, each rendered live on unrecorded
+documents at 1440 and 390.
+
+### Each brand's sum and median at the end
+
+| brand | page-widths | sum | median |
+| --- | --- | --- | --- |
+| Austrian | 246 | 4,547.40 | 16.05 % |
+| Cargo | 113 | 1,342.22 | 8.86 % |
+| TAP | 52 | 580.94 | 9.61 % |
+| Air Dolomiti | 118 | 1,052.36 | 7.26 % |
+
+### Final section (about 17:20 UTC, 2026-11-19)
+
+- **Pushed:** 17ac5304 and ad2978be (the Cyrillic fallback), db16c0e8 (the Cargo gap), 0eba7fcd (the Austrian grid). Every Build
+  succeeded. This section, the gate report and the closing list follow.
+- **Checks before each push:** whole-repo lint 0; stylelint on austrian.css and cargo.css 0; folder-reading tests 0 failed (690);
+  Austrian, Cargo and theme-reading tests passed. Data-only pulls ran the da-upload-sites and loc-sites tests.
+- **The full suite at 0eba7fcd:** npm run lint exit 0, stylelint exit 0, 1,311 test files passed, 0 failed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA read or write, no admin purge (the stale theme file was
+  refreshed by a code push).
+- **Requests:** our four hosts and their aem.page / aem.live origins (reads), GitHub's API. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off.
+- **Not in git:** logs/p4/so66 (captures, heading passes, trial CSS for the held rules); content/, migration-work/ and
+  tools/importer/reports/* (not mine).
+- **Cleanup:** no local server started; the suite worktree removed.
