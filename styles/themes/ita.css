@@ -1281,9 +1281,13 @@ body.brand-ita .columns-media.padded {
 /* stacked country columns on phones (ITA row 51; standing order 12, item 1; /it/en/support/utilities/contact,
    ita-parity-005): www keeps 62px between the stacked columns of a row, each a heading-medium H2 with its lines; ours
    38 (the text's 36px margin, the row grid without a gap). Contact 390 -5.24 -> +0.82 %; entry-exit-system -2.46 ->
-   -2.20 %; the 37 other recorded ITA pages unchanged (without the H2 condition 3 pages went further); 1440 as before */
+   -2.20 %; the 37 other recorded ITA pages unchanged (without the H2 condition 3 pages went further); 1440 as before.
+   Standing order 46: the H2 is unmarked since order 44 (token-free: the padded-view H2 rule above draws it in
+   heading-medium), so the condition reads either form, and the next column opens with an H2 too (residents-in-sicily's
+   numbered steps, an H2 then H1s, went 0.64 points further without it): contact 390 -4.70 -> +0.58 %, the other 39
+   recorded ITA phone page-widths unchanged */
 @media (width < 768px) {
-  body.brand-ita .columns-media.padded .columns-media-row > .columns-media-text:not(:last-child):has(> h2.heading-medium:first-child) {
+  body.brand-ita .columns-media.padded .columns-media-row > .columns-media-text:not(:last-child):has(> h2:first-child:is(.heading-medium, :not([class*="heading-"]))):has(+ .columns-media-text > h2:first-child) {
     margin-bottom: 60px;
   }
 }

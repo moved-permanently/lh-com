@@ -50,3 +50,11 @@ test('Discover: an H2 opening the text after an accordion or a column view', () 
   assert.ok(d.includes('body.brand-discover main .section > .accordion-columns-wrapper + .default-content-wrapper > h2:first-child { padding-top: 31px; }'));
   assert.ok(d.includes('padding-top: 48px;'));
 });
+
+/* item 5: ITA's stacked country columns on phones (order 12's rule) keyed on h2.heading-medium, which the token-free
+   documents no longer carry since order 44: the rule reads the unmarked H2 too, when the next column opens with one */
+test('ITA: the stacked columns rule reads the unmarked H2', () => {
+  const t = css('ita.css');
+  assert.ok(t.includes('.columns-media-text:not(:last-child):has(> h2:first-child:is(.heading-medium, :not([class*="heading-"]))):has(+ .columns-media-text > h2:first-child) { margin-bottom: 60px; }'));
+  assert.doesNotMatch(t, /:has\(> h2\.heading-medium:first-child\)/);
+});

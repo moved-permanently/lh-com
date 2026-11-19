@@ -12,7 +12,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/themes/ita.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
-const SEL = 'body.brand-ita .columns-media.padded .columns-media-row > .columns-media-text:not(:last-child):has(> h2.heading-medium:first-child)';
+// standing order 46: the H2 is unmarked since order 44 (token-free; ita.css draws a padded view's H2 in heading-medium),
+// so the condition reads either form, and the next column opens with an H2 too (residents-in-sicily's numbered steps)
+const SEL = 'body.brand-ita .columns-media.padded .columns-media-row > .columns-media-text:not(:last-child):has(> h2:first-child:is(.heading-medium, :not([class*="heading-"]))):has(+ .columns-media-text > h2:first-child)';
 
 test('below 768 px: 60 px under a stacked column that opens with a heading-medium H2', () => {
   const q = css.indexOf(`@media (width < 768px) { ${SEL} {`);
