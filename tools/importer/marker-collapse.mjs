@@ -1090,6 +1090,15 @@ function collapseSeparators(main, doc, stats, ctx) {
   const { rules, space } = themeFor(ctx.brand, ctx.pageType);
   // www's small separators (21-31 px) as the Spacer block option s where the theme has it (lufthansa.com: 25 px)
   const small = !!(space && space.s);
+  // near-value steps (standing order 59): the nearest of the theme's steps, a tie to the larger (50 M+, 70 L-, 100 L: closer
+  // on the recorded pages than the smaller), none below 8 px
+  const steps = space && space.steps;
+  const stepOf = (n) => {
+    let best = 'none'; let d = n;
+    Object.entries(steps).forEach(([k, v]) => { if (Math.abs(v - n) <= d) { best = k; d = Math.abs(v - n); } });
+    return best;
+  };
+  const stepClass = (st) => (st === 'm' ? 'spacer' : `spacer ${st}`);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
@@ -1137,9 +1146,10 @@ function collapseSeparators(main, doc, stats, ctx) {
       if (!divider && seps.every((m) => m[3] === ' from-768' || m[3] === ' below-768')
         && seps.some((m) => m[3] === ' from-768') && seps.some((m) => m[3] === ' below-768')) {
         [['from-768', at(' from-768')], ['below-768', at(' below-768')]].forEach(([opt, n]) => {
-          if (n <= 31) { count(stats, 'theme', `separator-${opt}`, 1); return; }
+          const st = steps ? stepOf(n) : null;
+          if (steps ? st === 'none' : n <= 31) { count(stats, 'theme', `separator-${opt}`, 1); return; }
           const blk = doc.createElement('div');
-          blk.className = `spacer${n >= 90 ? ' l' : ''} ${opt}`;
+          blk.className = steps ? `${stepClass(st)} ${opt}` : `spacer${n >= 90 ? ' l' : ''} ${opt}`;
           blk.innerHTML = '<div><div></div></div>';
           run.els[0].before(blk);
           count(stats, 'carrier', `separator-${opt}`, 1);
@@ -1156,7 +1166,8 @@ function collapseSeparators(main, doc, stats, ctx) {
       const phone = seps.every((m) => m[3] === ' below-768');
       if (!phone) seps.filter((m) => m[3] === ' below-768').forEach(() => count(stats, 'theme', 'separator-below-768'));
       let size = null;
-      if (!divider && px <= 31) size = small && px > 20 ? 's' : 'none';
+      if (!divider && steps) size = stepOf(px);
+      else if (!divider && px <= 31) size = small && px > 20 ? 's' : 'none';
       else if (!divider) size = px < 90 ? 'm' : 'l';
       const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
       const before = run.els[0].previousElementSibling;
@@ -1168,21 +1179,22 @@ function collapseSeparators(main, doc, stats, ctx) {
       if (tablet || phone) {
         const opt = tablet ? 'from-768' : 'below-768';
         const b = doc.createElement('div');
-        b.className = divider ? `divider ${opt}` : `spacer${size === 'l' ? ' l' : ''}${size === 's' ? ' s' : ''} ${opt}`;
+        b.className = divider ? `divider ${opt}` : `${size === 'm' ? 'spacer' : `spacer ${size}`} ${opt}`;
         b.innerHTML = '<div><div></div></div>';
         run.els[0].before(b);
         remove();
         count(stats, 'carrier', `separator-${opt}`, run.els.length);
         return;
       }
-      // a small one: a Spacer block s where it stands (no section style or block option says S)
-      if (size === 's') {
+      // a small one or another near-value step: a Spacer block with the step where it stands (no section style or block
+      // option says S, XS, M+ or L-)
+      if (size && !['m', 'l', 'none'].includes(size)) {
         const b = doc.createElement('div');
-        b.className = 'spacer s';
+        b.className = `spacer ${size}`;
         b.innerHTML = '<div><div></div></div>';
         run.els[0].before(b);
         remove();
-        count(stats, 'carrier', 'separator-s', run.els.length);
+        count(stats, 'carrier', `separator-${size}`, run.els.length);
         return;
       }
       // page-type gaps: the theme's

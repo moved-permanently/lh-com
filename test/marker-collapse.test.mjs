@@ -20,16 +20,21 @@ const meta = (style) => `<div class="section-metadata"><div><div>Style</div><div
 const MARKER = /\{(?:heading-|copytext-|full-width|limited-width|column-|caption|parallax|narrow|indent-|spacer|divider|autoplay|muted|loop|controls|round-play-button|size-|mobile|selected|cart|small|blank)[^}]*\}/;
 
 test('separators: section start and end as section styles, before a block its option, else a purpose block', () => {
-  assert.equal(out('<div><p>{spacer-60}</p><p>Text</p></div>'), `<div><p>Text</p>${meta('space-m')}</div>`);
+  // the table on a brand without steps; lufthansa.com's near-value steps below (standing order 59)
+  assert.equal(out('<div><p>{spacer-60}</p><p>Text</p></div>', { brand: 'austrian' }), `<div><p>Text</p>${meta('space-m')}</div>`);
+  assert.equal(out('<div><p>{spacer-60}</p><p>Text</p></div>'), '<div><div class="spacer m-plus"><div><div></div></div></div><p>Text</p></div>', 'lufthansa.com: 60 is M+');
+  assert.equal(out('<div><p>{spacer-40}</p><p>Text</p></div>'), `<div><p>Text</p>${meta('space-m')}</div>`, 'lufthansa.com: 40 is M');
   assert.equal(out('<div><p>Text</p><p>{spacer-120}</p></div>'), `<div><p>Text</p>${meta('space-below-l')}</div>`);
   assert.equal(out('<div><p>Text</p><p>{divider-25}</p><div class="columns-media"><div><div>x</div></div></div></div>'), '<div><p>Text</p><div class="columns-media divider-above"><div><div>x</div></div></div></div>');
   assert.equal(out('<div><p>A</p><p>{spacer-40}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer"><div><div></div></div></div><p>B</p></div>');
-  assert.equal(out('<div><p>A</p><p>{spacer-100}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer l"><div><div></div></div></div><p>B</p></div>');
+  assert.equal(out('<div><p>A</p><p>{spacer-100}</p><p>B</p></div>', { brand: 'austrian' }), '<div><p>A</p><div class="spacer l"><div><div></div></div></div><p>B</p></div>');
+  assert.equal(out('<div><p>A</p><p>{spacer-110}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer l"><div><div></div></div></div><p>B</p></div>', 'lufthansa.com: 110 is L');
   assert.equal(out('<div><p>A</p><p>{spacer-40}</p><p>{divider-25}</p><p>B</p></div>'), '<div><p>A</p><div class="divider"><div><div></div></div></div><p>B</p></div>', 'a stacked spacer and divider: one Divider');
   // the switch branch (standing order 56): lufthansa.com's 21-31 px separators are the Spacer block s; another brand none
   assert.equal(out('<div><p>A</p><p>{spacer-25}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer s"><div><div></div></div></div><p>B</p></div>', 'lufthansa.com: 21-31 px is S');
   assert.equal(run('<div><p>A</p><p>{spacer-25}</p><p>B</p></div>', { brand: 'austrian' }).html, '<div><p>A</p><p>B</p></div>', '0-30 px: none');
-  assert.equal(out('<div><p>A</p><p>{spacer-85 from-768}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer from-768"><div><div></div></div></div><p>B</p></div>', 'near values: M; from-768 the block\'s option (decision 3, revised)');
+  assert.equal(out('<div><p>A</p><p>{spacer-85 from-768}</p><p>B</p></div>', { brand: 'austrian' }), '<div><p>A</p><div class="spacer from-768"><div><div></div></div></div><p>B</p></div>', 'near values: M; from-768 the block\'s option (decision 3, revised)');
+  assert.equal(out('<div><p>A</p><p>{spacer-85 from-768}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer l-minus from-768"><div><div></div></div></div><p>B</p></div>', 'lufthansa.com: 85 from 768 px is L- from 768 px');
   assert.equal(out('<div><div class="columns-media"><div><div><p>a</p><p>{spacer-40}</p><p>b</p></div></div></div></div>'), '<div><div class="columns-media"><div><div><p>a</p><p>b</p></div></div></div></div>', 'no carrier in a cell');
 });
 
@@ -159,7 +164,7 @@ test('idempotent, and no marker left', () => {
 });
 
 test('the importers\' table form: blocks as tables, sections between <hr>, new options in the table\'s name', () => {
-  const { document } = parseHTML('<html><body><main><div class="contentpage-wrapper"><div><p>{spacer-60}</p><h2>A {heading-small}</h2><p>Text</p><p>{divider-25}</p><table><tr><th colspan="2">Columns Media (padded)</th></tr><tr><td><p>x</p></td><td><p>y</p></td></tr></table><hr><p>B</p><p>{spacer-120}</p><p>C</p></div></div><hr><table><tr><th colspan="2">Metadata</th></tr><tr><td>Title</td><td>t</td></tr></table></main></body></html>');
+  const { document } = parseHTML('<html><body><main><div class="contentpage-wrapper"><div><p>{spacer-40}</p><h2>A {heading-small}</h2><p>Text</p><p>{divider-25}</p><table><tr><th colspan="2">Columns Media (padded)</th></tr><tr><td><p>x</p></td><td><p>y</p></td></tr></table><hr><p>B</p><p>{spacer-120}</p><p>C</p></div></div><hr><table><tr><th colspan="2">Metadata</th></tr><tr><td>Title</td><td>t</td></tr></table></main></body></html>');
   const main = document.querySelector('main');
   collapseMain(main, { path: '/de/en/x', document, force: true });
   // the page's wrappers read through (Markdown does), new and changed blocks as WebImporter writes them, the rest as it was

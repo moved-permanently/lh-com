@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_961944_exports = {};
-  __export(tmp_bundle_homepage_961944_exports, {
-    default: () => tmp_bundle_homepage_961944_default
+  var tmp_bundle_homepage_1129969_exports = {};
+  __export(tmp_bundle_homepage_1129969_exports, {
+    default: () => tmp_bundle_homepage_1129969_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -2035,7 +2035,22 @@ var CustomImportScript = (() => {
       // M at 60 from 768 px (the separators shown from 768 px only: www's {spacer-60 from-768}, 41 of
       // the 68 such on the recorded service pages); a small separator, the Spacer block option s
       // (25 px: www's {spacer-25}; standing order 56, plan 923)
-      space: { m: 40, s: 25, from768: { m: 60 } },
+      // and near-value steps for the collapse (standing order 59, Ben: "near-value collapse, not
+      // pixel-perfect"): a separator takes the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120
+      // (the 1,191 recorded separator-widths: rounding 5,843 px -> 2,068); M+ and L- replace
+      // order 56's M at 60 from 768 px
+      space: {
+        m: 40,
+        s: 25,
+        steps: {
+          xs: 16,
+          s: 25,
+          m: 40,
+          "m-plus": 60,
+          "l-minus": 80,
+          l: 120
+        }
+      },
       pageTypes: {
         // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
         // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
@@ -5462,6 +5477,19 @@ var CustomImportScript = (() => {
   function collapseSeparators(main, doc, stats, ctx) {
     const { rules, space } = themeFor(ctx.brand, ctx.pageType);
     const small = !!(space && space.s);
+    const steps = space && space.steps;
+    const stepOf = (n) => {
+      let best = "none";
+      let d = n;
+      Object.entries(steps).forEach(([k, v]) => {
+        if (Math.abs(v - n) <= d) {
+          best = k;
+          d = Math.abs(v - n);
+        }
+      });
+      return best;
+    };
+    const stepClass = (st) => st === "m" ? "spacer" : `spacer ${st}`;
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse11 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
@@ -5498,12 +5526,13 @@ var CustomImportScript = (() => {
         const at = (q) => seps.filter((m) => m[3] === q).reduce((a, m) => a + Number(m[2]), 0);
         if (!divider && seps.every((m) => m[3] === " from-768" || m[3] === " below-768") && seps.some((m) => m[3] === " from-768") && seps.some((m) => m[3] === " below-768")) {
           [["from-768", at(" from-768")], ["below-768", at(" below-768")]].forEach(([opt, n]) => {
-            if (n <= 31) {
+            const st = steps ? stepOf(n) : null;
+            if (steps ? st === "none" : n <= 31) {
               count(stats, "theme", `separator-${opt}`, 1);
               return;
             }
             const blk = doc.createElement("div");
-            blk.className = `spacer${n >= 90 ? " l" : ""} ${opt}`;
+            blk.className = steps ? `${stepClass(st)} ${opt}` : `spacer${n >= 90 ? " l" : ""} ${opt}`;
             blk.innerHTML = "<div><div></div></div>";
             run.els[0].before(blk);
             count(stats, "carrier", `separator-${opt}`, 1);
@@ -5516,7 +5545,8 @@ var CustomImportScript = (() => {
         const phone = seps.every((m) => m[3] === " below-768");
         if (!phone) seps.filter((m) => m[3] === " below-768").forEach(() => count(stats, "theme", "separator-below-768"));
         let size = null;
-        if (!divider && px <= 31) size = small && px > 20 ? "s" : "none";
+        if (!divider && steps) size = stepOf(px);
+        else if (!divider && px <= 31) size = small && px > 20 ? "s" : "none";
         else if (!divider) size = px < 90 ? "m" : "l";
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
         const before = run.els[0].previousElementSibling;
@@ -5532,20 +5562,20 @@ var CustomImportScript = (() => {
         if (tablet || phone) {
           const opt = tablet ? "from-768" : "below-768";
           const b2 = doc.createElement("div");
-          b2.className = divider ? `divider ${opt}` : `spacer${size === "l" ? " l" : ""}${size === "s" ? " s" : ""} ${opt}`;
+          b2.className = divider ? `divider ${opt}` : `${size === "m" ? "spacer" : `spacer ${size}`} ${opt}`;
           b2.innerHTML = "<div><div></div></div>";
           run.els[0].before(b2);
           remove();
           count(stats, "carrier", `separator-${opt}`, run.els.length);
           return;
         }
-        if (size === "s") {
+        if (size && !["m", "l", "none"].includes(size)) {
           const b2 = doc.createElement("div");
-          b2.className = "spacer s";
+          b2.className = `spacer ${size}`;
           b2.innerHTML = "<div><div></div></div>";
           run.els[0].before(b2);
           remove();
-          count(stats, "carrier", "separator-s", run.els.length);
+          count(stats, "carrier", `separator-${size}`, run.els.length);
           return;
         }
         if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
@@ -5972,7 +6002,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_961944_default = {
+  var tmp_bundle_homepage_1129969_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6012,5 +6042,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_961944_exports);
+  return __toCommonJS(tmp_bundle_homepage_1129969_exports);
 })();

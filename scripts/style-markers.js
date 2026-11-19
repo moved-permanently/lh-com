@@ -193,7 +193,17 @@ export const THEMES = {
     // M at 60 from 768 px (the separators shown from 768 px only: www's {spacer-60 from-768}, 41 of
     // the 68 such on the recorded service pages); a small separator, the Spacer block option s
     // (25 px: www's {spacer-25}; standing order 56, plan 923)
-    space: { m: 40, s: 25, from768: { m: 60 } },
+    // and near-value steps for the collapse (standing order 59, Ben: "near-value collapse, not
+    // pixel-perfect"): a separator takes the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120
+    // (the 1,191 recorded separator-widths: rounding 5,843 px -> 2,068); M+ and L- replace
+    // order 56's M at 60 from 768 px
+    space: {
+      m: 40,
+      s: 25,
+      steps: {
+        xs: 16, s: 25, m: 40, 'm-plus': 60, 'l-minus': 80, l: 120,
+      },
+    },
     pageTypes: {
       // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
       // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
@@ -652,8 +662,13 @@ const dividerPx = (opts) => {
 };
 
 // a Spacer block's size from its options (l, s, else M)
+// a Spacer block's near-value steps beyond M and L (options xs, m-plus, l-minus; standing order 59)
+export const STEP_SPACE = { xs: 16, 'm-plus': 60, 'l-minus': 80 };
+
 const spacerPx = (opts) => {
   if (opts.includes('l')) return SPACE.l;
+  const step = Object.keys(STEP_SPACE).find((k) => opts.includes(k));
+  if (step) return STEP_SPACE[step];
   return opts.includes('s') ? SMALL_SPACE : SPACE.m;
 };
 
