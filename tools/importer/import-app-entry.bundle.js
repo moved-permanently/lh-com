@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_1129969_exports = {};
-  __export(tmp_bundle_app_entry_1129969_exports, {
-    default: () => tmp_bundle_app_entry_1129969_default
+  var tmp_bundle_app_entry_1166320_exports = {};
+  __export(tmp_bundle_app_entry_1166320_exports, {
+    default: () => tmp_bundle_app_entry_1166320_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2974,44 +2974,13 @@ var CustomImportScript = (() => {
       // the column view carrier: a section of its own per www column view (the collapse writes it
       // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
       // carrier")
-      // a view's opening Spacer (a view section that holds only it) at 60: www's hub views open 60 px
-      // below what comes before (standing order 57; with the related-teasers heading rule:
-      // digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either alone moves it further)
-      columnViews: { carrier: "column-view", opening: 60 },
+      columnViews: { carrier: "column-view" },
       // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
       // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
       // the H1 default, which the collapse would take, so a choice of their own the collapse
       // keeps (section style H1 compact)
-      // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in Cards
-      // Teaser, www's smaller headings) keep it as the choice "small" (block option title-small,
-      // section style H2 small); {limited-width} headings as limited-headings
-      headingChoices: {
-        h1: { compact: "heading-medium" },
-        h2: { large: "heading-large", compact: "heading-copytext-large", small: "heading-small" }
-      },
-      nearChoices: { h1: { "heading-medium": "compact" }, h2: { "heading-small": "small", "heading-large": "large" } },
-      limitedHeadings: true,
-      // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
-      // decision 3 lifted)
-      // M at 60 from 768 px (the separators shown from 768 px only: www's {spacer-60 from-768}, 41 of
-      // the 68 such on the recorded service pages); a small separator, the Spacer block option s
-      // (25 px: www's {spacer-25}; standing order 56, plan 923)
-      // and near-value steps for the collapse (standing order 59, Ben: "near-value collapse, not
-      // pixel-perfect"): a separator takes the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120
-      // (the 1,191 recorded separator-widths: rounding 5,843 px -> 2,068); M+ and L- replace
-      // order 56's M at 60 from 768 px
-      space: {
-        m: 40,
-        s: 25,
-        steps: {
-          xs: 16,
-          s: 25,
-          m: 40,
-          "m-plus": 60,
-          "l-minus": 80,
-          l: 120
-        }
-      },
+      headingChoices: { h1: { compact: "heading-medium" } },
+      nearChoices: { h1: { "heading-medium": "compact" } },
       pageTypes: {
         // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
         // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
@@ -3020,26 +2989,75 @@ var CustomImportScript = (() => {
         // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
         flow: {
           headingChoices: { h3: { large: "heading-small" } },
-          nearChoices: {
-            h1: { "heading-medium": "compact" },
-            h2: { "heading-small": "small", "heading-large": "large" },
-            h3: { "heading-small": "large" }
-          }
+          nearChoices: { h1: { "heading-medium": "compact" }, h3: { "heading-small": "large" } }
         },
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
         // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
         // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
-        // lh-com-pass-check.md, ema-adobe's handover item 2). Their separators keep M at 60: www's
-        // are 60 there (86 of the 98 {spacer-N} markers of the 16 recorded 100-years documents; 40
-        // on 12), while the service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
-        "100-years": { space: { m: 60, s: 25 } },
+        // lh-com-pass-check.md, ema-adobe's handover item 2)
         // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
         // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
         "insights-tag": { rules: ["rule-before-info-box"] }
       },
-      // the switch (standing orders 55-56, branch token-free-lufthansa-live: never merged from here)
+      // the switched part (standing orders 55-60): the theme as the collapsed documents need
+      // it. With the theme live, themeFor applies it to a document that carries no markers (the
+      // collapse's output, the importers'); a document that still has markers draws with the
+      // theme above and the theme off, as before the switch (standing order 60: the code ships
+      // first, the documents follow in batches)
+      switched: {
+        // a view's opening Spacer (a view section that holds only it) at 60: www's hub views
+        // open 60 px below what comes before (standing order 57; with the related-teasers
+        // heading rule: digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either
+        // alone moves it further)
+        columnViews: { opening: 60 },
+        // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in
+        // Cards Teaser, www's smaller headings) keep it as the choice "small" (block option
+        // title-small, section style H2 small); H2 heading-large as H2 large; {limited-width}
+        // headings as limited-headings
+        headingChoices: {
+          h2: { large: "heading-large", compact: "heading-copytext-large", small: "heading-small" }
+        },
+        nearChoices: {
+          h1: { "heading-medium": "compact" },
+          h2: { "heading-small": "small", "heading-large": "large" }
+        },
+        limitedHeadings: true,
+        // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
+        // decision 3 lifted); a small separator, the Spacer block option s (25 px: www's
+        // {spacer-25}; standing order 56, plan 923); and near-value steps for the collapse
+        // (standing order 59, Ben: "near-value collapse, not pixel-perfect"): a separator takes
+        // the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120 (the 1,191 recorded
+        // separator-widths: rounding 5,843 px -> 2,068)
+        space: {
+          m: 40,
+          s: 25,
+          steps: {
+            xs: 16,
+            s: 25,
+            m: 40,
+            "m-plus": 60,
+            "l-minus": 80,
+            l: 120
+          }
+        },
+        pageTypes: {
+          // flow pages: nearChoices replaces the brand's, so the H1's and H3's again
+          flow: {
+            nearChoices: {
+              h1: { "heading-medium": "compact" },
+              h2: { "heading-small": "small", "heading-large": "large" },
+              h3: { "heading-small": "large" }
+            }
+          },
+          // /100-years: the separators keep M at 60: www's are 60 there (86 of the 98
+          // {spacer-N} markers of the 16 recorded 100-years documents; 40 on 12), while the
+          // service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
+          "100-years": { space: { m: 60, s: 25 } }
+        }
+      },
+      // the switch (standing orders 55-60, branch token-free-lufthansa-live: never merged from here)
       live: true
     },
     // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
@@ -3136,11 +3154,16 @@ var CustomImportScript = (() => {
     columnViews: __spreadValues(__spreadValues({}, a.columnViews), b.columnViews || {}),
     rules: [.../* @__PURE__ */ new Set([...a.rules || [], ...b.rules || []])]
   });
-  function themeFor(brand, pageType = "") {
+  function themeFor(brand, pageType = "", { marked = false } = {}) {
     const own = THEMES[brand || "lufthansa"] || {};
-    const _a = own, { pageTypes = {} } = _a, brandTheme = __objRest(_a, ["pageTypes"]);
-    let theme = mergeTheme(BASE_THEME, brandTheme);
+    const _a = own, { pageTypes = {}, switched } = _a, brandTheme = __objRest(_a, ["pageTypes", "switched"]);
+    const waits = !!switched && marked;
+    let theme = mergeTheme(BASE_THEME, waits ? __spreadProps(__spreadValues({}, brandTheme), { live: false }) : brandTheme);
+    const on = own.live && !waits && switched;
+    const _b = on || {}, { pageTypes: switchedTypes = {} } = _b, switchedTheme = __objRest(_b, ["pageTypes"]);
+    theme = mergeTheme(theme, switchedTheme);
     if (pageType && pageTypes[pageType]) theme = mergeTheme(theme, pageTypes[pageType]);
+    if (pageType && switchedTypes[pageType]) theme = mergeTheme(theme, switchedTypes[pageType]);
     return theme;
   }
   var isThemeLive = (brand) => themeFor(brand || "lufthansa").live === true;
@@ -6931,7 +6954,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_1129969_default = {
+  var tmp_bundle_app_entry_1166320_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6971,5 +6994,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_1129969_exports);
+  return __toCommonJS(tmp_bundle_app_entry_1166320_exports);
 })();
