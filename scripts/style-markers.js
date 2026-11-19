@@ -570,6 +570,13 @@ export const BLOCK_OPTIONS = {
   'picture-half-start': { picture: 'half-start' },
   'picture-half-end': { picture: 'half-end' },
   'picture-three-quarters': { picture: 'three-quarters' },
+  // Columns Media: its cells' running text over two thirds of the cell (www's limited-width
+  // text in a column view: lhg-history-alliances' Joint Venture cards, carry-on-baggage's
+  // Eurowings bags; standing order 75)
+  'narrow-text': { text: 'narrow' },
+  // Table Striped: two blank lines above and below each cell's text (www's empty paragraphs around
+  // kuala-lumpur's flight table cells; standing order 75)
+  'padded-cells': { cells: 'padded' },
 };
 
 // the block options' friendly labels (the DA library's notes)
@@ -592,6 +599,8 @@ export const BLOCK_OPTION_LABELS = {
   'picture-half-start': 'picture in the cell\'s first half',
   'picture-half-end': 'picture in the cell\'s second half',
   'picture-three-quarters': 'picture three quarters of the cell',
+  'narrow-text': 'its cells\' text over two thirds of the cell',
+  'padded-cells': 'two blank lines above and below each cell\'s text',
 };
 
 /**

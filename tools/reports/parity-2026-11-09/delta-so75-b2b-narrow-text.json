@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/de/en/about-us/lhg-history/lhg-history-alliances-and-joint-ventures",
+    "inserts": [
+      {
+        "replace": "<div class=\"columns-media title-large\"><div><div><p><picture><img src=\"https://content.da.live/move",
+        "text": "<div class=\"columns-media title-large narrow-text\"><div><div><p><picture><img src=\"https://content.da.live/move"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/program/experts/baggage/carry-on-baggage",
+    "inserts": [
+      {
+        "replace": "<div class=\"columns-media\"><div><div><p><strong>Kleine Tasche</strong></p><ul> <li> <p>",
+        "text": "<div class=\"columns-media narrow-text\"><div><div><p><strong>Kleine Tasche</strong></p><ul> <li> <p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/program/experts/baggage/carry-on-baggage",
+    "inserts": [
+      {
+        "replace": "<div class=\"columns-media\"><div><div><p><strong>Small bag</strong></p><ul> <li>Max. 40 ",
+        "text": "<div class=\"columns-media narrow-text\"><div><div><p><strong>Small bag</strong></p><ul> <li>Max. 40 "
+      }
+    ]
+  },
+  {
+    "path": "/xx/en/program/experts/baggage/carry-on-baggage",
+    "inserts": [
+      {
+        "replace": "<div class=\"columns-media\"><div><div><p><strong>Small bag</strong></p><ul> <li>Max. 40 ",
+        "text": "<div class=\"columns-media narrow-text\"><div><div><p><strong>Small bag</strong></p><ul> <li>Max. 40 "
+      }
+    ]
+  }
+]

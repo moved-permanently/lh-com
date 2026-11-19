@@ -1,0 +1,34 @@
+# ema-cashub, standing order 75 (2026-11-19): the closing list. Every recorded page-width of SWISS and Group for
+# Business still more than 3 % off www, with the code of orders 74 and 75 and their READY rows (every section loaded;
+# SWISS 1440 with the column, 390 with this order's code; Group for Business with the cell rules and the served rows,
+# the option rows as drafted). Cause classes: content, live data, function, Lufthansa side, font, pattern under 3
+# page-widths (a cause no rule can reach across 3 recorded page-widths of the same shape).
+# brand	path	width	www	ours	% off	cause class	what
+swiss	/ch/en/offers	390	31,952	1,585	-95.04	live data	www lists every priced fare from its fares API; ours is the finder without the list
+swiss	/ch/en/offers	1440	32,383	2,311	-92.86	live data	www lists every priced fare from its fares API; ours is the finder without the list
+swiss	/ch/de/book-and-manage/pax-receipt	390	2,402	1,707	-28.93	function	www's receipt request form (about 800 px); ours links to it
+swiss	/ch/de/book-and-manage/pax-receipt	1440	2,234	1,682	-24.71	function	www's receipt request form (about 800 px); ours links to it
+swiss	/magazine/de/inside-swiss/behind-the-scenes/a350-special-livery	390	7,834	6,695	-14.54	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/magazine/de	390	10,414	8,959	-13.97	Lufthansa side	www's story grid with its advertisement slots
+swiss	/magazine/en/inside-swiss/behind-the-scenes/a350-special-livery	390	7,936	6,836	-13.86	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/magazine/en	390	10,381	8,959	-13.70	Lufthansa side	www's story grid with its advertisement slots
+swiss	/magazine/en/travel/destinations/hello-boston	390	6,809	5,913	-13.16	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/magazine/en/travel	390	9,990	8,785	-12.06	Lufthansa side	www's story grid with its advertisement slots
+swiss	/magazine/de/inside-swiss	390	10,413	9,181	-11.83	Lufthansa side	www's story grid with its advertisement slots
+swiss	/ch/de/culinaryjourney#/entry	390	1,396	1,513	+8.38	function	the micro-frontend's entry screen
+swiss	/magazine/de/inside-swiss/behind-the-scenes/up-front-and-flying-high	1440	11,771	12,696	+7.86	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/magazine/en/travel/destinations/hello-boston	1440	7,467	6,979	-6.54	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/magazine/en/switzerland/discover-switzerland/jungfrau-region	390	13,014	12,225	-6.06	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/magazine/de/inside-swiss/behind-the-scenes/up-front-and-flying-high	390	14,310	13,478	-5.81	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/magazine/de/inside-swiss/behind-the-scenes/swiss-behind-the-wings	390	20,171	19,121	-5.21	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/ch/en/prepare/special-care/health-and-travel	1440	3,150	3,014	-4.32	pattern under 3 page-widths	the aside's teasers and the column's last part end shorter than www's; no shape shared by 3 recorded page-widths
+swiss	/us/en/homepage	390	4,920	4,752	-3.41	function	the stage's flight search and the check-in entry
+swiss	/magazine/de/inside-swiss/behind-the-scenes/a350-special-livery	1440	6,860	6,643	-3.16	Lufthansa side	www's related stories under the article (and ad slots on phones)
+swiss	/us/en/homepage	1440	4,467	4,327	-3.13	function	the stage's flight search and the check-in entry
+# swiss: 21 page-widths more than 3 % off
+b2b	/de/de/program/experts/at-the-airport/arrival-departure/rail-fly	1440	2,414	2,308	-4.39	content	the advantages' three icons are missing in our documents (delta-so75-b2b-rail-fly-icons, held: 390); the header-row table
+b2b	/ch/en/program/experts/on-board/meals-on-board	390	1,405	1,349	-3.99	content	www's accordion has an item with an empty title (one row more)
+b2b	/xx/en/program/experts/on-board/meals-on-board	390	1,405	1,349	-3.99	content	www's accordion has an item with an empty title (one row more)
+b2b	/de/en/program/experts/on-board/meals-on-board	390	1,405	1,349	-3.99	content	www's accordion has an item with an empty title (one row more)
+b2b	/de/en/program/partner-plus-benefit/cash-and-points	1440	6,603	6,367	-3.57	pattern under 3 page-widths	the customer quote's column view (82 px above the quote, 88 below the author on www)
+# b2b: 5 page-widths more than 3 % off

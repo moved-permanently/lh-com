@@ -1,0 +1,25 @@
+# ema-cashub, standing order 75 (2026-11-19), item 2: Group for Business, the new Columns Media option narrow-text (its
+# cells' running text over two thirds of the cell from 1025 px, b2b.css) where www draws a column view's text
+# limited-width. The census: every limited-width richtext in a two- to four-column view of the 18 B2B recordings (30 of
+# 1,891 column-view texts), matched by text to every served B2B document's Columns Media (729 documents): the alliances
+# page's Joint Venture cards (4 of 4 texts) and carry-on-baggage's Eurowings bags (3 of 3) in de/de, de/en and xx/en.
+# carry-on-baggage's "Non-compliant…" block is mixed on www (3 of its 6 texts limited): not in the list.
+# Token-free: a block option; no style marker.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so75-b2b-narrow-text.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET per document, one per command, 13:40 CET): see the report.
+# Drafted on b2b.turnsthe.page (so75/fulld.mjs, every section loaded; the served copy with the option as a draft, the
+# unchanged copy drafted first and equal to the served heights; the option's CSS as a step; airline hosts, www.* and
+# lh-proxy refused per request, none sent). Gate: |after %| - |before %| <= 0.5 on every recorded page-width, the sum
+# of |% off www| down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/en/about-us/lhg-history/lhg-history-alliances-and-joint-ventures	1440	b2b-parity-003	5,171	5,017 (-2.98 %)	5,113 (-1.12 %)	-1.86 points
+READY	/de/en/about-us/lhg-history/lhg-history-alliances-and-joint-ventures	390	b2b-parity-003	6,051	6,029 (-0.36 %)	6,029 (-0.36 %)	0 points (from 1025 px)
+READY	/de/de/program/experts/baggage/carry-on-baggage	1440	b2b-parity-018	4,798	4,756 (-0.88 %)	4,780 (-0.38 %)	-0.50 points
+READY	/de/de/program/experts/baggage/carry-on-baggage	390	b2b-parity-018	6,555	6,578 (+0.35 %)	6,578 (+0.35 %)	0 points
+READY	/de/en/program/experts/baggage/carry-on-baggage	1440	b2b-parity-018	4,699	4,617 (-1.75 %)	4,631 (-1.45 %)	-0.30 points
+READY	/de/en/program/experts/baggage/carry-on-baggage	390	b2b-parity-018	6,630	6,557 (-1.10 %)	6,557 (-1.10 %)	0 points
+READY	/xx/en/program/experts/baggage/carry-on-baggage	1440	-	-	4,617	4,631	not recorded (+14)
+READY	/xx/en/program/experts/baggage/carry-on-baggage	390	-	-	6,557	6,557	not recorded
+#
+# DA change (lh-b2b), every READY path: the Columns Media named in the JSON gets the option narrow-text.

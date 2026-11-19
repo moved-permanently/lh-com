@@ -1,0 +1,28 @@
+# ema-cashub, standing order 75 (2026-11-19), item 3: Group for Business rail-fly (de/de, xx/de), the three advantages
+# under "Die Vorteile mit Rail&Fly" with www's icons. www (b2b-parity-018's HTML): each advantage is an imagelinklist
+# headline, h4.heading-copytext-large.limited-width with its icon (24 px) before the text; our copies have the texts
+# without the icons. The row puts each icon at the start of its H4. The draft's rule draws a heading that opens with a
+# picture in a Columns Media cell as www's (the icon 24 px, 12 px to the text, the heading over two thirds of the cell
+# from 1025 px; so75/icon2.css). It is not in b2b.css while the row is held.
+# The pictures, for the helper (into lh-b2b's DA before the row; the row's src are these DA paths):
+# picture	source on www	DA path (lh-b2b)
+# 1 "Bequem reisen …"	https://business.lufthansagroup.com/content/dam/lh/icons/irreg/lh-icon-train-front.svg	/media-da/b2b/icons/lh-icon-train-front.svg
+# 2 "Rail&Fly kann …"	https://business.lufthansagroup.com/content/dam/lh/icons/lh-icon-voucher.svg	/media-da/b2b/icons/lh-icon-voucher.svg
+# 3 "Freie Zugwahl …"	https://business.lufthansagroup.com/content/dam/lh/icons/train-side-a.svg	/media-da/b2b/icons/train-side-a.svg
+# (the files are not in the recordings' archive; nothing was requested from www)
+# Token-free: three pictures in the text; no style marker.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so75-b2b-rail-fly-icons.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (two read-only GETs, one per command, 13:40 CET): "3 inserted" each, back byte for
+# byte; a second run "3 present" each.
+# Drafted with a 24 x 24 stand-in icon of the same size (so75/mkrf.py) and this order's b2b.css rule. HOLD: 390 goes
+# +3.70 points further. www sets the three stacked headlines in about 404 px at 390, ours with the icons about 500
+# (our heading lines are 24 px to www's ~20, and the stacked cells keep their gaps). The 1440 gain is real. With the
+# headings at 20 px lines (so75/icon3.css): 1440 2,378 (-1.49 %), 390 3,152 (+2.47 %, +2.27 points): still held.
+# status	path	width	recording	www page	as served	with the row	note
+HOLD	/de/de/program/experts/at-the-airport/arrival-departure/rail-fly	1440	b2b-parity-018	2,414	2,308 (-4.39 %)	2,402 (-0.50 %)	-3.89 points
+HOLD	/de/de/program/experts/at-the-airport/arrival-departure/rail-fly	390	b2b-parity-018	3,076	3,082 (+0.20 %)	3,196 (+3.90 %)	+3.70 points: fails the gate
+HOLD	/xx/de/program/experts/at-the-airport/arrival-departure/rail-fly	1440	-	-	2,308	2,402	not recorded
+HOLD	/xx/de/program/experts/at-the-airport/arrival-departure/rail-fly	390	-	-	3,082	3,196	not recorded
+#
+# DA change (lh-b2b), when released: the three H4s get their icon at their start (the JSON's replaces).

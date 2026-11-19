@@ -1625,3 +1625,26 @@ body.brand-swiss main:has(a[href^="#"] > sup) > .section:last-child > .default-c
     max-width: 66%;
   }
 }
+
+/* standing order 75, item 1 (your word of 19 Nov: ship the column if SWISS's sum goes down, the content-caused page-widths
+   accepted): from 1025 px the column beside the aside as www's sidebar-content text, 794 px (781 px in a tab panel;
+   swiss-parity-001, -002a, -002b: every recorded sidebar page), where ours ran 843; not a sidebar Columns Media (www's
+   sidebar component). The column's rows then draw at www's pitch, and its last section, when the column ends with a
+   card row or with an accordion in its last part, keeps www's 64 px more above the footer (swiss-first, premium-economy,
+   miles-and-more; a column that ends with text has no such space on www: additional-bag, upgrade-options).
+   All 168 recorded page-widths: sum down by 4.12 (1440: 209.93 -> 205.81; 390 unchanged). Five end further, for
+   content outside the column (accepted): newsletter +1.09 (its form), accessible-travel +0.99 and unaccompanied-minors
+   +0.70 (long pages), food-and-beverage +0.67 (www's divider module), green-fare +0.66 (its fare tables) */
+@media (width >= 1025px) {
+  body.brand-swiss main > .section.with-aside:not(.section-tab-panel, .section-tab-part) > :not(.section-aside, .breadcrumb-wrapper, .columns-media-wrapper:has(> .columns-media.sidebar)) {
+    padding-right: 48px;
+  }
+
+  body.brand-swiss main > .section.with-aside:is(.section-tab-panel, .section-tab-part) > :not(.section-aside, .breadcrumb-wrapper, .columns-media-wrapper:has(> .columns-media.sidebar)) {
+    padding-right: 62px;
+  }
+
+  body.brand-swiss main > .section.with-aside:not(:has(~ .section:not(:empty))):is(:has(> .columns-media-wrapper + .section-aside), :has(> .section-part:nth-last-child(2) > .accordion-columns-wrapper:last-child)) {
+    padding-bottom: 64px;
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "path": "/de/de/program/experts/route-network/lufthansa/kuala-lumpur",
+    "inserts": [
+      {
+        "replace": "<div class=\"table-striped\"><div><div><strong>Flugnummer</strong></div><div><strong>Stre",
+        "text": "<div class=\"table-striped padded-cells\"><div><div><strong>Flugnummer</strong></div><div><strong>Stre"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/program/experts/route-network/lufthansa/kuala-lumpur",
+    "inserts": [
+      {
+        "replace": "<div class=\"table-striped\"><div><div><strong>Flight number</strong></div><div><strong>R",
+        "text": "<div class=\"table-striped padded-cells\"><div><div><strong>Flight number</strong></div><div><strong>R"
+      }
+    ]
+  },
+  {
+    "path": "/xx/de/program/experts/route-network/lufthansa/kuala-lumpur",
+    "inserts": [
+      {
+        "replace": "<div class=\"table-striped\"><div><div><strong>Flugnummer</strong></div><div><strong>Stre",
+        "text": "<div class=\"table-striped padded-cells\"><div><div><strong>Flugnummer</strong></div><div><strong>Stre"
+      }
+    ]
+  }
+]

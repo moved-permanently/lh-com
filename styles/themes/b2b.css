@@ -1250,3 +1250,27 @@ body.brand-b2b main .table-striped:not(.beside-end) :is(th, td) > :is(p, ul, ol)
     padding-left: 32px;
   }
 }
+
+/* standing order 75, item 2: two block options (scripts/style-markers.js BLOCK_OPTIONS).
+   narrow-text (Columns Media): from 1025px its cells' running text over two thirds of the cell, as www's richtext
+   limited-width in a column view. Of the B2B recordings' 1,891 column-view texts, 30 are limited-width, in the
+   alliances page's Joint Venture cards and carry-on-baggage's views; the READY rows put the option where www draws it.
+   padded-cells (Table Striped): two blank lines above and below each cell's text, as www's empty paragraphs around
+   kuala-lumpur's flight table cells (rows 258 / 282 / 302px at 1440): 117px above and below the text; such a table
+   keeps its own height, not the five-column 840px box */
+@media (width >= 1025px) {
+  body.brand-b2b main .columns-media.narrow-text .columns-media-text > :is(p, ul, ol):not(.button-wrapper, :has(> picture)) {
+    box-sizing: border-box;
+    max-width: 66%;
+  }
+}
+
+body.brand-b2b main .table-striped.padded-cells :is(th, td) {
+  padding-top: 117px;
+  padding-bottom: 117px;
+}
+
+body.brand-b2b main .table-striped.padded-cells:not(.beside, .beside-end, .columns, .matrix):has(> table tr:first-child > :nth-child(5)),
+body.brand-b2b main .table-striped.padded-cells:not(.beside, .beside-end, .columns, .matrix):has(> table tr:first-child > :nth-child(5)) > table {
+  height: auto;
+}

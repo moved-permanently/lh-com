@@ -1,0 +1,20 @@
+# ema-cashub, standing order 75 (2026-11-19), item 2: Group for Business, the new Table Striped option padded-cells (two
+# blank lines above and below each cell's text, 117 px; the table at its own height, not the five-column 840 px box;
+# b2b.css) where www's visible table cells hold two empty paragraphs above and two below their text. The census: every
+# maui-table cell of the 18 B2B recordings (the tables inside closed accordions draw nothing at load and are left out:
+# entertainment-on-board, special-assistance-and-services): only kuala-lumpur's flight table; its three served copies
+# (de/de, de/en, xx/de) carry the same table.
+# Token-free: a block option; no style marker.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so75-b2b-padded-cells.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET per document, one per command, 13:40 CET): see the report.
+# Drafted as the narrow-text list. Gate: |after %| - |before %| <= 0.5 on every recorded page-width, the sum down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/en/program/experts/route-network/lufthansa/kuala-lumpur	1440	b2b-parity-007	5,179	5,302 (+2.37 %)	5,284 (+2.03 %)	-0.34 points; rows at www's height, the box's 840 no longer
+READY	/de/en/program/experts/route-network/lufthansa/kuala-lumpur	390	b2b-parity-013	5,588	5,750 (+2.90 %)	5,750 (+2.90 %)	0 points
+READY	/de/de/program/experts/route-network/lufthansa/kuala-lumpur	1440	-	-	5,360	5,342	not recorded (-18)
+READY	/de/de/program/experts/route-network/lufthansa/kuala-lumpur	390	-	-	5,871	5,871	not recorded
+READY	/xx/de/program/experts/route-network/lufthansa/kuala-lumpur	1440	-	-	5,360	5,342	not recorded (-18)
+READY	/xx/de/program/experts/route-network/lufthansa/kuala-lumpur	390	-	-	5,871	5,871	not recorded
+#
+# DA change (lh-b2b), every READY path: the flight table (Table Striped) gets the option padded-cells.

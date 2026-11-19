@@ -13054,3 +13054,105 @@ has no row.
 **Left uncommitted:** nothing of mine.
 - Scratch stays in migration-work/parity-588/so74: the runs, drafts, crops, DA copies and scripts.
 - No background job of mine is running.
+
+
+## Standing order 75 (2026-11-19, from about 12:45 CET)
+
+**Left from order 74:** nothing uncommitted or unpushed; its last commit ab8a91d6 is on origin.
+
+**Scratch:** migration-work/parity-588/so75 (not in git): the column runs, the option and icon drafts, nt-map.py (the
+census of www's layouts), mkopt.py, mkrf.py, mkrows.py, closing.py, the DA copies.
+
+**Requests:** airline hosts, www.* and lh-proxy were refused per request in every render. None was sent. www was read
+only from the recordings on disk.
+
+**DA:** read only, 9 single GETs, one per command, at 13:40 CET: alliances, carry-on-baggage de/de, de/en, xx/en,
+kuala-lumpur de/de, de/en, xx/de, rail-fly de/de, xx/de. No upload, preview, publish or da-upload.mjs.
+/de/en/overview-manage has no row.
+
+**Token-free:** the column is theme CSS scoped by structure. The options are block options. The rows add an option to
+one block each. The held icon row adds three pictures.
+
+Report: tools/reports/token-free/swiss-b2b-so75.md.
+
+### Item 1: the SWISS column (shipped)
+
+- **The rule, from 1025 px:**
+  - the column beside the aside at www's 794 px, or 781 px in a tab panel;
+  - not a sidebar Columns Media;
+  - 64 px more above the footer under a last sidebar section whose column ends with a card row or with an accordion in
+    its last part.
+- **Gate:** the SWISS sum over all 168 page-widths goes down by 4.12 (1440: 209.93 -> 205.81; 390 unchanged). With the
+  code itself, every one of the 84 equals its toggle.
+- **Accepted as content-caused, as you set** (1440, points further):
+  - newsletter +1.09, its form;
+  - accessible-travel +0.99, a long page;
+  - unaccompanied-minors +0.70, the same;
+  - food-and-beverage +0.67, www's divider;
+  - green-fare +0.66, its fare tables.
+- premium-economy ends within the gate (-0.27 %). miles-and-more gets closer (-1.17 -> -0.67 %) with the
+  accordion-part page end.
+- **Reach:** 1,007 / 285 / 140 / 5 of the 1,253 served documents with an aside.
+- **Samples:** 8 unrecorded documents, each +16 to +121 px. No flag from the rule.
+
+### Item 2: the block options narrow-text and padded-cells (shipped) and their READY lists
+
+**Census:** www's recordings, matched by text to every served B2B document.
+- Narrower card text: the alliances page and carry-on-baggage de/de, de/en, xx/en.
+- Blank-line cells: kuala-lumpur de/de, de/en, xx/de. The other blank-line tables sit in closed accordions.
+
+| List | Document | 1440 (www) | 390 |
+| --- | --- | --- | --- |
+| delta-so75-b2b-narrow-text | alliances de/en | 5,017 -> 5,113 (5,171: -2.98 -> -1.12 %) | 6,029 unchanged |
+| | carry-on-baggage de/de | 4,756 -> 4,780 (4,798: -0.88 -> -0.38 %) | 6,578 unchanged |
+| | carry-on-baggage de/en | 4,617 -> 4,631 (4,699: -1.75 -> -1.45 %) | 6,557 unchanged |
+| | carry-on-baggage xx/en (not recorded) | 4,617 -> 4,631 | unchanged |
+| delta-so75-b2b-padded-cells | kuala-lumpur de/en | 5,302 -> 5,284 (5,179: +2.37 -> +2.03 %) | 5,750 unchanged |
+| | kuala-lumpur de/de, xx/de (not recorded) | 5,360 -> 5,342 | unchanged |
+
+### Item 3: rail-fly's icons (written, HOLD)
+
+- delta-so75-b2b-rail-fly-icons gives each picture's www source and the DA path:
+  - /media-da/b2b/icons/lh-icon-train-front.svg, lh-icon-voucher.svg and train-side-a.svg;
+  - from https://business.lufthansagroup.com/content/dam/lh/icons/irreg/lh-icon-train-front.svg,
+    /content/dam/lh/icons/lh-icon-voucher.svg and /content/dam/lh/icons/train-side-a.svg.
+- Drafted: 1440 2,308 -> 2,402 (www 2,414: -4.39 -> -0.50 %), but 390 3,082 -> 3,196 (www 3,076: +0.20 -> +3.90 %).
+  With 20 px heading lines: 390 +2.47 %, still too far.
+- At 390, www's three stacked headlines take about 404 px; ours with the icons take about 500.
+- Held; the heading rule stays out of b2b.css until then.
+
+### Item 4: the closing list (tools/reports/parity-2026-11-09/closing-so75-ema-cashub.txt)
+
+- **SWISS: 21 page-widths more than 3 % off.**
+  - live data 2 (offers);
+  - function 5 (pax-receipt, culinaryjourney, us/en homepage);
+  - Lufthansa side 13 (the magazine);
+  - pattern under 3 page-widths 1 (health-and-travel 1440 -4.32 %).
+- **Group for Business: 5.**
+  - content 4 (rail-fly's missing icons, meals-on-board's empty accordion item in three copies);
+  - pattern under 3 page-widths 1 (cash-and-points de/en 1440 -3.57 %, the quote's column view).
+
+### Final section (standing order 75, about 13:45 CET, 2026-11-19)
+
+**Pushed:** (this commit), items 1 to 4:
+- swiss.css: the column;
+- style-markers.js and b2b.css: the options;
+- the lists delta-so75-b2b-narrow-text (READY), -padded-cells (READY) and -rail-fly-icons (HOLD);
+- closing-so75-ema-cashub.txt;
+- the report; test/swiss-b2b-so75.test.mjs.
+
+**Sum and median:**
+
+| Brand | Start of order 74 | End of order 74 | End of order 75 | Lufthansa's part | Ours |
+| --- | --- | --- | --- | --- | --- |
+| SWISS (168) | 529.24, median 0.84 % | 526.05, median 0.79 % | 514.64, median 0.73 % | 407.78 (38) | 106.86 (130) |
+| Group for Business (198) | 172.27, median 0.49 % | 145.86, median 0.39 % | 142.86, median 0.38 % | 26.38 (21) | 116.47 (177) |
+
+SWISS's 11.41 since order 74's end: 4.12 is the column, the rest order 73's page-end rows now served.
+
+**Held:** rail-fly's icon row (390 +3.70 points).
+
+**Checks:** whole-repo `npm run lint` and stylelint before the push; the full suite on this commit's code before this
+section (figures in the commit message).
+
+**Left uncommitted:** nothing of mine. Scratch stays in so75, and no job of mine is running.

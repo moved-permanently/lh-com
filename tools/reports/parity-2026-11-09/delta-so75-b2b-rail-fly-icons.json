@@ -1,0 +1,36 @@
+[
+  {
+    "path": "/de/de/program/experts/at-the-airport/arrival-departure/rail-fly",
+    "inserts": [
+      {
+        "replace": "<h4 id=\"bequem-reisen-ab-einem-der-über-5600-bahnhöfe-der-deutschen-bahn-db\">Bequem reisen ab einem der übe",
+        "text": "<h4 id=\"bequem-reisen-ab-einem-der-über-5600-bahnhöfe-der-deutschen-bahn-db\"><picture><img src=\"/media-da/b2b/icons/lh-icon-train-front.svg\" alt=\"\"></picture>Bequem reisen ab einem der übe"
+      },
+      {
+        "replace": "<h4 id=\"railfly-kann-sowohl-am-tag-des-fluges-als-auch-einen-tag-vor-dem-abflug-oder-nach-der-ankunft-in-deutschland-genutzt-werden\">Rail&amp;Fly kann sowohl am Ta",
+        "text": "<h4 id=\"railfly-kann-sowohl-am-tag-des-fluges-als-auch-einen-tag-vor-dem-abflug-oder-nach-der-ankunft-in-deutschland-genutzt-werden\"><picture><img src=\"/media-da/b2b/icons/lh-icon-voucher.svg\" alt=\"\"></picture>Rail&amp;Fly kann sowohl am Ta"
+      },
+      {
+        "replace": "<h4 id=\"freie-zugwahl--auch-icec-intercity-eurocity-und-ice-intercity-express-züge-sind-inbegriffen\">Freie Zugwahl – auch IC/EC (In",
+        "text": "<h4 id=\"freie-zugwahl--auch-icec-intercity-eurocity-und-ice-intercity-express-züge-sind-inbegriffen\"><picture><img src=\"/media-da/b2b/icons/train-side-a.svg\" alt=\"\"></picture>Freie Zugwahl – auch IC/EC (In"
+      }
+    ]
+  },
+  {
+    "path": "/xx/de/program/experts/at-the-airport/arrival-departure/rail-fly",
+    "inserts": [
+      {
+        "replace": "<h4 id=\"bequem-reisen-ab-einem-der-über-5600-bahnhöfe-der-deutschen-bahn-db\">Bequem reisen ab einem der übe",
+        "text": "<h4 id=\"bequem-reisen-ab-einem-der-über-5600-bahnhöfe-der-deutschen-bahn-db\"><picture><img src=\"/media-da/b2b/icons/lh-icon-train-front.svg\" alt=\"\"></picture>Bequem reisen ab einem der übe"
+      },
+      {
+        "replace": "<h4 id=\"railfly-kann-sowohl-am-tag-des-fluges-als-auch-einen-tag-vor-dem-abflug-oder-nach-der-ankunft-in-deutschland-genutzt-werden\">Rail&amp;Fly kann sowohl am Ta",
+        "text": "<h4 id=\"railfly-kann-sowohl-am-tag-des-fluges-als-auch-einen-tag-vor-dem-abflug-oder-nach-der-ankunft-in-deutschland-genutzt-werden\"><picture><img src=\"/media-da/b2b/icons/lh-icon-voucher.svg\" alt=\"\"></picture>Rail&amp;Fly kann sowohl am Ta"
+      },
+      {
+        "replace": "<h4 id=\"freie-zugwahl--auch-icec-intercity-eurocity-und-ice-intercity-express-züge-sind-inbegriffen\">Freie Zugwahl – auch IC/EC (In",
+        "text": "<h4 id=\"freie-zugwahl--auch-icec-intercity-eurocity-und-ice-intercity-express-züge-sind-inbegriffen\"><picture><img src=\"/media-da/b2b/icons/train-side-a.svg\" alt=\"\"></picture>Freie Zugwahl – auch IC/EC (In"
+      }
+    ]
+  }
+]
