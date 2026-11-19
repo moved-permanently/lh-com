@@ -23,7 +23,7 @@ import {
 import { marketAllows } from './market-rules.js';
 import { restoreIconTokenText } from './icon-token-text.js';
 import {
-  HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR, BLANK_LINE,
+  HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR, BLANK_LINE, hasStyleMarkers,
 } from './style-markers.js';
 import { htmlLangOfRoot } from './site-languages.js';
 import {
@@ -353,6 +353,8 @@ export function decorateMain(main) {
   restoreIconTokenText(main);
   restoreAppConfigText(main);
   decorateIcons(main);
+  // whether the document still has style markers (a brand's switched theme waits for its collapse)
+  const marked = hasStyleMarkers(main);
   decorateTextStyles(main);
   // Air Dolomiti: bold-only lead-ins (p.bold-lead); its accordion text pages run them into
   // their answers
@@ -362,7 +364,7 @@ export function decorateMain(main) {
   // token-free styling (scripts/token-free.js): purpose blocks, block options, section styles,
   // captions and the theme's rules, a marker on an element winning
   decorateTokenFree(main, {
-    brand: brandOf(getMetadata), path: window.location.pathname, read: getMetadata,
+    brand: brandOf(getMetadata), path: window.location.pathname, read: getMetadata, marked,
   });
   dropOtherMarkets(main);
   // ITA: a market root's complaint-form links carry its country (scripts/ita-market-links.js)

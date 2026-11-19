@@ -37,6 +37,22 @@ export const VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join('|')}|${VIDEO_SIZ
 // TAP's empty line in a text: a paragraph of only <sub>{blank}</sub> (decorateTextStyles)
 export const BLANK_LINE = /^\s*\{blank\}\s*$/;
 
+// a style marker of any spelling in a document's text ("{heading-small}", "{spacer-40 from-768}",
+// "{column-start}"), not a data placeholder the page fills in ("{origin}", "{n}")
+const MARKER_SPELLING = /\{[a-z][^{}]{0,80}\}/g;
+const DATA_PLACEHOLDER = /^\{(origin|destination|duration|cabin|language|locale|n)\}$/;
+
+/**
+ * Whether a document still carries style markers (before decorateTextStyles takes them): a
+ * brand's switched theme (THEMES.lufthansa.switched) waits for the document's collapse, so a
+ * marked document draws as before the switch. The switch's census counts the same way
+ * (lufthansa-switch-plan-923.md §14).
+ * @param {Element} main
+ */
+export function hasStyleMarkers(main) {
+  return (String(main.textContent || '').match(MARKER_SPELLING) || []).some((m) => !DATA_PLACEHOLDER.test(m));
+}
+
 // the app screens' markers (scripts/library-page.js decorateAppScreen, /content/mobile documents):
 // a space "{spacer: medium}" (", v2": the v2 screen only), a rule "{divider}", small text "{small}"
 export const APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
@@ -171,39 +187,13 @@ export const THEMES = {
     // the column view carrier: a section of its own per www column view (the collapse writes it
     // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
     // carrier")
-    // a view's opening Spacer (a view section that holds only it) at 60: www's hub views open 60 px
-    // below what comes before (standing order 57; with the related-teasers heading rule:
-    // digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either alone moves it further)
-    columnViews: { carrier: 'column-view', opening: 60 },
+    columnViews: { carrier: 'column-view' },
     // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
     // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
     // the H1 default, which the collapse would take, so a choice of their own the collapse
     // keeps (section style H1 compact)
-    // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in Cards
-    // Teaser, www's smaller headings) keep it as the choice "small" (block option title-small,
-    // section style H2 small); {limited-width} headings as limited-headings
-    headingChoices: {
-      h1: { compact: 'heading-medium' },
-      h2: { large: 'heading-large', compact: 'heading-copytext-large', small: 'heading-small' },
-    },
-    nearChoices: { h1: { 'heading-medium': 'compact' }, h2: { 'heading-small': 'small', 'heading-large': 'large' } },
-    limitedHeadings: true,
-    // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
-    // decision 3 lifted)
-    // M at 60 from 768 px (the separators shown from 768 px only: www's {spacer-60 from-768}, 41 of
-    // the 68 such on the recorded service pages); a small separator, the Spacer block option s
-    // (25 px: www's {spacer-25}; standing order 56, plan 923)
-    // and near-value steps for the collapse (standing order 59, Ben: "near-value collapse, not
-    // pixel-perfect"): a separator takes the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120
-    // (the 1,191 recorded separator-widths: rounding 5,843 px -> 2,068); M+ and L- replace
-    // order 56's M at 60 from 768 px
-    space: {
-      m: 40,
-      s: 25,
-      steps: {
-        xs: 16, s: 25, m: 40, 'm-plus': 60, 'l-minus': 80, l: 120,
-      },
-    },
+    headingChoices: { h1: { compact: 'heading-medium' } },
+    nearChoices: { h1: { 'heading-medium': 'compact' } },
     pageTypes: {
       // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
       // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
@@ -212,26 +202,70 @@ export const THEMES = {
       // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
       flow: {
         headingChoices: { h3: { large: 'heading-small' } },
-        nearChoices: {
-          h1: { 'heading-medium': 'compact' },
-          h2: { 'heading-small': 'small', 'heading-large': 'large' },
-          h3: { 'heading-small': 'large' },
-        },
+        nearChoices: { h1: { 'heading-medium': 'compact' }, h3: { 'heading-small': 'large' } },
       },
       // Insights articles: a rule above an info box (Columns Media) after any content but a
       // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
       article: { rules: ['rule-before-info-box', 'ruled-chapters'] },
       // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
       // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
-      // lh-com-pass-check.md, ema-adobe's handover item 2). Their separators keep M at 60: www's
-      // are 60 there (86 of the 98 {spacer-N} markers of the 16 recorded 100-years documents; 40
-      // on 12), while the service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
-      '100-years': { space: { m: 60, s: 25 } },
+      // lh-com-pass-check.md, ema-adobe's handover item 2)
       // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
       // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
       'insights-tag': { rules: ['rule-before-info-box'] },
     },
-    // the switch (standing orders 55-56, branch token-free-lufthansa-live: never merged from here)
+    // the switched part (standing orders 55-60): the theme as the collapsed documents need
+    // it. With the theme live, themeFor applies it to a document that carries no markers (the
+    // collapse's output, the importers'); a document that still has markers draws with the
+    // theme above and the theme off, as before the switch (standing order 60: the code ships
+    // first, the documents follow in batches)
+    switched: {
+      // a view's opening Spacer (a view section that holds only it) at 60: www's hub views
+      // open 60 px below what comes before (standing order 57; with the related-teasers
+      // heading rule: digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either
+      // alone moves it further)
+      columnViews: { opening: 60 },
+      // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in
+      // Cards Teaser, www's smaller headings) keep it as the choice "small" (block option
+      // title-small, section style H2 small); H2 heading-large as H2 large; {limited-width}
+      // headings as limited-headings
+      headingChoices: {
+        h2: { large: 'heading-large', compact: 'heading-copytext-large', small: 'heading-small' },
+      },
+      nearChoices: {
+        h1: { 'heading-medium': 'compact' },
+        h2: { 'heading-small': 'small', 'heading-large': 'large' },
+      },
+      limitedHeadings: true,
+      // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
+      // decision 3 lifted); a small separator, the Spacer block option s (25 px: www's
+      // {spacer-25}; standing order 56, plan 923); and near-value steps for the collapse
+      // (standing order 59, Ben: "near-value collapse, not pixel-perfect"): a separator takes
+      // the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120 (the 1,191 recorded
+      // separator-widths: rounding 5,843 px -> 2,068)
+      space: {
+        m: 40,
+        s: 25,
+        steps: {
+          xs: 16, s: 25, m: 40, 'm-plus': 60, 'l-minus': 80, l: 120,
+        },
+      },
+      pageTypes: {
+        // flow pages: nearChoices replaces the brand's, so the H1's and H3's again
+        flow: {
+          nearChoices: {
+            h1: { 'heading-medium': 'compact' },
+            h2: { 'heading-small': 'small', 'heading-large': 'large' },
+            h3: { 'heading-small': 'large' },
+          },
+        },
+        // /100-years: the separators keep M at 60: www's are 60 there (86 of the 98
+        // {spacer-N} markers of the 16 recorded 100-years documents; 40 on 12), while the
+        // service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
+        '100-years': { space: { m: 60, s: 25 } },
+      },
+    },
+    // the switch (standing orders 55-60, branch token-free-lufthansa-live: never merged from here)
     live: true,
   },
   // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
@@ -333,11 +367,18 @@ const mergeTheme = (a, b) => ({
  * @param {string} [pageType]
  * @returns {typeof BASE_THEME}
  */
-export function themeFor(brand, pageType = '') {
+export function themeFor(brand, pageType = '', { marked = false } = {}) {
   const own = THEMES[brand || 'lufthansa'] || {};
-  const { pageTypes = {}, ...brandTheme } = own;
-  let theme = mergeTheme(BASE_THEME, brandTheme);
+  const { pageTypes = {}, switched, ...brandTheme } = own;
+  // a live brand's switched part (THEMES.lufthansa.switched) on a document without markers; a
+  // document with markers draws with the theme off, as before the switch
+  const waits = !!switched && marked;
+  let theme = mergeTheme(BASE_THEME, waits ? { ...brandTheme, live: false } : brandTheme);
+  const on = own.live && !waits && switched;
+  const { pageTypes: switchedTypes = {}, ...switchedTheme } = on || {};
+  theme = mergeTheme(theme, switchedTheme);
   if (pageType && pageTypes[pageType]) theme = mergeTheme(theme, pageTypes[pageType]);
+  if (pageType && switchedTypes[pageType]) theme = mergeTheme(theme, switchedTypes[pageType]);
   return theme;
 }
 

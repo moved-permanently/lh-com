@@ -458,12 +458,16 @@ function applyThemeRules(main, theme) {
 /**
  * Token-free styling of a page's main element.
  * @param {Element} main
- * @param {{brand?: string, path?: string, read?: Function}} [page] brand key (lh-com: ''),
- *   path, metadata reader (aem.js getMetadata)
+ * @param {{brand?: string, path?: string, read?: Function, marked?: boolean}} [page] brand key
+ *   (lh-com: ''), path, metadata reader (aem.js getMetadata), whether the document carried style
+ *   markers (hasStyleMarkers before decorateTextStyles: a brand's switched theme part waits for
+ *   its document's collapse, THEMES.lufthansa.switched)
  */
-export default function decorateTokenFree(main, { brand = '', path = '', read = () => '' } = {}) {
+export default function decorateTokenFree(main, {
+  brand = '', path = '', read = () => '', marked = false,
+} = {}) {
   const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector('.article-header'), themes: read('theme') });
-  const theme = themeFor(brand || 'lufthansa', pageType);
+  const theme = themeFor(brand || 'lufthansa', pageType, { marked });
   const { from768, ...space } = theme.space || {};
   PAGE_SPACE = { ...SPACE, ...space };
   PAGE_SPACE_768 = { ...PAGE_SPACE, ...(from768 || {}) };

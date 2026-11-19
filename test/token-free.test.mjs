@@ -98,9 +98,15 @@ test('block options, video fragments, purpose blocks, form defaults, nav roles',
   assert.deepEqual(videoFragment('/media/a.mp4#t=10'), { href: '/media/a.mp4#t=10', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4'), { href: '/media/a.mp4', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4#t=5&size=1920x1080'), { href: '/media/a.mp4#t=5', background: false, size: [1920, 1080] });
-  assert.deepEqual(readPurposeBlock('spacer', []), { kind: 'spacer', px: 60, fromTablet: false, belowTablet: false });
-  assert.deepEqual(readPurposeBlock('spacer', ['l']), { kind: 'spacer', px: 120, fromTablet: false, belowTablet: false });
-  assert.deepEqual(readPurposeBlock('divider'), { kind: 'divider', px: 25, fromTablet: false, belowTablet: false });
+  assert.deepEqual(readPurposeBlock('spacer', []), {
+    kind: 'spacer', px: 60, fromTablet: false, belowTablet: false,
+  });
+  assert.deepEqual(readPurposeBlock('spacer', ['l']), {
+    kind: 'spacer', px: 120, fromTablet: false, belowTablet: false,
+  });
+  assert.deepEqual(readPurposeBlock('divider'), {
+    kind: 'divider', px: 25, fromTablet: false, belowTablet: false,
+  });
   assert.deepEqual(readPurposeBlock('app-spacer', ['m-large', 'v2']), { kind: 'app-spacer', size: 'm-large', v2Only: true });
   assert.deepEqual(readPurposeBlock('app-text', ['small']), { kind: 'app-text', small: true });
   assert.equal(readPurposeBlock('columns'), null);
@@ -246,7 +252,9 @@ test('the brief after 500: a live lufthansa.com article rules an info box after 
 
 test('decorateMain runs it after the section metadata (section classes known) and before the sections are wrapped', () => {
   const js = read('../scripts/scripts.js').replace(/\s+/g, ' ');
-  assert.match(js, /decorateSectionMetadata\(main\); \/\/ token-free styling[^]*?decorateTokenFree\(main, \{ brand: brandOf\(getMetadata\), path: window\.location\.pathname, read: getMetadata, \}\); dropOtherMarkets\(main\);[^]*?decorateSections\(main\);/);
+  // whether the document had markers, read before decorateTextStyles takes them (standing order 60)
+  assert.match(js, /const marked = hasStyleMarkers\(main\); decorateTextStyles\(main\);/);
+  assert.match(js, /decorateSectionMetadata\(main\); \/\/ token-free styling[^]*?decorateTokenFree\(main, \{ brand: brandOf\(getMetadata\), path: window\.location\.pathname, read: getMetadata, marked, \}\); dropOtherMarkets\(main\);[^]*?decorateSections\(main\);/);
 });
 
 test('styles.css: the figure adds no box of its own; the figcaption looks as p.caption', () => {
