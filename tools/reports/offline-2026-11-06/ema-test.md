@@ -6262,3 +6262,124 @@ List: delta-so59-app-screens.txt / .json.
   - The 74 app screens collapsed again with the new code: the same output, so the rows stand.
   - The whole-repo lint, the folder-reading tests and the full suite ran again at the rebased HEAD before the push.
   - A last pull brought two more (docs and an upload state): after it the whole-repo lint, the folder-reading tests and the upload-state and brand tests, not the suite again.
+
+## Standing order 60 (received about 20:40 UTC, 2026-11-18)
+
+New for this order: the Austrian and Cargo themes are mine (brand-scoped files only). Every rule below is in styles/themes/austrian.css or
+styles/themes/cargo.css. No shared block, styles.css or importer file was changed, so no ema-adobe proposal was needed.
+
+Gate for every rule: all recorded page-widths of the brand (Austrian 246, austrian-parity-001/003/005-031; Cargo 113, cargo-parity-001-012;
+newest per page and width). Our host as served, full Chrome, airline hosts refused, the rule in the same load as today. A page-width the rule
+doesn't reach is captured once.
+
+### Item 1: Austrian /at/en/entryregulations (READY, pushed in 6d5a43b5)
+
+List: tools/reports/parity-2026-11-09/delta-so60-austrian-entryregulations.txt / .json.
+
+- **The rule:** "Austrian column views". The section style Column view (+ Padded for an outer view) draws www's column view as a section of its
+  own, as the importer's column marks drew it inside one. The small print is the existing Small print section style.
+- **Gate:** no served Austrian document has a non-grey Column view yet, so none of the 246 moves.
+- **READY:** the column marks and {copytext-small} out (6 markers, 4 inserts).
+  - 1440: 8.62 -> 8.62 % (5,523 -> 5,523 px, www 5,538). 390: 15.19 -> 15.19 % (7,207 -> 7,207 px, www 7,236).
+  - DA dry run byte for byte.
+- **HOLD:** the three phone spacers as Spacer (below-768) M blocks: 390 15.19 -> 18.24 % (55 / 78 / 35 px drawn as 60).
+- The owner has since uploaded and previewed the row (cad4d5e8, not published).
+
+### Item 2: Cargo's four pages (3 READY + 1 READY with a HOLD part, pushed in 6d5a43b5)
+
+List: tools/reports/parity-2026-11-09/delta-so60-cargo.txt / .json.
+
+- **The rules:**
+  - The introduction H1 (a title with its intro paragraph) is two thirds wide from 1025 px.
+  - Tabs (panels-space-below) adds 150 px under each panel from 768 px.
+  - Tabs (wide-text) runs the panel lists across the panel.
+- **Gate:** sum 2,984.67 -> 2,984.67, median 22.35 -> 22.35, none worse.
+- **READY rows** (% off www as served -> with the row):
+  - /en/ecsd: 1440 57.61 -> 57.61 %; 390 32.90 -> 32.90 %.
+  - /en/add-on-services/todoor: 1440 45.35 -> 44.59 %. No 390 recording.
+  - /en/add-on-services/smartuld: 1440 33.72 -> 33.86 %; 390 51.64 -> 51.64 %.
+  - /de/passive-temp-support: 1440 10.56 -> 10.56 %; 390 10.61 -> 10.61 %.
+- **HOLD:** ecsd's {spacer-18 from-768}. Taking it out gives 1440 57.61 -> 58.48 %, and there is no 18 px carrier.
+- The owner has since uploaded the four documents (fb02c1a9).
+
+### Item 3: Austrian parity (one rule pushed in 606d45eb)
+
+Gate list: tools/reports/parity-2026-11-09/gate-so60-austrian-phone-title.txt.
+
+**Before -> after:** sum 4,695.05 -> 4,547.13, median 16.13 -> 13.96 %. At 390: 2,176.15 -> 2,028.23, median 16.04 -> 13.33. At 1440 the
+figures stay 2,518.90 / 21.92. Today's figures are this run's; the order's table had 4,698.03 / 16.15.
+
+**Where the mismatched pixels are** (200 px bands of every comparison, assigned to our section at the band):
+- **1440:** the footer and what follows 24.7 %, the homepage carousel 20.7 %, the homepage hero 19.4 %, info pages' breadcrumb + Columns Media
+  section 6.3 %, the header band 4.5 %.
+- **390:** footer 20.8 %, breadcrumb + Columns Media 17.6 %, carousel 13.1 %, hero 10.2 %.
+
+**The causes, largest first:**
+- **The homepages:** 104 page-widths, 2,919 of the sum.
+  - Our destination finder shows its link instead of the offer grid (the site's live-prices setting is off). 16 homepage page-widths are 300 to
+    712 px shorter than www for this; their sum is 801.
+  - The hero and carousel show other campaigns than the recordings. This is content.
+  - Neither is a theme matter.
+- **www's cookie dialog dims 52 recordings:** sum 1,233 (all homepages, ski-campaign and culinary-services among them). No rule can fix these;
+  they need re-recording with consent.
+- **The footer:** not a height cause. Our footer is 814 px at 1440, www's 815, on 18 of the 21 sampled. Its share is drift from above.
+- **Info pages on phones (FIXED, this rule):** a Columns Media right under the H1 starts 13 px high (picture 309, www 322), and everything
+  under it with it.
+  - 24 page-widths nearer, e.g. overview-manage 390 17.66 -> 6.18 %, the baggage pages in five languages 16-17 -> 7 %.
+  - Greek is left out: gr/el/baggage 390 32.27 -> 34.06 % with the rule, because its first item wraps 37 px longer than www's.
+
+**Tried and held, with figures:**
+- **Heading spacing as www's:** h2 24 px under on phones (ours 28), 36 at 1440 (ours 32), the item picture 36 above its heading (ours 40), the
+  items 7 px further apart on phones.
+  - Every value is www's, but the items' total stays as today's. With the 13 px rule, three trial pages read 10.94 / 10.40 / 16.95 % against
+    7.91 / 7.26 / 8.14 % with the 13 px rule alone, because our text wraps differ.
+  - Across all 246 the full set made 23 page-widths worse.
+- **The breadcrumb 1 px lower and 1 px taller** (ours 1 px high, the H1 2 px high on 39 of 70 info pages at 1440): on 18 sampled page-widths
+  1440 177.93 -> 172.91, but 2 worse by more than 0.5 (overview-manage 7.50 -> 8.64).
+- **A harness note:** on pages longer than 8,000 px (the capture's cap) a style injected in the same load changes the capture even when it
+  matches nothing.
+  - A no-op style made accessible-travel 1440 5.34 -> 10.54 and fly-with-austrian 390 +5.4.
+  - The gate therefore counts only page-widths where the rule's own selector matches, so a page it doesn't reach is captured once.
+
+### Item 4: Cargo parity (HOLD, two rules with figures)
+
+**Before:** sum 2,983.36 (113 page-widths; 2,984.67 in item 2's run), median 22.35. **After:** the same; nothing pushed.
+
+**The largest cause is www's cookie dialog:** it dims 51 of the 112 recordings that loaded (cargo-parity-003/004 and 006-011). Those 51 carry
+2,139.5 of the sum, against 798 for the 59 without it. The header band holds 49 % of the mismatched pixels at 1440 and 47 % at 390, almost
+all on those recordings. They need re-recording with consent.
+
+**On the recordings without the dialog:**
+- **The stage picture** (the image over the breadcrumb):
+  - www draws it the column's width at 1440 (1,296 px). Ours keeps a narrower original at its own width: fleet and industries-in-focus, 1,220 /
+    1,224 px, the H1 21 px high.
+  - On phones www runs it across the screen (390 px, 125 tall). Ours is 358 px in the margins, 112 tall, so the H1 is 12 px high on 16 of
+    the 18 stage pages.
+- **The introduction's subtitle:** an H2 right under the H1 is 20 px under it on www (Introduction-CF1, 11 of 11 recorded), ours 40 from
+  1025 px (the section padding).
+
+**HOLD rules:**
+- **Stage picture full width + subtitle 20 px under the title** (on stage pages):
+  - Sum 2,983.36 -> 2,964.61, median 22.35 -> 22.28.
+  - Fleet 1440 26.20 -> 19.57 / 21.94 -> 15.38; industries-in-focus 11.90 -> 7.92 / 19.42 -> 15.86.
+  - It fails the gate on two recordings under the cookie dialog: industries-healthcare 1440 36.60 -> 37.85 and onerecord 1440 27.96 -> 28.53.
+  - The picture alone made industries-in-focus worse (11.90 -> 17.72), because its subtitle then sat 21 px low.
+- **The stage picture across the screen on phones:**
+  - 390 sum 1,199.45 -> 1,153.33, 23 nearer.
+  - It fails on de/speed-zoom 390 7.22 -> 11.66 (www's stage there is the column's width) and en/eservices/efreight 390 29.00 -> 30.13 (a
+    cookie-dialog recording).
+- **The first section's H1 at the section padding** (ebooking-info 15 px high at 1440): terms-of-use and data-protection got worse. Dropped.
+
+### Final section (about 00:45 UTC, 2026-11-19)
+
+- **Pushed:** 6d5a43b5 (items 1-2) and 606d45eb (the Austrian phone rule), both with Build success. This section follows.
+- **Checks before each push:** whole-repo lint 0, stylelint on austrian.css and cargo.css 0, the folder-reading tests (673, 0 failed) and
+  brand.test.mjs passed. After upload-state pulls, the upload-state tests (27 passed).
+- **The full suite:** at d23453c2 (items 1-2, rebased) and at 606d45eb (this section's base): npm run lint exit 0, stylelint exit 0, 1,289
+  files passed, 0 failed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA write. DA reads: 5 single literal-URL GETs (Austrian entryregulations,
+  the four Cargo pages), each its own command. No guard block.
+- **Requests:** our hosts, DA and GitHub's API. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off; .agents/settings.json not written.
+- **Not in git:** logs/p4/so60 (captures, trial CSS, probes, results); content/, migration-work/ and tools/importer/reports/* (not mine).
+- **Cleanup:** the five folder servers (3093-3097) stopped by PID; the trial and suite worktrees removed.
