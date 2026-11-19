@@ -893,3 +893,18 @@ body.brand-discover main .section > .accordion-columns-wrapper + .default-conten
     padding-top: 48px;
   }
 }
+
+/* standing order 48: the homepage's offers section (a section that opens with an H2 over the fare teaser) and the
+   section that opens with the destination finder keep www's space above them from 768: 42 and 57 px more, the
+   carriers of the "{spacer-1 from-768}" and "{spacer-28}" the token-free re-import of 18 Nov removed (de/de 1440
+   4,180 -> 4,279, www 4,260; de/en 4,176 -> 4,275, www 4,285; on phones www's homepages are as tall as ours without
+   them, so the space stays from 768) */
+@media (width >= 768px) {
+  body.brand-discover main > .section.section.section > .default-content-wrapper:first-child:has(> h2:only-child):has(+ .fare-teaser-wrapper) > h2 {
+    padding-top: 42px;
+  }
+
+  body.brand-discover main > .section.section.section > .destination-finder-wrapper:first-child {
+    padding-top: 57px;
+  }
+}

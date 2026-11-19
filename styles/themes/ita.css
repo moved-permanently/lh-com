@@ -980,6 +980,17 @@ body.brand-ita main .columns-media.padded .columns-media-text h2:not([class*="he
   line-height: 1.1;
 }
 
+/* standing order 48: a grey column view's H2 (the view drawn as a grey box: online-check-in's "Scegli il posto" /
+   "Choose Your Favorite Seat", ten language copies) in www's heading-medium, 36 px at 1440 and 28 on phones; the
+   carrier of the "{heading-medium}" order 44's token-free rows removed (order 44 carried it for padded views only).
+   Plain views in grey sections stay heading-small: www draws five of their nine recorded H2s that way. Gated on all
+   80 recorded ITA page-widths: online-check-in it/it 1440 2,627 -> 2,685 (www 2,715), 390 4,061 -> 4,105 (4,152),
+   it/en 390 3,934 -> 3,947 (3,990), the others unchanged */
+body.brand-ita main .columns-media.grey.grey .columns-media-text > h2:first-child:not([class*="heading-"]) {
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.1;
+}
+
 /* a padded column view whose text closes with links (ita-airways-app's "Plan your next trip" with the app store links)
    keeps its H2 in www's heading-small (28 px at 1440, 22 at 390, heading-small's margin under it), not the padded
    views' heading-medium above (contact's countries, entry-exit-system: text only): the carrier of the size the eight
@@ -1405,3 +1416,4 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
     margin-top: 0;
   }
 }
+
