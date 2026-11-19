@@ -1,0 +1,11 @@
+[
+  {
+    "path": "/de/en/about-us/lhg-history",
+    "inserts": [
+      {
+        "before": "<h1 id=\"from-the-route-network-to-corporate-benefits\">From the route network to corporate benefits</h1>",
+        "text": "<div class=\"spacer from-768\"><div><div></div></div></div>"
+      }
+    ]
+  }
+]

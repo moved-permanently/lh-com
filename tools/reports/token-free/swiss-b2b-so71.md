@@ -273,6 +273,25 @@ the +53 px before "Exklusive Vorteile für Statuskund:innen" is that section's H
   - Allegris corporates de/de 1440: 7,127 -> 7,115 (www 7,038).
   - The code's figures are in the closing addendum of ema-cashub.md.
 
+**lhg-history de/en (rank 1 of Group for Business, 1440 -5.09 %): a READY row.**
+- The English copy's title sits 40 px higher than www's at 1440 (www's H1 at 235, ours 195), and the cards 96 px
+  higher.
+- It lost its title's column view in the token-free cleanup: order 16's {column-start-outer} row was live, and no
+  carrier took its place. The German copy carries a Spacer block from 768 px before its H1 (order 29's row).
+- **The row** (tools/reports/parity-2026-11-09/delta-so71-b2b-lhg-history-en-spacer.txt and .json) gives the English
+  copy the same Spacer block, before the H1.
+- Drafted on the served copy (the unchanged draft gave the served heights):
+
+| Path | Width | www | As served | With the row | Points |
+| --- | --- | --- | --- | --- | --- |
+| /de/en/about-us/lhg-history | 1440 | 1,690 | 1,604 (-5.09 %) | 1,663 (-1.60 %) | -3.49 |
+| /de/en/about-us/lhg-history | 390 | 4,212 | 4,199 (-0.31 %) | 4,199 (-0.31 %) | 0 |
+
+- The German copy's other carrier, its cards' space-l, was drafted too. It took 390 +0.81 points further (4,199 ->
+  4,259), so it is not in the row.
+- Dry run on DA's current copy (1 read-only GET, 03:05 CET): 1 inserted, byte for byte back without it, a second run
+  "1 present", no {…} in the output.
+
 ## Item 7: content and function differences (no rows)
 
 | Page | Width | www | Ours | Difference |

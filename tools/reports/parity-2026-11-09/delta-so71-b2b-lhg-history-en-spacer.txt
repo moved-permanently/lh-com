@@ -1,0 +1,21 @@
+# ema-cashub, standing order 71 (2026-11-19), item 6: Group for Business /de/en/about-us/lhg-history, the B2B page furthest
+# from www (1440 -5.09 %). Its title sits 40 px higher than www's at 1440 (b2b-parity-003: www's H1 at 235, ours 195)
+# and the cards 96 px higher. The English copy lost its title's column view in the token-free cleanup (order 16's
+# {column-start-outer} row, live then; no carrier took its place), while the German copy carries a Spacer block from
+# 768 px before its H1 (order 29's row). The row gives the English copy the same Spacer block: the title 59 px lower
+# from 768 px; phones unchanged.
+# Token-free: a Spacer block (option from-768) goes in before the H1; no row puts a style marker in.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so71-b2b-lhg-history-en-spacer.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (1 read-only GET, 03:05 CET): "1 inserted", "without the inserts DA's copy byte for byte:
+# true"; a second run on the output "1 present"; no {…} in the output.
+# Drafted on b2b.turnsthe.page (so67/hostv2.mjs, the served .plain.html with the Spacer block before the H1, main's code;
+# unhinted; airline hosts, www.* and lh-proxy refused per request, none sent). The draft of the unchanged copy gave the
+# served heights (1,604 / 4,199). The German copy's other carrier (its cards' space-l) was drafted as well and took 390
+# +0.81 points further (4,199 -> 4,259, www 4,212), so it is not in the row. Gate: |after %| - |before %| <= 0.5.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/en/about-us/lhg-history	1440	b2b-parity-003	1690	1604 (-5.09 %)	1663 (-1.60 %)	-3.49 points; the title 19 px under www's, the cards 37 px over
+READY	/de/en/about-us/lhg-history	390	b2b-parity-003	4212	4199 (-0.31 %)	4199 (-0.31 %)	0 points; the Spacer block draws from 768 px only
+#
+# DA change (lh-b2b), READY path: a Spacer block with the option from-768 right before the H1 "From the route network to
+# corporate benefits" in the first section.

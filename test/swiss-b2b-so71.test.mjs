@@ -13,6 +13,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { parseHTML } from 'linkedom';
 import { themeFor, THEMES } from '../scripts/style-markers.js';
+import { applyTextInserts, removeTextInserts, listPaths } from '../tools/importer/text-inserts-apply.mjs';
 
 const read = (f) => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 const { default: decorateTokenFree } = await import('../scripts/token-free.js');
@@ -66,6 +67,24 @@ test('h2-small-after-accordion: Group for Business\'s H2 right after an accordio
   // a tab panel keeps it; a marker's size wins
   assert.equal(h2s(`<div data-tab="HON">${acc}<h2>In a tab</h2></div>`, 'b2b'), 'In a tab:heading-medium');
   assert.equal(h2s(`<div>${acc}<h2 class="heading-large">Marked</h2></div>`, 'b2b'), 'Marked:heading-large');
+});
+
+test('item 6: lhg-history de/en READY, a Spacer block from 768 px before its title; no token, byte for byte back, present twice', () => {
+  const list = read('../tools/reports/parity-2026-11-09/delta-so71-b2b-lhg-history-en-spacer.txt');
+  const data = JSON.parse(read('../tools/reports/parity-2026-11-09/delta-so71-b2b-lhg-history-en-spacer.json'));
+  assert.deepEqual([...new Set(listPaths(list))], ['/de/en/about-us/lhg-history']);
+  assert.doesNotMatch(list, /overview-manage/);
+  assert.equal(data.length, 1);
+  assert.equal(data[0].inserts.length, 1);
+  const [ins] = data[0].inserts;
+  assert.equal(ins.text, '<div class="spacer from-768"><div><div></div></div></div>');
+  assert.match(ins.before, /^<h1 id="from-the-route-network-to-corporate-benefits">/);
+  assert.doesNotMatch(ins.text, /\{[a-z]/);
+  const doc = `<body><main><div>${ins.before}<p>Intro</p></div></main></body>`;
+  const once = applyTextInserts(doc, data[0].inserts);
+  assert.deepEqual(once.results, ['inserted']);
+  assert.equal(removeTextInserts(once.html, once.inserts), doc);
+  assert.deepEqual(applyTextInserts(once.html, data[0].inserts).results, ['present']);
 });
 
 test('swiss.css: the title 30 px under its picture on phones, 31 from 768', () => {

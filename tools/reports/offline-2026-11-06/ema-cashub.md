@@ -12309,3 +12309,28 @@ panel, is heading-small (scripts/token-free.js).
 - The targeted tests (order 62's folder list, every SWISS and B2B test, token-free, style-markers and this order's):
   533 files, 2,207 pass, 0 failures, 3 skipped.
 - test/swiss-b2b-so71.test.mjs has 6 tests.
+
+### Standing order 71, addendum 2 (about 03:20 CET): lhg-history de/en READY (pushed with this addendum)
+
+**The cause:** /de/en/about-us/lhg-history, the B2B page-width furthest from www (1440 -5.09 %), has its title 40 px
+higher than www's. The cards are 96 px higher.
+- The English copy lost its title's column view in the token-free cleanup: order 16's {column-start-outer} row was
+  live, and no carrier took its place.
+- The German copy carries a Spacer block from 768 px before its H1 (order 29's row).
+
+**The list:** delta-so71-b2b-lhg-history-en-spacer: a Spacer block with the option from-768 right before the English
+copy's H1.
+- Token-free: a carrier block, no {…}.
+- Drafted on the served copy; the unchanged draft gave the served heights, 1,604 / 4,199.
+- The German copy's cards' space-l was drafted as well and took 390 +0.81 points further, so it is not in the row.
+- Dry run on DA's current copy (1 read-only GET, 03:05 CET): 1 inserted, byte for byte back without it, a second run
+  "1 present", no {…} in the output.
+
+| Path | Width | www | As served | With the row |
+| --- | --- | --- | --- | --- |
+| /de/en/about-us/lhg-history | 1440 | 1,690 | 1,604 (-5.09 %) | 1,663 (-1.60 %) |
+| /de/en/about-us/lhg-history | 390 | 4,212 | 4,199 (-0.31 %) | 4,199 (-0.31 %) |
+
+**Also in this commit:**
+- The full suite on c5c4cd50: 1,292 files, 4,847 pass, 0 failures, 5 skipped.
+- test/swiss-b2b-so71.test.mjs now checks the list: its path, no token, byte for byte back, present on a second run.
