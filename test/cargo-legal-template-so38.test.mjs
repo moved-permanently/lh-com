@@ -26,7 +26,14 @@ test('the rule: from 1281 px, Cargo\'s legal pages only, 56 px more each side an
   assert.equal(text.media, '@media (width >= 1281px)');
   assert.match(text.body, /max-width: none;/);
   assert.ok(!/main h1[^{]*legal|\.legal[^{]*h1/.test(css), 'our title keeps its style');
-  assert.equal((css.match(/\.legal\b/g) || []).length, 2, 'no other legal rule in the theme');
+  // standing order 63 adds one more: the text across the screen on phones (below)
+  assert.equal((css.match(/\.legal\b/g) || []).length, 3, 'no other legal rule in the theme');
+});
+
+test('standing order 63: on phones the legal text across the screen (its paragraphs and lists, as www\'s journal article)', () => {
+  const t = rule('  body.brand-cargo.legal main .default-content-wrapper > :is(p, ol, ul)');
+  assert.equal(t.media, '@media (width < 768px)');
+  assert.match(t.body, /margin-inline: -16px;/);
 });
 
 test('the rows: Template legal on Cargo\'s two legal pages, named with their tool and data in the list header', () => {

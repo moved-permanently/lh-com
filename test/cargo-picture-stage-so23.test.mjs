@@ -4,7 +4,7 @@
    as its video header (row 38, test/cargo-video-stage-503): the picture across the screen at 16:9 (220 px at 390), under
    it a white box 16 px in, the title 10 px lower (24/29 navy, 10 px under it), the subline 16 / 19.2 px, the link row
    16 px under it with www's 36 px button (18 / 21.6 px, 5 px 25 px). Ours drew a 320 px picture with the text on it:
-   -2.2 / -2.5 % at 390 (en / de). From 992 px nothing changes. Cargo's theme only.
+   -2.2 / -2.5 % at 390 (en / de). From 992 px www's text at the stage's foot (standing order 63). Cargo's theme only.
    Run: node --test test/cargo-picture-stage-so23.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -57,8 +57,12 @@ test('the link row 16 px under the subline, www\'s 36 px button', () => {
   assert.deepEqual([a['min-height'], a.padding, a['font-size'], a['line-height']], ['0', '5px 25px', '18px', '21.6px']);
 });
 
-test('the video header keeps its own rules (row 38), and nothing for the picture header from 992 px', () => {
+test('the video header keeps its own rules (row 38); from 992 px the picture header only in its own block (standing order 63)', () => {
   assert.ok(css.includes('body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media video) > .hero-campaign-inner'));
   const wide = css.split('@media (width < 992px)').map((chunk, n) => (n === 0 ? chunk : chunk.slice(chunk.indexOf('}\n}') + 3))).join('');
-  assert.ok(!wide.includes(':has(> .hero-campaign-media > picture):not(:has(video))'), 'the picture header\'s rules only below 992 px');
+  const own = wide.split('@media (width >= 992px)');
+  const outside = own.map((chunk, n) => (n === 0 ? chunk : chunk.slice(chunk.indexOf('}\n}') + 3))).join('');
+  assert.ok(!outside.includes(':has(> .hero-campaign-media > picture):not(:has(video))'), 'the picture header\'s wide rules only in their @media (width >= 992px) block');
+  assert.equal(own.length, 2, 'one wide block');
+  assert.match(own[1], /> \.hero-campaign-inner \{\n {4}max-width: none;/);
 });
