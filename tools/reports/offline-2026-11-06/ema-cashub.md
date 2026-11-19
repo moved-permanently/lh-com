@@ -12334,3 +12334,35 @@ copy's H1.
 **Also in this commit:**
 - The full suite on c5c4cd50: 1,292 files, 4,847 pass, 0 failures, 5 skipped.
 - test/swiss-b2b-so71.test.mjs now checks the list: its path, no token, byte for byte back, present on a second run.
+
+### Standing order 71, addendum 3 (about 03:50 CET): the SWISS page end on phones (pushed with this addendum)
+
+**The cause:** travel-insurances 390 ends 85 px long after "Versicherungsbedingungen". Most of that is the last
+padded section's 48 px section gap.
+- www's footer sits 39 / 58 / 55 px under the last ink at 390 on the three pages the rule reaches (travel-insurances,
+  internet-overview, baggage-irregularities).
+- At 1440 www's gaps are 59 to 95 px. At every width the rule took three 1440s more than 0.5 points further, so it is
+  phones only.
+
+**The rule (styles/themes/swiss.css):** below 768 px, a page that ends with a padded section after others has no
+section gap under it.
+- A one-section padded page keeps order 70's rule: pax-receipt, short of www by its missing receipt form, went 2.00
+  points further without that exception.
+- Reach: 99 of the 4,661 served SWISS documents.
+
+**Gate (code against live, all 168 SWISS page-widths):** 3 moved, 2 closer, none more than 0.5 points further
+(baggage-irregularities 390, +0.28). The sum goes 565.04 -> 561.81.
+- travel-insurances 390: +2.58 -> +0.29 %.
+- internet-overview 390: +3.08 -> +1.87 %.
+
+**lhg-history de/en (addendum 2's READY row):** the helper applied it by 03:31 CET. The served page measures 1,663 /
+4,199, as drafted.
+
+**Tried and not shipped:**
+- B2B, a stacked text's button 11 px above its picture on phones: 10 of the 24 page-widths it moved fail, sum 85.20 ->
+  96.21.
+- B2B, the footer 21 px under a closing card grid on phones: two short pages more than 0.5 points further.
+- SWISS usp teasers: www's layout at 390 is not pinned down.
+- Details are in the report.
+
+**Checks:** whole-repo `npm run lint` exit 0, and stylelint on swiss.css exit 0. The targeted tests: 533 files, 2,210 pass, 0 failures, 3 skipped.

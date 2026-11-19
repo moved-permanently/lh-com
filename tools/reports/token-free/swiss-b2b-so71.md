@@ -292,6 +292,34 @@ the +53 px before "Exklusive Vorteile für Statuskund:innen" is that section's H
 - Dry run on DA's current copy (1 read-only GET, 03:05 CET): 1 inserted, byte for byte back without it, a second run
   "1 present", no {…} in the output.
 
+**SWISS, the page end on phones (shipped, a SWISS rule).** travel-insurances 390 (+3.06 % before this order, rank 36)
+ends 85 px long after "Versicherungsbedingungen". Most of that is the last section's gap.
+- On www the footer sits 39 px under the last ink at 390; ours keeps the padded section's 20 px padding and the 48 px
+  section gap.
+- www's phone end gaps on the three pages the rule reaches are 39, 58 and 55 px. At 1440 they are 59 to 95, so the rule
+  is phones only (at every width it took three 1440s more than 0.5 points further).
+- **The rule:** below 768 px, a page that ends with a padded section after others has no section gap under it.
+- A page that is one padded section keeps order 70's rule: pax-receipt (short of www by its missing receipt form) went
+  2.00 points further without that exception.
+- Reach: 99 of the 4,661 served SWISS documents.
+- **Gate (code against live, all 168 SWISS page-widths):** 3 moved, 2 closer, none more than 0.5 points further
+  (baggage-irregularities 390, +0.28). The sum goes 565.04 -> 561.81.
+  - travel-insurances 390: 2,146 -> 2,098 (www 2,092), +2.58 -> +0.29 %.
+  - internet-overview 390: 4,083 -> 4,035 (www 3,961), +3.08 -> +1.87 %.
+
+**Tried for item 6 and not shipped:**
+- **B2B, a stacked text's button 11 px above its picture on phones** (kuala-lumpur's, www 11, ours 36). On the 102
+  recorded B2B phone page-widths it moved 24: 10 closer and 10 more than 0.5 points further (hygiene-and-safety -0.60 ->
+  -3.04 %). The sum went 85.20 -> 96.21, so www's gap there differs page by page.
+- **B2B, the footer 21 px under a closing card grid on phones** (lhg-history and lhg-history-booking, ours 48). It
+  would take lhg-history de/en 390 and alliances-and-joint-ventures 390 more than 0.5 points further (both short of
+  www).
+- **SWISS, the usp teaser cards** (terms-conditions).
+  - At 1440, www's icon is 64 x 64 px as ours, with its heading 28 px under it (ours 20), and our heading has a 15 px
+    margin under it that www's teaser has not.
+  - At 390, www lays the teaser out differently: icon and text share rows in the PNG.
+  - Not enough to write a rule that matches both widths.
+
 ## Item 7: content and function differences (no rows)
 
 | Page | Width | www | Ours | Difference |

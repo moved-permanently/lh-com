@@ -1425,6 +1425,18 @@ body.brand-swiss main > .section.padded:first-of-type:last-of-type:has(> .defaul
   margin-bottom: 0;
 }
 
+/* standing order 71, item 6: below 768 px a page that ends with a padded section after others has no section gap under
+   it, its padding only (www's footer 39 / 58 / 55 px under the last ink on travel-insurances, internet-overview and
+   baggage-irregularities at 390, ours 48 more; from 768 px www's is 59 to 95 px and ours stays). 390: travel-insurances
+   +2.58 -> +0.29 %, internet-overview +3.08 -> +1.87 %, baggage-irregularities +0.33 -> -0.61 %. A page that is one
+   padded section keeps the rule above (pax-receipt, short of www by its missing receipt form). Reach: 99 of the 4,661
+   served SWISS documents */
+@media (width < 768px) {
+  body.brand-swiss main > .section.padded:last-child:not(:first-child) {
+    margin-bottom: 0;
+  }
+}
+
 /* standing order 70, item 1 (unaccompanied-minors): the table's cells as www's maui-table cells (16 px text on 24 px
    lines, 30 px above and below, at least 200 px wide: on phones the table scrolls sideways inside its box, as www's
    does, where ours squeezed its columns into the width; ch/de unaccompanied-minors 390: its table 808 -> 648 px, www
