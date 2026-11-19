@@ -20,6 +20,7 @@
 import {
   readPurposeBlock, readBlockOptions, readSectionStyle, headingChoice, themeFor, pageTypeOf,
   isCaptionParagraph, readNavRole, MARKED_SIZE, MARKED_WIDTH, SPACE, DIVIDER_SPACE, CHAPTER_SPACE,
+  SMALL_SPACE, STEP_SPACE,
 } from './style-markers.js';
 
 const TEXT = ['P', 'UL', 'OL'];
@@ -47,6 +48,11 @@ function columnMark(kind) {
 const META_BLOCKS = ['metadata', 'section-metadata'];
 const blockName = (el) => el.className.split(' ')[0];
 const isMeta = (el) => isBlock(el) && META_BLOCKS.includes(blockName(el));
+/** Whether a section's last own element (its metadata aside) is a block. */
+const endsWithBlock = (section) => {
+  const last = section && [...section.children].filter((c) => !isMeta(c)).pop();
+  return !!last && isBlock(last);
+};
 const isColumnMark = (el) => !!el && [...el.classList].some((c) => c.startsWith('column-'));
 // SWISS's topic teaser: a heading whose link starts with its icon
 const isTeaser = (el) => /^H[2-4]$/.test(el.tagName) && !!el.querySelector(':scope > a > picture:first-child');
@@ -69,10 +75,17 @@ function isBand(section) {
   return !!row && /(^|,)\s*grey\s*(,|$)/i.test(row.lastElementChild?.textContent || '');
 }
 
+// the page's sizes of M and L: the theme's own (THEMES[brand].space, standing order 56: M at
+// 40 where that brings a brand closer to www), else SPACE; set by decorateTokenFree per page
+let PAGE_SPACE = SPACE;
+// the same for separators shown from 768 px only (THEMES[brand].space.from768:
+// lufthansa.com's M at 60 there)
+let PAGE_SPACE_768 = SPACE;
+
 /** A space or divider choice as a separator paragraph (null: none). */
 function separatorFor(space, divider) {
   if (divider) return separatorParagraph(DIVIDER_SPACE, true);
-  return space ? separatorParagraph(SPACE[space]) : null;
+  return space ? separatorParagraph(PAGE_SPACE[space]) : null;
 }
 
 /** Adds a class unless a marker already gave the element one of its kind. */
@@ -87,14 +100,30 @@ function addUnmarked(el, cls, marked) {
  * App Spacer, App Divider and App Text the paragraphs of "{spacer: medium}", "{divider}" and
  * "{small}" (scripts/library-page.js decorateAppScreen).
  */
-function decoratePurposeBlocks(main) {
+function decoratePurposeBlocks(main, theme = {}) {
+  const { opening } = theme.columnViews || {};
   const selector = ['spacer', 'divider', 'app-spacer', 'app-divider', 'app-text'].map((n) => `:scope > div > div.${n}`).join(', ');
   main.querySelectorAll(selector).forEach((block) => {
     const [name, ...options] = [...block.classList];
     const what = readPurposeBlock(name, options);
     if (!what) return;
     if (what.kind === 'spacer' || what.kind === 'divider') {
-      const p = separatorParagraph(what.px, what.kind === 'divider');
+      // a Spacer block draws the page's M / L (a theme's own space, e.g. lufthansa.com's M at 40)
+      const sizes = what.fromTablet ? PAGE_SPACE_768 : PAGE_SPACE;
+      // a near-value step (xs, m-plus, l-minus) draws its own size; S its 25; M / L the page's
+      const step = options.find((o) => STEP_SPACE[o]);
+      let sized = what.px === SMALL_SPACE ? SMALL_SPACE : sizes[what.px === SPACE.l ? 'l' : 'm'];
+      if (step) sized = STEP_SPACE[step];
+      // a column view's opening Spacer (the view section holds only it): the theme's view opening
+      const sec = block.parentElement;
+      const alone = sec && sec.classList.contains('column-view')
+        && [...sec.children].filter((c) => !c.classList.contains('section-metadata')).length === 1;
+      const viewOpening = opening && what.kind === 'spacer' && alone && what.px !== SPACE.l && what.px !== SMALL_SPACE;
+      // a Divider with its space option (m, l) the page's M / L too
+      const dividerSized = what.px === DIVIDER_SPACE ? what.px : sizes[what.px === SPACE.l ? 'l' : 'm'];
+      let px = dividerSized;
+      if (what.kind === 'spacer') px = viewOpening ? opening : sized;
+      const p = separatorParagraph(px, what.kind === 'divider');
       // from 768px only (styles.css hides p.spacer.from-768 below), or below 768px only
       // (p.spacer.below-768, hidden from 768px)
       if (what.fromTablet) p.classList.add('from-768');
@@ -199,6 +228,8 @@ function decorateSectionStyles(main, theme, pageHeadings) {
       if (level && headings[`h${level[1]}`]) {
         addUnmarked(el, headingChoice(theme, Number(level[1]), headings[`h${level[1]}`]), MARKED_SIZE);
       }
+      // the section style limited-headings: its own headings two thirds wide (.limited-width)
+      if (level && level[1] !== '1' && style.headingWidth === 'limited') addUnmarked(el, 'limited-width', MARKED_WIDTH);
       // the section's images in the parallax window, its quotes narrow (the "{parallax}" and
       // "{narrow}" classes)
       if (style.quote === 'narrow' && el.tagName === 'BLOCKQUOTE') {
@@ -227,7 +258,7 @@ function decorateSectionStyles(main, theme, pageHeadings) {
     // separator per width, shown from 768 px or below it only (styles.css p.spacer.from-768)
     const scoped = (size, divider, cls) => {
       if (!size) return null;
-      const p = separatorParagraph(SPACE[size], divider);
+      const p = separatorParagraph((cls === 'from-768' ? PAGE_SPACE_768 : PAGE_SPACE)[size], divider);
       p.classList.add(cls);
       return p;
     };
@@ -339,12 +370,16 @@ function applyThemeRules(main, theme) {
     // what follows the section's first element (its metadata aside)
     const afterFirst = first && first.nextElementSibling;
     if (i > 0 && first && !isSeparator(first)) {
-      if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(SPACE.m));
+      if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(PAGE_SPACE.m));
       // a chapter's rule, not above the Related Articles and not above a heading a block follows
       // right away (www's teaser sections draw none: ema-adobe's handover item 7)
       else if (theme.rules.includes('ruled-chapters') && isChapterStart(first)
         && !section.querySelector(':scope > div.related-articles')
-        && !(afterFirst && isBlock(afterFirst) && !isMeta(afterFirst))) {
+        && !(afterFirst && isBlock(afterFirst) && !isMeta(afterFirst))
+        // ... and not right after a section that ends with a block (a teaser row, the Price Bar,
+        // an info box): www's marks draw no rule there (standing order 60: 873 of the 873 such
+        // chapters on the 2,279 marked lufthansa.com articles open without a divider)
+        && !endsWithBlock(sections[i - 1])) {
         section.prepend(separatorParagraph(DIVIDER_SPACE, true));
       }
     }
@@ -432,12 +467,19 @@ function applyThemeRules(main, theme) {
 /**
  * Token-free styling of a page's main element.
  * @param {Element} main
- * @param {{brand?: string, path?: string, read?: Function}} [page] brand key (lh-com: ''),
- *   path, metadata reader (aem.js getMetadata)
+ * @param {{brand?: string, path?: string, read?: Function, marked?: boolean}} [page] brand key
+ *   (lh-com: ''), path, metadata reader (aem.js getMetadata), whether the document carried style
+ *   markers (hasStyleMarkers before decorateTextStyles: a brand's switched theme part waits for
+ *   its document's collapse, THEMES.lufthansa.switched)
  */
-export default function decorateTokenFree(main, { brand = '', path = '', read = () => '' } = {}) {
+export default function decorateTokenFree(main, {
+  brand = '', path = '', read = () => '', marked = false,
+} = {}) {
   const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector('.article-header'), themes: read('theme') });
-  const theme = themeFor(brand || 'lufthansa', pageType);
+  const theme = themeFor(brand || 'lufthansa', pageType, { marked });
+  const { from768, ...space } = theme.space || {};
+  PAGE_SPACE = { ...SPACE, ...space };
+  PAGE_SPACE_768 = { ...PAGE_SPACE, ...(from768 || {}) };
   // a live theme's rules for the page's CSS too (styles.css "theme rules")
   if (theme.live) {
     const { body } = main.ownerDocument;
@@ -447,7 +489,7 @@ export default function decorateTokenFree(main, { brand = '', path = '', read = 
       body.style.setProperty('--theme-heading-gap', `${theme.columnViews.headingGap}px`);
     }
   }
-  decoratePurposeBlocks(main);
+  decoratePurposeBlocks(main, theme);
   decorateNavTools(main);
   decorateBlockOptions(main, theme);
   decorateSectionStyles(main, theme, readSectionStyle(read('headings') || '').headings);

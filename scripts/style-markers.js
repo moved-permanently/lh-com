@@ -37,6 +37,22 @@ export const VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join('|')}|${VIDEO_SIZ
 // TAP's empty line in a text: a paragraph of only <sub>{blank}</sub> (decorateTextStyles)
 export const BLANK_LINE = /^\s*\{blank\}\s*$/;
 
+// a style marker of any spelling in a document's text ("{heading-small}", "{spacer-40 from-768}",
+// "{column-start}"), not a data placeholder the page fills in ("{origin}", "{n}")
+const MARKER_SPELLING = /\{[a-z][^{}]{0,80}\}/g;
+const DATA_PLACEHOLDER = /^\{(origin|destination|duration|cabin|language|locale|n)\}$/;
+
+/**
+ * Whether a document still carries style markers (before decorateTextStyles takes them): a
+ * brand's switched theme (THEMES.lufthansa.switched) waits for the document's collapse, so a
+ * marked document draws as before the switch. The switch's census counts the same way
+ * (lufthansa-switch-plan-923.md §14).
+ * @param {Element} main
+ */
+export function hasStyleMarkers(main) {
+  return (String(main.textContent || '').match(MARKER_SPELLING) || []).some((m) => !DATA_PLACEHOLDER.test(m));
+}
+
 // the app screens' markers (scripts/library-page.js decorateAppScreen, /content/mobile documents):
 // a space "{spacer: medium}" (", v2": the v2 screen only), a rule "{divider}", small text "{small}"
 export const APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
@@ -107,6 +123,9 @@ export const SPACE = { m: 60, l: 120 };
 export const DIVIDER_SPACE = 25;
 // the chapter gap in a block's cells (block option chapters)
 export const CHAPTER_SPACE = 25;
+// a Spacer block's option "s": www's small separators (lufthansa.com's {spacer-25}), where a
+// theme has them
+export const SMALL_SPACE = 25;
 
 /**
  * The collapse table's separator size (step 2): 0-30px none, 32-80px M, 90-150px L; any other
@@ -195,6 +214,59 @@ export const THEMES = {
       // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
       'insights-tag': { rules: ['rule-before-info-box'] },
     },
+    // the switched part (standing orders 55-60): the theme as the collapsed documents need
+    // it. With the theme live, themeFor applies it to a document that carries no markers (the
+    // collapse's output, the importers'); a document that still has markers draws with the
+    // theme above and the theme off, as before the switch (standing order 60: the code ships
+    // first, the documents follow in batches)
+    switched: {
+      // a view's opening Spacer (a view section that holds only it) at 60: www's hub views
+      // open 60 px below what comes before (standing order 57; with the related-teasers
+      // heading rule: digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either
+      // alone moves it further)
+      columnViews: { opening: 60 },
+      // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in
+      // Cards Teaser, www's smaller headings) keep it as the choice "small" (block option
+      // title-small, section style H2 small); H2 heading-large as H2 large; {limited-width}
+      // headings as limited-headings
+      headingChoices: {
+        h2: { large: 'heading-large', compact: 'heading-copytext-large', small: 'heading-small' },
+      },
+      nearChoices: {
+        h1: { 'heading-medium': 'compact' },
+        h2: { 'heading-small': 'small', 'heading-large': 'large' },
+      },
+      limitedHeadings: true,
+      // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
+      // decision 3 lifted); a small separator, the Spacer block option s (25 px: www's
+      // {spacer-25}; standing order 56, plan 923); and near-value steps for the collapse
+      // (standing order 59, Ben: "near-value collapse, not pixel-perfect"): a separator takes
+      // the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120 (the 1,191 recorded
+      // separator-widths: rounding 5,843 px -> 2,068)
+      space: {
+        m: 40,
+        s: 25,
+        steps: {
+          xs: 16, s: 25, m: 40, 'm-plus': 60, 'l-minus': 80, l: 120,
+        },
+      },
+      pageTypes: {
+        // flow pages: nearChoices replaces the brand's, so the H1's and H3's again
+        flow: {
+          nearChoices: {
+            h1: { 'heading-medium': 'compact' },
+            h2: { 'heading-small': 'small', 'heading-large': 'large' },
+            h3: { 'heading-small': 'large' },
+          },
+        },
+        // /100-years: the separators keep M at 60: www's are 60 there (86 of the 98
+        // {spacer-N} markers of the 16 recorded 100-years documents; 40 on 12), while the
+        // service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
+        '100-years': { space: { m: 60, s: 25 } },
+      },
+    },
+    // the switch (standing orders 55-60, branch token-free-lufthansa-live: never merged from here)
+    live: true,
   },
   // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
   // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
@@ -295,11 +367,18 @@ const mergeTheme = (a, b) => ({
  * @param {string} [pageType]
  * @returns {typeof BASE_THEME}
  */
-export function themeFor(brand, pageType = '') {
+export function themeFor(brand, pageType = '', { marked = false } = {}) {
   const own = THEMES[brand || 'lufthansa'] || {};
-  const { pageTypes = {}, ...brandTheme } = own;
-  let theme = mergeTheme(BASE_THEME, brandTheme);
+  const { pageTypes = {}, switched, ...brandTheme } = own;
+  // a live brand's switched part (THEMES.lufthansa.switched) on a document without markers; a
+  // document with markers draws with the theme off, as before the switch
+  const waits = !!switched && marked;
+  let theme = mergeTheme(BASE_THEME, waits ? { ...brandTheme, live: false } : brandTheme);
+  const on = own.live && !waits && switched;
+  const { pageTypes: switchedTypes = {}, ...switchedTheme } = on || {};
+  theme = mergeTheme(theme, switchedTheme);
   if (pageType && pageTypes[pageType]) theme = mergeTheme(theme, pageTypes[pageType]);
+  if (pageType && switchedTypes[pageType]) theme = mergeTheme(theme, switchedTypes[pageType]);
   return theme;
 }
 
@@ -360,10 +439,14 @@ export const SECTION_STYLES = {
   'divider-m-768': { dividerTablet: 'm' },
   'divider-m-below-768': { dividerPhone: 'm' },
   'wide-text': { width: 'full' },
+  // the section's own headings two thirds wide ({limited-width} headings; .limited-width)
+  'limited-headings': { headingWidth: 'limited' },
   'small-print': { size: 'small' },
   'h1-compact': { headings: { h1: 'compact' } },
   'h2-large': { headings: { h2: 'large' } },
   'h2-compact': { headings: { h2: 'compact' } },
+  // an H2 in heading-small where the theme has that choice (lufthansa.com's card titles)
+  'h2-small': { headings: { h2: 'small' } },
   'h3-large': { headings: { h3: 'large' } },
   // an H3 one size smaller (Group for Business: heading-copytext-large; without the choice: none)
   'h3-compact': { headings: { h3: 'compact' } },
@@ -399,10 +482,12 @@ export const SECTION_STYLE_LABELS = {
   'divider-m-768': 'Divider above: M from 768',
   'divider-m-below-768': 'Divider above: M on phones',
   'wide-text': 'Wide text',
+  'limited-headings': 'Headings two thirds',
   'small-print': 'Small print',
   'h1-compact': 'H1 compact',
   'h2-large': 'H2 large',
   'h2-compact': 'H2 compact',
+  'h2-small': 'H2 small',
   'h3-large': 'H3 large',
   'h3-compact': 'H3 compact',
   'h4-large': 'H4 large',
@@ -434,6 +519,7 @@ export function readSectionStyle(classes) {
     dividerTablet: null,
     dividerPhone: null,
     width: null,
+    headingWidth: null,
     size: null,
     headings: {},
     image: null,
@@ -475,6 +561,7 @@ export const BLOCK_OPTIONS = {
   // Columns Media: a cell's picture further above the heading after it (the brand theme's size;
   // Group for Business: 80 px, www's column-view picture to headline; standing order 69)
   'spaced-pictures': { pictures: 'spaced' },
+  'title-small': { title: 'small' },
   'background-video': { video: 'background' },
   // Article Header: its video on phones too
   'mobile-video': { video: 'mobile' },
@@ -499,6 +586,7 @@ export const BLOCK_OPTION_LABELS = {
   'links-vertical': 'links stacked',
   'h3-compact': 'H3 compact (its other headings as they are)',
   'spaced-pictures': 'pictures further above the heading after them',
+  'title-small': 'small title',
   'background-video': 'background video (autoplay, muted, loop)',
   'mobile-video': 'video on phones too',
   'picture-half-start': 'picture in the cell\'s first half',
@@ -614,6 +702,17 @@ const dividerPx = (opts) => {
   return opts.includes('m') ? SPACE.m : DIVIDER_SPACE;
 };
 
+// a Spacer block's size from its options (l, s, else M)
+// a Spacer block's near-value steps beyond M and L (options xs, m-plus, l-minus; standing order 59)
+export const STEP_SPACE = { xs: 16, 'm-plus': 60, 'l-minus': 80 };
+
+const spacerPx = (opts) => {
+  if (opts.includes('l')) return SPACE.l;
+  const step = Object.keys(STEP_SPACE).find((k) => opts.includes(k));
+  if (step) return STEP_SPACE[step];
+  return opts.includes('s') ? SMALL_SPACE : SPACE.m;
+};
+
 /**
  * What a purpose block draws, from its block name and options (class names), or null for
  * another block.
@@ -629,7 +728,7 @@ export function readPurposeBlock(name, options = []) {
     // option from-768: the space from 768px only, none on phones (as "{spacer-60 from-768}");
     // option below-768: on phones only, none from 768px (as "{spacer-60 below-768}")
     case 'spacer': return {
-      kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m, fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
+      kind: 'spacer', px: spacerPx(opts), fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
     };
     // option m / l: the divider's space M or L (www's divider with space,
     // "{divider-100 from-768}"; standing order 57)

@@ -79,7 +79,7 @@ test('page types', () => {
 
 test('section styles: class names and the friendly "Label=value" spelling', () => {
   assert.deepEqual(readSectionStyle(['grey', 'space-m', 'wide-text', 'h2-large']), {
-    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, spaceTablet: null, spacePhone: null, spaceBelowTablet: null, spaceBelowPhone: null, dividerTablet: null, dividerPhone: null, width: 'full', size: null, headings: { h2: 'large' }, image: null, quote: null,
+    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, spaceTablet: null, spacePhone: null, spaceBelowTablet: null, spaceBelowPhone: null, dividerTablet: null, dividerPhone: null, width: 'full', headingWidth: null, size: null, headings: { h2: 'large' }, image: null, quote: null,
   });
   const friendly = readSectionStyle('Space=L, Small print, H3 large, Divider below');
   assert.equal(friendly.space, 'l');
@@ -98,9 +98,15 @@ test('block options, video fragments, purpose blocks, form defaults, nav roles',
   assert.deepEqual(videoFragment('/media/a.mp4#t=10'), { href: '/media/a.mp4#t=10', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4'), { href: '/media/a.mp4', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4#t=5&size=1920x1080'), { href: '/media/a.mp4#t=5', background: false, size: [1920, 1080] });
-  assert.deepEqual(readPurposeBlock('spacer', []), { kind: 'spacer', px: 60, fromTablet: false, belowTablet: false });
-  assert.deepEqual(readPurposeBlock('spacer', ['l']), { kind: 'spacer', px: 120, fromTablet: false, belowTablet: false });
-  assert.deepEqual(readPurposeBlock('divider'), { kind: 'divider', px: 25, fromTablet: false, belowTablet: false });
+  assert.deepEqual(readPurposeBlock('spacer', []), {
+    kind: 'spacer', px: 60, fromTablet: false, belowTablet: false,
+  });
+  assert.deepEqual(readPurposeBlock('spacer', ['l']), {
+    kind: 'spacer', px: 120, fromTablet: false, belowTablet: false,
+  });
+  assert.deepEqual(readPurposeBlock('divider'), {
+    kind: 'divider', px: 25, fromTablet: false, belowTablet: false,
+  });
   assert.deepEqual(readPurposeBlock('app-spacer', ['m-large', 'v2']), { kind: 'app-spacer', size: 'm-large', v2Only: true });
   assert.deepEqual(readPurposeBlock('app-text', ['small']), { kind: 'app-text', small: true });
   assert.equal(readPurposeBlock('columns'), null);
@@ -148,7 +154,8 @@ test('section styles on the section\'s own default content; a marker wins; block
   assert.equal(section.querySelector(':scope > p:has(picture)').className, '');
   assert.equal(section.querySelector('.columns-media h2').className, '');
   assert.equal(section.querySelector('.columns-media p').className, '');
-  assert.equal(shape(section.firstElementChild), SEP(60));
+  // the switch branch: lufthansa.com's M is 40 px (standing order 56)
+  assert.equal(shape(section.firstElementChild), SEP(40));
   assert.equal(shape(section.lastElementChild), SEP(25, true));
 });
 
@@ -232,10 +239,12 @@ test('nothing changes on today\'s documents: markers only, the theme rules off',
 test('the brief after 500: a live lufthansa.com article rules an info box after a picture and a bold chapter; Columns Media\'s picture options', () => {
   THEMES.lufthansa.live = true;
   try {
-    const main = decorate(`<div><div class="article-header"><div><div>h</div></div></div><p>${PICTURE}</p><div class="columns-media"><div><div>i</div></div></div></div><div><p><strong>About</strong></p><p>Text</p></div>`, { brand: '', path: '/de/en/articles/x' });
-    const [one, two] = main.querySelectorAll(':scope > div');
+    const main = decorate(`<div><div class="article-header"><div><div>h</div></div></div><p>${PICTURE}</p><div class="columns-media"><div><div>i</div></div></div><p>More</p></div><div><p><strong>About</strong></p><p>Text</p></div><div><div class="carousel-cards"><div><div>c</div></div></div></div><div><p><strong>After</strong></p><p>Text</p></div>`, { brand: '', path: '/de/en/articles/x' });
+    const [one, two, , four] = main.querySelectorAll(':scope > div');
     assert.ok(one.querySelector('.columns-media').previousElementSibling.matches('p.spacer.divider'));
     assert.ok(two.firstElementChild.matches('p.spacer.divider'));
+    // standing order 60: no chapter rule right after a section that ends with a block
+    assert.ok(!four.firstElementChild.matches('p.spacer.divider'));
   } finally {
     delete THEMES.lufthansa.live;
   }
@@ -245,7 +254,9 @@ test('the brief after 500: a live lufthansa.com article rules an info box after 
 
 test('decorateMain runs it after the section metadata (section classes known) and before the sections are wrapped', () => {
   const js = read('../scripts/scripts.js').replace(/\s+/g, ' ');
-  assert.match(js, /decorateSectionMetadata\(main\); \/\/ token-free styling[^]*?decorateTokenFree\(main, \{ brand: brandOf\(getMetadata\), path: window\.location\.pathname, read: getMetadata, \}\); dropOtherMarkets\(main\);[^]*?decorateSections\(main\);/);
+  // whether the document had markers, read before decorateTextStyles takes them (standing order 60)
+  assert.match(js, /const marked = hasStyleMarkers\(main\); decorateTextStyles\(main\);/);
+  assert.match(js, /decorateSectionMetadata\(main\); \/\/ token-free styling[^]*?decorateTokenFree\(main, \{ brand: brandOf\(getMetadata\), path: window\.location\.pathname, read: getMetadata, marked, \}\); dropOtherMarkets\(main\);[^]*?decorateSections\(main\);/);
 });
 
 test('styles.css: the figure adds no box of its own; the figcaption looks as p.caption', () => {

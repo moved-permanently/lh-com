@@ -97,7 +97,9 @@ test('the collapse keeps no small spacer between running text, on Brussels as on
       path, brand, parse: parseHTML, force: true,
     }).html;
     assert.equal(once.includes('{spacer-'), false, brand);
-    assert.equal(once.includes('<p>a</p><p>b</p>'), true, `${brand}: the two paragraphs together`);
+    // lufthansa.com's near-value steps (standing order 59): a 17 px spacer is XS (16) as a Spacer block, no marker
+    const between = brand === 'lufthansa' ? '<p>a</p><div class="spacer xs"><div><div></div></div></div><p>b</p>' : '<p>a</p><p>b</p>';
+    assert.equal(once.includes(between), true, `${brand}: ${once.slice(0, 300)}`);
   });
 });
 

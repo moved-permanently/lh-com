@@ -2097,10 +2097,37 @@ body.brand-lufthansa main > .section.column-view:not(.grey) + .section.column-vi
   margin-top: -48px;
 }
 
+/* ... and with the theme on, a view right after a view that isn't flush: no section gap between them either (the marks
+   drew consecutive views in one section; standing order 58: meetings-and-events-organisers 1440 8.41 -> 3.44 %, today
+   2.19) */
+/* stylelint-disable-next-line no-descending-specificity -- a view after a view, not a view's separator section */
+body.theme-live.brand-lufthansa main > .section.column-view:not(.grey, .flush) + .section.column-view:not(.grey) {
+  margin-top: -48px;
+}
+
 /* the section before a view, marks or not (no :has() in this one's :has(), it would drop the rule) */
 /* stylelint-disable-next-line no-descending-specificity -- the section before a view, not a campaign-section's */
 body.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey)) {
   margin-bottom: var(--spacing-default);
+}
+
+/* ... with the theme on, a picture that ends that section before a view opening with its heading keeps the picture's
+   40 px below (the marks drew a picture paragraph followed by the view's heading in one section: "p:has(> picture)
+   margin-bottom 40px"; the collapse's split made the picture its section's last child, which that rule leaves out:
+   the first view's heading 16 px higher on every such page; standing order 58: 108 page-widths, sum 867.4 -> 781.6) */
+/* stylelint-disable-next-line no-descending-specificity -- the section before a view, not a campaign-section's */
+body.theme-live.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey) > .default-content-wrapper:first-child > :is(h2, h3):first-child):has(> .default-content-wrapper:last-child > p:last-child > picture, > .default-content-wrapper:last-child > p:last-child > a > picture) {
+  margin-bottom: 40px;
+}
+
+/* ... and on phones the same before a view that opens with text (standing order 60: upgrades-at-online-check-in 390
+   8.29 -> 4.89 %, travel-expense-management 390 8.60 -> 6.38; the 9 phone page-widths it reaches sum 67.88 -> 60.26 with C2, none
+   further; from 768 px it moved first-class-personal-assistant further, so it stays on phones) */
+@media (width < 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the section before a view, not a campaign-section's */
+  body.theme-live.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey) > .default-content-wrapper:first-child > p:first-child:not(.spacer, .button-wrapper)):has(> .default-content-wrapper:last-child > p:last-child > picture, > .default-content-wrapper:last-child > p:last-child > a > picture) {
+    margin-bottom: 40px;
+  }
 }
 
 /* not on flow pages (Theme flow-spacing) once the theme is live (the collapsed column-mark
@@ -2561,6 +2588,38 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
    not after a Spacer: the Spacer is the gap (brief 536, spacer-cost-536.md) */
 body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + :is(h2, h3) {
   margin-top: var(--theme-heading-gap, 32px);
+}
+
+/* lufthansa.com's legal pages (template legal): a chapter heading keeps no heading gap with the theme on either, after
+   a divider or after text (www's legal chapters: the text's own margin, or the .separator, is the space, as the marks
+   drew it; standing order 57: terms-of-use's and sepa-terms-and-conditions' chapters 32 px lower each). Elsewhere www
+   keeps the gap after a divider (miles-and-more, europa-tarife-economy-class: a chapter 32 px short without it) */
+body.theme-live.brand-lufthansa.legal.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + :is(h2, h3) {
+  margin-top: 0;
+}
+
+/* ... and a related-teasers section's heading (section style H2 small) right after its Divider: no gap either (www's
+   "This might also be of interest to you" below the hub views' last rule; digital-self-services +32 px without it) */
+body.theme-live.brand-lufthansa main > .section.h2-small > .default-content-wrapper > p.spacer.divider + h2 {
+  margin-top: 0;
+}
+
+/* ... and on phones a flow page's H3 right after text (a paragraph or a list): no gap either, the text's own margin is the
+   space as the marks drew it (standing order 60: security-check-time-slot 390 5.75 -> 4.40 %, immigration-regulations-uk
+   390 7.10 -> 5.69; the 11 phone page-widths it reaches sum 75.15 -> 72.12, none further; from 768 px it moved
+   child-in-businessclass further, so it stays on phones) */
+@media (width < 768px) {
+  body.theme-live.brand-lufthansa.flow-spacing main .default-content-wrapper > :is(p:not(.spacer), ul, ol) + h3 {
+    margin-top: 0;
+  }
+}
+
+/* ... and inside a column view an H2 or H3 right after text at every width: the marks drew a view's headings with the
+   text's margin only; the gap is the view's padding where a heading opens a view (standing order 60: get-your-guide 390
+   8.86 -> 7.27 %, online-check-in-info 390 8.53 -> 7.55; the 34 page-widths it reaches sum 490.36 -> 485.96, none
+   further) */
+body.theme-live.brand-lufthansa.flow-spacing main > .section.column-view > .default-content-wrapper > :is(p:not(.spacer), ul, ol) + :is(h2, h3) {
+  margin-top: 0;
 }
 
 /* ... also when a separator hidden at this width stands between that content and the heading: it is not there at this

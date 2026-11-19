@@ -61,7 +61,8 @@ test('the page: title-compact and H3 compact draw the class the marker gave; on 
   assert.equal(h2.className, 'heading-medium', 'a heading with a size keeps it');
   assert.equal(main.querySelector('.h3-compact h3').className, 'heading-copytext-large');
   const lh = decorate('<div class="h3-compact"><h3>One</h3><p>a</p></div>', { brand: 'lufthansa', path: '/de/en/x' });
-  assert.equal(/heading-copytext-large/.test(lh.querySelector('h3').className), false);
+  // nothing while lufthansa.com's theme is off; with its switch (the switch branch) its own H3 compact choice
+  assert.equal(/heading-copytext-large/.test(lh.querySelector('h3').className), Boolean(themeFor('lufthansa').live));
 });
 
 test('the delta list: READY rows only where gated, token-free, byte for byte back on a document of their shape', () => {

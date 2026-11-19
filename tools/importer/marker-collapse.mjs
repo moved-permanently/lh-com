@@ -699,10 +699,19 @@ function headingWish(theme, level, size) {
 
 function collapseHeadings(main, doc, stats, marks, theme) {
   const wishes = new Map(); // heading -> choice
+  // two-thirds headings (standing order 56, the switch plan's {limited-width} headings): on a theme with
+  // limitedHeadings, a section whose own headings are mostly marked limited-width takes the section style
+  // limited-headings (its headings two thirds wide); elsewhere the width goes as before
+  const limited = new Map(); // section -> marked own headings
   marks.forEach((tokens, el) => {
     if (!/^H[1-6]$/.test(el.tagName)) return;
     const size = tokens.find((t) => SIZE_TOKEN.test(t));
-    tokens.filter((t) => t === 'limited-width').forEach(() => count(stats, 'theme', 'heading'));
+    tokens.filter((t) => t === 'limited-width').forEach(() => {
+      if (theme.limitedHeadings && !blockOf(el, main)) {
+        const s = sectionOf(el, main);
+        limited.set(s, (limited.get(s) || 0) + 1);
+      } else count(stats, 'theme', 'heading');
+    });
     if (!size) return;
     // a size the theme keeps as written (Discover's heading-copytext-large: www's 16 / 18 px bold eyebrows and
     // column-view headings, in mixed sections and blocks alike; rows-for-ema-test.md row 3): the marker stays on the
@@ -722,6 +731,13 @@ function collapseHeadings(main, doc, stats, marks, theme) {
     else if (w.kind === 'none') count(stats, 'theme', 'heading-no-choice');
     else wishes.set(el, w.choice);
   });
+  limited.forEach((n, section) => {
+    const all = ownText(section).filter((el) => /^H[2-6]$/.test(el.tagName)).length;
+    if (n * 2 > all) {
+      addSectionStyle(section, 'limited-headings', doc);
+      count(stats, 'carrier', 'heading-width', n);
+    } else count(stats, 'theme', 'heading', n);
+  });
   // in blocks: the block's title option when most of its headings ask for the same choice
   const blocks = new Map();
   const sections = new Map();
@@ -739,7 +755,7 @@ function collapseHeadings(main, doc, stats, marks, theme) {
   });
   blocks.forEach((choices, block) => {
     const all = block.querySelectorAll(HEADING).length;
-    const top = ['large', 'compact'].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
+    const top = ['large', 'compact', 'small'].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
     if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, 'carrier', 'heading', top[1]);
     else count(stats, 'theme', 'heading-aligned', choices.length);
   });
@@ -979,15 +995,13 @@ function columnViewSections(main, doc, marks, carrier) {
     own.forEach((el, i) => {
       tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
         if (t.startsWith('column-start')) {
-          if (depth === 0) { outerOf = t === 'column-start-outer'; cur = { first: el, outer: outerOf }; }
-          else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
+          if (depth === 0) { outerOf = t === 'column-start-outer'; cur = { first: el, outer: outerOf }; } else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
             cur.last = own[i - 1]; groups.push(cur); cur = { first: el, outer: false };
           }
           depth += 1;
         } else if (depth > 0) {
           depth -= 1;
-          if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; }
-          else if (cur && own[i + 1]) { cur.last = el; groups.push(cur); cur = { first: own[i + 1], outer: outerOf }; }
+          if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; } else if (cur && own[i + 1]) { cur.last = el; groups.push(cur); cur = { first: own[i + 1], outer: outerOf }; }
         }
       });
     });
@@ -1073,7 +1087,18 @@ function collapseSeparators(main, doc, stats, ctx) {
   // ruled-chapters)
   // (standing order 55: no separator stays a marker; one of 31 px or less is a near value the theme draws, on every
   // brand: Brussels' textSpacers and Discover's componentSpacers kept them as {spacer-N} and are gone)
-  const { rules } = themeFor(ctx.brand, ctx.pageType);
+  const { rules, space } = themeFor(ctx.brand, ctx.pageType);
+  // www's small separators (21-31 px) as the Spacer block option s where the theme has it (lufthansa.com: 25 px)
+  const small = !!(space && space.s);
+  // near-value steps (standing order 59): the nearest of the theme's steps, a tie to the larger (50 M+, 70 L-, 100 L: closer
+  // on the recorded pages than the smaller), none below 8 px
+  const steps = space && space.steps;
+  const stepOf = (n) => {
+    let best = 'none'; let d = n;
+    Object.entries(steps).forEach(([k, v]) => { if (Math.abs(v - n) <= d) { best = k; d = Math.abs(v - n); } });
+    return best;
+  };
+  const stepClass = (st) => (st === 'm' ? 'spacer' : `spacer ${st}`);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
@@ -1114,6 +1139,24 @@ function collapseSeparators(main, doc, stats, ctx) {
       const seps = run.els.map(parse);
       const divider = seps.some((m) => m[1] === 'divider');
       const px = seps.reduce((a, m) => a + Number(m[2]), 0);
+      // a pair of width-scoped separators (www's own breakpoints: "{spacer-80 from-768}" with "{spacer-57 below-768}",
+      // ema-test's pax-receipt; standing order 56): one Spacer block per width with its own size (the block options
+      // from-768 / below-768), not their sum as one size; a part of 31 px or less is none
+      const at = (q) => seps.filter((m) => m[3] === q).reduce((a, m) => a + Number(m[2]), 0);
+      if (!divider && seps.every((m) => m[3] === ' from-768' || m[3] === ' below-768')
+        && seps.some((m) => m[3] === ' from-768') && seps.some((m) => m[3] === ' below-768')) {
+        [['from-768', at(' from-768')], ['below-768', at(' below-768')]].forEach(([opt, n]) => {
+          const st = steps ? stepOf(n) : null;
+          if (steps ? st === 'none' : n <= 31) { count(stats, 'theme', `separator-${opt}`, 1); return; }
+          const blk = doc.createElement('div');
+          blk.className = steps ? `${stepClass(st)} ${opt}` : `spacer${n >= 90 ? ' l' : ''} ${opt}`;
+          blk.innerHTML = '<div><div></div></div>';
+          run.els[0].before(blk);
+          count(stats, 'carrier', `separator-${opt}`, 1);
+        });
+        run.els.forEach((el) => el.remove());
+        return;
+      }
       // "from-768" (none on phones): a run of such separators only keeps it as the Spacer / Divider
       // block's option from-768 (no section style or block option says "from 768px"); in a run
       // with others the qualifier goes (counted)
@@ -1123,7 +1166,8 @@ function collapseSeparators(main, doc, stats, ctx) {
       const phone = seps.every((m) => m[3] === ' below-768');
       if (!phone) seps.filter((m) => m[3] === ' below-768').forEach(() => count(stats, 'theme', 'separator-below-768'));
       let size = null;
-      if (!divider && px <= 31) size = 'none';
+      if (!divider && steps) size = stepOf(px);
+      else if (!divider && px <= 31) size = small && px > 20 ? 's' : 'none';
       else if (!divider) size = px < 90 ? 'm' : 'l';
       const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
       const before = run.els[0].previousElementSibling;
@@ -1135,11 +1179,22 @@ function collapseSeparators(main, doc, stats, ctx) {
       if (tablet || phone) {
         const opt = tablet ? 'from-768' : 'below-768';
         const b = doc.createElement('div');
-        b.className = divider ? `divider ${opt}` : `spacer${size === 'l' ? ' l' : ''} ${opt}`;
+        b.className = divider ? `divider ${opt}` : `${size === 'm' ? 'spacer' : `spacer ${size}`} ${opt}`;
         b.innerHTML = '<div><div></div></div>';
         run.els[0].before(b);
         remove();
         count(stats, 'carrier', `separator-${opt}`, run.els.length);
+        return;
+      }
+      // a small one or another near-value step: a Spacer block with the step where it stands (no section style or block
+      // option says S, XS, M+ or L-)
+      if (size && !['m', 'l', 'none'].includes(size)) {
+        const b = doc.createElement('div');
+        b.className = `spacer ${size}`;
+        b.innerHTML = '<div><div></div></div>';
+        run.els[0].before(b);
+        remove();
+        count(stats, 'carrier', `separator-${size}`, run.els.length);
         return;
       }
       // page-type gaps: the theme's

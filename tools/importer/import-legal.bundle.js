@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_2534563_exports = {};
-  __export(tmp_bundle_legal_2534563_exports, {
-    default: () => tmp_bundle_legal_2534563_default
+  var tmp_bundle_legal_1166320_exports = {};
+  __export(tmp_bundle_legal_1166320_exports, {
+    default: () => tmp_bundle_legal_1166320_default
   });
 
   // tools/importer/parsers/video-sizes.js
@@ -1591,7 +1591,65 @@ var CustomImportScript = (() => {
         // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
         // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
         "insights-tag": { rules: ["rule-before-info-box"] }
-      }
+      },
+      // the switched part (standing orders 55-60): the theme as the collapsed documents need
+      // it. With the theme live, themeFor applies it to a document that carries no markers (the
+      // collapse's output, the importers'); a document that still has markers draws with the
+      // theme above and the theme off, as before the switch (standing order 60: the code ships
+      // first, the documents follow in batches)
+      switched: {
+        // a view's opening Spacer (a view section that holds only it) at 60: www's hub views
+        // open 60 px below what comes before (standing order 57; with the related-teasers
+        // heading rule: digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either
+        // alone moves it further)
+        columnViews: { opening: 60 },
+        // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in
+        // Cards Teaser, www's smaller headings) keep it as the choice "small" (block option
+        // title-small, section style H2 small); H2 heading-large as H2 large; {limited-width}
+        // headings as limited-headings
+        headingChoices: {
+          h2: { large: "heading-large", compact: "heading-copytext-large", small: "heading-small" }
+        },
+        nearChoices: {
+          h1: { "heading-medium": "compact" },
+          h2: { "heading-small": "small", "heading-large": "large" }
+        },
+        limitedHeadings: true,
+        // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
+        // decision 3 lifted); a small separator, the Spacer block option s (25 px: www's
+        // {spacer-25}; standing order 56, plan 923); and near-value steps for the collapse
+        // (standing order 59, Ben: "near-value collapse, not pixel-perfect"): a separator takes
+        // the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120 (the 1,191 recorded
+        // separator-widths: rounding 5,843 px -> 2,068)
+        space: {
+          m: 40,
+          s: 25,
+          steps: {
+            xs: 16,
+            s: 25,
+            m: 40,
+            "m-plus": 60,
+            "l-minus": 80,
+            l: 120
+          }
+        },
+        pageTypes: {
+          // flow pages: nearChoices replaces the brand's, so the H1's and H3's again
+          flow: {
+            nearChoices: {
+              h1: { "heading-medium": "compact" },
+              h2: { "heading-small": "small", "heading-large": "large" },
+              h3: { "heading-small": "large" }
+            }
+          },
+          // /100-years: the separators keep M at 60: www's are 60 there (86 of the 98
+          // {spacer-N} markers of the 16 recorded 100-years documents; 40 on 12), while the
+          // service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
+          "100-years": { space: { m: 60, s: 25 } }
+        }
+      },
+      // the switch (standing orders 55-60, branch token-free-lufthansa-live: never merged from here)
+      live: true
     },
     // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
     // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
@@ -1687,11 +1745,16 @@ var CustomImportScript = (() => {
     columnViews: __spreadValues(__spreadValues({}, a.columnViews), b.columnViews || {}),
     rules: [.../* @__PURE__ */ new Set([...a.rules || [], ...b.rules || []])]
   });
-  function themeFor(brand, pageType = "") {
+  function themeFor(brand, pageType = "", { marked = false } = {}) {
     const own = THEMES[brand || "lufthansa"] || {};
-    const _a = own, { pageTypes = {} } = _a, brandTheme = __objRest(_a, ["pageTypes"]);
-    let theme = mergeTheme(BASE_THEME, brandTheme);
+    const _a = own, { pageTypes = {}, switched } = _a, brandTheme = __objRest(_a, ["pageTypes", "switched"]);
+    const waits = !!switched && marked;
+    let theme = mergeTheme(BASE_THEME, waits ? __spreadProps(__spreadValues({}, brandTheme), { live: false }) : brandTheme);
+    const on = own.live && !waits && switched;
+    const _b = on || {}, { pageTypes: switchedTypes = {} } = _b, switchedTheme = __objRest(_b, ["pageTypes"]);
+    theme = mergeTheme(theme, switchedTheme);
     if (pageType && pageTypes[pageType]) theme = mergeTheme(theme, pageTypes[pageType]);
+    if (pageType && switchedTypes[pageType]) theme = mergeTheme(theme, switchedTypes[pageType]);
     return theme;
   }
   var isThemeLive = (brand) => themeFor(brand || "lufthansa").live === true;
@@ -4620,10 +4683,16 @@ var CustomImportScript = (() => {
   }
   function collapseHeadings(main, doc, stats, marks, theme) {
     const wishes = /* @__PURE__ */ new Map();
+    const limited = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
       if (!/^H[1-6]$/.test(el.tagName)) return;
       const size = tokens.find((t) => SIZE_TOKEN.test(t));
-      tokens.filter((t) => t === "limited-width").forEach(() => count(stats, "theme", "heading"));
+      tokens.filter((t) => t === "limited-width").forEach(() => {
+        if (theme.limitedHeadings && !blockOf(el, main)) {
+          const s = sectionOf(el, main);
+          limited.set(s, (limited.get(s) || 0) + 1);
+        } else count(stats, "theme", "heading");
+      });
       if (!size) return;
       const inBlock = blockOf(el, main);
       const keptIn = inBlock && ((theme.keepSizesIn || {})[blockName(inBlock)] || []).includes(size);
@@ -4636,6 +4705,13 @@ var CustomImportScript = (() => {
       if (w.kind === "default") count(stats, "theme", "heading");
       else if (w.kind === "none") count(stats, "theme", "heading-no-choice");
       else wishes.set(el, w.choice);
+    });
+    limited.forEach((n, section) => {
+      const all = ownText(section).filter((el) => /^H[2-6]$/.test(el.tagName)).length;
+      if (n * 2 > all) {
+        addSectionStyle(section, "limited-headings", doc);
+        count(stats, "carrier", "heading-width", n);
+      } else count(stats, "theme", "heading", n);
     });
     const blocks = /* @__PURE__ */ new Map();
     const sections = /* @__PURE__ */ new Map();
@@ -4653,7 +4729,7 @@ var CustomImportScript = (() => {
     });
     blocks.forEach((choices, block) => {
       const all = block.querySelectorAll(HEADING2).length;
-      const top = ["large", "compact"].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
+      const top = ["large", "compact", "small"].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
       if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, "carrier", "heading", top[1]);
       else count(stats, "theme", "heading-aligned", choices.length);
     });
@@ -4974,7 +5050,21 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
-    const { rules } = themeFor(ctx.brand, ctx.pageType);
+    const { rules, space } = themeFor(ctx.brand, ctx.pageType);
+    const small = !!(space && space.s);
+    const steps = space && space.steps;
+    const stepOf = (n) => {
+      let best = "none";
+      let d = n;
+      Object.entries(steps).forEach(([k, v]) => {
+        if (Math.abs(v - n) <= d) {
+          best = k;
+          d = Math.abs(v - n);
+        }
+      });
+      return best;
+    };
+    const stepClass = (st) => st === "m" ? "spacer" : `spacer ${st}`;
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse5 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
@@ -5008,12 +5098,30 @@ var CustomImportScript = (() => {
         const seps = run.els.map(parse5);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
+        const at = (q) => seps.filter((m) => m[3] === q).reduce((a, m) => a + Number(m[2]), 0);
+        if (!divider && seps.every((m) => m[3] === " from-768" || m[3] === " below-768") && seps.some((m) => m[3] === " from-768") && seps.some((m) => m[3] === " below-768")) {
+          [["from-768", at(" from-768")], ["below-768", at(" below-768")]].forEach(([opt, n]) => {
+            const st = steps ? stepOf(n) : null;
+            if (steps ? st === "none" : n <= 31) {
+              count(stats, "theme", `separator-${opt}`, 1);
+              return;
+            }
+            const blk = doc.createElement("div");
+            blk.className = steps ? `${stepClass(st)} ${opt}` : `spacer${n >= 90 ? " l" : ""} ${opt}`;
+            blk.innerHTML = "<div><div></div></div>";
+            run.els[0].before(blk);
+            count(stats, "carrier", `separator-${opt}`, 1);
+          });
+          run.els.forEach((el) => el.remove());
+          return;
+        }
         const tablet = seps.every((m) => m[3] === " from-768");
         if (!tablet) seps.filter((m) => m[3] === " from-768").forEach(() => count(stats, "theme", "separator-from-768"));
         const phone = seps.every((m) => m[3] === " below-768");
         if (!phone) seps.filter((m) => m[3] === " below-768").forEach(() => count(stats, "theme", "separator-below-768"));
         let size = null;
-        if (!divider && px <= 31) size = "none";
+        if (!divider && steps) size = stepOf(px);
+        else if (!divider && px <= 31) size = small && px > 20 ? "s" : "none";
         else if (!divider) size = px < 90 ? "m" : "l";
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
         const before = run.els[0].previousElementSibling;
@@ -5029,11 +5137,20 @@ var CustomImportScript = (() => {
         if (tablet || phone) {
           const opt = tablet ? "from-768" : "below-768";
           const b2 = doc.createElement("div");
-          b2.className = divider ? `divider ${opt}` : `spacer${size === "l" ? " l" : ""} ${opt}`;
+          b2.className = divider ? `divider ${opt}` : `${size === "m" ? "spacer" : `spacer ${size}`} ${opt}`;
           b2.innerHTML = "<div><div></div></div>";
           run.els[0].before(b2);
           remove();
           count(stats, "carrier", `separator-${opt}`, run.els.length);
+          return;
+        }
+        if (size && !["m", "l", "none"].includes(size)) {
+          const b2 = doc.createElement("div");
+          b2.className = `spacer ${size}`;
+          b2.innerHTML = "<div><div></div></div>";
+          run.els[0].before(b2);
+          remove();
+          count(stats, "carrier", `separator-${size}`, run.els.length);
           return;
         }
         if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
@@ -5400,7 +5517,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_2534563_default = {
+  var tmp_bundle_legal_1166320_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5441,5 +5558,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_2534563_exports);
+  return __toCommonJS(tmp_bundle_legal_1166320_exports);
 })();

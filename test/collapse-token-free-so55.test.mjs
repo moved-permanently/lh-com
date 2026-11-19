@@ -39,5 +39,6 @@ test('every brand: in a block cell a small separator before a heading goes', () 
 test('a phone-only run is the Spacer block option below-768, no marker', () => {
   const out = run('<div><h1>T</h1><p>One.</p><p>{spacer-60 below-768}</p><p>Two.</p></div>', 'lufthansa');
   assert.equal(SEP.test(out), false, out.slice(0, 200));
-  assert.equal(/class="spacer below-768"/.test(out), true, out.slice(0, 300));
+  // lufthansa.com's near-value step for 60 (standing order 59): M+
+  assert.equal(/class="spacer( m-plus)? below-768"/.test(out), true, out.slice(0, 300));
 });

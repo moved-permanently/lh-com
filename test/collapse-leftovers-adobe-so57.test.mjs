@@ -78,7 +78,12 @@ test('item 4: a Divider block takes its space as an option (m, l) with its width
   const main = document.querySelector('main');
   decorateTokenFree(main, { brand: 'lufthansa', path: '/de/en/shopping', read: () => '' });
   const seps = [...main.querySelectorAll('p.spacer.divider')];
-  assert.deepEqual(seps.map((p) => [p.style.getPropertyValue('--spacer-size'), p.classList.contains('from-768'), p.classList.contains('below-768')]), [[`${SPACE.l}px`, true, false], [`${SPACE.m}px`, false, true]], main.innerHTML);
+  // the page's sizes (the switch branch: lufthansa.com's own M, from 768 px its own too)
+  const { themeFor } = await import('../scripts/style-markers.js');
+  const own = themeFor('lufthansa').space || {};
+  const l768 = (own.from768 && own.from768.l) || own.l || SPACE.l;
+  const m = own.m || SPACE.m;
+  assert.deepEqual(seps.map((p) => [p.style.getPropertyValue('--spacer-size'), p.classList.contains('from-768'), p.classList.contains('below-768')]), [[`${l768}px`, true, false], [`${m}px`, false, true]], main.innerHTML);
 });
 
 test('item 2(d): a small separator between a chapter and the next heading in a Columns Media cell is the option chapters; drawn 25 px before each such heading', async () => {
