@@ -6508,3 +6508,57 @@ as asked. Tables and lists are in [lufthansa-switch-plan-923.md](../token-free/l
 - **Full suite on main 3e250b6.** lh-edge 73 files, site 1,299 files, none failing.
 - **Left out of git.** logs/b660 (census copies, proof captures, trials, runners) and the /tmp worktrees (wt-tf57,
   wt-tf60a, wt-main60).
+
+## Standing order 61 (2026-11-19, about 12:40 to 17:45 CET): the merge, the unmarked pages, the batch watch, A2 and B2
+
+Order 60 left nothing finished unpushed. Kept out of git: logs/b660, logs/b661 and the /tmp worktrees. The optional plugins
+stayed off. Details are in [lufthansa-switch-plan-923.md](../token-free/lufthansa-switch-plan-923.md) §15.
+
+1. **The branch line.** The two shared-list tests (test/style-markers-lists.test.mjs, test/loc-marker-check.test.mjs) now
+   accept scripts.js's `hasStyleMarkers` import, and still check that the lists come from style-markers.js.
+   - The branch was rebased on main ab8a91d and pushed at 183e8fe at about 12:04 UTC.
+   - Full suite on the branch: 5,344 pass / 0 fail (lh-edge 73 files, site 1,306 files). Whole-repo lint exit 0.
+   - The migration session merged it as 10dddf8, which names token-free-lufthansa-live.
+2. **The unmarked pages** (switch-unmarked-so61.txt): 100 pages, 200 page-widths. The code before the merge (ea5365e,
+   from a worktree) was compared with the served page.
+   - Nothing changed height or a section box by more than 0.5 %. No section was lost and no picture newly fails.
+   - The 2 sideways scrolls (/xx/ru/sixt and /xx/el/sixt at 390, 66 px) were there before the merge too.
+   - Served pages carry `theme-live`.
+   - The census has no unmarked article, flow, 100-years or insights-tag page, so the 100 are home, service and legal
+     pages.
+3. **The batch watch** (switch-watch-so61.txt, pushed after each batch).
+   - Batches 01 and 02 read 0 markers on live and draw as predicted. The one exception is a stage video's frame on
+     additional-services: same heights and boxes.
+   - Batch 03 (16:30 UTC) reads 10 markers on live. 7 documents are not collapsed (their DA copies still carry markers):
+     travel-insurances, business-class, digital-self-services, lhg-wifi, first-class, free2move and lounges, all /de/en. 3
+     more await their publish. Being marked, they draw as today.
+   - **Two findings for the migration session:**
+     - Batches 01 and 02 were collapsed with a tool copy older than A2. Their 3 A2 documents carry L- 80 for
+       `{spacer-70}`; READY rows are in delta-so61-a2-steps.txt. From batch 03 on, the collapse writes M++.
+     - /de/en/admission-rules was republished on live at 15:21 UTC as an older, doubled and marked copy (every heading
+       twice). Its preview copy is collapsed and single, so a publish from preview fixes it.
+   - The census tool got two fixes:
+     - 9dcad0f: a missing document no longer counts as marked (batch 27 is preview only).
+     - 11b82eb: it waits out aem.live's 429s, and reads 3 at a time.
+   - /de/en/admission-rules was back on live with its collapsed copy by 16:03 UTC, and draws as predicted.
+4. **A2 and B2 on main:** 3f30d9d (A2, the M++ 70 step in the switched theme) and d0abcc1 (B2, phones: a padded view
+   before the Subpage Nav keeps no gap).
+   - Full suite on their tree: 5,345 pass / 0 fail.
+   - 12-host smoke before and after: all exit 0.
+   - H is dropped.
+5. **The live gate (§15, interim).** Batch 26 is not on live yet: about 40 minutes a batch, and batch 02 was the last fully on live by the end
+   of the order. Batches 01 and 02's 112 recorded page-widths on live:
+
+   | | today | predicted | live |
+   | --- | --- | --- | --- |
+   | sum | 750.12 | 900.55 | 911.00 |
+   | median | 5.93 | 6.99 | 7.34 |
+
+   Of the 10.45 points over the prediction, 11.7 are the stage video's frame on additional-services. Every other
+   page-width is within 0.5 points of the prediction, but 32n 1440 (+72 px: the live copy carries the view styles on both
+   sections). The final gate on all 670 follows once batch 26 is on live.
+
+- **Pushed** (main): 3f30d9d and d0abcc1 (A2, B2), b22b729 (unmarked pages), 11b82eb and 9dcad0f (census fixes), 1fb3fe9
+  (A2 follow-up rows), 28f2730, 2653c5a, ea36865 and 7f70624 (watch, §15), and this section's commit. The branch: 183e8fe.
+- **Full suite on main ea36865.** lh-edge 73 files, site 1,310 files, none failing.
+- **Left out of git.** logs/b661 (captures, census reads, runners) and the /tmp worktrees.
