@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-09 05:25",
-  "change": "Air Dolomiti's footer now has the cookie settings link, as www's footer does; it opens the replica's consent settings dialog (all three languages, live since 4 o'clock).",
+  "updated": "2026-11-19 01:12",
+  "change": "Lufthansa's lounge finder now reads a recording of Lufthansa's lounge service, which answers only www.lufthansa.com; lounge-access offers with prices still load live.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -718,9 +718,9 @@
       "cells": {
         "lufthansa": {
           "status": "done",
-          "note": "The lounge finder lists lounges by airport and class with live data from Lufthansa's lounge service.",
+          "note": "The lounge finder lists lounges by airport and class from a recording of Lufthansa's lounge service (English and German; other languages show English), because the service answers only www.lufthansa.com; lounge-access offers with prices load live.",
           "page": "/de/en/lounges",
-          "evidence": "functions scan 2026-10-31: same code tested on Austrian"
+          "evidence": "6f1dda97 (2026-11-09): recorded answers under /data/lounges; www refuses other origins"
         },
         "discover": {
           "status": "done",
