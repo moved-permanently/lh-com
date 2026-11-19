@@ -1,0 +1,68 @@
+# ema-test, standing order 62, item 6 (2026-11-19): the next 20 page-widths furthest from www per brand, with the cause of each.
+#   Austrian: the 20 furthest without the homepages (their content and function differences are in austrian-homepages-so61.txt). Cargo:
+#   the 20 furthest with this order's stage rules. TAP: places 16-35 (1-15 in tap-worst15-so61.txt), with this order's title rule.
+# Figures: this order's gate runs (our host as served, the newest recordings). No new theme rule: the layout causes here are one-page
+#   (whats-up-now's video title, terms-of-use's phone text width) or the shared blocks', and the rest
+#   are fonts in the capture browser, long pages past the 8,000 px cap, content, live data and functions.
+# Each line: brand, place, path, width, % off www, our height -> www's, recording, cause.
+
+austrian	1	/jp/ja/baggage	390	49.94 %	5,361 -> 5,871 px	austrian-parity-003	no CJK font in the capture browser: our Japanese text falls back and wraps longer (www 510 px taller at 390); also the baggage Columns Media grid
+austrian	2	/cn/zh/baggage	390	49.34 %	5,340 -> 5,676 px	austrian-parity-003	no CJK font in the capture browser (as ja)
+austrian	3	/at/de/discover/inspiration/fly-with-austrian	390	34.60 %	8,000 -> 9,114 px	austrian-parity-001	long page past the 8,000 px cap (www 9,114 / 4,507 at 1440); its inspiration tiles stack from the fourth on; no single cause
+austrian	4	/ru/ru/baggage	390	34.17 %	6,448 -> 6,200 px	austrian-parity-003	ours 248 px taller at 390, 133 at 1440: longer Russian line wraps in the baggage grid (from the figures, not looked at)
+austrian	5	/at/de/unterhaltung-an-bord	1440	33.25 %	2,344 -> 2,749 px	austrian-parity-003	content: www's tab panels hold one more text block and its button under the highlights (ours 405 px shorter)
+austrian	6	/at/en/discover/inspiration/fly-with-austrian	390	32.71 %	8,000 -> 8,697 px	austrian-parity-001	long page past the 8,000 px cap (as de)
+austrian	7	/gr/el/baggage	390	32.27 %	6,421 -> 6,248 px	austrian-parity-003	the Greek text wraps longer (order 60's title rule leaves Greek out for the same reason)
+austrian	8	/at/en/bangkok-airways	1440	28.95 %	3,305 -> 3,700 px	austrian-parity-025	content: www closes with a booking band (Book your flight now, the search) ours lacks; ours 395 px shorter at 1440
+austrian	9	/jp/ja/baggage	1440	28.39 %	4,117 -> 4,322 px	austrian-parity-003	no CJK font in the capture browser: our Japanese text falls back and wraps longer (www 510 px taller at 390); also the baggage Columns Media grid
+austrian	10	/at/de/entryregulations	1440	26.58 %	5,538 -> 5,696 px	austrian-parity-018	ours 158 px shorter at 1440 and 134 at 390, spread over the page's bands (not looked at band by band)
+austrian	11	/at/en/fly/on-board/culinary-services	1440	26.06 %	8,000 -> 8,428 px	austrian-parity-017	long page past the 8,000 px cap; the culinary tiles under the menu band stand 29 px higher than www
+austrian	12	/at/en/fly/on-board/culinary-services	390	24.92 %	8,000 -> 9,191 px	austrian-parity-032	long page past the 8,000 px cap; the culinary tiles under the menu band stand 29 px higher than www
+austrian	13	/ru/ru/baggage	1440	24.56 %	4,556 -> 4,423 px	austrian-parity-003	ours 248 px taller at 390, 133 at 1440: longer Russian line wraps in the baggage grid (from the figures, not looked at)
+austrian	14	/at/en/bangkok-airways	390	24.42 %	4,361 -> 4,604 px	austrian-parity-025	content: www closes with a booking band (Book your flight now, the search) ours lacks; ours 395 px shorter at 1440
+austrian	15	/at/de/entryregulations	390	24.33 %	7,578 -> 7,712 px	austrian-parity-018	ours 158 px shorter at 1440 and 134 at 390, spread over the page's bands (not looked at band by band)
+austrian	16	/at/en/discover/inspiration/fly-with-austrian	1440	23.89 %	4,426 -> 4,507 px	austrian-parity-001	long page past the 8,000 px cap (as de)
+austrian	17	/it/it/form-confirmation	1440	23.82 %	1,379 -> 1,558 px	austrian-parity-019	content: www's confirmation page holds more than ours (its footer 178 px lower at both widths); not a minimum height: www's at/de form-confirmation is as short as ours (footer at 443 / 457)
+austrian	18	/cn/zh/baggage	1440	23.49 %	4,093 -> 4,226 px	austrian-parity-003	no CJK font in the capture browser (as ja)
+austrian	19	/at/en/entryregulations	390	23.21 %	7,207 -> 7,311 px	austrian-parity-032	the consent re-recording: www 104 px taller at 390 (its accordion answers); the row of order 61 is live
+austrian	20	/it/it/form-confirmation	390	22.74 %	1,629 -> 1,823 px	austrian-parity-019	content: www's confirmation page holds more than ours (its footer 178 px lower at both widths); not a minimum height: www's at/de form-confirmation is as short as ours (footer at 443 / 457)
+cargo	1	/en/data-protection-notice-google-analytics	1440	69.83 %	900 -> 1,072 px	cargo-parity-013	function: www's opt-out widget (an embed, drawn empty in the recording, 172 / 276 px); ours the title only
+cargo	2	/en/data-protection-notice-google-analytics	390	65.36 %	844 -> 1,120 px	cargo-parity-013	function: www's opt-out widget (an embed, drawn empty in the recording, 172 / 276 px); ours the title only
+cargo	3	/de/industries-in-focus	390	39.59 %	5,424 -> 5,434 px	cargo-parity-001	the boxed cards clip their text at three lines where www's wider text column fits it (ours 4 lines); the list under the intro wraps narrower
+cargo	4	/en/industries-in-focus	390	34.95 %	5,288 -> 5,347 px	cargo-parity-001	as de
+cargo	5	/en/meta/meta/company/general-terms1	390	32.98 %	1,486 -> 1,498 px	cargo-parity-013	content order: www lists the conditions' links first and the picture after them, ours the picture first; www's links plain underlined, ours with arrows
+cargo	6	/de/ci/whats-up-now	1440	25.78 %	2,733 -> 2,733 px	cargo-parity-001	the video stage's title: www at the bottom left of the picture, ours centred in its height and larger
+cargo	7	/en/ci/whats-up-now	1440	25.67 %	2,733 -> 2,733 px	cargo-parity-001	as de
+cargo	8	/en/footer/bottomnav/terms-of-use	390	24.72 %	5,414 -> 4,780 px	cargo-parity-013	www's legal text runs the whole 390 px on phones (no page margin), ours in the 358 px column: 634 px longer
+cargo	9	/de/ci/facts-figures	1440	23.85 %	4,839 -> 4,952 px	cargo-parity-001	long page with figure tiles (www 4,952 at 1440, 12,482 at 390, past the 8,000 px cap; from the figures, not looked at)
+cargo	10	/en/ci/newsroom	1440	22.35 %	900 -> 4,431 px	cargo-parity-001	function: www's newsroom feed (the Latest news list) loads from its press service; ours draws the title only (900 px against 4,431)
+cargo	11	/de/ci/newsroom	1440	22.28 %	900 -> 4,431 px	cargo-parity-001	as en
+cargo	12	/en/industries-healthcare	1440	22.15 %	3,849 -> 3,906 px	cargo-parity-013	the Carousel Images stage: our title 21 px lower than www's (the stage block taller), everything under it with it
+cargo	13	/de/eservices-app	390	20.25 %	3,228 -> 3,142 px	cargo-parity-013	lists: www's check icons and tighter rows, ours bullets; 86 px longer
+cargo	14	/de/ci/facts-figures	390	19.61 %	8,000 -> 12,482 px	cargo-parity-001	long page with figure tiles (www 4,952 at 1440, 12,482 at 390, past the 8,000 px cap; from the figures, not looked at)
+cargo	15	/de/fleet-ulds/fleet	1440	19.57 %	3,076 -> 3,089 px	cargo-parity-001	after the stage rule: the grey band's two-line heading (www wraps "Das Herzstück ..." in a narrower column), the check icons of its list
+cargo	16	/en/eaw	390	19.40 %	2,188 -> 2,236 px	cargo-parity-013	the EAW diagram picture and the text beside it on phones: a few px per line
+cargo	17	/en/fleet-ulds/fleet	390	18.20 %	3,856 -> 3,841 px	cargo-parity-001	as de fleet
+cargo	18	/en/eservices-app	390	17.70 %	3,092 -> 3,043 px	cargo-parity-013	as de eservices-app
+cargo	19	/de/ebooking-info	1440	17.58 %	3,898 -> 3,894 px	cargo-parity-001	no stage; its title 15 px higher than www's (the first section's 25 px space against www's 40)
+cargo	20	/en/ci/facts-figures	1440	17.37 %	4,794 -> 4,853 px	cargo-parity-013	long page, figure tiles (as de; from the figures)
+tap	1	/en-pt/on-board/fly-business	1440	14.19 %	5,019 -> 4,942 px	tap-parity-002	drift on a long page: the lists and small print under each picture a few px apart
+tap	2	/en-pt/stopover/partners	390	13.25 %	3,566 -> 3,564 px	tap-parity-009	the hero carousel caught on another slide
+tap	3	/en-pt/information/baggage/hold-baggage	390	12.70 %	6,448 -> 6,445 px	tap-parity-009	the baggage rules grid: three-up cards on phones a few px taller per card
+tap	4	/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	390	12.39 %	4,776 -> 4,817 px	tap-parity-007	content: the partner carousel lists other partners; www's button an outline (secondary), ours filled
+tap	5	/en-pt/information/documentation/schengen-visas	390	11.74 %	6,527 -> 6,483 px	tap-parity-007	buttons: www's "See EES exemptions" / "Find out more" outline (secondary), ours filled (the document marks them primary)
+tap	6	/pt-pt/miles-and-go/promocoes/navigator-experiences	1440	11.34 %	4,395 -> 4,389 px	tap-parity-011	live data: the experiences listing (as in order 61)
+tap	7	/pt-pt/a-bordo/voar-economica	390	11.19 %	5,680 -> 5,654 px	tap-parity-001	drift: the picture cards' text a few px per card; the same buttons
+tap	8	/pt-pt/gerir-reserva/extras/upgrades/leiloes	390	10.33 %	3,312 -> 3,352 px	tap-parity-001	the closing accordion: www lists the business and premium economy groups' rows, ours one more heading per group
+tap	9	/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	1440	10.32 %	5,296 -> 5,326 px	tap-parity-007	content: the partner carousel lists other partners; www's button an outline (secondary), ours filled
+tap	10	/en-pt/destinations/get-inspired	1440	10.22 %	5,584 -> 5,582 px	tap-parity-010	after the title rule: the article cards (www one wide card at a time on phones)
+tap	11	/pt-pt/informacoes/bagagem/bagagem-mao	390	9.73 %	8,000 -> 8,458 px	tap-parity-001	long page past the cap; the baggage grid
+tap	12	/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito	390	9.51 %	1,803 -> 1,801 px	tap-parity-007	ours 2 px from www's height: small line and card differences (from the figures, not looked at)
+tap	13	/en-pt/information/baggage/locate-baggage	1440	9.33 %	1,557 -> 1,839 px	tap-parity-008	function: www's inline baggage-status form, ours a link (TAP's search is out of scope): 282 px
+tap	14	/en-pt/information/special-needs/wheelchair	390	9.14 %	4,945 -> 4,946 px	tap-parity-009	the assistance cards: their text wraps one line differently per card
+tap	15	/pt-pt/a-bordo/voar-economica	1440	8.87 %	3,997 -> 3,892 px	tap-parity-001	drift: the picture cards' text a few px per card; the same buttons
+tap	16	/en-pt/information/baggage/hold-baggage	1440	8.41 %	4,892 -> 4,936 px	tap-parity-009	the baggage rules grid: three-up cards on phones a few px taller per card
+tap	17	/en-pt/miles-and-go/earn-miles/by-flying	390	8.24 %	3,818 -> 3,838 px	tap-parity-009	the fare accordion rows 1-2 px taller each; the partner list
+tap	18	/en-pt/miles-and-go/use-miles/fees	390	8.02 %	4,687 -> 4,703 px	tap-parity-009	ours 16 px shorter: small row differences (from the figures, not looked at)
+tap	19	/en-pt/help	390	7.85 %	6,318 -> 6,407 px	tap-parity-008	the help cards: line wraps; the chat button over the first card
+tap	20	/en-pt/bookings/tap-fares	390	7.55 %	3,314 -> 3,326 px	tap-parity-008	the fare table: its rows a few px apart

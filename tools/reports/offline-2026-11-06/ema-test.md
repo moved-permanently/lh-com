@@ -6481,3 +6481,115 @@ List: austrian-homepages-so61.txt, per page-width: % off www, heights, hero, car
   tools/importer/reports/* (not mine).
 - **The full suite at eb97862f** (this section's base): npm run lint exit 0, stylelint exit 0, 1,292 test files passed, 0 failed.
 - **Cleanup:** no folder server was started this order; the suite worktree removed.
+
+## Standing order 62 (received about 04:00 UTC, 2026-11-19)
+
+Themes: Austrian, Cargo, TAP and Air Dolomiti (brand-scoped files only). The gate: all recorded page-widths of the brand, the rule in the
+same load, every section loaded first; none more than 0.5 points further, the sum down. A rule that applies only below or above a width
+is gated at the widths it can reach.
+
+### Item 1: Air Dolomiti (no rule)
+
+List: tools/reports/parity-2026-11-09/airdolomiti-worst15-so62.txt.
+
+- **Recordings:** the 14 archives airdolomiti-parity-001 to -014, each sha256 checked; the newest counts per page and width.
+  - www's three domains map to our host: .it as is, .eu under /en, .de under /de. That gives 118 page-widths (61 at 1440, 57 at 390), all
+    answered by our host.
+- **Sum 1,773.98, median 10.46 %.** At 1440 716.91 / 7.04 %; at 390 1,057.07 / 17.17 %.
+- **The 15 furthest are recording states or content and function differences:**
+  - The offer and route cards (CardPromo) are caught mid-way through their 0.5 s transition at 1440: 400 px tall, where www's own CSS draws
+    140.
+  - The 390 resize left www's flight-search drawer open over the page.
+  - Three recordings show the cookie dialog (-002, -008, -010).
+  - Content: other heroes and pictures, an article's feature picture.
+  - Functions: the booking and timetable widgets.
+- No Air Dolomiti rule fits these.
+
+### Item 2: Cargo's two stage rules (SHIPPED, 668d8ad7)
+
+List: gate-so62.txt.
+
+- **What the further pages had:**
+  - ebooking-info has no stage: the title opens the page.
+  - industries-healthcare's stage is a Carousel Images block, and its title already sits 21 px low.
+  - speed-zoom has a grey introduction band under the stage, and there www draws the stage the column's width.
+- **The scope:** both rules now need a stage of one picture over the breadcrumb. The phone rule leaves out a stage followed by a grey section.
+- **Gate:** all 113 page-widths, 31 nearer, none further.
+  - Sum 1,515.30 -> 1,417.12, median 11.11 -> 9.22 %.
+  - containers 1440 15.55 -> 8.82 %, fleet 26.20 -> 19.57 %, efreight 390 14.10 -> 9.22 %.
+  - Checked again with the rules live: the same figures.
+
+### Item 3: Austrian's heading and item spacing set, each part alone (HOLD)
+
+List: gate-so62.txt.
+
+- **Part a (picture 36 above its heading):** 35 further.
+- **Part b (phone h2 24 under):** 32 further.
+- **Part c (phone rows 73 / cells 43):** 26 further.
+- **Part d (h2 36 under from 1281 px):** 25 further.
+- **a + d inside Columns Media from 1281 px:** sum 2,512.03 -> 2,512.23, not down.
+- **What the further page-widths share:** they are the Columns Media item grids of book/*, the baggage pages in seven languages and
+  special-requirements. Since order 60's 13 px rule their items start at www's height and keep www's pitch to 1-3 px, so any part that
+  changes one gap inside an item moves every item after it.
+
+### Item 4: TAP's carousel section titles (SHIPPED, 668d8ad7)
+
+- **The scope:** from 768 px only, over a phone-slider Cards Teaser in a section that also holds a Columns Media. The 5 page-widths that went
+  further keep today's titles.
+- **Gate:** the 26 recorded 1440 page-widths, none further; sum 248.29 -> 244.37 (get-inspired 13.51 -> 10.22 %).
+- **locate-baggage:** its inline search form stays a link. This is a function difference, with no row.
+
+### Item 5: the reach of orders 59-62's rules (no change needed)
+
+List: reach-so62-rules.txt. Order 59 shipped no rule, and Air Dolomiti has none.
+
+- **Documents reached:**
+  - Austrian: column views 1, the phone title rule 187, the phone column-view gaps 1 / 1 / 43.
+  - Cargo: the intro H1 width 87, panels-space-below 2, wide-text 2, the intro under a breadcrumb 3, the stage 63.
+  - TAP: the titles 13.
+- **The sample:** 70 renders (up to 5 documents per rule, at 1440 and 390, unrecorded first). No overflow, no element outside its column, no
+  overlap and no cut-off text. The largest gap between sections is the rule's own 77 px.
+- **Tightened before the push:** the TAP rule's first scope reached payment-means pages. It now needs the Columns Media band.
+
+### Item 6: the next 20 per brand
+
+List: next20-so62.txt.
+
+- **Austrian (homepages left out):**
+  - The CJK, Greek and Russian baggage pages: fonts in the capture browser and longer wraps.
+  - Long pages past the 8,000 px cap.
+  - Content: unterhaltung-an-bord's extra panel text, bangkok-airways' booking band.
+  - it/it form-confirmation: content (www's page holds more; not a minimum height, at/de's is as short as ours).
+- **Cargo:**
+  - Functions: newsroom's feed, data-protection's opt-out embed.
+  - The boxed cards' three-line clip on industries-in-focus.
+  - whats-up-now's video title position.
+  - terms-of-use: the phone text runs the full width on www.
+- **TAP:** drift of a few px, buttons the documents mark primary (outline on www), carousels on another slide.
+- No new rule: the layout causes there are single pages or shared blocks.
+
+### Each brand's sum and median at the end
+
+| brand | page-widths | sum | median |
+| --- | --- | --- | --- |
+| Austrian | 246 | 4,559.46 | 16.59 % |
+| Cargo | 113 | 1,417.12 | 9.22 % |
+| TAP | 52 | 584.86 | 9.62 % |
+| Air Dolomiti | 118 | 1,773.98 | 10.46 % |
+
+- Austrian: no Austrian rule this order; the figure is this order's run.
+- Cargo: with the stage rules, live.
+- TAP: 1440 with the title rule, live; 390 from order 61's run.
+- Air Dolomiti: first measure.
+
+### Final section (about 05:50 UTC, 2026-11-19)
+
+- **Pushed:** 668d8ad7 (Build success). This section follows.
+- **Checks before the push:** whole-repo lint 0; stylelint on cargo.css and tap.css 0; folder-reading tests 677, 0 failed; brand tests passed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA read or write this order.
+- **Requests:** our four hosts, the R2 drops and GitHub's API. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off; .agents/settings.json not written.
+- **Not in git:** logs/p4/so62 (captures, the served copies, probes, trial CSS), logs/drops (the 14 Air Dolomiti archives); content/,
+  migration-work/ and tools/importer/reports/* (not mine).
+- **The full suite at 668d8ad7** (this section's base): npm run lint exit 0, stylelint exit 0, 1,294 test files passed, 0 failed.
+- **Cleanup:** no folder server was started this order; the suite worktree removed.
