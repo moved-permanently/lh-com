@@ -6593,3 +6593,93 @@ List: next20-so62.txt.
   migration-work/ and tools/importer/reports/* (not mine).
 - **The full suite at 668d8ad7** (this section's base): npm run lint exit 0, stylelint exit 0, 1,294 test files passed, 0 failed.
 - **Cleanup:** no folder server was started this order; the suite worktree removed.
+
+## Standing order 63 (received about 06:00 UTC, 2026-11-19)
+
+Themes: Austrian, Cargo, TAP and Air Dolomiti (brand-scoped files and their lists). The gate is as before: all recorded page-widths of the
+brand, the rule in the same load, every section loaded; none more than 0.5 points further, the sum down.
+
+From this order our captures run to the page's full length. The gate had cut them at 8,000 px (item 4).
+
+### Item 1: Air Dolomiti on its re-recordings (no rule)
+
+List: tools/reports/parity-2026-11-09/airdolomiti-worst15-so63.txt.
+
+- **The index:** published about 06:55 UTC. Three archives (airdolomiti-parity-015 / -016 / -017), sha256 checked. They replace all 118
+  page-widths.
+- **Sum 1,773.98 -> 1,288.25, median 10.46 -> 7.36 %.**
+- **No rule.** The six furthest and four more are the CardPromo cards. The recordings' own settled DOM measurements (-cards.json) have them
+  432-443 x 140 px, as ours, but their screenshots draw them 250 x 400.
+  - That is a recording state: the full-page shot re-lays the page out and catches the cards' 0.5 s transition.
+  - Drawing ours tall would move us away from www's page. The shots would need the transition switched off.
+- **The rest:** content (www's notice bar above its header on the homepages, pictures, an article's feature picture) and line wraps.
+
+### Item 2: Cargo's three layout causes (2 SHIPPED in 6f3262f9, 1 HOLD)
+
+List: gate-so63.txt.
+
+- **The picture stage's text, from 992 px (SHIPPED):** at the stage's foot as www's LCAGCP header. The title on one line at www's y 732
+  (ours was 518), the subline 24 px, www's button.
+  - 62 page-widths at 1440, none further; sum 696.76 -> 696.26.
+- **The legal template's text on phones (SHIPPED):** across the screen, as www's journal article (x 0, 390 px).
+  - 51 page-widths at 390, none further; sum 729.20 -> 726.02 (terms-of-use 24.72 -> 21.54 %).
+- **The boxed cards' three-line clip (HOLD):** www's teaserboxText clamps only above 1200 px.
+  - Without the clip below 1201 px: 390 sum 729.20 -> 734.71; de/industries-in-focus 39.59 -> 45.97 %.
+  - Our card text column is www's 316 px at 18 / 24 px, but our German lines wrap longer (4 lines against www's 3). Today the clip hides that.
+- **Tests:** test/cargo-legal-template-so38 and test/cargo-picture-stage-so23 pinned the earlier state. They now check this order's rules
+  (4090a18f).
+
+### Item 3: TAP's button emphasis (SHIPPED, 6f3262f9)
+
+- **Who decides:** the importer writes a rich text's only cta (www's RichTextBlock) as a bold link, a primary button. tap.css drew a
+  centred-button section's button as the electric green pill regardless.
+- **What www does:** its newer recordings (tap-parity-007 / -008) draw that cta as the outline button; the older ones (-001 / -002) as the
+  pill. www changed it.
+- **The fix is in the theme:** the centred-button button is now www's outline button (white, a 1 px dark green edge, 40 px as before).
+  - It reaches 86 served TAP documents (107 buttons, every one bold); no document needs a row.
+  - Gate, 52 page-widths, none further; sum 577.93 -> 577.34 (schengen-visas 390 11.74 -> 11.22 %).
+  - The two older recordings move +0.08 to +0.26 points.
+  - test/tap-352 checks the new look (06f05b9d).
+
+### Item 4: Austrian long pages (list pushed in 6f3262f9)
+
+List: capture-requests-ema-test-austrian-long.txt. 8 page-widths, with ja, zh, ko and el left out.
+
+- **Finding:** the www recordings on file for them are already full length (8,428 to 19,409 px). The 8,000 px cut was in our capture.
+- From this order the gate captures ours at full length. The list stands as asked, in case a refresh is wanted.
+- Austrian now: 4,570.70 / 16.59 % over 246 page-widths; 4,315.21 / 16.71 % over 234 without the ja, zh, ko and el pages.
+
+### Item 5: the reach of this order's rules
+
+List: reach-so63-rules.txt.
+
+- **TAP centred button:** 86 of 892 documents.
+- **Cargo picture stage text:** 12 of 978 (ci/social and ci/whats-up-now in six languages).
+- **Cargo legal text:** 2 of 978.
+- **Sample:** 24 renders at 1440 and 390, nothing broken.
+
+### Each brand's sum and median at the end
+
+| brand | page-widths | sum | median |
+| --- | --- | --- | --- |
+| Austrian | 246 | 4,570.70 | 16.59 % |
+| Cargo | 113 | 1,422.28 | 9.22 % |
+| TAP | 52 | 577.34 | 9.61 % |
+| Air Dolomiti | 118 | 1,288.25 | 7.36 % |
+
+- All figures are with full-length captures and the rules live.
+- Austrian without ja, zh, ko and el: 4,315.21 / 16.71 % over 234.
+- Live check after the push: whats-up-now 1440 25.57 %, terms-of-use 390 21.54 %, schengen-visas 390 11.22 %, as gated.
+
+### Final section (about 07:50 UTC, 2026-11-19)
+
+- **Pushed:** 6f3262f9, 4090a18f, 06f05b9d (Build success). This section follows.
+- **Checks before the push:** whole-repo lint 0; stylelint on cargo.css and tap.css 0; folder-reading tests 677, 0 failed (after the three
+  test updates); brand tests passed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA read or write this order.
+- **Requests:** our four hosts, the R2 drop and GitHub's API. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off; .agents/settings.json not written.
+- **Not in git:** logs/p4/so63 (captures, probes, trial CSS), logs/drops (the three Air Dolomiti archives); content/, migration-work/ and
+  tools/importer/reports/* (not mine).
+- **The full suite at 06f05b9d** (this section's base): npm run lint exit 0, stylelint exit 0, 1,294 test files passed, 0 failed.
+- **Cleanup:** no folder server was started this order; the suite worktree removed.
