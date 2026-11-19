@@ -20,5 +20,16 @@
     "text": "<div class=\"spacer m-plus-plus\">"
    }
   ]
+ },
+ {
+  "path": "/de/en/articles/highlights-european-championship",
+  "from": "so61 A2 follow-up (ema-adobe), batch 02",
+  "change": "spacer l-minus -> spacer m-plus-plus",
+  "inserts": [
+   {
+    "replace": "<div class=\"spacer l-minus\">",
+    "text": "<div class=\"spacer m-plus-plus\">"
+   }
+  ]
  }
 ]
