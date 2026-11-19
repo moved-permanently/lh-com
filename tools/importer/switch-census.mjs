@@ -3,7 +3,7 @@
  * lufthansa.com's switch census (tools/reports/token-free/lufthansa-switch-plan-923.md §14.3): after a collapse batch,
  * the style markers left in each of the batch's documents as Edge Delivery serves them, preview (aem.page) or live
  * (aem.live), from each document's .plain.html on our own hosts only (main--lh-com--moved-permanently.aem.page / .aem.live),
- * six at a time. Read-only. A marker counts as the site counts it once the switch's code is on main
+ * three at a time (--parallel n), a 429 retried after a wait. Read-only. A marker counts as the site counts it once the switch's code is on main
  * (scripts/style-markers.js hasStyleMarkers: any "{a…}" in the text but the data placeholders {origin}, {destination},
  * {duration}, {cabin}, {language}, {locale}, {n}), so a document the census calls done draws with the switched theme.
  *
@@ -13,7 +13,7 @@
  * document has markers or could not be read, else 0. Expected after a batch: "with markers 0".
  *
  * Usage: node tools/importer/switch-census.mjs --batch tools/reports/parity-2026-11-09/delta-so60-switch-01.txt [--env page|live]
- *        node tools/importer/switch-census.mjs --all [--env live] [--out census.tsv]
+ *        node tools/importer/switch-census.mjs --all [--env live] [--out census.tsv] [--parallel 3]
  */
 import fs from 'node:fs';
 
@@ -41,14 +41,17 @@ export function batchPaths(file) {
   return text.split('\n').filter((l) => /^READY\t\//.test(l)).map((l) => l.split('\t')[1]);
 }
 
+// one document; a 429 (the CDN's rate limit while batches publish) waits its Retry-After or longer each time, up to 8 tries
 async function get(url) {
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < 8; i += 1) {
+    let wait = 1500 * (i + 1);
     try {
       const r = await fetch(url, { headers: { 'cache-control': 'no-cache' }, signal: AbortSignal.timeout(20000) });
       if (r.status === 404) return null;
       if (r.ok) return await r.text();
+      if (r.status === 429) wait = Math.max(wait * 2, 1000 * Number(r.headers.get('retry-after') || 0));
     } catch (e) { /* retry */ }
-    await new Promise((res) => { setTimeout(res, 1500 * (i + 1)); });
+    await new Promise((res) => { setTimeout(res, wait); });
   }
   return undefined;
 }
@@ -77,7 +80,7 @@ async function main() {
       else { const m = switchMarkers(t); rows.push([p, String(m.length), [...new Set(m)].slice(0, 4).join(' ')]); }
     }
   };
-  await Promise.all([1, 2, 3, 4, 5, 6].map(worker));
+  await Promise.all(Array.from({ length: Number(opt('parallel', 3)) }, worker));
   rows.sort((a, b) => a[0].localeCompare(b[0]));
   const marked = rows.filter((r) => Number(r[1]) > 0);
   const missing = rows.filter((r) => r[1] === '404');
