@@ -12132,3 +12132,144 @@ test/swiss-lead-so70.test.mjs now has 4 tests).
   www at the first item). It is not one rule.
 - **Left uncommitted:** nothing of mine. No background job of mine is running. Scratch stays in
   migration-work/parity-588/so70.
+
+## Standing order 71 (2026-11-19, from about 00:35 CET)
+
+**Carried over:** nothing.
+- Order 70 ended at 99efa822, which was on origin/main, and my worktree was clean.
+- The main checkout's dirty entries belong to other jobs and were left alone: blocks/notifications/notifications.css,
+  import-progress.json, the importer reports and the urls-*.txt lists.
+
+**Scratch:** migration-work/parity-588/so71 (not in git).
+- full.mjs: a page-width measured only once every section, block and picture has loaded and the height has held for
+  5 reads. Optional in-page steps on top, and a CODE override.
+- gate71.py, xgate.py: the gate within one load, and across two runs.
+- hcmp.py: our headings matched to www's recorded ones, to find where a page drifts.
+- tabcensus.py, reach71*.py: censuses of the served copies (B2B fetched fresh tonight, 733; SWISS from so69/served).
+- wwwh.py, h2census.py, wwwtabs.py, wwwcol.py: www's recorded headings, tab lists and columns.
+
+**Requests:**
+- Every render refused lh-proxy, www.* and every airline host per request and counted them. None was sent.
+- www was read only from the recordings on disk: swiss-parity-001, -002a, -002b and b2b-parity-001 to -017.
+
+**DA:**
+- No request at all this order, not even a read.
+- No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+**Token-free:** every change is a theme rule (THEMES.swiss accordion-headings) or theme CSS. No list, no row.
+
+Report: tools/reports/token-free/swiss-b2b-so71.md (the method, every table and figure).
+
+### Item 1: the footer's legal links and the fleet hub intro
+
+- The 24 px legal lines stay, for WCAG 2.5.8. I spent no time on them.
+- The fleet hub intro stays held; I did not look at it again.
+
+### Item 2: the phone title and the customer-support H2s (pushed, e1d7d3e8)
+
+**What sets them apart.**
+- On www every customer-support H2 is heading-medium (faq's in its four-column view, feedback's as section
+  headlines), so the class alone doesn't separate them.
+- On our pages the place does. refunds' H2 sits right before the FAQ accordion and payment-options' right after it.
+  faq's H2s head H3 teaser groups, and feedback's are followed by paragraphs.
+
+**The rule:**
+- THEMES.swiss `accordion-headings`: a flow page's H2 right before or right after an accordion in its section,
+  outside a tab panel, is heading-medium.
+- baggage-irregularities' FAQ headlines are heading-medium on www as well. But that page is already 47 px long at 1440,
+  and with them it went +0.73 points further, so tab panels are left out.
+- Reach: at most 139 of the 5,335 served SWISS copies.
+
+**The phone title:** 30 px under its picture below 768 px (31 from 768, order 70).
+
+**Gate (code against live, all 168 SWISS page-widths, every section loaded):**
+- 28 moved, 14 closer, none more than 0.5 points further (the most is mobile-apps 390, +0.38).
+- The sum of |%| goes 582.27 -> 578.11.
+- refunds 390: 1,909 -> 1,912 (www 1,934), -1.29 -> -1.14 %. 1440: -5.08 -> -3.62 %.
+- payment-options 390: 1,941 -> 1,938 (www 1,990), -2.46 -> -2.61 %. 1440: -4.82 -> -3.64 %.
+- Live after the push: refunds 390 1,912 and payment-options 1440 2,279, as drafted.
+
+### Item 3: the SWISS homepages, offers and culinaryjourney, every section loaded
+
+- Two passes each with the code before order 70 (a CODE override of 50e7c40d^) and with the live code. Every section,
+  block and picture loaded on all 12 page-widths, and both passes gave the same heights.
+- Order 70's rules leave every 1440 as it was. Every 390 is 8 px shorter (the phone footer).
+- The most any of them goes further is +0.16 points (de/de and us/en homepage 390), so there was nothing to close.
+- This order's rules don't move them either.
+- The table is in the report.
+
+### Item 4: Group for Business (pushed, e1d7d3e8)
+
+**Short tables from 768 px:**
+- A table shorter than its box fills the 840 px box, its rows sharing the rest, as www's maui-table does.
+- kuala-lumpur 1440: 4,774 -> 5,302 against www's 5,179 (-7.82 -> +2.37 %).
+- kuala-lumpur 390 is unchanged at 5,800 (+3.79 %).
+- Reach: 33 tables in 25 of the 733 served documents. kuala-lumpur's is the only recorded table shorter than its box.
+
+**The phone tab list:**
+- What sets the closer page-widths apart: www's first collapsible item is 215 px under the H1 on meals-on-board, ours
+  194. That is the only recorded tab set that follows the title's running text.
+- After an H2 (news), a picture (programs-and-groups), an H3 (Allegris) or a column view (entertainment-on-board), www
+  is level with ours or above it. On the SWISS Senses pages it changes with the content above.
+- The census of all 733 served B2B documents finds the running-text shape only in the three meals-on-board copies.
+- **The rule:** below 768 px, the tab set after a section ending in a plain paragraph starts 20 px lower.
+- meals-on-board 390 (ch, de, xx en): 1,329 -> 1,349 against www's 1,405 (-5.41 -> -3.99 %). The 31 other recorded
+  tabbed page-widths don't move.
+
+**Gate (all 184 recorded page-widths in the same load, then the code on the 40 tabbed and table page-widths):**
+- 4 moved, 4 closer, none further.
+- The sum of |%| goes 167.12 -> 157.41.
+- Live after the push: kuala-lumpur 1440 5,302 and meals-on-board 390 1,349, as drafted.
+
+### Item 5: the SWISS aside column at 794 px: HOLD, and two rules found on the way (pushed with this section)
+
+**The column itself (HOLD):**
+- www's column is 794 px on every recorded sidebar page. With it, our column rows draw at www's pitch: the offset to
+  www stays flat from card to card, where today it drifts 12 or 13 px per row.
+- The seven page-widths that fail (newsletter +3.28, swiss-premium-economy +1.80, swiss-first +1.71, miles-and-more
+  +1.34, accessible-travel +0.99, food-and-beverage +0.67, green-fare +0.66 points) have one thing in common. Each is
+  off www for a reason outside the column, in the direction the narrower column moves it.
+  - Four are short with pictures, with -40 to -101 px between the title or stage and the column's first H2.
+  - green-fare is short at its fare tables (-86, -56).
+  - accessible-travel is long through its sections and its end.
+  - newsletter is long by its form (+98).
+- No structural feature separates them from the nine that move closer: blocks, aside height, number of aside sections
+  and picture share were all checked. A scope would be a list of pages, not a rule.
+
+**The two rules found on the way (shipped):** the lead gap (96 / 76 px under the title's lead before a column that
+opens with its H2, www's on every recorded page) and the heading after a text-only card row (28 px from 1025 px).
+- The second is needed for the first: alone, the lead gap took special-meals 1440 0.62 points further (its card row is
+  36 px taller than www's).
+- Gate (code against live, 168 page-widths): 14 moved, 12 closer, none more than 0.5 points further (the most is
+  advance-seat-reservation 390, +0.30). The sum goes 578.11 -> 565.04.
+- upgrade-options 1440 -1.77 -> -0.10 %, additional-bag 1440 -2.35 -> -0.34 %, mobile-apps 1440 -2.74 -> -0.51 %,
+  unaccompanied-minors 390 -0.65 -> -0.02 %.
+- Reach: 357 copies (the lead gap) and 25 (the card row).
+- With both rules, the 794 px column still fails 7 page-widths.
+
+### Item 6: ranks 21 to 40 per brand (causes)
+
+- Both tables, with the cause of each page-width, are in the report.
+- Rules from them: none beyond item 5's two.
+- **SWISS:**
+  - The terms-conditions hubs (four page-widths): our usp card rows run 5 px taller than www's, and some headings wrap
+    where www's don't.
+  - us/en homepage: the stage and flight search -129 / -29 px.
+  - online-check-in: the booking lookup -100 px.
+  - new-destinations: the Toulouse section +258 px.
+- **Group for Business:**
+  - Allegris and SWISS Senses start-of-booking: +53 px. That is two H2s that www draws as heading-small; no B2B carrier
+    gives an H2 heading-small.
+  - businesstogo: the contact form +96 px.
+  - The travel-id news pages: +39 px at the end.
+
+### Item 7: content and function differences (no rows)
+
+- /ch/en/offers: www's priced fares. 1440 32,383 against ours 2,311; 390 31,952 against 1,585.
+- pax-receipt: www's receipt form. 1440 2,234 against 1,682; 390 2,402 against 1,707.
+- The magazine's ad slots: overviews 390 -11.8 to -14.0 %, articles 390 -13.2 to -14.5 %.
+- a350-special-livery de 1440: www's longer related list.
+- culinaryjourney 390: the micro-frontend's entry screen, +8.38 %.
+- arrival-departure 390: the flight status entry, 94 px shorter.
+- Group for Business meals-on-board 390: www has 10 tab items, ours 9 (-51 of the -56 px).
+- Figures per page are in the report.

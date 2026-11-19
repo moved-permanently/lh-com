@@ -1234,6 +1234,17 @@ body.brand-swiss main .columns-media-wrapper + .default-content-wrapper:has(> :i
   }
 }
 
+@media (width >= 1025px) {
+  /* standing order 71: a row of text cards only (no picture or video, not padded) is no column view of its own on
+     www: the next heading 28 px under it (special-meals 1440: www's "Information" 35 px under the "After booking"
+     card's link, ours 64; 2,624 -> 2,588 with the lead gap below, www 2,592). Reach: 26 such rows in 25 of the 5,335
+     served SWISS copies (special-meals, electronic-bag-tag, privacy-seat, world-map); padded rows keep 64 (swiss-airrail
+     1440 went 0.57 points further with them) */
+  body.brand-swiss main .columns-media-wrapper:has(> .columns-media:not(.padded)):not(:has(picture, img, video, iframe)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+    margin-top: 28px;
+  }
+}
+
 /* standing order 64, item 1: a Features accordion (option spaced) between two picture-and-text rows, as www's seat
    sections (advance-seat-reservation; swiss-parity-002b, its markup laid out offline with its own CSS and its PNGs): each
    row is a column view with 32 px padding above and below, the maui accordion between them has 20 px above it and none
@@ -1383,6 +1394,23 @@ body.brand-swiss main .default-content-wrapper > h1 + p.copytext-large {
   font-weight: 300;
   line-height: 30px;
   letter-spacing: 0.2px;
+}
+
+/* standing order 71, item 5: the column beside the aside starts 96 px under the lead (76 below 768 px), as www's
+   sidebar-content after its title and lead (unaccompanied-minors, upgrade-options, miles-and-more,
+   swiss-premium-economy, special-meals: www 96 / 76 on every one; ours 48, the sections' gap), when that section opens
+   with its H2. A tab set, or a column that opens with a teaser or a table, keeps the gap (swiss-business 150 on www,
+   accessible-travel 370). Of the 168 recorded page-widths 14 move, 12 closer (additional-bag 1440 -2.35 -> -0.34 %,
+   upgrade-options 1440 -1.77 -> -0.10 %, mobile-apps 1440 -2.74 -> -0.51 %), advance-seat-reservation 390 +0.30
+   points; sum 578.11 -> 565.04 with the text-row rule above. Reach: 357 of the 5,335 served SWISS copies */
+body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 + p.copytext-large:last-child) + .section.with-aside:has(> .default-content-wrapper:first-child > h2:first-child) {
+  margin-top: 76px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 + p.copytext-large:last-child) + .section.with-aside:has(> .default-content-wrapper:first-child > h2:first-child) {
+    margin-top: 96px;
+  }
 }
 
 /* standing order 70, item 1 (duty-free-shop): a page that is one padded section (breadcrumb, picture, title, lead), as

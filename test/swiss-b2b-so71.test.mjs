@@ -68,3 +68,14 @@ test('b2b.css: the tab set after running text on phones, the short table in its 
   const others = fs.readdirSync(new URL('../styles/themes/', import.meta.url)).filter((f) => !['swiss.css', 'b2b.css'].includes(f) && f.endsWith('.css'));
   others.forEach((f) => assert.doesNotMatch(read(`../styles/themes/${f}`), /standing order 71/, f));
 });
+
+test('swiss.css: the column 96 / 76 px under the lead when it opens with its H2; a text-only row\'s next heading 28 px from 1025', () => {
+  const css = read('../styles/themes/swiss.css');
+  const sel = 'body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 + p.copytext-large:last-child) + .section.with-aside:has(> .default-content-wrapper:first-child > h2:first-child)';
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  assert.match(css, new RegExp(`\\*/\\n${esc(sel)} \\{\\s*margin-top: 76px;\\s*\\}\\n\\n@media \\(width >= 768px\\) \\{\\s*${esc(sel)} \\{\\s*margin-top: 96px;`));
+  const row = 'body.brand-swiss main .columns-media-wrapper:has(> .columns-media:not(.padded)):not(:has(picture, img, video, iframe)) + .default-content-wrapper:has(> :is(h2, h3):first-child)';
+  assert.match(css, new RegExp(`@media \\(width >= 1025px\\) \\{\\s*/\\*[^*]*\\*/\\s*${esc(row)} \\{\\s*margin-top: 28px;`));
+  // the picture rows keep 48 / 64 px (test/swiss-row-headings.test.mjs)
+  assert.ok(css.includes('@media (width >= 1025px) {\n  body.brand-swiss main .columns-media-wrapper + .default-content-wrapper:has(> :is(h2, h3):first-child) {\n    margin-top: 64px;\n  }\n}'));
+});

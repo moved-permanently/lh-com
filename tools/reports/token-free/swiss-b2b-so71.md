@@ -143,8 +143,61 @@ under the H1, www against ours:
 - None of the features I looked at separates the two groups: the column's blocks (both groups have Columns Media
   picture columns: swiss-first fails where swiss-business passes), the aside's height, how many aside sections there
   are, and the share of pictures against text.
-- A scope that keeps the seven at today's column would be a list of pages, not a rule. It stays held until their own
-  causes are closed (newsletter's form +98, the picture pages' shortfalls above their columns).
+- **With the column, every column draws its rows at www's pitch.** Our headings matched to www's, before and after:
+  today ours drifts 12 or 13 px per card row, and with the column the offset stays flat from row to row (premium-economy
+  -110 at every card, swiss-first -57, food-and-beverage -99).
+- What the seven keep is outside the column:
+
+| Page-width (1440) | Where the rest is (with the column) |
+| --- | --- |
+| swiss-premium-economy | -90 from the title to the column's first H2, -36 at the page end |
+| food-and-beverage | -101 from the stage to the column's first H2 |
+| swiss-first | -40 from the stage to the column's first H2, -20 at the first card, -64 at the end |
+| miles-and-more | -48 from the title to the column's first H2, -49 before "Travel with privileges", -64 at the end |
+| green-fare | -86 and -56 at the two fare summary tables |
+| accessible-travel | +26 and +30 at the first two sections, then +101 at the end (the aside's sections) |
+| newsletter | the form: +98 today, +164 with its text at 794 px |
+
+- The gap above the column's first heading isn't one value: -101 to +35 px against www on the 16 pages. It is -48 on
+  miles-and-more, unaccompanied-minors and upgrade-options, -16 on advance-seat-reservation, and +35 on swiss-business
+  and swiss-economy (those two pass because they're long).
+- A scope that keeps the seven at today's column would be a list of pages, not a rule. The column stays held until
+  their own causes above and below it are closed.
+
+**Found on the way, shipped (two SWISS rules, token-free):**
+- **The gap under the lead.** www's sidebar-content starts 96 px under the title's lead at 1440 and 76 at 390 (ours
+  48). That holds on every recorded page where the column opens with its H2: unaccompanied-minors, upgrade-options,
+  miles-and-more, swiss-premium-economy, special-meals.
+  - The rule: a with-aside section right after the title's lead section, opening with its H2, sits 96 / 76 px under
+    the lead.
+  - A tab set (swiss-business, swiss-economy, baggage-irregularities: www 150 and 182) or a column that opens with a
+    teaser or table (accessible-travel: www 370) keeps the gap. Unscoped, those took the page-widths 0.6 to 1.3 points
+    further.
+  - Reach: 357 of the 5,335 served SWISS copies. It doesn't reach miles-and-more: there the section after the lead
+    is not the one beside the aside (its document has a section between them).
+- **The heading after a row of text cards (from 1025 px).** On special-meals 1440, www's "Information" sits 35 px under
+  the "After booking" card's link, ours 64.
+  - The rule: a Columns Media row with no picture or video, not padded, gets its next heading 28 px under it.
+  - A padded text row keeps 64 (swiss-airrail 1440 went 0.57 points further with it).
+  - Reach: 26 rows in 25 copies (special-meals, electronic-bag-tag, privacy-seat, world-map). Only special-meals is
+    recorded.
+  - It is needed for the lead gap to pass: alone, the lead gap takes special-meals 1440 0.62 points further (its card
+    row is 36 px taller than www's).
+- **Gate (code against live, 168 page-widths):** 14 moved, 12 closer, none more than 0.5 points further (the most is
+  advance-seat-reservation 390, +0.30). The sum goes 578.11 -> 565.04.
+
+| Page-width | www | Today | Now |
+| --- | --- | --- | --- |
+| additional-bag 1440 / 390 | 2,387 / 2,816 | 2,331 / 2,777 (-2.35 / -1.38 %) | 2,379 / 2,805 (-0.34 / -0.39 %) |
+| unaccompanied-minors 1440 / 390 | 3,414 / 4,483 | 3,345 / 4,454 (-2.02 / -0.65 %) | 3,393 / 4,482 (-0.62 / -0.02 %) |
+| advance-seat-reservation 1440 / 390 | 7,124 / 9,348 | 6,954 / 9,390 (-2.39 / +0.45 %) | 7,002 / 9,418 (-1.71 / +0.75 %) |
+| upgrade-options 1440 / 390 | 2,888 / 3,904 | 2,837 / 3,824 (-1.77 / -2.05 %) | 2,885 / 3,852 (-0.10 / -1.33 %) |
+| mobile-apps 1440 / 390 | 2,152 / 2,643 | 2,093 / 2,568 (-2.74 / -2.84 %) | 2,141 / 2,596 (-0.51 / -1.78 %) |
+| special-meals 1440 / 390 | 2,592 / 3,167 | 2,576 / 3,153 (-0.62 / -0.44 %) | 2,588 / 3,181 (-0.15 / +0.44 %) |
+| swiss-premium-economy 1440 / 390 | 4,120 / 7,682 | 4,051 / 7,499 (-1.67 / -2.38 %) | 4,099 / 7,527 (-0.51 / -2.02 %) |
+
+- With both rules, the 794 px column still fails 7 page-widths: newsletter, swiss-first, miles-and-more,
+  food-and-beverage, green-fare, swiss-premium-economy (+0.63) and accessible-travel.
 
 ## Item 6: the next 20 per brand (ranks 21 to 40, today as served, every section loaded)
 
@@ -158,7 +211,7 @@ Causes from our headings matched to www's recorded ones by text: where the offse
 | 22 | newsletter 1440 | +4.76 | the newsletter form +98 px |
 | 23 | entertainment-on-board 390 | -3.91 | the first tab's open panel: -28 to its H2, -37 to "SWISS Kids", -85 from there to the next tab |
 | 24 | new-destinations 1440 | +3.57 | the Toulouse section +258 px (from "Ihr nächstes Reiseziel" to "Rijeka") |
-| 25, 26, 30, 40 | terms-conditions de 390, en 1440, de 1440, en 390 | +3.53, +3.52, +3.25, +2.76 | the four topic cards' section: +60 / +76 px to the footer (www draws each card's icon inside its heading) |
+| 25, 26, 30, 40 | terms-conditions de 390, en 1440, de 1440, en 390 | +3.53, +3.52, +3.25, +2.76 | the usp cards (12, in four blocks): each row about 5 px taller than www's pitch (1440 223 against 218, 390 185 against 180), and at 1440 two of our rows wrap a heading onto a second line (+29 each) where www's wraps one: +60 / +76 px to the footer |
 | 27, 33 | us/en homepage 390, 1440 | -3.41, -3.13 | above "Winter deals" -129 / -29 px (the stage and its flight search), -56 / -110 px at the page end |
 | 28 | miles-and-more 1440 | -3.41 | spread: -48 under the title, -49 before "Travel with privileges", -47 at the end (item 2: -2.57) |
 | 29 | imprint 390 | +3.28 | +44 px from the last contact block to the footer, +8 at "Registereintragung" |
@@ -192,9 +245,16 @@ Causes from our headings matched to www's recorded ones by text: where the offse
 | 39 | SWISS Senses corporates xx/de 390 | +1.52 | +58 at the key points, -81 then +53 around "Exklusive Vorteile", +44 at the end |
 | 40 | lhg-history-booking 1440 | +1.38 | +26 at "The age of online access", +23 at the end |
 
-**A rule that might fit, not tried:** the start-of-booking pages (Allegris, SWISS Senses) have +53 px before
-"Exklusive Vorteile für Statuskund:innen" on all five recorded 390s. That section is a Columns Media followed by the H2
-that opens the status tabs. I didn't split it further.
+**The start-of-booking +53 (traced, no rule).** On the Allegris and SWISS Senses start-of-booking pages, the +53 px
+before "Exklusive Vorteile für Statuskund:innen" is the two H2s of that section.
+- www draws them as heading-small (24 / 28 px). So does every start-of-booking copy, and "Reisen mit Kindern" too.
+- Ours are the theme's heading-medium. "Umbuchungen und Erstattungen von Sitzplatzreservierungen" is 160 px (5 lines)
+  against www's 112 (4 lines) at 390 (Allegris de/de: www 4,237, ours 4,214; below the H2 every element sits at www's
+  spacing).
+- No B2B theme rule separates them: the H2s before the tab sets on news, businesstogo and programs-and-groups are
+  heading-medium on www.
+- No B2B carrier gives an H2 heading-small ("H2 compact" is copytext-large). It would need a carrier of its own, and
+  then a row per document.
 
 ## Item 7: content and function differences (no rows)
 
