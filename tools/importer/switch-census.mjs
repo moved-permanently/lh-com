@@ -76,14 +76,15 @@ async function main() {
       const p = paths[k]; k += 1;
       const t = await get(`${host}${p}.plain.html`);
       if (t === undefined) rows.push([p, 'error', '']);
-      else if (t === null || /Page not found|isErrorPage/.test(t)) rows.push([p, '404', '']);
+      else if (t === null || /Page not found|isErrorPage/.test(t)) rows.push([p, 'missing', '']);
       else { const m = switchMarkers(t); rows.push([p, String(m.length), [...new Set(m)].slice(0, 4).join(' ')]); }
     }
   };
   await Promise.all(Array.from({ length: Number(opt('parallel', 3)) }, worker));
   rows.sort((a, b) => a[0].localeCompare(b[0]));
+  // a missing document (404) has no count, so it is not a marked one (batch 27's preview-only documents on live)
   const marked = rows.filter((r) => Number(r[1]) > 0);
-  const missing = rows.filter((r) => r[1] === '404');
+  const missing = rows.filter((r) => r[1] === 'missing');
   const errors = rows.filter((r) => r[1] === 'error');
   if (opt('out')) fs.writeFileSync(opt('out'), `path\tmarkers\tspellings\n${rows.map((r) => r.join('\t')).join('\n')}\n`);
   console.log(`lh-com ${env}: ${paths.length} documents, read ${rows.length - missing.length - errors.length}, missing ${missing.length}, errors ${errors.length}, with markers ${marked.length}`);
