@@ -47,7 +47,8 @@ test('no pictures for the other apps and brands', () => {
   ['swiss', 'brussels', 'ita'].filter((b) => BRANDS[b]).forEach((b) => {
     assert.equal(mountPlan(blockOf([['help-center-web']]), BRANDS[b], { country: 'be', lang: 'en', brand: b }, `${b}.turnsthe.page`).pictures, undefined, b);
   });
-  assert.equal(mountPlan(blockOf([['help-center-web']]), null, { country: 'de', lang: 'en' }, 'main--lh-com--moved-permanently.aem.page').pictures, undefined);
+  // lufthansa.com's own stage picture since standing order 80 (micro-frontend-lufthansa-pictures-so80.test.mjs)
+  assert.deepEqual(Object.keys(mountPlan(blockOf([['help-center-web']]), null, { country: 'de', lang: 'en' }, 'main--lh-com--moved-permanently.aem.page').pictures), ['https://lufthansa.com/content/dam/lh/images/local_images/help-center/main.png']);
 });
 
 test('swapPictures: the stage and the FAQ card, nothing else, once', () => {

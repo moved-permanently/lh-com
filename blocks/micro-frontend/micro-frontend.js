@@ -149,7 +149,16 @@ export const APPS = {
     // lufthansa.com's own (www's help-and-contact pages, lufthansa-parity-001): mausy-v1.40.1,
     // the body's maui-theme-lh, X-Line b, help-center-web 4.3.2 (the brief after 505)
     lhDesign: {
-      release: 'mausy-v1.40.1', themeClass: 'maui-theme-lh', meta: { 'X-Line': 'b' }, version: '4.3.2',
+      release: 'mausy-v1.40.1',
+      themeClass: 'maui-theme-lh',
+      meta: { 'X-Line': 'b' },
+      version: '4.3.2',
+      // the stage picture the app writes from its compiled-in baseImageUrl (lufthansa.com's
+      // /content/dam): the copy on our /content/dam route (lh-edge, the DA copy of www's file,
+      // standing order 80), on the page's own host, as Austrian's (70c60a7d)
+      pictures: {
+        'https://lufthansa.com/content/dam/lh/images/local_images/help-center/main.png': '/content/dam/lh/images/local_images/help-center/main.png',
+      },
     },
     // www's topic list is the app's own; the importer writes it after the block as the fallback
     shows: ['accordion-columns'],
@@ -302,6 +311,8 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
     // the brand's copies of pictures the app writes from www (its URL -> ours), where it has some
     ...(design && design.pictures && design.pictures[app.tag]
       ? { pictures: design.pictures[app.tag] } : {}),
+    // lufthansa.com's own copies of an app's pictures (lhDesign)
+    ...(lh && lh.pictures ? { pictures: lh.pictures } : {}),
     // copies that may not be in the brand's DA yet: each one used once it loads (availablePictures)
     ...(design && design.checkedPictures && design.checkedPictures[app.tag]
       ? { checkedPictures: design.checkedPictures[app.tag] } : {}),
