@@ -402,3 +402,14 @@ body.brand-cargo .hero-card-overlay.plain .hero-card-overlay-cta a:any-link:not(
     margin-top: 40px;
   }
 }
+
+/* Cargo (standing order 67 item 5, ema-cashub's sweep so77): a link line whose text is a URL breaks
+   inside the article stage's card instead of running past it onto the picture (116-pentra and
+   120-world-premiere, en and de, at 390: 8 to 36 px past the card; none with the rule). The link is
+   inline-flex (the arrow before it), so main's break-word could not break it. Gate, the 113 recorded
+   Cargo page-widths: none further, 1,333.76 -> 1,333.76 (no recorded page has such a link). Cargo
+   only: the other brands want a reach census first */
+/* stylelint-disable-next-line no-descending-specificity -- every Cargo stage card's link line, after the plain stage's own */
+body.brand-cargo .hero-card-overlay .hero-card-overlay-cta a:any-link:not(.button) {
+  overflow-wrap: anywhere;
+}
