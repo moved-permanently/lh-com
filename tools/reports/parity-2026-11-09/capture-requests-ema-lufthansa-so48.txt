@@ -1,0 +1,12 @@
+# Capture requests from ema-lufthansa, standing order 48 (2026-11-19): causes the parity recordings can't measure.
+# One line each: full www URL, width, what to measure. Default state (banner accepted, nothing opened), full height,
+# the measurements json with the recording as before; boxes are x / y / w / h in page pixels, and through shadow roots
+# where www draws in one (maui-table, maui-headline, maui-teaser). Widths 1440 x 900 and 390 x 844 (first loads).
+# url	width	what to measure
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/baggage-and-strollers	390	the four tables in the "Newborn" panel (maui-table, drawn in its shadow DOM): each table's box, every row's box (header row apart), one cell's padding, font size and line height, the space between a table and the next element; the panel's box and whether it is open in the default state
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/baggage-and-strollers	1440	the same four tables as at 390 (table box, row boxes, cell padding, font size, line height), for the rule's other width
+https://www.ita-airways.com/it/it/book-and-prepare/travel-information/check-in-information/online-check-in	1440	the sidebar's card teaser (div.teaser.event > a.teaser.card, under "Link rapidi"): the card box, its picture box and the picture's natural size, the card-content box with its padding, the title (h3.teaser-heading) and text boxes, the space from the card to the next sidebar element; the sidebar box
+https://www.ita-airways.com/it/it/book-and-prepare/travel-information/check-in-information/online-check-in	390	the same card teaser where the page draws it on phones: card, picture, card-content (padding), title and text boxes, and the space above and below the card
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/check-in-information/online-check-in	390	the same card teaser in the English copy (card, picture, card-content padding, title and text boxes), to check that one carrier fits both languages
+https://www.ita-airways.com/it/en/corporate-b2b	1440	every element between the H1 and the first card of the card row (boxes and margins: the H1, each paragraph, link or button, the card row's box), and from the last card's bottom to the footer
+https://www.ita-airways.com/it/en/manage-my-bookings/extra-services/travel-insurance	390	the elements between the "General Terms…" heading and the "Previous insurance" heading: each paragraph's and link's box, its margins, font size and line height
