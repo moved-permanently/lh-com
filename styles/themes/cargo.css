@@ -2486,3 +2486,17 @@ body.brand-cargo main .columns-media .columns-media-text > :is(ul, ol):last-chil
     max-width: none;
   }
 }
+
+/* standing order 61, item 2: an introduction (a title with its intro paragraph) in the section right under a breadcrumb-only first
+   section, from 768 px: www's title stands 80 px under the breadcrumb's text (191 / 190 at 1440 on ecsd, eaw, ehm and
+   support-and-contact, cargo-parity-013 / -001), ours 62, so 18 px more above it; and www's next band starts 83 px under the intro's
+   last line, ours 91, so the section's space under it is 40 px. /en/ecsd's {spacer-18 from-768} drew the 18 px. Not a title without
+   an intro (support-and-contact's: its tabs below already sit lower than www's, 2 points further with it). Gate: all 62 recorded Cargo
+   1440 page-widths (the consent re-recordings, cargo-parity-013, in): none further, the sum 733.26 -> 732.12 (eaw 7.77 -> 6.87 %,
+   ehm 6.39 -> 6.15 %); on phones nothing changes */
+@media (width >= 768px) {
+  body.brand-cargo main > .section.breadcrumb-container:first-child:not(:has(picture)) + .section:has(> .default-content-wrapper:first-child > h1:first-child + p) {
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+}

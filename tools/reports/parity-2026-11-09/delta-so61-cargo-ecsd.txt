@@ -1,0 +1,13 @@
+# ema-test, standing order 61, item 2 (2026-11-19): Cargo's last style marker, {spacer-18 from-768} on /en/ecsd (DA moved-permanently/lh-cargo).
+#   Data: delta-so61-cargo-ecsd.json. ecsd's earlier recording showed www's cookie dialog (cargo-parity-003); this row is gated on its
+#   re-recording with consent (cargo-parity-013).
+# The carrier: styles/themes/cargo.css "standing order 61, item 2": from 768 px an introduction (title + intro paragraph) right under a
+#   breadcrumb-only first section stands 18 px lower and its section ends 40 px over the next band, as www's (title 80 px under the
+#   breadcrumb's text, the next band 83 px under the intro's last line).
+# Gate of the rule: all 62 recorded Cargo 1440 page-widths (cargo-parity-013 in), our host as served, the rule in the same load: none
+#   further, the sum 733.26 -> 732.12 (eaw 7.77 -> 6.87 %, ehm 6.39 -> 6.15 %). From 768 px only: the 390 page-widths can't move.
+# The page with the row: the served page, the spacer taken out of the decorated page and the rule added, in the same load, against
+#   cargo-parity-013. Dry run: text-inserts-apply --check on DA's current copy (read ~01:43 UTC): 1 insert made once, the copy byte for byte
+#   without it; no "{...}" marker left in the document.
+# Each line: READY / HOLD, path, the change, % off www and height as served -> with the row (1440 / 390), the gate.
+READY	/en/ecsd	{spacer-18 from-768} out (before the H1); the theme draws the space	1440 5.27 -> 3.67 % (1,347 -> 1,338 px, www 1,343); 390 15.25 -> 15.25 % (1,750 -> 1,750 px, www 1,751)	nearer www at 1440, the same at 390; token-free (no marker left); DA dry run byte for byte (1 insert)

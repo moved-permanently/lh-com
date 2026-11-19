@@ -1,0 +1,17 @@
+# ema-test, standing order 61, item 3 (2026-11-19): the consent re-recordings swapped in, the sums again and the held rules gated again.
+# Recordings: austrian-parity-032 (sha256 2b8795df..., 29 pages) replaces the 52 Austrian page-widths its index lists; cargo-parity-013
+#   (sha256 60812bbc..., 32 pages) replaces the 53 Cargo page-widths its index lists (my order-60 count of 51 missed two: the load that had
+#   failed and one more). Both archives' sha256 checked against the index; every listed page-width found in the archive.
+# Our host as served (main at ebca9cb4), full Chrome, airline hosts refused.
+#
+# Sum and median of % off www (all recorded page-widths, newest per page and width):
+#   Austrian (246): before the swap 4,547.13 / 13.96 % (order 60's last run) -> with the new recordings 4,575.63 / 16.59 %.
+#     The 52 swapped page-widths: 1,233.42 -> 1,245.57 (with the dialog gone the pages compare as they are: ski-campaign 1440 33.54 ->
+#     6.47 %, but the homepages' other campaigns now show, ch/de homepage 390 28.80 -> 40.13 %). The 194 kept: 3,313.71 -> 3,330.06 (one
+#     page moved on our side, xx/en homepage 1440 26.05 -> 42.20 %).
+#   Cargo (113): before 2,983.36 / 22.35 % -> with the new recordings 1,524.53 / 11.13 %.
+#
+# Held rules gated again (the rule in the same load as today, on all recorded page-widths of the brand):
+HOLD	Austrian heading and item spacing set (h2 24 px under on phones, 36 from 1281 px; the item picture 36 above its heading; items 73 / 43 px apart on phones)	sum 4,575.63 -> 4,607.87, median 16.59 -> 17.04 (1440 2,528.18 -> 2,503.48; 390 2,047.45 -> 2,104.39); 31 page-widths further by more than 0.5 (special-requirements 390 8.14 -> 16.95, it/it baggage 390 7.35 -> 11.64)	fails: the phone part undoes the 13 px title rule's alignment
+HOLD	Cargo stage picture across the column + the subtitle 20 px under the title (1440)	1440 733.26 -> 713.38 (containers 15.55 -> 8.82, fleet 26.20 -> 19.57 / 21.94 -> 15.38, industries-in-focus 11.90 -> 7.92); further by more than 0.5: ebooking-info 17.58 -> 21.19 / 12.97 -> 15.68 (no stage: its subtitle sits under a title already 15 px high), industries-healthcare 22.15 -> 23.22	fails on 3; left without ebooking-info (stage pages only) 702.71 -> 676.51 with industries-healthcare still +1.07
+HOLD	Cargo stage picture across the screen on phones (390)	390 791.27 -> 729.10, 26 nearer (efreight 14.10 -> 9.22, live-animals 15.29 -> 11.74); further: de/speed-zoom 7.22 -> 11.66, en/speed-zoom 7.05 -> 11.35	fails on 2: www draws speed-zoom's stage the column's width (358 px) with a "Back" breadcrumb under a rule

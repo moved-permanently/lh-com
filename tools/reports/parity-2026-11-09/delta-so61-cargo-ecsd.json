@@ -1,0 +1,12 @@
+[
+ {
+  "path": "/en/ecsd",
+  "from": "so61 item 2",
+  "inserts": [
+   {
+    "replace": "</li></ul></div></div></div></div>\n<div><p>{spacer-18 from-768}</p><h1>eCSD (electronic consignment securit",
+    "text": "</li></ul></div></div></div></div>\n<div><h1>eCSD (electronic consignment securit"
+   }
+  ]
+ }
+]

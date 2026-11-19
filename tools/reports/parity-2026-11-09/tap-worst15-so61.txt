@@ -1,0 +1,26 @@
+# ema-test, standing order 61, item 4 (2026-11-19): TAP's 15 page-widths furthest from www (52 recorded, tap-parity-001-014, newest per page
+#   and width; our host as served 01:45 UTC, full Chrome, airline hosts refused). TAP's sum 588.82, median 9.62 % in that run (583.82 / 9.42
+#   in a second run 20 minutes later: TAP's live widgets and carousels move between loads by about 1 %).
+# The one TAP theme rule that fits (the carousel section titles as www's centered title-l, 40 / 48 px: an H2 that ends its text right
+#   before a Cards Teaser block) is HOLD: 1440 249.69 -> 246.17 (get-inspired 13.51 -> 10.22 %), but 5 page-widths further by more than
+#   0.5 (bagagem-mao 390 9.73 -> 12.99, inspire-se 390 17.39 -> 19.91, hold-baggage 390 12.70 -> 14.14, navigator-experiences 1440 11.34 ->
+#   12.75 / 390 22.00 -> 23.19): on phones www's 40 px titles wrap where ours don't line up.
+# Air Dolomiti: not ranked. Its recordings (airdolomiti-parity-001-014) are under no R2 folder in my transcripts or the repository and none
+#   is on this machine (as in order 58); the ranking needs their archive links.
+# Each line: rank, path, width, % off www, our height -> www's, cause.
+
+1	/en-pt	1440	28.08 %	3,977 -> 4,041 px	content: the hero carousel shows another campaign (www Belo Horizonte fare, ours "Hot chocolate, just a flight away"), the quick-links row lists other services; ours adds the Miles&Go banner lower down
+2	/pt-pt	1440	27.95 %	3,977 -> 4,041 px	content: as en-pt (another hero campaign, other quick links)
+3	/en-pt/on-board/fly-business	390	23.47 %	8,000 -> 8,224 px	drift on a long page (both capped at 8,000 px): the lists and small print under each picture sit 2-6 px apart and add up; no single cause
+4	/pt-pt/miles-and-go/promocoes/navigator-experiences	390	22.00 %	4,013 -> 3,931 px	live data: the "A decorrer" experiences carousel lists other experiences (www Bilhetes VIP, ours Chef Rita Magro workshop); the intro card is white with an outline button on www, ours a green-tinted card with a filled button (markup: a primary link)
+5	/en-pt	390	21.61 %	5,076 -> 5,099 px	content: another hero campaign and other quick links (as 1440)
+6	/pt-pt	390	20.01 %	5,202 -> 5,192 px	content: another hero campaign and other quick links (as 1440)
+7	/en-pt/destinations/get-inspired	390	19.59 %	4,976 -> 5,008 px	the carousel section titles ("Discover Portugal", "The best tips for your trip") are www centered title-l headings (40 / 48 px, centered), ours 32 px start-aligned H2s; the article carousel shows one wide card on www, ours a card with the next one peeking
+8	/pt-pt/destinos/inspire-se	390	17.39 %	5,140 -> 5,112 px	as get-inspired (centered 40 px section titles on www, ours 32 px start)
+9	/en-pt/manage-booking/extras/lounges	390	16.60 %	6,612 -> 6,700 px	content: the lounge notices changed since the recording (www: closed restrooms, a weather closing; ours: "From 20 October ..."), ours lists Paris-Orly with more accordion rows
+10	/en-pt/information/baggage/locate-baggage	390	16.42 %	1,771 -> 2,148 px	function: www draws the baggage-status form (flight date, airline, flight and tag number, Search) inline; ours links to it ("Search on flytap.com"), 377 px shorter
+11	/en-pt/miles-and-go	390	16.28 %	4,807 -> 4,822 px	content and capture timing: the hero carousel stands on another slide; the status cards use check icons on www, chevrons on ours
+12	/en-pt/on-board/economy-prime	390	16.04 %	8,000 -> 8,055 px	"Book your trip" is an outline (secondary) button on www, ours filled (the document marks it primary); "Benefits that enhance your journey" centered on www, start-aligned on ours; then drift on the capped page
+13	/en-pt/stopover/partners	1440	15.17 %	2,866 -> 2,903 px	capture timing: our hero carousel was caught mid-slide (two slides showing); the rest within a few px
+14	/pt-pt/destinos/inspire-se	1440	15.14 %	5,690 -> 5,662 px	the carousel section titles: www centered 40 / 48 px title-l, ours 32 px start-aligned (TAP rule tried, below)
+15	/en-pt/miles-and-go	1440	14.69 %	3,783 -> 3,770 px	capture timing: the hero carousel on another slide; status cards: check icons on www, chevrons on ours

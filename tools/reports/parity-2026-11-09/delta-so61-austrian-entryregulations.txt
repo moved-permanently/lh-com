@@ -11,3 +11,5 @@
 #   row leaves no "{...}" marker in the document.
 # Each line: READY / HOLD, path, the change, % off www and height as served -> with the row (1440 / 390), the gate.
 READY	/at/en/entryregulations	the three phone spacers out ({spacer-55 below-768}, {spacer-78 below-768}, {spacer-35 below-768}); the theme draws the gaps	1440 8.62 -> 8.62 % (5,523 -> 5,523 px, www 5,538); 390 15.19 -> 15.18 % (7,207 -> 7,207 px, www 7,236; "General information" at www's 766, the spacer's 764)	token-free (no marker left); DA dry run byte for byte (3 inserts)
+# On the consent re-recording (austrian-parity-032 replaces -027 at 390, standing order 61 item 3), the rule live (ebca9cb4): 390 23.21 ->
+#   23.21 % (7,207 -> 7,207 px, www 7,311); 1440 8.62 -> 8.62 %. The row stands.
