@@ -1463,3 +1463,12 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
     padding-top: 32px;
   }
 }
+
+/* standing order 50 (the full-site sweep): a section that ends with a tab block and its closing separator (the
+   divider-below section style: baggage-assistance, mice, required-documents in up to twelve languages, 31 documents)
+   keeps the separator under the tabs: the take-back of 16 px a closing separator makes after a block (styles.css,
+   "a wrapper of separator paragraphs only") drew its line through the last text line of the open tab at 1440 and
+   through the last closed tab's label on phones, the tab block having no space of its own under it */
+body.brand-ita main > .section.section > .profile-tabs-wrapper + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+  margin-top: 0;
+}
