@@ -1947,7 +1947,11 @@ body.brand-tap .footer .footer-tap-partner img {
 /* ------------------------------ the stopover's section styles, feature cards (brief 352) ---- */
 
 /* centred-button (a rich text's button in a section of its own: www's "Reservar agora"): centred,
-   32 px under the text, the electric green pill with a 16 / 500 label */
+   32 px under the text, a 16 / 500 label. Standing order 63, item 3: www now draws a rich text's button as its outline button
+   (RichTextBlock's cta: white, a 1 px dark green edge, 24 px in, at least 162 px wide; tap-parity-007 / -008: schengen-visas,
+   doacao-milhas, economy-prime), no longer the electric green pill the importer's bold link stood for (tap-parity-001 / -002). The
+   theme draws it, so the 84 served documents with such a button (107 buttons, every one bold) need no row. Gate, all 52 recorded TAP
+   page-widths: none further, the sum 577.93 -> 577.34 (schengen-visas 390 11.74 -> 11.22 %) */
 body.brand-tap main > .section:has(+ .section.centred-button) {
   margin-bottom: 32px;
 }
@@ -1957,16 +1961,18 @@ body.brand-tap main > .section.centred-button .default-content-wrapper {
 }
 
 body.brand-tap main > .section.centred-button a.button:any-link {
-  border-color: #9efd38;
-  background-color: #9efd38;
-  color: #000;
+  min-width: 162px;
+  padding: 7px 24px;
+  border: 1px solid var(--button-secondary-color, #397213);
+  background-color: #fff;
+  color: #424045;
   font-size: 16px;
   font-weight: 500;
 }
 
 body.brand-tap main > .section.centred-button a.button:hover {
-  border-color: var(--button-accent-hover);
-  background-color: var(--button-accent-hover);
+  border-color: var(--button-secondary-color, #397213);
+  background-color: #f2f2f3;
 }
 
 /* info-card (www's CardInfoBlock: the stopover's FAQ card, "Milhas necessárias por zona" on the

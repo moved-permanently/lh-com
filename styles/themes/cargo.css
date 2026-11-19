@@ -2524,3 +2524,58 @@ body.brand-cargo main > .section.breadcrumb-container:first-child:has(> .default
     padding-inline: 0;
   }
 }
+
+/* standing order 63, item 2: the picture stage of the company pages (hero-campaign (narrow) with a picture, What's up now?) from
+   992 px as www's LCAGCP header: the text at the stage's foot, 50 px over its edge and 20 px from the window's left (www's
+   innerContainerRow leftBottom, padding 1rem / 20 px), the title on one line (60 / 72), the subline 24 px, the link 40 px + 1rem under
+   it as www's primaryButton (18 px, 5 px 25 px). Ours stood in the 485 px text column at the grid's edge: the title on two lines,
+   214 px higher (518 against www's 732). Gate, the 62 recorded Cargo 1440 page-widths: none further, the sum 696.76 -> 696.26
+   (whats-up-now 25.67 -> 25.38 / 25.78 -> 25.57 %); below 992 px the stage keeps its white text box (order 23) */
+@media (width >= 992px) {
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) {
+    padding-bottom: 50px;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) > .hero-campaign-inner {
+    max-width: none;
+    margin: 0;
+    padding: 16px 16px 16px 20px;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) .hero-campaign-content {
+    max-width: none;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) h1 {
+    margin: 0;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) .hero-campaign-subtitle {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) .hero-campaign-cta {
+    margin-top: 40px;
+    padding: 16px 0 0;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) .hero-campaign-cta .button {
+    min-height: 0;
+    padding: 5px 25px;
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+}
+
+/* standing order 63, item 2: the legal template's text on phones across the screen, as www's (its journal article and slide
+   paragraphs run the whole 390 px: x 0, 390 px wide on terms-of-use and general-terms1, cargo-parity-013; ours in the 358 px
+   column, 634 px longer). The paragraphs and lists of the text only; the title keeps the page margin. Gate, the 51 recorded Cargo 390
+   page-widths: none further, the sum 729.20 -> 726.02 (terms-of-use 24.72 -> 21.54 %) */
+@media (width < 768px) {
+  body.brand-cargo.legal main .default-content-wrapper > :is(p, ol, ul) {
+    margin-inline: -16px;
+  }
+}

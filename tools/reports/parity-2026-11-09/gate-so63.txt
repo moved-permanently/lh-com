@@ -1,0 +1,18 @@
+# ema-test, standing order 63, items 2-3 (2026-11-19): the rules gated this order. Recordings: the newest per page and width. Our host as
+#   served, full Chrome, airline hosts refused, every section loaded, the rule in the same load as today. From this order our captures run to
+#   the page's full length (the gate cut them at 8,000 px before; item 4). A rule that applies only below or above a width is gated at the
+#   recorded widths it can reach.
+# Today's figures with full-length captures: Austrian 4,570.70 / 16.59 % (246; 4,315.21 / 16.71 % without the ja, zh, ko and el pages),
+#   Cargo 1,425.96 / 9.22 % (113), TAP 577.93 / 9.61 % (52).
+#
+SHIPPED	Cargo, the picture stage's text (hero-campaign (narrow) with a picture, from 992 px): at the stage's foot 50 px over its edge, 20 px from the left, the title on one line, the subline 24 px, www's button	62 recorded 1440 page-widths: none further, the sum 696.76 -> 696.26 (whats-up-now en 25.67 -> 25.38 %, de 25.78 -> 25.57 %; the title at www's 732, ours was at 518)
+SHIPPED	Cargo, the legal template's text across the screen on phones (its paragraphs and lists 390 px wide, as www's journal article)	51 recorded 390 page-widths: none further, the sum 729.20 -> 726.02 (terms-of-use 24.72 -> 21.54 %)
+HOLD	Cargo, the boxed cards' text without the three-line clip below 1201 px (www's teaserboxText clamps only above 1200 px)	51 recorded 390 page-widths: the sum 729.20 -> 734.71; de/industries-in-focus 39.59 -> 45.97 % (en 34.95 -> 34.08). Our card text column is www's 316 px at the same 18 / 24 px, but our German lines wrap longer than www's (4 lines against 3 on Pharma & Healthcare), so the unclipped cards run 72 px longer; the clip hides that difference today
+SHIPPED	TAP, a rich text's centred button as www's outline button (white, a 1 px dark green edge, 7 px 24 px, at least 162 px wide, 40 px tall as before)	52 recorded page-widths: none further, the sum 577.93 -> 577.34 (schengen-visas 390 11.74 -> 11.22 %); the two pages recorded before www changed the button (voar-economica, fly-business: tap-parity-001 / -002, still the green pill) +0.08 to +0.26 points
+#
+# Item 3, TAP's button emphasis: www's RichTextBlock cta (the only cta of a rich text) is the importer's bold link, a "primary" button in
+#   the document; tap.css drew a centred-button section's button as the electric green pill whatever its emphasis. www's newer recordings
+#   (tap-parity-007 / -008) draw that cta as the outline button, the older ones (-001 / -002) as the pill: www changed it. The theme
+#   decides the look, so the fix is the theme rule above: 86 served TAP documents have a centred-button section (107 buttons, every one
+#   bold), all drawn as www's outline now; no document needs a row. Other TAP buttons' emphasis follows www's data (the importer's
+#   primary / secondary CTA fields) and draws as www's in the recordings checked.

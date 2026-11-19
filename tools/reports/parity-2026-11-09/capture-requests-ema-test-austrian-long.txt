@@ -1,0 +1,14 @@
+# ema-test, standing order 63, item 4 (2026-11-19): capture requests - the Austrian page-widths that run past 8,000 px (ja, zh, ko and el
+#   pages left out: the capture browser has no fonts for them).
+# Finding: the www recordings on file for these are already full length (the heights below are the recordings' own). The 8,000 px cut was
+#   in our side's capture (the gate's --max-height 8000), which made both pages compare only to 8,000 px; from this order the gate
+#   captures ours at full length too. A new recording is needed only if you want them refreshed; the list stands as asked.
+# Each line: www URL, width, why (the recording, its height).
+https://www.austrian.com/at/de/discover/inspiration/fly-with-austrian	390	page 9,114 px tall on www (austrian-parity-001, full length); our capture was cut at 8,000 px
+https://www.austrian.com/at/de/local-page/feels-like-flying/os401crewstory	390	page 9,982 px tall on www (austrian-parity-003, full length); our capture was cut at 8,000 px
+https://www.austrian.com/at/en/accessible-travel	1440	page 12,859 px tall on www (austrian-parity-015, full length); our capture was cut at 8,000 px
+https://www.austrian.com/at/en/accessible-travel	390	page 19,409 px tall on www (austrian-parity-019, full length); our capture was cut at 8,000 px
+https://www.austrian.com/at/en/discover/inspiration/fly-with-austrian	390	page 8,697 px tall on www (austrian-parity-001, full length); our capture was cut at 8,000 px
+https://www.austrian.com/at/en/fly/on-board/culinary-services	1440	page 8,428 px tall on www (austrian-parity-017, full length); our capture was cut at 8,000 px
+https://www.austrian.com/at/en/fly/on-board/culinary-services	390	page 9,191 px tall on www (austrian-parity-032, full length); our capture was cut at 8,000 px
+https://www.austrian.com/at/en/healthy-travel	390	page 8,822 px tall on www (austrian-parity-015, full length); our capture was cut at 8,000 px

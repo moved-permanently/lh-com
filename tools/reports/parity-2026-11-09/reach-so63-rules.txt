@@ -1,0 +1,9 @@
+# ema-test, standing order 63, item 5 (2026-11-19): the reach of this order's rules on the served documents, and a check of a sample (as in
+#   reach-so62-rules.txt). Documents: the brand's upload-state page documents (navs, footers and fragments left out; the Cargo pages under
+#   /footer/ counted now), their served .plain.html or page head from the brand host. Sample: up to 5 per rule, unrecorded ones first,
+#   rendered at 1440 and 390 on the brand host (airline hosts refused, every section loaded) with the rule added in the same load. Checked:
+#   sideways overflow, elements out of the viewport, siblings overlapping, cut-off text, empty gaps; a screenshot looked at.
+# Each line: rule, brand, documents it reaches, sample (renders, problems), paths.
+TB	TAP	86 of 892 (a centred-button section)	10 renders, 0 problems	/fr-fr/a-bord/repas/local-stars, /it-it/stopover, /pl-pl/pomoc/zwroty-tap, /pt-pt/informacoes/documentacao/viajar-reino-unido, /pt-pt/reservas/tap-meetings
+CV	Cargo	12 of 978 (a narrow hero with a picture, no video: ci/social and ci/whats-up-now in six languages)	10 renders, 0 problems	/de/ci/social, /es/ci/social, /fr/ci/whats-up-now, /it/ci/whats-up-now, /pt/ci/social
+CL	Cargo	2 of 978 (the legal template: en terms-of-use, en general-terms1)	4 renders, 0 problems from the rule (general-terms1 at 1440 reports one overlap, its spacer next to the Columns Media, as before; the rule is phones only)	/en/footer/bottomnav/terms-of-use, /en/meta/meta/company/general-terms1
