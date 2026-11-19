@@ -65,7 +65,7 @@
 import {
   HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS, VIDEO_SIZE, SEPARATOR, BLANK_LINE,
   APP_SPACER, APP_SMALL, HEADING_SIZES, sizeSteps, themeFor, pageTypeOf, isImageParagraph, NAV_ROLES,
-  readNavRole, isThemeLive,
+  readNavRole, isThemeLive, headingChoice, BLOCK_OPTIONS,
 } from '../../scripts/style-markers.js';
 import { readHeaderTexts } from '../../blocks/form/form-rules.js';
 
@@ -340,7 +340,10 @@ function removeSectionStyle(section, style) {
   return true;
 }
 
-/** A new section right after section with the elements given (styles copied: grey, padded …). */
+// the section styles a split part doesn't copy (splitSection)
+const SPLIT_KEEPS = ['padded', 'flush'];
+
+/** A new section right after section with the elements given (styles copied: grey, wide-text …). */
 function splitSection(section, els, doc, styles = []) {
   const next = doc.createElement('div');
   if (section.dataset && 'mcSection' in section.dataset) next.dataset.mcSection = '';
@@ -358,10 +361,15 @@ function splitSection(section, els, doc, styles = []) {
   if (row && row.textContent.trim()) addSectionRow(next, 'Markets', row.textContent.trim(), doc);
   // the section's styles go with the part, but not its separators: a space or divider above stays on the first part,
   // one below moves to the last (standing order 57: hotel-offers' Space below L from 768 px drew after every part)
+  // padded and flush neither (standing order 62): they stay with the part they open. Copied, every part drew a padded box
+  // of its own (DA's free2move: +166 px at 1440 against today, its served copy +54; travel-insurances' small print +139
+  // against +88), and a view split from its Spacer block took the Spacer section's flush (DA's digital-self-services:
+  // 14.67 % at 1440 against the served copy's 3.65). The served form, with the styles as classes, never copied them:
+  // plan 923's gate measured that
   sectionStyles(section).forEach((s) => {
     if (SEPARATOR_STYLE_BELOW.test(s)) {
       if (removeSectionStyle(section, s)) addSectionStyle(next, s, doc);
-    } else if (!SEPARATOR_STYLE_ABOVE.test(s)) addSectionStyle(next, s, doc);
+    } else if (!SEPARATOR_STYLE_ABOVE.test(s) && !SPLIT_KEEPS.includes(s)) addSectionStyle(next, s, doc);
   });
   // the same for a style the section carries as its class (the served form: Edge Delivery's section classes)
   [...section.classList].filter((c) => SEPARATOR_STYLE_BELOW.test(c)).forEach((c) => {
@@ -745,7 +753,7 @@ function collapseHeadings(main, doc, stats, marks, theme) {
     const block = blockOf(h, main);
     if (block) {
       if (!blocks.has(block)) blocks.set(block, []);
-      blocks.get(block).push(choice);
+      blocks.get(block).push([h, choice]);
     } else {
       const s = sectionOf(h, main);
       const key = `h${h.tagName[1]}-${choice}`;
@@ -753,11 +761,32 @@ function collapseHeadings(main, doc, stats, marks, theme) {
       sections.get(s).set(key, (sections.get(s).get(key) || 0) + 1);
     }
   });
-  blocks.forEach((choices, block) => {
-    const all = block.querySelectorAll(HEADING).length;
+  blocks.forEach((pairs, block) => {
+    const choices = pairs.map(([, c]) => c);
+    const heads = [...block.querySelectorAll(HEADING)];
+    const all = heads.length;
     const top = ['large', 'compact', 'small'].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
-    if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, 'carrier', 'heading', top[1]);
-    else count(stats, 'theme', 'heading-aligned', choices.length);
+    // the title option draws every heading of the block in its level's choice: not when it would
+    // change a heading that asks for nothing (standing order 62: lhg-wifi's H2 under three H3
+    // heading-small, 36 -> 48 px; tips-senior-travellers' H4 under three H3)
+    const level = (h) => Number(h.tagName[1]);
+    const changes = (c) => heads.some((h) => !wishes.has(h) && headingChoice(theme, level(h), c));
+    if (top[1] * 2 > all && !changes(top[0]) && addBlockOption(block, `title-${top[0]}`)) {
+      count(stats, 'carrier', 'heading', top[1]);
+      return;
+    }
+    // ... else per level the level-scoped option (h3-large) where every heading of that level asks
+    // for the same choice (first-class's H3 heading-small over an unmarked H4 in a sidebar)
+    let carried = 0;
+    [...new Set(pairs.map(([h]) => level(h)))].forEach((n) => {
+      const at = heads.filter((h) => level(h) === n);
+      const asks = pairs.filter(([h]) => level(h) === n).map(([, c]) => c);
+      const opt = `h${n}-${asks[0]}`;
+      if (asks.length === at.length && asks.every((c) => c === asks[0]) && BLOCK_OPTIONS[opt]
+        && addBlockOption(block, opt)) carried += asks.length;
+    });
+    if (carried) count(stats, 'carrier', 'heading', carried);
+    if (choices.length > carried) count(stats, 'theme', 'heading-aligned', choices.length - carried);
   });
   const styled = [];
   sections.forEach((keys, section) => {

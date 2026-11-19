@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_1382835_exports = {};
-  __export(tmp_bundle_form_1382835_exports, {
-    default: () => tmp_bundle_form_1382835_default
+  var tmp_bundle_form_1568324_exports = {};
+  __export(tmp_bundle_form_1568324_exports, {
+    default: () => tmp_bundle_form_1568324_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -2406,6 +2406,56 @@ var CustomImportScript = (() => {
     if (/(^|,)\s*flow-spacing\s*(,|$)/.test(themes)) return "flow";
     if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?(?:\/[a-z]{2})?(?:\/homepage)?)?\/?$/.test(path)) return "home";
     return "service";
+  }
+  var BLOCK_OPTIONS = {
+    "space-m": { space: "m" },
+    "space-l": { space: "l" },
+    "divider-above": { divider: true },
+    "small-print": { size: "small" },
+    "title-large": { title: "large" },
+    "title-compact": { title: "compact" },
+    // Columns Media: a small space (25 px) before each heading that follows text in its cells
+    // (www's chapters in one cell, terms-of-service-group; standing order 57)
+    chapters: { chapters: true },
+    // a link list's layout in the block (as the section style of that name)
+    "links-horizontal": { links: "horizontal" },
+    "links-responsive": { links: "responsive" },
+    "links-vertical": { links: "vertical" },
+    // one heading level's choice in the block, the block's other headings as the theme draws them
+    // (Group for Business's businesstogo: its H3s compact, its H2 the theme's heading-medium, which
+    // title-compact would make compact too; standing order 68): as the section style of that name
+    "h3-compact": { headings: { h3: "compact" } },
+    // the same for the other levels and choices (standing order 62): the collapse writes one when a
+    // block's marked headings of one level ask for a choice that the title option would also give
+    // its unmarked headings of another level (lhg-wifi's H2 over three H3 heading-small)
+    "h2-large": { headings: { h2: "large" } },
+    "h2-compact": { headings: { h2: "compact" } },
+    "h2-small": { headings: { h2: "small" } },
+    "h3-large": { headings: { h3: "large" } },
+    "h4-large": { headings: { h4: "large" } },
+    // Columns Media: a cell's picture further above the heading after it (the brand theme's size;
+    // Group for Business: 80 px, www's column-view picture to headline; standing order 69)
+    "spaced-pictures": { pictures: "spaced" },
+    "title-small": { title: "small" },
+    "background-video": { video: "background" },
+    // Article Header: its video on phones too
+    "mobile-video": { video: "mobile" },
+    // Columns Media: its pictures narrower than their cell (www's nested view or sidebar; the
+    // "{cell-half-start}" marks)
+    "picture-half-start": { picture: "half-start" },
+    "picture-half-end": { picture: "half-end" },
+    "picture-three-quarters": { picture: "three-quarters" },
+    // Columns Media: its cells' running text over two thirds of the cell (www's limited-width
+    // text in a column view: lhg-history-alliances' Joint Venture cards, carry-on-baggage's
+    // Eurowings bags; standing order 75)
+    "narrow-text": { text: "narrow" },
+    // Table Striped: two blank lines above and below each cell's text (www's empty paragraphs around
+    // kuala-lumpur's flight table cells; standing order 75)
+    "padded-cells": { cells: "padded" }
+  };
+  function headingChoice(theme, level, choice) {
+    const tag = `h${level}`;
+    return ((theme.headingChoices || {})[tag] || {})[choice] || null;
   }
   var tagOf = (n) => String(n && (n.tagName || n.tag) || "").toLowerCase();
   var kidsOf = (n) => [...n && (n.childNodes || n.children) || []];
@@ -5021,6 +5071,7 @@ var CustomImportScript = (() => {
     cell.textContent = keep.join(", ");
     return true;
   }
+  var SPLIT_KEEPS = ["padded", "flush"];
   function splitSection(section, els, doc, styles = []) {
     const next = doc.createElement("div");
     if (section.dataset && "mcSection" in section.dataset) next.dataset.mcSection = "";
@@ -5034,7 +5085,7 @@ var CustomImportScript = (() => {
     sectionStyles(section).forEach((s) => {
       if (SEPARATOR_STYLE_BELOW.test(s)) {
         if (removeSectionStyle(section, s)) addSectionStyle(next, s, doc);
-      } else if (!SEPARATOR_STYLE_ABOVE.test(s)) addSectionStyle(next, s, doc);
+      } else if (!SEPARATOR_STYLE_ABOVE.test(s) && !SPLIT_KEEPS.includes(s)) addSectionStyle(next, s, doc);
     });
     [...section.classList].filter((c) => SEPARATOR_STYLE_BELOW.test(c)).forEach((c) => {
       section.classList.remove(c);
@@ -5360,7 +5411,7 @@ var CustomImportScript = (() => {
       const block = blockOf(h, main);
       if (block) {
         if (!blocks.has(block)) blocks.set(block, []);
-        blocks.get(block).push(choice);
+        blocks.get(block).push([h, choice]);
       } else {
         const s = sectionOf(h, main);
         const key = `h${h.tagName[1]}-${choice}`;
@@ -5368,11 +5419,26 @@ var CustomImportScript = (() => {
         sections.get(s).set(key, (sections.get(s).get(key) || 0) + 1);
       }
     });
-    blocks.forEach((choices, block) => {
-      const all = block.querySelectorAll(HEADING2).length;
+    blocks.forEach((pairs, block) => {
+      const choices = pairs.map(([, c]) => c);
+      const heads = [...block.querySelectorAll(HEADING2)];
+      const all = heads.length;
       const top = ["large", "compact", "small"].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
-      if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, "carrier", "heading", top[1]);
-      else count(stats, "theme", "heading-aligned", choices.length);
+      const level = (h) => Number(h.tagName[1]);
+      const changes = (c) => heads.some((h) => !wishes.has(h) && headingChoice(theme, level(h), c));
+      if (top[1] * 2 > all && !changes(top[0]) && addBlockOption(block, `title-${top[0]}`)) {
+        count(stats, "carrier", "heading", top[1]);
+        return;
+      }
+      let carried = 0;
+      [...new Set(pairs.map(([h]) => level(h)))].forEach((n) => {
+        const at = heads.filter((h) => level(h) === n);
+        const asks = pairs.filter(([h]) => level(h) === n).map(([, c]) => c);
+        const opt = `h${n}-${asks[0]}`;
+        if (asks.length === at.length && asks.every((c) => c === asks[0]) && BLOCK_OPTIONS[opt] && addBlockOption(block, opt)) carried += asks.length;
+      });
+      if (carried) count(stats, "carrier", "heading", carried);
+      if (choices.length > carried) count(stats, "theme", "heading-aligned", choices.length - carried);
     });
     const styled = [];
     sections.forEach((keys, section) => {
@@ -6128,7 +6194,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_1382835_default = {
+  var tmp_bundle_form_1568324_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6168,5 +6234,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_1382835_exports);
+  return __toCommonJS(tmp_bundle_form_1568324_exports);
 })();

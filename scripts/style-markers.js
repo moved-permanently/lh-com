@@ -558,6 +558,14 @@ export const BLOCK_OPTIONS = {
   // (Group for Business's businesstogo: its H3s compact, its H2 the theme's heading-medium, which
   // title-compact would make compact too; standing order 68): as the section style of that name
   'h3-compact': { headings: { h3: 'compact' } },
+  // the same for the other levels and choices (standing order 62): the collapse writes one when a
+  // block's marked headings of one level ask for a choice that the title option would also give
+  // its unmarked headings of another level (lhg-wifi's H2 over three H3 heading-small)
+  'h2-large': { headings: { h2: 'large' } },
+  'h2-compact': { headings: { h2: 'compact' } },
+  'h2-small': { headings: { h2: 'small' } },
+  'h3-large': { headings: { h3: 'large' } },
+  'h4-large': { headings: { h4: 'large' } },
   // Columns Media: a cell's picture further above the heading after it (the brand theme's size;
   // Group for Business: 80 px, www's column-view picture to headline; standing order 69)
   'spaced-pictures': { pictures: 'spaced' },
@@ -592,6 +600,11 @@ export const BLOCK_OPTION_LABELS = {
   'links-responsive': 'links side by side, stacked on phones',
   'links-vertical': 'links stacked',
   'h3-compact': 'H3 compact (its other headings as they are)',
+  'h2-large': 'H2 large (its other headings as they are)',
+  'h2-compact': 'H2 compact (its other headings as they are)',
+  'h2-small': 'H2 small (its other headings as they are)',
+  'h3-large': 'H3 large (its other headings as they are)',
+  'h4-large': 'H4 large (its other headings as they are)',
   'spaced-pictures': 'pictures further above the heading after them',
   'title-small': 'small title',
   'background-video': 'background video (autoplay, muted, loop)',
