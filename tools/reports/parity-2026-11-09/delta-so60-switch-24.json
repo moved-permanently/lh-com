@@ -1,0 +1,3998 @@
+[
+ {
+  "path": "/xx/pl/terminy-zamkniecia-odprawy",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/terms-and-conditions-lh",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 19 markers -> 0",
+  "markersBefore": 19,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 16
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/terms-of-service-group",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block option title-compact": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/terms-of-use",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 7
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/tiere-als-handgepaeck",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 18 markers -> 0",
+  "markersBefore": 18,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style column-view": 5,
+   "section style flush": 5,
+   "block spacer l-minus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/tiere-als-uebergepaeck",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 23 markers -> 0",
+  "markersBefore": 23,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 7,
+   "section style flush": 6,
+   "section style wide-text": 4,
+   "section style small-print": 1,
+   "block spacer l-minus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/timetable-and-flight-status",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer l": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/tips-senior-travellers",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 16 markers -> 0",
+  "markersBefore": 16,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-l": 1,
+   "section style wide-text": 1,
+   "block spacer m-plus": 2,
+   "block spacer l-minus": 2,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/travel-agencies",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style flush": 1,
+   "block option title-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/travel-expense-management",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 5,
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/travel-id-terms-conditions",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/travelling-healthy",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style flush": 3,
+   "section style wide-text": 1,
+   "section style small-print": 1,
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/travelling-with-animals",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 4,
+   "section style column-view": 3,
+   "section style flush": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/travelling-with-children",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style flush": 3,
+   "block option title-large": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/travelling-with-special-requirements",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/traveltricks",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/uebergepaeck",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style wide-text": 2,
+   "section style small-print": 1,
+   "block spacer m-plus": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/unaccompanied-minors",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 41 markers -> 0",
+  "markersBefore": 41,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 15,
+   "section style wide-text": 6,
+   "section style column-view": 10,
+   "section style flush": 10,
+   "section style small-print": 2,
+   "section style divider": 2,
+   "block spacer s": 1,
+   "block option title-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/unterhaltung-an-bord",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 16 markers -> 0",
+  "markersBefore": 16,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 1,
+   "block spacer s": 5,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/upgrade-info",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 6,
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style wide-text": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/upgrade-klasa-biznes-rejsy-miedzykontynentalne",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/upgrade-klasa-pierwsza",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/upgrade-options",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 4,
+   "section style flush": 3,
+   "block option title-large": 4
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/upgrade-to-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/upgrade-to-premium-economy-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 1,
+   "section style space-m": 1,
+   "block option title-large": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/upgrades-at-online-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style flush": 1,
+   "block spacer l-minus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/xx/pl/with-children-at-the-airport",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/de/automatic-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style divider": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/de/pre-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style links-horizontal": 2,
+   "section style divider-below": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/companion-special-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/companion-special-jun2021",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 3,
+   "section style wide-text": 2,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/companion-special-premium-economy-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/flight-search",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/local-page/dxb-50th-anniversary-promotion",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/longed-for-destinations-at-a-glance",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 4,
+   "section style column-view": 3,
+   "section style padded": 2,
+   "section style flush": 3,
+   "section style small-print": 1,
+   "section style space-m": 1,
+   "block spacer": 1,
+   "block spacer xs": 1,
+   "block divider": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/offers-to-europe",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/promotion-code-information",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ae/en/special-offers-to-north-america",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 1,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/am/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/am/de/articles/highlights-european-championship/scotland-with-heart-and-energy",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/am/de/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/am/en/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ao/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ao/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ao/pt/34p",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ao/pt/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ar/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ar/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ar/es/34p",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ar/es/articles/highlights/allegris-premium-economy-san-diego",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ar/es/busqueda-de-mejor-precio",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ar/es/prepare-for-your-trip/all-check-in/check-in-information",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ar/fr/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/en/book-and-manage/offers-and-destination/companion-special-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/book-and-manage/offers-and-destination/europe-offers1",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/book-and-manage/offers-and-destination/nordamerika-angebote",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/book-and-manage/offers-and-destination/weltweite-angebote1",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 3,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/companion-special-business-class-eu",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "section style small-print": 1,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/companion-special-first-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/event/esorics-2027",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style small-print": 1,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/free2move",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 4,
+   "section style h3-large": 4,
+   "section style small-print": 1,
+   "section style column-view": 2,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/en/oneway-fares",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/au/de/automatic-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style divider": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/au/de/pre-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style links-horizontal": 2,
+   "section style divider-below": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/au/en/local-page/au-multi-city",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/au/en/local-page/star-alliance-au",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/de/articles/tags/destinations",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "block option title-compact": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/de/overview-additional-services",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/de/overview-services-on-board",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/de/overview-special-request",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/az/de/overview-travel-classes",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/en/discover-lufthansa/allegris",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-l": 2,
+   "section style limited-headings": 1,
+   "section style h2-large": 2,
+   "section style wide-text": 1,
+   "block spacer l-minus from-768": 2,
+   "block option title-large": 2,
+   "block spacer l from-768": 3,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/en/europa-tarife-economy-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 28 markers -> 0",
+  "markersBefore": 28,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 7,
+   "section style column-view": 8,
+   "section style flush": 8,
+   "section style divider": 6,
+   "section style space-m": 1,
+   "block spacer l-minus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/en/online-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/az/en/prepare-for-your-trip/travel-classes/fice",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-l": 2,
+   "section style limited-headings": 1,
+   "section style h2-large": 2,
+   "section style wide-text": 1,
+   "block spacer l-minus from-768": 2,
+   "block option title-large": 2,
+   "block spacer l from-768": 3,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ba/en/articles/explore-the-world/a-perfect-day-buenos-aires-in-one-day",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ba/en/flights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style column-view": 2,
+   "section style wide-text": 1,
+   "section style padded": 1,
+   "block option space-m": 1,
+   "block option title-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ba/en/invoice-request-bosnia",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/be/de/nutzungsbedingungen",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 7
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/de/passenger-rights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/en/early-bird-september2022",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block option divider-above": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/en/europcar",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/be/en/first-class-companion",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/be/en/imprint",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/en/local-page/experience-america",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 1,
+   "section style wide-text": 1,
+   "block spacer m-plus": 5,
+   "block option title-compact": 1,
+   "block spacer l": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/en/passenger-rights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/be/en/terms-of-use",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 7
+  },
+  "inserts": []
+ },
+ {
+  "path": "/be/fr/passenger-rights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/be/fr/terms-of-use",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 7
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bg/en/full-flex-promo-aug2021",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bg/en/invoice-request",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 14 markers -> 0",
+  "markersBefore": 14,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bg/en/local-page/companion-special-in-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bg/en/local-page/invoice-request-bg",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bh/en/companion-special-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bh/en/companion-special-jun2021",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bh/en/companion-special-premium-economy-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bh/en/local-page/bahrain-airport-new-terminal",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bh/en/offers-to-europe",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bh/en/promotion-code-information-kaust",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/bh/en/special-offers-to-north-america",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/de/articles/highlights-european-championship/scotland-with-heart-and-energy",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/br/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/br/en/btg-terminal-en",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 33 markers -> 0",
+  "markersBefore": 33,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 2,
+   "section style wide-text": 1,
+   "section style small-print": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/br/en/local-page/ski-campaign-2026",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1,
+   "block spacer s": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/es/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/feedback",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/fliegen-mit-kleinkind",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/local-page/lufthansa-in-brazil/anac-report",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 2,
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/local-page/lufthansa-in-brazil/carrying-values",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/local-page/lufthansa-in-brazil/sac",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/local-page/ski-campaign-2026",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1,
+   "block spacer s": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/pix",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/procura-do-melhor-preco",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/br/pt/terminal-btg",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 15 markers -> 0",
+  "markersBefore": 15,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style wide-text": 2,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/by/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/by/de/articles/highlights-european-championship/scotland-with-heart-and-energy",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/by/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/by/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/by/ru/34p",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/by/ru/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/de/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/de/flugsuche",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/best-price-search",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/discover-lufthansa/flightreservation-priceguarantee",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 4,
+   "section style flush": 3,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/flight-disruptions",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 18 markers -> 0",
+  "markersBefore": 18,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 3,
+   "section style h2-small": 8,
+   "section style column-view": 4,
+   "section style flush": 3,
+   "section style divider": 2,
+   "section style h3-large": 4,
+   "section style padded": 1,
+   "block spacer l-minus": 1,
+   "video #size": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/flight-search",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/local-page/flightreservation-priceguarantee",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 4,
+   "section style flush": 3,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/local-page/lufthansa-student-fares",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style h1-compact": 1,
+   "block spacer s": 1,
+   "block option title-compact": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/en/passenger-rights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/es/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ca/fr/best-price-search",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ca/fr/discover-lufthansa/flightreservation-priceguarantee",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 4,
+   "section style flush": 3,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cd/en/articles/explore-the-world/be-picky-mexico-city-insider-tips",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/de/book-and-manage/additional-services/travel-insurances",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 2,
+   "section style wide-text": 1,
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/de/companion-special-first-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/de/companion-special-premium-economy-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/de/event/exklusives-event-angebot-dxb-1",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 26 markers -> 0",
+  "markersBefore": 26,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 5,
+   "section style wide-text": 3,
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 2,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/de/fluege",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style wide-text": 1,
+   "block divider": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/de/local-page/black-friday",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 21 markers -> 0",
+  "markersBefore": 21,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 2,
+   "section style wide-text": 1,
+   "section style small-print": 1,
+   "block option title-compact": 1,
+   "block option divider-above": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/en/book-and-manage/additional-services/travel-insurances",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 2,
+   "section style wide-text": 1,
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/en/common/terms-and-conditions/terms-and-conditions-promocode",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "section style wide-text": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/en/companion-special-first-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/en/companion-special-premium-economy-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/en/local-page/experience-america",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 1,
+   "section style wide-text": 1,
+   "block spacer m-plus": 5,
+   "block option title-compact": 1,
+   "block spacer l": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/en/smart-bags",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 3,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/fr/book-and-manage/additional-services/travel-insurances",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 2,
+   "section style wide-text": 1,
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/fr/companion-special-first-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/fr/companion-special-premium-economy-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style small-print": 2,
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/it/book-and-manage/additional-services/travel-insurances",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 2,
+   "section style wide-text": 1,
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/it/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/it/europcar",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/it/hertz",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ch/it/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cl/de/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cl/de/flugsuche",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cl/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cl/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cl/fr/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cn/de/automatic-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style divider": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cn/de/pre-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider-below": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/flight-search",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/1212-specials",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "block option title-compact": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 4,
+   "section style padded": 4,
+   "section style flush": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-anton",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-beier",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-fuellkrug",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-kimmich",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-kroos",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-leno",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-raum",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-ter-stegen",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-undav",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/cn-en-tarmac-delay",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/cnypromocode26",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block divider": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/promocode-pe-business-cn-en",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block spacer m-plus": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/local-page/your-winter-wonderland-escape",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cn/en/visa-mastercard-with-unionpay",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/hk/automatic-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style divider": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/hk/check-in-baggage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 2,
+   "section style flush": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/hk/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cn/hk/pre-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style links-horizontal": 2,
+   "section style divider-below": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/34p",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/feedback",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/irreg-handling-plan",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-l": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/local-page/cn-ewallet-payment",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/local-page/cnypromocode26",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/local-page/promocode-100-anniversary-1",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/local-page/tarmac-delay-contingency-plan",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/visa-mastercard-with-unionpay",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cn/zh/wechat-profile",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/co/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/co/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/co/fr/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cr/de/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cr/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cr/en/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cr/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cr/es/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cr/fr/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cy/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cy/el/automatic-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style divider": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cy/el/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cy/el/pre-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style links-horizontal": 2,
+   "section style divider-below": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cy/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/cz/en/autumn-campaign22",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/cz/en/invoice-request-czech-republic",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/de/hertz",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 18 markers -> 0",
+  "markersBefore": 18,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 2,
+   "section style wide-text": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/companion-special-2024",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "block option title-compact": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/europe-offers",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/fly-more-sustainabl",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 3,
+   "section style column-view": 2,
+   "section style flush": 1,
+   "section style padded": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/hertz",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 25 markers -> 0",
+  "markersBefore": 25,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 2,
+   "section style wide-text": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/local-page/companion-special-in-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/local-page/north-america-offers",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/local-page/ski-campaign-2026",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block option title-compact": 1,
+   "block spacer m-plus": 1,
+   "block spacer s": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/sale",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dk/en/yes",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dz/de/datenschutz-lufthansa-facebook",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 16 markers -> 0",
+  "markersBefore": 16,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 8,
+   "section style h3-large": 8,
+   "section style column-view": 7,
+   "section style padded": 7,
+   "section style flush": 6
+  },
+  "inserts": []
+ },
+ {
+  "path": "/dz/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/dz/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/dz/fr/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/dz/fr/local-page/information-importante",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/automatic-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style divider": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/book-and-manage/flights/giftvoucher",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer xs": 1,
+   "block spacer m-plus": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/cash-and-miles",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/flugsuche",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/free2move",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 4,
+   "section style h3-large": 4,
+   "section style small-print": 1,
+   "section style column-view": 2,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/meetings-und-events-individuelle-angebotsanfrage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 3,
+   "section style column-view": 4,
+   "section style flush": 2,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/meetings-und-events-teilnehmer",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 5,
+   "section style column-view": 4,
+   "section style flush": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/pre-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style links-horizontal": 2,
+   "section style divider-below": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ec/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ec/es/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/ee/en/local-page/companion-special-in-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/ee/en/local-page/worldwide-offers1",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/companion-special-jun2021",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style small-print": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting/carbon-offsetting/climate-protection-projects",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer s": 4
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting/carbon-offsetting/saf",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style flush": 2,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/carbon-offsetting/climate-protection-projects",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer s": 4
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/carbon-offsetting/saf",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style flush": 2,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/climate-protection-projects",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer s": 4
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting1/carbon-offsetting/saf",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style flush": 2,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting1/climate-protection-projects",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer s": 4
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/discover-lufthansa/carbon-offsetting1/saf",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 2,
+   "section style flush": 2,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/eg/en/speedlab",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-compact": 1,
+   "section style wide-text": 1,
+   "section style h1-compact": 1,
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/es/de/passenger-rights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/en/articles/explore-the-world/essentials-amsterdam-facts",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/en/articles/explore-the-world/what-i-learned-living-in-la",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/es/en/lgtbiq",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h1-compact": 5,
+   "section style column-view": 3,
+   "section style padded": 2,
+   "section style flush": 3,
+   "section style wide-text": 1,
+   "section style divider-below": 1,
+   "block option background-video": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/en/local-page/all-colors-on-board",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 19 markers -> 0",
+  "markersBefore": 19,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 4,
+   "section style column-view": 2,
+   "section style padded": 2,
+   "section style flush": 1,
+   "section style wide-text": 1,
+   "section style divider": 1,
+   "block divider": 3,
+   "block option divider-above": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/en/passenger-rights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/es/en/unaccompanied-minors",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 41 markers -> 0",
+  "markersBefore": 41,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 15,
+   "section style wide-text": 6,
+   "section style column-view": 10,
+   "section style flush": 10,
+   "section style small-print": 2,
+   "section style divider": 2,
+   "block spacer s": 1,
+   "block option title-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/alleinreisende-kinder",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 42 markers -> 0",
+  "markersBefore": 42,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 15,
+   "section style wide-text": 7,
+   "section style column-view": 10,
+   "section style flush": 10,
+   "section style small-print": 2,
+   "section style divider": 2,
+   "block option title-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/articles/highlights/allegris-premium-economy-san-diego",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/asia-specials",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/automatic-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 5,
+   "section style column-view": 3,
+   "section style flush": 2,
+   "section style divider": 1,
+   "block spacer": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/bizum",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style wide-text": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/companion-special",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/emergency-contact",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/feedback",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/es/es/local-page/descubre-la-belleza-de-alemania",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/local-page/form-submission-error",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style space-below-l": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/local-page/ski-campaign-2026",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1,
+   "block spacer s": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/local-page/todos-los-colores-a-bordo",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 19 markers -> 0",
+  "markersBefore": 19,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 6,
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 3,
+   "section style wide-text": 1,
+   "section style divider": 1,
+   "section style divider-below": 1,
+   "block divider": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/passenger-rights",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "block spacer m-plus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/pre-check-in",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style links-horizontal": 2,
+   "section style divider-below": 1,
+   "section style small-print": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/servicio-desde-pamplona",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/es/es/servicio-desde-pamplona-grupos",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fi/en/book-and-manage/offers-and-destination/worldwide-offers1",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fi/en/local-page/companion-special-in-business-class",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fi/en/local-page/europe-offers",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fi/en/worldwide-offers",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 1,
+   "section style padded": 1,
+   "section style flush": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/de/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/fr/en/all-colors-on-board",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 19 markers -> 0",
+  "markersBefore": 19,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 5,
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2,
+   "section style wide-text": 1,
+   "section style divider": 1,
+   "block divider": 3,
+   "block option divider-above": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/en/homepage",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/fr/en/winter-sun-in-asia",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/en/yes",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style column-view": 3,
+   "section style padded": 3,
+   "section style flush": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "block option background-video": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years/cabin-design",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 16 markers -> 0",
+  "markersBefore": 16,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-m": 9,
+   "section style limited-headings": 3,
+   "section style narrow": 1,
+   "block option title-compact": 1,
+   "block option background-video": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years/campaigns",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "block option title-compact": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years/chronicle",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 19 markers -> 0",
+  "markersBefore": 19,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 3,
+   "section style space-below-m": 1,
+   "section style wide-text": 2,
+   "block option background-video": 2,
+   "block option title-large": 4
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years/crane",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 2,
+   "block option title-compact": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years/fleet",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 33 markers -> 0",
+  "markersBefore": 33,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-m": 8,
+   "section style h2-large": 5,
+   "section style space-m": 5,
+   "section style limited-headings": 2,
+   "section style h3-large": 1,
+   "section style wide-text": 1,
+   "block spacer": 3,
+   "block option space-m": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years/global-network",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-large": 2,
+   "section style wide-text": 1,
+   "block option title-compact": 1,
+   "block spacer s": 3
+  },
+  "inserts": []
+ },
+ {
+  "path": "/fr/fr/100-years/history",
+  "from": "so60 switch batch 24 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-m": 1,
+   "block option title-compact": 1
+  },
+  "inserts": []
+ }
+]

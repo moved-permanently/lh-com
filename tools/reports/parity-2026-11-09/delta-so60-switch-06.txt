@@ -1,0 +1,309 @@
+# ema-adobe, standing order 60 item 1b (2026-11-19): lufthansa.com's switch, collapse batch 06 of 27: 300 documents
+#   (1 roots: gb/en).
+# Each row: collapse DA's copy with main's collapse once the switch's code is on main (tools/importer/marker-collapse-cli.mjs --brand
+#   lufthansa, no --force: the theme is live; one run per batch, so the cross-document anchors inside the batch are rewritten),
+#   then preview and publish. Token-free: the collapse writes carriers (section styles, block options, purpose blocks), no marker.
+# Census after the preview: node tools/importer/switch-census.mjs --batch tools/reports/parity-2026-11-09/delta-so60-switch-06.txt --env page (after the publish: --env live)
+#   expected: "300 documents, read 300, missing 0, errors 0, with markers 0" (exit 0; plan 923 §14.3). "markers" below is the
+#   count in the copy read on 2026-11-19 ~08:30 UTC, "carriers" what the branch's collapse wrote from that copy.
+# path	markers before -> expected	carriers
+READY	/gb/en/articles/explore-the-world/stop-over-hong-kong	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/stop-over-johannesburg	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/stop-over-los-angeles	6 -> 0	section style parallax 3, section style divider-below 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/stop-over-mexico-city	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/stop-over-seoul	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/stop-over-singapore	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/stop-over-tokyo	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/stop-over-washington	6 -> 0	section style divider 1, section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/team-sport	14 -> 0	theme defaults only
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-amsterdam	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-athens	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-bangkok	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-barcelona	8 -> 0	section style h2-small 1, section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-bengaluru	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-boston	8 -> 0	section style h2-small 3, section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-budapest	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-buenos-aires	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-cape-town	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-charlotte	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-chicago	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-dublin	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-frankfurt	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-helsinki	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-hong-kong	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-istanbul	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-johannesburg	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-la	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-lisbon	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-london	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-madrid	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-mallorca	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-mexico-city	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-miami	9 -> 0	section style h2-small 4, section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-milan	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-mumbai	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-munich	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-ny	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-oslo	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-paris	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-prague	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-rio-de-janeiro	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-rome	8 -> 0	section style h2-small 3, section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-san-francisco	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-seoul	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-shanghai	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-singapore	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-stockholm	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-tokyo	6 -> 0	section style h3-large 1, block divider 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-toronto	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-vienna	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-washington	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/explore-the-world/what-i-learned-living-in-zurich	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights	5 -> 0	section style wide-text 1, section style h2-small 1, block spacer xs 1
+READY	/gb/en/articles/highlights-european-championship	16 -> 0	section style limited-headings 2, section style h2-small 4, section style space-m 1, block spacer l-minus 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-great-hope	7 -> 0	theme defaults only
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-locations	5 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-andrich	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-anton	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-baumann	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-beier	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-fuellkrug	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-kimmich	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-kroos	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-mittelstaedt	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-raum	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-tah	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-ter-stegen	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-player-videos-undav	3 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-quiz	4 -> 0	section style divider 1
+READY	/gb/en/articles/highlights-european-championship/european-championship-2024-thank-you	1 -> 0	theme defaults only
+READY	/gb/en/articles/highlights-european-championship/hungary-with-pride-and-passion	7 -> 0	theme defaults only
+READY	/gb/en/articles/highlights-european-championship/lose-like-the-germans	1 -> 0	theme defaults only
+READY	/gb/en/articles/highlights-european-championship/meet-the-germans	2 -> 0	theme defaults only
+READY	/gb/en/articles/highlights-european-championship/scotland-with-heart-and-energy	7 -> 0	theme defaults only
+READY	/gb/en/articles/highlights-european-championship/swiss-passion-meets-precision	7 -> 0	theme defaults only
+READY	/gb/en/articles/highlights/all-it-takes-is-a-yes	12 -> 0	section style wide-text 1, section style h2-small 1, block option title-compact 3, block spacer s 1, video #size 1
+READY	/gb/en/articles/highlights/allegris-a-new-flight-experience	5 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/allegris-business-class-shanghai	4 -> 0	section style h3-large 1, video #size 1
+READY	/gb/en/articles/highlights/allegris-business-san-diego	4 -> 0	section style divider 1, section style h3-large 1, video #size 1
+READY	/gb/en/articles/highlights/allegris-destinations	8 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/allegris-dirk-nowitzki	4 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/allegris-essentials	3 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/allegris-experiences	4 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/allegris-new-york	5 -> 0	section style divider 1, section style h3-large 1, video #size 1
+READY	/gb/en/articles/highlights/allegris-premium-economy-san-diego	4 -> 0	section style divider 1, section style h3-large 1, video #size 1
+READY	/gb/en/articles/highlights/allegris-travel-hacks	5 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/allegris-typologies	1 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/art-and-travel-delhi-berlin	6 -> 0	section style h3-large 1, block divider 2
+READY	/gb/en/articles/highlights/austin-texas-city-of-live-music	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/chisinau-winter	8 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/dfb-partnership-diversity-success	3 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/exclusive-first-class-tracksuit	4 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/fashion-footprints-new-york	6 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/fashion-guide	39 -> 0	section style space-l 6, section style h2-large 2, section style space-below-l 1, block option title-large 6, block option space-l 8, block spacer l 4
+READY	/gb/en/articles/highlights/hyderabad-city-of-pearls-and-programmers	12 -> 0	section style h2-small 4, section style h3-large 1
+READY	/gb/en/articles/highlights/johannesburg-winter	5 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/minneapolis-best-winter-activities	8 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/minneapolis-winter	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/mumbai-nyc-art-journey	6 -> 0	section style h3-large 1, block divider 1
+READY	/gb/en/articles/highlights/mumbai-san-francisco-art-journey	6 -> 0	section style h3-large 1, block divider 1
+READY	/gb/en/articles/highlights/mumbai-uk-art-journey	6 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/new-york-fashion-week	4 -> 0	section style h3-large 1, block divider 1
+READY	/gb/en/articles/highlights/raleigh-nc-winter	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/rome-art-and-culture	1 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/sao-paulo-carnival-brazil-largest-street-carnival	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/seattle-winter	7 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes	8 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/soccer-event-in-north-america	12 -> 0	section style wide-text 2, section style h3-large 1, block spacer l-minus 1
+READY	/gb/en/articles/highlights/sports-experiences-rio-de-janeiro	2 -> 0	section style h3-large 1, block divider 1
+READY	/gb/en/articles/highlights/stefan-marx-travel-hacks	4 -> 0	section style divider 1, section style h3-large 1
+READY	/gb/en/articles/highlights/the-art-of-flying-extra-long-bed	8 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/the-art-of-flying-extra-space-seat	8 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/the-art-of-flying-suite	8 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/vancouver-winter	5 -> 0	section style h3-large 1
+READY	/gb/en/articles/highlights/winter-destinations	15 -> 0	section style wide-text 1, block divider 1
+READY	/gb/en/articles/tags	3 -> 0	section style h2-small 1
+READY	/gb/en/articles/tags/algiers	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/allegris	3 -> 0	section style small-print 1, block option background-video 1, video #size 1
+READY	/gb/en/articles/tags/allegris-inspires	2 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/almaty	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/amman	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/amsterdam	12 -> 0	section style limited-headings 2, block spacer s 2
+READY	/gb/en/articles/tags/art	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/art-basel-miami-beach	8 -> 0	section style limited-headings 1, section style wide-text 1, section style h2-small 1, block spacer s 1
+READY	/gb/en/articles/tags/athens	12 -> 0	section style limited-headings 2, block spacer s 2
+READY	/gb/en/articles/tags/atlanta	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/bangkok	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/barcelona	10 -> 0	section style limited-headings 2, block spacer s 2
+READY	/gb/en/articles/tags/be-picky	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/beijing	11 -> 0	section style limited-headings 1, block spacer s 2
+READY	/gb/en/articles/tags/bengaluru	13 -> 0	section style limited-headings 1, section style small-print 1
+READY	/gb/en/articles/tags/berlin	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/bilbao	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/bogota	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/boston	11 -> 0	section style limited-headings 2, block spacer s 2
+READY	/gb/en/articles/tags/budapest	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/buenos-aires	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/cagliari	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/cairo	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/cape-town	19 -> 0	section style limited-headings 2, section style wide-text 1, block spacer s 1
+READY	/gb/en/articles/tags/casablanca	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/catania	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/charlotte	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/chicago	16 -> 0	section style limited-headings 2, section style small-print 1, block spacer s 1
+READY	/gb/en/articles/tags/copenhagen	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/dallas	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/denver	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/detroit	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/dubai	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/dublin	4 -> 0	section style limited-headings 1, section style h2-small 1, block spacer s 1
+READY	/gb/en/articles/tags/eat-see-do	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/edinburgh	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/essentials	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/faro	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/fly-with-me	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/flying-high	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/food	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/frankfurt	20 -> 0	section style limited-headings 3, section style small-print 1, block spacer s 2
+READY	/gb/en/articles/tags/frequent-flyers	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/future-of-flying	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/gothenburg	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/hamburg	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/helsinki	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/history	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/hong-kong	2 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/houston	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/hyderabad	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/in-my-hood	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/inside-lufthansa	6 -> 0	section style limited-headings 1, section style h2-small 1, block spacer s 1
+READY	/gb/en/articles/tags/istanbul	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/johannesburg	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/know-before-you-go	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/kuala-lumpur	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/larnaca	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/lisbon	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/ljubljana	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/london	12 -> 0	section style limited-headings 3, section style small-print 1, block spacer s 2
+READY	/gb/en/articles/tags/los-angeles	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/madrid	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/malaga	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/mallorca	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/manchester	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/marseille	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/mexico-city	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/miami	16 -> 0	section style limited-headings 3, block spacer s 1
+READY	/gb/en/articles/tags/milan	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/minneapolis-st-paul	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/mumbai	16 -> 0	section style limited-headings 2, section style h2-small 1, block spacer s 1
+READY	/gb/en/articles/tags/munich	21 -> 0	section style limited-headings 4, block spacer s 2
+READY	/gb/en/articles/tags/music	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/my-world	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/nairobi	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/new-york	16 -> 0	section style limited-headings 3, block spacer s 1
+READY	/gb/en/articles/tags/nice	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/olbia	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/on-the-scene	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/oslo	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/paris	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/perfect-day	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/picture-perfect	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/porto	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/prague	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/raleigh-durham	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/riga	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/rio-de-janeiro	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/riyadh	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/rome	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/san-diego	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/san-francisco	17 -> 0	section style limited-headings 2, section style small-print 1, block spacer s 1
+READY	/gb/en/articles/tags/seattle	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/seoul	4 -> 0	section style limited-headings 1, section style h2-small 1, block divider 1
+READY	/gb/en/articles/tags/shanghai	16 -> 0	section style limited-headings 2, section style small-print 1, block spacer s 1
+READY	/gb/en/articles/tags/shopping	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/singapore	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/sport	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/st-louis	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/stockholm	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/stop-over	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/tallinn	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/tbilisi	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/team-stories	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/tel-aviv	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/thessaloniki	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/tirana	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/tokyo	2 -> 0	section style h2-small 1, section style wide-text 1
+READY	/gb/en/articles/tags/toronto	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/tunis	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/valletta	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/vancouver	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/venice	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/vienna	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/vilnius	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/washington-dc	2 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/what-i-learned	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/what-the-hack	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/yes-stories	6 -> 0	section style limited-headings 1
+READY	/gb/en/articles/tags/zagreb	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/gb/en/articles/tags/zurich	5 -> 0	section style limited-headings 1, section style h2-small 1, block divider 1
+READY	/gb/en/assistenzhunde	14 -> 0	section style limited-headings 1, section style wide-text 1, block divider 1
+READY	/gb/en/automatic-check-in	10 -> 0	section style h3-large 5, section style column-view 3, section style flush 2, section style divider 1, block spacer 1
+READY	/gb/en/autumn-campaign22	2 -> 0	theme defaults only
+READY	/gb/en/baggage	13 -> 0	section style space-below-m 1, section style space-m 1, block spacer 1, block option space-m 1
+READY	/gb/en/baggage-irregularities	7 -> 0	block spacer m-plus 1, block spacer 1, block spacer s 1
+READY	/gb/en/besondere-befoerderungsbedingungen-bus	22 -> 0	section style limited-headings 13, section style column-view 11, section style padded 11, section style flush 10, section style wide-text 1
+READY	/gb/en/bid-upgrade	10 -> 0	section style column-view 5, section style flush 5
+READY	/gb/en/boarding	7 -> 0	section style h3-large 3, section style column-view 2, section style flush 1, block spacer xs 1
+READY	/gb/en/boeing787	4 -> 0	section style column-view 1, section style flush 1, section style space-m 1, block option title-large 1
+READY	/gb/en/book-and-manage/additional-services/get-your-guide	6 -> 0	section style h2-small 2, section style column-view 1, block spacer s 1
+READY	/gb/en/book-and-manage/additional-services/travel-insurances	10 -> 0	section style limited-headings 1, section style wide-text 1, section style h2-small 1, block spacer s 1
+READY	/gb/en/book-and-manage/best-price	3 -> 0	section style wide-text 1
+READY	/gb/en/book-and-manage/cancellation-and-refund/refund/refund-form	2 -> 0	block spacer m-plus 1
+READY	/gb/en/book-and-manage/digital-self-services/airline-apps	8 -> 0	section style h2-small 2, section style column-view 1, section style padded 1, block spacer s 1, block option title-large 1
+READY	/gb/en/book-and-manage/flights/air-baltic	7 -> 0	section style limited-headings 1, section style divider-below 1
+READY	/gb/en/book-and-manage/flights/ana	7 -> 0	theme defaults only
+READY	/gb/en/book-and-manage/flights/giftvoucher	5 -> 0	section style h2-small 1, block spacer xs 1, block spacer m-plus 2
+READY	/gb/en/book-and-manage/flights/helvetic	11 -> 0	block spacer s 1, block spacer l-minus 1
+READY	/gb/en/book-and-manage/flights/lufthansa-voucher	10 -> 0	theme defaults only
+READY	/gb/en/book-and-manage/flights/wetlease-hub	1 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/offers-and-destination/business-class-special	4 -> 0	section style h1-compact 1, section style wide-text 1
+READY	/gb/en/book-and-manage/passenger-receipt-90days/confirmation	1 -> 0	block spacer l-minus 1
+READY	/gb/en/book-and-manage/pax-receipt/invoices-different-countries	2 -> 0	section style h2-compact 1, block divider 1
+READY	/gb/en/book-and-manage/rebook	3 -> 0	section style h2-compact 1, block option title-compact 1
+READY	/gb/en/book-and-manage/rebook/involuntary-rebooking	3 -> 0	section style h2-compact 1, block spacer s 1
+READY	/gb/en/book-and-manage/rebook/voluntary-rebooking	3 -> 0	section style h2-compact 1, block spacer s 1
+READY	/gb/en/book-and-manage/stopover	45 -> 0	section style h2-small 10, section style wide-text 1, section style h2-large 1, block option title-compact 1, block spacer m-plus from-768 6, block spacer m-plus 8, block spacer 2
+READY	/gb/en/book-and-manage/stopover/bayerischer-hof	1 -> 0	theme defaults only
+READY	/gb/en/book-and-manage/stopover/breuninger	2 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/garmisch-classic	5 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/hop-on-hop-off-muc	2 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/ingolstadt-village	2 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/leonardo-hotel	2 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/muc-city-pass	2 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/munich-airport	3 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/neuschwanstein	3 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/rosewood	1 -> 0	theme defaults only
+READY	/gb/en/book-and-manage/stopover/sixt-muc	3 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/sixt-ride-bavaria	3 -> 0	block option title-compact 1
+READY	/gb/en/book-and-manage/stopover/zugspitze	4 -> 0	block option title-compact 1
+READY	/gb/en/business-class	10 -> 0	section style space-m 1, block spacer xs 1
+READY	/gb/en/business-class-on-short-and-medium-haul	8 -> 0	section style column-view 1, section style padded 1, block option title-large 1
+READY	/gb/en/business-terms-and-conditions	2 -> 0	section style column-view 1, section style padded 1
+READY	/gb/en/cancellations-and-refunds	4 -> 0	section style column-view 2, section style flush 1
+READY	/gb/en/carry-on-baggage	18 -> 0	section style limited-headings 1, block spacer m-plus 2, block spacer s from-768 3, block spacer l-minus from-768 1, block spacer s 1
+READY	/gb/en/cash-and-miles	5 -> 0	section style column-view 1, section style flush 1, section style wide-text 1, block spacer s 1
+READY	/gb/en/check-in-baggage	5 -> 0	section style column-view 2, section style flush 1
+READY	/gb/en/check-in-deadlines	2 -> 0	section style column-view 1, section style padded 1, section style flush 1
+READY	/gb/en/check-in-with-the-family	4 -> 0	section style column-view 1, section style flush 1, block option title-large 1
+READY	/gb/en/child-restraint-systems	10 -> 0	section style wide-text 4, section style column-view 3, section style flush 2
+READY	/gb/en/children-on-board	1 -> 0	theme defaults only
+READY	/gb/en/childrens-menus-on-board	12 -> 0	section style space-below-m 2, section style column-view 2, section style flush 1, section style space-m 1, block spacer s 2, block option space-m 1
+READY	/gb/en/common/accessibility-statement	9 -> 0	section style limited-headings 1, block spacer m-plus from-768 1
+READY	/gb/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	2 -> 0	section style h2-small 1
+READY	/gb/en/common/baggage-conditions	11 -> 0	section style h2-small 2, section style column-view 1, section style flush 1
+READY	/gb/en/common/compensation-voucher	13 -> 0	section style h2-compact 1
+READY	/gb/en/common/imprint/lufthansa-insights-imprint	5 -> 0	section style wide-text 1
+READY	/gb/en/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page	4 -> 0	theme defaults only
+READY	/gb/en/common/seatreservation-condtions/economy-light-fare	1 -> 0	section style space-below-l 1
+READY	/gb/en/common/seatreservation-condtions/seat-reservations	3 -> 0	section style h2-small 1
+READY	/gb/en/companion-special-business-class	6 -> 0	section style column-view 2, section style padded 2, section style flush 1, section style small-print 2, section style wide-text 1
+READY	/gb/en/concur-terms-and-conditions	1 -> 0	section style limited-headings 1

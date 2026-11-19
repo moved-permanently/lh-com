@@ -1,0 +1,309 @@
+# ema-adobe, standing order 60 item 1b (2026-11-19): lufthansa.com's switch, collapse batch 01 of 27: 300 documents
+#   (1 roots: de/en).
+# Each row: collapse DA's copy with main's collapse once the switch's code is on main (tools/importer/marker-collapse-cli.mjs --brand
+#   lufthansa, no --force: the theme is live; one run per batch, so the cross-document anchors inside the batch are rewritten),
+#   then preview and publish. Token-free: the collapse writes carriers (section styles, block options, purpose blocks), no marker.
+# Census after the preview: node tools/importer/switch-census.mjs --batch tools/reports/parity-2026-11-09/delta-so60-switch-01.txt --env page (after the publish: --env live)
+#   expected: "300 documents, read 300, missing 0, errors 0, with markers 0" (exit 0; plan 923 §14.3). "markers" below is the
+#   count in the copy read on 2026-11-19 ~08:30 UTC, "carriers" what the branch's collapse wrote from that copy.
+# path	markers before -> expected	carriers
+READY	/de/en/100-years	6 -> 0	section style limited-headings 1, block option background-video 1, block spacer s 2
+READY	/de/en/100-years/cabin-design	18 -> 0	section style space-below-m 9, section style limited-headings 3, section style space-m 1, section style narrow 1, block option title-compact 1, block option background-video 1, block option space-m 1, block spacer s 1
+READY	/de/en/100-years/campaigns	12 -> 0	section style wide-text 1, block option title-compact 1, block spacer s 2
+READY	/de/en/100-years/chronicle	20 -> 0	section style h2-large 3, section style space-below-m 1, section style wide-text 2, block option background-video 2, block option space-m 1, block option title-large 4, block spacer 1
+READY	/de/en/100-years/crane	13 -> 0	section style h2-small 2, block option title-compact 1, block spacer s 7, video #size 1
+READY	/de/en/100-years/destinations	32 -> 0	section style space-below-m 10, section style h2-large 4, section style h3-large 1, block option title-compact 1, block spacer from-768 1, block option title-large 5, block option space-m 3, block spacer 3, video #size 1
+READY	/de/en/100-years/fleet	35 -> 0	section style space-below-m 12, section style h2-large 5, section style space-m 5, section style limited-headings 2, section style h3-large 1, section style wide-text 1, block spacer s 2
+READY	/de/en/100-years/global-network	18 -> 0	section style h2-large 2, section style wide-text 1, block option title-compact 1, block spacer 1, block spacer s 8
+READY	/de/en/100-years/history	2 -> 0	section style space-below-m 1, block option title-compact 1
+READY	/de/en/100-years/history/menu-on-board	15 -> 0	section style h2-small 8, block spacer s 5, block spacer s from-768 1
+READY	/de/en/31h	1 -> 0	block option title-large 1
+READY	/de/en/320	3 -> 0	section style column-view 1, section style flush 1, block option title-large 1
+READY	/de/en/321	1 -> 0	block option title-large 1
+READY	/de/en/32l	1 -> 0	block spacer m-plus 1
+READY	/de/en/32n	6 -> 0	section style column-view 2, section style flush 2, block option title-large 1, block spacer s below-768 1
+READY	/de/en/32q	1 -> 0	block option title-large 1
+READY	/de/en/333	1 -> 0	theme defaults only
+READY	/de/en/33p	1 -> 0	theme defaults only
+READY	/de/en/33q	1 -> 0	section style wide-text 1
+READY	/de/en/343	1 -> 0	theme defaults only
+READY	/de/en/34p	1 -> 0	theme defaults only
+READY	/de/en/34q	1 -> 0	theme defaults only
+READY	/de/en/359	6 -> 0	section style column-view 3, section style padded 3, section style flush 2
+READY	/de/en/35a	1 -> 0	block option title-large 1
+READY	/de/en/388	2 -> 0	block option title-large 1
+READY	/de/en/744	6 -> 0	section style column-view 3, section style padded 3, section style flush 2
+READY	/de/en/74h	1 -> 0	block option title-large 1
+READY	/de/en/accessible-travel	12 -> 0	section style wide-text 1, section style h3-large 4, section style column-view 4, section style flush 3, section style space-m 1, section style divider 1
+READY	/de/en/add-sports-baggage	1 -> 0	block spacer l-minus 1
+READY	/de/en/additional-services	11 -> 0	block spacer m-plus from-768 10
+READY	/de/en/addresses-worldwide	1 -> 0	block spacer m-plus 1
+READY	/de/en/admission-rules	18 -> 0	section style limited-headings 7, section style column-view 6, section style flush 5, section style small-print 3
+READY	/de/en/advance-seat-reservation	64 -> 0	section style column-view 1, section style flush 1, section style divider 1, block spacer s 11, block option title-large 2, block spacer m-plus 1
+READY	/de/en/advance-seat-reservations-terms-and-conditions	7 -> 0	section style wide-text 1, section style space-below-l 1
+READY	/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa	4 -> 0	section style h3-large 2, section style column-view 1, section style divider 1, block option title-compact 1
+READY	/de/en/affiliatemarketing	8 -> 0	block spacer xs 1, block spacer m-plus 1
+READY	/de/en/airport-information	6 -> 0	block spacer xs from-768 1, block spacer l-minus 1
+READY	/de/en/all-check-in	6 -> 0	section style column-view 1, section style flush 1, block option title-large 1
+READY	/de/en/anmeldung-tiere-frachtraum	2 -> 0	theme defaults only
+READY	/de/en/arrival-services	6 -> 0	section style column-view 2, section style flush 1, section style wide-text 1, section style small-print 1, block spacer s 1
+READY	/de/en/articles	2 -> 0	section style h2-small 1
+READY	/de/en/articles/authors/alexandra-mikamo	2 -> 0	section style wide-text 1, section style divider 1
+READY	/de/en/articles/authors/florian-schwebel	2 -> 0	section style wide-text 1, section style divider 1
+READY	/de/en/articles/authors/florian-tomberg	2 -> 0	section style wide-text 1, section style divider 1
+READY	/de/en/articles/authors/julia-buth	2 -> 0	section style wide-text 1, section style divider 1
+READY	/de/en/articles/authors/till-weisbrod	2 -> 0	section style wide-text 1, section style divider 1
+READY	/de/en/articles/explore-flying	2 -> 0	section style h2-small 1, block spacer m-plus 1
+READY	/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/a-girl-named-lufthansa	5 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/aircraft-lights-explained	2 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/allegris-business-class-dirk-nowitzki	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-flying/allegris-exclusive-first-class-loungewear	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/allegris-first-class-innovations	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/allegris-fox	2 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/anniversary-super-crane-special	11 -> 0	section style h2-small 4, section style h3-large 1
+READY	/de/en/articles/explore-flying/art-basel-miami-beach-stefan-marx	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/best-airport-restaurants	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/celebrating-20-years-of-excellence	14 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/cockpit-collaboration	7 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/come-fly-with-me-lufthansa-allegris	7 -> 0	section style divider 1, section style h3-large 1, block spacer m-plus 3
+READY	/de/en/articles/explore-flying/culinary-craftsmanship-smoked-fish-for-first-and-business-class	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/essentials-future-of-flying	2 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/essentials-lufthansa-facts	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/essentials-surprising-lufthansa-numbers	2 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/everyone-wants-to-fly-with-the-cranes	10 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/female-pilots	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/first-class-culinary-inspiration-journey-tokyo	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/first-class-reimagined	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/first-class-terminal-architecture	4 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/flying-high-christoph-quarch	2 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/flying-high-meta-city	5 -> 0	section style divider 1, section style divider-below 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/future-of-flying	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/help-alliance-engagement-in-tanzania	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/help-alliance-taking-off-for-a-good-cause	5 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/hon-circle-event	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/how-to-become-a-flight-attendant	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/how-to-become-a-pilot	5 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/inflight-entertainment-vr-experience	5 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/inside-lufthansa-lh-allegris	5 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/interview-livery-iconic-moments	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/livery-iconic-moments	27 -> 0	section style h2-small 1, section style divider-below 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-allegris-first-class	7 -> 0	block spacer s 1, block divider 1
+READY	/de/en/articles/explore-flying/lufthansa-allegris-welcome-to-the-future-of-aviation	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-classics	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-fleet-our-aircrafts	2 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-group-wifi	6 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-help-alliance-i-fly-for-campaign	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-in-the-spotlight	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-innovation-hub-future-of-flying	4 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-insights-art	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-lounges	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-orchestra-channel-aid-live-in-concert	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/lufthansa-uniforms-history	10 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/meet-the-makers-innovations-for-individual-well-being	7 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-flying/meet-the-makers-lufthansa-allegris-business-class	10 -> 0	section style h2-small 1, block divider 1
+READY	/de/en/articles/explore-flying/meet-the-makers-lufthansa-allegris-first-class	11 -> 0	block divider 1
+READY	/de/en/articles/explore-flying/meet-the-makers-the-manufactures-of-the-first-class-suites	10 -> 0	block divider 1
+READY	/de/en/articles/explore-flying/new-lufthansa-lounge-newark-interview	6 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/oktoberfest-traditional-bavarian-attire	8 -> 0	section style h2-small 2, section style h3-large 1
+READY	/de/en/articles/explore-flying/pride-diversifly-queer-employee-network-lufthansa-group	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/queer-travel-safer-trips	9 -> 0	section style h2-small 2, section style h3-large 1
+READY	/de/en/articles/explore-flying/responsibility-lufthansa	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/things-you-always-wanted-to-know-about-flying	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/time-travel-ki-aviation	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/travel-trends	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/vacation-packing-list	9 -> 0	section style h2-small 5, section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-alexandra-maria-lara	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-bridget-finn	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-elyas-mbarek	7 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-emilia-schuele	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt	5 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-karolina-kurkova	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-karoline-herfurth	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/welcome-to-my-world-lexie-alford	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/what-does-luxury-mean-today	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/what-the-hack-anti-jetlag-tips	9 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/what-the-hack-best-seats	7 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/what-the-hack-sleep-on-a-plane	13 -> 0	section style h2-small 3, section style h3-large 1, block spacer s 1, block divider 1
+READY	/de/en/articles/explore-flying/what-the-hack-travel-gadgets	5 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/what-the-hack-travel-hacks	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/what-the-hack-travel-with-kids	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/what-the-hack-waiting-time-at-the-airport	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/what-the-hack-what-is-the-etiquette-of-traveling	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-flying/yes-stories-the-fascination-of-skydiving	5 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/yes-stories-the-two-worlds-of-kaye-ree	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/yes-stories-thorsten-buss	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-flying/yes-stories-tom-rees	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world	3 -> 0	section style h2-small 1, block spacer m-plus 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-art-basel-miami-beach-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-athens-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-bangkok-in-one-day	10 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day	16 -> 0	section style h2-small 3, section style h3-large 1, block spacer s from-768 1, block spacer xs from-768 3
+READY	/de/en/articles/explore-the-world/a-perfect-day-beijing-in-one-day	11 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-bengaluru-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day	15 -> 0	section style h2-small 3, section style h3-large 1, block spacer s from-768 1, block spacer xs from-768 3
+READY	/de/en/articles/explore-the-world/a-perfect-day-boston-on-one-day	11 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-budapest-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-buenos-aires-in-one-day	9 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-cape-town-in-one-day	10 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-charlotte-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-chicago-in-one-day	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-copenhagen-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-dublin-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-frankfurt-in-one-day	9 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-hamburg	11 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-helsinki-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-hong-kong-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-houston-in-one-day	11 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-istanbul-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-johannesburg-in-one-day	10 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-la-in-one-day	6 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-lisbon-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-london-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-madrid-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-malaga-on-one-day	11 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-mallorca-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-mexico-city-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-miami-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-milan-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-mumbai-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-munich-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-ny-in-one-day	11 -> 0	section style h2-small 3, section style h3-large 1, block option divider-above 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-oslo-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-paris-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-porto-in-one-day	11 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-prague-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-rio-de-janeiro-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-rome-in-one-day	11 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-san-francisco-in-one-day	9 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-seoul-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-shanghai-in-one-day	12 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-singapore-in-one-day	9 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-stockholm-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-tokyo-in-one-day	9 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-toronto-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-vienna-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-washington-in-one-day	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-day-zurich-in-one-day	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/a-perfect-nairobi-city-in-one-day	10 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/art-basel-miami-beach-fun-facts	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-amsterdam-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-athens-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-bangkok-insider-tips	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips	9 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-bengaluru	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-budapest-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-buenos-aires-insider-tips	6 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/be-picky-cape-town-insider-tips	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-charlotte-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-chicago-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-copenhagen	5 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-dublin-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-helsinkis-insider-tips	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-hong-kong-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-istanbul-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-johannesburg-insider-tipps	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-la-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-lisbon	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-little-italy-in-vancouver	6 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/be-picky-london-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-madrid	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-mallorca-insider-tips	5 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-mexico-city-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-miami-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-milan-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-mumbai-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-munich-insider-tip-anika-landsteiner	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-ny-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-oslo-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-paris-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-prague-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-rio-de-janeiro-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-rome-insider-tips	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-san-francisco-insider-tips	6 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/be-picky-seoul-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-shanghai-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-singapore-insider-tips	6 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/be-picky-stockholm	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-tokyo-insider-tips	9 -> 0	section style h2-small 2, section style h3-large 1, block divider 2
+READY	/de/en/articles/explore-the-world/be-picky-toronto-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-vienna-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-washington-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/be-picky-zurich-insider-tips	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/copenhagen-what-i-have-learned	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-algiers	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-almaty	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-amman	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-atlanta	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-beijing	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-berlin	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-bilbao	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-bogota	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-boston	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-cagliari	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-cairo	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-casablanca	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-catania	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-chennai	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-dallas	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-denver	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-detroit	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-dubai	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-edinburgh	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-faro	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-gothenburg	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-hamburg	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-houston	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-hyderabad	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-kuala-lumpur	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-larnaca	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-ljubljana	5 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-malaga	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-manchester	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-marseille	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-minneapolis-st-paul	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-nairobi	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-nice	4 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-olbia	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-porto	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-raleigh-durham	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-riga	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-riyadh	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-san-diego	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-seattle	6 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-st-louis	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-tallinn	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-tbilisi	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-tel-aviv	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-thessaloniki	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-tirana	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-tunis	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-valletta	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-venice	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-vilnius	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/eat-see-do-zagreb	6 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-amsterdam-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-athens-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-bangkok-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-barcelona-facts	4 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-beijing-facts	4 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-bengaluru-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-boston-facts	4 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-budapest-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-buenos-aires-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-cape-town-facts	4 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-charlotte-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-chicago-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-copenhagen-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-dublin-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-facts-vancouver	4 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-frankfurt-facts	5 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-helsinki-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-hong-kong-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-istanbul-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-johannesburg-facts	3 -> 0	section style h3-large 1

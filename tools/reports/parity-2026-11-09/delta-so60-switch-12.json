@@ -1,0 +1,3804 @@
+[
+ {
+  "path": "/at/de/articles/explore-the-world/essentials-toronto-facts",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block option mobile-video": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/essentials-vienna-facts",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/essentials-washington-facts",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/essentials-zurich-facts",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/experience-art-live",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/experience-nature",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 15 markers -> 0",
+  "markersBefore": 15,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-apgujeong-seoul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-arroios-lissabon",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-back-bay-boston",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-bandra-mumbai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-chiswick-london",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-citta-studi-milan",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-city-centre-cape-town",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 4,
+   "section style h3-large": 1,
+   "block option divider-above": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-comercial-drive-vancouver",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-coyoacan-mexico-city",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-creative-quarter-dublin",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-district-helsinki",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-district-houston",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-district-malaga",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-district-nairobi",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-district-porto",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-district-viii-budapest",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-district-zurich",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-gamlebyen-oslo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-geylang-singapur",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-gulou-beijing",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-hollywood-road-hong-kong",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-indiranagar-bengaluru",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-ipanema-rio-de-janeiro",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-japantown-san-francisco",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-kadikoey-istanbul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-kreuzberg-berlin",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-larchmont-la",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-le-sentier-paris",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-mallorca",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-metaxourgeio-athens",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-munich-sendling",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-nice-ouest",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-noord-amsterdam",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-ny-brooklyn",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-osterbro-kopenhagen",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-palermo-buenos-aires",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-plaza-midwood-charlotte",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-poblenou-barcelona",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-rome-pigneto-rome",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-rosebank-johannesburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-sachsenhausen-frankfurt",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-salamanca-madrid",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-schaumburg-chicago",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-seventh-district-vienna",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-shinjuku-tokyo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-song-wat-road-bangkok",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-south-beach-miami",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-the-bund-shanghai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-toronto-summerhill",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-vasastaden-stockholm",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-vrsovice-prague",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-west-seattle-seattle",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-algiers",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-m": 1,
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-almaty",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-amman",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-atlanta",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-beijing",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-berlin",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-below-m": 1,
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-bilbao",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-bogota",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-boston",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-cagliari",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-cairo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-casablanca",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-catania",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-chennai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-dallas",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-denver",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-detroit",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-dubai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-edinburgh",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-faro",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-gothenburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-hamburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-houston",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-hyderabad",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-kuala-lumpur",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-larnaca",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-ljubljana",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-malaga",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-manchester",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-marseille",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-minneapolis-st-paul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-nairobi",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-nice",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-olbia",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-porto",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-raleigh-durham",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-riga",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-riyadh",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-san-diego",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-seattle",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-st-louis",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tallinn",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tbilisi",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tel-aviv",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-thessaloniki",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tirana",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tunis",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-valletta",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-venice",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-vilnius",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-zagreb",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/my-experiences-in-vancouver",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/new-shopping",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 14 markers -> 0",
+  "markersBefore": 14,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/next-level-gaming",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 14 markers -> 0",
+  "markersBefore": 14,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-architecture-copenhagen",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-art-and-pubs-dublin",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-art-johannesburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-bar-basso-milan",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-braamfontein-johannesburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-brunch-restaurants-la",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-chicago-beer",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 2,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-creative-architecture-prague",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-culinary-trip-washington",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-fashion-and-culture-budapest",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-mumbai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 2,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-trends-amsterdam",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-trends-bengaluru",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-hidden-gems-seoul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-humor-vienna",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-listening-bars-toronto",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-lunch-mexico-city",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-mallorca",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-music-cape-town",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-samba-rio-de-janeiro",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-san-francisco-fashion",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shanghai-art-scene",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shopping-barcelona",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shopping-lisbon",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shopping-tokyo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-sports-miami",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-stockholm",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-street-art-charlotte",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-street-art-london",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-streetart-athens",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-super-bros-frankfurt",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-supper-clubs-ny",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-techno-sound-rome",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-tips-oslo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-topic-bangkok",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-topic-helsinki",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-topic-zurich",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-trends-madrid",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-urban-farming-singapore",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-vancouver-donuts",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-wellness-cuisine-hong-kong",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/perfect-day-nice-cote-dazur",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/perfect-day-seattle",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/perfect-day-tips-vancouver",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-austin",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-beijing",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-bogota",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-boston",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-cairo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-elevator-boys",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-hyderabad",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-la",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-ny",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-riad",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 11 markers -> 0",
+  "markersBefore": 11,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-singapore",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 10 markers -> 0",
+  "markersBefore": 10,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 2,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/sao-paulo-sights",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-bangkok",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-beijing",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 1,
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-boston",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 1,
+   "section style h2-small": 1,
+   "section style divider-below": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-buenos-aires",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 4,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-charlotte",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider-below": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-hong-kong",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-johannesburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-los-angeles",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider-below": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-mexico-city",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider-below": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-seoul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-singapore",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-tokyo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style parallax": 3,
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-washington",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider-below": 1,
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/team-sport",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 14 markers -> 0",
+  "markersBefore": 14,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-amsterdam",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-athens",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-bangkok",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-barcelona",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-bengaluru",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-boston",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-budapest",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-buenos-aires",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-cape-town",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-charlotte",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-chicago",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-dublin",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-frankfurt",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-helsinki",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-hong-kong",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-istanbul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-johannesburg",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-la",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-lisbon",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-london",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-madrid",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-mallorca",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-mexico-city",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-miami",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 9 markers -> 0",
+  "markersBefore": 9,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 4,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-milan",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-mumbai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-munich",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-ny",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-oslo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-paris",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-prague",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-rio-de-janeiro",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-rome",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 3,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-san-francisco",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-seoul",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-shanghai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-singapore",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-stockholm",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-tokyo",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-toronto",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-vienna",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-washington",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-zurich",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style h2-small": 1,
+   "block spacer xs": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 16 markers -> 0",
+  "markersBefore": 16,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 2,
+   "section style h2-small": 4,
+   "section style space-m": 1,
+   "block spacer l-minus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-great-hope",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-locations",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-andrich",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-anton",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-baumann",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-beier",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-fuellkrug",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-kimmich",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-kroos",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-mittelstaedt",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-raum",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-tah",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-ter-stegen",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-undav",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-quiz",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/european-championship-2024-thank-you",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/hungary-with-pride-and-passion",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/lose-like-the-germans",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/meet-the-germans",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/scotland-with-heart-and-energy",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights-european-championship/swiss-passion-meets-precision",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {},
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/all-it-takes-is-a-yes",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 1,
+   "section style h2-small": 1,
+   "block option title-compact": 3,
+   "block spacer s": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-a-new-flight-experience",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-business-class-shanghai",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-business-san-diego",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-destinations",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-dirk-nowitzki",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-essentials",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-experiences",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-new-york",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-premium-economy-san-diego",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-travel-hacks",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-typologies",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/austin-texas-city-of-live-music",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/chisinau-winter",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/dfb-partnership-diversity-success",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/exclusive-first-class-tracksuit",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1,
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/fashion-footprints-new-york",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 6 markers -> 0",
+  "markersBefore": 6,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/fashion-guide",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 39 markers -> 0",
+  "markersBefore": 39,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style space-l": 6,
+   "section style h2-large": 2,
+   "section style space-below-l": 1,
+   "block option title-large": 6,
+   "block option space-l": 8,
+   "block spacer l": 4
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/hyderabad-city-of-pearls-and-programmers",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 4,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/johannesburg-winter",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/minneapolis-best-winter-activities",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/minneapolis-winter",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/new-york-fashion-week",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/raleigh-nc-winter",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/rome-art-and-culture",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 1 markers -> 0",
+  "markersBefore": 1,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/sao-paulo-carnival-brazil-largest-street-carnival",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/seattle-winter",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 7 markers -> 0",
+  "markersBefore": 7,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/soccer-event-in-north-america",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style wide-text": 2,
+   "section style h3-large": 1,
+   "block spacer l-minus": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/sports-experiences-rio-de-janeiro",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/stefan-marx-travel-hacks",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style divider": 1,
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/the-art-of-flying-extra-long-bed",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/the-art-of-flying-extra-space-seat",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/the-art-of-flying-suite",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/vancouver-winter",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h3-large": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/highlights/winter-destinations",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 13 markers -> 0",
+  "markersBefore": 13,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 3 markers -> 0",
+  "markersBefore": 3,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/algiers",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 5 markers -> 0",
+  "markersBefore": 5,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "section style h2-small": 1,
+   "block divider": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/allegris",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style small-print": 1,
+   "block option background-video": 1,
+   "video #size": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/allegris-inspires",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 2 markers -> 0",
+  "markersBefore": 2,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/almaty",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/amman",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/amsterdam",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 2,
+   "block spacer s": 2
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/art",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 4 markers -> 0",
+  "markersBefore": 4,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "section style h2-small": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/art-basel-miami-beach",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 8 markers -> 0",
+  "markersBefore": 8,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 1,
+   "section style wide-text": 1,
+   "section style h2-small": 1,
+   "block spacer s": 1
+  },
+  "inserts": []
+ },
+ {
+  "path": "/at/de/articles/tags/athens",
+  "from": "so60 switch batch 12 (ema-adobe)",
+  "change": "collapse (marker-collapse-cli --brand lufthansa): 12 markers -> 0",
+  "markersBefore": 12,
+  "expectMarkers": 0,
+  "publish": true,
+  "carriers": {
+   "section style limited-headings": 2,
+   "block spacer s": 2
+  },
+  "inserts": []
+ }
+]

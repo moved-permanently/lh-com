@@ -1,0 +1,309 @@
+# ema-adobe, standing order 60 item 1b (2026-11-19): lufthansa.com's switch, collapse batch 02 of 27: 300 documents
+#   (1 roots: de/en).
+# Each row: collapse DA's copy with main's collapse once the switch's code is on main (tools/importer/marker-collapse-cli.mjs --brand
+#   lufthansa, no --force: the theme is live; one run per batch, so the cross-document anchors inside the batch are rewritten),
+#   then preview and publish. Token-free: the collapse writes carriers (section styles, block options, purpose blocks), no marker.
+# Census after the preview: node tools/importer/switch-census.mjs --batch tools/reports/parity-2026-11-09/delta-so60-switch-02.txt --env page (after the publish: --env live)
+#   expected: "300 documents, read 300, missing 0, errors 0, with markers 0" (exit 0; plan 923 §14.3). "markers" below is the
+#   count in the copy read on 2026-11-19 ~08:30 UTC, "carriers" what the branch's collapse wrote from that copy.
+# path	markers before -> expected	carriers
+READY	/de/en/articles/explore-the-world/essentials-la-facts	4 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-lisbon-facts	3 -> 0	section style divider-below 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-london-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-madrid-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-mallorca-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-mexico-city-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-miami-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-milan-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-mumbai-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-munich-facts	4 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-ny-facts	4 -> 0	section style divider 1, section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-oslo-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-paris-facts	4 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-prague-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-rio-de-janeiro-facts	4 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-rome-facts	4 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-san-francisco-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-seoul-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-shanghai-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-singapore-facts	4 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-stockholm-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-tokyo-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-toronto-facts	4 -> 0	section style h3-large 1, block option mobile-video 1
+READY	/de/en/articles/explore-the-world/essentials-vienna-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-washington-facts	2 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/essentials-zurich-facts	3 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/experience-art-live	12 -> 0	theme defaults only
+READY	/de/en/articles/explore-the-world/experience-nature	15 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-apgujeong-seoul	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-arroios-lissabon	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-back-bay-boston	5 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-bandra-mumbai	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-chiswick-london	9 -> 0	section style h3-large 1, block option space-m 1
+READY	/de/en/articles/explore-the-world/in-my-hood-citta-studi-milan	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-city-centre-cape-town	11 -> 0	section style h2-small 4, section style h3-large 1, block option divider-above 1
+READY	/de/en/articles/explore-the-world/in-my-hood-comercial-drive-vancouver	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-coyoacan-mexico-city	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-creative-quarter-dublin	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-district-helsinki	6 -> 0	theme defaults only
+READY	/de/en/articles/explore-the-world/in-my-hood-district-houston	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-district-malaga	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-district-nairobi	5 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-district-porto	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-district-viii-budapest	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-district-zurich	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-gamlebyen-oslo	5 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-geylang-singapur	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-gulou-beijing	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-hollywood-road-hong-kong	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-indiranagar-bengaluru	10 -> 0	section style h2-small 3, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/in-my-hood-ipanema-rio-de-janeiro	10 -> 0	section style h2-small 3, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/in-my-hood-japantown-san-francisco	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-kadikoey-istanbul	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-kreuzberg-berlin	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-larchmont-la	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-le-sentier-paris	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-mallorca	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-metaxourgeio-athens	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-mount-pleasant-washington	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-munich-sendling	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-nice-ouest	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-noord-amsterdam	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-ny-brooklyn	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-osterbro-kopenhagen	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-palermo-buenos-aires	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-plaza-midwood-charlotte	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-poblenou-barcelona	9 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-rome-pigneto-rome	9 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-rosebank-johannesburg	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-sachsenhausen-frankfurt	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-salamanca-madrid	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-schaumburg-chicago	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-seventh-district-vienna	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-shinjuku-tokyo	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-song-wat-road-bangkok	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-south-beach-miami	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-the-bund-shanghai	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-toronto-summerhill	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-vasastaden-stockholm	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-vrsovice-prague	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/in-my-hood-west-seattle-seattle	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-algiers	4 -> 0	section style space-below-m 1, section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-almaty	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-amman	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-atlanta	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-beijing	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-berlin	4 -> 0	section style space-below-m 1, section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-bilbao	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-bogota	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-boston	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-cagliari	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-cairo	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-casablanca	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-catania	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-chennai	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-dallas	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-denver	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-detroit	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-dubai	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-edinburgh	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-faro	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-gothenburg	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-hamburg	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-houston	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-hyderabad	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-kuala-lumpur	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-larnaca	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-ljubljana	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-malaga	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-manchester	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-marseille	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-minneapolis-st-paul	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-nairobi	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-nice	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-olbia	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-porto	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-raleigh-durham	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-riga	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-riyadh	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-san-diego	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-seattle	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-st-louis	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-tallinn	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-tbilisi	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-tel-aviv	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-thessaloniki	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-tirana	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-tunis	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-valletta	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-venice	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-vilnius	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/know-before-you-go-zagreb	3 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/my-experiences-in-vancouver	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/new-shopping	14 -> 0	theme defaults only
+READY	/de/en/articles/explore-the-world/next-level-gaming	14 -> 0	theme defaults only
+READY	/de/en/articles/explore-the-world/on-the-scene-architecture-copenhagen	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-art-and-pubs-dublin	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-art-johannesburg	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-bar-basso-milan	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-bookstores-buenos-aires	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-braamfontein-johannesburg	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-brunch-restaurants-la	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-chicago-beer	10 -> 0	section style h2-small 2, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/on-the-scene-creative-architecture-prague	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-culinary-trip-washington	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-fashion-and-culture-budapest	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-food-mumbai	10 -> 0	section style h2-small 2, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/on-the-scene-food-trends-amsterdam	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-food-trends-bengaluru	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-hidden-gems-seoul	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-humor-vienna	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-listening-bars-toronto	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-lunch-mexico-city	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-mallorca	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-music-cape-town	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-samba-rio-de-janeiro	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-san-francisco-fashion	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-shanghai-art-scene	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-shopping-barcelona	9 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-shopping-lisbon	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-shopping-tokyo	7 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/on-the-scene-sports-miami	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-stockholm	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-street-art-charlotte	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-street-art-london	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-streetart-athens	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-super-bros-frankfurt	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-supper-clubs-ny	8 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-techno-sound-rome	9 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-tips-oslo	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-topic-bangkok	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-topic-helsinki	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-topic-zurich	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-trends-madrid	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-urban-farming-singapore	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-vancouver-donuts	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/on-the-scene-wellness-cuisine-hong-kong	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/perfect-day-nice-cote-dazur	11 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/perfect-day-seattle	11 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/perfect-day-tips-vancouver	9 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/picture-perfect-austin	12 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-beijing	11 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-bogota	11 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-boston	11 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-cairo	11 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-elevator-boys	9 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-hyderabad	10 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-la	10 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-ny	10 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-riad	11 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/picture-perfect-singapore	10 -> 0	section style parallax 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/sao-paulo-sights	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/stop-over-bangkok	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-beijing	5 -> 0	section style parallax 1, section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/stop-over-boston	5 -> 0	section style parallax 1, section style h2-small 1, section style divider-below 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/stop-over-buenos-aires	6 -> 0	section style parallax 4, section style divider 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/stop-over-charlotte	6 -> 0	section style parallax 3, section style divider-below 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-hong-kong	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-johannesburg	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-los-angeles	6 -> 0	section style parallax 3, section style divider-below 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-mexico-city	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-seoul	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-singapore	6 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-tokyo	7 -> 0	section style parallax 3, section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/stop-over-washington	6 -> 0	section style divider 1, section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/team-sport	14 -> 0	theme defaults only
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-amsterdam	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-athens	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-bangkok	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-barcelona	9 -> 0	section style h2-small 1, section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-bengaluru	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-boston	8 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-budapest	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-buenos-aires	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-cape-town	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-charlotte	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-chicago	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-dublin	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-helsinki	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-hong-kong	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-istanbul	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-johannesburg	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-la	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-lisbon	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-london	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-madrid	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-mallorca	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-mexico-city	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-miami	9 -> 0	section style h2-small 4, section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-milan	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-mumbai	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-munich	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-ny	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-oslo	7 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-paris	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-prague	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-rio-de-janeiro	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-rome	8 -> 0	section style h2-small 3, section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-san-francisco	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-seoul	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-shanghai	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-singapore	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-stockholm	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-tokyo	6 -> 0	section style h3-large 1, block divider 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-toronto	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-vienna	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-washington	6 -> 0	section style h3-large 1
+READY	/de/en/articles/explore-the-world/what-i-learned-living-in-zurich	6 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights	5 -> 0	section style wide-text 1, section style h2-small 1, block spacer xs 1
+READY	/de/en/articles/highlights-european-championship	16 -> 0	section style limited-headings 2, section style h2-small 4, section style space-m 1, block spacer l-minus 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-great-hope	7 -> 0	theme defaults only
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-locations	5 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-andrich	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-anton	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-baumann	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-beier	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-fuellkrug	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-kimmich	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-kroos	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-mittelstaedt	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-raum	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-tah	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-ter-stegen	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-player-videos-undav	3 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-quiz	4 -> 0	section style divider 1
+READY	/de/en/articles/highlights-european-championship/european-championship-2024-thank-you	1 -> 0	theme defaults only
+READY	/de/en/articles/highlights-european-championship/hungary-with-pride-and-passion	7 -> 0	theme defaults only
+READY	/de/en/articles/highlights-european-championship/lose-like-the-germans	1 -> 0	theme defaults only
+READY	/de/en/articles/highlights-european-championship/meet-the-germans	2 -> 0	theme defaults only
+READY	/de/en/articles/highlights-european-championship/scotland-with-heart-and-energy	7 -> 0	theme defaults only
+READY	/de/en/articles/highlights-european-championship/swiss-passion-meets-precision	7 -> 0	theme defaults only
+READY	/de/en/articles/highlights/all-it-takes-is-a-yes	12 -> 0	section style wide-text 1, section style h2-small 1, block option title-compact 3, block spacer s 1, video #size 1
+READY	/de/en/articles/highlights/allegris-a-new-flight-experience	5 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/highlights/allegris-business-class-shanghai	4 -> 0	section style h3-large 1, video #size 1
+READY	/de/en/articles/highlights/allegris-business-san-diego	4 -> 0	section style divider 1, section style h3-large 1, video #size 1
+READY	/de/en/articles/highlights/allegris-destinations	8 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/allegris-dirk-nowitzki	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/highlights/allegris-essentials	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/highlights/allegris-experiences	4 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/highlights/allegris-new-york	5 -> 0	section style divider 1, section style h3-large 1, video #size 1
+READY	/de/en/articles/highlights/allegris-premium-economy-san-diego	4 -> 0	section style divider 1, section style h3-large 1, video #size 1
+READY	/de/en/articles/highlights/allegris-travel-hacks	5 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/highlights/allegris-typologies	1 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/art-and-travel-delhi-berlin	6 -> 0	section style h3-large 1, block divider 2
+READY	/de/en/articles/highlights/austin-texas-city-of-live-music	6 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/chisinau-winter	8 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/dfb-partnership-diversity-success	3 -> 0	section style divider 1, section style h3-large 1
+READY	/de/en/articles/highlights/exclusive-first-class-tracksuit	4 -> 0	section style h2-small 1, section style divider 1, section style h3-large 1
+READY	/de/en/articles/highlights/fashion-footprints-new-york	6 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/fashion-guide	39 -> 0	section style space-l 6, section style h2-large 2, section style space-below-l 1, block option title-large 6, block option space-l 8, block spacer l 4
+READY	/de/en/articles/highlights/hyderabad-city-of-pearls-and-programmers	12 -> 0	section style h2-small 4, section style h3-large 1
+READY	/de/en/articles/highlights/johannesburg-winter	5 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/minneapolis-best-winter-activities	8 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/minneapolis-winter	7 -> 0	section style h3-large 1
+READY	/de/en/articles/highlights/mumbai-nyc-art-journey	6 -> 0	section style h3-large 1, block divider 1

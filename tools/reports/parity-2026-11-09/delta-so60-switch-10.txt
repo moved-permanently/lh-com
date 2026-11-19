@@ -1,0 +1,309 @@
+# ema-adobe, standing order 60 item 1b (2026-11-19): lufthansa.com's switch, collapse batch 10 of 27: 300 documents
+#   (2 roots: de/de, at/de).
+# Each row: collapse DA's copy with main's collapse once the switch's code is on main (tools/importer/marker-collapse-cli.mjs --brand
+#   lufthansa, no --force: the theme is live; one run per batch, so the cross-document anchors inside the batch are rewritten),
+#   then preview and publish. Token-free: the collapse writes carriers (section styles, block options, purpose blocks), no marker.
+# Census after the preview: node tools/importer/switch-census.mjs --batch tools/reports/parity-2026-11-09/delta-so60-switch-10.txt --env page (after the publish: --env live)
+#   expected: "300 documents, read 300, missing 0, errors 0, with markers 0" (exit 0; plan 923 §14.3). "markers" below is the
+#   count in the copy read on 2026-11-19 ~08:30 UTC, "carriers" what the branch's collapse wrote from that copy.
+# path	markers before -> expected	carriers
+READY	/de/de/articles/tags/tallinn	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/tbilisi	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/team-stories	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/tel-aviv	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/thessaloniki	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/tirana	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/tokyo	2 -> 0	section style h2-small 1, section style wide-text 1
+READY	/de/de/articles/tags/toronto	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/tunis	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/valletta	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/vancouver	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/venice	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/vienna	3 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/vilnius	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/washington-dc	2 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/what-i-learned	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/what-the-hack	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/yes-stories	6 -> 0	section style limited-headings 1
+READY	/de/de/articles/tags/zagreb	4 -> 0	section style limited-headings 1, section style h2-small 1
+READY	/de/de/articles/tags/zurich	5 -> 0	section style limited-headings 1, section style h2-small 1, block divider 1
+READY	/de/de/assistenzhunde	13 -> 0	section style wide-text 1, block divider 1
+READY	/de/de/automatic-check-in	10 -> 0	section style h3-large 5, section style column-view 3, section style flush 2, section style divider 1, block spacer 1
+READY	/de/de/baggage-irregularities	7 -> 0	block spacer m-plus 1, block spacer 1, block spacer s 1
+READY	/de/de/bedeutsamste-strecken	8 -> 0	section style wide-text 2, section style column-view 2, section style padded 2
+READY	/de/de/befoerderungsbedingungen-group	9 -> 0	block option title-compact 1
+READY	/de/de/befoerderungsbedingungen-lh	54 -> 0	section style column-view 19, section style flush 19, section style wide-text 1, section style divider 16
+READY	/de/de/besondere-befoerderungsbedingungen-bus	22 -> 0	section style limited-headings 13, section style column-view 11, section style padded 11, section style flush 10, section style wide-text 1
+READY	/de/de/bid-upgrade	11 -> 0	section style column-view 5, section style flush 5, section style wide-text 1
+READY	/de/de/boarding	7 -> 0	section style h3-large 3, section style column-view 2, section style flush 1, block spacer xs 1
+READY	/de/de/boeing787	4 -> 0	section style column-view 1, section style flush 1, section style space-m 1, block option title-large 1
+READY	/de/de/book-and-manage/additional-services/get-your-guide	6 -> 0	section style h2-small 2, section style column-view 1, block spacer s 1
+READY	/de/de/book-and-manage/additional-services/travel-insurances	9 -> 0	section style limited-headings 1, section style wide-text 1, section style small-print 1, section style h2-small 1, block spacer s 1
+READY	/de/de/book-and-manage/cancellation-and-refund/refund/confirmation	2 -> 0	section style space-below-l 1, block divider 1
+READY	/de/de/book-and-manage/cancellation-and-refund/refund/refund-form	2 -> 0	block spacer m-plus 1
+READY	/de/de/book-and-manage/digital-self-services/airline-apps	8 -> 0	section style h2-small 2, section style column-view 1, section style padded 1, block spacer s 1, block option title-large 1
+READY	/de/de/book-and-manage/flights/air-baltic	7 -> 0	section style limited-headings 1, section style divider-below 1
+READY	/de/de/book-and-manage/flights/ana	7 -> 0	theme defaults only
+READY	/de/de/book-and-manage/flights/giftvoucher	12 -> 0	section style h2-small 2, block option title-compact 1, block spacer s 1, block spacer l 1, block spacer xs 1, block spacer m-plus 2
+READY	/de/de/book-and-manage/flights/helvetic	11 -> 0	block spacer s 1, block spacer l-minus 1
+READY	/de/de/book-and-manage/flights/wetlease-hub	1 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/passenger-receipt-90days/confirmation	1 -> 0	block spacer l-minus 1
+READY	/de/de/book-and-manage/pax-receipt/invoices-different-countries	2 -> 0	section style h2-compact 1, block divider 1
+READY	/de/de/book-and-manage/rebook	3 -> 0	section style h2-compact 1, block option title-compact 1
+READY	/de/de/book-and-manage/rebook/involuntary-rebooking	3 -> 0	section style h2-compact 1, block spacer s 1
+READY	/de/de/book-and-manage/rebook/voluntary-rebooking	3 -> 0	section style h2-compact 1, block spacer s 1
+READY	/de/de/book-and-manage/stopover	45 -> 0	section style h2-small 10, section style wide-text 1, section style h2-large 1, block option title-compact 1, block spacer m-plus from-768 6, block spacer m-plus 8, block spacer 2
+READY	/de/de/book-and-manage/stopover/bayerischer-hof	1 -> 0	theme defaults only
+READY	/de/de/book-and-manage/stopover/breuninger	2 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/garmisch-classic	5 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/hop-on-hop-off-muc	2 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/ingolstadt-village	2 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/leonardo-hotel	2 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/muc-city-pass	2 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/munich-airport	3 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/neuschwanstein	3 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/rosewood	1 -> 0	theme defaults only
+READY	/de/de/book-and-manage/stopover/sixt-muc	3 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/sixt-ride-bavaria	3 -> 0	block option title-compact 1
+READY	/de/de/book-and-manage/stopover/zugspitze	4 -> 0	block option title-compact 1
+READY	/de/de/business-class	10 -> 0	section style space-m 1, block spacer xs 1
+READY	/de/de/business-class-auf-kurz-und-mittelstrecken	8 -> 0	section style column-view 1, section style padded 1, block option title-large 1
+READY	/de/de/business-services/for-corporate-customers/meetings-and-events/exklusives-event-angebot-dubai	1 -> 0	section style wide-text 1
+READY	/de/de/cancellations-and-refunds	4 -> 0	section style column-view 2, section style flush 1
+READY	/de/de/cash-and-miles	11 -> 0	section style limited-headings 2, section style small-print 1, section style wide-text 2, section style column-view 1, section style flush 1, block spacer s 2
+READY	/de/de/check-in-baggage	5 -> 0	section style column-view 2, section style flush 1
+READY	/de/de/check-in-deadlines	2 -> 0	section style column-view 1, section style padded 1, section style flush 1
+READY	/de/de/common/accessibility-statement	9 -> 0	section style limited-headings 1, block spacer m-plus from-768 1
+READY	/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	2 -> 0	section style h2-small 1
+READY	/de/de/common/baggage-conditions	11 -> 0	section style h2-small 2, section style column-view 1, section style flush 1
+READY	/de/de/common/compensation-voucher	12 -> 0	section style h2-compact 1
+READY	/de/de/common/imprint/lufthansa-insights-imprint	5 -> 0	section style wide-text 1
+READY	/de/de/common/seatreservation-condtions/seat-reservations	3 -> 0	section style h2-small 1
+READY	/de/de/common/terms-and-conditions/terms-and-conditions-promocode	2 -> 0	section style wide-text 1, block spacer m-plus 1
+READY	/de/de/concur-geschaeftsbedingungen	1 -> 0	section style limited-headings 1
+READY	/de/de/cookie-policy	18 -> 0	section style column-view 7, section style flush 7, block spacer xs 2
+READY	/de/de/crn	6 -> 0	section style column-view 3, section style padded 3, section style flush 2
+READY	/de/de/culinaryjourney	1 -> 0	theme defaults only
+READY	/de/de/dangerous-dogs	12 -> 0	section style wide-text 4, section style column-view 3, section style flush 2
+READY	/de/de/datenerfassung-fuer-die-usa	19 -> 0	section style wide-text 2, section style h2-small 1
+READY	/de/de/datenerfassung-fuer-kanada	12 -> 0	section style column-view 6, section style padded 6, section style flush 5, section style links-vertical 1
+READY	/de/de/datenschutz	2 -> 0	section style h2-small 3, section style column-view 1, section style flush 1
+READY	/de/de/datenschutz-lufthansa-facebook	9 -> 0	section style limited-headings 1
+READY	/de/de/digital-self-services	9 -> 0	section style column-view 4, section style padded 4, section style h2-small 1
+READY	/de/de/digital-travel-companion	23 -> 0	section style h3-large 6, section style column-view 5, section style padded 5, section style flush 4, block spacer s from-768 1, block option title-large 1, block spacer m-plus 1
+READY	/de/de/digitale-gepaeckservices	19 -> 0	section style column-view 5, section style padded 5, section style flush 4, section style wide-text 5
+READY	/de/de/discover-lufthansa/carbon-offsetting/climate-protection-projects	6 -> 0	block spacer s 4
+READY	/de/de/discover-lufthansa/carbon-offsetting/saf	7 -> 0	section style column-view 2, section style flush 2, section style small-print 1, block spacer m-plus 1
+READY	/de/de/discover-lufthansa/flightreservation-priceguarantee	10 -> 0	section style h3-large 5, section style column-view 4, section style flush 3, block spacer m-plus 1
+READY	/de/de/discover-lufthansa/lufthansa-fleet/351	3 -> 0	section style small-print 1, section style wide-text 1, block option title-large 1
+READY	/de/de/discover-lufthansa/lufthansa-group-airlines/ita-airways	7 -> 0	section style column-view 1, section style padded 1, section style flush 1, block option title-large 1
+READY	/de/de/discover-lufthansa/miles-and-more-credit-card	17 -> 0	section style limited-headings 1, section style wide-text 1, block spacer s 2, block option title-compact 3
+READY	/de/de/discover-lufthansa/new-onboard-experience	26 -> 0	section style space-m 7, section style space-below-m 2, section style h2-small 1, block spacer from-768 3, block spacer m-plus from-768 1, block option space-m 6, block option title-large 1, video #size 1
+READY	/de/de/discover-lufthansa/register-newsletter	5 -> 0	section style column-view 1, section style flush 1, section style wide-text 1
+READY	/de/de/doctor-on-board	9 -> 0	section style limited-headings 3, section style small-print 1, section style column-view 2, block spacer m-plus 1
+READY	/de/de/doctor-on-board-news	6 -> 0	section style wide-text 1, section style h2-small 1, block spacer m-plus 1, block spacer s 1
+READY	/de/de/during-your-trip/internet-overview	5 -> 0	theme defaults only
+READY	/de/de/during-your-trip/lhg-wifi	3 -> 0	theme defaults only
+READY	/de/de/e9n-1	6 -> 0	section style column-view 3, section style padded 3, section style flush 2
+READY	/de/de/e9n-2	6 -> 0	section style column-view 3, section style padded 3, section style flush 2
+READY	/de/de/economy-class	10 -> 0	section style space-below-m 1, block spacer m-plus 1
+READY	/de/de/electronic-bag-tags	4 -> 0	section style h3-large 3, section style column-view 1, section style flush 1, block spacer m-plus 1
+READY	/de/de/entryprocesses	11 -> 0	section style column-view 4, section style flush 3, section style small-print 1, block option title-large 1
+READY	/de/de/europa-tarife-economy-class	28 -> 0	section style wide-text 7, section style column-view 8, section style flush 8, section style divider 6, section style space-m 1, block spacer l-minus 1
+READY	/de/de/europcar	2 -> 0	section style divider-below 1
+READY	/de/de/event/dghm-2026	1 -> 0	section style small-print 1, section style wide-text 1
+READY	/de/de/event/dwg-2026	1 -> 0	section style small-print 1, section style wide-text 1
+READY	/de/de/event/exklusives-event-angebot-dxb	26 -> 0	section style h2-small 5, section style wide-text 3, section style column-view 2, section style padded 2, section style flush 2, block spacer s 1
+READY	/de/de/event/ortho-care-global-gmbh	1 -> 0	section style wide-text 1, section style small-print 1
+READY	/de/de/event/sustainabale-event-dxb-20231	17 -> 0	section style h2-small 5, section style column-view 2, section style padded 2, section style flush 2
+READY	/de/de/exclusive-charter	2 -> 0	section style h2-small 1, section style column-view 1, section style padded 1
+READY	/de/de/faq-data-security	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/faq-password-security	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/farealert/best-price-alert	5 -> 0	block spacer m-plus 1
+READY	/de/de/faszination-nordeuropa	22 -> 0	section style h3-large 12, section style wide-text 1, section style column-view 8, section style padded 8, section style flush 8, block spacer l-minus 4
+READY	/de/de/feedback	4 -> 0	theme defaults only
+READY	/de/de/feedback-past-flight	2 -> 0	section style wide-text 1
+READY	/de/de/fia-valet-service	13 -> 0	section style column-view 6, section style flush 5, section style small-print 1, section style divider 1
+READY	/de/de/first-class	53 -> 0	section style narrow 2, section style wide-text 1, section style limited-headings 2, section style h2-small 1, section style h2-large 1, block option title-compact 1, block spacer from-768 1, block spacer l from-768 7, block spacer l-minus from-768 14, block spacer m-plus from-768 1, block spacer l-minus 1, video #size 1
+READY	/de/de/first-class-lounges	22 -> 0	section style h3-large 8, section style wide-text 8, section style column-view 7, section style flush 6
+READY	/de/de/first-class-personal-assistant	8 -> 0	section style h3-large 2, section style wide-text 2, section style column-view 1, section style padded 1
+READY	/de/de/first-class-terminal	13 -> 0	section style h2-compact 1, section style narrow 1, section style h3-large 3, section style column-view 1, block spacer xs 1, block spacer l-minus 1, block spacer m-plus 1, block option title-large 1
+READY	/de/de/first-class-valet-parking-service	3 -> 0	section style wide-text 2, section style column-view 1, section style padded 1, section style flush 1
+READY	/de/de/fliegen-mit-baby	3 -> 0	section style wide-text 2, section style column-view 1, section style padded 1, section style flush 1
+READY	/de/de/fliegen-mit-kindern	13 -> 0	section style column-view 3, section style flush 3, block option title-large 3
+READY	/de/de/fliegen-mit-kleinkind	3 -> 0	section style column-view 1, section style h2-small 1
+READY	/de/de/florida-entdecken	5 -> 0	section style wide-text 1, block spacer m-plus 2
+READY	/de/de/fluege	12 -> 0	section style h2-small 3, section style column-view 2, section style padded 2, section style wide-text 2, block option title-large 1, block spacer s 1
+READY	/de/de/flughafeninformation	6 -> 0	block spacer xs from-768 1, block spacer l-minus 1
+READY	/de/de/flugplan-und-flugstatus	1 -> 0	section style space-below-l 1
+READY	/de/de/flugsuche	6 -> 0	section style h2-small 2, block spacer s 1
+READY	/de/de/flugunregelmaessigkeiten	14 -> 0	section style limited-headings 3, section style h2-small 7, section style column-view 3, section style flush 2, section style divider 1, block spacer l-minus 1
+READY	/de/de/flynet	21 -> 0	section style column-view 1, section style h3-large 1, block option title-large 2, block spacer 2
+READY	/de/de/fmg-valet-parking-service	9 -> 0	section style column-view 4, section style padded 4, section style flush 3, section style small-print 1, section style wide-text 1, section style divider 1
+READY	/de/de/frankfurt-fair	12 -> 0	section style wide-text 3, section style column-view 3, section style padded 3, section style divider 1, block option title-large 1
+READY	/de/de/free2move	11 -> 0	section style h2-large 9, section style h3-large 9, section style small-print 3, section style column-view 4, section style flush 3, section style wide-text 1
+READY	/de/de/freigepaeck-regeln	7 -> 0	section style wide-text 2, section style column-view 2, section style flush 2, block spacer m-plus 1
+READY	/de/de/gefaehrliche-gegenstaende	8 -> 0	section style wide-text 1, section style column-view 1, block spacer s 1
+READY	/de/de/gepaeck	13 -> 0	section style space-below-m 1, block spacer 1, block option space-m 1, block spacer s 1
+READY	/de/de/geschaeftsbedingungen	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/gesund-reisen	7 -> 0	section style column-view 3, section style flush 3, section style wide-text 1, section style small-print 1, section style h2-small 1
+READY	/de/de/good-for-train	1 -> 0	section style h2-large 1
+READY	/de/de/green-fare	13 -> 0	section style h3-large 4, section style column-view 5, section style flush 3, section style small-print 2, block option title-large 1
+READY	/de/de/group-travel	13 -> 0	section style column-view 3, section style flush 2, section style wide-text 1, section style h2-small 1, block spacer 1
+READY	/de/de/handgepaeck	15 -> 0	block spacer m-plus 2, block spacer s from-768 3, block spacer l-minus from-768 1, block spacer s 1
+READY	/de/de/hotelangebote	10 -> 0	section style column-view 2, section style flush 2, section style divider 1, section style small-print 1, block spacer s 1, block option title-large 2
+READY	/de/de/impressum	6 -> 0	section style column-view 1, section style h2-small 1
+READY	/de/de/informationen-zum-datenschutz	32 -> 0	section style h3-large 9, section style column-view 8, section style flush 7
+READY	/de/de/inspiredby	11 -> 0	section style wide-text 2, section style column-view 4, section style padded 4, section style flush 4, block spacer m-plus 1
+READY	/de/de/inspiredby-japan	3 -> 0	section style wide-text 1, block spacer m-plus 1
+READY	/de/de/inspiredby-nepal	3 -> 0	section style wide-text 1, block spacer m-plus 1
+READY	/de/de/kinder-an-bord	1 -> 0	theme defaults only
+READY	/de/de/kindermenues-an-bord	12 -> 0	section style space-below-m 2, section style column-view 2, section style flush 1, section style space-m 1, block spacer s 2, block option space-m 1
+READY	/de/de/local-page/discover-asia	1 -> 0	block spacer s 1
+READY	/de/de/local-page/discover-japan1	12 -> 0	section style h2-small 4, section style wide-text 1, section style h3-large 3, section style h1-compact 3, section style column-view 2, section style flush 1, block spacer s 1, block spacer l-minus 1
+READY	/de/de/local-page/south-africa-winter-promotion	5 -> 0	section style h1-compact 2, block spacer m-plus 2, block spacer s 1
+READY	/de/de/lounge-begleitung	16 -> 0	section style h2-small 5, section style wide-text 5, section style column-view 4, section style flush 3, section style divider-below 1, section style divider 1
+READY	/de/de/lounges	16 -> 0	section style h3-large 4, section style column-view 5, section style flush 1, block spacer s 3, block option title-large 2
+READY	/de/de/lufthansa-am-flughafen-duesseldorf	12 -> 0	section style wide-text 5, section style column-view 5, section style padded 5, section style flush 5
+READY	/de/de/lufthansa-am-flughafen-frankfurt	19 -> 0	section style wide-text 1
+READY	/de/de/lufthansa-am-flughafen-wien	7 -> 0	section style wide-text 3, section style column-view 3, section style padded 3, section style flush 3
+READY	/de/de/lufthansa-ana	12 -> 0	section style wide-text 4, section style column-view 3, section style padded 3, section style flush 3, section style h2-large 1
+READY	/de/de/lufthansa-at-berlin-airport	14 -> 0	section style column-view 4, section style padded 4, section style flush 4, section style wide-text 1, block option title-large 1
+READY	/de/de/lufthansa-at-zuerich-airport	8 -> 0	section style wide-text 3, section style column-view 3, section style padded 3, section style flush 3
+READY	/de/de/lufthansa-aviation-group	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/lufthansa-business-class-on-long-haul-routes	10 -> 0	section style column-view 2, section style padded 2, block option title-large 1
+READY	/de/de/lufthansa-ejournals	9 -> 0	section style column-view 4, section style padded 3, section style flush 3, section style wide-text 3, section style small-print 1
+READY	/de/de/lufthansa-express	10 -> 0	section style limited-headings 3, section style column-view 2, section style flush 1, block option title-large 3
+READY	/de/de/lufthansa-express-bus	14 -> 0	section style column-view 4, section style flush 3, block spacer s 1, block spacer m-plus 3
+READY	/de/de/lufthansa-express-rail	25 -> 0	section style column-view 10, section style flush 9, section style h3-large 12, section style small-print 2, block option background-video 1, block spacer s 2, block spacer xs 1, block spacer 1, block option space-m 1
+READY	/de/de/lufthansa-firmenkunden	4 -> 0	section style column-view 2, section style padded 2, section style flush 1
+READY	/de/de/lufthansa-first-class-entertainment	9 -> 0	section style wide-text 5, section style column-view 4, section style padded 4, section style flush 3
+READY	/de/de/lufthansa-first-class-flotte	14 -> 0	section style wide-text 5, section style column-view 4, section style padded 4, section style flush 4, block spacer l-minus 1
+READY	/de/de/lufthansa-first-class-komfort	7 -> 0	section style h3-large 3, section style column-view 2, section style padded 2, section style flush 1
+READY	/de/de/lufthansa-group-star-alliance-and-partner-airlines	8 -> 0	section style column-view 5, section style flush 3
+READY	/de/de/lufthansa-guide-service	13 -> 0	section style column-view 5, section style flush 4, section style wide-text 1, section style small-print 1
+READY	/de/de/lufthansa-reiseklassen	1 -> 0	section style h1-compact 1
+READY	/de/de/lufthansa-terminal-muenchen	13 -> 0	section style h3-large 1, section style column-view 1, section style padded 1, block spacer s 6
+READY	/de/de/malta-entdecken	4 -> 0	section style wide-text 1, block spacer 2
+READY	/de/de/medikamenten-transport	3 -> 0	section style column-view 1, block option space-m 1
+READY	/de/de/meetings-and-events	17 -> 0	section style column-view 5, section style padded 5, block option title-large 1
+READY	/de/de/meetings-und-events-individuelle-angebotsanfrage	9 -> 0	section style wide-text 3, section style column-view 4, section style flush 2, section style small-print 1
+READY	/de/de/meetings-und-events-teilnehmer	9 -> 0	section style wide-text 5, section style column-view 4, section style flush 3
+READY	/de/de/mein-logbuch	9 -> 0	section style wide-text 4, section style column-view 3, section style flush 2
+READY	/de/de/meine-buchungen	9 -> 0	section style space-below-l 2, section style h2-small 1, section style space-l 1
+READY	/de/de/menues-auf-langstreckenfluegen	9 -> 0	section style column-view 2, section style padded 2, section style flush 1, block option title-large 2
+READY	/de/de/menues-reiseklassen	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/miles-and-more	8 -> 0	section style limited-headings 5, section style column-view 3, section style flush 1, section style h3-large 1
+READY	/de/de/mit-kindern-am-flughafen	4 -> 0	section style column-view 2, section style flush 1
+READY	/de/de/mobility-partner-program-healthcare	18 -> 0	section style wide-text 6, section style column-view 5, section style flush 5, block spacer s 1
+READY	/de/de/munich-fair	1 -> 0	theme defaults only
+READY	/de/de/nachhaltiger-fliegen	8 -> 0	section style h2-small 4, section style column-view 2, section style flush 2, section style h2-compact 2, block spacer s 1
+READY	/de/de/nutzungsbedingungen	9 -> 0	section style column-view 1, section style padded 1, block divider 7
+READY	/de/de/nutzungsbedingungen-waehrungsumrechnung	3 -> 0	section style limited-headings 2, section style column-view 1, section style padded 1
+READY	/de/de/onboard-delights	17 -> 0	section style space-below-m 1, section style h2-small 1, section style column-view 1, section style space-m 1, block spacer s 2, block option title-large 3, block divider 1, block spacer xs 1
+READY	/de/de/onboard-delights-faq	1 -> 0	section style column-view 1, section style padded 1, section style flush 1
+READY	/de/de/online-check-in	5 -> 0	section style column-view 1, block option title-large 1
+READY	/de/de/online-check-in-info	5 -> 0	section style column-view 2, section style padded 2, section style flush 1
+READY	/de/de/online-check-in-mit-der-ganzen-familie	2 -> 0	section style column-view 1, section style flush 1
+READY	/de/de/opc	2 -> 0	section style column-view 1, section style padded 1, block spacer s 1
+READY	/de/de/overview-special-request	2 -> 0	theme defaults only
+READY	/de/de/passenger-receipt-90	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/passenger-rights	17 -> 0	section style column-view 7, section style flush 6, block spacer m-plus 2
+READY	/de/de/passengers-using-wheelchairs	30 -> 0	section style wide-text 1, section style column-view 4, section style flush 3, section style space-m 1, section style h3-large 5, section style divider 2, block option title-compact 1, block option title-large 3, block divider 1
+READY	/de/de/passengers-with-sensory-impairment	21 -> 0	section style h3-large 6, section style space-m 1, section style column-view 2, section style flush 1, section style divider 2, block option title-large 1, block option divider-above 1, block spacer s 2
+READY	/de/de/pre-check-in	8 -> 0	section style wide-text 1, section style column-view 2, section style flush 1, section style links-horizontal 1, section style small-print 1, section style divider 1, block option title-large 1
+READY	/de/de/premium-economy-class	8 -> 0	section style limited-headings 1, section style h2-small 1, section style space-below-m 1
+READY	/de/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time	4 -> 0	section style column-view 1, section style padded 1, block spacer s 1
+READY	/de/de/prepare-for-your-trip/all-check-in/emergency-contact-form/confirmation	1 -> 0	block spacer l-minus 1
+READY	/de/de/prepare-for-your-trip/all-check-in/group-check-in-counter	1 -> 0	block spacer s 1
+READY	/de/de/prepare-for-your-trip/baggage/baggage-conditions	1 -> 0	theme defaults only
+READY	/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	10 -> 0	block spacer m-plus 1, block option title-large 3, block option space-l 2
+READY	/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	5 -> 0	section style column-view 1
+READY	/de/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	4 -> 0	section style h2-small 2, section style column-view 1, section style padded 1
+READY	/de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	8 -> 0	block option title-large 1
+READY	/de/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries	9 -> 0	section style h3-large 2, section style column-view 1, block spacer s 2, block spacer xs 1
+READY	/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation	1 -> 0	block spacer l-minus 1
+READY	/de/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	2 -> 0	section style column-view 1, section style padded 1, section style flush 1, block spacer l-minus 1
+READY	/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	1 -> 0	block spacer l-minus 1
+READY	/de/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	1 -> 0	block spacer l-minus 1
+READY	/de/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	12 -> 0	section style limited-headings 4, section style h2-small 1, section style wide-text 1, section style column-view 1
+READY	/de/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	5 -> 0	section style h2-small 1
+READY	/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/brussels-express-rail	27 -> 0	section style h1-compact 1, section style wide-text 1, block spacer s 4, block spacer m-plus 3, block option title-compact 1
+READY	/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	2 -> 0	section style wide-text 1
+READY	/de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	2 -> 0	section style wide-text 2
+READY	/de/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions	3 -> 0	section style h2-small 1
+READY	/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	13 -> 0	section style space-m 1, section style column-view 1, section style divider 1, block option title-compact 1
+READY	/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	8 -> 0	section style h3-large 2, section style space-m 1, section style column-view 1, section style divider 1, block option title-large 1
+READY	/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	1 -> 0	block spacer l-minus 1
+READY	/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	7 -> 0	section style space-m 1, section style column-view 1, section style divider 1
+READY	/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	10 -> 0	section style divider-below 1, section style h3-large 2, section style space-m 1, section style column-view 1, section style divider 1, block option title-large 1
+READY	/de/de/prepare-for-your-trip/travel-classes/business-class	10 -> 0	section style space-m 1, block spacer xs 1
+READY	/de/de/prepare-for-your-trip/travel-classes/economy-basic	6 -> 0	section style limited-headings 1, section style h3-large 1, section style space-m 1, block spacer m-plus 1, block spacer 1
+READY	/de/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass	6 -> 0	section style small-print 1
+READY	/de/de/rail-and-fly	14 -> 0	section style column-view 7, section style flush 6
+READY	/de/de/rail-fly-bedingungen	2 -> 0	section style column-view 1
+READY	/de/de/rechnungsbeleg	1 -> 0	block spacer l-minus 1
+READY	/de/de/refund	9 -> 0	section style column-view 4, section style flush 4, block spacer m-plus 1
+READY	/de/de/register-animal-cabin	2 -> 0	block spacer l-minus 1
+READY	/de/de/reisebueros	5 -> 0	section style column-view 2, section style flush 1, block option title-large 1
+READY	/de/de/reisen-mit-besonderen-anforderungen	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/rollstuhlbatterien	11 -> 0	section style column-view 3, section style padded 3, section style flush 2, block spacer m-plus 5
+READY	/de/de/schengen	4 -> 0	block option title-large 1, block spacer s 1
+READY	/de/de/secure-flight	1 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/security-fast-lanes	8 -> 0	section style h3-large 3, section style wide-text 2, section style column-view 2, section style flush 1
+READY	/de/de/sepa-bedingungen	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/sepa-bedingungen-b	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/services-am-flughafen	3 -> 0	theme defaults only
+READY	/de/de/services-am-flughafen-frankfurt	3 -> 0	section style wide-text 1, section style column-view 1
+READY	/de/de/services-am-flughafen-muenchen	2 -> 0	section style column-view 1, section style padded 1
+READY	/de/de/shopping	7 -> 0	block spacer s 1, block spacer m-plus 1
+READY	/de/de/sicherheit-fuer-kleinkinder-an-bord	10 -> 0	section style wide-text 4, section style column-view 3, section style flush 2
+READY	/de/de/sitzplaene	12 -> 0	section style h2-large 2, block option title-large 2
+READY	/de/de/sitzplatzreservierungen-konditionen	7 -> 0	section style wide-text 1, section style space-below-l 1
+READY	/de/de/sondermahlzeiten	12 -> 0	section style space-below-m 1, section style column-view 5, section style flush 3, section style h3-large 1, section style space-m 1
+READY	/de/de/special-offers	2 -> 0	section style wide-text 1
+READY	/de/de/speisen-und-getraenke	8 -> 0	section style space-below-m 4, section style h1-compact 2, section style space-m 1, block spacer s 1
+READY	/de/de/sportgepaeck	14 -> 0	section style h3-large 8, section style column-view 7, section style flush 6, section style small-print 1, block spacer s 1
+READY	/de/de/sportgepaeck-hinzufuegen	1 -> 0	block spacer l-minus 1
+READY	/de/de/support/contact/contact-form-confirmation	1 -> 0	block spacer l-minus 1
+READY	/de/de/support/contact/passenger-duty-united-kingdom	2 -> 0	section style h2-small 1
+READY	/de/de/support/feedback-and-contact-airlines	7 -> 0	block option title-large 1
+READY	/de/de/support/search/search-result	1 -> 0	block spacer m-plus 1
+READY	/de/de/tiere-als-handgepaeck	16 -> 0	section style column-view 5, section style flush 5, section style wide-text 1, block spacer l-minus 1
+READY	/de/de/tiere-als-uebergepaeck	23 -> 0	section style column-view 7, section style flush 6, section style wide-text 4, section style small-print 1, block spacer l-minus 1
+READY	/de/de/tips-senior-travellers	21 -> 0	section style column-view 3, section style flush 2, section style h3-large 1, section style space-l 1, section style wide-text 1, section style divider 1, block option title-large 1, block spacer m-plus 2, block spacer l-minus 2
+READY	/de/de/travel-briefing	46 -> 0	section style column-view 10, section style flush 9, section style divider 5, block option title-compact 3
+READY	/de/de/travel-expense-management	6 -> 0	section style limited-headings 5, section style column-view 3, section style padded 3, section style flush 3
+READY	/de/de/travel-id-terms-conditions	1 -> 0	theme defaults only
+READY	/de/de/travelling-with-animals	6 -> 0	section style h2-small 4, section style column-view 3, section style flush 2
+READY	/de/de/traveltricks	8 -> 0	section style wide-text 1, section style column-view 3, section style padded 3, section style flush 3
+READY	/de/de/uebergepaeck	12 -> 0	section style column-view 3, section style flush 2, section style wide-text 2, section style small-print 1, block spacer m-plus 1, block spacer 1
+READY	/de/de/unionpay	4 -> 0	section style wide-text 1, section style column-view 1, section style padded 1, block option title-compact 1
+READY	/de/de/unterhaltung-an-bord	17 -> 0	section style h1-compact 1, section style links-horizontal 1, block spacer s 4, block spacer 1, block spacer m-plus 1
+READY	/de/de/upgrade-business-class-langstrecke	8 -> 0	section style wide-text 2, section style column-view 2, section style padded 2, section style flush 1
+READY	/de/de/upgrade-first-class	8 -> 0	section style wide-text 2, section style column-view 2, section style padded 2, section style flush 1
+READY	/de/de/upgrade-in-die-business-class	8 -> 0	section style wide-text 2, section style column-view 2, section style padded 2, section style flush 1
+READY	/de/de/upgrade-in-die-premium-economy-class	9 -> 0	section style column-view 2, section style padded 2, section style flush 1, section style space-m 1, block option title-large 2
+READY	/de/de/upgrade-informationen	6 -> 0	section style limited-headings 6, section style column-view 3, section style padded 3, section style flush 2
+READY	/de/de/upgrade-premium-economy-class	8 -> 0	section style wide-text 2, section style column-view 2, section style padded 2, section style flush 1
+READY	/de/de/upgrademoeglichkeiten	13 -> 0	section style column-view 4, section style flush 3, block option title-large 4
+READY	/de/de/upgrades-im-online-check-in	5 -> 0	section style column-view 2, section style flush 1, block spacer l-minus 1
+READY	/de/de/vielfalt-nordamerikas	2 -> 0	section style wide-text 1
+READY	/de/de/zahlungsmoeglichkeiten-am-flughafen	7 -> 0	section style column-view 1
+READY	/de/de/zeitfenster-sicherheitskontrolle	4 -> 0	section style links-horizontal 1, section style column-view 1, block spacer s 1
+READY	/at/de/100-years	6 -> 0	section style limited-headings 1, block option background-video 1, block spacer s 2
+READY	/at/de/100-years/cabin-design	17 -> 0	section style space-below-m 9, section style limited-headings 2, section style space-m 1, section style narrow 1, block option title-compact 1, block option background-video 1, block option space-m 1, block spacer s 1
+READY	/at/de/100-years/campaigns	10 -> 0	section style wide-text 1, block option title-compact 1, block spacer 1
+READY	/at/de/100-years/chronicle	21 -> 0	section style h2-large 3, section style space-below-m 1, section style wide-text 2, block option background-video 2, block option space-m 1, block option title-large 4, block spacer 1
+READY	/at/de/100-years/crane	13 -> 0	section style h2-small 2, block option title-compact 1, block spacer s 7, video #size 1
+READY	/at/de/100-years/destinations	32 -> 0	section style space-below-m 10, section style h2-large 4, section style h3-large 1, block option title-compact 1, block spacer from-768 1, block option title-large 5, block option space-m 3, block spacer 3, video #size 1
+READY	/at/de/100-years/fleet	33 -> 0	section style space-below-m 12, section style h2-large 5, section style space-m 5, section style limited-headings 2, section style h3-large 1, section style wide-text 1, block spacer s 1
+READY	/at/de/100-years/global-network	18 -> 0	section style h2-large 2, section style wide-text 1, block option title-compact 1, block spacer 1, block spacer s 8
+READY	/at/de/100-years/history	2 -> 0	section style space-below-m 1, block option title-compact 1
+READY	/at/de/100-years/history/menu-on-board	14 -> 0	section style h2-small 8, block spacer s 5
+READY	/at/de/31h	1 -> 0	block option title-large 1
+READY	/at/de/320	3 -> 0	section style column-view 1, section style flush 1, block option title-large 1
+READY	/at/de/321	1 -> 0	block option title-large 1
+READY	/at/de/32n	3 -> 0	section style column-view 1, section style flush 1, block option title-large 1
+READY	/at/de/32q	1 -> 0	block option title-large 1
+READY	/at/de/333	1 -> 0	theme defaults only

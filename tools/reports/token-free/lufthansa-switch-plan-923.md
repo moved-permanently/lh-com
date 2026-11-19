@@ -8,6 +8,7 @@ ema-adobe, 2026-11-18. Follows [lufthansa-switch-plan-919.md](lufthansa-switch-p
 *Updated by standing order 57 (2026-11-19): §9 has the gate again with that night's carriers (361 worse, 22 of them explained by www, 60 better; switched sum 5,705.63).*
 *Updated by standing order 58 (2026-11-19): §12 has the gate once more (348 worse, 22 explained by www, 65 better; switched sum 5,608.63) and the estimate of what is left.*
 *Updated by standing order 59 (2026-11-19): §13 has the near-value steps and the gate once more (329 worse, 10 explained by www, 319 failing, 61 better; switched sum 5,407.58), the sort by kind and the estimate.*
+*Updated by standing order 60 (2026-11-19): §14 is the switch package: the code first (backwards compatible: a document with markers draws as today until its batch), 27 collapse batches for the 7,894 marked documents, the census after each batch.*
 
 **The gate does not pass.** Of the 670 recorded lufthansa.com page-widths that carry markers, 369 read worse
 switched than today by more than 0.5 points and 57 better (sum of % off www 4,347.02 today, 5,767.70
@@ -4829,4 +4830,218 @@ Kind as §13.1; "first part" the first moved box (as §11); "www 60" where M at 
 | /xx/ru/meetings-and-events | 1440 | 3.1 | 4.69 | 3662 | 4.69 | 1.59 |
 | /xx/pt/meetings-and-events | 390 | 6.04 | 6.04 | 4188 | 6.04 | 0.00 |
 | /xx/pt/meetings-and-events | 1440 | 4.14 | 4.15 | 3611 | 4.15 | 0.01 |
+
+## 14. Standing order 60 (2026-11-19): the switch package
+
+Ben's decision (Thu 19 Nov, about 09:05 CET): switch once the shared-pattern carriers are in, and accept the page-by-page
+differences (§13.3: 241 page-widths, 914 points). The package below is in release order, code first and backwards
+compatible, then the content in batches; each step has its rollback. The migration session merges the branch and runs the
+batches; ema-adobe merges, uploads, previews and publishes nothing.
+
+### 14.1 Step 1, the code: which commits go to main
+
+Branch `token-free-lufthansa-live` at 1e50887, rebased on main a4f9f0c, never merged. Every commit over main goes,
+in this order (oldest first):
+
+| commit | what | order |
+| --- | --- | --- |
+| `0f3c118` | lufthansa.com live with its carriers: M at 40, limited-headings, H2 small, a from-768 / below-768 pair as two Spacer blocks | 56 |
+| `ff115c8` | the shared tests follow lufthansa.com live; bundles | 56 |
+| `0d42735` | Spacer blocks draw the page's M / L | 56 |
+| `aecd108` | 100-years pages keep M at 60 | 56 |
+| `34d31f1` | M at 60 from 768 px (replaced by 9784010's steps) and the Spacer option s (25 px) | 56 |
+| `7a7201b` | H2 heading-large kept as the choice H2 large | 56 |
+| `f8c8bb0` | legal chapters and related-teasers headings without a heading gap; a view's opening Spacer at 60 | 57 |
+| `92be96a` | Divider space option (m, l) draws the page's M / L; bundles | 57 |
+| `b711c52` | R16b (a picture before a view opening with a heading keeps 40 px) and R4 (a view after a view that isn't flush) | 58 |
+| `9784010` | near-value steps XS 16, S 25, M 40, M+ 60, L- 80, L 120 | 59 |
+| `76f9055` | the switch waits for each document's collapse (backwards compatible; below) | 60 |
+| `1e50887` | the 14 import bundles rebuilt | 60 |
+
+Code preview of the branch: https://token-free-lufthansa-live--lh-com--moved-permanently.aem.page/de/en/baggage (today's
+marked document with the branch's code; it draws as main's).
+
+**What makes it backwards compatible (76f9055, this order).** Until now the branch switched lufthansa.com as a whole:
+merged before the batches, it would have drawn every one of today's marked documents with the switched theme (M at 40,
+the theme rules, `body.theme-live`), and merged after them it would have drawn the collapsed documents with the old theme
+during the batches. Now:
+- `THEMES.lufthansa` is main's theme as it is today, with the switch's additions in `THEMES.lufthansa.switched` (M at 40
+  and the near-value steps, the view opening at 60, the H2 choices small and large, limited headings, the flow pages' H2
+  near choices, 100-years M at 60). `live: true` stays the one switch.
+- `themeFor(brand, pageType, { marked })` applies the switched part only to a document without style markers. A document
+  that still has markers gets main's theme with the theme off (`live: false`), as today.
+- `decorateMain` reads `hasStyleMarkers(main)` before `decorateTextStyles` takes the markers and passes it to
+  `decorateTokenFree`. A marker is any `{a…}` in the text but the data placeholders (`{origin}`, `{destination}`,
+  `{duration}`, `{cabin}`, `{language}`, `{locale}`, `{n}`); the census counts the same way (§14.3).
+- The importers and the collapse read the theme without `marked`, so they get the switched theme: from the merge on,
+  lufthansa.com imports come out collapsed (`isThemeLive`), and the batches collapse with it.
+- Checked: on all 70 brand and page-type pairs the theme equals the earlier branch's theme for an unmarked document and
+  main's for a marked one (test/lufthansa-switch-waits-so60.test.mjs; the other brands have no switched part).
+
+**Proof: today's marked documents draw unchanged (item 1a).** 25 marked documents (13 in the sitemap locales, 12 market roots outside them; every page type: service, flow, article, 100-years, insights-tag, home, legal), each drawn as served on our host (lufthansa.turnsthe.page, the published copy; www's hosts refused) with main's code (origin/main a4f9f0c) and with the branch's (the same page, the code routed from each worktree), at 1440 and 390 (logs/b660/proof.sh, dom-proof.cjs):
+- 50 page-widths: 50 with the same height and the same section boxes; 45 pixel for pixel the same.
+- The other 5 differ only where a video plays: the stage video at the top (y 180-1,050) and, on the 100-years pages, an archive film in a Columns Media cell (another frame: logs/b660/crop.cjs). A second capture with main's code differs in the same places (the bracket figures), so it is the film's frame, not the code.
+- DOM: 25 of 25 the same (body classes, every section's classes and its own elements' classes and inline styles, the separators' sizes); no `theme-live`.
+
+| document | group | page type | 1440: pixels differing, heights | 390: pixels differing, heights | DOM (body classes, decorated sections) |
+| --- | --- | --- | --- | --- | --- |
+| /xx/it/anmeldung-tiere-frachtraum | marked-sitemap | service | 0, 6,413 px both | 0, 8,977 px both | same |
+| /us/en/dnsmpi | marked-root | service | 0, 1,147 px both | 0, 1,652 px both | same |
+| /de/en/flying-with-small-children | marked-sitemap | flow | 0, 3,403 px both | 0, 4,359 px both | same |
+| /ch/en/companion-special-first-class | marked-root | flow | 0, 2,437 px both | 0, 2,341 px both | same |
+| /ae/en/companion-special-jun2021 | marked-root | flow | 0, 3,011 px both | 0, 3,685 px both | same |
+| /gb/en/articles/explore-the-world/essentials-singapore-facts | marked-sitemap | article | 0.814 % (main twice: 0.792 %), 5,033 px both | 0, 5,202 px both | same |
+| /mk/de/articles/explore-the-world/what-i-learned-living-in-rome1 | marked-root | article | 0, 6,882 px both | 0, 6,012 px both | same |
+| /de/en/100-years | marked-sitemap | 100-years | 0.142 % (main twice: 0.186 %), 8,464 px both | 0.117 % (main twice: 0.117 %), 9,963 px both | same |
+| /fr/fr/100-years | marked-root | 100-years | 0.272 % (main twice: 0.497 %), 8,627 px both | 1.551 % (main twice: 0.169 %), 10,603 px both | same |
+| /fr/fr/100-years/global-network | marked-root | 100-years | 0, 16,290 px both | 0, 18,847 px both | same |
+| /de/de/articles/tags/london | marked-sitemap | insights-tag | 0, 9,101 px both | 0, 11,165 px both | same |
+| /az/de/articles/tags/destinations | marked-root | insights-tag | 0, 2,011 px both | 0, 3,057 px both | same |
+| /de/en/homepage | marked-sitemap | home | 0, 5,010 px both | 0, 6,161 px both | same |
+| /xx/ru/homepage | marked-sitemap | home | 0, 3,685 px both | 0, 4,542 px both | same |
+| /pl/en/homepage | marked-root | home | 0, 4,762 px both | 0, 6,242 px both | same |
+| /de/en/baggage | marked-sitemap | service | 0, 4,627 px both | 0, 7,340 px both | same |
+| /xx/de/33p | marked-root | service | 0, 3,143 px both | 0, 3,076 px both | same |
+| /xx/ru/entryprocesses | marked-sitemap | flow | 0, 2,872 px both | 0, 5,572 px both | same |
+| /de/en/articles/explore-the-world/eat-see-do-berlin | marked-sitemap | article | 0, 7,122 px both | 0, 9,799 px both | same |
+| /xx/de/articles/highlights/winter-destinations | marked-root | article | 0, 5,680 px both | 0, 7,390 px both | same |
+| /xx/ru/100-years/history | marked-sitemap | 100-years | 0, 9,471 px both | 0, 11,911 px both | same |
+| /de/en/articles/tags/allegris | marked-sitemap | insights-tag | 0, 7,412 px both | 0, 7,893 px both | same |
+| /mk/de/articles/tags/raleigh | marked-root | insights-tag | 0, 3,826 px both | 0, 2,992 px both | same |
+| /ao/de/homepage | marked-root | home | 0, 4,673 px both | 0, 6,379 px both | same |
+| /de/en/terms-of-use | marked-sitemap | legal | 0, 3,668 px both | 0, 5,711 px both | same |
+| /de/en/overview-flights | free | service | 0, 2,719 px both | 0, 3,506 px both | body +theme-live, sections differ |
+| /de/en/articles/authors | free | article | 0, 924 px both | 0, 1,060 px both | body +theme-live, sections differ |
+| /de/de/homepage | free | home | 0, 4,529 px both | 0, 5,752 px both | body +theme-live, sections differ |
+| /at/de/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge | free | service | 0, 2,217 px both | 0, 3,010 px both | body +theme-live, sections differ |
+| /xx/de/74e | free | service | 0, 3,121 px both | 0, 3,124 px both | body +theme-live, sections differ |
+| /de/de/overview-manage | free | - | 0, 3,327 px both | 0, 4,479 px both | body +theme-live, sections differ |
+| /de/de/feedback/feedbackai | free | - | 0, 900 px both | 0, 1,072 px both | body +theme-live, sections same |
+| /gb/en/feedback/feedbackai | free | - | 0, 900 px both | 0, 1,031 px both | body +theme-live, sections same |
+| /ae/de/homepage | free | - | 0, 4,354 px both | 0, 5,551 px both | body +theme-live, sections differ |
+| /ie/de/homepage | free | - | 0, 4,358 px both | 0, 5,551 px both | body +theme-live, sections differ |
+| /ly/de/homepage | free | - | 0, 4,215 px both | 0, 5,551 px both | body +theme-live, sections differ |
+| /vn/en/homepage | free | - | 0, 4,358 px both | 0, 5,427 px both | body +theme-live, sections differ |
+| /xx/en/74p | free | - | 0, 3,283 px both | 0, 3,273 px both | body +theme-live, sections differ |
+| /xx/es/prepare-for-your-trip/baggage/sport-baggage/register-ammunition | free | - | 0, 4,516 px both | 0, 6,714 px both | body +theme-live, sections differ |
+| /xx/fr/discover-lufthansa/carbon-offsetting/faq-saf | free | - | 0, 1,793 px both | 0, 2,851 px both | body +theme-live, sections differ |
+| /xx/pt/services-an-bord | free | - | 0, 2,874 px both | 0, 4,118 px both | body +theme-live, sections differ |
+| /xx/ru/overview-flights | free | - | 0, 2,890 px both | 0, 4,024 px both | body +theme-live, sections differ |
+| /xx/zh/data-collection-canada | free | - | 0, 5,324 px both | 0, 3,975 px both | body +theme-live, sections differ |
+| /xx/it/business-services | free | - | 0, 978 px both | 0, 1,161 px both | body +theme-live, sections differ |
+| /xx/el/overview-travel-information | free | - | 0, 2,895 px both | 0, 4,374 px both | body +theme-live, sections differ |
+| /xx/ja/discover-lufthansa/take-off | free | - | 0, 9,291 px both | 0, 5,796 px both | body +theme-live, sections differ |
+| /xx/pl/biznes-warunki | free | - | 0, 1,775 px both | 0, 2,997 px both | body +theme-live, sections differ |
+| /xx/pl/rail-fly-warunki | free | - | 0, 3,223 px both | 0, 5,609 px both | body +theme-live, sections differ |
+| /mk/en/panorama-viewer | free | - | 0, 1,026 px both | 0, 1,174 px both | body +theme-live, sections differ |
+| /de/de/73g | free | - | 0, 3,128 px both | 0, 2,906 px both | body +theme-live, sections differ |
+| /xx/pt/common/seatreservation-condtions/rebookings-cancellation | free | - | 0, 1,384 px both | 0, 2,011 px both | body +theme-live, sections differ |
+| /xx/hk/34q | free | - | 0, 3,164 px both | 0, 2,881 px both | body +theme-live, sections differ |
+| /xx/zh/32m | free | - | 0, 2,944 px both | 0, 2,519 px both | body +theme-live, sections differ |
+| /xx/pl/discover-lufthansa | free | - | 0, 978 px both | 0, 1,161 px both | body +theme-live, sections differ |
+| /xx/fr/73g | free | - | 0, 3,154 px both | 0, 3,000 px both | body +theme-live, sections differ |
+| /xx/it/common/seatreservation-condtions/rebookings-cancellation | free | - | 0, 1,411 px both | 0, 2,069 px both | body +theme-live, sections differ |
+| /xx/ru/group-travel-and-charter | free | service | 0, 1,546 px both | 0, 2,186 px both | body +theme-live, sections differ |
+| /at/de/homepage | free | - | 0, 4,529 px both | 0, 5,759 px both | body +theme-live, sections differ |
+| /at/de/book-and-manage/booking-services/manage-my-bookings | free | - | 0, 1,425 px both | 0, 1,664 px both | body +theme-live, sections differ |
+| /ee/de/homepage | free | - | 0, 4,358 px both | 0, 5,551 px both | body +theme-live, sections differ |
+| /qa/en/homepage | free | - | 0, 4,104 px both | 0, 5,262 px both | body +theme-live, sections differ |
+| /xx/de/common/seatreservation-condtions/rebookings-cancellation | free | - | 0, 2,927 px both | 0, 5,200 px both | body +theme-live, sections differ |
+| /xx/pt/homepage | free | - | 0, 3,367 px both | 0, 4,637 px both | body +theme-live, sections differ |
+| /xx/hk/faq-password-security | free | - | 0, 1,203 px both | 0, 1,301 px both | body +theme-live, sections differ |
+| /xx/it/tratte-prevalenti | free | - | 0, 2,917 px both | 0, 3,731 px both | body +theme-live, sections differ |
+| /xx/ko/business-terms-and-conditions | free | - | 0, 1,410 px both | 0, 2,118 px both | body +theme-live, sections differ |
+| /de/en/flex-fare-booking | free | - | 0, 1,667 px both | 0, 2,819 px both | body +theme-live, sections differ |
+| /xx/es/common/seatreservation-condtions/rebookings-cancellation | free | - | 0, 1,384 px both | 0, 1,949 px both | body +theme-live, sections differ |
+| /xx/el/33q | free | - | 0, 3,340 px both | 0, 3,207 px both | body +theme-live, sections differ |
+| /jp/ja/most-significant-route | free | - | 0, 2,606 px both | 0, 2,879 px both | body +theme-live, sections differ |
+
+**The documents without markers change at the merge.** The census (§14.3) has 1,923 lufthansa.com documents without
+markers: 1,008 pages (753 in the sitemap locales, 255 market-root pages: homepages, overview pages, fleet and seat-map
+pages, FAQ and terms pages), 75 app screens (already token-free), 768 `/data` documents, 68 `/xf` experience fragments
+and 4 others; besides them 507 of the 539 nav, footer and fragment documents. With the merge the pages among them draw with the switched theme
+(`body.theme-live`, the theme rules), which is what the switch wants for them, but they were never in the gate.
+On 45 of them (90 page-widths: homepages, overview, fleet, FAQ, terms and service pages in the sitemap locales and market roots), the merge changes the DOM (45 of 45: `theme-live` and the theme's classes) and the drawing on 0 page-widths; 90 of 90 keep their height and section boxes. Table below (marked first, then these).
+
+**Smoke.** lh-edge bundles scripts/style-markers.js: smoke all 12 hosts before and after the merge
+(logs/b657/smoke.sh before / after is ema-adobe's; the migration session's own smoke otherwise).
+
+**Rollback.** Before any batch: revert the merge on main (`git revert -m 1 <merge>`); lh-edge redeploys with the old
+style-markers.js. Nothing in the content changed, so every document draws as before. Once batches have run, the collapsed
+documents need the switched theme: roll back their batches first (step 2's rollback), then the code; or roll forward with
+a fix.
+
+### 14.2 Step 2, the content: 27 batches (item 1b)
+
+Every marked lufthansa.com document of the census, 7,894 (49,473 + 6,757 + 23 markers): the sitemap locales' 6,927, the
+966 market-root documents outside the sitemap (779 published, 187 with a preview copy only: fr/fr and mk/de pages not
+published today), and one fragment (/de/en/fragments/loungenet-first-class-lounge). No app screen has markers left (the
+75 are token-free). /de/en/overview-manage has no row (it has no markers either). The 115 documents of the upload state
+with neither a live nor a preview copy (107 `/lhg`, 7 `/.da`, 1 market root) are not in a batch.
+
+Files (tools/reports/parity-2026-11-09/), helper B's form: `delta-so60-switch-NN.txt` (a header with the census
+command, then one READY row per document: path, markers before -> 0, the carriers the collapse writes) and
+`delta-so60-switch-NN.json` (`path`, `from`, `change`, `markersBefore`, `expectMarkers: 0`, `publish`, `carriers`,
+`inserts: []`: the collapse writes the change, no text inserts).
+
+| batch | documents | then | roots | first roots | markers before | left after the branch's collapse |
+| --- | --- | --- | --- | --- | --- | --- |
+| 01 | 300 | publish | 1 | de/en | 2017 | 0 |
+| 02 | 300 | publish | 1 | de/en | 1782 | 0 |
+| 03 | 300 | publish | 1 | de/en | 2140 | 0 |
+| 04 | 300 | publish | 2 | de/en gb/en | 2310 | 0 |
+| 05 | 300 | publish | 1 | gb/en | 1710 | 0 |
+| 06 | 300 | publish | 1 | gb/en | 1747 | 0 |
+| 07 | 300 | publish | 2 | gb/en de/de | 2491 | 0 |
+| 08 | 300 | publish | 1 | de/de | 1813 | 0 |
+| 09 | 300 | publish | 1 | de/de | 1844 | 0 |
+| 10 | 300 | publish | 2 | de/de at/de | 2467 | 0 |
+| 11 | 300 | publish | 1 | at/de | 1899 | 0 |
+| 12 | 300 | publish | 1 | at/de | 1846 | 0 |
+| 13 | 300 | publish | 1 | at/de | 2226 | 0 |
+| 14 | 300 | publish | 2 | at/de xx/fr | 2281 | 0 |
+| 15 | 300 | publish | 2 | xx/fr xx/es | 2356 | 0 |
+| 16 | 300 | publish | 3 | xx/es xx/pt xx/ru | 2397 | 0 |
+| 17 | 300 | publish | 2 | xx/ru xx/hk | 2160 | 0 |
+| 18 | 300 | publish | 2 | xx/hk xx/zh | 2223 | 0 |
+| 19 | 300 | publish | 2 | xx/zh xx/it | 2333 | 0 |
+| 20 | 300 | publish | 2 | xx/it xx/el | 2358 | 0 |
+| 21 | 300 | publish | 2 | xx/el xx/ja | 2436 | 0 |
+| 22 | 300 | publish | 2 | xx/ja xx/ko | 2153 | 0 |
+| 23 | 300 | publish | 2 | xx/ko xx/pl | 2208 | 0 |
+| 24 | 300 | publish | 74 | xx/pl ae/de ae/en am/de am/en ao/de | 1838 | 0 |
+| 25 | 300 | publish | 64 | fr/fr gb/de ge/en gq/de gq/en gq/fr | 2163 | 0 |
+| 26 | 207 | publish | 30 | pt/de pt/en pt/pt rs/en ru/de ru/en | 1610 | 0 |
+| 27 | 187 | preview only | 2 | fr/fr mk/de | 1445 | 0 |
+
+- **How a batch runs.** Collapse DA's copies of the batch with main's collapse once step 1 is merged
+  (tools/importer/marker-collapse-cli.mjs --brand lufthansa, no --force; one run per batch), then preview, census (page),
+  publish, census (live). Batch 27: preview and census (page) only.
+- **Checked on the copies read this morning** (the published copy, else the preview copy; logs/b660/c0): the branch's
+  collapse over all 7,894 changes every one, leaves 0 markers, is idempotent, has no errors and no cross-document anchor
+  (no link from one document to another's old heading id), so the batches can run in any order and a batch needs no other
+  batch's ids. 20 captions after no picture in 9 articles (minneapolis-st-paul and allegris-new-york in their markets) are
+  reported for a person, as before; their markers go too.
+- DA's copies can be ahead of the published ones (helper rows not yet published): the census after the batch counts what
+  is there, and the carriers column is what the branch wrote from this morning's copy.
+- **Rollback per batch.** Restore each document of the batch from its DA version before the batch (DA's version history;
+  the helper keeps the pre-batch copies), preview and publish it again. With step 1's code the restored, marked copies
+  draw as today, so a batch can go back alone.
+
+### 14.3 The census after each batch (item 1c)
+
+- After the preview: `node tools/importer/switch-census.mjs --batch tools/reports/parity-2026-11-09/delta-so60-switch-NN.txt --env page`
+- After the publish: the same with `--env live`.
+- Expected each time: `lh-com <env>: N documents, read N, missing 0, errors 0, with markers 0`, exit 0, where N is the
+  batch's row count (300 for 01-25, 207 for 26, 187 for 27).
+- After batch 27: `node tools/importer/switch-census.mjs --all --env live` reads every upload-state document but nav,
+  footer and fragments (9,931): expected `with markers 0`, missing 115 + the 187 preview-only documents (not published).
+- The census counts markers as the site does once step 1 is merged (scripts/style-markers.js `hasStyleMarkers`), so a
+  document it calls done draws with the switched theme. tools/importer/marker-census.mjs (step 4's) counts by families
+  and misses `{links-vertical}` (3 data-collection-canada copies today): use switch-census for the switch.
+- Today, before any batch: batch 27 (page) reads 187, with markers 187.
+
+### 14.4 The shared patterns of §13.4 (item 2)
+
+*In progress: the rules, their gates and the held patterns follow in this order's next update of §14.*
 
