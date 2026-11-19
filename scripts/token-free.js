@@ -279,7 +279,18 @@ function applyThemeRules(main, theme) {
         let next = el.nextElementSibling;
         while (next && isMeta(next)) next = next.nextElementSibling;
         const before = next && isBlock(next) && ((theme.headingsBefore || {})[blockName(next)] || {})[`h${level[1]}`];
-        addUnmarked(el, before || theme.headings[`h${level[1]}`], MARKED_SIZE);
+        let size = before || theme.headings[`h${level[1]}`];
+        // accordion-headings (SWISS, standing order 71): a flow page's H2 right before or
+        // right after an accordion in its section is heading-medium, www's headline over and
+        // under its FAQ accordions (refunds, payment-options); not in a tab panel
+        // (baggage-irregularities' FAQ headings: that page is long of www for its accordion's end)
+        const besideRule = theme.rules.includes('accordion-headings');
+        if (besideRule && size === 'heading-small' && level[1] === '2' && !isTabPanel(section)) {
+          let prev = el.previousElementSibling;
+          while (prev && isMeta(prev)) prev = prev.previousElementSibling;
+          if ([next, prev].some((x) => x && isBlock(x) && blockName(x) === 'accordion-columns')) size = 'heading-medium';
+        }
+        addUnmarked(el, size, MARKED_SIZE);
       }
       if (theme.text.width === 'full' && TEXT.includes(el.tagName) && !isSeparator(el)
         && !(el.tagName === 'P' && hasPicture(el) && !el.textContent.trim())) addUnmarked(el, 'full-width', MARKED_WIDTH);

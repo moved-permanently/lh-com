@@ -60,7 +60,8 @@ test('swiss.css: the lead as www\'s copytext-large; the four pages\' rules; noth
   assert.match(css, /@media \(width >= 768px\) \{\s*body\.brand-swiss main \.accordion-columns-intro > p:has\(> picture:only-child\):has\(\+ :is\(h2, h3, h4, h5, h6\) \+ :is\(ul, ol\)\) \{\s*float: left;/);
   // item 2: the title's picture from 768 only; the footer's legal row on phones, its lines still 24 px
   assert.match(css, /@media \(width >= 768px\) \{\s*\/\*[^*]*\*\/\s*body\.brand-swiss main \.section > \.default-content-wrapper > p:has\(> picture\):has\(\+ h1\):not\(\.column-end\) \{\s*margin-bottom: 31px;/);
-  assert.equal((css.match(/p:has\(> picture\):has\(\+ h1\)/g) || []).length, 1, 'phones keep 40 px');
+  // standing order 71: phones 30 px (one rule for every width, then 31 from 768)
+  assert.equal((css.match(/p:has\(> picture\):has\(\+ h1\)/g) || []).length, 2, 'phones 30 px since order 71');
   assert.match(css, /@media \(width < 768px\) \{\s*body\.brand-swiss \.footer \.footer-legal \{\s*margin: -4px 0;/);
   assert.match(css, /body\.brand-swiss \.footer \.footer-legal \.footer-link \{\s*margin: 0;\s*line-height: 24px;/);
   const others = fs.readdirSync(new URL('../styles/themes/', import.meta.url)).filter((f) => f !== 'swiss.css' && f.endsWith('.css'));

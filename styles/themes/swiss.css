@@ -1455,9 +1455,15 @@ body.brand-swiss main .table-striped-wrapper:has(+ .accordion-columns-wrapper) >
 /* standing order 70, item 2: from 768 px the page title 31 px under the picture above it, as www's (the 21 recorded
    1440 page-widths with a picture before the H1: ours 8 or 9 px lower, 40 px under the picture). Phones keep 40 (www 30
    there): with 30 the two customer-support pages short of www (refunds, payment-options; www's H2s are heading-medium
-   there) end more than half a point further */
+   there) end more than half a point further. Standing order 71: phones 30 px, as www's, with the FAQ headlines in
+   heading-medium (THEMES.swiss accordion-headings): refunds 390 -1.29 -> -1.14 %, payment-options 390 -2.46 -> -2.61 % */
+/* stylelint-disable-next-line no-descending-specificity -- the title's picture, not the cards' paragraphs */
+body.brand-swiss main .section > .default-content-wrapper > p:has(> picture):has(+ h1):not(.column-end) {
+  margin-bottom: 30px;
+}
+
 @media (width >= 768px) {
-  /* stylelint-disable-next-line no-descending-specificity -- the title's picture, not the cards' paragraphs */
+  /* from 768 px 31 px, as order 70 gated it */
   body.brand-swiss main .section > .default-content-wrapper > p:has(> picture):has(+ h1):not(.column-end) {
     margin-bottom: 31px;
   }

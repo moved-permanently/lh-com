@@ -1057,6 +1057,32 @@ body.brand-b2b main .default-content-wrapper > ul.links-responsive + p.spacer:la
   }
 }
 
+/* standing order 71, item 4: below 768px a tab set right after the section's running text (a plain paragraph ends the
+   section before it) starts 20px lower, as www's collapsible list under its intro (meals-on-board: www's first item 215
+   px under the H1, ours 194). Of the 733 served B2B documents only the three meals-on-board copies have the shape; the
+   tab sets after a heading, a picture, a column view or an accordion keep their gap (news, programs-and-groups equal;
+   Allegris and entertainment-on-board 14 to 28 px above ours; SWISS Senses changing with the content above; order 70's
+   20 px for every set failed 15 of the 34). 390 -5.41 -> -3.99 %, the 31 other recorded tabbed page-widths unchanged */
+@media (width < 768px) {
+  body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p:last-child:not([class])):not(:has(> .default-content-wrapper:last-child > p:last-child > picture)) + .section.section-tabs + .section.section-tab-panel {
+    padding-top: 20px;
+  }
+}
+
+/* standing order 71, item 4: from 768px a table shorter than its box fills it, as www's maui-table (theme b2b) draws
+   it: the box 840px tall and the rows sharing the rest (kuala-lumpur's flight table at 1440: rows 258 / 282 / 302 px on
+   www, ours 88 / 112 / 112 -> 237 / 302 / 302; 1440 -7.82 -> +2.38 %). Below 768px the table keeps its own height (at
+   390 kuala-lumpur's is already as tall as its box). A longer table scrolls in the same 840px box as before */
+@media (width >= 768px) {
+  body.brand-b2b main .table-striped:not(.beside, .beside-end, .columns, .matrix):has(> table) {
+    height: 840px;
+  }
+
+  body.brand-b2b main .table-striped:not(.beside, .beside-end, .columns, .matrix) > table {
+    height: 100%;
+  }
+}
+
 /* standing order 23 of ema-lufthansa (2026-11-15): a Columns Media "iframe-player" is www's iframe component, its YouTube
    player 315px tall on phones (max-width 560, height 315); www's video component is 16:9 as ours, and DA's copies author
    the two alike, so the variant comes with a document row (delta-so23-b2b-help-alliance-player.txt; b2b-parity-013,
