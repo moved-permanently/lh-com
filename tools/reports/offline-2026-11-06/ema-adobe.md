@@ -6428,3 +6428,83 @@ as asked. Tables and lists are in [lufthansa-switch-plan-923.md](../token-free/l
 - **Full suite on main 433e52e.** lh-edge 73 files, site 1,294 files, none failing.
 - **Held.** The structural rules for (b) to (d) (no predictor), R5, the switch itself.
 - **Left out of git.** logs/b659 (sorts, trials, probes, captures, runners) and the /tmp worktrees (wt-tf57, wt-tf59u).
+
+## Standing order 60 (2026-11-19, 09:20 to about 12:30 CET): the switch package, the shared patterns, the gate once more
+
+Order 59 left nothing finished unpushed. Kept out of git: logs/b659 and the /tmp worktrees. The optional plugins stay off,
+as asked. Tables and lists are in [lufthansa-switch-plan-923.md](../token-free/lufthansa-switch-plan-923.md) §14.
+
+1. **The switch package (§14.1-14.3), pushed at 85582a1.**
+   - **Code first, made backwards compatible on the branch (76f9055).**
+     - `THEMES.lufthansa` is main's theme; the switch's additions are in `THEMES.lufthansa.switched`.
+     - They apply only to a document without style markers. `decorateMain` reads `hasStyleMarkers` before the markers
+       go, so a marked document draws as today until its batch collapses it.
+     - Proof on our host, at 1440 and 390, with main's code against the branch's: 25 marked documents (13 sitemap, 12
+       market roots; service, flow, article, 100-years, insights-tag, home, legal).
+       - Heights and section boxes: 50 of 50 page-widths the same.
+       - Pixels: 45 identical. The other 5 differ only in a playing video's frame; a second capture with main's code
+         differs in the same places.
+       - DOM: 25 of 25 the same, with no `theme-live`.
+     - The 1,008 marker-free pages turn to the switched theme at the merge. On 45 of them (90 page-widths) the DOM
+       changes and the drawing doesn't.
+     - The 12 hosts need a smoke before and after the merge, because lh-edge bundles style-markers.js.
+     - Rollback: revert the merge. Once batches have run, roll their documents back first.
+   - **Content: 27 batches** (tools/reports/parity-2026-11-09/delta-so60-switch-01..27.txt / .json) for the 7,894 marked
+     documents of this morning's census (9,931 documents read on our CDN).
+     - 01-25 hold 300 documents each and 26 holds 207. They go in this order: de/en, gb/en, de/de, at/de, the xx locales,
+       then the market roots.
+     - 27 holds the 187 fr/fr and mk/de documents that have only a preview copy: preview only.
+     - The branch's collapse over all of them leaves 0 markers. It is idempotent, has no errors and no cross-document
+       anchors, so the batches are independent.
+     - No app screen has markers left. /de/en/overview-manage has no row.
+     - Rollback per batch: restore the batch's documents from DA's versions and preview and publish them again. Restored
+       documents are marked, so they draw as today.
+   - **Census after each batch:** `node tools/importer/switch-census.mjs --batch <file> --env page`, and `--env live`
+     after the publish.
+     - Expected: `N documents, read N, missing 0, errors 0, with markers 0` (exit 0).
+     - After batch 27, `--all --env live` should report `with markers 0`.
+     - It counts markers as the site does. The older marker-census.mjs misses `{links-vertical}`.
+2. **The shared patterns (§14.4).** Four rules passed, each gated on every page-width it reaches:
+   - **C2.** On phones a flow page's H3 right after text has no heading gap. 11 page-widths: 75.15 -> 72.12, none
+     further.
+   - **D2.** On phones a picture before a view that opens with text keeps 40 px. 9 page-widths: 67.88 -> 60.26.
+   - **G.** No article chapter rule right after a section that ends with a block. 873 of the 873 such chapters on the
+     2,279 marked articles have none on www. 26 page-widths: 229.13 -> 183.91, 19 closer, failing 24 -> 9.
+   - **I.** Inside a column view an H2 or H3 right after text has no heading gap. 34 page-widths: 490.36 -> 485.96.
+   - **Held with figures** (each failed and so did its narrower second try):
+
+     | rule | page-widths | sum | further |
+     | --- | --- | --- | --- |
+     | A2, a 70 px step | 42 | -27.6 | 6 (register-sports-baggage/confirmation 1440 +1.42) |
+     | B2, a padded view before the Subpage Nav on phones | 16 | -17.2 | 2 (fmg-valet-parking-service 390 +1.25) |
+     | F, R3 on phones | 5 | no change | - |
+     | H, R5 on top of G | 26 | -0.5 | 2 (allegris-premium-economy-san-diego 1440 +0.97) |
+
+     Three more groups got no rule, because no structure predicts them: heading-size marks, the info box's 16 px from
+     768 px (6 of 16), and the accessible pages (several causes each).
+   - **Left of the 88: 81** (192.1 points). 35 page-widths are in 8 tried or unpredictable signatures. 46 are in 36
+     signatures of one or two page-widths each, so no untried pattern covers three: the stop point.
+   - **Estimate:** at this order's rate, many more orders, mostly one rule per one or two pages. The alternatives are
+     a sum-based gate, which would let A2, B2 and H in, or accepting those pages.
+3. **The gate once more (§14.5-14.8).**
+
+   | | order 59 | order 60 |
+   | --- | --- | --- |
+   | worse than today by more than 0.5 | 329 | 313 |
+   | of these explained by www | 10 | 10 |
+   | not passing | 319 | 303 |
+   | better by more than 0.5 | 61 | 63 |
+   | sum today / switched | 4,361.78 / 5,407.58 | 4,361.78 / 5,347.48 |
+   | median today / switched | 5.63 / 6.79 | 5.63 / 6.71 |
+
+   - Against order 59: 28 page-widths closer, none further, none newly failing.
+   - The 303 are listed as accepted in §14.7: 222 page by page and 81 shared.
+
+- **Pushed.**
+  - The branch: 29bf86e (rebased on main 3e250b6; C2, D2, G, I, the backwards-compatible switch, the census consistency test), never merged.
+  - main: 85582a1 (§14.1-14.3, the batches, switch-census.mjs and its test), then this section's commit with §14.4-14.8.
+- **No main code this order** besides the dev tool tools/importer/switch-census.mjs, which isn't served (.hlxignore) and
+  isn't bundled by lh-edge. So no smoke was needed; the merge of the branch needs one (§14.1).
+- **Full suite on main 3e250b6.** lh-edge 73 files, site 1,299 files, none failing.
+- **Left out of git.** logs/b660 (census copies, proof captures, trials, runners) and the /tmp worktrees (wt-tf57,
+  wt-tf60a, wt-main60).

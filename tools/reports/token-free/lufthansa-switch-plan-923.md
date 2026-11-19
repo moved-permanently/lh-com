@@ -8,7 +8,7 @@ ema-adobe, 2026-11-18. Follows [lufthansa-switch-plan-919.md](lufthansa-switch-p
 *Updated by standing order 57 (2026-11-19): §9 has the gate again with that night's carriers (361 worse, 22 of them explained by www, 60 better; switched sum 5,705.63).*
 *Updated by standing order 58 (2026-11-19): §12 has the gate once more (348 worse, 22 explained by www, 65 better; switched sum 5,608.63) and the estimate of what is left.*
 *Updated by standing order 59 (2026-11-19): §13 has the near-value steps and the gate once more (329 worse, 10 explained by www, 319 failing, 61 better; switched sum 5,407.58), the sort by kind and the estimate.*
-*Updated by standing order 60 (2026-11-19): §14 is the switch package: the code first (backwards compatible: a document with markers draws as today until its batch), 27 collapse batches for the 7,894 marked documents, the census after each batch.*
+*Updated by standing order 60 (2026-11-19): §14 is the switch package: the code first (backwards compatible: a document with markers draws as today until its batch), 27 collapse batches for the 7,894 marked documents, the census after each batch; four shared-pattern rules (C2, D2, G, I), the gate once more (303 failing, 10 explained by www, 63 better; switched sum 5,347.48), the 303 accepted.*
 
 **The gate does not pass.** Of the 670 recorded lufthansa.com page-widths that carry markers, 369 read worse
 switched than today by more than 0.5 points and 57 better (sum of % off www 4,347.02 today, 5,767.70
@@ -4840,28 +4840,33 @@ batches; ema-adobe merges, uploads, previews and publishes nothing.
 
 ### 14.1 Step 1, the code: which commits go to main
 
-Branch `token-free-lufthansa-live` at 1e50887, rebased on main a4f9f0c, never merged. Every commit over main goes,
+Branch `token-free-lufthansa-live` at 29bf86e, rebased on main 3e250b6, never merged. Every commit over main goes,
 in this order (oldest first):
 
 | commit | what | order |
 | --- | --- | --- |
-| `0f3c118` | lufthansa.com live with its carriers: M at 40, limited-headings, H2 small, a from-768 / below-768 pair as two Spacer blocks | 56 |
-| `ff115c8` | the shared tests follow lufthansa.com live; bundles | 56 |
-| `0d42735` | Spacer blocks draw the page's M / L | 56 |
-| `aecd108` | 100-years pages keep M at 60 | 56 |
-| `34d31f1` | M at 60 from 768 px (replaced by 9784010's steps) and the Spacer option s (25 px) | 56 |
-| `7a7201b` | H2 heading-large kept as the choice H2 large | 56 |
-| `f8c8bb0` | legal chapters and related-teasers headings without a heading gap; a view's opening Spacer at 60 | 57 |
-| `92be96a` | Divider space option (m, l) draws the page's M / L; bundles | 57 |
-| `b711c52` | R16b (a picture before a view opening with a heading keeps 40 px) and R4 (a view after a view that isn't flush) | 58 |
-| `9784010` | near-value steps XS 16, S 25, M 40, M+ 60, L- 80, L 120 | 59 |
-| `76f9055` | the switch waits for each document's collapse (backwards compatible; below) | 60 |
-| `1e50887` | the 14 import bundles rebuilt | 60 |
+| `c3935c0` | lufthansa.com live with its carriers: M at 40, limited-headings, H2 small, a from-768 / below-768 pair as two Spacer blocks | 56 |
+| `62e6371` | the shared tests follow lufthansa.com live; bundles | 56 |
+| `4fdf6f2` | Spacer blocks draw the page's M / L | 56 |
+| `b7faeb2` | 100-years pages keep M at 60 | 56 |
+| `7911fd7` | M at 60 from 768 px (replaced by 9784010's steps) and the Spacer option s (25 px) | 56 |
+| `b70c388` | H2 heading-large kept as the choice H2 large | 56 |
+| `95f3a8c` | legal chapters and related-teasers headings without a heading gap; a view's opening Spacer at 60 | 57 |
+| `ab309f5` | Divider space option (m, l) draws the page's M / L; bundles | 57 |
+| `91fe047` | R16b (a picture before a view opening with a heading keeps 40 px) and R4 (a view after a view that isn't flush) | 58 |
+| `25470b4` | near-value steps XS 16, S 25, M 40, M+ 60, L- 80, L 120 | 59 |
+| `c9c5842` | the switch waits for each document's collapse (backwards compatible; below) | 60 |
+| `b72ccd5` | the 14 import bundles rebuilt | 60 |
+| `4c3ddec` | C2 and D2, two shared patterns on phones (§14.4) | 60 |
+| `57430e4` | G, no article chapter rule after a block (§14.4) | 60 |
+| `9ed8587` | I, no heading gap after text inside a view (§14.4) | 60 |
+| `9f71a98` | D2's figures in its comment | 60 |
+| `29bf86e` | a test: the switch census and the site call the same documents marked | 60 |
 
 Code preview of the branch: https://token-free-lufthansa-live--lh-com--moved-permanently.aem.page/de/en/baggage (today's
 marked document with the branch's code; it draws as main's).
 
-**What makes it backwards compatible (76f9055, this order).** Until now the branch switched lufthansa.com as a whole:
+**What makes it backwards compatible (c9c5842, this order).** Until now the branch switched lufthansa.com as a whole:
 merged before the batches, it would have drawn every one of today's marked documents with the switched theme (M at 40,
 the theme rules, `body.theme-live`), and merged after them it would have drawn the collapsed documents with the old theme
 during the batches. Now:
@@ -5043,5 +5048,1114 @@ command, then one READY row per document: path, markers before -> 0, the carrier
 
 ### 14.4 The shared patterns of §13.4 (item 2)
 
-*In progress: the rules, their gates and the held patterns follow in this order's next update of §14.*
+The 88 shared page-widths of §13.4 grouped by signature (kind, first moved part, its offset), worst first. Each rule
+was measured on every gate page-width it reaches (a DOM finder over the collapsed documents), against the switched state
+before it; it passes when none of them is more than 0.5 points further and the sum goes down. A failed rule got one
+narrower second try. A rule that only draws on phones was measured on the phone page-widths of its first try; from 768
+px nothing changes.
+
+| pattern (page-widths of the 88, points) | rule | page-widths reached | sum before -> after | closer / further | result |
+| --- | --- | --- | --- | --- | --- |
+| (e) a section 10 px taller, confirmation pages (10, 22.0): `{spacer-70}` drawn L- 80 | A: L- at 70 | 45 | 508.46 -> 489.25 | 12 / 7 | fails (first-class 1440 +3.08) |
+| | A2: a step of its own at 70 (M++) | 42 | 346.85 -> 319.21 | 16 / 6 | held (register-sports-baggage/confirmation 1440 +1.42) |
+| (e) / (c) an H2 24 px low, a view that ends the page or stands before the Subpage Nav (8, 16.9) | B: the marks' page-end view rule (no margin below) on the carrier | 66 | 419.53 -> 407.39 | 20 / 16 | fails (cancellations-and-refunds 1440 +3.71) |
+| | B2: phones, a padded view before the Subpage Nav | 16 | 100.01 -> 82.80 | 13 / 2 | held (fmg-valet-parking-service 390 +1.25) |
+| (c) an H2 8 px low, online-check-in-info, get-your-guide, affiliatemarketing (4, 14.3): the theme's heading gap inside a view | I: inside a column view an H2 / H3 after text keeps no heading gap | 34 | 490.36 -> 485.96 | 3 / 0 | **passes** |
+| (e) a view 16 px high after a separator-only opening, digital-self-services 390 (5, 9.4) | F: order 58's R3 on phones | 5 | 72.32 -> 72.35 | 0 / 0 | held (no change) |
+| (e) a view 16 px high after a picture, upgrades-at-online-check-in, flightreservation-priceguarantee (3, 8.9) | D: a picture before a view that opens with text keeps 40 px | 18 | 119.94 -> 109.42 | 6 / 1 | fails (first-class-personal-assistant 1440 +1.12) |
+| | D2: the same on phones | 9 | 67.88 -> 60.26 | 4 / 0 | **passes** |
+| (e) an H3 8 px low, security-check-time-slot, security-fast-lanes (3, 5.5) | C: a flow page's H3 after text keeps no heading gap | 20 | 121.54 -> 117.25 | 5 / 1 | fails (child-in-businessclass 1440 +0.55) |
+| | C2: the same on phones | 11 | 75.15 -> 72.12 | 3 / 0 | **passes** |
+| (e) an article's info box 13-25 px high (6, 12.9): a chapter rule the marks don't have, after a teaser row | G: no chapter rule right after a section that ends with a block | 26 | 229.13 -> 183.91 | 19 / 0 | **passes** (failing 24 -> 9) |
+| | H: order 59's R5 on top of G (the info box's divider keeps the section gap) | 26 | 259.14 -> 258.63 | 4 / 2 | held (allegris-premium-economy-san-diego 1440 +0.97) |
+| (b) an H2 4 px high, baggage 390, articles/tags 390 (3, 5.8) | none: heading-size marks have no structural predictor (order 59 item 3) | - | - | - | held |
+| (a) an article's info box 16-17 px high, be-picky-frankfurt and three more (4, 5.9): www's `{spacer-16 from-768}` before the info box's rule | none: on 6 of 16 info boxes after text | - | - | - | held |
+| (e) the accessible pages' info boxes 12-13 px low (3, 4.9) | none: several causes per page | - | - | - | held |
+
+**Passed, on the branch** (in §14.1's commit list):
+- C2: on phones, a flow page's H3 right after text keeps no heading gap (styles.css, below 768 px).
+- D2: on phones, a picture that ends its section right before a view that opens with text keeps its 40 px below
+  (styles.css, below 768 px; R16b's counterpart for a view's text).
+- G: an article's chapter right after a section that ends with a block (a teaser row, the Price Bar, an info box) gets
+  no chapter rule (scripts/token-free.js, theme rule ruled-chapters). The structure predicts it: 873 of the 873 such
+  chapters on the 2,279 marked lufthansa.com articles open without a divider.
+- I: inside a column view an H2 or H3 right after text keeps no heading gap, at every width (styles.css): the marks drew
+  a view's headings with the text's margin only; the gap is the view's padding where a heading opens a view.
+
+**Held, with figures** (table above):
+- A / A2, `{spacer-70}`: the confirmation pages' 70 px drawn as L- 80. L- at 70 for every L- separator moves 7 page-widths
+  further (first-class 1440 +3.08); a step of its own at 70 (M++, for 65-75 px) still moves 6 further
+  (register-sports-baggage/confirmation 1440 +1.42, doctor-on-board-news +0.65 at both widths), although it brings the 42
+  page-widths it reaches 27.6 points closer and closes 9 of 25 failing.
+- B / B2, a column view that ends the page or stands before the Subpage Nav: the marks' "page ends with a view" rule
+  (margin 0 below) on the carrier moves 16 further at both widths; on phones, padded views before the nav only, 2 further
+  (fmg-valet-parking-service 390 +1.25, lufthansa-terminal-muenchen 390 +0.66), while the other 13 come closer
+  (secure-flight 390 6.49 -> 3.51 %).
+- F, order 58's R3 on phones (the separator-only view opening taking nothing back): the hub views sit where the marks
+  had them, but the scores don't move (digital-self-services 390 6.64 -> 6.65 %): what www punishes there is further down.
+- H, order 59's R5 again on top of G (an info box's divider keeps the section gap): 26 page-widths 259.14 -> 258.63, 2
+  further (allegris-premium-economy-san-diego 1440 de/en and gb/en +0.97); phones alone go up 0.05, 1440 alone keeps
+  the 2.
+- No rule tried, no structural predictor:
+  - heading-size marks (baggage 390, articles/tags 390: (b) -4), as order 59 item 3 found (the (c) +8 group, sorted
+    under width marks in §13.4, turned out to be the heading gap inside a view: rule I);
+  - an article info box's 16 px from 768 px before its rule (be-picky-frankfurt, in-my-hood-zurich, be-picky-barcelona,
+    what-i-learned-frankfurt 1440: (a) -16 / -17): www has it before 6 of the 16 info boxes after text on the gate
+    pages, none of 10 at a section start;
+  - the accessible pages' info boxes ((e) +12 / +13 on visual-impairment, accessible-travel, hearing-impairment 1440):
+    several small causes per page (an H3's margin under a view's H2, a divider's pull), no single structure.
+
+**What is left of the 88 (the final gate, §14.5):** 7 pass now, 81 still fail (192.1 points over today).
+- 8 signatures still have 3 or more failing page-widths (35 page-widths). Every one was tried in this order or has no
+  structural predictor (table above): `{spacer-70}` on the confirmation pages 10; the view before the nav or at the
+  page end 5 + 3; the hub views after a separator-only opening 5; the view-heading gap 3 and the picture before a
+  view's text 3 (C2 / D2 / I brought them closer, not under 0.5); heading-size marks 3; the info box's 16 px 3.
+- The other 46 page-widths fall into 36 signatures of 1 or 2 page-widths each, so no pattern left untried covers three
+  or more: the order's stop point, reached with 36 small signatures left.
+- Estimate. With this order's rate (4 rules: 7 of the 88 and 19 of the 241 now pass, 60 points off), the 81 would take
+  many more orders, most of them one rule per one or two pages. The held rules A2 (-27.6 points on 42 page-widths), B2
+  (-17.2 on 16) and H (-0.5 on 26) bring their pages closer as a whole but each moves one or two pages a little
+  further; under the order's gate they stay out. They can go in only with another gate measure (the sum), or their
+  pages stay accepted as §14.7 lists them.
+
+
+### 14.5 The gate once more (item 3)
+
+All 670 recorded page-widths with markers: today = the published document with deployed code (scores of logs/b658,
+unchanged: none of the 335 documents changed since, logs/b660/changed.txt); switched = the collapsed document with the
+branch's code at 4bd5df1 (C2, D2, G and I on main a4f9f0c; 29bf86e is the same rebased on main 3e250b6, whose new
+code is other brands' themes and the Flash Teaser block), against the recordings, the first 8,000 px. The rules' page-widths ran first, then order 59's failing ones, then the rest.
+
+**The gate still does not pass: 303 page-widths fail** (order 59: 319), 10 more are explained by www's 60, 63 are
+better than today by more than 0.5. Against order 59 the switched sum goes down by 60.10 points: 28 page-widths closer by
+more than 0.5, none further, none newly failing. Ben's decision accepts them: §14.7 lists all 303 (222 of §13.3's page
+by page, 81 of §13.4's shared, held or without a rule).
+
+| | order 59 (§13) | order 60 |
+| --- | --- | --- |
+| page-widths measured | 670 | 670 |
+| worse than today by more than 0.5 | 329 | 313 |
+| of these explained by www (would pass with M at 60) | 10 | 10 |
+| not passing | 319 | 303 |
+| better than today by more than 0.5 | 61 | 63 |
+| sum of % off www, today / switched | 4,361.78 / 5,407.58 | 4,361.78 / 5,347.48 |
+| median, today / switched | 5.63 / 6.79 | 5.63 / 6.71 |
+
+### 14.6 The page-widths that moved against order 59 by more than 0.5 points
+
+| page-width | today | order 59 | order 60 | +/- |
+| --- | --- | --- | --- | --- |
+| /de/en/articles/explore-the-world/eat-see-do-berlin 390 | 8.46 | 15.04 | 8.46 | -6.58 |
+| /de/en/articles/explore-the-world/eat-see-do-algiers 390 | 9.38 | 14.01 | 9.38 | -4.63 |
+| /de/en/articles/explore-the-world/essentials-barcelona-facts 390 | 7.37 | 10.95 | 7.37 | -3.58 |
+| /de/en/upgrades-at-online-check-in 390 | 4.36 | 8.29 | 4.89 | -3.40 |
+| /de/en/articles/explore-the-world/eat-see-do-berlin 1440 | 4.87 | 8.11 | 4.72 | -3.39 |
+| /de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history 390 | 3.35 | 6.33 | 3.35 | -2.98 |
+| /de/en/articles/explore-flying/anniversary-super-crane-special 390 | 10.79 | 11.32 | 8.51 | -2.81 |
+| /de/en/travel-expense-management 390 | 3.91 | 8.6 | 6.38 | -2.22 |
+| /de/en/articles/explore-the-world/essentials-frankfurt-facts 390 | 3.65 | 5.82 | 3.66 | -2.16 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 390 | 11.67 | 14.17 | 12.06 | -2.11 |
+| /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day 390 | 10.01 | 12.08 | 10.01 | -2.07 |
+| /de/en/articles/explore-the-world/essentials-barcelona-facts 1440 | 3.92 | 6.21 | 4.16 | -2.05 |
+| /de/en/articles/explore-flying/essentials-future-of-flying 390 | 4.87 | 6.83 | 4.87 | -1.96 |
+| /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day 390 | 11.35 | 12.19 | 10.28 | -1.91 |
+| /de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history 1440 | 1.32 | 3.62 | 1.74 | -1.88 |
+| /de/en/articles/explore-the-world/eat-see-do-algiers 1440 | 7.72 | 10.18 | 8.43 | -1.75 |
+| /de/en/first-class-personal-assistant 390 | 2.39 | 6.31 | 4.65 | -1.66 |
+| /de/en/book-and-manage/additional-services/get-your-guide 390 | 3.87 | 8.86 | 7.27 | -1.59 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 1440 | 4.92 | 7.11 | 5.67 | -1.44 |
+| /de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk 390 | 4.89 | 7.1 | 5.69 | -1.41 |
+| /de/en/security-check-time-slot 390 | 3.94 | 5.75 | 4.4 | -1.35 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt 390 | 7.58 | 8.45 | 7.18 | -1.27 |
+| /de/en/first-class-personal-assistant 1440 | 0.96 | 6.54 | 5.38 | -1.16 |
+| /de/en/online-check-in-info 390 | 5.54 | 8.53 | 7.55 | -0.98 |
+| /de/en/security-fast-lanes 390 | 6 | 8.31 | 7.36 | -0.95 |
+| /de/en/articles/explore-flying/essentials-future-of-flying 1440 | 2.68 | 3.4 | 2.51 | -0.89 |
+| /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day 1440 | 3.07 | 11.61 | 10.79 | -0.82 |
+| /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day 1440 | 2.69 | 9.83 | 9.13 | -0.70 |
+
+### 14.7 Accepted: every page-width still failing, worst first
+
+Ben's decision (§14): the page-by-page differences are accepted; so are the held patterns' (§14.4). "Sort" is §13's (shared: in §13.4; page: §13.3; new: not failing in order 59).
+
+| page-width | points over today | sort | kind | first part (order 59) |
+| --- | --- | --- | --- | --- |
+| /de/en/exclusive-charter 390 | 16.38 | page | (e) | head h2 "This might also be of interest to you": bottom +48 (h -20) |
+| /de/en/100-years 390 | 13.01 | page | (c) | head h2 "Under the symbol of the crane": bottom -81 |
+| /de/de/articles/highlights/allegris-premium-economy-san-diego 1440 | 12.60 | page | (e) | head h2 "Zum Download des Posters einfach auf das": bottom +88 (h +39), w -210 |
+| /de/en/advance-seat-reservations-terms-and-conditions 1440 | 12.42 | page | (a) | block columns-media: bottom +98 (h +98) |
+| /de/en/entryprocesses 1440 | 12.18 | page | (b) | head h2 "United Kingdom": bottom +75 (h +75) |
+| /de/en/exclusive-charter 1440 | 11.94 | page | (e) | head h2 "This might also be of interest to you": bottom +48 (h -40) |
+| /de/en/lufthansa-business-class-on-long-haul-routes 1440 | 11.14 | page | (e) | head h2 "Benefits of Business Class": bottom +48 (h -32) |
+| /gb/en/articles/highlights/allegris-premium-economy-san-diego 1440 | 11.03 | page | (e) | head h2 "To download the poster, simply click on ": bottom +49, w -210 |
+| /at/de/articles/highlights/allegris-premium-economy-san-diego 1440 | 11.02 | page | (e) | head h2 "Zum Download des Posters einfach auf das": bottom +88 (h +39), w -210 |
+| /de/en/book-and-manage/additional-services/get-your-guide 1440 | 10.94 | page | (c) | head h2 "How to earn miles with GetYourGuide": bottom +62 |
+| /de/en/childrens-menus-on-board 1440 | 10.09 | page | (b) | head h2 "Baby food": bottom +48 (h -32) |
+| /de/en/farealert/best-price-alert 1440 | 9.73 | page | (b) | head h2 "Activate price tracking": bottom -43 |
+| /de/en/advance-seat-reservations-terms-and-conditions 390 | 9.69 | page | (a) | block columns-media: bottom +105 (h +105) |
+| /de/en/farealert/best-price-alert 390 | 9.65 | page | (b) | head h2 "Activate price tracking": bottom -26 |
+| /de/en/advance-seat-reservation 390 | 9.61 | page | (a) | head h2 "Preferred Zone Seat": bottom +59 |
+| /gb/en/articles/highlights/allegris-premium-economy-san-diego 390 | 9.44 | page | (e) | head h2 "To download the poster, simply click on ": bottom +50 |
+| /de/en/lufthansa-business-class-on-long-haul-routes 390 | 9.35 | page | (e) | head h2 "Benefits of Business Class": bottom +48 (h -32) |
+| /gb/en/discover-lufthansa/new-onboard-experience 1440 | 9.17 | page | (a) | head h2 "Premium is a state of mind": bottom +20 |
+| /gb/en/articles/tags/allegris 390 | 9.15 | page | (d) | head h1 "All Articles on Lufthansa Allegris": bottom +50 |
+| /de/en/discover-lufthansa/new-onboard-experience 1440 | 9.14 | page | (a) | head h2 "Premium is a state of mind": bottom +20 |
+| /de/en/flight-disruptions 390 | 9.14 | page | (b) | head h2 "Rapid help in the event of delay or canc": bottom +7 |
+| /de/de/articles/highlights/allegris-premium-economy-san-diego 390 | 9.11 | page | (e) | head h2 "Zum Download des Posters einfach auf das": bottom +50 |
+| /de/en/articles/highlights/allegris-premium-economy-san-diego 390 | 9.06 | page | (e) | head h2 "To download the poster, simply click on ": bottom +50 |
+| /de/en/entryprocesses 390 | 9.03 | page | (b) | head h2 "United Kingdom": bottom +16 (h +16) |
+| /de/en/100-years/cabin-design 1440 | 8.97 | shared | (a) | head h2 "Sublime salons – the beginnings of comfo": bottom +20 |
+| /de/en/childrens-menus-on-board 390 | 8.79 | page | (b) | head h2 "Baby food": bottom +48 (h -32) |
+| /de/en/first-class 1440 | 8.78 | page | (a) | head h2 "The First Class Terminal": bottom -80 |
+| /de/en/articles/highlights/allegris-premium-economy-san-diego 1440 | 8.77 | page | (e) | head h2 "To download the poster, simply click on ": bottom +49, w -210 |
+| /de/en/special-meals 1440 | 8.77 | page | (e) | head h2 "Dietary meals": bottom +87 (h -32) |
+| /at/de/articles/highlights/allegris-premium-economy-san-diego 390 | 8.75 | page | (e) | head h2 "Zum Download des Posters einfach auf das": bottom +50 |
+| /de/en/traveltricks 390 | 8.67 | page | (b) | head h2 "Step 1: Download the Lufthansa app": bottom -18 (h -38) |
+| /de/en/book-and-manage/additional-services/travel-insurances 1440 | 8.43 | page | (b) | head h2 "Travel Guard* - Travel Care": bottom +8 |
+| /de/en/faq-data-security 1440 | 8.23 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -413 (h -413) |
+| /de/en/faq-password-security 1440 | 8.19 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -298 (h -298) |
+| /de/en/320 390 | 7.95 | shared | (e) | head h2 "Trusted, modern, comfortable": bottom -37 |
+| /de/en/secure-flight 1440 | 7.88 | page | (e) | section section.breadcrumb-container: bottom -336 (h -336) |
+| /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day 1440 | 7.72 | page | (a) | head h2 "This may also be of interest to you": bottom +27 |
+| /de/en/flight-disruptions 1440 | 7.48 | page | (b) | head h2 "Rapid help in the event of delay or canc": bottom +7 |
+| /de/en/upgrade-options 1440 | 7.36 | page | (b) | head h2 "One journey – and lots of options for fl": bottom -39 (h -71), w +430 |
+| /de/en/doctor-on-board-news 1440 | 7.33 | page | (e) | head h2 "This may also interest you": bottom -64 |
+| /de/en/support/contact/passenger-duty-united-kingdom 390 | 7.27 | page | (b) | head h1 "Exemptions and refund": bottom +49 (h +49) |
+| /de/en/articles/tags 1440 | 6.77 | page | (b) | head h2 "Explore more": bottom -24 |
+| /de/en/cancellations-and-refunds 1440 | 6.54 | page | (e) | head h2 "This might also be of interest to you": bottom -61 (h -32) |
+| /de/en/special-meals 390 | 6.48 | shared | (e) | head h2 "Dietary meals": bottom -10 (h -32) |
+| /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day 1440 | 6.44 | page | (a) | head h2 "Our recommendations": bottom +25 |
+| /de/en/32n 390 | 6.20 | shared | (e) | head h2 "The quietest cabin in its class": bottom -13 |
+| /de/en/sepa-terms-and-conditions 1440 | 6.19 | page | (e) | section section.breadcrumb-container: bottom -883 (h -883) |
+| /at/de/articles/tags/allegris 390 | 6.16 | page | (b) | head h2 "Alle Artikel zu Lufthansa Allegris": bottom +32 (h -18) |
+| /de/de/articles/tags/allegris 390 | 6.16 | page | (b) | head h2 "Alle Artikel zu Lufthansa Allegris": bottom +32 (h -18) |
+| /de/en/articles/tags/allegris 390 | 6.15 | page | (d) | head h1 "All Articles on Lufthansa Allegris": bottom +50 |
+| /de/en/menus-on-long-haul-flights 1440 | 6.12 | page | (e) | block columns-media: bottom +15 |
+| /de/en/onboard-delights 1440 | 6.04 | page | (c) | head h2 "Pre-order now": bottom +8 |
+| /de/en/book-and-manage/additional-services/travel-insurances 390 | 5.99 | page | (b) | head h2 "Travel Guard* - Travel Care": bottom +8 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion 390 | 5.88 | page | (b) | head h2 "Further information on travel and health": bottom -75 (h -32) |
+| /de/en/first-class-terminal 1440 | 5.76 | page | (a) | head h2 "Your affairs in the best hands": bottom +9 |
+| /de/en/first-class-valet-parking-service 1440 | 5.71 | page | (c) | section section.breadcrumb-container: bottom -375 (h -375) |
+| /de/en/during-your-trip/food-and-beverages/onboard-delights/faq 1440 | 5.63 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -1025 (h -1025) |
+| /de/en/faq-data-security 390 | 5.55 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -469 (h -469) |
+| /de/en/business-terms-and-conditions 1440 | 5.45 | page | (e) | section section.breadcrumb-container: bottom -878 (h -878) |
+| /de/en/faq-password-security 390 | 5.43 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -314 (h -314) |
+| /de/en/general-conditions-currency-conversion 1440 | 5.40 | page | (e) | section section.breadcrumb-container: bottom -366 (h -366) |
+| /de/en/online-check-in-info 1440 | 5.22 | shared | (c) | head h2 "Availability of online check-in": bottom +8 |
+| /de/en/travelling-with-special-requirements 1440 | 5.13 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1129 (h -1129) |
+| /de/en/book-and-manage/digital-self-services/airline-apps 1440 | 5.12 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -547 (h -547) |
+| /gb/en/articles/tags/allegris 1440 | 5.11 | page | (d) | head h1 "All Articles on Lufthansa Allegris": bottom +50 |
+| /de/en/hotel-offers 1440 | 5.00 | page | (a) | head h2 "Be inspired": bottom +6 (h -32) |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage 1440 | 4.96 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -1327 (h -1327) |
+| /de/en/datenschutz 390 | 4.90 | page | (e) | section section.breadcrumb-container: bottom -580 (h -580) |
+| /de/en/seat-maps 390 | 4.77 | page | (e) | head h2 "Boeing": bottom -53 |
+| /de/en/discover-lufthansa/carbon-offsetting/saf 1440 | 4.77 | page | (d) | head h2 "Why does SAF reduce CO₂ emissions by at ": bottom +8 |
+| /de/en/passenger-receipt-90 1440 | 4.65 | shared | (e) | head h2 "Personal information": bottom -24 |
+| /at/de/100-years/destinations 1440 | 4.62 | page | (e) | head h2 "Rio de Janeiro: Feiern wie die Weltmeist": bottom +8 |
+| /de/de/100-years/destinations 1440 | 4.62 | page | (e) | head h2 "Rio de Janeiro: Feiern wie die Weltmeist": bottom +8 |
+| /de/en/sepa-terms-and-conditions-b 1440 | 4.55 | shared | (b) | head h2 "Authorisation for direct debiting in two": bottom 0 (h -40), w +430 |
+| /de/en/359 390 | 4.52 | shared | (e) | head h2 "Seat map of the Airbus A350-900": bottom -8 (h -20) |
+| /de/en/100-years/destinations 1440 | 4.47 | page | (e) | head h2 "Rio de Janeiro: Party like World Cup win": bottom +8 |
+| /gb/en/100-years/destinations 1440 | 4.47 | page | (e) | head h2 "Rio de Janeiro: Party like World Cup win": bottom +8 |
+| /de/en/first-class-personal-assistant 1440 | 4.42 | page | (e) | section section.breadcrumb-container: bottom -908 (h -908) |
+| /de/en/book-and-manage/stopover 390 | 4.40 | page | (b) | head h2 "Exclusive offers for stopover passengers": bottom -49 (h -57) |
+| /de/en/100-years/cabin-design 390 | 4.33 | shared | (a) | head h2 "Sublime salons – the beginnings of comfo": bottom +20 |
+| /de/en/dangerous-dogs 1440 | 4.31 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -1377 (h -1377) |
+| /de/en/meetings-and-events-organisers 1440 | 4.29 | page | (d) | section section.breadcrumb-container: bottom -1323 (h -1323) |
+| /de/en/menus-travel-classes 1440 | 4.29 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1174 (h -1174) |
+| /de/en/common/imprint/lufthansa-insights-imprint 1440 | 4.10 | page | (a) | head h2 "Publishing support, design and productio": bottom -51 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay 390 | 4.10 | page | (b) | head h2 "Delayed baggage": bottom +7 (h -25) |
+| /de/en/common/imprint/lufthansa-insights-imprint 390 | 4.04 | page | (a) | head h2 "Registered office": bottom -51 |
+| /de/en/book-and-manage/flights/ana 390 | 4.00 | page | (e) | head h2 "What you need to remember": bottom -58 (h -58) |
+| /de/en/lufthansa-aviation-group 1440 | 3.99 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1761 (h -1761) |
+| /at/de/miles-and-more 390 | 3.98 | page | (e) | block carousel-cards: bottom -51 |
+| /de/de/miles-and-more 390 | 3.97 | page | (e) | block carousel-cards: bottom -51 |
+| /de/en/menus-on-long-haul-flights 390 | 3.95 | shared | (e) | head h2 "The menu on your Lufthansa flight": bottom -20 (h -20) |
+| /de/en/travel-agencies 1440 | 3.94 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -819 (h -819) |
+| /de/en/upgrade-business-class-long-haul 1440 | 3.84 | page | (c) | head h2 "Further information about your upgrade": bottom +48, w -326 |
+| /de/en/upgrade-premium-economy-class 1440 | 3.83 | page | (c) | head h2 "Further information about your upgrade": bottom +48, w -326 |
+| /de/en/upgrade-to-business-class 1440 | 3.82 | page | (b) | section section.breadcrumb-container.accordion-columns-container: bottom -842 (h -842) |
+| /de/en/feedback 1440 | 3.80 | page | (c) | head h2 "Baggage irregularities: reimbursement of": bottom +34 |
+| /de/en/32n 1440 | 3.77 | page | (e) | head h2 "Seat maps Airbus A320neo": bottom +6 (h -32) |
+| /de/en/advance-seat-reservation 1440 | 3.76 | page | (a) | head h2 "Preferred Zone Seat": bottom -7 |
+| /de/en/business-class-on-short-and-medium-haul 1440 | 3.75 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1835 (h -1835) |
+| /de/en/discover-lufthansa/carbon-offsetting/saf 390 | 3.59 | page | (d) | head h2 "Why does SAF reduce CO₂ emissions by at ": bottom +8 |
+| /de/en/imprint 1440 | 3.53 | page | (d) | head h2 "Management Board": bottom +32 |
+| /de/en/during-your-trip/food-and-beverages/onboard-delights/faq 390 | 3.52 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -1372 (h -1372) |
+| /de/en/articles/tags 390 | 3.51 | shared | (b) | head h2 "Explore more": bottom -4 |
+| /de/en/seat-maps 1440 | 3.51 | page | (e) | head h2 "Boeing": bottom -34 |
+| /de/en/lufthansa-express-bus 390 | 3.50 | shared | (a) | head h2 "Lufthansa Express Bus is available on th": bottom -32 |
+| /de/en/data-collection-canada 1440 | 3.48 | page | (a) | head h2 "Electronic Travel Authorization (eTA)": bottom -24 (h -40) |
+| /de/en/upgrade-to-premium-economy-class 1440 | 3.41 | page | (e) | head h2 "How to book your upgrade": bottom -3 |
+| /de/en/book-and-manage/additional-services/get-your-guide 390 | 3.40 | shared | (c) | head h2 "How to earn miles with GetYourGuide": bottom +8 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion 1440 | 3.38 | page | (b) | head h2 "Further information on travel and health": bottom -84 (h -32) |
+| /de/en/first-class-comfort 1440 | 3.34 | page | (c) | section section.breadcrumb-container: bottom -1230 (h -1230) |
+| /de/en/book-and-manage/cancellation-and-refund/refund/refund-form 390 | 3.33 | page | (d) | head h2 "General information": bottom +84 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage 390 | 3.29 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -1557 (h -1557) |
+| /de/en/sepa-terms-and-conditions 390 | 3.18 | page | (e) | section section.breadcrumb-container: bottom -1390 (h -1390) |
+| /de/en/lufthansa-express-bus 1440 | 3.16 | shared | (a) | head h2 "Lufthansa Express Bus is available on th": bottom -32 |
+| /de/en/pre-check-in 1440 | 3.15 | page | (e) | block columns-media: bottom +39 |
+| /de/en/rail-and-fly 1440 | 3.12 | shared | (e) | head h2 "Book Rail&Fly directly with your flight": bottom -32 (h -32) |
+| /de/en/wheelchair-batteries 1440 | 3.11 | shared | (e) | head h2 "Wheelchairs driven by a non-spillable, l": bottom +10 (h -40) |
+| /de/en/upgrade-first-class 1440 | 3.08 | page | (c) | section section.breadcrumb-container.accordion-columns-container: bottom -842 (h -842) |
+| /de/en/support/contact/contact-form-confirmation 1440 | 3.07 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/my-logbook 1440 | 3.03 | page | (e) | section section.breadcrumb-container: bottom -1808 (h -1808) |
+| /de/en/children-on-board 1440 | 3.03 | page | (c) | head h2 "Flying with baby": bottom -27 |
+| /de/en/wheelchair-batteries 390 | 3.01 | shared | (e) | head h2 "Wheelchairs driven by a non-spillable, l": bottom +10 (h -20) |
+| /de/en/general-conditions-currency-conversion 390 | 3.01 | page | (e) | section section.breadcrumb-container: bottom -409 (h -409) |
+| /de/en/lufthansa-at-duesseldorf-airport 1440 | 2.99 | page | (c) | section section.breadcrumb-container.accordion-columns-container: bottom -1547 (h -1547) |
+| /de/en/onboard-delights 390 | 2.98 | page | (c) | head h2 "Pre-order now": bottom +8 |
+| /de/en/secure-flight 390 | 2.98 | shared | (e) | head h2 "Entry regulations": bottom +24 |
+| /de/en/passengers-with-sensory-impairment 1440 | 2.95 | page | (b) | head h2 "cabinblu – Fly Above It All": bottom -29 |
+| /de/en/imprint 390 | 2.94 | shared | (d) | head h2 "Registration": bottom +65 |
+| /de/en/upgrade-to-premium-economy-class 390 | 2.93 | page | (e) | head h2 "How to book your upgrade": bottom -8 |
+| /de/en/upgrades-at-online-check-in 1440 | 2.92 | shared | (e) | head h2 "Upgrade benefits": bottom -16 (h -32) |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment 390 | 2.84 | page | (e) | block columns-media: bottom +7 |
+| /de/en/check-in-baggage 1440 | 2.82 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1745 (h -1745) |
+| /de/en/uebergepaeck 1440 | 2.81 | page | (d) | block accordion-columns: bottom +39 |
+| /de/en/schengen 390 | 2.72 | shared | (e) | head h2 "Entry into the “Schengen Area” in Europe": bottom -32 (h -32) |
+| /de/en/check-in-baggage 390 | 2.70 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1688 (h -1688) |
+| /de/en/book-and-manage/passenger-receipt-90days/confirmation 1440 | 2.69 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/support/feedback-and-contact-airlines 1440 | 2.66 | shared | (e) | block columns-media: bottom -18 (h -18) |
+| /de/en/travelling-with-children 1440 | 2.64 | shared | (b) | head h2 "Planning your trip": bottom 0 (h -32), w +430 |
+| /de/en/lufthansa-at-vienna-airport 1440 | 2.63 | page | (c) | section section.breadcrumb-container.accordion-columns-container: bottom -1052 (h -1052) |
+| /de/en/support/feedback-and-contact-airlines 390 | 2.62 | page | (e) | block columns-media: bottom -47 (h -47) |
+| /de/en/359 1440 | 2.60 | shared | (e) | head h2 "Seat map of the Airbus A350-900": bottom -8 (h -40) |
+| /de/en/business-terms-and-conditions 390 | 2.60 | page | (e) | section section.breadcrumb-container: bottom -1775 (h -1775) |
+| /de/en/terms-of-use 1440 | 2.60 | shared | (e) | head h2 "8. Storage of IP addresses": bottom +5 |
+| /de/en/baggage-irregularities 1440 | 2.60 | page | (a) | head h2 "Procedure for delayed baggage": bottom -5 |
+| /de/en/meetings-and-events-delegates 1440 | 2.58 | page | (c) | section section.breadcrumb-container: bottom -840 (h -840) |
+| /at/de/discover-lufthansa/new-onboard-experience 1440 | 2.57 | page | (e) | head h2 "Unsere Business Class – kein „business a": bottom +10 |
+| /de/de/discover-lufthansa/new-onboard-experience 1440 | 2.57 | page | (e) | head h2 "Unsere Business Class – kein „business a": bottom +10 |
+| /de/en/lufthansa-corporate-customers 1440 | 2.55 | shared | (b) | head h2 "Lufthansa provides corporate and busines": bottom 0 (h -40), w +430 |
+| /de/en/menus-travel-classes 390 | 2.53 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1767 (h -1767) |
+| /de/en/discover-lufthansa/lufthansa-fleet/351 1440 | 2.52 | shared | (c) | head h2 "Around the world with Allegris": bottom +27 |
+| /de/en/travelling-with-animals 1440 | 2.50 | page | (e) | section section.breadcrumb-container.accordion-columns-container: bottom -1300 (h -1300) |
+| /de/en/articles/explore-the-world/know-before-you-go-algiers 1440 | 2.47 | shared | (e) | block columns-media: bottom -25 |
+| /de/en/travel-expense-management 390 | 2.47 | shared | (e) | head h2 "The benefits of the Lufthansa Travel & E": bottom -16 (h -20) |
+| /de/en/sepa-terms-and-conditions-b 390 | 2.45 | page | (b) | section section.breadcrumb-container: bottom -1604 (h -1604) |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation 1440 | 2.44 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation 1440 | 2.44 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/during-your-trip/lhg-wifi 1440 | 2.44 | page | (e) | head h2 "Using Wi-Fi onboard – made simple": bottom +79 (h +79) |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation 1440 | 2.43 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/shopping 1440 | 2.38 | page | (e) | head h2 "You decide: your selection, your locatio": bottom +32 |
+| /de/en/baggage-irregularities 390 | 2.32 | page | (a) | head h2 "Procedure for delayed baggage": bottom -5 |
+| /de/en/articles/explore-the-world/know-before-you-go-berlin 1440 | 2.31 | shared | (e) | block columns-media: bottom -25 |
+| /de/en/travel-expense-management 1440 | 2.28 | shared | (e) | head h2 "The benefits of the Lufthansa Travel & E": bottom -16 (h -40) |
+| /de/en/book-and-manage/passenger-receipt-90days/confirmation 390 | 2.27 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/first-class-personal-assistant 390 | 2.26 | shared | (e) | head h2 "First Class": bottom +24 |
+| /de/en/business-class-on-short-and-medium-haul 390 | 2.25 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -2590 (h -2590) |
+| /de/en/free2move 390 | 2.22 | page | (c) | head h2 "Book Free2move": bottom -10 (h -32) |
+| /de/en/travelling-with-special-requirements 390 | 2.19 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -2684 (h -2684) |
+| /de/en/book-and-manage/stopover 1440 | 2.18 | page | (a) | head h2 "Turn your Stopover into an adventure": bottom +10 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 1440 | 2.18 | page | (b) | head h2 "Hidden Disabilities Sunflower": bottom -12 |
+| /de/en/book-and-manage/cancellation-and-refund/refund/refund-form 1440 | 2.16 | page | (d) | head h2 "General information": bottom +39 |
+| /de/en/services-munich-airport 1440 | 2.15 | page | (e) | block accordion-columns: bottom +16 |
+| /de/en/fia-valet-service 390 | 2.15 | shared | (e) | head h2 "Other services": bottom -40 (h -32) |
+| /de/en/lufthansa-corporate-customers 390 | 2.13 | page | (b) | section section.breadcrumb-container.columns-media-container: bottom -2687 (h -2687) |
+| /de/en/articles/tags/munich 390 | 2.13 | page | (b) | head h2 "Dive Deeper With Our Interest-based Epis": bottom -83 (h -57) |
+| /de/en/lounge-companions 390 | 2.13 | page | (d) | head h2 "People accompanying Senators²/⁴: Busines": bottom -40 (h -32) |
+| /de/en/lufthansa-express 1440 | 2.12 | shared | (e) | head h2 "Our partner services – with flexible boo": bottom +24 |
+| /de/en/articles/explore-the-world/stop-over-tokyo 1440 | 2.11 | page | (a) | block columns-media: bottom -52 |
+| /de/en/passenger-receipt-90 390 | 2.10 | page | (e) | section section.breadcrumb-container.form-container: bottom -2645 (h -2645) |
+| /de/en/discover-lufthansa/flightreservation-priceguarantee 1440 | 2.08 | shared | (e) | head h2 "Here’s how reservation with price guaran": bottom -16 (h -32) |
+| /de/en/cash-and-miles 1440 | 2.07 | page | (d) | head h2 "Promotion: Discover North America now an": bottom -32 (h -32) |
+| /gb/en/miles-and-more 1440 | 2.05 | page | (e) | block carousel-cards: bottom -17 |
+| /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips 1440 | 2.05 | shared | (a) | block columns-media: bottom -17 |
+| /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich 1440 | 2.04 | page | (a) | block columns-media: bottom -41 |
+| /de/de/miles-and-more 1440 | 2.01 | page | (e) | block carousel-cards: bottom -17 |
+| /at/de/miles-and-more 1440 | 2.01 | page | (e) | block carousel-cards: bottom -17 |
+| /de/en/online-check-in-info 390 | 2.01 | shared | (c) | head h2 "Availability of online check-in": bottom +8 |
+| /de/en/miles-and-more 1440 | 1.99 | page | (e) | block carousel-cards: bottom -17 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment 1440 | 1.97 | shared | (e) | block columns-media: bottom +12 |
+| /de/en/first-class-comfort 390 | 1.93 | shared | (c) | head h2 "First Class": bottom +24 |
+| /de/en/first-class-valet-parking-service 390 | 1.92 | shared | (c) | head h2 "First Class": bottom +24 |
+| /de/en/services-at-frankfurt-airport 1440 | 1.85 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -660 (h -660) |
+| /de/en/cash-and-miles 390 | 1.83 | page | (d) | head h2 "Promotion: Discover North America now an": bottom -32 (h -32) |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation 390 | 1.83 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation 390 | 1.82 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation 390 | 1.82 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/cancellations-and-refunds 390 | 1.80 | shared | (e) | head h2 "This might also be of interest to you": bottom -21 (h -32) |
+| /de/en/100-years 1440 | 1.80 | page | (c) | section spaced.campaign-section.section: bottom +27 (h +27) |
+| /de/de/gepaeck 1440 | 1.78 | page | (b) | head h2 "Gepäckservices": bottom -13 |
+| /at/de/gepaeck 1440 | 1.78 | page | (b) | head h2 "Gepäckservices": bottom -13 |
+| /de/en/meetings-and-events-organisers 390 | 1.78 | page | (d) | head h2 "Lufthansa Group Meetings & Events": bottom +40 |
+| /de/en/travelling-with-children 390 | 1.77 | page | (b) | block columns-media: bottom -40 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment 1440 | 1.75 | shared | (e) | block columns-media: bottom +13 |
+| /de/en/travelling-healthy 390 | 1.73 | page | (d) | head h2 "Health guide": bottom +57 |
+| /de/de/meetings-and-events 1440 | 1.70 | page | (c) | head h2 "Vorteile": bottom -27 (h -40) |
+| /at/de/meetings-and-events 1440 | 1.70 | page | (c) | head h2 "Vorteile": bottom -27 (h -40) |
+| /de/en/uebergepaeck 390 | 1.69 | shared | (d) | head h2 "Baggage": bottom +63 |
+| /de/en/book-and-manage/digital-self-services/airline-apps 390 | 1.65 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -2007 (h -2007) |
+| /xx/es/meetings-and-events 1440 | 1.64 | page | (c) | head h2 "Privilegios": bottom -27 (h -40) |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt 1440 | 1.61 | shared | (a) | block columns-media: bottom -16 |
+| /de/en/upgrade-info 390 | 1.61 | shared | (e) | head h2 "Upgrade options": bottom +24 |
+| /de/en/book-and-manage/stopover/zugspitze 390 | 1.60 | page | (a) | block columns-media: bottom +7 (h +7) |
+| /xx/ru/meetings-and-events 1440 | 1.59 | page | (c) | head h2 "Привилегии": bottom -27 (h -40) |
+| /fr/fr/meetings-and-events 1440 | 1.58 | page | (c) | head h2 "Avantages": bottom -27 (h -40) |
+| /xx/fr/meetings-and-events 1440 | 1.58 | page | (c) | head h2 "Avantages": bottom -27 (h -40) |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg 1440 | 1.52 | page | (a) | block columns-media: bottom -9 (h -9) |
+| /de/en/munich-fair 1440 | 1.51 | page | (c) | head h2 "From the airport to Messe München (Munic": bottom +39 (h +39), w -326 |
+| /de/en/travel-agencies 390 | 1.50 | page | (e) | section section.breadcrumb-container.columns-media-container: bottom -1260 (h -1260) |
+| /de/en/lufthansa-at-berlin-airport 1440 | 1.49 | shared | (e) | head h2 "Getting there": bottom -24 (h -40) |
+| /de/en/europcar 390 | 1.49 | page | (d) | section section.breadcrumb-container.car-rental-container: bottom +58 (h +58) |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation 1440 | 1.48 | page | (e) | section section.breadcrumb-container: bottom -280 (h -280) |
+| /de/en/pre-check-in 390 | 1.46 | page | (e) | head h2 "All check-in options": bottom +31 |
+| /de/en/miles-and-more 390 | 1.45 | page | (e) | block carousel-cards: bottom -20 |
+| /gb/en/miles-and-more 390 | 1.44 | page | (e) | block carousel-cards: bottom -20 |
+| /de/en/data-collection-usa 390 | 1.44 | shared | (e) | head h2 "This might also interest you": bottom -7 (h -39) |
+| /de/en/tiere-als-uebergepaeck 1440 | 1.43 | page | (c) | head h2 "Prices": bottom +40 (h -32) |
+| /de/en/articles/explore-the-world/stop-over-tokyo 390 | 1.41 | page | (a) | block carousel-images: bottom -4 |
+| /de/en/security-check-time-slot 1440 | 1.41 | shared | (e) | head h2 "All the airports with time-slot access t": bottom +8 |
+| /de/de/frankfurt-fair 390 | 1.40 | page | (a) | head h2 "Flughafen Frankfurt": bottom +39 |
+| /de/en/all-check-in 390 | 1.40 | page | (b) | head h2 "Bag drop-off": bottom +5 (h +7) |
+| /de/en/lufthansa-at-duesseldorf-airport 390 | 1.40 | shared | (c) | head h2 "Airport information": bottom +24 |
+| /at/de/frankfurt-fair 390 | 1.39 | page | (a) | head h2 "Flughafen Frankfurt": bottom +39 |
+| /de/en/prepare-for-your-trip/travel-classes/economy-basic 1440 | 1.39 | page | (b) | head h2 "You have selected the Economy Basic fare": bottom +9 (h +9) |
+| /at/de/articles/tags/allegris 1440 | 1.38 | page | (b) | head h2 "Alle Artikel zu Lufthansa Allegris": bottom +37 (h -13) |
+| /de/en/security-fast-lanes 390 | 1.36 | shared | (e) | head h2 "Services at the airport": bottom +8 |
+| /de/en/tips-senior-travellers 1440 | 1.36 | page | (a) | head h2 "At the airport": bottom +17 |
+| /de/en/articles/explore-flying/inflight-entertainment-vr-experience 390 | 1.33 | page | (a) | block columns-media: bottom -4 |
+| /de/en/fmg-valet-parking-service 1440 | 1.33 | shared | (e) | head h2 "Dropping off your vehicle": bottom -24 (h -40) |
+| /de/en/hotel-offers 390 | 1.31 | page | (a) | head h2 "Be inspired": bottom -15 (h -32) |
+| /de/de/articles/tags/allegris 1440 | 1.30 | page | (b) | head h2 "Alle Artikel zu Lufthansa Allegris": bottom +37 (h -13) |
+| /de/en/tiere-als-handgepaeck 1440 | 1.27 | page | (c) | head h2 "Checklist": bottom -40 (h -32) |
+| /de/en/discover-lufthansa/lufthansa-fleet/351 390 | 1.26 | page | (c) | head h2 "Seamless connection": bottom -20 |
+| /de/de/digital-self-services 390 | 1.23 | shared | (e) | head h2 "Kurz vor Abflug": bottom -16 (h -20) |
+| /at/de/digital-self-services 390 | 1.23 | shared | (e) | head h2 "Kurz vor Abflug": bottom -16 (h -20) |
+| /de/en/mobility-partner-program-healthcare 1440 | 1.22 | page | (e) | head h2 "Extra oxygen on board": bottom +8 |
+| /de/en/articles/authors/florian-tomberg 390 | 1.21 | page | (e) | head h1 "All articles from Florian Tomberg": bottom -24 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation 1440 | 1.21 | page | (e) | section section: bottom -4 (h -4) |
+| /de/en/support/contact/contact-form-confirmation 390 | 1.20 | shared | (e) | section section: bottom +10 (h +10) |
+| /de/en/fly-more-sustainabl 390 | 1.19 | shared | (e) | head h2 "Your options to support more sustainable": bottom -32 |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation 390 | 1.17 | page | (e) | section section.breadcrumb-container: bottom -267 (h -267) |
+| /de/en/accessible-travel 1440 | 1.17 | shared | (e) | block columns-media: bottom +13 |
+| /de/en/automatic-check-in 1440 | 1.15 | page | (c) | section section.breadcrumb-container.columns-media-container: bottom -1364 (h -1364) |
+| /gb/en/baggage 390 | 1.13 | shared | (b) | head h2 "Baggage services": bottom -4 |
+| /de/en/traveltricks 1440 | 1.12 | page | (b) | head h2 "Step 1: Download the Lufthansa app": bottom -13 (h -53) |
+| /de/en/baggage 390 | 1.12 | shared | (b) | head h2 "Baggage services": bottom -4 |
+| /gb/en/digital-self-services 390 | 1.11 | shared | (e) | head h2 "Shortly before your flight": bottom -16 (h -20) |
+| /de/en/articles/explore-the-world/essentials-frankfurt-facts 1440 | 1.11 | page | (a) | block columns-media: bottom +8 |
+| /de/en/lufthansa-guide-service 1440 | 1.11 | page | (c) | head h2 "Lufthansa Guides meeting and escorting o": bottom +111 (h -32) |
+| /de/en/digital-self-services 390 | 1.10 | shared | (e) | head h2 "Shortly before your flight": bottom -16 (h -20) |
+| /de/en/mobility-partner-program-healthcare 390 | 1.08 | page | (e) | head h2 "Extra oxygen on board": bottom +8 |
+| /de/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass 390 | 1.07 | shared | (d) | head h2 "One adult with two children": bottom +61 |
+| /de/en/lufthansa-express 390 | 1.06 | shared | (e) | head h2 "Our partner services – with flexible boo": bottom +24 |
+| /de/en/during-your-trip/lhg-wifi 390 | 1.05 | page | (e) | head h2 "Using Wi-Fi onboard – made simple": bottom +18 (h +18) |
+| /de/en/my-bookings 1440 | 1.02 | page | (b) | block cards-teaser: bottom -17 (h -17) |
+| /de/en/flight-search 390 | 1.00 | page | (b) | block cards-teaser: bottom -3 |
+| /de/en/upgrade-first-class 390 | 1.00 | page | (c) | head h2 "Upgrade options": bottom -17 |
+| /de/en/articles/explore-the-world/in-my-hood-district-zurich 1440 | 0.98 | shared | (a) | block columns-media: bottom -17 |
+| /de/en/digital-baggage-services 390 | 0.97 | page | (e) | head h2 "Baggage": bottom +24 |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips 1440 | 0.94 | shared | (a) | block columns-media: bottom -17 |
+| /de/en/arrival-services 390 | 0.92 | page | (d) | head h2 "Complimentary: a stay in one of our loun": bottom -32 |
+| /de/en/articles/tags/munich 1440 | 0.92 | page | (a) | head h1 "Travel Guide Munich – a Cozy City in the": bottom 0, w +430 |
+| /de/de/flughafeninformation 1440 | 0.91 | page | (e) | section grey.section: bottom -4 (h -4) |
+| /de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390 | 0.91 | page | (b) | head h2 "Travel safely with lithium batteries": bottom -5 |
+| /at/de/flughafeninformation 1440 | 0.90 | page | (e) | section grey.section: bottom -4 (h -4) |
+| /de/en/book-and-manage/stopover/neuschwanstein 390 | 0.88 | page | (a) | block columns-media: bottom +7 (h +7) |
+| /de/en/anmeldung-tiere-frachtraum 1440 | 0.88 | page | (d) | block form: bottom +29 (h +29) |
+| /de/en/all-check-in 1440 | 0.88 | page | (b) | head h2 "Bag drop-off": bottom +9 (h +9) |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation 390 | 0.82 | page | (e) | section section: bottom -4 (h -4) |
+| /de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk 390 | 0.80 | page | (b) | head h2 "Travellers who require a visa to enter t": bottom +16 |
+| /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich 390 | 0.79 | page | (a) | block columns-media: bottom -19 |
+| /de/en/anmeldung-tiere-frachtraum 390 | 0.76 | page | (d) | block form: bottom +29 (h +29) |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 1440 | 0.75 | page | (a) | block columns-media: bottom +11 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg 390 | 0.75 | shared | (a) | block columns-media: bottom -20 (h -20) |
+| /de/en/lufthansa-group-star-alliance-and-partner-airlines 1440 | 0.75 | page | (e) | head h2 "Miles that take you further": bottom +40 |
+| /de/en/datenschutz 1440 | 0.73 | shared | (e) | head h2 "Information about data protection": bottom -42 (h -40) |
+| /de/en/100-years/global-network 390 | 0.71 | page | (a) | head h2 "Rapid rise": bottom +20 |
+| /de/en/articles/explore-the-world/eat-see-do-algiers 1440 | 0.71 | shared | (e) | block columns-media: bottom -13 |
+| /de/en/744 1440 | 0.68 | shared | (e) | head h2 "Seat maps Boeing B747-400i": bottom -8 (h -40) |
+| /de/en/articles/explore-the-world/in-my-hood-chiswick-london 390 | 0.68 | page | (a) | block columns-media: bottom +10 |
+| /gb/en/frankfurt-fair 390 | 0.67 | page | (a) | head h2 "Frankfurt Airport": bottom +15 |
+| /de/en/frankfurt-fair 390 | 0.67 | page | (a) | head h2 "Frankfurt Airport": bottom +15 |
+| /de/en/electronic-bag-tags 1440 | 0.67 | page | (a) | block columns-media: bottom -19 (h -19) |
+| /de/en/discover-lufthansa/lufthansa-group-airlines/ita-airways 1440 | 0.65 | page | (b) | head h2 "FAQ": bottom +39, w +430 |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips 390 | 0.65 | page | (a) | block columns-media: bottom -8 |
+| /gb/en/frankfurt-fair 1440 | 0.62 | page | (a) | section column-view.padded.section: bottom -59 (h -59) |
+| /de/en/refund 1440 | 0.61 | page | (e) | section section.breadcrumb-container: bottom -1359 (h -1359) |
+| /de/en/frankfurt-fair 1440 | 0.61 | page | (a) | section column-view.padded.section: bottom -59 (h -59) |
+| /de/en/articles/explore-flying 1440 | 0.60 | shared | (e) | head h2 "How to Sleep on a Plane: 7 Expert Tips t": bottom +10 |
+| /de/en/doctor-on-board 390 | 0.60 | page | (d) | head h2 "Doctor on Board – good to know": bottom -32 |
+| /de/en/fia-valet-service 1440 | 0.57 | shared | (e) | head h2 "Other services": bottom -40 (h -32) |
+| /de/en/admission-rules 1440 | 0.54 | shared | (c) | head h2 "Lounge access on departure": bottom +25 (h -32) |
+| /de/en/upgrades-at-online-check-in 390 | 0.53 | shared | (e) | head h2 "Upgrade benefits": bottom -16 (h -32) |
+| /de/en/green-fare 1440 | 0.51 | page | (e) | head h2 "More information about Sustainable Aviat": bottom -48 |
+| /de/en/first-class 390 | 0.51 | page | (b) | head h2 "The First Class Terminal": bottom +3 |
+
+### 14.8 The full table after order 60 (670)
+
+| page | width | today | switched (order 60) | height | order 59 | +/- today |
+| --- | --- | --- | --- | --- | --- | --- |
+| /gb/en/baggage | 390 | 5.01 | 6.14 | 7336 | 6.14 | 1.13 |
+| /gb/en/baggage | 1440 | 1.7 | 1.97 | 4627 | 1.97 | 0.27 |
+| /de/de/gepaeck | 390 | 4.84 | 4.18 | 7517 | 4.18 | -0.66 |
+| /de/de/gepaeck | 1440 | 3.37 | 5.15 | 4715 | 5.15 | 1.78 |
+| /gb/en/food-and-beverages | 390 | 6.71 | 6.71 | 6742 | 6.71 | 0.00 |
+| /gb/en/food-and-beverages | 1440 | 6.46 | 2.19 | 5087 | 2.19 | -4.27 |
+| /gb/en/lufthansa-travel-classes | 390 | 8.02 | 8.02 | 4688 | 8.02 | 0.00 |
+| /gb/en/lufthansa-travel-classes | 1440 | 3.85 | 3.85 | 3290 | 3.85 | 0.00 |
+| /gb/en/digital-self-services | 390 | 5.55 | 6.66 | 5491 | 6.66 | 1.11 |
+| /gb/en/digital-self-services | 1440 | 2.9 | 2.74 | 4471 | 2.74 | -0.16 |
+| /gb/en/miles-and-more | 390 | 5.17 | 6.61 | 4173 | 6.61 | 1.44 |
+| /gb/en/miles-and-more | 1440 | 2.33 | 4.38 | 3392 | 4.38 | 2.05 |
+| /gb/en/airport-information | 390 | 5.64 | 6.07 | 5490 | 6.07 | 0.43 |
+| /gb/en/airport-information | 1440 | 3.84 | 4.1 | 3237 | 4.1 | 0.26 |
+| /gb/en/overview-special-request | 390 | 5.79 | 5.79 | 3936 | 5.79 | 0.00 |
+| /gb/en/overview-special-request | 1440 | 2.46 | 2.46 | 2746 | 2.46 | 0.00 |
+| /de/de/digital-self-services | 390 | 5.57 | 6.8 | 5653 | 6.8 | 1.23 |
+| /de/de/digital-self-services | 1440 | 2.93 | 2.83 | 4549 | 2.83 | -0.10 |
+| /at/de/digital-self-services | 390 | 5.57 | 6.8 | 5653 | 6.8 | 1.23 |
+| /at/de/digital-self-services | 1440 | 2.93 | 2.83 | 4549 | 2.83 | -0.10 |
+| /de/de/fluege | 390 | 45.79 | 45.41 | 5194 | 45.42 | -0.38 |
+| /de/de/fluege | 1440 | 33.76 | 33.66 | 3820 | 33.62 | -0.10 |
+| /at/de/fluege | 390 | 43.93 | 44.08 | 5330 | 43.96 | 0.15 |
+| /at/de/fluege | 1440 | 34.14 | 33.84 | 3983 | 33.9 | -0.30 |
+| /gb/en/flights | 390 | 43.82 | 43.84 | 5140 | 43.85 | 0.02 |
+| /gb/en/flights | 1440 | 33.08 | 33.03 | 3906 | 33.03 | -0.05 |
+| /de/de/lufthansa-reiseklassen | 390 | 7.95 | 7.95 | 4787 | 7.95 | 0.00 |
+| /de/de/lufthansa-reiseklassen | 1440 | 3.88 | 3.88 | 3290 | 3.88 | 0.00 |
+| /at/de/lufthansa-reiseklassen | 390 | 7.95 | 7.95 | 4787 | 7.95 | 0.00 |
+| /at/de/lufthansa-reiseklassen | 1440 | 3.88 | 3.88 | 3290 | 3.88 | 0.00 |
+| /de/de/meetings-and-events | 390 | 6.11 | 6.11 | 4149 | 6.11 | 0.00 |
+| /de/de/meetings-and-events | 1440 | 2.74 | 4.44 | 3582 | 4.44 | 1.70 |
+| /at/de/meetings-and-events | 390 | 6.11 | 6.11 | 4149 | 6.11 | 0.00 |
+| /at/de/meetings-and-events | 1440 | 2.74 | 4.44 | 3582 | 4.44 | 1.70 |
+| /gb/en/meetings-and-events | 390 | 5.75 | 5.75 | 3888 | 5.75 | 0.00 |
+| /gb/en/meetings-and-events | 1440 | 2.56 | 2.56 | 3528 | 2.56 | 0.00 |
+| /de/de/miles-and-more | 390 | 5.04 | 9.01 | 4465 | 9.01 | 3.97 |
+| /de/de/miles-and-more | 1440 | 2.34 | 4.35 | 3473 | 4.35 | 2.01 |
+| /at/de/miles-and-more | 390 | 5.03 | 9.01 | 4465 | 9.01 | 3.98 |
+| /at/de/miles-and-more | 1440 | 2.34 | 4.35 | 3473 | 4.35 | 2.01 |
+| /de/en/flights | 390 | 44.84 | 44.88 | 5339 | 44.9 | 0.04 |
+| /de/en/flights | 1440 | 34.1 | 34.08 | 4105 | 34.13 | -0.02 |
+| /de/de/frankfurt-fair | 390 | 6.09 | 7.49 | 5490 | 7.49 | 1.40 |
+| /de/de/frankfurt-fair | 1440 | 3.83 | 4.07 | 3495 | 4.07 | 0.24 |
+| /at/de/frankfurt-fair | 390 | 6.09 | 7.48 | 5490 | 7.48 | 1.39 |
+| /at/de/frankfurt-fair | 1440 | 3.84 | 4.07 | 3495 | 4.07 | 0.23 |
+| /gb/en/frankfurt-fair | 390 | 5.91 | 6.58 | 5336 | 6.58 | 0.67 |
+| /gb/en/frankfurt-fair | 1440 | 4.74 | 5.36 | 3492 | 5.36 | 0.62 |
+| /de/de/bedeutsamste-strecken | 390 | 5.94 | 5.94 | 2875 | 5.94 | 0.00 |
+| /de/de/bedeutsamste-strecken | 1440 | 2.71 | 2.77 | 2466 | 2.77 | 0.06 |
+| /at/de/bedeutsamste-strecken | 390 | 5.94 | 5.94 | 2875 | 5.94 | 0.00 |
+| /at/de/bedeutsamste-strecken | 1440 | 2.71 | 2.77 | 2466 | 2.77 | 0.06 |
+| /gb/en/most-significant-route | 390 | 5.99 | 5.99 | 2780 | 5.99 | 0.00 |
+| /gb/en/most-significant-route | 1440 | 2.56 | 2.56 | 2574 | 2.56 | 0.00 |
+| /fr/fr/meetings-and-events | 390 | 6.04 | 6.04 | 4355 | 6.04 | 0.00 |
+| /fr/fr/meetings-and-events | 1440 | 3.11 | 4.69 | 3688 | 4.69 | 1.58 |
+| /xx/es/meetings-and-events | 390 | 6.23 | 6.23 | 4109 | 6.23 | 0.00 |
+| /xx/es/meetings-and-events | 1440 | 2.77 | 4.41 | 3581 | 4.41 | 1.64 |
+| /xx/fr/meetings-and-events | 390 | 6.05 | 6.05 | 4355 | 6.05 | 0.00 |
+| /xx/fr/meetings-and-events | 1440 | 3.07 | 4.65 | 3688 | 4.65 | 1.58 |
+| /de/en/100-years/chronicle | 390 | 7.03 | 7.03 | 43491 | 7.03 | 0.00 |
+| /de/en/100-years/chronicle | 1440 | 12.22 | 12.12 | 34772 | 12.12 | -0.10 |
+| /de/en/book-and-manage/stopover | 390 | 14 | 18.4 | 17474 | 18.4 | 4.40 |
+| /de/en/book-and-manage/stopover | 1440 | 11.82 | 14 | 13215 | 14 | 2.18 |
+| /de/en/book-and-manage/stopover/bayerischer-hof | 390 | 4.98 | 4.76 | 4036 | 4.76 | -0.22 |
+| /de/en/book-and-manage/stopover/bayerischer-hof | 1440 | 5.08 | 5.45 | 2950 | 5.45 | 0.37 |
+| /de/en/book-and-manage/stopover/neuschwanstein | 390 | 2.72 | 3.6 | 3739 | 3.6 | 0.88 |
+| /de/en/book-and-manage/stopover/neuschwanstein | 1440 | 4.8 | 5 | 3012 | 5 | 0.20 |
+| /de/en/book-and-manage/stopover/zugspitze | 390 | 3.33 | 4.93 | 4011 | 4.93 | 1.60 |
+| /de/en/book-and-manage/stopover/zugspitze | 1440 | 4.53 | 4.73 | 3069 | 4.73 | 0.20 |
+| /de/en/digital-self-services | 390 | 5.54 | 6.64 | 5491 | 6.64 | 1.10 |
+| /de/en/digital-self-services | 1440 | 3.46 | 3.65 | 4471 | 3.65 | 0.19 |
+| /de/en/frankfurt-fair | 390 | 5.9 | 6.57 | 5336 | 6.57 | 0.67 |
+| /de/en/frankfurt-fair | 1440 | 4.74 | 5.35 | 3492 | 5.35 | 0.61 |
+| /de/en/lufthansa-travel-classes | 390 | 8.01 | 8.01 | 4688 | 8.01 | 0.00 |
+| /de/en/lufthansa-travel-classes | 1440 | 3.86 | 3.86 | 3290 | 3.86 | 0.00 |
+| /de/en/meetings-and-events | 390 | 5.74 | 5.74 | 3888 | 5.74 | 0.00 |
+| /de/en/meetings-and-events | 1440 | 2.56 | 2.56 | 3528 | 2.56 | 0.00 |
+| /de/en/miles-and-more | 390 | 5.16 | 6.61 | 4173 | 6.61 | 1.45 |
+| /de/en/miles-and-more | 1440 | 2.42 | 4.41 | 3392 | 4.41 | 1.99 |
+| /de/en/most-significant-route | 390 | 5.98 | 5.98 | 2780 | 5.98 | 0.00 |
+| /de/en/most-significant-route | 1440 | 2.56 | 2.56 | 2574 | 2.56 | 0.00 |
+| /at/de/100-years/crane | 390 | 9.38 | 9.38 | 11407 | 9.38 | 0.00 |
+| /at/de/100-years/crane | 1440 | 7.96 | 7.96 | 9755 | 7.96 | 0.00 |
+| /at/de/additional-services | 390 | 6.83 | 6.83 | 8440 | 6.83 | 0.00 |
+| /at/de/additional-services | 1440 | 5.73 | 5.73 | 6766 | 5.73 | 0.00 |
+| /at/de/100-years/destinations | 390 | 7.96 | 7.96 | 22167 | 7.96 | 0.00 |
+| /at/de/100-years/destinations | 1440 | 0.71 | 5.33 | 20296 | 5.33 | 4.62 |
+| /at/de/articles/highlights/all-it-takes-is-a-yes | 390 | 12.77 | 12.77 | 7984 | 12.77 | 0.00 |
+| /at/de/articles/highlights/all-it-takes-is-a-yes | 1440 | 6.6 | 6.6 | 6802 | 6.6 | 0.00 |
+| /at/de/articles/highlights/allegris-premium-economy-san-diego | 390 | 5.55 | 14.3 | 7921 | 14.25 | 8.75 |
+| /at/de/articles/highlights/allegris-premium-economy-san-diego | 1440 | 4.9 | 15.92 | 7029 | 15.92 | 11.02 |
+| /at/de/articles/tags/allegris | 390 | 5.96 | 12.12 | 8229 | 12.12 | 6.16 |
+| /at/de/articles/tags/allegris | 1440 | 10.56 | 11.94 | 7492 | 11.94 | 1.38 |
+| /at/de/discover-lufthansa/new-onboard-experience | 390 | 8.33 | 8.33 | 18847 | 8.33 | 0.00 |
+| /at/de/discover-lufthansa/new-onboard-experience | 1440 | 4.46 | 7.03 | 15421 | 7.03 | 2.57 |
+| /at/de/flughafeninformation | 390 | 24.76 | 25.13 | 5952 | 25.13 | 0.37 |
+| /at/de/flughafeninformation | 1440 | 3.07 | 3.97 | 3288 | 3.97 | 0.90 |
+| /at/de/gepaeck | 390 | 4.84 | 4.18 | 7517 | 4.18 | -0.66 |
+| /at/de/gepaeck | 1440 | 3.37 | 5.15 | 4715 | 5.15 | 1.78 |
+| /at/de/services-am-flughafen | 390 | 7.47 | 7.47 | 3619 | 7.47 | 0.00 |
+| /at/de/services-am-flughafen | 1440 | 1.49 | 1.49 | 2851 | 1.49 | 0.00 |
+| /at/de/overview-special-request | 390 | 5.61 | 5.61 | 4028 | 5.61 | 0.00 |
+| /at/de/overview-special-request | 1440 | 2.45 | 2.45 | 2773 | 2.45 | 0.00 |
+| /at/de/speisen-und-getraenke | 390 | 7.4 | 7.4 | 7113 | 7.4 | 0.00 |
+| /at/de/speisen-und-getraenke | 1440 | 2.41 | 2.41 | 5114 | 2.41 | 0.00 |
+| /de/de/100-years/crane | 390 | 9.38 | 9.38 | 11407 | 9.38 | 0.00 |
+| /de/de/100-years/crane | 1440 | 7.96 | 7.96 | 9755 | 7.96 | 0.00 |
+| /de/de/100-years/destinations | 390 | 7.96 | 7.96 | 22167 | 7.96 | 0.00 |
+| /de/de/100-years/destinations | 1440 | 0.71 | 5.33 | 20296 | 5.33 | 4.62 |
+| /de/de/additional-services | 390 | 6.83 | 6.83 | 8440 | 6.83 | 0.00 |
+| /de/de/additional-services | 1440 | 5.73 | 5.73 | 6766 | 5.73 | 0.00 |
+| /de/de/articles/highlights/all-it-takes-is-a-yes | 390 | 12.78 | 12.78 | 7984 | 12.78 | 0.00 |
+| /de/de/articles/highlights/all-it-takes-is-a-yes | 1440 | 6.6 | 6.6 | 6802 | 6.6 | 0.00 |
+| /de/de/articles/highlights/allegris-premium-economy-san-diego | 390 | 4.82 | 13.93 | 7894 | 13.93 | 9.11 |
+| /de/de/articles/highlights/allegris-premium-economy-san-diego | 1440 | 3.53 | 16.13 | 7029 | 15.92 | 12.60 |
+| /de/de/articles/tags/allegris | 390 | 5.96 | 12.12 | 8229 | 12.12 | 6.16 |
+| /de/de/articles/tags/allegris | 1440 | 10.64 | 11.94 | 7492 | 11.94 | 1.30 |
+| /de/de/discover-lufthansa/new-onboard-experience | 390 | 8.33 | 8.33 | 18847 | 8.33 | 0.00 |
+| /de/de/discover-lufthansa/new-onboard-experience | 1440 | 4.46 | 7.03 | 15421 | 7.03 | 2.57 |
+| /de/de/flughafeninformation | 390 | 24.77 | 25.13 | 5952 | 25.13 | 0.36 |
+| /de/de/flughafeninformation | 1440 | 3.06 | 3.97 | 3288 | 3.97 | 0.91 |
+| /de/de/overview-special-request | 390 | 5.61 | 5.61 | 4028 | 5.61 | 0.00 |
+| /de/de/overview-special-request | 1440 | 2.45 | 2.45 | 2773 | 2.45 | 0.00 |
+| /de/de/services-am-flughafen | 390 | 7.47 | 7.47 | 3619 | 7.47 | 0.00 |
+| /de/de/services-am-flughafen | 1440 | 1.48 | 1.48 | 2851 | 1.48 | 0.00 |
+| /de/de/speisen-und-getraenke | 390 | 7.61 | 7.61 | 7113 | 7.61 | 0.00 |
+| /de/de/speisen-und-getraenke | 1440 | 2.41 | 2.41 | 5114 | 2.41 | 0.00 |
+| /de/en/100-years | 390 | 19.68 | 32.69 | 9882 | 32.69 | 13.01 |
+| /de/en/100-years | 1440 | 10.49 | 12.29 | 8491 | 12.35 | 1.80 |
+| /de/en/100-years/cabin-design | 390 | 13.28 | 17.61 | 19766 | 17.59 | 4.33 |
+| /de/en/100-years/cabin-design | 1440 | 5.88 | 14.85 | 17065 | 14.9 | 8.97 |
+| /de/en/100-years/campaigns | 390 | 9.52 | 7.31 | 15343 | 7.31 | -2.21 |
+| /de/en/100-years/campaigns | 1440 | 4.93 | 3.25 | 16466 | 3.25 | -1.68 |
+| /de/en/100-years/crane | 390 | 9.46 | 9.46 | 10981 | 9.46 | 0.00 |
+| /de/en/100-years/crane | 1440 | 7.79 | 7.79 | 9782 | 7.79 | 0.00 |
+| /de/en/100-years/destinations | 390 | 8.1 | 8.1 | 21532 | 8.1 | 0.00 |
+| /de/en/100-years/destinations | 1440 | 0.78 | 5.25 | 20241 | 5.25 | 4.47 |
+| /de/en/100-years/fleet | 390 | 6.38 | 6.27 | 36530 | 6.27 | -0.11 |
+| /de/en/100-years/fleet | 1440 | 7.45 | 7.45 | 28325 | 7.45 | 0.00 |
+| /de/en/100-years/global-network | 390 | 15.04 | 15.75 | 18823 | 15.75 | 0.71 |
+| /de/en/100-years/global-network | 1440 | 13.62 | 13.73 | 16722 | 13.73 | 0.11 |
+| /de/en/320 | 390 | 5.75 | 13.7 | 6714 | 13.7 | 7.95 |
+| /de/en/320 | 1440 | 4.42 | 4.58 | 6385 | 4.58 | 0.16 |
+| /de/en/100-years/history | 390 | 5.92 | 5.92 | 11691 | 5.92 | 0.00 |
+| /de/en/100-years/history | 1440 | 1.04 | 1.04 | 9520 | 1.04 | 0.00 |
+| /de/en/100-years/history/menu-on-board | 390 | 9.53 | 9.53 | 11863 | 9.53 | 0.00 |
+| /de/en/100-years/history/menu-on-board | 1440 | 2.21 | 2.21 | 12343 | 2.21 | 0.00 |
+| /de/en/32n | 390 | 7.39 | 13.59 | 6883 | 13.59 | 6.20 |
+| /de/en/32n | 1440 | 2.37 | 6.14 | 6468 | 6.14 | 3.77 |
+| /de/en/359 | 390 | 6.09 | 10.61 | 2955 | 10.61 | 4.52 |
+| /de/en/359 | 1440 | 2.51 | 5.11 | 3373 | 5.11 | 2.60 |
+| /de/en/add-sports-baggage | 390 | 9.92 | 10.31 | 5463 | 10.31 | 0.39 |
+| /de/en/add-sports-baggage | 1440 | 6.62 | 6.84 | 4477 | 6.84 | 0.22 |
+| /de/en/744 | 390 | 11.64 | 8.82 | 3239 | 8.82 | -2.82 |
+| /de/en/744 | 1440 | 5.03 | 5.71 | 3293 | 5.71 | 0.68 |
+| /de/en/accessible-travel | 390 | 6.21 | 6.11 | 10394 | 6.11 | -0.10 |
+| /de/en/accessible-travel | 1440 | 4.16 | 5.33 | 5542 | 5.33 | 1.17 |
+| /de/en/additional-services | 390 | 6.68 | 6.68 | 8372 | 6.68 | 0.00 |
+| /de/en/additional-services | 1440 | 5.8 | 5.81 | 6766 | 5.81 | 0.01 |
+| /de/en/addresses-worldwide | 390 | 5.51 | 5.51 | 1417 | 5.51 | 0.00 |
+| /de/en/addresses-worldwide | 1440 | 3.29 | 3.29 | 1249 | 3.29 | 0.00 |
+| /de/en/admission-rules | 390 | 5.6 | 4.72 | 8415 | 4.72 | -0.88 |
+| /de/en/admission-rules | 1440 | 3.06 | 3.6 | 7305 | 3.6 | 0.54 |
+| /de/en/advance-seat-reservation | 390 | 12.01 | 21.62 | 13190 | 21.62 | 9.61 |
+| /de/en/advance-seat-reservation | 1440 | 7.71 | 11.47 | 8755 | 11.47 | 3.76 |
+| /de/en/advance-seat-reservations-terms-and-conditions | 390 | 5.53 | 15.22 | 2659 | 15.22 | 9.69 |
+| /de/en/advance-seat-reservations-terms-and-conditions | 1440 | 2.17 | 14.59 | 1719 | 14.59 | 12.42 |
+| /de/en/affiliatemarketing | 390 | 9.69 | 10.54 | 4124 | 10.54 | 0.85 |
+| /de/en/affiliatemarketing | 1440 | 3.67 | 2.83 | 2820 | 2.83 | -0.84 |
+| /de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa | 390 | 8.42 | 8.42 | 9928 | 8.42 | 0.00 |
+| /de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa | 1440 | 5.8 | 6.08 | 6078 | 6.08 | 0.28 |
+| /de/en/anmeldung-tiere-frachtraum | 390 | 7.28 | 8.04 | 8755 | 8.04 | 0.76 |
+| /de/en/anmeldung-tiere-frachtraum | 1440 | 3.47 | 4.35 | 6503 | 4.35 | 0.88 |
+| /de/en/all-check-in | 390 | 5.17 | 6.57 | 3362 | 6.57 | 1.40 |
+| /de/en/all-check-in | 1440 | 3.14 | 4.02 | 2826 | 4.02 | 0.88 |
+| /de/en/airport-information | 390 | 5.62 | 6.05 | 5490 | 6.05 | 0.43 |
+| /de/en/airport-information | 1440 | 3.83 | 4.09 | 3237 | 4.09 | 0.26 |
+| /de/en/articles/authors/florian-tomberg | 390 | 4.53 | 5.74 | 3778 | 5.74 | 1.21 |
+| /de/en/articles/authors/florian-tomberg | 1440 | 3.03 | 3.24 | 3425 | 3.24 | 0.21 |
+| /de/en/arrival-services | 390 | 6.74 | 7.66 | 4649 | 7.66 | 0.92 |
+| /de/en/arrival-services | 1440 | 10.36 | 8.21 | 3754 | 8.21 | -2.15 |
+| /de/en/articles/explore-flying | 390 | 7.22 | 7.41 | 6803 | 7.41 | 0.19 |
+| /de/en/articles/explore-flying | 1440 | 4.32 | 4.92 | 5533 | 4.92 | 0.60 |
+| /de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history | 390 | 3.35 | 3.35 | 11712 | 6.33 | 0.00 |
+| /de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history | 1440 | 1.32 | 1.74 | 9844 | 3.62 | 0.42 |
+| /de/en/articles/explore-flying/anniversary-super-crane-special | 390 | 10.79 | 8.51 | 10091 | 11.32 | -2.28 |
+| /de/en/articles/explore-flying/anniversary-super-crane-special | 1440 | 7.67 | 11.85 | 7257 | 11.64 | 4.18 |
+| /de/en/articles/explore-flying/essentials-future-of-flying | 390 | 4.87 | 4.87 | 5853 | 6.83 | 0.00 |
+| /de/en/articles/explore-flying/essentials-future-of-flying | 1440 | 2.68 | 2.51 | 5752 | 3.4 | -0.17 |
+| /de/en/articles/explore-flying/flying-high-christoph-quarch | 390 | 5.63 | 5.72 | 6398 | 5.72 | 0.09 |
+| /de/en/articles/explore-flying/flying-high-christoph-quarch | 1440 | 5.76 | 5.76 | 5400 | 5.76 | 0.00 |
+| /de/en/articles/explore-flying/inflight-entertainment-vr-experience | 390 | 0.94 | 2.27 | 10334 | 2.27 | 1.33 |
+| /de/en/articles/explore-flying/inflight-entertainment-vr-experience | 1440 | 2.08 | 1.94 | 7872 | 1.94 | -0.14 |
+| /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day | 390 | 11.35 | 10.28 | 10517 | 12.19 | -1.07 |
+| /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day | 1440 | 3.07 | 10.79 | 7628 | 11.61 | 7.72 |
+| /de/en/articles/explore-the-world | 390 | 7.42 | 7.51 | 8379 | 7.51 | 0.09 |
+| /de/en/articles/explore-the-world | 1440 | 5.5 | 5 | 6294 | 5 | -0.50 |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | 390 | 9.71 | 10.36 | 7647 | 10.36 | 0.65 |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | 1440 | 7.16 | 8.1 | 5025 | 8.1 | 0.94 |
+| /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day | 390 | 10.01 | 10.01 | 11849 | 12.08 | 0.00 |
+| /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day | 1440 | 2.69 | 9.13 | 8087 | 9.83 | 6.44 |
+| /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips | 390 | 8.05 | 8.07 | 5102 | 8.2 | 0.02 |
+| /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips | 1440 | 2.8 | 4.85 | 3815 | 4.79 | 2.05 |
+| /de/en/articles/explore-the-world/eat-see-do-algiers | 390 | 9.38 | 9.38 | 8366 | 14.01 | 0.00 |
+| /de/en/articles/explore-the-world/eat-see-do-algiers | 1440 | 7.72 | 8.43 | 6503 | 10.18 | 0.71 |
+| /de/en/articles/explore-the-world/essentials-barcelona-facts | 390 | 7.37 | 7.37 | 6039 | 10.95 | 0.00 |
+| /de/en/articles/explore-the-world/essentials-barcelona-facts | 1440 | 3.92 | 4.16 | 5411 | 6.21 | 0.24 |
+| /de/en/articles/explore-the-world/eat-see-do-berlin | 390 | 8.46 | 8.46 | 9799 | 15.04 | 0.00 |
+| /de/en/articles/explore-the-world/eat-see-do-berlin | 1440 | 4.87 | 4.72 | 7098 | 8.11 | -0.15 |
+| /de/en/articles/explore-the-world/in-my-hood-chiswick-london | 390 | 7.73 | 8.41 | 7225 | 8.41 | 0.68 |
+| /de/en/articles/explore-the-world/in-my-hood-chiswick-london | 1440 | 4.34 | 4.27 | 5181 | 4.27 | -0.07 |
+| /de/en/articles/explore-the-world/essentials-frankfurt-facts | 390 | 3.65 | 3.66 | 5023 | 5.82 | 0.01 |
+| /de/en/articles/explore-the-world/essentials-frankfurt-facts | 1440 | 5.14 | 6.25 | 5144 | 6.13 | 1.11 |
+| /de/en/articles/explore-the-world/in-my-hood-district-zurich | 390 | 5.45 | 5.48 | 8109 | 5.48 | 0.03 |
+| /de/en/articles/explore-the-world/in-my-hood-district-zurich | 1440 | 3.58 | 4.56 | 5423 | 4.56 | 0.98 |
+| /de/en/articles/explore-the-world/know-before-you-go-berlin | 390 | 7.74 | 7.89 | 7421 | 7.89 | 0.15 |
+| /de/en/articles/explore-the-world/know-before-you-go-berlin | 1440 | 4.63 | 6.94 | 7433 | 6.97 | 2.31 |
+| /de/en/articles/explore-the-world/know-before-you-go-algiers | 390 | 8 | 8.05 | 7475 | 8.05 | 0.05 |
+| /de/en/articles/explore-the-world/know-before-you-go-algiers | 1440 | 4.28 | 6.75 | 7392 | 6.75 | 2.47 |
+| /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul | 390 | 4.91 | 5.21 | 7084 | 5.21 | 0.30 |
+| /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul | 1440 | 5.93 | 5.97 | 5217 | 5.97 | 0.04 |
+| /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich | 390 | 7.65 | 8.44 | 6779 | 8.42 | 0.79 |
+| /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich | 1440 | 4.05 | 6.09 | 5104 | 6.05 | 2.04 |
+| /de/en/articles/explore-the-world/picture-perfect-austin | 390 | 25.42 | 25.36 | 10429 | 25.36 | -0.06 |
+| /de/en/articles/explore-the-world/picture-perfect-austin | 1440 | 18.75 | 18.92 | 7984 | 18.92 | 0.17 |
+| /de/en/articles/explore-the-world/stop-over-tokyo | 390 | 8.91 | 10.32 | 7342 | 10.32 | 1.41 |
+| /de/en/articles/explore-the-world/stop-over-tokyo | 1440 | 7.64 | 9.75 | 6188 | 9.75 | 2.11 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona | 390 | 11.67 | 12.06 | 9041 | 14.17 | 0.39 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona | 1440 | 4.92 | 5.67 | 5904 | 7.11 | 0.75 |
+| /de/en/articles/highlights/all-it-takes-is-a-yes | 390 | 13.43 | 13.43 | 7476 | 13.43 | 0.00 |
+| /de/en/articles/highlights/all-it-takes-is-a-yes | 1440 | 6.64 | 6.64 | 6748 | 6.64 | 0.00 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt | 390 | 7.58 | 7.18 | 6087 | 8.45 | -0.40 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt | 1440 | 4.6 | 6.21 | 4502 | 6.64 | 1.61 |
+| /de/en/articles/highlights | 390 | 0.66 | 0.66 | 9457 | 0.66 | 0.00 |
+| /de/en/articles/highlights | 1440 | 1.3 | 1.39 | 6845 | 1.39 | 0.09 |
+| /de/en/articles/tags | 390 | 2.85 | 6.36 | 2472 | 6.36 | 3.51 |
+| /de/en/articles/tags | 1440 | 1.2 | 7.97 | 1963 | 7.97 | 6.77 |
+| /de/en/articles/tags/allegris | 390 | 3.88 | 10.03 | 7940 | 10.03 | 6.15 |
+| /de/en/articles/tags/allegris | 1440 | 9.01 | 8.71 | 7479 | 8.71 | -0.30 |
+| /de/en/articles/highlights/allegris-premium-economy-san-diego | 390 | 6.72 | 15.78 | 7337 | 15.78 | 9.06 |
+| /de/en/articles/highlights/allegris-premium-economy-san-diego | 1440 | 8.12 | 16.89 | 6772 | 16.89 | 8.77 |
+| /de/en/automatic-check-in | 390 | 6.75 | 5.76 | 4525 | 5.76 | -0.99 |
+| /de/en/automatic-check-in | 1440 | 3.37 | 4.52 | 3011 | 4.52 | 1.15 |
+| /de/en/assistenzhunde | 390 | 10.18 | 9.08 | 3714 | 9.08 | -1.10 |
+| /de/en/assistenzhunde | 1440 | 7.97 | 7.29 | 2336 | 7.29 | -0.68 |
+| /de/en/articles/tags/munich | 390 | 16.61 | 18.74 | 8758 | 18.74 | 2.13 |
+| /de/en/articles/tags/munich | 1440 | 13.06 | 13.98 | 7418 | 13.98 | 0.92 |
+| /de/en/baggage-irregularities | 390 | 8.15 | 10.47 | 5091 | 10.47 | 2.32 |
+| /de/en/baggage-irregularities | 1440 | 8.98 | 11.58 | 3777 | 11.58 | 2.60 |
+| /de/en/baggage | 390 | 5.01 | 6.13 | 7336 | 6.13 | 1.12 |
+| /de/en/baggage | 1440 | 1.71 | 1.98 | 4627 | 1.98 | 0.27 |
+| /de/en/besondere-befoerderungsbedingungen-bus | 390 | 9.12 | 9.12 | 15433 | 9.12 | 0.00 |
+| /de/en/besondere-befoerderungsbedingungen-bus | 1440 | 3.99 | 4.2 | 9282 | 4.2 | 0.21 |
+| /de/en/bid-upgrade | 390 | 7.98 | 7.98 | 5020 | 7.98 | 0.00 |
+| /de/en/bid-upgrade | 1440 | 2.3 | 2.3 | 3889 | 2.3 | 0.00 |
+| /de/en/boeing787 | 390 | 7.44 | 7.69 | 8344 | 7.69 | 0.25 |
+| /de/en/boeing787 | 1440 | 5.99 | 4.7 | 7544 | 4.7 | -1.29 |
+| /de/en/boarding | 390 | 4.84 | 5.42 | 4514 | 5.42 | 0.58 |
+| /de/en/boarding | 1440 | 1.81 | 2.13 | 3189 | 2.13 | 0.32 |
+| /de/en/book-and-manage/additional-services/get-your-guide | 390 | 3.87 | 7.27 | 2358 | 8.86 | 3.40 |
+| /de/en/book-and-manage/additional-services/get-your-guide | 1440 | 1.01 | 11.95 | 2098 | 12.36 | 10.94 |
+| /de/en/book-and-manage/additional-services/travel-insurances | 390 | 11 | 16.99 | 3563 | 16.99 | 5.99 |
+| /de/en/book-and-manage/additional-services/travel-insurances | 1440 | 10.23 | 18.66 | 2920 | 18.66 | 8.43 |
+| /de/en/book-and-manage/cancellation-and-refund/refund/refund-form | 390 | 7.31 | 10.64 | 5105 | 10.64 | 3.33 |
+| /de/en/book-and-manage/cancellation-and-refund/refund/refund-form | 1440 | 3.78 | 5.94 | 4002 | 5.94 | 2.16 |
+| /de/en/book-and-manage/digital-self-services/airline-apps | 390 | 4.18 | 5.83 | 3491 | 5.83 | 1.65 |
+| /de/en/book-and-manage/digital-self-services/airline-apps | 1440 | 2.22 | 7.34 | 1736 | 7.34 | 5.12 |
+| /de/en/book-and-manage/flights/air-baltic | 390 | 5.67 | 5.73 | 10452 | 5.73 | 0.06 |
+| /de/en/book-and-manage/flights/air-baltic | 1440 | 6.3 | 6.04 | 6494 | 6.04 | -0.26 |
+| /de/en/book-and-manage/flights/ana | 390 | 8.35 | 12.35 | 5080 | 12.35 | 4.00 |
+| /de/en/book-and-manage/flights/ana | 1440 | 6.35 | 6.22 | 3363 | 6.22 | -0.13 |
+| /de/en/book-and-manage/flights/giftvoucher | 390 | 23.04 | 15.61 | 6975 | 15.61 | -7.43 |
+| /de/en/book-and-manage/flights/giftvoucher | 1440 | 13.18 | 11.35 | 4400 | 11.35 | -1.83 |
+| /de/en/book-and-manage/flights/helvetic | 390 | 7.29 | 7.47 | 7471 | 7.47 | 0.18 |
+| /de/en/book-and-manage/flights/helvetic | 1440 | 4.53 | 4.71 | 5281 | 4.71 | 0.18 |
+| /de/en/book-and-manage/passenger-receipt-90days/confirmation | 390 | 4.17 | 6.44 | 1321 | 6.44 | 2.27 |
+| /de/en/book-and-manage/passenger-receipt-90days/confirmation | 1440 | 1.79 | 4.48 | 1126 | 4.48 | 2.69 |
+| /de/en/book-and-manage/flights/wetlease-hub | 390 | 6.29 | 7.33 | 3362 | 7.33 | 1.04 |
+| /de/en/book-and-manage/flights/wetlease-hub | 1440 | 3.93 | 3.93 | 2971 | 3.93 | 0.00 |
+| /de/en/book-and-manage/rebook | 390 | 6.62 | 6.62 | 2407 | 6.62 | 0.00 |
+| /de/en/book-and-manage/rebook | 1440 | 4.33 | 4.33 | 1886 | 4.33 | 0.00 |
+| /de/en/book-and-manage/pax-receipt | 390 | 6.93 | 8.55 | 2475 | 8.55 | 1.62 |
+| /de/en/book-and-manage/pax-receipt | 1440 | 3.01 | 4.12 | 2073 | 4.12 | 1.11 |
+| /de/en/book-and-manage/pax-receipt/invoices-different-countries | 390 | 6.46 | 5.52 | 2289 | 5.52 | -0.94 |
+| /de/en/book-and-manage/pax-receipt/invoices-different-countries | 1440 | 3.17 | 2.96 | 2072 | 2.96 | -0.21 |
+| /de/en/book-and-manage/rebook/involuntary-rebooking | 390 | 8.72 | 8.72 | 7667 | 8.72 | 0.00 |
+| /de/en/book-and-manage/rebook/involuntary-rebooking | 1440 | 4.43 | 4.43 | 4841 | 4.43 | 0.00 |
+| /de/en/book-and-manage/rebook/voluntary-rebooking | 390 | 9.17 | 9.17 | 9651 | 9.17 | 0.00 |
+| /de/en/book-and-manage/rebook/voluntary-rebooking | 1440 | 5.4 | 5.4 | 6050 | 5.4 | 0.00 |
+| /de/en/business-class-on-short-and-medium-haul | 390 | 7.31 | 9.56 | 3958 | 9.56 | 2.25 |
+| /de/en/business-class-on-short-and-medium-haul | 1440 | 2.69 | 6.44 | 2916 | 6.44 | 3.75 |
+| /de/en/business-terms-and-conditions | 390 | 4.68 | 7.28 | 2950 | 7.28 | 2.60 |
+| /de/en/business-terms-and-conditions | 1440 | 2.32 | 7.77 | 1837 | 7.77 | 5.45 |
+| /de/en/cancellations-and-refunds | 390 | 7.68 | 9.48 | 3142 | 9.48 | 1.80 |
+| /de/en/cancellations-and-refunds | 1440 | 3.54 | 10.08 | 2357 | 10.08 | 6.54 |
+| /de/en/carry-on-baggage | 390 | 6.45 | 6.41 | 9697 | 6.41 | -0.04 |
+| /de/en/carry-on-baggage | 1440 | 7.32 | 7.76 | 6519 | 7.76 | 0.44 |
+| /de/en/check-in-baggage | 390 | 7.28 | 9.98 | 3359 | 9.98 | 2.70 |
+| /de/en/check-in-baggage | 1440 | 6.17 | 8.99 | 3493 | 8.99 | 2.82 |
+| /de/en/check-in-with-the-family | 390 | 2.95 | 2.95 | 3299 | 2.95 | 0.00 |
+| /de/en/check-in-with-the-family | 1440 | 1.74 | 1.74 | 2538 | 1.74 | 0.00 |
+| /de/en/cash-and-miles | 390 | 11.65 | 13.48 | 4062 | 13.48 | 1.83 |
+| /de/en/cash-and-miles | 1440 | 10.35 | 12.42 | 2890 | 12.42 | 2.07 |
+| /de/en/childrens-menus-on-board | 390 | 6.09 | 14.88 | 5515 | 14.88 | 8.79 |
+| /de/en/childrens-menus-on-board | 1440 | 0.91 | 11 | 4076 | 11 | 10.09 |
+| /de/en/children-on-board | 390 | 5.3 | 5.3 | 3642 | 5.3 | 0.00 |
+| /de/en/children-on-board | 1440 | 4.53 | 7.56 | 2377 | 7.56 | 3.03 |
+| /de/en/common/agb-extra-services-at-online-check-in | 390 | 6.59 | 6.46 | 2632 | 6.46 | -0.13 |
+| /de/en/common/agb-extra-services-at-online-check-in | 1440 | 1.6 | 1.44 | 2328 | 1.44 | -0.16 |
+| /de/en/common/accessibility-statement | 390 | 7.42 | 7.42 | 9987 | 7.42 | 0.00 |
+| /de/en/common/accessibility-statement | 1440 | 6.73 | 6.73 | 6600 | 6.73 | 0.00 |
+| /de/en/common/compensation-voucher | 390 | 7.43 | 7.43 | 6726 | 7.43 | 0.00 |
+| /de/en/common/compensation-voucher | 1440 | 2.8 | 2.8 | 4210 | 2.8 | 0.00 |
+| /de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation | 390 | 6.77 | 6.77 | 3568 | 6.77 | 0.00 |
+| /de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation | 1440 | 5.53 | 5.53 | 2675 | 5.53 | 0.00 |
+| /de/en/common/imprint/lufthansa-insights-imprint | 390 | 4.54 | 8.58 | 4758 | 8.58 | 4.04 |
+| /de/en/common/imprint/lufthansa-insights-imprint | 1440 | 1.75 | 5.85 | 2852 | 5.85 | 4.10 |
+| /de/en/cookie-policy | 390 | 6.06 | 6.3 | 12290 | 6.3 | 0.24 |
+| /de/en/cookie-policy | 1440 | 2.98 | 3 | 9804 | 3 | 0.02 |
+| /de/en/common/privacy-statement/privacy-statement-group | 390 | 10 | 10 | 1924 | 10 | 0.00 |
+| /de/en/common/privacy-statement/privacy-statement-group | 1440 | 3.51 | 2.52 | 1475 | 2.52 | -0.99 |
+| /de/en/culinaryjourney | 390 | 32.63 | 32.63 | 1620 | 32.63 | 0.00 |
+| /de/en/culinaryjourney | 1440 | 10.52 | 10.52 | 1524 | 10.52 | 0.00 |
+| /de/en/common/seatreservation-condtions/seat-reservations | 390 | 10.08 | 10.08 | 4167 | 10.08 | 0.00 |
+| /de/en/common/seatreservation-condtions/seat-reservations | 1440 | 4.96 | 4.85 | 2878 | 4.85 | -0.11 |
+| /de/en/dangerous-dogs | 390 | 12.55 | 10.09 | 4023 | 10.09 | -2.46 |
+| /de/en/dangerous-dogs | 1440 | 3 | 7.31 | 2456 | 7.31 | 4.31 |
+| /de/en/data-protection-information | 390 | 5.36 | 4.62 | 29457 | 4.62 | -0.74 |
+| /de/en/data-protection-information | 1440 | 4.44 | 4.62 | 15963 | 4.62 | 0.18 |
+| /de/en/data-collection-usa | 390 | 4.72 | 6.16 | 7412 | 6.16 | 1.44 |
+| /de/en/data-collection-usa | 1440 | 4.3 | 4.63 | 5334 | 4.63 | 0.33 |
+| /de/en/data-collection-canada | 390 | 9.93 | 8.24 | 5507 | 8.24 | -1.69 |
+| /de/en/data-collection-canada | 1440 | 8.17 | 11.65 | 4158 | 11.65 | 3.48 |
+| /de/en/digital-baggage-services | 390 | 5.37 | 6.34 | 4893 | 6.34 | 0.97 |
+| /de/en/digital-baggage-services | 1440 | 5.95 | 5.5 | 3744 | 5.5 | -0.45 |
+| /de/en/datenschutz | 390 | 7.83 | 12.73 | 1870 | 12.73 | 4.90 |
+| /de/en/datenschutz | 1440 | 8.51 | 9.24 | 1580 | 9.24 | 0.73 |
+| /de/en/discover-lufthansa/carbon-offsetting/climate-protection-projects | 390 | 7.97 | 7.97 | 6070 | 7.97 | 0.00 |
+| /de/en/discover-lufthansa/carbon-offsetting/climate-protection-projects | 1440 | 4.01 | 4.01 | 4479 | 4.01 | 0.00 |
+| /de/en/discover-lufthansa/carbon-offsetting/saf | 390 | 6.59 | 10.18 | 5226 | 10.18 | 3.59 |
+| /de/en/discover-lufthansa/carbon-offsetting/saf | 1440 | 3.31 | 8.08 | 3669 | 8.08 | 4.77 |
+| /de/en/discover-lufthansa/flightreservation-priceguarantee | 390 | 12.72 | 10.32 | 4855 | 10.32 | -2.40 |
+| /de/en/discover-lufthansa/flightreservation-priceguarantee | 1440 | 4.7 | 6.78 | 3802 | 6.78 | 2.08 |
+| /de/en/discover-lufthansa/lufthansa-fleet/351 | 390 | 8.53 | 9.79 | 8607 | 9.79 | 1.26 |
+| /de/en/discover-lufthansa/lufthansa-fleet/351 | 1440 | 4.88 | 7.4 | 7783 | 7.4 | 2.52 |
+| /de/en/discover-lufthansa/lufthansa-group-airlines/ita-airways | 390 | 7.06 | 7.06 | 5493 | 7.06 | 0.00 |
+| /de/en/discover-lufthansa/lufthansa-group-airlines/ita-airways | 1440 | 6.25 | 6.9 | 3796 | 6.9 | 0.65 |
+| /de/en/discover-lufthansa/new-onboard-experience | 390 | 7.47 | 7.47 | 18227 | 7.47 | 0.00 |
+| /de/en/discover-lufthansa/new-onboard-experience | 1440 | 6.19 | 15.33 | 15158 | 15.33 | 9.14 |
+| /de/en/discover-lufthansa/miles-and-more-credit-card | 390 | 8.56 | 8.56 | 8648 | 8.56 | 0.00 |
+| /de/en/discover-lufthansa/miles-and-more-credit-card | 1440 | 10.48 | 10.48 | 5054 | 10.48 | 0.00 |
+| /de/en/discover-lufthansa/take-off | 390 | 4.75 | 3.56 | 6912 | 3.56 | -1.19 |
+| /de/en/discover-lufthansa/take-off | 1440 | 1.76 | 2.21 | 4529 | 2.21 | 0.45 |
+| /de/en/doctor-on-board-news | 390 | 9.61 | 9.62 | 2372 | 9.62 | 0.01 |
+| /de/en/doctor-on-board-news | 1440 | 7.31 | 14.64 | 2386 | 14.64 | 7.33 |
+| /de/en/doctor-on-board | 390 | 6.03 | 6.63 | 4804 | 6.63 | 0.60 |
+| /de/en/doctor-on-board | 1440 | 3.48 | 3.69 | 3849 | 3.69 | 0.21 |
+| /de/en/during-your-trip/food-and-beverages/onboard-delights/faq | 390 | 2.62 | 6.14 | 2507 | 6.14 | 3.52 |
+| /de/en/during-your-trip/food-and-beverages/onboard-delights/faq | 1440 | 1.08 | 6.71 | 1984 | 6.71 | 5.63 |
+| /de/en/during-your-trip/internet-overview | 390 | 13.89 | 13.89 | 4713 | 13.89 | 0.00 |
+| /de/en/during-your-trip/internet-overview | 1440 | 5.15 | 5.15 | 3142 | 5.15 | 0.00 |
+| /de/en/during-your-trip/lhg-wifi | 390 | 11.38 | 12.43 | 6171 | 12.43 | 1.05 |
+| /de/en/during-your-trip/lhg-wifi | 1440 | 8.96 | 11.4 | 4125 | 11.4 | 2.44 |
+| /de/en/economy-class | 390 | 11.92 | 11.92 | 10009 | 11.92 | 0.00 |
+| /de/en/economy-class | 1440 | 7.17 | 7.17 | 8273 | 7.17 | 0.00 |
+| /de/en/electronic-bag-tags | 390 | 6 | 5.31 | 3804 | 5.31 | -0.69 |
+| /de/en/electronic-bag-tags | 1440 | 3.42 | 4.09 | 2849 | 4.09 | 0.67 |
+| /de/en/europa-tarife-economy-class | 390 | 7.99 | 7.72 | 7417 | 7.72 | -0.27 |
+| /de/en/europa-tarife-economy-class | 1440 | 4.26 | 4.59 | 5482 | 4.59 | 0.33 |
+| /de/en/europcar | 390 | 2.41 | 3.9 | 4388 | 3.9 | 1.49 |
+| /de/en/europcar | 1440 | 3.8 | 3.24 | 3010 | 3.24 | -0.56 |
+| /de/en/exclusive-charter | 390 | 8.68 | 25.06 | 2814 | 25.06 | 16.38 |
+| /de/en/exclusive-charter | 1440 | 4.86 | 16.8 | 2199 | 16.8 | 11.94 |
+| /de/en/faq-data-security | 390 | 3.32 | 8.87 | 1604 | 8.87 | 5.55 |
+| /de/en/faq-data-security | 1440 | 0.97 | 9.2 | 1372 | 9.2 | 8.23 |
+| /de/en/entryprocesses | 390 | 5.51 | 14.54 | 5211 | 14.54 | 9.03 |
+| /de/en/entryprocesses | 1440 | 2.62 | 14.8 | 2892 | 14.8 | 12.18 |
+| /de/en/faq-password-security | 390 | 3.82 | 9.25 | 1643 | 9.25 | 5.43 |
+| /de/en/faq-password-security | 1440 | 0.9 | 9.09 | 1378 | 9.09 | 8.19 |
+| /de/en/farealert/best-price-alert | 390 | 7.91 | 17.56 | 5260 | 17.56 | 9.65 |
+| /de/en/farealert/best-price-alert | 1440 | 3.6 | 13.33 | 4247 | 13.33 | 9.73 |
+| /de/en/feedback | 390 | 8.47 | 7.3 | 3680 | 7.3 | -1.17 |
+| /de/en/feedback | 1440 | 2.47 | 6.27 | 3136 | 6.27 | 3.80 |
+| /de/en/feedback-past-flight | 390 | 9.25 | 9.25 | 7128 | 9.25 | 0.00 |
+| /de/en/feedback-past-flight | 1440 | 5.42 | 5.42 | 6133 | 5.42 | 0.00 |
+| /de/en/fia-valet-service | 390 | 3.39 | 5.54 | 4863 | 5.54 | 2.15 |
+| /de/en/fia-valet-service | 1440 | 1.97 | 2.54 | 3443 | 2.54 | 0.57 |
+| /de/en/feedback/feedbackai | 390 | 11.06 | 8.83 | 1184 | 8.83 | -2.23 |
+| /de/en/feedback/feedbackai | 1440 | 6.81 | 4.06 | 1035 | 4.06 | -2.75 |
+| /de/en/first-class | 390 | 16.73 | 17.24 | 23870 | 17.24 | 0.51 |
+| /de/en/first-class | 1440 | 8.83 | 17.61 | 21113 | 17.61 | 8.78 |
+| /de/en/first-class-lounges | 390 | 3.61 | 3.61 | 6115 | 3.61 | 0.00 |
+| /de/en/first-class-lounges | 1440 | 3.47 | 2.15 | 4019 | 2.15 | -1.32 |
+| /de/en/first-class-comfort | 390 | 3.13 | 5.06 | 3432 | 5.06 | 1.93 |
+| /de/en/first-class-comfort | 1440 | 4.84 | 8.18 | 2841 | 8.18 | 3.34 |
+| /de/en/first-class-personal-assistant | 390 | 2.39 | 4.65 | 3125 | 6.31 | 2.26 |
+| /de/en/first-class-personal-assistant | 1440 | 0.96 | 5.38 | 2242 | 6.54 | 4.42 |
+| /de/en/first-class-valet-parking-service | 390 | 5.13 | 7.05 | 2507 | 7.05 | 1.92 |
+| /de/en/first-class-valet-parking-service | 1440 | 2.15 | 7.86 | 1779 | 7.86 | 5.71 |
+| /de/en/first-class-terminal | 390 | 16.22 | 22.39 | 11171 | 22.39 | 6.17 |
+| /de/en/first-class-terminal | 1440 | 6.28 | 12.04 | 12442 | 12.04 | 5.76 |
+| /de/en/fliegen-mit-baby | 390 | 3.3 | 3.3 | 2885 | 3.3 | 0.00 |
+| /de/en/fliegen-mit-baby | 1440 | 4.98 | 4.98 | 2233 | 4.98 | 0.00 |
+| /de/en/flight-disruptions | 390 | 8.94 | 18.08 | 8013 | 18.08 | 9.14 |
+| /de/en/flight-disruptions | 1440 | 3.5 | 10.98 | 4933 | 10.98 | 7.48 |
+| /de/en/flight-search | 390 | 7.05 | 8.05 | 3409 | 8.05 | 1.00 |
+| /de/en/flight-search | 1440 | 4.62 | 4.77 | 2071 | 4.77 | 0.15 |
+| /de/en/fly-more-sustainabl | 390 | 7.6 | 8.79 | 5926 | 8.69 | 1.19 |
+| /de/en/fly-more-sustainabl | 1440 | 3.48 | 3.81 | 4113 | 3.81 | 0.33 |
+| /de/en/flying-with-small-children | 390 | 9.24 | 9.24 | 4359 | 9.24 | 0.00 |
+| /de/en/flying-with-small-children | 1440 | 4.11 | 4.11 | 3403 | 4.11 | 0.00 |
+| /de/en/food-and-beverages | 390 | 6.72 | 6.72 | 6742 | 6.72 | 0.00 |
+| /de/en/food-and-beverages | 1440 | 2.19 | 2.19 | 5087 | 2.19 | 0.00 |
+| /de/en/fmg-valet-parking-service | 390 | 4.68 | 4.81 | 3742 | 4.81 | 0.13 |
+| /de/en/fmg-valet-parking-service | 1440 | 1.96 | 3.29 | 2940 | 3.29 | 1.33 |
+| /de/en/free2move | 390 | 3.98 | 6.2 | 4407 | 6.2 | 2.22 |
+| /de/en/free2move | 1440 | 4.8 | 4.23 | 3078 | 4.23 | -0.57 |
+| /de/en/general-conditions-currency-conversion | 390 | 2.52 | 5.53 | 2861 | 5.53 | 3.01 |
+| /de/en/general-conditions-currency-conversion | 1440 | 0.94 | 6.34 | 2016 | 6.34 | 5.40 |
+| /de/en/green-fare | 390 | 4.34 | 4.58 | 7312 | 4.58 | 0.24 |
+| /de/en/green-fare | 1440 | 2.67 | 3.18 | 5647 | 3.18 | 0.51 |
+| /de/en/gefaehrliche-gegenstaende | 390 | 8.49 | 8.92 | 8563 | 8.92 | 0.43 |
+| /de/en/gefaehrliche-gegenstaende | 1440 | 6.47 | 4.63 | 5024 | 4.63 | -1.84 |
+| /de/en/group-travel | 390 | 5.99 | 5.86 | 8500 | 5.86 | -0.13 |
+| /de/en/group-travel | 1440 | 4.49 | 3.92 | 7622 | 3.92 | -0.57 |
+| /de/en/homepage | 390 | 5.47 | 5.69 | 6213 | 5.69 | 0.22 |
+| /de/en/homepage | 1440 | 6 | 6.04 | 5009 | 6.04 | 0.04 |
+| /de/en/hotel-offers | 390 | 10.54 | 11.85 | 4503 | 11.85 | 1.31 |
+| /de/en/hotel-offers | 1440 | 5.45 | 10.45 | 3499 | 10.45 | 5.00 |
+| /de/en/imprint | 390 | 7.07 | 10.01 | 4167 | 10.01 | 2.94 |
+| /de/en/imprint | 1440 | 3.57 | 7.1 | 2515 | 7.1 | 3.53 |
+| /de/en/lounge-companions | 390 | 7.23 | 9.36 | 4868 | 9.36 | 2.13 |
+| /de/en/lounge-companions | 1440 | 4.25 | 3.25 | 3466 | 3.25 | -1.00 |
+| /de/en/lufthansa-am-flughafen-frankfurt | 390 | 9.68 | 9.68 | 6700 | 9.68 | 0.00 |
+| /de/en/lufthansa-am-flughafen-frankfurt | 1440 | 7.43 | 7.43 | 4068 | 7.43 | 0.00 |
+| /de/en/lufthansa-at-duesseldorf-airport | 390 | 3.27 | 4.67 | 3926 | 4.67 | 1.40 |
+| /de/en/lufthansa-at-duesseldorf-airport | 1440 | 1.76 | 4.75 | 2924 | 4.75 | 2.99 |
+| /de/en/lufthansa-at-berlin-airport | 390 | 7.01 | 7.01 | 4274 | 7.01 | 0.00 |
+| /de/en/lufthansa-at-berlin-airport | 1440 | 2.76 | 4.25 | 2895 | 4.25 | 1.49 |
+| /de/en/lufthansa-at-zuerich-airport | 390 | 5.86 | 5.86 | 3047 | 5.86 | 0.00 |
+| /de/en/lufthansa-at-zuerich-airport | 1440 | 3.31 | 3.1 | 2534 | 3.1 | -0.21 |
+| /de/en/lufthansa-aviation-group | 390 | 14.04 | 13.25 | 3831 | 13.25 | -0.79 |
+| /de/en/lufthansa-aviation-group | 1440 | 5.38 | 9.37 | 2799 | 9.37 | 3.99 |
+| /de/en/lufthansa-at-vienna-airport | 390 | 5.44 | 5.71 | 3023 | 5.71 | 0.27 |
+| /de/en/lufthansa-at-vienna-airport | 1440 | 2.8 | 5.43 | 2531 | 5.43 | 2.63 |
+| /de/en/lufthansa-business-class-on-long-haul-routes | 390 | 13.33 | 22.68 | 4556 | 22.68 | 9.35 |
+| /de/en/lufthansa-business-class-on-long-haul-routes | 1440 | 6.46 | 17.6 | 3232 | 17.6 | 11.14 |
+| /de/en/lufthansa-corporate-customers | 390 | 12.09 | 14.22 | 4195 | 14.22 | 2.13 |
+| /de/en/lufthansa-corporate-customers | 1440 | 2.61 | 5.16 | 3428 | 5.16 | 2.55 |
+| /de/en/lufthansa-express | 390 | 8.56 | 9.62 | 6492 | 9.62 | 1.06 |
+| /de/en/lufthansa-express | 1440 | 6.29 | 8.41 | 4209 | 8.41 | 2.12 |
+| /de/en/lufthansa-express-bus | 390 | 8.9 | 12.4 | 7846 | 12.4 | 3.50 |
+| /de/en/lufthansa-express-bus | 1440 | 4.12 | 7.28 | 4949 | 7.28 | 3.16 |
+| /de/en/lufthansa-first-class-entertainment | 390 | 4.22 | 4.09 | 3832 | 4.09 | -0.13 |
+| /de/en/lufthansa-first-class-entertainment | 1440 | 6.58 | 4.59 | 3094 | 4.59 | -1.99 |
+| /de/en/lufthansa-express-rail | 390 | 7.25 | 7.65 | 10791 | 7.65 | 0.40 |
+| /de/en/lufthansa-express-rail | 1440 | 6.08 | 7.33 | 7709 | 7.33 | 1.25 |
+| /de/en/lufthansa-first-class-fleet | 390 | 4.2 | 4.52 | 4223 | 4.52 | 0.32 |
+| /de/en/lufthansa-first-class-fleet | 1440 | 6.68 | 6.18 | 4172 | 6.18 | -0.50 |
+| /de/en/lufthansa-group-star-alliance-and-partner-airlines | 390 | 11.49 | 10.73 | 10462 | 10.73 | -0.76 |
+| /de/en/lufthansa-group-star-alliance-and-partner-airlines | 1440 | 7.37 | 8.12 | 5931 | 8.12 | 0.75 |
+| /de/en/lufthansa-guide-service | 390 | 8.59 | 8.55 | 5650 | 8.55 | -0.04 |
+| /de/en/lufthansa-guide-service | 1440 | 4.33 | 5.44 | 3921 | 5.44 | 1.11 |
+| /de/en/lufthansa-terminal-muenchen | 390 | 10.22 | 8.12 | 6576 | 8.12 | -2.10 |
+| /de/en/lufthansa-terminal-muenchen | 1440 | 6.93 | 4.71 | 4267 | 4.71 | -2.22 |
+| /de/en/medikamenten-transport | 390 | 10.41 | 10.41 | 4180 | 10.41 | 0.00 |
+| /de/en/medikamenten-transport | 1440 | 2.62 | 2.62 | 2838 | 2.62 | 0.00 |
+| /de/en/meetings-and-events-delegates | 390 | 6.03 | 6.03 | 2909 | 6.03 | 0.00 |
+| /de/en/meetings-and-events-delegates | 1440 | 2.07 | 4.65 | 2338 | 4.65 | 2.58 |
+| /de/en/meetings-and-events-organisers | 390 | 6.29 | 8.07 | 4129 | 8.07 | 1.78 |
+| /de/en/meetings-and-events-organisers | 1440 | 2.19 | 6.48 | 2950 | 6.48 | 4.29 |
+| /de/en/menus-on-long-haul-flights | 390 | 3.46 | 7.41 | 4566 | 7.41 | 3.95 |
+| /de/en/menus-on-long-haul-flights | 1440 | 1.88 | 8 | 3218 | 8 | 6.12 |
+| /de/en/mobility-partner-program-healthcare | 390 | 6.53 | 7.61 | 4694 | 7.61 | 1.08 |
+| /de/en/mobility-partner-program-healthcare | 1440 | 7.85 | 9.07 | 3482 | 9.07 | 1.22 |
+| /de/en/menus-travel-classes | 390 | 3.97 | 6.5 | 3159 | 6.5 | 2.53 |
+| /de/en/menus-travel-classes | 1440 | 1.58 | 5.87 | 2298 | 5.87 | 4.29 |
+| /de/en/my-bookings | 390 | 8.21 | 9.26 | 5292 | 9.26 | 1.05 |
+| /de/en/my-bookings | 1440 | 1.2 | 2.22 | 3639 | 2.22 | 1.02 |
+| /de/en/munich-fair | 390 | 6.1 | 6.1 | 3157 | 6.1 | 0.00 |
+| /de/en/munich-fair | 1440 | 9.8 | 11.31 | 2451 | 11.31 | 1.51 |
+| /de/en/my-logbook | 390 | 9.4 | 9.27 | 3465 | 9.27 | -0.13 |
+| /de/en/my-logbook | 1440 | 4.58 | 7.61 | 3158 | 7.61 | 3.03 |
+| /de/en/onboard-delights | 390 | 10.99 | 13.97 | 9528 | 13.97 | 2.98 |
+| /de/en/onboard-delights | 1440 | 4.84 | 10.88 | 7402 | 10.88 | 6.04 |
+| /de/en/online-check-in | 390 | 11.29 | 10.46 | 5689 | 10.46 | -0.83 |
+| /de/en/online-check-in | 1440 | 4.92 | 4.83 | 3559 | 4.83 | -0.09 |
+| /de/en/online-check-in-info | 390 | 5.54 | 7.55 | 3049 | 8.53 | 2.01 |
+| /de/en/online-check-in-info | 1440 | 3.34 | 8.56 | 2757 | 8.83 | 5.22 |
+| /de/en/overview-special-request | 390 | 5.79 | 5.79 | 3936 | 5.79 | 0.00 |
+| /de/en/overview-special-request | 1440 | 2.46 | 2.46 | 2746 | 2.46 | 0.00 |
+| /de/en/partner | 390 | 6.79 | 6.79 | 3425 | 6.79 | 0.00 |
+| /de/en/partner | 1440 | 3.76 | 3.76 | 2684 | 3.76 | 0.00 |
+| /de/en/passenger-receipt-90 | 390 | 9.17 | 11.27 | 4130 | 11.27 | 2.10 |
+| /de/en/passenger-receipt-90 | 1440 | 2.32 | 6.97 | 3406 | 6.97 | 4.65 |
+| /de/en/passenger-rights | 390 | 6.09 | 5.34 | 9117 | 5.34 | -0.75 |
+| /de/en/passenger-rights | 1440 | 3.07 | 3.5 | 5783 | 3.5 | 0.43 |
+| /de/en/payment-options-at-the-airport | 390 | 7.04 | 5.83 | 3327 | 5.83 | -1.21 |
+| /de/en/payment-options-at-the-airport | 1440 | 2.9 | 1.94 | 2550 | 1.94 | -0.96 |
+| /de/en/passengers-with-sensory-impairment | 390 | 3.72 | 3.71 | 14647 | 3.71 | -0.01 |
+| /de/en/passengers-with-sensory-impairment | 1440 | 3.28 | 6.23 | 8375 | 6.23 | 2.95 |
+| /de/en/passengers-using-wheelchairs | 390 | 7.53 | 6.82 | 20214 | 6.82 | -0.71 |
+| /de/en/passengers-using-wheelchairs | 1440 | 4.51 | 4.46 | 11103 | 4.46 | -0.05 |
+| /de/en/pre-check-in | 390 | 4.89 | 6.35 | 3586 | 6.35 | 1.46 |
+| /de/en/pre-check-in | 1440 | 3.29 | 6.44 | 2434 | 6.44 | 3.15 |
+| /de/en/prepare-for-your-trip/baggage/baggage-conditions | 390 | 3.16 | 3.49 | 3409 | 3.49 | 0.33 |
+| /de/en/prepare-for-your-trip/baggage/baggage-conditions | 1440 | 6.2 | 5.02 | 2142 | 5.02 | -1.18 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg | 390 | 5.88 | 6.63 | 4417 | 6.63 | 0.75 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg | 1440 | 2.92 | 4.44 | 2765 | 4.44 | 1.52 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage | 390 | 3.02 | 6.31 | 2731 | 6.31 | 3.29 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage | 1440 | 1.15 | 6.11 | 2287 | 6.11 | 4.96 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay | 390 | 8.15 | 12.25 | 4883 | 12.25 | 4.10 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay | 1440 | 8.27 | 5.89 | 3676 | 5.89 | -2.38 |
+| /de/en/premium-economy-class | 390 | 12 | 12 | 9223 | 12 | 0.00 |
+| /de/en/premium-economy-class | 1440 | 7.09 | 7.09 | 7057 | 7.09 | 0.00 |
+| /de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries | 390 | 8 | 8.91 | 7143 | 8.66 | 0.91 |
+| /de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries | 1440 | 4.57 | 5.31 | 4430 | 5.31 | 0.74 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage | 390 | 5.54 | 5.94 | 4960 | 5.94 | 0.40 |
+| /de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage | 1440 | 5.09 | 5.2 | 2699 | 5.2 | 0.11 |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation | 390 | 5.06 | 6.23 | 1819 | 6.23 | 1.17 |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation | 1440 | 2.08 | 3.56 | 1451 | 3.56 | 1.48 |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation | 390 | 4.12 | 5.95 | 1585 | 5.95 | 1.83 |
+| /de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation | 1440 | 1.63 | 4.06 | 1228 | 4.06 | 2.43 |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation | 390 | 4.02 | 5.84 | 1585 | 5.84 | 1.82 |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation | 1440 | 1.59 | 4.03 | 1228 | 4.03 | 2.44 |
+| /de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system | 390 | 13.62 | 13.17 | 8791 | 13.17 | -0.45 |
+| /de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system | 1440 | 4.36 | 4.79 | 5613 | 4.79 | 0.43 |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation | 390 | 4.02 | 5.84 | 1585 | 5.84 | 1.82 |
+| /de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation | 1440 | 1.59 | 4.03 | 1228 | 4.03 | 2.44 |
+| /de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk | 390 | 4.89 | 5.69 | 3081 | 7.1 | 0.80 |
+| /de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk | 1440 | 6.06 | 3.53 | 2560 | 3.53 | -2.53 |
+| /de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing | 390 | 11.36 | 11.36 | 3308 | 11.36 | 0.00 |
+| /de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing | 1440 | 5.35 | 3.16 | 2515 | 3.16 | -2.19 |
+| /de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions | 390 | 8.91 | 8.91 | 2703 | 8.91 | 0.00 |
+| /de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions | 1440 | 1.1 | 1.1 | 2545 | 1.1 | 0.00 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment | 390 | 5.86 | 5.96 | 12867 | 5.96 | 0.10 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment | 1440 | 12.71 | 14.89 | 7168 | 14.89 | 2.18 |
+| /de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing | 390 | 12.88 | 12.88 | 3477 | 12.88 | 0.00 |
+| /de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing | 1440 | 8.17 | 8.17 | 2612 | 8.17 | 0.00 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment | 390 | 4.94 | 7.78 | 9742 | 7.78 | 2.84 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment | 1440 | 4.36 | 6.33 | 5326 | 6.33 | 1.97 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion | 390 | 8.38 | 14.26 | 8221 | 14.26 | 5.88 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion | 1440 | 5.84 | 9.22 | 4812 | 9.22 | 3.38 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation | 390 | 5.32 | 6.14 | 1308 | 6.14 | 0.82 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation | 1440 | 2.37 | 3.58 | 1059 | 3.58 | 1.21 |
+| /de/en/prepare-for-your-trip/travel-classes/economy-basic | 390 | 12.27 | 10.84 | 4950 | 10.84 | -1.43 |
+| /de/en/prepare-for-your-trip/travel-classes/economy-basic | 1440 | 3.23 | 4.62 | 4082 | 4.62 | 1.39 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment | 390 | 4.34 | 4.43 | 10678 | 4.43 | 0.09 |
+| /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment | 1440 | 5.04 | 6.79 | 5736 | 6.79 | 1.75 |
+| /de/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass | 390 | 8.24 | 9.31 | 5857 | 9.32 | 1.07 |
+| /de/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass | 1440 | 11.34 | 9.3 | 5142 | 9.3 | -2.04 |
+| /de/en/refund | 390 | 3.26 | 3.12 | 3207 | 3.12 | -0.14 |
+| /de/en/refund | 1440 | 1.71 | 2.32 | 2424 | 2.32 | 0.61 |
+| /de/en/rail-and-fly | 390 | 8.64 | 9.11 | 6660 | 9.11 | 0.47 |
+| /de/en/rail-and-fly | 1440 | 5.2 | 8.32 | 4833 | 8.32 | 3.12 |
+| /de/en/rail-fly-terms-and-conditions | 390 | 8.6 | 7.71 | 5155 | 7.71 | -0.89 |
+| /de/en/rail-fly-terms-and-conditions | 1440 | 5.11 | 4.26 | 3024 | 4.26 | -0.85 |
+| /de/en/register-animal-cabin | 390 | 8.04 | 8.29 | 7560 | 8.29 | 0.25 |
+| /de/en/register-animal-cabin | 1440 | 5.36 | 5.53 | 5599 | 5.53 | 0.17 |
+| /de/en/schengen | 390 | 6.8 | 9.52 | 4468 | 9.52 | 2.72 |
+| /de/en/schengen | 1440 | 4.63 | 5.04 | 3082 | 5.04 | 0.41 |
+| /de/en/secure-flight | 390 | 3.51 | 6.49 | 2084 | 6.49 | 2.98 |
+| /de/en/secure-flight | 1440 | 1.54 | 9.42 | 1295 | 9.42 | 7.88 |
+| /de/en/security-fast-lanes | 390 | 6 | 7.36 | 3578 | 8.31 | 1.36 |
+| /de/en/security-fast-lanes | 1440 | 5.27 | 3.7 | 3038 | 3.7 | -1.57 |
+| /de/en/security-check-time-slot | 390 | 3.94 | 4.4 | 2985 | 5.75 | 0.46 |
+| /de/en/security-check-time-slot | 1440 | 2.6 | 4.01 | 2868 | 4.01 | 1.41 |
+| /de/en/seat-maps | 390 | 7.39 | 12.16 | 5675 | 12.16 | 4.77 |
+| /de/en/seat-maps | 1440 | 3.59 | 7.1 | 4859 | 7.1 | 3.51 |
+| /de/en/services-at-frankfurt-airport | 390 | 5.75 | 5.75 | 3232 | 5.75 | 0.00 |
+| /de/en/services-at-frankfurt-airport | 1440 | 5.27 | 7.12 | 2297 | 7.12 | 1.85 |
+| /de/en/sepa-terms-and-conditions | 390 | 3.75 | 6.93 | 2525 | 6.93 | 3.18 |
+| /de/en/sepa-terms-and-conditions | 1440 | 1.01 | 7.2 | 1843 | 7.2 | 6.19 |
+| /de/en/sepa-terms-and-conditions-b | 390 | 6.14 | 8.59 | 2778 | 8.59 | 2.45 |
+| /de/en/sepa-terms-and-conditions-b | 1440 | 2.86 | 7.41 | 1948 | 7.41 | 4.55 |
+| /de/en/services-at-the-airport | 390 | 7.83 | 6.7 | 3433 | 6.7 | -1.13 |
+| /de/en/services-at-the-airport | 1440 | 2.16 | 2.16 | 2830 | 2.16 | 0.00 |
+| /de/en/shopping | 390 | 8.84 | 7.61 | 9949 | 7.61 | -1.23 |
+| /de/en/shopping | 1440 | 5.85 | 8.23 | 5742 | 8.23 | 2.38 |
+| /de/en/services-munich-airport | 390 | 7.66 | 6.08 | 2119 | 6.08 | -1.58 |
+| /de/en/services-munich-airport | 1440 | 4.47 | 6.62 | 1971 | 6.62 | 2.15 |
+| /de/en/special-meals | 390 | 11.3 | 17.78 | 6948 | 17.78 | 6.48 |
+| /de/en/special-meals | 1440 | 8.35 | 17.12 | 5239 | 17.12 | 8.77 |
+| /de/en/sports-baggage | 390 | 6.62 | 6.25 | 7709 | 6.25 | -0.37 |
+| /de/en/sports-baggage | 1440 | 5.94 | 3.24 | 4872 | 3.24 | -2.70 |
+| /de/en/support/contact/contact-form-confirmation | 390 | 4.11 | 5.31 | 1344 | 5.31 | 1.20 |
+| /de/en/support/contact/contact-form-confirmation | 1440 | 0.98 | 4.05 | 1149 | 4.05 | 3.07 |
+| /de/en/support/contact/passenger-duty-united-kingdom | 390 | 6.22 | 13.49 | 2664 | 13.49 | 7.27 |
+| /de/en/support/contact/passenger-duty-united-kingdom | 1440 | 8.03 | 7.32 | 1847 | 7.32 | -0.71 |
+| /de/en/support/feedback-and-contact-airlines | 390 | 7.41 | 10.03 | 4086 | 10.03 | 2.62 |
+| /de/en/support/feedback-and-contact-airlines | 1440 | 3.53 | 6.19 | 1957 | 6.19 | 2.66 |
+| /de/en/terms-of-use | 390 | 6.07 | 5.72 | 5764 | 5.72 | -0.35 |
+| /de/en/terms-of-use | 1440 | 2.23 | 4.83 | 3721 | 4.83 | 2.60 |
+| /de/en/terms-and-conditions-lh | 390 | 6.9 | 6.93 | 41446 | 6.93 | 0.03 |
+| /de/en/terms-and-conditions-lh | 1440 | 3.67 | 3.57 | 24449 | 3.57 | -0.10 |
+| /de/en/terms-of-service-group | 390 | 4.75 | 4.75 | 3981 | 4.75 | 0.00 |
+| /de/en/terms-of-service-group | 1440 | 4.54 | 4.54 | 2221 | 4.54 | 0.00 |
+| /de/en/tiere-als-handgepaeck | 390 | 4.52 | 5.02 | 5318 | 5.02 | 0.50 |
+| /de/en/tiere-als-handgepaeck | 1440 | 4.5 | 5.77 | 4165 | 5.77 | 1.27 |
+| /de/en/tiere-als-uebergepaeck | 390 | 9.61 | 9.7 | 8624 | 9.7 | 0.09 |
+| /de/en/tiere-als-uebergepaeck | 1440 | 8.07 | 9.5 | 5988 | 9.5 | 1.43 |
+| /de/en/timetable-and-flight-status | 390 | 5.71 | 5.71 | 3875 | 5.71 | 0.00 |
+| /de/en/timetable-and-flight-status | 1440 | 3.5 | 3.5 | 3090 | 3.5 | 0.00 |
+| /de/en/travel-agencies | 390 | 7.21 | 8.71 | 2355 | 8.71 | 1.50 |
+| /de/en/travel-agencies | 1440 | 2.68 | 6.62 | 1779 | 6.62 | 3.94 |
+| /de/en/tips-senior-travellers | 390 | 12.2 | 11.17 | 20346 | 11.17 | -1.03 |
+| /de/en/tips-senior-travellers | 1440 | 6.3 | 7.66 | 13170 | 7.66 | 1.36 |
+| /de/en/travel-id-terms-conditions | 390 | 6.62 | 6.62 | 16573 | 6.62 | 0.00 |
+| /de/en/travel-id-terms-conditions | 1440 | 3.97 | 3.97 | 9639 | 3.97 | 0.00 |
+| /de/en/travel-expense-management | 390 | 3.91 | 6.38 | 3617 | 8.6 | 2.47 |
+| /de/en/travel-expense-management | 1440 | 2.04 | 4.32 | 2973 | 4.32 | 2.28 |
+| /de/en/travelling-with-animals | 390 | 4.53 | 4.53 | 3846 | 4.53 | 0.00 |
+| /de/en/travelling-with-animals | 1440 | 1.61 | 4.11 | 2679 | 4.11 | 2.50 |
+| /de/en/travelling-healthy | 390 | 11.75 | 13.48 | 4843 | 13.48 | 1.73 |
+| /de/en/travelling-healthy | 1440 | 6.8 | 4.93 | 3825 | 4.93 | -1.87 |
+| /de/en/travelling-with-children | 390 | 10.7 | 12.47 | 6213 | 12.47 | 1.77 |
+| /de/en/travelling-with-children | 1440 | 5.75 | 8.39 | 5259 | 8.39 | 2.64 |
+| /de/en/travelling-with-special-requirements | 390 | 4.61 | 6.8 | 3983 | 6.8 | 2.19 |
+| /de/en/travelling-with-special-requirements | 1440 | 0.96 | 6.09 | 2167 | 6.09 | 5.13 |
+| /de/en/unaccompanied-minors | 390 | 5.64 | 5.42 | 11639 | 5.42 | -0.22 |
+| /de/en/unaccompanied-minors | 1440 | 8.28 | 7.22 | 7335 | 7.22 | -1.06 |
+| /de/en/traveltricks | 390 | 11.11 | 19.78 | 4486 | 19.78 | 8.67 |
+| /de/en/traveltricks | 1440 | 11.43 | 12.55 | 3759 | 12.55 | 1.12 |
+| /de/en/uebergepaeck | 390 | 7.77 | 9.46 | 4874 | 9.46 | 1.69 |
+| /de/en/uebergepaeck | 1440 | 4.37 | 7.18 | 3277 | 7.18 | 2.81 |
+| /de/en/upgrade-business-class-long-haul | 390 | 5.14 | 5.14 | 3622 | 5.14 | 0.00 |
+| /de/en/upgrade-business-class-long-haul | 1440 | 4.95 | 8.79 | 2489 | 8.79 | 3.84 |
+| /de/en/upgrade-first-class | 390 | 5.32 | 6.32 | 3755 | 6.32 | 1.00 |
+| /de/en/upgrade-first-class | 1440 | 4.76 | 7.84 | 2560 | 7.84 | 3.08 |
+| /de/en/unterhaltung-an-bord | 390 | 13.74 | 13.74 | 3561 | 13.74 | 0.00 |
+| /de/en/unterhaltung-an-bord | 1440 | 11.15 | 11.15 | 2888 | 11.15 | 0.00 |
+| /de/en/upgrade-options | 390 | 8.8 | 8.8 | 4884 | 8.8 | 0.00 |
+| /de/en/upgrade-options | 1440 | 4.52 | 11.88 | 3519 | 11.88 | 7.36 |
+| /de/en/upgrade-info | 390 | 5.55 | 7.16 | 3285 | 7.16 | 1.61 |
+| /de/en/upgrade-info | 1440 | 2.78 | 2.91 | 2260 | 2.91 | 0.13 |
+| /de/en/upgrade-to-premium-economy-class | 390 | 10.19 | 13.12 | 3155 | 13.12 | 2.93 |
+| /de/en/upgrade-to-premium-economy-class | 1440 | 4.96 | 8.37 | 2347 | 8.37 | 3.41 |
+| /de/en/upgrade-premium-economy-class | 390 | 5.47 | 5.47 | 3691 | 5.47 | 0.00 |
+| /de/en/upgrade-premium-economy-class | 1440 | 4.67 | 8.5 | 2514 | 8.5 | 3.83 |
+| /de/en/upgrade-to-business-class | 390 | 7.52 | 6.98 | 3723 | 6.98 | -0.54 |
+| /de/en/upgrade-to-business-class | 1440 | 4.72 | 8.54 | 2518 | 8.54 | 3.82 |
+| /de/en/upgrades-at-online-check-in | 390 | 4.36 | 4.89 | 3898 | 8.29 | 0.53 |
+| /de/en/upgrades-at-online-check-in | 1440 | 2.76 | 5.68 | 3203 | 5.68 | 2.92 |
+| /de/en/wheelchair-batteries | 390 | 6.79 | 9.8 | 4856 | 9.8 | 3.01 |
+| /de/en/wheelchair-batteries | 1440 | 4.35 | 7.46 | 3653 | 7.46 | 3.11 |
+| /de/en/with-children-at-the-airport | 390 | 17.48 | 17.48 | 4030 | 17.48 | 0.00 |
+| /de/en/with-children-at-the-airport | 1440 | 14.18 | 12.92 | 2991 | 12.92 | -1.26 |
+| /gb/en/100-years/crane | 390 | 9.46 | 9.46 | 10981 | 9.46 | 0.00 |
+| /gb/en/100-years/crane | 1440 | 7.78 | 7.78 | 9782 | 7.78 | 0.00 |
+| /gb/en/100-years/destinations | 390 | 8.1 | 8.1 | 21532 | 8.1 | 0.00 |
+| /gb/en/100-years/destinations | 1440 | 0.78 | 5.25 | 20241 | 5.25 | 4.47 |
+| /gb/en/additional-services | 390 | 6.69 | 6.69 | 8372 | 6.69 | 0.00 |
+| /gb/en/additional-services | 1440 | 5.8 | 5.81 | 6766 | 5.81 | 0.01 |
+| /gb/en/articles/highlights/all-it-takes-is-a-yes | 390 | 13.59 | 13.59 | 7476 | 13.59 | 0.00 |
+| /gb/en/articles/highlights/all-it-takes-is-a-yes | 1440 | 6.64 | 6.64 | 6748 | 6.64 | 0.00 |
+| /gb/en/articles/tags/allegris | 390 | 3.94 | 13.09 | 7990 | 13.09 | 9.15 |
+| /gb/en/articles/tags/allegris | 1440 | 9.04 | 14.15 | 7529 | 14.17 | 5.11 |
+| /gb/en/articles/highlights/allegris-premium-economy-san-diego | 390 | 5.63 | 15.07 | 7337 | 15.15 | 9.44 |
+| /gb/en/articles/highlights/allegris-premium-economy-san-diego | 1440 | 3.65 | 14.68 | 6772 | 14.68 | 11.03 |
+| /gb/en/discover-lufthansa/new-onboard-experience | 390 | 7.46 | 7.46 | 18227 | 7.46 | 0.00 |
+| /gb/en/discover-lufthansa/new-onboard-experience | 1440 | 6.18 | 15.35 | 15158 | 15.35 | 9.17 |
+| /gb/en/services-at-the-airport | 390 | 7.46 | 7.46 | 3409 | 7.46 | 0.00 |
+| /gb/en/services-at-the-airport | 1440 | 1.4 | 1.4 | 2824 | 1.4 | 0.00 |
+| /xx/hk/meetings-and-events | 390 | 32.29 | 32.29 | 3119 | 32.29 | 0.00 |
+| /xx/hk/meetings-and-events | 1440 | 9.51 | 9.51 | 3271 | 9.51 | 0.00 |
+| /xx/ru/meetings-and-events | 390 | 6.92 | 6.92 | 4370 | 6.92 | 0.00 |
+| /xx/ru/meetings-and-events | 1440 | 3.1 | 4.69 | 3662 | 4.69 | 1.59 |
+| /xx/pt/meetings-and-events | 390 | 6.04 | 6.04 | 4188 | 6.04 | 0.00 |
+| /xx/pt/meetings-and-events | 1440 | 4.14 | 4.15 | 3611 | 4.15 | 0.01 |
 
