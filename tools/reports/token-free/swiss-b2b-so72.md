@@ -387,3 +387,37 @@ loaded:
   b2b-iframe-player-600, was a test that no other rule names the iframe-player variant. The stacked-button rule's
   exclusion of that variant did nothing (the player cell has no picture), so it was dropped.
 - The full suite on 478f9688: 1,294 files, 4,857 pass, 0 failures, 5 skipped.
+
+## Addendum 1: the Group for Business phone tables (item 1's finding, shipped)
+
+**www's phone tables** (b2b-parity-018 at 390, every table on the seven pages):
+- The cells are 200 px wide. The rows are the columns times 200 px wide: 600 px for three columns, 800 for four, 400
+  for two. The table scrolls sideways inside its 346 px box.
+- The rows are about as tall as at 1440: carry-on-baggage 248 / 156 / 228 (1440: 224 / 156 / 180).
+- Ours squeezed the columns into the 346 px width. The rows got up to 2.5 times as tall (352 / 232 / 280; 184 / 664),
+  and the 840 px box cut them.
+- This is the same metric order 70 gave SWISS (www's maui-table cells at least 200 px wide).
+
+**The rule:** below 768 px, a table's cells are at least 200 px wide and the table scrolls sideways in its box.
+- Not for a five-column table: kuala-lumpur's cells on www are equal-width. It went +2.90 -> -6.55 % with them.
+- Not for a header-row table: rail-fly. Its rows already match www's as they are (ours 599 px against www's 601), and
+  with 200 px cells its header row drew 81 px against www's 121 (+0.20 -> -3.90 %).
+- Tried as well: www's 40 px above and below the rows inside the box. carry-on-baggage went back to +5.72 / +6.82 %,
+  and the A350-1000 news and cash-and-points de/de further. Not taken.
+
+**Gate (the code against live, the 109 recorded phone page-widths; the rule doesn't apply from 768 px):** 3 moved, all
+closer. The sum goes 141.71 -> 108.76.
+
+| Page-width | www | Before | Now | Our tables (rows) |
+| --- | --- | --- | --- | --- |
+| carry-on-baggage de/en 390 | 6,630 | 7,577 (+14.28 %) | 6,769 (+2.10 %) | 256 / 160 / 208; 112 / 328; 136 / 256 / 256 (www 248 / 156 / 228; 112 / 296; 156 / 276 / 262) |
+| carry-on-baggage de/de 390 | 6,555 | 7,618 (+16.22 %) | 6,762 (+3.16 %) | 256 / 184 / 208; 112 / 352; 88 / 280 / 184 |
+| zurich-airport de/en 390 | 3,284 | 3,564 (+8.53 %) | 3,257 (-0.82 %) | 88 / 89 / 89 / 89 / 89 / 89 (www 112 / 88 / 88 / 88 / 88 / 112) |
+
+- cash-and-points' phone table gets shorter too: 1,688 -> 896 px, against www's rows of 920. It is still taller than
+  the 840 px box (www's box is 867), so the page doesn't move.
+- **Reach:** 24 tables in 18 of the 729 served documents: the B2B tables less the five-column, header-row and
+  side-by-side ones.
+- **Five unrecorded samples at 390**, every section loaded and nothing flagged: cn/en cash-and-points, xx/en
+  carry-on-baggage, de/de our-european-fares, the de/en new light fare news and the de/en refund fees news.
+- **Group for Business over all 198 page-widths:** 261.02 -> 228.07 (order 71's 184 stay at 143.68: these three are this order's recordings).
