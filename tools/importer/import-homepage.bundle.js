@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_349922_exports = {};
-  __export(tmp_bundle_homepage_349922_exports, {
-    default: () => tmp_bundle_homepage_349922_default
+  var tmp_bundle_homepage_688341_exports = {};
+  __export(tmp_bundle_homepage_688341_exports, {
+    default: () => tmp_bundle_homepage_688341_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -2063,15 +2063,16 @@ var CustomImportScript = (() => {
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
-    swiss: { live: true, rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
+    // the H1's paragraph when it ends its section is the lead (www's p.copytext-large, 22 recorded
+    // pages; standing order 70)
+    swiss: { live: true, rules: ["teaser-groups", "lead-after-h1"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
     // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
     // of its own (www: 26 of 33 not at a section's start)
     discover: {
       live: true,
-      // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
-      // one-column view after the title) keeps its marks in the collapse (standing order 10 of
-      // 2026-11-12; import time only)
-      columnViews: { oneElementViews: true },
+      // (no columnViews.oneElementViews since standing order 45 of 2026-11-18: the intro's
+      // one-paragraph view after the title is discover.css's, drawn from the structure, so the
+      // collapse drops its marks like any other view's)
       // (no keepSizes since standing order 44 of 2026-11-17: heading-copytext-large is the H3 and
       // H4 default, and for an H2 the title-compact block option or the h2-compact section style;
       // the collapse writes that carrier or nothing, no marker)
@@ -4706,6 +4707,23 @@ var CustomImportScript = (() => {
     cell.textContent = [...have, style].join(", ");
     return true;
   }
+  function addSectionRow(section, key, value, doc) {
+    let meta = [...section.children].find((c) => blockName(c) === "section-metadata");
+    if (!meta) {
+      meta = doc.createElement("div");
+      meta.className = "section-metadata";
+      section.append(meta);
+    }
+    if (kvRows(meta)[key.toLowerCase()]) return false;
+    const r = doc.createElement("div");
+    const k = doc.createElement("div");
+    k.textContent = key;
+    const v = doc.createElement("div");
+    v.textContent = value;
+    r.append(k, v);
+    meta.append(r);
+    return true;
+  }
   function addBlockOption(block, opt) {
     if (block.classList.contains(opt)) return false;
     block.classList.add(opt);
@@ -4731,6 +4749,9 @@ var CustomImportScript = (() => {
     if (markets != null) next.setAttribute("data-markets", markets);
     section.after(next);
     next.append(...els);
+    const meta = [...section.children].find((c) => blockName(c) === "section-metadata");
+    const row = meta && kvRows(meta).markets;
+    if (row && row.textContent.trim()) addSectionRow(next, "Markets", row.textContent.trim(), doc);
     sectionStyles(section).forEach((s) => addSectionStyle(next, s, doc));
     styles.forEach((s) => addSectionStyle(next, s, doc));
     return next;
@@ -4757,6 +4778,19 @@ var CustomImportScript = (() => {
     walk(el);
     return last;
   }
+  function trimEnd(el) {
+    const texts = [];
+    const walk = (n) => n.childNodes.forEach((c) => {
+      if (c.nodeType === 3) texts.push(c);
+      else if (c.nodeType === 1) walk(c);
+    });
+    walk(el);
+    for (let i = texts.length - 1; i >= 0; i -= 1) {
+      const v = texts[i].nodeValue.replace(/\s+$/, "");
+      texts[i].nodeValue = v;
+      if (v) break;
+    }
+  }
   function takeTokens(el) {
     const tokens = [];
     for (let guard = 0; guard < 6; guard += 1) {
@@ -4766,6 +4800,7 @@ var CustomImportScript = (() => {
       tokens.unshift(...m[1].split(/\s+/));
       t.nodeValue = t.nodeValue.slice(0, m.index);
     }
+    if (tokens.length) trimEnd(el);
     return tokens;
   }
   function firstText(el) {
@@ -4810,6 +4845,7 @@ var CustomImportScript = (() => {
         const t = el.tagName === "P" && lastText(el);
         if (t && APP_SMALL.test(t.nodeValue)) {
           t.nodeValue = t.nodeValue.replace(APP_SMALL, "");
+          trimEnd(el);
           if (!run) {
             run = doc.createElement("div");
             run.className = "app-text small";
@@ -5104,6 +5140,13 @@ var CustomImportScript = (() => {
           const s = sectionOf(target, main);
           if (!wideIn.has(s)) wideIn.set(s, []);
           wideIn.get(s).push(target);
+        } else if (/^links-(horizontal|responsive|vertical)$/.test(t)) {
+          if (!/^(UL|OL)$/.test(target.tagName)) count(stats, "theme", "links");
+          else {
+            if (block) addBlockOption(block, t);
+            else addSectionStyle(sectionOf(target, main), t, doc);
+            count(stats, "carrier", "links");
+          }
         } else if (/^indent-\d+$/.test(t)) indents.push(target);
         else if (t === "parallax") parallax.push(target);
         else if (t === "narrow") {
@@ -5353,7 +5396,15 @@ var CustomImportScript = (() => {
     const parse11 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
       if (!isSep(p)) return;
-      count(stats, "theme", "separator-in-block");
+      const m = parse11(p);
+      const block = p.closest("main > div > div[class]");
+      const next = p.nextElementSibling;
+      const prev = p.previousElementSibling;
+      const n = Number(m[2]);
+      if (block && blockName(block) === "columns-media" && m[1] === "spacer" && !m[3] && n > 20 && n <= 31 && next && /^H[2-4]$/.test(next.tagName) && prev && !/^H[1-6]$/.test(prev.tagName)) {
+        addBlockOption(block, "chapters");
+        count(stats, "carrier", "separator-in-block");
+      } else count(stats, "theme", "separator-in-block");
       p.remove();
     });
     [...main.children].forEach((section) => {
@@ -5826,7 +5877,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_349922_default = {
+  var tmp_bundle_homepage_688341_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5866,5 +5917,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_349922_exports);
+  return __toCommonJS(tmp_bundle_homepage_688341_exports);
 })();

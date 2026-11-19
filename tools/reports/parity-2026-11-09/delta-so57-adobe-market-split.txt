@@ -1,0 +1,29 @@
+# ema-adobe, standing order 57, item 5 (2026-11-18/19): documents whose market sections the collapse split at import
+#   time before the fix, every site.
+# The bug, in both of its forms:
+#   - 06bb987 (order 56) kept the served form, a split section's data-markets attribute.
+#   - The documents' own form, the Section Metadata row "Markets" (the importers' output, DA's copies), was still lost
+#     on the split parts. Tonight's collapse fix copies that row too (test/collapse-leftovers-adobe-so57.test.mjs).
+# Which documents could have it:
+#   - The import bundles collapse at import time since 2026-11-08, and the local import outputs (content/,
+#     content-sites/) are October's marker versions, so they show no collapse.
+#   - So the census reads every document uploaded since 2026-11-08 from every site's da-upload-state*.json (navs,
+#     footers, fragments skipped): 6,471 documents, their preview copies (main--<site>--moved-permanently.aem.page,
+#     our CDN), all 200.
+# The check: a part split off a market section duplicates the text of its market twin ("de" / "-de" versions are near
+#   copies). A section without a market that follows a market section (directly or through such sections), and whose
+#   text pieces stand at least half in another section of the document, is flagged (logs/b657/market-split-scan.mjs).
+#   On last night's bugged collapses it finds every split part: cash-and-miles 1, fluege 1, free2move 6. On the fixed
+#   ones it finds none.
+# Census, documents with market sections / all:
+#   lh-com 19 / 1,577; lh-ita 79 / 1,267; lh-tap 46 / 253; lh-swiss 29 / 694; lh-b2b 5 / 286; lh-brussels 3 / 465;
+#   lh-austrian 2 / 1,407; lh-discover 1 / 60; lh-airdolomiti 0 / 388; lh-cargo 0 / 74.
+# Result: no document differs in market coverage with and without the fix. Three sections in two documents were
+#   flagged, and all three are shared sections by design (DA's copies read, one page per command):
+#   - lh-b2b /xx/en/program/experts/on-board/entertainment-on-board, sections 11 and 35, "FlyNet® Premium …":
+#     the page repeats its tariff table for two airlines (Austrian, SWISS). Both copies are for every market; the
+#     market section before each is the bg/en, kw/en-only footnote "* Please note …", not a twin.
+#   - lh-ita /it/en/world-of-ita-airways/discover-ita-airways/voglia-di-volare, section 3, "Day one …": the course
+#     programme shown to every market, between the two market pairs of course dates (1/2 and 4/5).
+# READY rows: none (no document to restore). Last night's cleanup set (ema-test, 17 documents) was checked by ema-test.
+# Not covered: documents a person or a later row has since rewritten from a bugged copy (none known).

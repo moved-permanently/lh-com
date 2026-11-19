@@ -19,7 +19,7 @@
  */
 import {
   readPurposeBlock, readBlockOptions, readSectionStyle, headingChoice, themeFor, pageTypeOf,
-  isCaptionParagraph, readNavRole, MARKED_SIZE, MARKED_WIDTH, SPACE, DIVIDER_SPACE,
+  isCaptionParagraph, readNavRole, MARKED_SIZE, MARKED_WIDTH, SPACE, DIVIDER_SPACE, CHAPTER_SPACE,
 } from './style-markers.js';
 
 const TEXT = ['P', 'UL', 'OL'];
@@ -153,10 +153,24 @@ function decorateNavTools(main) {
 }
 
 /** Block options any block takes. */
+/** A list whose every item is one link and nothing else (a link list: www's .link-list). */
+const isLinkList = (ul) => ul.children.length > 0 && [...ul.children].every((li) => {
+  const links = li.querySelectorAll('a');
+  return li.tagName === 'LI' && links.length === 1 && links[0].textContent.trim() === li.textContent.trim();
+});
+
 function decorateBlockOptions(main, theme) {
   main.querySelectorAll(':scope > div > div[class]').forEach((block) => {
     if (block.classList.contains('section-metadata')) return;
     const opts = readBlockOptions(block.classList);
+    if (opts.links) block.querySelectorAll('ul').forEach((ul) => { if (isLinkList(ul)) ul.classList.add(`links-${opts.links}`); });
+    // chapters: a small space before each heading that follows text in the block's cells
+    if (opts.chapters) {
+      block.querySelectorAll(':scope > div > div > :is(h2, h3, h4)').forEach((h) => {
+        const prev = h.previousElementSibling;
+        if (prev && !/^H[1-6]$/.test(prev.tagName) && !isSeparator(prev)) h.before(separatorParagraph(CHAPTER_SPACE));
+      });
+    }
     const sep = separatorFor(opts.space, opts.divider);
     if (sep && !isSeparator(block.previousElementSibling)) block.before(sep);
     if (opts.size === 'small') {
@@ -191,6 +205,8 @@ function decorateSectionStyles(main, theme, pageHeadings) {
         const first = el.querySelector(':scope > p');
         if (first) first.classList.add('narrow');
       }
+      // a link list's layout (section style links-…): the class the "{links-…}" marker gave
+      if (style.links && el.tagName === 'UL' && isLinkList(el)) el.classList.add(`links-${style.links}`);
       if (!TEXT.includes(el.tagName) || isSeparator(el)) return;
       if (el.tagName === 'P' && hasPicture(el) && !el.textContent.trim()) {
         if (style.image === 'parallax') el.classList.add('parallax');

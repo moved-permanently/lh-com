@@ -1,0 +1,120 @@
+[
+ {
+  "path": "/de/en/payment-options-at-the-airport",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "my marker out ({spacer-40 from-768}), the Spacer block from-768 in its place, inside the column view",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-40 from-768}</p>",
+    "text": "<div class=\"spacer from-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/payment-options-at-the-airport",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "carried from /de/en/payment-options-at-the-airport by structure: the Spacer block from-768 before the view's column end",
+  "inserts": [
+   {
+    "before": "<p>{column-end}</p><div class=\"metadata\">",
+    "text": "<div class=\"spacer from-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/zahlungsmoeglichkeiten-am-flughafen",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "carried from /de/en/payment-options-at-the-airport by structure: the Spacer block from-768 before the view's column end",
+  "inserts": [
+   {
+    "before": "<p>{column-end}</p><div class=\"metadata\">",
+    "text": "<div class=\"spacer from-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/zahlungsmoeglichkeiten-am-flughafen",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "carried from /de/en/payment-options-at-the-airport by structure: the Spacer block from-768 before the view's column end",
+  "inserts": [
+   {
+    "before": "<p>{column-end}</p><div class=\"metadata\">",
+    "text": "<div class=\"spacer from-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/free2move",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "my markers out ({spacer-59 below-768}, both market versions), the Spacer block below-768 in their place, before the small print",
+  "inserts": [
+   {
+    "replace": "m/de/en/offer/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><p>{spacer-59 below-768}</p>",
+    "text": "m/de/en/offer/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><div class=\"spacer below-768\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "now.com/de/en/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><p>{spacer-59 below-768}</p>",
+    "text": "now.com/de/en/lufthansa/\">Register here</a></strong></p></div><div><p>Order and reserve a car delivered to your door or at the airport.</p><p><strong><a href=\"https://www.share-now.com/de/en/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Reserve the daily rental here</a></strong></p></div><div></div></div></div><div class=\"spacer below-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/free2move",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "carried from /de/en/free2move by structure: the Spacer block below-768 between the block and the small print (both market versions)",
+  "inserts": [
+   {
+    "replace": "com/de/de/offer/lufthansa/\">Hier anmelden</a></strong></p></div><div><p>Bestellen und reservieren Sie sich ein Auto vor Ihre Haustür oder an den Flughafen.</p><p><strong><a href=\"https://www.share-now.com/de/de/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Hier Tagesmiete reservieren</a></strong></p></div><div></div></div></div><p>*Ab 39,99",
+    "text": "com/de/de/offer/lufthansa/\">Hier anmelden</a></strong></p></div><div><p>Bestellen und reservieren Sie sich ein Auto vor Ihre Haustür oder an den Flughafen.</p><p><strong><a href=\"https://www.share-now.com/de/de/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Hier Tagesmiete reservieren</a></strong></p></div><div></div></div></div><div class=\"spacer below-768\"><div><div></div></div></div><p>*Ab 39,99"
+   },
+   {
+    "replace": "e-now.com/de/de/lufthansa/\">Hier anmelden</a></strong></p></div><div><p>Bestellen und reservieren Sie sich ein Auto vor Ihre Haustür oder an den Flughafen.</p><p><strong><a href=\"https://www.share-now.com/de/de/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Hier Tagesmiete reservieren</a></strong></p></div><div></div></div></div><p>*Ab 39,99",
+    "text": "e-now.com/de/de/lufthansa/\">Hier anmelden</a></strong></p></div><div><p>Bestellen und reservieren Sie sich ein Auto vor Ihre Haustür oder an den Flughafen.</p><p><strong><a href=\"https://www.share-now.com/de/de/prebook-a-car?utm_source=lufthansa&amp;utm_medium=website_integration%20\">Hier Tagesmiete reservieren</a></strong></p></div><div></div></div></div><div class=\"spacer below-768\"><div><div></div></div></div><p>*Ab 39,99"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/shopping",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "my markers out ({divider-100 from-768}, {divider-60 below-768}), Divider l from-768 and Divider m below-768 in their place",
+  "inserts": [
+   {
+    "replace": "<p>{divider-100 from-768}</p><p>{divider-60 below-768}</p>",
+    "text": "<div class=\"divider l from-768\"><div><div></div></div></div><div class=\"divider m below-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/shopping",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "carried from /de/en/shopping by structure: the original {divider-60} out, Divider l from-768 and Divider m below-768",
+  "inserts": [
+   {
+    "replace": "<p>{divider-60}</p>",
+    "text": "<div class=\"divider l from-768\"><div><div></div></div></div><div class=\"divider m below-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/shopping",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "carried from /de/en/shopping by structure: the original {divider-60} out, Divider l from-768 and Divider m below-768",
+  "inserts": [
+   {
+    "replace": "<p>{divider-60}</p>",
+    "text": "<div class=\"divider l from-768\"><div><div></div></div></div><div class=\"divider m below-768\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/shopping",
+  "from": "so57 item 4 in-section carriers (ema-adobe)",
+  "change": "carried from /de/en/shopping by structure: the original {divider-60} out, Divider l from-768 and Divider m below-768",
+  "inserts": [
+   {
+    "replace": "<p>{divider-60}</p>",
+    "text": "<div class=\"divider l from-768\"><div><div></div></div></div><div class=\"divider m below-768\"><div><div></div></div></div>"
+   }
+  ]
+ }
+]

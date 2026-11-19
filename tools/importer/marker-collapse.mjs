@@ -285,6 +285,25 @@ function addSectionStyle(section, style, doc) {
   return true;
 }
 
+/** A Section Metadata row (key, value) on section, unless it has that key; its metadata block made if missing. */
+function addSectionRow(section, key, value, doc) {
+  let meta = [...section.children].find((c) => blockName(c) === 'section-metadata');
+  if (!meta) {
+    meta = doc.createElement('div');
+    meta.className = 'section-metadata';
+    section.append(meta);
+  }
+  if (kvRows(meta)[key.toLowerCase()]) return false;
+  const r = doc.createElement('div');
+  const k = doc.createElement('div');
+  k.textContent = key;
+  const v = doc.createElement('div');
+  v.textContent = value;
+  r.append(k, v);
+  meta.append(r);
+  return true;
+}
+
 function addBlockOption(block, opt) {
   if (block.classList.contains(opt)) return false;
   block.classList.add(opt);
@@ -316,6 +335,11 @@ function splitSection(section, els, doc, styles = []) {
   if (markets != null) next.setAttribute('data-markets', markets);
   section.after(next);
   next.append(...els);
+  // the same for the documents' own form, the Section Metadata row "Markets" (the importers' output and DA's
+  // copies; data-markets is what the served page makes of it; standing order 57)
+  const meta = [...section.children].find((c) => blockName(c) === 'section-metadata');
+  const row = meta && kvRows(meta).markets;
+  if (row && row.textContent.trim()) addSectionRow(next, 'Markets', row.textContent.trim(), doc);
   sectionStyles(section).forEach((s) => addSectionStyle(next, s, doc));
   styles.forEach((s) => addSectionStyle(next, s, doc));
   return next;
@@ -349,6 +373,24 @@ function lastText(el) {
 }
 
 /** Takes every known marker off the end of an element; returns their tokens (in order). */
+/**
+ * The element's trailing white space, a no-break space too, across text nodes: the parser makes
+ * "&nbsp;" a text node of its own, so "…wurde.&nbsp; {small}" kept it once the marker's text node
+ * was emptied (lh-edge's and Edge Delivery's marker stripping drop it; standing order 57).
+ */
+function trimEnd(el) {
+  const texts = [];
+  const walk = (n) => n.childNodes.forEach((c) => {
+    if (c.nodeType === 3) texts.push(c); else if (c.nodeType === 1) walk(c);
+  });
+  walk(el);
+  for (let i = texts.length - 1; i >= 0; i -= 1) {
+    const v = texts[i].nodeValue.replace(/\s+$/, '');
+    texts[i].nodeValue = v;
+    if (v) break;
+  }
+}
+
 function takeTokens(el) {
   const tokens = [];
   for (let guard = 0; guard < 6; guard += 1) {
@@ -358,6 +400,7 @@ function takeTokens(el) {
     tokens.unshift(...m[1].split(/\s+/));
     t.nodeValue = t.nodeValue.slice(0, m.index);
   }
+  if (tokens.length) trimEnd(el);
   // a text node left empty after its marker (" {caption}" after a link): gone
   return tokens;
 }
@@ -412,6 +455,7 @@ function collapseApp(main, doc, stats) {
       const t = el.tagName === 'P' && lastText(el);
       if (t && APP_SMALL.test(t.nodeValue)) {
         t.nodeValue = t.nodeValue.replace(APP_SMALL, '');
+        trimEnd(el);
         if (!run) {
           run = doc.createElement('div');
           run.className = 'app-text small';
@@ -730,6 +774,15 @@ function collapseText(main, doc, stats, marks, theme, brand, hand) {
         const s = sectionOf(target, main);
         if (!wideIn.has(s)) wideIn.set(s, []);
         wideIn.get(s).push(target);
+      } else if (/^links-(horizontal|responsive|vertical)$/.test(t)) {
+        // a link list's layout (www's .link-list ul.horizontal / .responsive / .vertical, brief 582): the section
+        // style of that name, in a block the block option; the theme gives their lists of links the class
+        // (standing order 57: the bare marker stayed, beside a column mark it went without a carrier)
+        if (!/^(UL|OL)$/.test(target.tagName)) count(stats, 'theme', 'links');
+        else {
+          if (block) addBlockOption(block, t); else addSectionStyle(sectionOf(target, main), t, doc);
+          count(stats, 'carrier', 'links');
+        }
       } else if (/^indent-\d+$/.test(t)) indents.push(target);
       else if (t === 'parallax') parallax.push(target);
       else if (t === 'narrow') {
@@ -1000,7 +1053,18 @@ function collapseSeparators(main, doc, stats, ctx) {
   // its sections): no carrier there; the space goes
   main.querySelectorAll(':scope > div > * p').forEach((p) => {
     if (!isSep(p)) return;
-    count(stats, 'theme', 'separator-in-block');
+    // a chapter's small separator in a Columns Media cell (21-31 px between text and the next heading): the block's
+    // option chapters (a 25 px space before each heading after text in its cells; standing order 57)
+    const m = parse(p);
+    const block = p.closest('main > div > div[class]');
+    const next = p.nextElementSibling;
+    const prev = p.previousElementSibling;
+    const n = Number(m[2]);
+    if (block && blockName(block) === 'columns-media' && m[1] === 'spacer' && !m[3] && n > 20 && n <= 31
+      && next && /^H[2-4]$/.test(next.tagName) && prev && !/^H[1-6]$/.test(prev.tagName)) {
+      addBlockOption(block, 'chapters');
+      count(stats, 'carrier', 'separator-in-block');
+    } else count(stats, 'theme', 'separator-in-block');
     p.remove();
   });
   [...main.children].forEach((section) => {

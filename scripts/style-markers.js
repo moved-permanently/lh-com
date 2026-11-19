@@ -105,6 +105,8 @@ export const isOnlyStyleMarkers = (text) => /\{/.test(String(text ?? '')) && !st
 // separators: none, M, L and Divider (a 1px line, 25px below); the px each carrier draws
 export const SPACE = { m: 60, l: 120 };
 export const DIVIDER_SPACE = 25;
+// the chapter gap in a block's cells (block option chapters)
+export const CHAPTER_SPACE = 25;
 
 /**
  * The collapse table's separator size (step 2): 0-30px none, 32-80px M, 90-150px L; any other
@@ -332,6 +334,12 @@ export const SECTION_STYLES = {
   // width-scoped spaces and dividers (standing order 56, ema-test's order 57 rows): one size
   // from 768 px, another (or none) on phones, as www's breakpoints draw them; separator
   // paragraphs with from-768 / below-768
+  // a link list's layout (www's .link-list ul.horizontal / .responsive / .vertical: the
+  // "{links-…}" markers; standing order 57): the section's own lists of links (each item one
+  // link) take it
+  'links-horizontal': { links: 'horizontal' },
+  'links-responsive': { links: 'responsive' },
+  'links-vertical': { links: 'vertical' },
   'space-m-768': { spaceTablet: 'm' },
   'space-m-below-768': { spacePhone: 'm' },
   'space-l-768': { spaceTablet: 'l' },
@@ -362,6 +370,9 @@ export const SECTION_STYLES = {
 
 // the section styles' friendly labels (the DA library's Style choices: "Label=value")
 export const SECTION_STYLE_LABELS = {
+  'links-horizontal': 'Links side by side',
+  'links-responsive': 'Links side by side, stacked on phones',
+  'links-vertical': 'Links stacked',
   'space-m': 'Space above: M',
   'space-l': 'Space above: L',
   divider: 'Divider above',
@@ -440,6 +451,13 @@ export const BLOCK_OPTIONS = {
   'small-print': { size: 'small' },
   'title-large': { title: 'large' },
   'title-compact': { title: 'compact' },
+  // Columns Media: a small space (25 px) before each heading that follows text in its cells
+  // (www's chapters in one cell, terms-of-service-group; standing order 57)
+  chapters: { chapters: true },
+  // a link list's layout in the block (as the section style of that name)
+  'links-horizontal': { links: 'horizontal' },
+  'links-responsive': { links: 'responsive' },
+  'links-vertical': { links: 'vertical' },
   // one heading level's choice in the block, the block's other headings as the theme draws them
   // (Group for Business's businesstogo: its H3s compact, its H2 the theme's heading-medium, which
   // title-compact would make compact too; standing order 68): as the section style of that name
@@ -465,6 +483,10 @@ export const BLOCK_OPTION_LABELS = {
   'small-print': 'small print',
   'title-large': 'large title',
   'title-compact': 'compact title',
+  chapters: 'a small space before each heading after text (chapters)',
+  'links-horizontal': 'links side by side',
+  'links-responsive': 'links side by side, stacked on phones',
+  'links-vertical': 'links stacked',
   'h3-compact': 'H3 compact (its other headings as they are)',
   'spaced-pictures': 'pictures further above the heading after them',
   'background-video': 'background video (autoplay, muted, loop)',
@@ -576,6 +598,12 @@ export const BACKGROUND_VIDEO = ['autoplay', 'muted', 'loop'];
  */
 export const APP_SPACER_SIZES = ['x-small', 'small', 'medium', 'm-large', 'large'];
 
+// a Divider block's space from its options (l, m, else the divider's own)
+const dividerPx = (opts) => {
+  if (opts.includes('l')) return SPACE.l;
+  return opts.includes('m') ? SPACE.m : DIVIDER_SPACE;
+};
+
 /**
  * What a purpose block draws, from its block name and options (class names), or null for
  * another block.
@@ -593,8 +621,10 @@ export function readPurposeBlock(name, options = []) {
     case 'spacer': return {
       kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m, fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
     };
+    // option m / l: the divider's space M or L (www's divider with space,
+    // "{divider-100 from-768}"; standing order 57)
     case 'divider': return {
-      kind: 'divider', px: DIVIDER_SPACE, fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
+      kind: 'divider', px: dividerPx(opts), fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
     };
     case 'app-spacer': return {
       kind: 'app-spacer', size: APP_SPACER_SIZES.find((s) => opts.includes(s)) || 'medium', v2Only: opts.includes('v2'),

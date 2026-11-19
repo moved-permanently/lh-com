@@ -1,0 +1,34 @@
+# ema-adobe, standing order 57, item 4 (2026-11-18/19): ema-test's 10 HOLD rows of delta-so58-lh-com-rows (the markers stand inside a
+#   section, where the width-scoped section styles can't) with in-section carriers, purpose blocks that stand where the marker stood:
+#   - the Spacer block with its width option, from-768 / below-768 (on main since 508 / so35);
+#   - the Divider block with its new space option, m / l, and its width option (on main with this order's commit: readPurposeBlock,
+#     test/collapse-leftovers-adobe-so57.test.mjs).
+#   No section is split, so no section gap: a Spacer inside the column view (payment-options) stays inside it.
+# Each row: DA's copy (read ~23:00 UTC, one page per command) with text inserts (tools/importer/text-inserts-apply.mjs).
+#   - Each anchor is found exactly once (with context where the market twins repeat the text).
+#   - removeTextInserts gives DA's copy back byte for byte.
+#   - Token-free: no insert adds a "{...}" marker; the held marker goes, the other markers of the copy stay as they are.
+#   - Inserts: delta-so57-adobe-in-section-rows.json.
+# Gate: the de/en pages against their recordings (lh-parity-002), 1440 and 390.
+#   - As served: our host's .plain.html with the deployed code.
+#   - With the row: the same copy with the row's change at the same place, on main + this order's carriers (worktree of main
+#     2797be2), in the same hour.
+#   - A width passes when the page is no further from www than as served by more than 0.5 points, or the carrier draws the collapse
+#     table's value of the marker there (separators 32-89 px M, 90+ L), as in ema-test's orders 57/58.
+#   - Copies: no recording; heights as served -> with the row, no breakage at either width.
+# Two rows pass on the collapse value, not on the points:
+#   - payment-options 1440 draws M (main's 60) for www's 40: +20 px, 0.94 -> 2.88 %.
+#   - shopping 1440 draws L (120) for www's 100: +20 px, 4.07 -> 5.85 %.
+#   Both come back to www's own size once lufthansa.com's M at 40 (the switch branch) is live: there M is 40 and L 120.
+# Each line: READY, path, the change, % off www and heights as served -> with the row (1440 / 390), the gate.
+READY	/de/en/payment-options-at-the-airport	my marker out (<p>{spacer-40 from-768}</p>), the Spacer block from-768 in its place inside the column view	1440 0.94 -> 2.88 % (2,542 -> 2,562 px, www 2,542); 390 7.04 -> 7.04 % (3,303 -> 3,303 px)	1440: M for 40 px (collapse value; +20 px, main's M 60); 390: the same
+READY	/gb/en/payment-options-at-the-airport	carried from /de/en/payment-options-at-the-airport by structure: the Spacer block from-768 before the view's column end	no recording; 1440 2,477 -> 2,562 px, 390 3,279 -> 3,303 px (de/en's heights with the row: 2,562 / 3,303)	no breakage
+READY	/de/de/zahlungsmoeglichkeiten-am-flughafen	carried from /de/en/payment-options-at-the-airport by structure: the Spacer block from-768 before the view's column end	no recording; 1440 2,477 -> 2,562 px, 390 3,347 -> 3,371 px	no breakage
+READY	/at/de/zahlungsmoeglichkeiten-am-flughafen	carried from /de/en/payment-options-at-the-airport by structure: the Spacer block from-768 before the view's column end	no recording; 1440 2,477 -> 2,562 px, 390 3,347 -> 3,371 px	no breakage
+READY	/de/en/free2move	my markers out (<p>{spacer-59 below-768}</p>, both market versions), the Spacer block below-768 in their place before the small print	1440 4.80 -> 4.80 % (3,024 -> 3,024 px, www 3,054); 390 4.06 -> 3.97 % (4,388 -> 4,389 px, www 4,380)	both widths within 0.5 points
+READY	/de/de/free2move	carried from /de/en/free2move by structure: the Spacer block below-768 between the block and the small print (both market versions)	no recording; 1440 3,096 -> 3,096 px, 390 4,624 -> 4,685 px	no breakage
+READY	/de/en/shopping	my markers out (<p>{divider-100 from-768}</p><p>{divider-60 below-768}</p>), Divider l from-768 and Divider m below-768 in their place	1440 4.07 -> 5.85 % (5,690 -> 5,710 px, www 5,703); 390 8.84 -> 8.84 % (9,937 -> 9,937 px)	1440: L for 100 px (collapse value; +20 px); 390: M for 60, the same
+READY	/gb/en/shopping	carried from /de/en/shopping by structure: the original <p>{divider-60}</p> out, Divider l from-768 and Divider m below-768	no recording; 1440 4,730 -> 4,790 px, 390 9,017 -> 9,017 px	no breakage
+READY	/de/de/shopping	carried from /de/en/shopping by structure: the original <p>{divider-60}</p> out, Divider l from-768 and Divider m below-768	no recording; 1440 5,731 -> 5,791 px, 390 10,030 -> 10,030 px	no breakage
+READY	/at/de/shopping	carried from /de/en/shopping by structure: the original <p>{divider-60}</p> out, Divider l from-768 and Divider m below-768	no recording; 1440 4,811 -> 4,871 px, 390 9,110 -> 9,110 px	no breakage
+# The rows need main's Divider space option live before they are applied (this order's commit); the Spacer rows don't.
