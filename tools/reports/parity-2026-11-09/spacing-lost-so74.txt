@@ -1,0 +1,59 @@
+# ema-cashub, standing order 74 (2026-11-19), item 3: spacing lost when markers came out (SWISS and Group for Business)
+#
+# Census: every served SWISS (5,332) and Group for Business (733) document as served on 17 Nov, before the token-free
+# cleanup took the markers out of the documents (parity-588/so67/srv and so66/b2bsrv: the last served copies that still
+# carried markers earlier rows had put in), against today's served copies (so73, 19 Nov; the nine B2B documents
+# fetched again at 10:27 CET, unchanged). Each spacer or column marker that came out was located by the text around it
+# (so74/lost.py) and what stands at its place today was read from the copy.
+# - SWISS: 18 spacer markers in 12 documents. B2B: 38 spacer and column markers in 18 documents (plus the size markers
+#   {heading-…}, which draw no space and are not listed).
+# - "The space it drew": a {spacer-N} marker draws N + 1 px (marker-minimum-draw); from-768 / below-768 only at those
+#   widths. A Spacer block draws M 61 px, L 121 px.
+# - Before 17 Nov the collapse pass (9 Nov) dropped separators under 32 px and turned the rest into Spacer blocks or
+#   section styles; the documents from before that pass are only in DA's backup folders, which would take one read per
+#   document (a loop of DA reads is refused here). That pass was checked document by document when it ran
+#   (token-free/swiss-pass-result.md, b2b-pass-result.md: loss check 0 failed).
+#
+# path	marker that came out	space it drew	what draws it now	covered by
+/ch/de/book-and-manage/swiss-choice/additional-bag	{spacer-39 below-768} at the aside's start	40 px below 768	Spacer block (below-768), 61 px, with the aside 20 px under the column (order 69 rule: 81 = www's 80)	theme rule (live since order 69)
+/ch/de/fly/on-board/entertainment-on-board	{spacer-39 below-768} x2 at the asides' start	40 px below 768 each	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/de/fly/on-board/swiss-business	{spacer-39 below-768} x2 at the asides' start	40 px below 768 each	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/book-and-manage/offers/miles-and-more	{spacer-39 below-768} at the aside's start	40 px below 768	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/book-and-manage/swiss-choice/upgrade-options	{spacer-39 below-768} at the aside's start	40 px below 768	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/discover/swiss-recraft-collection	{spacer-39 below-768} x4 at the asides' start	40 px below 768 each	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/fly/flight-information/mobile-apps	{spacer-39 below-768} at the aside's start	40 px below 768	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/fly/on-board/travel-classes/swiss-premium-economy	{spacer-39 below-768} at the aside's start	40 px below 768	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/prepare/special-care/animals-travelling	{spacer-39 below-768} x2 at the asides' start	40 px below 768 each	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/prepare/special-care/health-and-travel	{spacer-39 below-768} at the aside's start	40 px below 768	Spacer block (below-768) with the order 69 aside rule	theme rule (live)
+/ch/en/discover/fleet	{spacer-47} before the teaser grid, {spacer-61} after it	48 + 62 px	nothing in the document; the order 67 theme rule draws the grid's 44 px above and 46 px below (ch/en 1440 1,652 / 390 2,043, www 1,635 / 2,040)	theme rule (live since order 67)
+/de/de/about-us/lhg-history	{spacer-39 from-768} before the H1	40 px from 768	Spacer block (from-768), 61 px	Spacer block (the cleanup)
+/de/de/about-us/lhg-history	{spacer-60 below-768}, {spacer-118 from-768} before the route-network cards	61 px below 768, 119 px from 768	nothing	not restored: the page is already long (1440 1,781 / www 1,748, +1.89 %; 390 4,391 / 4,308, +1.93 %)
+/de/de/homepage	{spacer-25 from-768} before the Columns Media "Für Unternehmen"	26 px from 768	nothing (the collapse drops separators under 32 px)	READY: delta-so74-b2b-spacing-lost (Spacer block from-768; 1440 5,310 -> 5,371, www 5,379)
+/de/en/homepage	{spacer-25 from-768} before the Columns Media "For companies"	26 px from 768	nothing	READY: delta-so74-b2b-spacing-lost (1440 5,163 -> 5,224, www 5,200)
+/de/de/news/celebrating-shared-stories	{spacer-100} after the first Columns Media	101 px	Spacer block (l), 121 px	Spacer block (the cleanup)
+/de/de/news/celebrating-shared-stories	{spacer-39} before the cards "Im Zeichen des Kranichs"	40 px	nothing	not restored: drafted with a Spacer block there, the page does not move (1440 7,732, 390 12,066; www 7,754 / 12,092, within 0.3 %)
+/de/de/program/businesstogo	{column-start-outer} x2 before the H1	the column view's 40 px from 768	Spacer block (from-768)	Spacer block (order 69's token-free list)
+/de/de/program/businesstogo	{spacer-140} before the contact H2	141 px	Spacer block (l), 121 px	Spacer block (order 69's list)
+/xx/de/program/businesstogo	{column-start-outer} x2 before the H1; {spacer-140}	as de/de	Spacer block (from-768); Spacer block (l)	Spacer blocks (order 69's list)
+/de/de/travel-solutions/lufthansa-group-airlines	{spacer-30} before the H2 "Lufthansa Group Airlines auf einen Blick"	31 px	nothing	READY: delta-so74-b2b-spacing-lost (Spacer block; 1440 4,026 -> 4,087, 390 5,386 -> 5,447; www 4,071 / 5,454)
+/de/de/travel-solutions/lufthansa-group-airlines	{spacer-72 from-768} after the last Columns Media	73 px from 768	Spacer block (from-768), 61 px	Spacer block (the cleanup)
+/de/en/travel-solutions/lufthansa-group-airlines	{spacer-30} before the H2 "Lufthansa Group airlines at a glance"	31 px	nothing	HOLD: drafted with a Spacer block, 1440 4,016 -> 4,077 (www 4,013: +0.07 -> +1.59 %, +1.52 points); 390 5,266 -> 5,327 (www 5,286: -0.38 -> +0.78 %)
+/de/en/travel-solutions/lufthansa-group-airlines	{spacer-72 from-768} after the last Columns Media	73 px from 768	Spacer block (from-768)	Spacer block (the cleanup)
+/de/en/about-us/help-alliance	{spacer-30} before the H4 "Engage in one of our focus areas:"	31 px	nothing	READY: delta-so74-b2b-spacing-lost (Spacer block; 1440 2,309 -> 2,370, 390 3,319 -> 3,380; www 2,347 / 3,348)
+/de/en/about-us/lhg-history	{column-start-outer} before the H1	the column view's 40 px from 768	Spacer block (from-768)	READY in order 71 (delta-so71-b2b-lhg-history-en-spacer), live
+/de/en/allegris/intermediaries-start-of-booking	{spacer-59} after the first Allegris Columns Media	60 px	section break with space-below-m	section style (the cleanup)
+/de/en/allegris/intermediaries-start-of-booking	{spacer-59} after the second Allegris Columns Media, before the grey band	60 px	nothing	not restored: the page is long (1440 7,900 / www 7,869, +0.39 %; 390 9,156 / 9,053, +1.14 %)
+/de/en/allegris/video-gallery	{spacer-39 below-768} after the carousel	40 px below 768	Spacer block (below-768), 61 px	Spacer block (the cleanup)
+/de/en/program	{spacer-12} at the first section's end, {spacer-3} at the grey band's start	13 + 4 px	nothing (the grey band's own 40 px padding)	HOLD: the nearest carrier, a Spacer block, draws 85 px there: 1440 2,009 -> 2,094 (www 2,057: -2.33 -> +1.80 %), 390 2,394 -> 2,479 (www 2,449: -2.25 -> +1.22 %); closer in height, but 70 px more than the marker drew at that place
+/de/en/program/experts	{spacer-62 from-768} before the H2 "Explore content by airline"	63 px from 768	Spacer block (from-768), 61 px	Spacer block (the cleanup)
+/de/en/program/experts/special-assistance-and-services	{spacer-47 from-768} x6 between the news rows and their dividers	48 px from 768 each	Spacer block (from-768), 61 px each	Spacer blocks (the cleanup)
+/xx/en/program/experts/special-assistance-and-services	{spacer-47 from-768} x6	48 px from 768 each	Spacer block (from-768), 61 px each	Spacer blocks (the cleanup)
+/de/de/program/businesstogo, /de/en/program/businesstogo, /xx/de/program/businesstogo, /xx/en/program/businesstogo	{spacer-39} x4 in the Columns Media rows	40 px each	Spacer blocks (order 69's token-free list)	Spacer blocks (live)
+#
+# Groups:
+# - SWISS aside starts (ten documents): Spacer block below-768 + the order 69 rule (live, gated then on the pre-cleanup page).
+# - SWISS fleet hub: the order 67 rule (live).
+# - B2B "nothing draws it" (9 places in 8 documents): 4 READY (both homepages, lufthansa-group-airlines de/de,
+#   help-alliance), 1 HOLD (lufthansa-group-airlines de/en, the gate), 1 HOLD (program: the carrier draws 85 px for
+#   17), 3 not restored (lhg-history de/de and intermediaries-start-of-booking are long; celebrating de/de does not move).
+# - Every other marker became a Spacer block or a section style (near values: M 61 for 40 to 63, L 121 for 101 to 141).

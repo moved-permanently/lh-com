@@ -1,0 +1,30 @@
+# ema-cashub, standing order 74 (2026-11-19), item 3: Group for Business documents where the token-free cleanup took a
+# spacer marker out (it had come in with an earlier row) and nothing draws that space now
+# (tools/reports/parity-2026-11-09/spacing-lost-so74.txt). Each row gives the place a Spacer block (option from-768
+# where the marker was from-768), www's Spacer M: 61 px drawn.
+# - /de/de/homepage, /de/en/homepage: {spacer-25 from-768} between the welcome text and the Columns Media "For
+#   companies" (26 px from 768 px; the collapse drops separators under 32 px, so nothing draws it now).
+# - /de/de/travel-solutions/lufthansa-group-airlines: {spacer-30} before the H2 "Lufthansa Group Airlines auf einen
+#   Blick" (31 px).
+# - /de/en/about-us/help-alliance: {spacer-30} before the H4 "Engage in one of our focus areas:" (31 px).
+# Not in the list (drafted, the gate fails or nothing is short): /de/en/travel-solutions/lufthansa-group-airlines (its
+# {spacer-30}: 1440 4,016 -> 4,077, www 4,013, +0.07 -> +1.59 %), and the rest of spacing-lost-so74.txt.
+# Token-free: a Spacer block (a block, option from-768 where the marker was from-768); no row puts a style marker in.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so74-b2b-spacing-lost.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (four read-only GETs, one per command, 10:39 CET): "1 inserted" each, "without
+# the inserts DA's copy byte for byte: true"; a second run on the output "1 present" each; no {…} in the output.
+# Drafted on b2b.turnsthe.page (so74/fulld.mjs, every section loaded; the served copy with the Spacer block as a draft,
+# the unchanged copy drafted first and equal to the served heights; airline hosts, www.* and lh-proxy refused per
+# request, none sent). Gate: |after %| - |before %| <= 0.5 on every recorded page-width, the sum of |% off www| down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/de/homepage	1440	b2b-parity-001	5,379	5,310 (-1.28 %)	5,371 (-0.15 %)	-1.13 points; the Spacer block draws from 768 px only
+READY	/de/de/homepage	390	b2b-parity-001	8,273	8,249 (-0.29 %)	8,249 (-0.29 %)	0 points
+READY	/de/en/homepage	1440	b2b-parity-001	5,200	5,163 (-0.71 %)	5,224 (+0.46 %)	-0.25 points
+READY	/de/en/homepage	390	b2b-parity-001	7,892	7,876 (-0.20 %)	7,876 (-0.20 %)	0 points
+READY	/de/de/travel-solutions/lufthansa-group-airlines	1440	b2b-parity-002	4,071	4,026 (-1.11 %)	4,087 (+0.39 %)	-0.72 points
+READY	/de/de/travel-solutions/lufthansa-group-airlines	390	b2b-parity-002	5,454	5,386 (-1.25 %)	5,447 (-0.13 %)	-1.12 points
+READY	/de/en/about-us/help-alliance	1440	b2b-parity-003	2,347	2,309 (-1.62 %)	2,370 (+0.98 %)	-0.64 points
+READY	/de/en/about-us/help-alliance	390	b2b-parity-013	3,348	3,319 (-0.87 %)	3,380 (+0.96 %)	+0.09 points (within the gate); the page's sum 2.49 -> 1.94
+#
+# DA change (lh-b2b), every READY path: one Spacer block at the place named above (the JSON's anchor).

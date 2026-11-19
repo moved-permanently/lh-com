@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/de/de/homepage",
+    "inserts": [
+      {
+        "before": "<div class=\"columns-media\"><div><div><h2 id=\"für-unternehmen\">Für Unternehmen</h2>",
+        "text": "<div class=\"spacer from-768\"><div><div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/homepage",
+    "inserts": [
+      {
+        "before": "<div class=\"columns-media\"><div><div><h2 id=\"for-companies\">For companies</h2>",
+        "text": "<div class=\"spacer from-768\"><div><div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/travel-solutions/lufthansa-group-airlines",
+    "inserts": [
+      {
+        "before": "<h2 id=\"lufthansa-group-airlines-auf-einen-blick\">Lufthansa Group Airlines auf einen Blick</h2>",
+        "text": "<div class=\"spacer\"><div><div></div></div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/about-us/help-alliance",
+    "inserts": [
+      {
+        "before": "<h4 id=\"engage-in-one-of-our-focus-areas\">Engage in one of our focus areas:</h4>",
+        "text": "<div class=\"spacer\"><div><div></div></div></div>"
+      }
+    ]
+  }
+]

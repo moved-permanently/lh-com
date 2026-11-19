@@ -1199,3 +1199,37 @@ body.brand-b2b main > .section > .default-content-wrapper:has(+ .columns-media-w
     white-space: normal;
   }
 }
+
+/* standing order 74, item 2 (b2b-parity-018's table boxes, b2b-parity-003 / -014's news page): three gaps as www's.
+   1. A table followed by a heading: www's maui-table box is its rows plus 40px above and below, and the next heading
+      31px under the box, 71px from the last row (cash-and-points de/en and de/de at 1440: 71; ours 40). Not before a
+      column mark or a Spacer (carry-on-baggage, whose rows are shorter than www's and whose page is long for its cell
+      paragraphs: 40px more under every table took it +2.5 points further).
+   2. A button right before a Spacer: www's link component has no margin of its own, so the Spacer stands for the whole
+      gap (lhg-ita-airways: button to next H2 68px on www, ours 92).
+   3. An accordion right before a Spacer: no block gap above the Spacer for the same reason (lhg-ita-airways' route
+      accordions: 76 / 140px to the next heading on www, ours 104 / 164).
+   Gate (code against live, every section loaded, all 198 recorded page-widths): see swiss-b2b-so74.md; reach: every
+   served B2B document counted on the decorated page (the same report) */
+body.brand-b2b main .table-striped-wrapper:has(+ .default-content-wrapper > h2:first-child) > .table-striped:not(.beside, .beside-end) {
+  margin-bottom: 71px;
+}
+
+body.brand-b2b main .default-content-wrapper > p.button-wrapper:has(+ p.spacer) {
+  margin-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- another shape than the sidebar's column mark (line 927) */
+body.brand-b2b main > .section > .accordion-columns-wrapper + .default-content-wrapper:has(> p.spacer:first-child) {
+  margin-top: 0;
+}
+
+/* 4. A column view that opens right after an accordion has no 40px edge of its own: www's column view starts at the
+      accordion's end (carry-on-baggage: "Non-compliant carry-on baggage…" 213px under the H2 above the accordion on
+      www, ours 349; the start-of-booking pages' views after their FAQ the same). Code against live with rules 1 to 3
+      in, all 198 recorded page-widths: 21 moved, 18 closer, the most further +0.03 (intermediaries-start-of-booking
+      1440); carry-on-baggage de/en 1440 +2.68 -> +1.32 %, de/de +3.38 -> +2.04 % */
+/* stylelint-disable-next-line no-descending-specificity -- another shape than the sidebar's column mark (line 1178) */
+body.brand-b2b main .accordion-columns-wrapper + .default-content-wrapper > p.column-mark.column-start-outer:first-child {
+  padding-top: 0;
+}

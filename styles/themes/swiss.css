@@ -1604,3 +1604,12 @@ body.brand-swiss main > .section.padded:first-of-type:has(+ .section.grey.flush 
 body.brand-swiss main > .section.padded:first-of-type + .section.grey.flush:has(+ .section.padded) {
   margin-bottom: 0;
 }
+
+/* standing order 74, item 1: a footnote list at the page's end (a page whose text refers to it with a footnote link,
+   a[href^="#"] > sup) in small print, as www's (ch/de imprint: the "1." note under the supervisory authority in
+   copytext-small, swiss-parity-002a / -002b; ours body text). Reach: of the 5,335 served SWISS documents, 57 have a
+   footnote link, and the list ends the page in one (ch/de terms-conditions/imprint, census on the decorated pages).
+   ch/de imprint 1440 2,247 -> 2,244 (www 2,196), 390 2,204 -> 2,196 (www 2,134); no other recorded page-width moves */
+body.brand-swiss main:has(a[href^="#"] > sup) > .section:last-child > .default-content-wrapper:last-child > ol:last-child {
+  font-size: var(--body-font-size-xs);
+}
