@@ -6776,3 +6776,121 @@ push at 1440 and 390, and nothing was broken.
 - **Not in git:** logs/p4/so64 (captures, probes, trial CSS, the held importer patch and its test), the drops; content/, migration-work/
   and tools/importer/reports/* (not mine).
 - **Cleanup:** the two local servers (3101, 3102) stopped by PID and their worktrees removed; the suite worktree removed.
+
+## Standing order 65 (received about 11:50 UTC, 2026-11-19)
+
+Themes: Austrian, Cargo, TAP and Air Dolomiti. The gate as before; a pattern whose rule fails gets one narrower second try, then it is
+held with its figures. Lists: tools/reports/parity-2026-11-09/gate-so65.txt, reimport-so65-airdolomiti-nbsp.txt,
+closing-so65-ema-test.txt.
+
+### Item 1: Air Dolomiti's no-break spaces (SHIPPED in ea5365e8)
+
+- **The importer change:** www's no-break spaces are kept where they touch an element (a bold word, a link). Between two words and in
+  headings they stay plain spaces. Gate (order 64): 1,075.85 -> 1,048.34; frankfurt-de 390 at +0.57 is accepted by the migration
+  session. test/airdolomiti-nbsp-so64. Bundles rebuilt: the importer is in none of them. The rebuild also carried a6b0bc4f's unbuilt
+  style-markers change, named in the commit.
+- **The re-import list:** reimport-so65-airdolomiti-nbsp.txt has 23 READY rows, no marker. It covers the 23 of 61 recorded documents
+  whose text changes, found by converting www's recorded pages with the new importer. Expected after the re-import, for example:
+  - en/destinations 390: 32.02 -> 13.76 %.
+  - voli-europa 390: 14.94 -> 11.55 %.
+  - servizi-a-bordo/sistema-di-intrattenimento-a-bordo 390: 8.39 -> 5.64 %.
+  - en/fleet 390: 12.61 -> 9.97 %.
+  - de/flughaefen/frankfurt-de 390: 13.87 -> 14.44 % (the exception).
+- **Not covered:** the other Air Dolomiti documents have no www copy on this machine. The harness's re-import from its own copies
+  decides them; a document without such a space doesn't change.
+
+### Item 2: Austrian's Cyrillic fallback (HOLD after two tries)
+
+- **What www's stack names:** Arial, after Portada and after CoreSans, in its page and component styles. Neither font has Cyrillic.
+  Our capture machine has no Arial (DejaVu Sans stands in: 363 px where www's recording drew 320).
+- **The rule:** Liberation Sans (SIL OFL, Arial's metrics) served as a Cyrillic-only face right after Portada and CoreSans.
+  - All 246 page-widths: 4,586.88 -> 4,555.40. ru/ru/baggage 390 34.17 -> 11.91 %, 1440 24.56 -> 6.27 %.
+  - Further: the by/ru and ru/ru homepages, 390 +3.8 / +3.0 and 1440 +1.4 points.
+  - Those homepage parts are in Arial on www too. Their content differs (order 61), and DejaVu's width had hidden that.
+- **Second try, headings only:** the homepages 390 still +0.74 / +0.73, and baggage gains less.
+- **Needs the session's decision:** an exception for the two homepages, as for frankfurt-de, or homepages re-recorded with today's
+  campaign.
+
+### Item 3: Austrian's Columns Media grids (HOLD after two tries)
+
+- **The grid's own difference** (390, measured per cell in the recordings), www against ours:
+
+  | gap | www | ours |
+  |---|---|---|
+  | picture -> heading | 38 | 42 |
+  | heading -> text | 59 | 63 |
+  | text -> link | 51 | 48 |
+  | link -> next picture | 59 / 91 | 55 / 85 |
+
+  These cancel out, so the rows already stand where www's do (pitch 450 / 451). That is why each of order 62's parts, fixing one gap,
+  moved every later cell.
+- **The tries:**
+  - All four gaps as one cell rule: 2,168.57 -> 2,237.74, 14 page-widths further (the grid pages 20-26 px shorter than before).
+  - Regular-weight link lines, as www's (`.os.link`): 11 further.
+  - The best of order 62's parts was not gated on top: the cell rule didn't ship.
+
+### Item 4: Cargo's card spacing (HOLD after two tries)
+
+- **The difference:** inside a card everything matches within 1 px except the space under the text: 46 px on www, 26 on ours. At
+  1440 the cards already line up.
+- **The tries:**
+  - +20 px below 1201 px: industries-in-focus 390 de 39.59 -> 55.54 %, en 34.95 -> 48.12 %.
+  - +10 px: de 48.08 %, en 38.59 %.
+  - The clip removal on top: de 61.03 %, en 48.69 %.
+- **Why:** the about 152 px of extra content above the cards (content: named, not fixed) balances the shorter cards today. Any card
+  growth moves the page further from www.
+
+### Item 5: the closing list
+
+closing-so65-ema-test.txt, counts per brand and cause class:
+
+| brand | > 3 % | content | live data | function | font | font (inferred) | pattern < 3 | open (held pattern) | open |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Austrian | 230 of 246 | 120 | 0 | 0 | 15 | 27 | 4 | 29 | 35 |
+| Cargo | 110 of 113 | 10 | 0 | 6 | 0 | 34 | 0 | 4 | 56 |
+| TAP | 50 of 52 | 9 | 5 | 2 | 0 | 12 | 0 | 0 | 22 |
+| Air Dolomiti | 98 of 118 | 9 | 8 | 0 | 0 | 32 | 0 | 0 | 49 |
+
+- **font (inferred):** our page is within 15 px of www's height and at most 10 % off, so the layout stands as www's. The rest is text
+  rendering: www's recording machine draws text heavier, as seen on en/airmail 1440 and at/en/baggage 390. Inferred from the figures,
+  not checked one by one.
+
+- No brand is done. Each has open groups of 3 or more page-widths:
+  - Austrian: the grid pages, the footer, the card carousels.
+  - Cargo: the tabs, the footer.
+  - TAP: the card teasers, the footer, the tables.
+  - Air Dolomiti: the accordions, the footer, the card teasers; 41 of its open page-widths belong to documents with the re-import still to come.
+- No Lufthansa-side cause was found.
+
+### Item 6: reach
+
+- The importer change reaches documents only by re-import: the 23 rows, measured in the gate's same-load simulation.
+- No theme rule shipped in this order, so there is no live-render reach check.
+
+### Each brand's sum and median at the end
+
+| brand | page-widths | sum | median |
+| --- | --- | --- | --- |
+| Austrian | 246 | 4,586.88 | 16.40 % |
+| Cargo | 113 | 1,414.11 | 9.20 % |
+| TAP | 52 | 580.94 | 9.61 % |
+| Air Dolomiti | 118 | 1,075.85 | 7.29 % |
+
+- Austrian and Cargo are this order's base runs, the same as order 64's ends.
+- TAP and Air Dolomiti are order 64's runs; their served pages didn't change in this order.
+- Air Dolomiti after the re-import: 1,048.34 / 7.23 % expected.
+
+### Final section (about 13:15 UTC, 2026-11-19)
+
+- **Pushed:** ea5365e8 (the importer change, its test, the rebuilt bundles, the re-import list), Build success. This section, the gate
+  report and the closing list follow.
+- **Checks before each push:** whole-repo lint 0; folder-reading tests 0 failed (683); brand, bundle and Air Dolomiti tests (98 files)
+  passed. No theme or block file changed in this order, so no stylelint run was needed.
+- **The full suite at 6ac76982** (main with ea5365e8): npm run lint exit 0, stylelint exit 0, 1,308 test files passed, 0 failed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA read or write.
+- **Requests:** our four hosts, the R2 drops (Liberation Sans, order 24's archive, sha256 checked) and GitHub's API. No airline host
+  (www's pages rendered offline from the archives, every other request refused).
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off.
+- **Not in git:** logs/p4/so65 (captures, probes, trial CSS: the held Cyrillic, grid-cell and card-spacing rules), the drops; content/,
+  migration-work/ and tools/importer/reports/* (not mine).
+- **Cleanup:** no local server started; the suite worktree removed.

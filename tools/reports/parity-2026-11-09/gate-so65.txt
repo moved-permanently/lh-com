@@ -1,0 +1,55 @@
+# ema-test, standing order 65 (2026-11-19): every change gated in this order, on the brand's recorded page-widths (our host as served,
+#   full Chrome, airline hosts refused, captures at full length, the change in the same load; logs/p4/so65 crun.sh / gate.sh). The gate:
+#   no page-width more than 0.5 points further from www than before, and the sum down. A pattern that fails gets one narrower second
+#   try, then it is held with its figures.
+
+## Shipped
+
+Air Dolomiti, www's no-break spaces kept where they touch an element (tools/importer/airdolomiti-import.mjs textRun; ea5365e8):
+  118 page-widths (order 64's same-load simulation): 1,075.85 -> 1,048.34; frankfurt-de 390 13.87 -> 14.44 (+0.57) accepted by the
+  migration session (its Word-pasted text runs past www's column). It reaches the documents by re-import:
+  reimport-so65-airdolomiti-nbsp.txt (23 READY rows, no marker). Bundles rebuilt (the importer is in none; the rebuild carried
+  a6b0bc4f's unbuilt scripts/style-markers.js change, named in the commit).
+
+## Held
+
+Austrian, a served Cyrillic fallback (item 2). www's own stack names Arial after Portada and after CoreSans ("Portada, Arial,
+  Helvetica, MAMMilesSymbol, sans-serif", the same in its component styles); neither Portada nor CoreSans has Cyrillic, so Russian is
+  drawn in whatever the machine has for Arial. Our capture machine has no Arial (fontconfig: Arial -> DejaVu Sans, 363 px for
+  "Опасные личные вещи" at 28 px bold where www's recording drew 320). The rule: Liberation Sans 2.1.5 (SIL OFL, metric-compatible with
+  Arial; order 24's drop, sha256 43369d97...) served from /fonts/austrian/ as "Austrian Cyrillic" for U+0400-052F and the other Cyrillic
+  ranges, named right after Portada / CoreSans in Austrian's two stacks, so every Cyrillic text draws in Arial's metrics on every
+  machine.
+  First try, both stacks, all 246 page-widths: 4,586.88 -> 4,555.40, median 16.40 -> 16.05; ru/ru/baggage 390 34.17 -> 11.91,
+  1440 24.56 -> 6.27, ru/ru/contact 390 10.47 -> 9.99; 4 further: by/ru and ru/ru homepage 390 16.83 -> 20.64 and 16.96 -> 19.96,
+  1440 25.77 -> 27.20 and 25.62 -> 27.05 (ours 88-112 px shorter than www there: the column band -24, the card carousel -44, the
+  footer -21. Those parts' Cyrillic is in Arial on www too (its component stacks name Arial), so the homepages' own content difference
+  (order 61: other campaigns, other carousel cards) is what DejaVu's width had been hiding).
+  Second try, headings only (the 8 Russian page-widths): 156.43 -> 147.95; ru/ru/baggage 390 34.17 -> 31.14, 1440 24.56 -> 17.82;
+  the homepages 390 16.83 -> 17.57 and 16.96 -> 17.69 (+0.74, +0.73): HOLD.
+  The fallback needs the migration session's call on the homepages (as for frankfurt-de), or homepages re-recorded with today's
+  campaign; the rule is in logs/p4/so65/cand-cyr.css, the font files in the drop.
+
+Austrian, the Columns Media grids (item 3). The grid's own difference from www, measured in the recordings at 390 (at/en/book/flights,
+  each cell): picture -> heading 38 px on www, 42 on ours; heading -> text 59 / 63; text -> link 51 / 48; link -> the next cell's
+  picture 59 / 55 within a row, 91 / 85 between rows. The rows stand where www's do (pitch 450 / 451) because the four differences
+  cancel out; order 62's parts a-d each fixed one of them, which is why each moved every later cell (part a: -4 px a cell).
+  Also checked: www's link lines are maui-navigation-link elements in regular weight (.os.link); ours bold. Regular weight alone, 101
+  of 246 page-widths measured: 11 further (the grid pages 390 up to +3.9) - stopped.
+  First try (all four cell values at once, phones): 8 page-widths measured, 5 further (cells 18 px taller: the last cell of a row got
+  the margin too) - stopped and corrected.
+  Second try (the corrected values: the picture paragraph 36 px, the heading 24 px, the text before the link 27 px, a cell before
+  another in its row 40 px), the 123 Austrian 390 page-widths: 2,168.57 -> 2,237.74, 14 further (book/overview-manage de 5.09 -> 14.01,
+  en 6.18 -> 15.10, baggage fr / it / pl / es 7.1-7.6 -> 14.4-16.4, besondere-anforderungen 5.74 -> 13.06, special-requirements 8.14
+  -> 14.91, book/flights en 7.84 -> 12.86, de 8.33 -> 13.25; the pages 20-26 px shorter than before, where they were within 0-40 px of
+  www): HOLD. The best of order 62's parts (d, 2,418.28 -> 2,463.23 at 1440) was not gated on top: the cell rule did not ship.
+
+Cargo, the boxed card spacing (item 4). www's boxed cards stand 413-414 px apart at 390 (picture top to picture top), ours 395-396;
+  inside a card everything matches within 1 px except the space under the text: 46 px on www (its teaserboxText's 55 px margin),
+  26 on ours. At 1440 the cards already stand where www's do (the next element 3 px apart).
+  First try, 20 px more under the card text below 1201 px, all 113 Cargo page-widths: 1,414.11 -> 1,443.23, 2 further:
+  de/industries-in-focus 390 39.59 -> 55.54, en 34.95 -> 48.12 (the pages 160 px longer, www 5,434 / 5,347).
+  Second try, 10 px more: de 39.59 -> 48.08, en 34.95 -> 38.59: HOLD.
+  The clip removal on top of the first try: de 39.59 -> 61.03, en 34.95 -> 48.69: HOLD.
+  Why: about 152 px more content above the cards on ours (content: our list indent on phones, a hyphenated H2, an inset picture) is
+  balanced today by the shorter cards (ours 5,424 px against www's 5,434); any card growth pushes everything below further from www.
