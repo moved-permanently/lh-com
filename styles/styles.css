@@ -2121,7 +2121,7 @@ body.theme-live.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .
 }
 
 /* ... and on phones the same before a view that opens with text (standing order 60: upgrades-at-online-check-in 390
-   8.29 -> 4.89 %, travel-expense-management 390 8.60 -> 6.38; the 9 phone page-widths it reaches sum 68.49 -> 60.26, none
+   8.29 -> 4.89 %, travel-expense-management 390 8.60 -> 6.38; the 9 phone page-widths it reaches sum 67.88 -> 60.26 with C2, none
    further; from 768 px it moved first-class-personal-assistant further, so it stays on phones) */
 @media (width < 768px) {
   /* stylelint-disable-next-line no-descending-specificity -- the section before a view, not a campaign-section's */

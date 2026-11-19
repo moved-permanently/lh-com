@@ -4,7 +4,7 @@
    C2: on phones a flow page's H3 right after text keeps no heading gap (security-check-time-slot 390 5.75 -> 4.40 %;
        11 page-widths 75.15 -> 72.12). From 768 px it moved child-in-businessclass 1440 0.55 further: phones only.
    D2: on phones a picture that ends its section right before a view that opens with text keeps its 40 px below, as R16b does
-       before a view's heading (upgrades-at-online-check-in 390 8.29 -> 4.89 %; 9 page-widths 68.49 -> 60.26). From 768 px it
+       before a view's heading (upgrades-at-online-check-in 390 8.29 -> 4.89 %; 9 page-widths 67.88 -> 60.26 with C2). From 768 px it
        moved first-class-personal-assistant 1440 1.12 further: phones only.
    G: an article's chapter right after a section that ends with a block gets no chapter rule (scripts/token-free.js; its
        tests: test/chapter-rule-teaser-532.test.mjs, test/token-free.test.mjs).
