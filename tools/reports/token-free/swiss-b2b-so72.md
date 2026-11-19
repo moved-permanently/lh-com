@@ -434,3 +434,16 @@ closer. The sum goes 141.71 -> 108.76.
 - **Reach:** the 3 served swiss-first copies (de, en, fr), of the 14 documents with a stage over the column. The other
   11 are food-and-beverage's flush stages.
 - **SWISS over all 168 page-widths:** 540.06 -> 539.60.
+
+## Closing figures (about 07:50 CET)
+
+- The full suite on ba091901 (after addenda 1 and 2): 1,294 files, 4,859 pass, 0 failures, 5 skipped.
+- Measured live after the last push, all as drafted:
+  - carry-on-baggage de/en 390: 6,769
+  - zurich-airport 390: 3,257
+  - swiss-first de 1440: 4,330
+  - kuala-lumpur 1440: 5,302
+  - terms-conditions en 390: 3,147
+- At the end of the order:
+  - SWISS: 553.34 -> 539.60 (168 page-widths), median 1.01 -> 0.89 %.
+  - Group for Business: 342.32 -> 228.07 (198 page-widths), median 0.52 -> 0.49 %. On order 71's 184: 144.06 -> 143.68.

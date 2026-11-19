@@ -12605,3 +12605,65 @@ Report: tools/reports/token-free/swiss-b2b-so72.md (the method, every table and 
 **DA:** none at all. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
 
 **Next in this order:** the phone tables (item 1's finding). The final section follows at the end of the order.
+
+### Final section (standing order 72, about 07:50 CET, 2026-11-19)
+
+**Pushed (origin/main):**
+
+| Commit | Item | What |
+| --- | --- | --- |
+| 478f9688 | 1, 2, 3 | B2B: the 840 px table box for five-column tables only; the stacked button 11 px above its own picture on phones. SWISS: the lead gap for a split column, the tab bar under the lead, the card row heading 52 px, the usp teaser as www's. Report and test/swiss-b2b-so72.test.mjs |
+| 73c46c37 | 4, 5 | The reach census and samples, ranks 41 to 60 with causes, the content list |
+| 1b95768f | 1 (addendum 1) | B2B phone table cells at least 200 px wide, as www's maui-table cells (not five-column or header-row tables) |
+| ba091901 | 2 (addendum 2) | SWISS: the column 100 px under a stage that is not flush (swiss-first) |
+| (this commit) | - | This final section |
+
+**The gates** (code against live, every section loaded, none more than 0.5 points further except the one named):
+
+| Rules | Page-widths moved | Sum of \|% off www\| |
+| --- | --- | --- |
+| SWISS: split-column lead gap, tab bar, card row heading, usp teaser (168) | 14 (13 closer, worst +0.47) | 553.34 -> 540.06 |
+| SWISS: the column under a stage (84 at 1440) | 1 (closer) | 540.06 -> 539.60 over all 168 |
+| B2B: five-column table box and stacked button (198) | 19 (11 closer; cash-and-points de/en 1440 +4.24, its missing video) | 342.32 -> 261.02 |
+| B2B: phone table cells (109 at 390) | 3 (all closer) | 261.02 -> 228.07 over all 198 |
+
+**Sum and median at the end of the order:**
+- **SWISS, all 168 recorded page-widths:** 553.34 -> 539.60. The median goes 1.01 -> 0.89 %.
+- **Group for Business, all 198** (order 71's 184 and the 14 table page-widths from b2b-parity-018): 342.32 -> 228.07.
+  The median goes 0.52 -> 0.49 %.
+  - On order 71's 184 alone: 144.06 -> 143.68, median 0.47 -> 0.46 %.
+  - businesstogo is read with its Turnstile challenge aborted.
+- **Measured live after the last push:** carry-on-baggage de/en 390 6,769; zurich-airport 390 3,257; swiss-first de
+  1440 4,330; kuala-lumpur 1440 5,302; terms-conditions en 390 3,147. All as drafted.
+
+**READY lists:** none (no row in this order).
+
+**Held, with figures:**
+- **The 794 px SWISS column:** 7 page-widths more than 0.5 points further (+0.66 to +1.80), even with this order's rules
+  in. What is left on four of them is content: premium-economy's empty line, food-and-beverage's divider, green-fare's
+  heading classes, and the page ends under the aside.
+- **B2B footer under a closing card grid:** www's 21 to 82 px for the same block shapes.
+- **B2B Allegris last section's H1 gap:** 9 page-widths further (contact, lhg-invoice-receipt-download,
+  partner-plus-benefit).
+- **The only exception to the gate: cash-and-points de/en 1440, -5.07 -> -9.31 %.** The 840 px box had covered for its
+  missing YouTube video. Taking the box back entirely fails on the same page, and no structural rule separates it from
+  its German copy.
+
+**Content and function differences (no rows):** cash-and-points' and partner-plus-benefit's YouTube video (a link on
+ours); the German cash-and-points FAQ as plain paragraphs; kuala-lumpur's empty lines in its table cells; the A350-1000
+news' side-by-side layout at 1440; premium-economy's empty line above the lead; food-and-beverage's divider;
+green-fare's heading classes; the newsletter's section break; the magazine's related stories and ad slots; the
+homepage flight search and the check-in entry.
+
+**Checks:**
+- Whole-repo `npm run lint` exited 0 before every push, and stylelint on swiss.css and b2b.css exited 0.
+- The targeted tests before the first push: 572 files, 0 failures after one test's fix.
+- The full suite: 1b95768f 1,294 files, 4,858 pass, 0 failures, 5 skipped. The full suite on ba091901, the last code commit: 1,294 files, 4,859 pass, 0 failures, 5 skipped. The folder-reading tests are in both runs.
+
+**DA:** no request at all. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+**Left uncommitted:** nothing of mine.
+- Scratch stays in migration-work/parity-588/so72: runs, probes, the census, screenshots, the downloaded archive and
+  the code snapshots.
+- The new recordings are extracted in so64/arch/b2b-parity-018 and listed in so64/b2b-rec.tsv (scratch).
+- No background job of mine is running.
