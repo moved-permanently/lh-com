@@ -908,3 +908,14 @@ body.brand-discover main .section > .accordion-columns-wrapper + .default-conten
     padding-top: 57px;
   }
 }
+
+/* standing order 49: on phones a page that closes with a section of only a heading over a card row (business-class in
+   both languages: "This might also be of interest") keeps 20 px less under the cards (36 px to the footer): the
+   second, narrower try of the related-cards ending (order 48's form for every closing card section failed: business-
+   class de/de and excess-baggage further). Gated on the 27 recorded Discover phone page-widths (the rule is phone-only):
+   business-class de/en 3,218 -> 3,198 (www 3,193), de/de 3,075 -> 3,055 (3,071; 0.39 points further), sum -0.24 */
+@media (width < 768px) {
+  body.brand-discover main > .section.section.section:last-child:has(> .default-content-wrapper:first-child > :is(h2, h3, h4):only-child):has(> .carousel-cards-wrapper:last-child):not(:has(> :nth-child(3))) {
+    margin-bottom: 36px;
+  }
+}

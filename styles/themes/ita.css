@@ -1450,3 +1450,16 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
     padding-top: 26px;
   }
 }
+
+/* standing order 49: a hub (a title section, then a section of the intro paragraph over one card grid, not grey:
+   corporate-b2b, territorial-continuity, world-of-ita-airways; 20 documents) keeps www's 56 px between the paragraph
+   and the cards from 768 (ita-parity-004 corporate-b2b, ita-parity-015 baggage): 32 px more, the carrier of
+   corporate-b2b's "{spacer-31 from-768}". Hubs with two or three card grids (baggage and 96 others) are not taken: baggage
+   would end 0.97 points further (2,055 -> 2,087, www 2,061), its cards' rest of the page being taller than www's;
+   manage-my-bookings' grey hub has www's 24 px (its login cards). Gated on all 82 recorded ITA page-widths
+   (ita-parity-015's two included): corporate-b2b 1440 1,461 -> 1,493 (www 1,492), the others unchanged */
+@media (width >= 768px) {
+  body.brand-ita main > .section.section:has(> .default-content-wrapper:last-child > h1:only-child) + .section.section:not(.grey) > .default-content-wrapper:first-child:has(> p:only-child) + .carousel-cards-wrapper:last-child {
+    padding-top: 32px;
+  }
+}

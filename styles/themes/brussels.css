@@ -1704,3 +1704,15 @@ body.brand-brussels main .section.section.section .accordion-columns.title-large
     padding-top: 31px;
   }
 }
+
+/* standing order 49: a one-section page that is only a sidebar view (its text a title and one paragraph) over a four-up
+   card grid (be/fr travel-classes, groups-and-charter, our-fleet, the bf lounges, lufthansa-group and airport-info
+   hubs: 24 documents) keeps www's space above the view from 768: 33 px more, the carrier of travel-classes'
+   "{spacer-24 from-768}" the token-free re-import removed. The broader form (every page opening with a sidebar view,
+   207 documents) took be/en book-a-flight further (order 48). Gated on all 208 recorded Brussels page-widths:
+   be/fr travel-classes 1440 1,303 -> 1,336 (www 1,336), the others unchanged */
+@media (width >= 768px) {
+  body.brand-brussels main > .section.section.section:only-child:not(:has(> :nth-child(4))) > .columns-media-wrapper:has(> .columns-media.sidebar:not(.in-column) .columns-media-text > h1:first-child + p:last-child):has(+ .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up) {
+    padding-top: 33px;
+  }
+}
