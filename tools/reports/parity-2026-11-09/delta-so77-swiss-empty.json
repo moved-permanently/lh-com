@@ -1,0 +1,11 @@
+[
+  {
+    "path": "/kr/it/book-and-manage/flights",
+    "inserts": [
+      {
+        "before": "<div class=\"section-metadata\"><div><div>style</div><div>column-band, grey</div></div></div>",
+        "text": "<div class=\"columns-media\"><div><div><h1 id=\"riceva-esclusive-riduzioni-sul-prezzo\">Riceva esclusive riduzioni sul prezzo</h1><p>Si assicuri sconti esclusivi su tour, attività ed esperienze in tutto il mondo. Scopra ora come risparmiare denaro, accumulare miglia e usufruire di vantaggi speciali.</p><p><a href=\"https://www.getyourguide.com/c/lufthansa-offer?partner_id=QDQYCSH\">Ottenga il suo sconto</a></p></div><div><a href=\"https://www.getyourguide.com/c/lufthansa-offer?partner_id=QDQYCSH\"><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/frontify_variations/2/c-1516844845-destination-newyork-27.jpg\" alt=\"\"></picture></a></div></div></div>"
+      }
+    ]
+  }
+]

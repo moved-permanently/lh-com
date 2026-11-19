@@ -1,0 +1,34 @@
+# ema-cashub, standing order 77 (2026-11-19), item 3: the two empty-content findings of order 76's SWISS sweep, each
+# against its source document (/ch/de/homepage, /ch/it/book-and-manage/flights).
+# DA read: refused. The one read-only GET tried (admin.da.live, ch/en miles-and-more, 18:09 CET) and one of
+# content.da.live (the picture below, about 18:17 CET) answered 401: the Adobe credentials are off for this session. The
+# comparison therefore used the served copies of 19 Nov (swiss.turnsthe.page .plain.html, what DA had at its last
+# preview) and, for the source's markup, the importer's own output of /ch/it/book-and-manage/flights
+# (content-sites/lh-swiss/content, 2 Nov, the copy uploaded to DA that day).
+#
+# 1. /kr/it/book-and-manage/flights: IMPORT LOSS. The page's last section keeps its style "column-band, grey" and has
+#    nothing in it (64 px of grey band). The source /ch/it/book-and-manage/flights has, in the same section after the
+#    padded flight-search section, its Columns Media "Riceva esclusive riduzioni sul prezzo" (the GetYourGuide offer:
+#    H1, a paragraph, the link "Ottenga il suo sconto", the picture linked to the offer). Every other section of the two
+#    documents is the same (order 62's copies census: "block columns-media missing" on this copy alone). The row puts
+#    the source's Columns Media into the band, before the band's section metadata, as the source has it.
+#    HOLD, not READY: the row is drafted on the served copy and the 2 Nov output, not on DA's current copies. Its anchor
+#    (the band's section metadata) and the picture's DA address (frontify_variations/2/c-1516844845-destination-
+#    newyork-27.jpg, the source's on 2 Nov) need a dry run on DA's current kr/it and ch/it copies first. With the DA
+#    read back on, that dry run decides READY. If the anchor is not once in DA's copy the tool changes nothing.
+#    Expected with the row (the band as on /ch/it, the rest of the two pages equal): 1440 1,678 -> about 1,989, 390
+#    1,788 -> about 2,243 (ch/it's heights). Not recorded by www; token-free (a block and its text, no marker).
+# 2. /lt/de/homepage: CONTENT, no row. The page ends with a grey section holding one list of 9 empty items, after the
+#    icon cards ("Mehr als nur ein Flug?"). The source /ch/de/homepage has, after the same icon cards, the accordion
+#    "Beliebte Flugziele" (4 lists of 35, 40, 38 and 5 links to swiss.com/lhg/ch/de/dest/... pages) and the prices note.
+#    That is another component with the Swiss market's destinations, not the 9 items: nothing in the source maps to
+#    them, and putting the source's 118 Swiss-market links into the Lithuanian page would not be its text. The
+#    market's English copy /lt/en/homepage has no section there, nor do the other market copies of this shape
+#    (ee/de). lt/de is its own www page (swiss-market-import.mjs's capture, not on disk), so what www's 9 items held
+#    cannot be read without www. Listed; the empty list stays the document's own.
+#
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so77-swiss-empty.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# status	path	width	recording	www page	as served	with the row	note
+HOLD	/kr/it/book-and-manage/flights	1440	-	-	1,678	about 1,989	import loss: the source's GetYourGuide Columns Media into the empty grey band; READY after a dry run on DA's current copies
+HOLD	/kr/it/book-and-manage/flights	390	-	-	1,788	about 2,243	as above

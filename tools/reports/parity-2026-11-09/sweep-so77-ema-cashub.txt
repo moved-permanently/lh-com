@@ -1,0 +1,224 @@
+Standing order 77 - no-breakage sweep of Austrian, Cargo, TAP and Air Dolomiti (Thu 19 Nov 2026, 17:37 to 20:07 CET)
+=================================================================================================================
+
+What was rendered
+-----------------
+- Lists: every served document of each brand in its upload state on origin/main (the DA list), less nav, footer and
+  fragment documents (drawn in every page's header, footer and modals): Austrian 2,272 (lh-austrian; its 64 market roots
+  all have their homepage document), Cargo 971 (lh-cargo), TAP 1,053 (lh-tap and its market copies lh-tap-markets: 2,354
+  documents, a path in both upload states once, less 1,301 nav/footer/fragment documents), Air Dolomiti 1,563
+  (lh-airdolomiti). A document /x/index is served at /x/. 5,859 documents, interleaved across the brands and their
+  trees. Started 17:37 CET, the last page-width 20:07 CET.
+- Hosts: austrian.turnsthe.page, cargo.turnsthe.page, tap.turnsthe.page, airdolomiti.turnsthe.page, as served (code on
+  main while the sweep ran: ema-test's theme commits of today landed during it, so a document shows the code of the
+  minute it was read).
+- Widths 1440 x 900 and 390 x 844. Chrome headless with unhinted text and consent stored. One browser, 10 pages at once.
+- Each page-width was measured only after: the load event, lazy pictures made eager, one scroll through the page,
+  network idle (8 s cap), then every section and block reporting loaded, every drawn picture complete, and the height
+  the same on 3 reads 500 ms apart (15 s cap). Errors, page-widths that did not settle, and the flagged page-widths
+  that a group's reading depends on were read again alone.
+- Requests to www.*, lh-proxy and every airline host were refused and counted, never sent; www.mynewsdesk.com (Cargo's
+  newsroom feed, allowed by the user on 13 Nov, not an airline host) was let through. www's pages were read only from
+  recordings on disk (austrian-parity-002a, tap-parity-002). DA: no read was possible today (401, see the item 2 and 3
+  lists); no upload, preview or publish; no row was written by this sweep. /de/en/overview-manage has no row.
+- Flags per page-width (order 76's check, so77/nb77.mjs): broken or zero-height picture; sideways scroll; a section or
+  block that never loads; consecutive blocks drawn over each other; cells drawn over each other; content outside its
+  block; text spilling out of its own box or cut; an empty drawn section; an empty cell beside full ones; headings of one
+  level drawn in different sizes in one block or one section's text; a list in another size than its paragraphs.
+- The fixed "Technical showcase" notice (250 px at the viewport's foot, our host's) was hidden in the detail probes.
+- Scratch (not in git): migration-work/parity-588/so77 (nb77.mjs, sum77.py, probes.mjs and the probe files, gate.py,
+  the outputs).
+- Not changed: the Austrian, Cargo, TAP and Air Dolomiti theme stylesheets and brand blocks (ema-test's today). Every
+  rule below is a proposal for ema-test, gated with the rule injected on top of the served page in the same load.
+
+All 11,718 page-widths answered 200 in the end (Austrian 4,544, Cargo 1,942, TAP 2,106, Air Dolomiti 3,126). 81 were
+read again alone (12 timeouts in the sweep, 19 not settled, the short ones, the never-loaded ones and the broken
+picture). Read alone, every one settled with every section, block and picture loaded and no sideways scroll; the
+sweep's figures for them were broken loads. Refused requests (counted, never sent): Austrian 5,481, Cargo 48, TAP 0,
+Air Dolomiti 6,843.
+
+Counts below: page-widths / documents as flagged in the sweep, then what they are. FAULT = something drawn wrong;
+PROPOSED = a rule for ema-test with its injected gate; LISTED = a fault on fewer than 3 documents, or one whose cause
+or www's answer is not proven; CONTENT = the document's own; DESIGN = drawn so on purpose (www's, or a documented
+rule); FUNCTION = an app or a live answer; ARTEFACT = the check, not the page.
+
+Austrian (austrian.turnsthe.page)
+---------------------------------
+1. Broken picture: 0.
+2. Sideways scroll: 0.
+3. Section or block that never loads: 3 / 3 in the sweep (mindful-travelling it/it 390, on-board-with-the-family it/it
+   390, saf pl/pl 1440). Read alone: all loaded. Final 0.
+4. Text or a block over another element or out of its column:
+   - FAULT, LISTED (2 documents): /es/es/flight-status-and-timetable and /gr/el/flight-status-and-timetable at 390. The
+     flight-status tabs' labels run into the next tab ("Número de vuelo" 3 px, "Αριθμός πτήσης" 17 px, "Δρομολόγιο
+     πτήσης" 28 px): the fault order 77 item 1 fixed for SWISS (99bc10ef, body.brand-swiss). The same rule for Austrian,
+     injected on all 10 Austrian documents with the block at 1440 and 390: both flags gone, no new flag, heights 0 px
+     except gr/el 390 +21 (5,682 -> 5,703, two-line tabs). Rule, if ema-test wants it (two documents only):
+       @media (width < 768px) { body.brand-austrian .flight-status .flight-status-tab { flex: 1 1 auto;
+         min-width: auto; white-space: normal; } }
+   - FAULT, LISTED (1 document): /at/de/legal 1440, the usp tile "Beförderungsbedingungen" (cards-icon usp): the label
+     runs 23 px out of its tile (one long German word in a narrow tile).
+   - ARTEFACT, 13 / 13: /<lang>/contact at 390 (ru, es, fr, zh, el, it, pl, ja, en ...): the help-center app's topic
+     list items scroll 22 px wider than their box, nothing drawn outside (www's compiled app; order 76 found the same on
+     SWISS).
+   - DESIGN, 2 / 1: /ch/fr/homepage, the flash teaser 11 px over the flight search (www's -11 px; order 76).
+5. Empty section or column:
+   - FUNCTION, 20 / 10: culinaryjourney in 10 languages, the culinary app draws in its shadow DOM (order 76).
+   - CONTENT, not flagged (a 0 px section is not drawn): 9 documents are empty (<div></div>): /at/de and /at/en
+     fly-more-sustainably-search, /at/de/local-page, /ge/en/co2-neutralization and co2-neutralization-search, and
+     feedback in es/es, fr/fr, gr/el, it/it. The page is the header and the footer.
+6. Heading or list size against its siblings:
+   - FAULT, PROPOSED (10 documents, 1440): book/additional-services/seat-reservation in 10 languages. The third partner
+     tile's title ("Bei ausgewählten Reisebüros") draws 28 px beside its siblings' 24 px: austrian.css (standing order
+     18, the tiles from 768 px) gives heading-l only to a tile without a paragraph. www's recording
+     (austrian-parity-002a, at/de seat-reservation 1440) draws every .teaser.partner heading at 28 px, tiles with text
+     too ("Bei der Flugbuchung", "Online unter Meine Buchungen", "Beim Online Check-in": h3.heading-copytext-large 28 px).
+     Rule (austrian.css, next to the order 18 rule):
+       @media (width >= 768px) { body.brand-austrian main .cards-icon-text.partner > ul >
+         li:has(.cards-icon-text-body > p) .cards-icon-text-title { font-size: var(--heading-font-size-l);
+         line-height: var(--heading-line-height); } }
+     Reach: the 97 served Austrian documents with a partner block. Injected at 1440 (the rule is from 768 px; 390 not
+     touched): the heading-size flag gone on all 10, no new flag; 33 documents 0 px, 64 move +4 to +53 px (the titles 28
+     px). The recorded page: at/de seat-reservation 9,507 -> 9,550 (www 9,984; -4.78 -> -4.35 %, closer).
+   - FUNCTION, 24 / 12: offers-destinations (jp/en, it/en ...): the destination finder's "no results" heading and its
+     screen-reader heading (the fares are not there offline).
+   - DESIGN, 2 / 1: medical-travel-companions at/en: a lead paragraph beside a body-size list.
+
+Austrian totals: real faults 3 kinds. PROPOSED 1 (partner titles, 10 documents). LISTED 2 (flight-status tabs, 2
+documents, rule gated; the legal usp tile, 1 document). CONTENT 1 group (9 empty documents). The rest function,
+design or artefact.
+
+Cargo (cargo.turnsthe.page)
+---------------------------
+1. Broken picture: 1 / 1 in the sweep (/de/news/lufthansa-cargo-neu-mit-frachtern-nach-lagos 390). Read alone: loaded.
+   Final 0.
+2. Sideways scroll: 0.
+3. Section or block that never loads: 0 (one in a broken load of /de/news/die-chemie-stimmt-31, loaded alone).
+4. Text or a block over another element or out of its column:
+   - FAULT, PROPOSED (4 documents, 390): /en and /de news/116-pentra and news/120-world-premiere. In the article stage's
+     white card (hero-card-overlay light) a link line whose text is a URL ("https://www.youtube.com/watch?v=...",
+     "http://www.pentafreight.com/") runs 35 px past the card onto the picture behind it. The link is inline-flex
+     (hero-card-overlay.css, the arrow before it), so overflow-wrap: break-word does not let the URL break.
+     Rule (cargo.css): body.brand-cargo .hero-card-overlay .hero-card-overlay-cta a:any-link:not(.button)
+       { overflow-wrap: anywhere; }
+     Reach: the 216 served Cargo documents with the block, injected at 1440 and 390 (432 page-widths): the four
+     text-spill flags gone, no new flag; 2 page-widths move, 116-pentra en and de 390 +24 px (the URL on two lines).
+     The same declaration could go into the shared block file for every brand; that needs a reach census of all
+     brands first, so it is proposed here for Cargo only.
+   - DESIGN, 163 / 163 (+1): news articles at 390, the story text 11 px wider than its block on each side (cargo.css
+     row 41, www's story-text-background columns, 380 px from x 5).
+   - DESIGN, 8 / 8: fleet, industries-in-focus, ebooking-info at 390: pictures and cards drawn edge to edge (0 to 390),
+     no sideways scroll.
+   - DESIGN, 4 / 2: /de and /en home, the quick links 171 px (1440) over the stage: www's service row starts at y 536,
+     the stage ends at 707 (cargo-parity-001).
+   - ARTEFACT, 12 / 6: whats-up-now (es, fr, it, pt, de, en): the overlay card teasers' list items have a hidden
+     9,999 px scroll width (overflow hidden, nothing drawn). ARTEFACT, 6 / 6 (390): fleet, ulds and
+     industries-in-focus (de, en), each card's picture drawn edge to edge, 16 px past the card's text box.
+   - DESIGN, 4 / 2: industries-in-focus (de, en), the boxed card texts clamped to 3 lines (line-clamp 3, the rest
+     hidden; www unrecorded).
+5. Empty section or column: 0 flagged.
+   - CONTENT, not flagged (pages no taller than the window): 13 title-only documents: two are www's error page imported
+     as an article ("Fehler" /de/news/echtzeit-tracking-jetzt-auf-vielen-strecken-buchbar, "Error"
+     /en/news/real-time-tracking-can-now-be-booked-on-many-routes); five Matterport tours (/en/ci/virtual-777f,
+     -a321f, -md-11f, -lufthansa-cargo, -pharma-hub-fra: a title and one link); /en/ci/bold-moves-box-video ("Please
+     stand by, you will get forwarded!"); /de and /en data-protection-notice-google-analytics, /de/industrien-ecommerce-
+     mode and /en/industries-ecommerce-fashion (a title only); /en/current-information (title and breadcrumb).
+   - FUNCTION: /modals/contact-us (a modal document) and the four message-center pages draw no footer as pages.
+6. Heading or list size: LISTED, 4 / 2: /en/news/art-in-a-box-27 (and its twin), a list at 18 px beside the card's
+   16 px paragraphs in the stage card. Two documents; www unrecorded.
+
+Cargo totals: real faults 1 kind on 4 documents, PROPOSED. CONTENT 1 group (13 title-only documents, 2 of them www's
+error page). LISTED 1 (2 documents). The rest design, function or artefact.
+
+TAP (tap.turnsthe.page)
+-----------------------
+1. Broken picture: 0.  2. Sideways scroll: 0.
+3. Section or block that never loads: 1 / 1 in the sweep (pt-pt surdos 1440), loaded alone. Final 0.
+4. Text or a block over another element or out of its column:
+   - FAULT, PROPOSED (7 documents, 390): miles-and-go/club (en-pt, es-us and 5 more copies). In the club table
+     (table-striped header matrix, 136 px columns) each "Join" button keeps the base button's min-width 150 px
+     (styles.css), so it runs 30 px into the next cell and 14 px over the next button.
+     Rule (tap.css): body.brand-tap main .table-striped :is(td, th) a.button:any-link { min-width: 0; }
+     Reach: the 67 served TAP documents with a table and a button link, injected at 1440 and 390 (134 page-widths):
+     the 7 flags gone, no new flag, every height 0 px.
+   - ARTEFACT, 1,811 / 907: the breadcrumb's home link on nearly every page, its name hidden for the 16 px house icon
+     (text-indent 100 %, overflow hidden: assistive text, nothing drawn).
+   - DESIGN, 145 / 145 (1440): homepages, the Miles&Go stacking cards (sticky cells over each other while scrolling, as
+     www's .relative.box-border cards: tap-parity-002 en-pt 1440 has "Club TAP Miles&Go" and "Hotel discounts" at the
+     same y). DESIGN, 16 / 8: economy-prime, the video banner's title over its poster.
+   - DESIGN, 22 / 22: fare-comparison tables 24 px wider than the block (1440) and the cards' list edge to edge (390),
+     inside the page.
+5. Empty section or column: 0.
+6. Heading or list size:
+   - DESIGN, 290 / 145 and 20 / 10: the stacking cards' H2 title 40 px over an H2 sub-line 20 px, as www's
+     (h2.text-title-xs 40 px, h2.text-body-s 20 px in the same card).
+   - DESIGN, 16 / 8: fare-comparison's group, cabin and caption titles (32 / 28 / 14 px, other roles).
+   - ARTEFACT, 12 / 6: miles-and-go cards, a 14 px list beside the 16 px link line (not a paragraph).
+
+TAP totals: real faults 1 kind on 7 documents, PROPOSED. The rest design or artefact.
+
+Air Dolomiti (airdolomiti.turnsthe.page)
+----------------------------------------
+1. Broken picture: 0.  2. Sideways scroll: 0.
+3. Section or block that never loads: 2 / 2 in the sweep (archistars en 1440, Florence pastries de 390), loaded alone.
+   Final 0.
+4. Text or a block over another element or out of its column:
+   - FAULT, PROPOSED (38 documents; 36 page-widths at 390, 6 at 1440): button labels cut by the button's end. The base
+     button is one line with overflow hidden and an ellipsis (styles.css), and airdolomiti.css keeps several button
+     contexts on one line (white-space: nowrap at the secondary buttons in running text, the quiz's, the stage card's
+     CTA), so a long label loses its end: "Vai alla sezione Lavora con noi" (azienda/training 390, 57 px), "Clicchi qui
+     per collegarsi…" (irregolarita-bagaglio 390, 181 px), "Allaccia ciaspole e cinture…" (ciaspolate article, 98 px
+     at 1440), the EES and Facebook links, "Booking & Ticketing…" and 30 more.
+     Rule: an Air Dolomiti button label that does not fit wraps (white-space: normal) at every width, in the base
+     button and in the theme's nowrap button rules (airdolomiti.css: main .default-content-wrapper a.button.secondary,
+     .columns-media.quiz .columns-media-text a.button, the stage card's .hero-card-overlay-cta a.button). Injected as
+     body.brand-airdolomiti main :is(a.button:any-link, button.button) { white-space: normal !important; } (the
+     !important only stands in for those rules' own edit).
+     Reach: the 733 served documents with a button link, at 1440 and 390 (1,466 page-widths): every cut-label flag
+     gone (42 of 42), no new flag; 43 page-widths move +24 to +96 px (the label on two to five lines), the largest
+     /en/entry-requirements 390 +72 (+1.98 %) and irregolarita-bagaglio 390 +96 (+1.37 %). Two more read +835 and
+     +1,074 px in the parallel run (routes München-Venedig 1440, Frankfurt-Triest 390); read alone with the rule they
+     move 0 px (content arriving between the two reads).
+   - DESIGN, 402 / 202: the breadcrumb white on the stage's photo (airdolomiti.css, the stage starts under the bar,
+     "as www's"). DESIGN, 224 / 224 (1440): the destination hub's booking strip fixed under the header with the
+     breadcrumb under it (airdolomiti-parity-002, the theme's comment). DESIGN, 135 / 135 (390): the carousel's
+     "Vedi tutto (n)" link in the carousel's arrow row (-40 px), no element drawn over another.
+   - DESIGN, 160 / 160 (390): the airports' three-up guide cards scroll edge to edge (0 to 390).
+5. Empty section or column: 0.
+6. Heading or list size:
+   - LISTED, 34 / 17 (both widths): chi-siamo, business and 15 more: a text's first H2 draws 4 px larger than the
+     next ones (42 / 38 px at 1440, 38 / 34 at 390; on chi-siamo the timeline's "1991" over "1993"…). The theme's
+     first-H2 size; www unrecorded for these pages, so not proven a fault.
+   - LISTED, 6 / 3: bagaglio/dispositivi-elettronici-e-batterie (it, de, en): the list right after the lead's
+     19.44 px paragraphs draws 16 px. www unrecorded.
+   - ARTEFACT, 10 / 5: assistenza and customer-relations pages: each list is the size of the text around it (22 px
+     in the lead before the first heading, 16 px after it); the check compared it with the whole section's.
+
+Air Dolomiti totals: real faults 1 kind on 38 documents, PROPOSED. LISTED 2 (first-H2 size, 17 documents; the
+batteries list, 3 documents), not proven. The rest design or artefact.
+
+Fault counts (real faults found, page-widths / documents)
+---------------------------------------------------------
+kind                                  Austrian   Cargo    TAP     Air Dolomiti
+broken picture                        0          0        0       0
+sideways scroll                       0          0        0       0
+section never loads                   0          0        0       0
+text over another element / cut       3 / 3      4 / 4    7 / 7   42 / 38
+empty section or column               0          0        0       0
+heading or list out of line           10 / 10    0        0       0
+content (not code)                    9 docs     13 docs  0       0
+listed, not proven                    -          4 / 2    -       40 / 20
+Proposed rules: 4 (Austrian partner titles, Cargo CTA URL, TAP table buttons, Air Dolomiti button labels); one gated
+rule listed (Austrian flight-status tabs, 2 documents). None applied: they are ema-test's theme files.
+
+Order 77's other items (for the record)
+---------------------------------------
+- Item 1, SWISS flight-status tabs: 99bc10ef (blocks/flight-status/flight-status.css, SWISS tabs sized from their
+  labels below 768 px, a label that cannot fit wraps). el and ru 390 lose the overlap; el 390 +21 px, every other
+  SWISS page-width with the block 0 px, no new flag.
+- Item 2, SWISS miles-and-more: a749df66 (the accordion option small-headline, scripts/token-free.js and swiss.css)
+  with delta-so77-swiss-miles-and-more.txt READY (11 copies, 22 rows).
+- Item 3, SWISS empty content: delta-so77-swiss-empty.txt. kr/it flights is an import loss (the source's GetYourGuide
+  Columns Media); its row is HOLD until a dry run on DA's current copies (DA answered 401 all session). lt/de
+  homepage's 9 empty items have no counterpart in the source: content, no row.
+- Full suite on a749df66: 1,317 files, 4,936 tests pass, 0 fail.
