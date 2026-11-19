@@ -12,5 +12,362 @@
    "to": "></div></div></div></div>\n<div></div></m",
    "count": 1
   }
+ ],
+ "/be/en/legal-notices/terms-and-conditions-conditions-of-carriage": [
+  {
+   "from": "ccordion-columns faq open-item-1 open-it",
+   "to": "ccordion-columns faq title-large open-item-1 open-it",
+   "count": 1
+  },
+  {
+   "from": "id=\"general\">General {heading-small}</h3><p>2.1. These C",
+   "to": "id=\"general\">General</h3><p>2.1. These C",
+   "count": 1
+  },
+  {
+   "from": "=\"charters\">Charters {heading-small}</h3><p>2.2. If carr",
+   "to": "=\"charters\">Charters</h3><p>2.2. If carr",
+   "count": 1
+  },
+  {
+   "from": "-shares\">Code Shares {heading-small}</h3><p>2.3. On some",
+   "to": "-shares\">Code Shares</h3><p>2.3. On some",
+   "count": 1
+  },
+  {
+   "from": "-law\">Applicable law {heading-small}</h3><p>2.5. In comp",
+   "to": "-law\">Applicable law</h3><p>2.5. In comp",
+   "count": 1
+  },
+  {
+   "from": "ail over Regulations {heading-small}</h3><p>2.6. Except ",
+   "to": "ail over Regulations</h3><p>2.6. Except ",
+   "count": 1
+  },
+  {
+   "from": "\">General Provisions {heading-small}</h3><p>3.1.1. We wi",
+   "to": "\">General Provisions</h3><p>3.1.1. We wi",
+   "count": 1
+  },
+  {
+   "from": "quirement for Ticket {heading-small}</h3><p>3.1.6. Excep",
+   "to": "quirement for Ticket</h3><p>3.1.6. Excep",
+   "count": 1
+  },
+  {
+   "from": "ket or Customer Card {heading-small}</h3><p>3.1.7. (a) I",
+   "to": "ket or Customer Card</h3><p>3.1.7. (a) I",
+   "count": 1
+  },
+  {
+   "from": "f-care\">Duty of Care {heading-small}</h3><p>3.1.8. A tic",
+   "to": "f-care\">Duty of Care</h3><p>3.1.8. A tic",
+   "count": 1
+  },
+  {
+   "from": "\">Period of Validity {heading-small}</h3><p>3.2.1. Excep",
+   "to": "\">Period of Validity</h3><p>3.2.1. Excep",
+   "count": 1
+  },
+  {
+   "from": "xtension of Validity {heading-small}</h3><p>3.2.3. If af",
+   "to": "xtension of Validity</h3><p>3.2.3. If af",
+   "count": 1
+  },
+  {
+   "from": "ges by the Passenger {heading-small}</h3><p>3.3.1. The c",
+   "to": "ges by the Passenger</h3><p>3.3.1. The c",
+   "count": 1
+  },
+  {
+   "from": "id=\"no-show\">No Show {heading-small}</h3><p>3.3.3. Shoul",
+   "to": "id=\"no-show\">No Show</h3><p>3.3.3. Shoul",
+   "count": 1
+  },
+  {
+   "from": "d Address of Carrier {heading-small}</h3><p>3.4. Our nam",
+   "to": "d Address of Carrier</h3><p>3.4. Our nam",
+   "count": 1
+  },
+  {
+   "from": "<h3 id=\"fares\">Fares {heading-small}</h3><p>4.1. The far",
+   "to": "<h3 id=\"fares\">Fares</h3><p>4.1. The far",
+   "count": 1
+  },
+  {
+   "from": "es, Fees and Charges {heading-small}</h3><p>4.2. Applica",
+   "to": "es, Fees and Charges</h3><p>4.2. Applica",
+   "count": 1
+  },
+  {
+   "from": "=\"currency\">Currency {heading-small}</h3><p>4.3. Subject",
+   "to": "=\"currency\">Currency</h3><p>4.3. Subject",
+   "count": 1
+  },
+  {
+   "from": "rvation Requirements {heading-small}</h3><p>5.1.1. Each ",
+   "to": "rvation Requirements</h3><p>5.1.1. Each ",
+   "count": 1
+  },
+  {
+   "from": "icketing Time Limits {heading-small}</h3><p>5.2. If you ",
+   "to": "icketing Time Limits</h3><p>5.2. If you ",
+   "count": 1
+  },
+  {
+   "from": "-data\">Personal Data {heading-small}</h3><p>5.3.1. You r",
+   "to": "-data\">Personal Data</h3><p>5.3.1. You r",
+   "count": 1
+  },
+  {
+   "from": "rvation Requirements {heading-small}</h3><p>5.4.1. Advan",
+   "to": "rvation Requirements</h3><p>5.4.1. Advan",
+   "count": 1
+  },
+  {
+   "from": "tion of Reservations {heading-small}</h3><p>5.5.1. In ge",
+   "to": "tion of Reservations</h3><p>5.5.1. In ge",
+   "count": 1
+  },
+  {
+   "from": "t to refuse carriage {heading-small}</h3><p>7.1. In the ",
+   "to": "t to refuse carriage</h3><p>7.1. In the ",
+   "count": 1
+  },
+  {
+   "from": "\">Special Assistance {heading-small}</h3><p>7.2.1. Accep",
+   "to": "\">Special Assistance</h3><p>7.2.1. Accep",
+   "count": 1
+  },
+  {
+   "from": "Carriage of Children {heading-small}</h3><p>7.2.2. Child",
+   "to": "Carriage of Children</h3><p>7.2.2. Child",
+   "count": 1
+  },
+  {
+   "from": "hen Carriage Refused {heading-small}</h3><p>7.3. The sol",
+   "to": "hen Carriage Refused</h3><p>7.3. The sol",
+   "count": 1
+  },
+  {
+   "from": "e and Excess Baggage {heading-small}</h3><p>8.1. The Fre",
+   "to": "e and Excess Baggage</h3><p>8.1. The Fre",
+   "count": 1
+  },
+  {
+   "from": "ggage from strangers {heading-small}</h3><p>8.2. You sho",
+   "to": "ggage from strangers</h3><p>8.2. You sho",
+   "count": 1
+  },
+  {
+   "from": "cceptable as Baggage {heading-small}</h3><p>8.3.1. You m",
+   "to": "cceptable as Baggage</h3><p>8.3.1. You m",
+   "count": 1
+  },
+  {
+   "from": "t to Refuse Carriage {heading-small}</h3><p>8.4.1. Subje",
+   "to": "t to Refuse Carriage</h3><p>8.4.1. Subje",
+   "count": 1
+  },
+  {
+   "from": "ssengers and Baggage {heading-small}</h3><p>8.5. If the ",
+   "to": "ssengers and Baggage</h3><p>8.5. If the ",
+   "count": 1
+  },
+  {
+   "from": "age\">Checked Baggage {heading-small}</h3><p>8.6.1. Upon ",
+   "to": "age\">Checked Baggage</h3><p>8.6.1. Upon ",
+   "count": 1
+  },
+  {
+   "from": "e\">Unchecked Baggage {heading-small}</h3><p>8.7.1. We sh",
+   "to": "e\">Unchecked Baggage</h3><p>8.7.1. We sh",
+   "count": 1
+  },
+  {
+   "from": "y of Checked Baggage {heading-small}</h3><p>8.8.1. You a",
+   "to": "y of Checked Baggage</h3><p>8.8.1. You a",
+   "count": 1
+  },
+  {
+   "from": " and Assistance Dogs {heading-small}</h3><p>8.9.1. The a",
+   "to": " and Assistance Dogs</h3><p>8.9.1. The a",
+   "count": 1
+  },
+  {
+   "from": "schedules\">Schedules {heading-small}</h3><p>9.1. Before ",
+   "to": "schedules\">Schedules</h3><p>9.1. Before ",
+   "count": 1
+  },
+  {
+   "from": "outing, Delays, etc. {heading-small}</h3><p>9.2. We will",
+   "to": "outing, Delays, etc.</h3><p>9.2. We will",
+   "count": 1
+  },
+  {
+   "from": "cation\">Notification {heading-small}</h3><p>9.3. In the ",
+   "to": "cation\">Notification</h3><p>9.3. In the ",
+   "count": 1
+  },
+  {
+   "from": "=\"general-1\">General {heading-small}</h3><p>10.1. We wil",
+   "to": "=\"general-1\">General</h3><p>10.1. We wil",
+   "count": 1
+  },
+  {
+   "from": " refund will be made {heading-small}</h3><p>10.1.1. Exce",
+   "to": " refund will be made</h3><p>10.1.1. Exce",
+   "count": 1
+  },
+  {
+   "from": ">Involuntary Refunds {heading-small}</h3><p>10.2.1. If w",
+   "to": ">Involuntary Refunds</h3><p>10.2.1. If w",
+   "count": 1
+  },
+  {
+   "from": "s\">Voluntary Refunds {heading-small}</h3><p>10.3.1. If y",
+   "to": "s\">Voluntary Refunds</h3><p>10.3.1. If y",
+   "count": 1
+  },
+  {
+   "from": "efund on Lost Ticket {heading-small}</h3><p>10.4.1. If a",
+   "to": "efund on Lost Ticket</h3><p>10.4.1. If a",
+   "count": 1
+  },
+  {
+   "from": "\">Refusal of Refunds {heading-small}</h3><p>10.5.1. We m",
+   "to": "\">Refusal of Refunds</h3><p>10.5.1. We m",
+   "count": 1
+  },
+  {
+   "from": "currency-1\">Currency {heading-small}</h3><p>10.6. All re",
+   "to": "currency-1\">Currency</h3><p>10.6. All re",
+   "count": 1
+  },
+  {
+   "from": "y whom Ticket Refund {heading-small}</h3><p>10.7. Volunt",
+   "to": "y whom Ticket Refund</h3><p>10.7. Volunt",
+   "count": 1
+  },
+  {
+   "from": "redit Cards Accounts {heading-small}</h3><p>10.8. Refund",
+   "to": "redit Cards Accounts</h3><p>10.8. Refund",
+   "count": 1
+  },
+  {
+   "from": "=\"general-2\">General {heading-small}</h3><p>11.1. If, in",
+   "to": "=\"general-2\">General</h3><p>11.1. If, in",
+   "count": 1
+  },
+  {
+   "from": "s and Wi-Fi on board {heading-small}</h3><p>11.2. The us",
+   "to": "s and Wi-Fi on board</h3><p>11.2. The us",
+   "count": 1
+  },
+  {
+   "from": ">Non-Smoking Flights {heading-small}</h3><p>11.3. All Br",
+   "to": ">Non-Smoking Flights</h3><p>11.3. All Br",
+   "count": 1
+  },
+  {
+   "from": "and drug consumption {heading-small}</h3><p>11.4. The co",
+   "to": "and drug consumption</h3><p>11.4. The co",
+   "count": 1
+  },
+  {
+   "from": "n to wear seat belts {heading-small}</h3><p>11.5. As a g",
+   "to": "n to wear seat belts</h3><p>11.5. As a g",
+   "count": 1
+  },
+  {
+   "from": "=\"general-3\">General {heading-small}</h3><p>13.1.1. You ",
+   "to": "=\"general-3\">General</h3><p>13.1.1. You ",
+   "count": 1
+  },
+  {
+   "from": "ts\">Travel Documents {heading-small}</h3><p>13.2. Prior ",
+   "to": "ts\">Travel Documents</h3><p>13.2. Prior ",
+   "count": 1
+  },
+  {
+   "from": "ry\">Refusal of Entry {heading-small}</h3><p>13.3. If you",
+   "to": "ry\">Refusal of Entry</h3><p>13.3. If you",
+   "count": 1
+  },
+  {
+   "from": "ible for Fines, etc. {heading-small}</h3><p>13.4. If we ",
+   "to": "ible for Fines, etc.</h3><p>13.4. If we ",
+   "count": 1
+  },
+  {
+   "from": "\">Customs Inspection {heading-small}</h3><p>13.5. If req",
+   "to": "\">Customs Inspection</h3><p>13.5. If req",
+   "count": 1
+  },
+  {
+   "from": ">Security Inspection {heading-small}</h3><p>13.6. You ar",
+   "to": ">Security Inspection</h3><p>13.6. You ar",
+   "count": 1
+  },
+  {
+   "from": "on of Passenger Data {heading-small}</h3><p>13.7. We are",
+   "to": "on of Passenger Data</h3><p>13.7. We are",
+   "count": 1
+  },
+  {
+   "from": "=\"general-4\">General {heading-small}</h3><p>14.1.1. The ",
+   "to": "=\"general-4\">General</h3><p>14.1.1. The ",
+   "count": 1
+  },
+  {
+   "from": "e of Death or Injury {heading-small}</h3><p>14.2.1. We a",
+   "to": "e of Death or Injury</h3><p>14.2.1. We a",
+   "count": 1
+  },
+  {
+   "from": "or Damage to Baggage {heading-small}</h3><p>14.3.1. Exce",
+   "to": "or Damage to Baggage</h3><p>14.3.1. Exce",
+   "count": 1
+  },
+  {
+   "from": "r Limits for Baggage {heading-small}</h3><p>14.3.2. A pa",
+   "to": "r Limits for Baggage</h3><p>14.3.2. A pa",
+   "count": 1
+  },
+  {
+   "from": "omplaints on Baggage {heading-small}</h3><p>14.3.3. If t",
+   "to": "omplaints on Baggage</h3><p>14.3.3. If t",
+   "count": 1
+  },
+  {
+   "from": "r and Baggage Delays {heading-small}</h3><p>14.4.1. In c",
+   "to": "r and Baggage Delays</h3><p>14.4.1. In c",
+   "count": 1
+  },
+  {
+   "from": "e due to Overbooking {heading-small}</h3><p>14.5.1. The ",
+   "to": "e due to Overbooking</h3><p>14.5.1. The ",
+   "count": 1
+  },
+  {
+   "from": "lation\">Cancellation {heading-small}</h3><p>14.6. In cas",
+   "to": "lation\">Cancellation</h3><p>14.6. In cas",
+   "count": 1
+  },
+  {
+   "from": "ontractual Liability {heading-small}</h3><p>14.7. To the",
+   "to": "ontractual Liability</h3><p>14.7. To the",
+   "count": 1
+  },
+  {
+   "from": "ms\">Notice of Claims {heading-small}</h3><p>15.1. If you",
+   "to": "ms\">Notice of Claims</h3><p>15.1. If you",
+   "count": 1
+  },
+  {
+   "from": "imitation of Actions {heading-small}</h3><p>15.2. Any ri",
+   "to": "imitation of Actions</h3><p>15.2. Any ri",
+   "count": 1
+  }
  ]
 }

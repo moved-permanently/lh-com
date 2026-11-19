@@ -203,6 +203,13 @@ export const THEMES = {
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
   brussels: {
     live: true,
+    // an H3 in heading-small inside a block a choice of its own (H3 large draws heading-small
+    // here, not heading-medium): the block's own H3 is heading-copytext-large, and www's legal
+    // terms set their accordion's 70 subheadings in heading-small (terms-and-conditions,
+    // brussels-parity-007), the other recorded accordions' H3s unmarked (standing order 46); the
+    // collapse writes it as the block option title-large, no marker
+    headingChoices: { h3: { large: 'heading-small' } },
+    nearChoices: { h3: { 'heading-small': 'large' } },
     pageTypes: { flow: { headings: { h3: 'heading-small' } } },
   },
   // ITA: running text over the whole width
