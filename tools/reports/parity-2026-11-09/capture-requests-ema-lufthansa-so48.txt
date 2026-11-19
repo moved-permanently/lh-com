@@ -10,3 +10,8 @@ https://www.ita-airways.com/it/it/book-and-prepare/travel-information/check-in-i
 https://www.ita-airways.com/it/en/book-and-prepare/travel-information/check-in-information/online-check-in	390	the same card teaser in the English copy (card, picture, card-content padding, title and text boxes), to check that one carrier fits both languages
 https://www.ita-airways.com/it/en/corporate-b2b	1440	every element between the H1 and the first card of the card row (boxes and margins: the H1, each paragraph, link or button, the card row's box), and from the last card's bottom to the footer
 https://www.ita-airways.com/it/en/manage-my-bookings/extra-services/travel-insurance	390	the elements between the "General Terms…" heading and the "Previous insurance" heading: each paragraph's and link's box, its margins, font size and line height
+# Added ~11:05 CET (item 2, corporate-b2b): the 134 served ITA hub documents share corporate-b2b's template (a title
+# section, then the intro paragraph over the card grid); only corporate-b2b's copy had www's extra 32 px there. Two
+# hubs, to see whether www keeps that space on them too:
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/baggage	1440	the intro paragraph's box and the card grid's box (the gap between them), and the title section's box
+https://www.ita-airways.com/it/en/manage-my-bookings	1440	the same: the intro paragraph's box, the card grid's box and the gap between them

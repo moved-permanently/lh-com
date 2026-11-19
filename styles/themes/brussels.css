@@ -1688,3 +1688,19 @@ body.brand-brussels main > .section.section.section:only-child:not(.padded, .gre
     padding-bottom: 32px;
   }
 }
+
+/* standing order 48: the terms and conditions' article panels (the FAQ accordion with title-large, the only Brussels
+   document with that option) keep www's space above each H3 after text: 12 px more at both widths, the carrier of the
+   57 "{spacer-11}" order 44's token-free rows removed (27,716 -> 28,412 / 58,662 -> 59,358; www 28,478 / 59,474) */
+body.brand-brussels main .section.section.section .accordion-columns.title-large .accordion-columns-panel :is(p, ul, ol, table) + h3 {
+  padding-top: 12px;
+}
+
+/* standing order 48: a sidebar-h1 page that closes with a lone link after its last paragraph (refund-for-cancelled-
+   flights in six languages) keeps www's space above that link from 768: 31 px more, the carrier of the
+   "{spacer-30 from-768}" the token-free re-import of 18 Nov removed (be/en 1,546 -> 1,577; www 1,579) */
+@media (width >= 768px) {
+  body.brand-brussels main > .section.section.section.sidebar-h1:not(:has(~ .section:not(:empty))) > .default-content-wrapper:last-child > p:not(.link-wrapper) + p.link-wrapper:last-child {
+    padding-top: 31px;
+  }
+}

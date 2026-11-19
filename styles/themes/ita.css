@@ -1417,3 +1417,14 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
   }
 }
 
+
+/* standing order 48: an H2 that opens the section after a boarding-table section (group-boarding's "Long-haul flights"
+   under the short- and medium-haul groups) keeps www's space above it from 768: 26 px more, the carrier of the
+   "{spacer-25 from-768}" the token-free re-import of 18 Nov removed. Gated on all 80 recorded ITA page-widths:
+   group-boarding 1440 4,854 -> 4,880 (www 4,911), the others unchanged; it reaches that one document (and its market
+   views) */
+@media (width >= 768px) {
+  body.brand-ita main > .section.section:has(> .table-striped-wrapper:last-child) + .section.section > .default-content-wrapper:first-child > h2:first-child {
+    padding-top: 26px;
+  }
+}
