@@ -8,6 +8,7 @@ ema-adobe, 2026-11-18. Follows [lufthansa-switch-plan-919.md](lufthansa-switch-p
 *Updated by standing order 57 (2026-11-19): §9 has the gate again with that night's carriers (361 worse, 22 of them explained by www, 60 better; switched sum 5,705.63).*
 *Updated by standing order 58 (2026-11-19): §12 has the gate once more (348 worse, 22 explained by www, 65 better; switched sum 5,608.63) and the estimate of what is left.*
 *Updated by standing order 59 (2026-11-19): §13 has the near-value steps and the gate once more (329 worse, 10 explained by www, 319 failing, 61 better; switched sum 5,407.58), the sort by kind and the estimate.*
+*Updated by standing order 61 (2026-11-19): §15 has the switch on live (interim: batches 01 and 02).*
 *Updated by standing order 60 (2026-11-19): §14 is the switch package: the code first (backwards compatible: a document with markers draws as today until its batch), 27 collapse batches for the 7,894 marked documents, the census after each batch; four shared-pattern rules (C2, D2, G, I), the gate once more (303 failing, 10 explained by www, 63 better; switched sum 5,347.48), the 303 accepted.*
 
 **The gate does not pass.** Of the 670 recorded lufthansa.com page-widths that carry markers, 369 read worse
@@ -6159,3 +6160,47 @@ Ben's decision (§14): the page-by-page differences are accepted; so are the hel
 | /xx/pt/meetings-and-events | 390 | 6.04 | 6.04 | 4188 | 6.04 | 0.00 |
 | /xx/pt/meetings-and-events | 1440 | 4.14 | 4.15 | 3611 | 4.15 | 0.01 |
 
+## 15. Standing order 61 (2026-11-19): the switch on live
+
+*Interim: the order's final gate waits for batch 26 on live. By about 15:40 UTC helper B had batches 01 and 02 on live and
+batch 03 half collapsed on preview (about 40 minutes a batch), so this section measures the recorded page-widths of the
+two batches on live; the other 558 still draw marked, as today.*
+
+**Merged and on main.** The switch's merge 10dddf8 (token-free-lufthansa-live 183e8fe, rebased on main ea5365e) at about
+12:20 UTC; A2 (3f30d9d, the M++ 70 step) and B2 (d0abcc1, phones: a padded view before the Subpage Nav keeps no gap) at
+12:33 UTC after the full suite on their tree (5,345 pass / 0 fail) and the 12-host smoke before and after (all exit 0).
+H is dropped. A2's 6 and B2's 2 page-widths further join the accepted differences (§14.7).
+
+**The unmarked pages** (tools/reports/parity-2026-11-09/switch-unmarked-so61.txt): 100 pages, 200 page-widths, the code
+before the merge against the served page: no height or section box moved by more than 0.5 %, no section lost, no new
+failed picture; 2 sideways scrolls on /xx/ru/sixt and /xx/el/sixt at 390 were there before the merge too.
+
+**The batches** (tools/reports/parity-2026-11-09/switch-watch-so61.txt):
+- Batches 01 and 02 were collapsed with a tool copy older than A2: their 3 A2 documents carry L- 80 for www's `{spacer-70}`
+  (READY rows: delta-so61-a2-steps.txt). Batch 03 is collapsed with A2 (baggage-irregularities: M++).
+- /de/en/admission-rules (batch 01) was republished on live at 15:21:47 UTC as an older, doubled and marked copy (every
+  heading twice; 17,460 px at 1440 against the predicted 7,305). Its preview copy (15:32 UTC) is collapsed and single: a
+  publish from preview fixes it.
+
+**The gate on live, batches 01 and 02** (112 recorded page-widths of their documents as served on lufthansa.turnsthe.page,
+15:20-15:35 UTC, against the recordings; today and the prediction from §14.8):
+
+| | today | order 60 predicted | live |
+| --- | --- | --- | --- |
+| sum of % off www | 750.12 | 900.55 | 932.90 |
+| median | 5.93 | 6.99 | 7.43 |
+| worse than today by more than 0.5 | - | 47 | 49 |
+| of these not explained by www (failing) | - | 45 | 44 |
+| better than today by more than 0.5 | - | 8 | 8 |
+
+- Without /de/en/admission-rules (its live copy is the regression above): 110 page-widths, sums today 741.46, predicted
+  892.23, live 902.68; median 6.01 / 7.11 / 7.39.
+- Of the remaining 10.45 points over the prediction, 11.7 are /de/en/additional-services at both widths: the same heights
+  and boxes, another frame of the stage video behind "A good journey starts with the right ..." (logs: one band, y
+  3,857-4,666 at 1440). Without it the live sum is below the prediction.
+- /de/en/32n 1440: 72 px taller than predicted (7.75 against 6.14 %). Its live copy carries the view styles on both sections
+  ("spaced padded column-view flush") where the branch's collapse writes a separate column-view section: batch 01's
+  collapse copy differs there too.
+- Every other page-width is within 0.5 points of the prediction.
+- The prediction is order 60's (§14.8), without A2 and B2. B2 draws on these live pages; A2 only where a collapse wrote M++,
+  none in batches 01 and 02.
