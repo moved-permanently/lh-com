@@ -878,6 +878,16 @@ body.brand-lufthansa .columns-media.link-list .columns-media-row > .columns-medi
   font-size: var(--heading-font-size-m);
 }
 
+/* SWISS (standing order 76's no-breakage sweep): www's link-list headings are .heading-copytext-large,
+   1.6rem = 16px below 1025px, 1.8rem from 1025 (.link-list .heading-default), the size the theme gives
+   the column's own h3 / h4; the icon headings kept 18px there, hand-baggage's "1 personal item" 2px
+   over "Economy Basic" beside it on phones (all 11 languages, the option's only SWISS documents) */
+@media (width < 1025px) {
+  body.brand-swiss .columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) {
+    font-size: 16px;
+  }
+}
+
 .columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4) > picture {
   position: relative;
   top: auto;
