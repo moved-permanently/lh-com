@@ -1645,6 +1645,16 @@ main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container
   margin-bottom: 0;
 }
 
+/* ... and with the theme on, on phones, a padded column view (the carrier) right before the Subpage Nav: its padding is the
+   space to the nav, as the marks' rule above draws it (standing order 61, B2: 16 phone page-widths 100.01 -> 82.80,
+   secure-flight 390 6.49 -> 3.51 %; the 2 it moves further, worst fmg-valet-parking-service 390 +1.25, join the accepted
+   differences) */
+@media (width < 768px) {
+  body.theme-live.brand-lufthansa main > .section.column-view.padded:not(.grey):has(+ .section.subpage-nav-container) {
+    margin-bottom: 0;
+  }
+}
+
 /* ... unless that live section keeps its .mb-default ("column-spaced" with the column end,
    importer): 24px more (/de/en/lounge-companions last text 61px of ink above the footer, was 37) */
 main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child)):has(> .default-content-wrapper:last-child > :is(.column-end, .column-end-outer):last-child):has(> .default-content-wrapper:last-child > .column-spaced) {

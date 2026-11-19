@@ -45,3 +45,8 @@ test('I: an H2 / H3 after text inside a column view, no heading gap, at every wi
   const block = css.slice(open, at);
   assert.equal((block.match(/\{/g) || []).length, (block.match(/\}/g) || []).length);
 });
+
+test('B2 (standing order 61): on phones a padded column view right before the Subpage Nav keeps no gap, with the live theme', () => {
+  const rule = 'body.theme-live.brand-lufthansa main > .section.column-view.padded:not(.grey):has(+ .section.subpage-nav-container) {\n    margin-bottom: 0;';
+  assert.equal(media(rule), '@media (width < 768px)');
+});
