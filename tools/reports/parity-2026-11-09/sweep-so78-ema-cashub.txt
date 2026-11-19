@@ -42,7 +42,7 @@ What was rendered
 - Order 78's turn was cut in the service outage (about 22:30 CET) during the text-collision pass, at 1,096 of 2,396
   page-widths. Order 79 resumed it from disk with the rest in tree order, 2 pages at once (the third slot for detail
   reads). This file is pushed after each tree's collision pass (de/en; de/de, at/de and gb/en; the other
-  languages; the rest). A part marked "collision pass pending" has every other check final.
+  languages; the rest). Every part is final now.
 - Not changed: styles/themes/ and every shared block file (ema-adobe's tonight), and lufthansa.com's documents.
 - Scratch (not in git): migration-work/parity-588/so78 (nb78.mjs, hit78.mjs, sum78.py, hitsum.py, homeshape.py, the
   probes, the outputs, DA's ten copies and the dry run).
@@ -159,7 +159,16 @@ xx/pl 48, xx/ru 46, xx/it 45, xx/zh 45, xx/ko 43, and the neutral xx/de and xx/e
 Market roots (328 documents, 656 page-widths: the 236 market homepages and 92 documents of market roots' own)
 --------------------------------------------------------------------------------------------------------------
 - Broken picture: 1 / 2 (/fr/fr/support/support: c). Sideways, never loaded: 0.
-- Text over another element: collision pass pending.
+- Text over another element: 654 / 654 served page-widths hit-tested (71,490 text points), 0 collisions. 964 hits are
+  form fields over their own floating labels (the finder's fields on every homepage). /fr/fr/special-needs and
+  /mk/en/support/refund, 1440 and 390: the form's selects over their own labels ("Title", "Country / Region"), as
+  de/en's. DESIGN. /se/en/yes3 390: the destination finder's filter heading "Where to fly" is a 1 x 1 px hidden
+  heading under the "From" label (clip checked), and "Sort by" is its select's floating label. ARTEFACT and DESIGN.
+  The first probe also counted the car-rental pages' widget heading ("Búsqueda en Meili", 5 documents),
+  /fr/de/homepage's destination-finder notes at 390, and striped-table rows under the footer on /eg/en's
+  environmental-cost-surcharge pages and /fr/fr/359. Read again with the clip-aware probe: none. The table rows are
+  below the table's 840 px scroll box. The widget heading is clipped. The homepage notes moved after the first read (a
+  finder still loading).
 - Out of block: 236 / 236, the swap button at 390 (b). Overlap: 32 / 64, the flash teaser (a) on the market homepages
   that have one.
 - Text spill: 2 / 2.
@@ -217,7 +226,7 @@ App pages and other (79 documents, 158 page-widths: 75 /content/mobile/lh/..., 3
   reads www: not tonight). No document row or style rule would do it.
   The other 66 documents: ARTEFACT of the refusal.
 - Never loaded, sideways, overlaps, sizes: 0.
-- Text over another element: collision pass pending.
+- Text over another element: 156 / 156 served page-widths hit-tested (20,847 text points), 0 collisions.
 - Not served: /drafts/page-check/test-page (404, a draft). LISTED.
 - No source copies (app pages, not market pages).
 
@@ -233,4 +242,54 @@ No style rule is proposed. No fault on 3 or more documents is a style matter. Tw
 
 Counts
 ------
-Final section pending (pushed with the last tree).
+Rendered (documents / page-widths, the collision pass the same page-widths again):
+  de/en                 50 /   100
+  de/de                 53 /   106
+  at/de                 50 /   100
+  gb/en                 51 /   102
+  the other languages  587 / 1,174
+  market roots         328 /   656   (236 market homepages, 92 documents of the markets' own)
+  app pages and other   79 /   158
+  total              1,198 / 2,396   (2,392 answered 200, 4 answered 404: 2 documents not published)
+  and 55 source copies outside the set (110 page-widths) for the 15 % check. The collision pass hit-tested 191,721 text
+  points on the 2,392 served page-widths. Not rendered: 950 data, fragment, form-schema and unpublished /lhg documents
+  (top of this file).
+
+Faults per kind (final, after the re-reads):
+  broken picture         2 kinds, at the switch (drawn from www today): the help-center stage picture, 9 documents
+                         (c), and the app's 100 years overview, 2 documents (40 DAM files missing). The other 66 app
+                         documents: ARTEFACT of the refusal.
+  sideways scroll        0
+  never loads            0 (3 page-widths in the sweep settled when read alone)
+  text over another      0 collisions. Form selects over their own floating labels on 16 documents (DESIGN). The
+    element              finder's 1 px filter heading (ARTEFACT).
+  empty section/column   0 faults. 20 documents' micro-frontend boxes (trip management, culinary hub) are empty
+                         because the refused hosts withhold their answers (FUNCTION).
+  heading or list size   0 faults (1 ARTEFACT: /se/en/yes3's screen-reader heading)
+  text out of its box    1 document, LISTED: /hk/en/local-page/apac-sales-and-station-leaderhip-meeting-hkg-oct23 390
+                         (table button). The help-center list on 9 documents: DESIGN.
+  out of block, overlap  0 faults (the finder's swap button on the 251 homepages at 390, the flash teaser's -11 px on
+                         36 homepages: DESIGN)
+  15 % off its source    5 documents, FAULT, ROW HOLD: xx/en and xx/de seat-reservation conditions against de/en
+                         and de/de, the FAQ items' open state. 63 more are CONTENT, LISTED or the source's own
+                         (59 market homepages, gb/en europcar, al/en sixt, az/de overview-travel-information listed,
+                         fr/fr support/support against an old static xx/fr source).
+  not served             2 LISTED: /mk/de/discover-temporarygarage-do-not-publish/families, /drafts/page-check/test-page
+
+Rules proposed to ema-adobe: 0 style rules (no style fault reaches 3 documents). 2 proposals that are not style
+rules: the help-center stage picture (a DA copy and the micro-frontend's brand pictures, as 70c60a7d), and the 40 app
+DAM files (copies). Nothing changed in styles/themes/ or any shared block.
+
+Rows written: delta-so78-com-faults.txt and .json, 20 HOLD rows (10 documents x 2 widths: the de-side copies of
+/common/seatreservation-condtions/ get their xx copies' open-N). 0 READY: www's de-side state is not proven tonight.
+Dry run on DA's current copies 10/10. The gate: each copy measures exactly its xx copy's height with the items open.
+
+Listed (no row, no rule): the table button on the hk/en event page; az/de's missing Lufthansa Express teaser
+(likely www's); the two unpublished documents; the 40 missing app DAM files and the help-center main.png (copies need
+www); the batch-listed de/en and gb/en economy-light-fare copies, which have the same open-state question
+(ema-adobe's).
+
+Checks before each push of this file: whole-repo npm run lint exit 0 (eslint and stylelint), the folder-reading
+tests (readdirSync tests of tools/reports: 14 files, 76 tests) passing on origin/main of the minute. Full suite
+(1,319 files: 4,942 pass, 0 fail, 5 skipped) on 304ea56d before the first push, and again on a3546fac with this
+file before the last push (1,320 files: 4,944 pass, 0 fail, 5 skipped).
