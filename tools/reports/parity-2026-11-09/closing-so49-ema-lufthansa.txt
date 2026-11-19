@@ -1,0 +1,40 @@
+# ema-lufthansa, standing order 49 (2026-11-19): the closing list. Every recorded page-width of Brussels, ITA and
+# Discover still more than 3 % off www after this order (full Chrome, Liberation Sans for Arial, once every section had
+# loaded; as served with this order's rules), with its cause in one class: content (www's text or pictures differ),
+# live data, function (an app, form or widget we link or show in its empty state instead), Lufthansa side (needs
+# someone at the airline), font (machine fallback), or pattern under 3 page-widths (named). No rule fits any of them
+# within the gate; a brand is done when this list holds only these classes.
+# brand	path	width	ours	www	% off	class	what it is
+brussels	/prod/content/v3assets/misc/fop/new/fop_standalone_1_en.html	390	1237	844	+46.56	function	www's payment-method picker recorded on its own; ours is the flag brussels-payment-picker (off, the owner's decision)
+brussels	/be/fr/book-a-flight/our-payment-methods	1440	2785	3752	-25.77	function	www's 750 px country picker iframe; built behind the flag brussels-payment-picker, off (the owner's decision)
+brussels	/be/fr/book-a-flight/our-payment-methods	390	4461	5393	-17.28	function	www's 750 px country picker iframe; built behind the flag brussels-payment-picker, off (the owner's decision)
+brussels	/be/en/local-page/offers	1440	4286	4630	-7.43	live data	www's live fare cards; our flight-search widget shows its state without the fare API
+brussels	/be/en/special-care/families-and-children	1440	1702	1814	-6.17	content	www's empty paragraphs under the title and before the card grid (spacing-lost-so48); the same hub layout elsewhere has none, so no rule carries them
+brussels	/il/en/rebooking-request-birthright	1440	2014	1899	+6.06	function	our form's Turnstile check (71 px), which www's form has not
+brussels	/be/fr/special-care/families-and-children	1440	1780	1892	-5.92	content	as be/en: www's empty paragraphs under the title and before the card grid
+brussels	/be/en/local-page/offers	390	5882	6236	-5.68	live data	www's live fare cards; our flight-search widget shows its state without the fare API
+brussels	/be/en/check-in-options-and-info/check-in-times	390	4108	4354	-5.65	function	www's collapsed check-in times component; the document links to it instead
+brussels	/be/fr/our-company	390	10316	9803	+5.23	Lufthansa side	www cuts the cards' text after three lines; ours shows it in full, the owner's decision
+brussels	/ke/en/homepage	1440	4304	4110	+4.72	live data	www's live fare teaser
+brussels	/be/en/check-in-options-and-info?country=BE&language=EN	390	2986	3132	-4.66	pattern under 3 page-widths	the check-in hub's closing card grid with a query-string address (www's space under it differs from the plain address's; held since order 22)
+brussels	/be/fr/extra-services/meals	390	3361	3519	-4.49	pattern under 3 page-widths	a closing four-up card grid whose space to the footer www varies page by page (order 46's census)
+brussels	/be/fr/my-bookings/cancel-and-refund-requests	1440	1684	1758	-4.21	pattern under 3 page-widths	the sidebar-h1 accordion ending (be/en 1440 -2.92 %); order 22's rule for it failed
+brussels	/be/en/book-a-flight	1440	1476	1418	+4.09	pattern under 3 page-widths	the closing teaser row: www 82 px under it, ours 112 (be/fr +2.55 %); other teaser endings differ the other way
+brussels	/it/it/legal-notices/special-assistance-legal-guidelines	1440	1457	1519	-4.08	content	www's empty paragraph before one heading (spacing-lost-so48) and the accordion ending
+brussels	/be/en/contact/service-charges	1440	1609	1677	-4.05	content	www's empty paragraph before one heading (spacing-lost-so48) and the closing fee list
+brussels	/il/en/rebooking-request-birthright	390	2970	2855	+4.03	function	our form's Turnstile check (71 px), which www's form has not
+brussels	/be/nl/contact/service-charges	1440	1646	1715	-4.02	content	as be/en: www's empty paragraph before one heading and the closing fee list
+brussels	/it/it/legal-notices/special-assistance-legal-guidelines	390	2167	2256	-3.95	content	www's empty paragraph before one heading (spacing-lost-so48) and the accordion ending
+brussels	/ke/en/homepage	390	5028	5227	-3.81	live data	www's live fare teaser
+brussels	/be/en/my-bookings	390	3774	3638	+3.74	pattern under 3 page-widths	the closing three-up teaser: www 81 px from the last card to the footer on phones, ours 177
+brussels	/be/en/check-in-options-and-info/check-in-times	1440	2516	2601	-3.27	function	www's collapsed check-in times component; the document links to it instead
+brussels	/be/fr/special-care/families-and-children	390	3685	3809	-3.26	content	as be/en: www's empty paragraphs under the title and before the card grid
+brussels	/be/en/travel-classes/economy	1440	3089	3186	-3.04	content	www's empty paragraph before one heading (spacing-lost-so48) and the 'Related topics' ending
+ita	/it/en/world-of-ita-airways/discover-ita-airways/network	390	5690	5517	+3.14	pattern under 3 page-widths	the lead H2 under the title: www heading-small on this page only (+132 px at 390); order 47's rule for every lead H2 failed (8 further)
+discover	/de/de/book/flights/offers?PartnerFlights=one	390	2251	14807	-84.80	live data	www's offers page lists live fares (the destination grid loads them from www's fare API, 8,261 / 14,807 px); ours renders the finder without fare data. It stays as it is: the data is live, not layout
+discover	/de/en/book/flights/offers?PartnerFlights=one	390	2371	14160	-83.26	live data	as de/de: www's live fare list (8,386 / 14,160 px), our finder without fare data
+discover	/de/de/book/flights/offers?PartnerFlights=one	1440	2461	8261	-70.21	live data	www's offers page lists live fares (the destination grid loads them from www's fare API, 8,261 / 14,807 px); ours renders the finder without fare data. It stays as it is: the data is live, not layout
+discover	/de/en/book/flights/offers?PartnerFlights=one	1440	2523	8386	-69.91	live data	as de/de: www's live fare list (8,386 / 14,160 px), our finder without fare data
+discover	/de/en/book/flights/flight-search	390	2141	2210	-3.12	function	the price calendar: www draws its calendar app, ours its empty state ('Please select a departure and destination'), 60 px shorter
+discover	/de/de/discover/services-on-board/entertainment	390	5543	5381	+3.01	pattern under 3 page-widths	the German entertainment page on phones: +51 px at 'Kopfhörer' and +94 at the football teaser (de/en 390 +0.88 %, 1440 -2.47 %: the copies differ)
+# counts: brussels 25 (content 8, function 7, pattern under 3 page-widths 5, live data 4, Lufthansa side 1); ita 1 (pattern under 3 page-widths 1); discover 6 (live data 4, function 1, pattern under 3 page-widths 1)
