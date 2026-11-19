@@ -94,17 +94,25 @@ test('a row value with DA\'s icon span reads as its :name: text (culinary-hub co
 
 // Discover's /de/en/culinaryjourney (www, 2026-10-27): <culinary-hub data-configuration
 // data-api-gateway class="full-width-bg px-0 maui-theme-four_y">, its design system v1.38.0
-// discover.css (200 from www.discover-airlines.com, as maui-design-system.js and
-// culinary-hub-latest.js), X-Portal FOUR_Y
-test('culinary-hub on Discover: www.discover-airlines.com, its design system v1.38.0 (discover.css), X-Portal FOUR_Y', () => {
-  const plan = mountPlan(blockOf([['culinary-hub'], ['Configuration', 'apiKey:k;tmc:13806'], ['API gateway', 'https://api.travelid.lufthansa.com/one-catering/v1']]), BRANDS.discover, { country: 'de', lang: 'en', brand: 'discover' });
-  assert.equal(plan.css, 'https://www.discover-airlines.com/digitalhangar/design-system/releases/v1.38.0/standalone/css/discover.css');
-  assert.deepEqual(plan.scripts, [
-    { src: 'https://www.discover-airlines.com/digitalhangar/design-system/releases/v1.38.0/standalone/packages/maui-design-system.js', module: true },
-    { src: 'https://www.discover-airlines.com/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', module: false },
-  ]);
-  assert.equal(plan.meta['X-Portal'], 'FOUR_Y');
-  assert.equal(plan.attributes['data-api-gateway'], 'https://api.travelid.lufthansa.com/one-catering/v1');
+// discover.css (as maui-design-system.js and culinary-hub-latest.js), X-Portal FOUR_Y.
+// Standing order 51: from www.discover-airlines.com nothing of it drew on discover.turnsthe.page;
+// the files come from the page's own /digitalhangar/ (lh-edge answers it from
+// www.discover-airlines.com), elsewhere from discover.turnsthe.page's: no visitor's browser asks
+// www.discover-airlines.com, and the app draws its booking-details entry there
+test('culinary-hub on Discover: from discover.turnsthe.page\'s /digitalhangar/, never www.discover-airlines.com; v1.38.0 (discover.css), X-Portal FOUR_Y', () => {
+  const DISC = '/digitalhangar/design-system/releases/v1.38.0/standalone';
+  ['discover.turnsthe.page', 'main--lh-discover--moved-permanently.aem.page', 'localhost'].forEach((host) => {
+    const plan = mountPlan(blockOf([['culinary-hub'], ['Configuration', 'apiKey:k;tmc:13806'], ['API gateway', 'https://api.travelid.lufthansa.com/one-catering/v1']]), BRANDS.discover, { country: 'de', lang: 'en', brand: 'discover' }, host);
+    assert.equal(plan.css, `https://discover.turnsthe.page${DISC}/css/discover.css`, host);
+    assert.deepEqual(plan.scripts, [
+      { src: `https://discover.turnsthe.page${DISC}/packages/maui-design-system.js`, module: true },
+      { src: 'https://discover.turnsthe.page/digitalhangar/onecatering/culinary-hub/culinary-hub-latest.js', module: false },
+    ], host);
+    assert.ok([plan.css, ...plan.scripts.map((s) => s.src)].every((u) => !u.includes('www.discover-airlines.com')), host);
+    assert.equal(plan.meta['X-Portal'], 'FOUR_Y');
+    // the app's own data: its configuration and gateway as authored (the gateway is the airline's)
+    assert.equal(plan.attributes['data-api-gateway'], 'https://api.travelid.lufthansa.com/one-catering/v1');
+  });
 });
 
 // www.lufthansa.com/de/en/support/fast-compensation/compensation-flight-disruptions (2026-11-01):

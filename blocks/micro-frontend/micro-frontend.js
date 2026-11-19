@@ -113,6 +113,10 @@ const OWN_HOST_BRANDS = {
   // Austrian's (brief 397): www.austrian.com sends its module without Access-Control-Allow-Origin;
   // lh-edge answers austrian.turnsthe.page/digitalhangar/ (the culinary hub's too)
   'www.austrian.com': `austrian.${TURNSTHE_PAGE_DOMAIN}`,
+  // Discover's culinary journey (standing order 51): from www.discover-airlines.com nothing of the
+  // app drew on discover.turnsthe.page; lh-edge answers its /digitalhangar/ from there
+  // (SITE_DESIGN_HOSTS discover), and from our host the app draws its booking-details entry
+  'www.discover-airlines.com': `discover.${TURNSTHE_PAGE_DOMAIN}`,
 };
 
 /**
