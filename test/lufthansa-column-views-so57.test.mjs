@@ -38,3 +38,13 @@ test('R1: the view opening Spacer draws 60 px; a Spacer among other content the 
   assert.equal(opening.style.getPropertyValue('--spacer-size'), '60px', main.innerHTML);
   assert.equal(inner.style.getPropertyValue('--spacer-size'), '40px');
 });
+
+test('R16b (standing order 58): a picture ending the section before a view that opens with its heading keeps 40 px below', () => {
+  const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'utf8');
+  assert.ok(css.includes('body.theme-live.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey) > .default-content-wrapper:first-child > :is(h2, h3):first-child):has(> .default-content-wrapper:last-child > p:last-child > picture, > .default-content-wrapper:last-child > p:last-child > a > picture) {\n  margin-bottom: 40px;'));
+});
+
+test('R4 (standing order 58): a view right after a view that is not flush takes the section gap back', () => {
+  const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'utf8');
+  assert.ok(css.includes('body.theme-live.brand-lufthansa main > .section.column-view:not(.grey, .flush) + .section.column-view:not(.grey) {\n  margin-top: -48px;'));
+});

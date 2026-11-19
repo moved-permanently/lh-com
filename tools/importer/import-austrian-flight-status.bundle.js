@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_799132_exports = {};
-  __export(tmp_bundle_austrian_flight_status_799132_exports, {
-    default: () => tmp_bundle_austrian_flight_status_799132_default
+  var tmp_bundle_austrian_flight_status_961944_exports = {};
+  __export(tmp_bundle_austrian_flight_status_961944_exports, {
+    default: () => tmp_bundle_austrian_flight_status_961944_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -5553,6 +5553,13 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: {
       live: true,
+      // an H3 in heading-small inside a block a choice of its own (H3 large draws heading-small
+      // here, not heading-medium): the block's own H3 is heading-copytext-large, and www's legal
+      // terms set their accordion's 70 subheadings in heading-small (terms-and-conditions,
+      // brussels-parity-007), the other recorded accordions' H3s unmarked (standing order 46); the
+      // collapse writes it as the block option title-large, no marker
+      headingChoices: { h3: { large: "heading-small" } },
+      nearChoices: { h3: { "heading-small": "large" } },
       pageTypes: { flow: { headings: { h3: "heading-small" } } }
     },
     // ITA: running text over the whole width
@@ -5598,6 +5605,9 @@ var CustomImportScript = (() => {
       // order 67 (token-free: no document keeps a size marker); an H2 in that size is H2 compact
       headingChoices: { h1: { compact: "heading-small" }, h3: { large: "heading-medium", compact: "heading-copytext-large" } },
       nearChoices: { h3: { "heading-copytext-large": "compact" } },
+      // an H2 right after an accordion in heading-small (www's start-of-booking headlines; standing
+      // order 71)
+      rules: ["h2-small-after-accordion"],
       pageTypes: {
         // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
         // brief after 550 narrows it); in a grey band no edge above a block right after a heading
@@ -9564,7 +9574,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_799132_default = {
+  var tmp_bundle_austrian_flight_status_961944_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9604,5 +9614,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_799132_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_961944_exports);
 })();
