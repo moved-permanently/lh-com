@@ -1,0 +1,13 @@
+# ema-adobe, standing order 61 item 3 (2026-11-19): helper B's collapse batches delta-so60-switch-01..27 watched on live.
+# Every 30 minutes from about 13:30 UTC, each batch not done yet: node tools/importer/switch-census.mjs --batch <file> --env live
+#   (with the rate-limit fix of standing order 61: aem.live answered 429 while the batches published). When a batch reads
+#   "with markers 0", 10 of its documents (spread over its roots and kinds; the gate's recorded ones first, up to 4) are rendered
+#   as served on lufthansa.turnsthe.page at 1440 and 390 (logs/b661/watch-batch.sh):
+#   - recorded page-widths against their recording and the gate's prediction (plan 923 §14.8): off when more than 0.5 points
+#     from the predicted % or more than 0.5 % from the predicted height;
+#   - every page-width: sideways scroll, failed pictures, a failed capture.
+# A2 (the M++ 70 step, main 3f30d9d, pushed 12:33 UTC): a batch collapsed with a tool copy older than that writes L- 80 for www's
+#   {spacer-70}. logs/b661/a2-docs.tsv lists the 315 documents A2 changes (by batch); "A2" below counts the batch's ones whose
+#   live copy still has the old step.
+# batch	time	census (live)	rendered	off or broken	A2
+01	13:45 UTC	census 300 documents, read 300, missing 0, errors 0, with markers 0	rendered 10 documents, 20 page-widths (14 recorded)	/de/en/additional-services 1440 12.35 % (predicted 5.81); /de/en/additional-services 390 11.84 % (predicted 6.68): the same height and section boxes, the difference is one band (y 3,857-4,666 at 1440), the stage video behind "A good journey starts with the right ...", another frame of it, not the switch	A2: 0 of 2 with M++: add-sports-baggage and airport-information still L- 80 (collapsed with a tool copy older than A2; READY rows in delta-so61-a2-steps)
