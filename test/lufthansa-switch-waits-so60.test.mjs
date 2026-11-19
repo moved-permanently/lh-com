@@ -81,3 +81,16 @@ test('the site: a marked lufthansa.com document draws as with every theme off; a
   assert.ok(free.ownerDocument.body.classList.contains('theme-live'));
   assert.equal(free.querySelector(':scope > div > p.spacer').style.getPropertyValue('--spacer-size'), '40px');
 });
+
+test('the switch census (tools/importer/switch-census.mjs) calls a document marked exactly when the site does', async () => {
+  const { switchMarkers } = await import('../tools/importer/switch-census.mjs');
+  const docs = [
+    '<div><h2>A {heading-small}</h2></div>', '<div><p>{spacer-40 from-768}</p></div>', '<div><p>Links {links-vertical}</p></div>',
+    '<div><p>From {origin} to {destination} in {n} hours ({locale})</p></div>', '<div><p>{"a": 1}</p><p>Text</p></div>',
+    '<div><div class="spacer m-plus"><div><div></div></div></div><h2>A</h2></div>', '<div><p>A &amp; B {caption}</p></div>',
+  ];
+  docs.forEach((html) => {
+    const main = parseHTML(`<html><body><main>${html}</main></body></html>`).document.querySelector('main');
+    assert.equal(switchMarkers(html).length > 0, hasStyleMarkers(main), html);
+  });
+});
