@@ -29,14 +29,17 @@ test('no chapter rule above a heading a block follows right away; chapters keep 
     '<div><h2>About</h2><p>Text</p></div>',
     '<div><h3>Chiswick, London – More Tips</h3><ul><li>One</li></ul></div>',
     '<div><p><strong>Selected Tips – Additional Ideas</strong></p><p>Text</p></div>',
-    '<div><h2>This may also be of interest to you</h2><div class="carousel-cards"><div><div>x</div></div></div></div>',
-    '<div><h3>Related Articles</h3><div class="related-articles"><div><div>x</div></div></div></div>',
     '<div><h2>Alone</h2><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>',
+    '<div><h2>This may also be of interest to you</h2><div class="carousel-cards"><div><div>x</div></div></div></div>',
+    '<div><h3>After the teasers</h3><p>Text</p></div>',
+    '<div><h3>Related Articles</h3><div class="related-articles"><div><div>x</div></div></div></div>',
   ].join(''));
   decorateTokenFree(main, { brand: '', path: '/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips' });
-  const [, about, tips, bold, teaser, related, alone] = main.querySelectorAll(':scope > div');
+  const [, about, tips, bold, alone, teaser, after, related] = main.querySelectorAll(':scope > div');
   assert.ok(ruled(about) && ruled(tips) && ruled(bold), 'the chapters keep their rule');
-  assert.ok(!ruled(teaser), 'www\'s teaser section: no rule');
-  assert.ok(!ruled(related), 'Related Articles: no rule, as before');
   assert.ok(ruled(alone), 'a heading with only the section\'s metadata after it is still a chapter start');
+  assert.ok(!ruled(teaser), 'www\'s teaser section: no rule');
+  // standing order 60: a chapter right after a section that ends with a block (www's marks: 873 of 873 without a divider)
+  assert.ok(!ruled(after), 'a chapter after the teaser row: no rule');
+  assert.ok(!ruled(related), 'Related Articles: no rule, as before');
 }));

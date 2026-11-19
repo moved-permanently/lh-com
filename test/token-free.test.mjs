@@ -239,10 +239,12 @@ test('nothing changes on today\'s documents: markers only, the theme rules off',
 test('the brief after 500: a live lufthansa.com article rules an info box after a picture and a bold chapter; Columns Media\'s picture options', () => {
   THEMES.lufthansa.live = true;
   try {
-    const main = decorate(`<div><div class="article-header"><div><div>h</div></div></div><p>${PICTURE}</p><div class="columns-media"><div><div>i</div></div></div></div><div><p><strong>About</strong></p><p>Text</p></div>`, { brand: '', path: '/de/en/articles/x' });
-    const [one, two] = main.querySelectorAll(':scope > div');
+    const main = decorate(`<div><div class="article-header"><div><div>h</div></div></div><p>${PICTURE}</p><div class="columns-media"><div><div>i</div></div></div><p>More</p></div><div><p><strong>About</strong></p><p>Text</p></div><div><div class="carousel-cards"><div><div>c</div></div></div></div><div><p><strong>After</strong></p><p>Text</p></div>`, { brand: '', path: '/de/en/articles/x' });
+    const [one, two, , four] = main.querySelectorAll(':scope > div');
     assert.ok(one.querySelector('.columns-media').previousElementSibling.matches('p.spacer.divider'));
     assert.ok(two.firstElementChild.matches('p.spacer.divider'));
+    // standing order 60: no chapter rule right after a section that ends with a block
+    assert.ok(!four.firstElementChild.matches('p.spacer.divider'));
   } finally {
     delete THEMES.lufthansa.live;
   }

@@ -48,6 +48,11 @@ function columnMark(kind) {
 const META_BLOCKS = ['metadata', 'section-metadata'];
 const blockName = (el) => el.className.split(' ')[0];
 const isMeta = (el) => isBlock(el) && META_BLOCKS.includes(blockName(el));
+/** Whether a section's last own element (its metadata aside) is a block. */
+const endsWithBlock = (section) => {
+  const last = section && [...section.children].filter((c) => !isMeta(c)).pop();
+  return !!last && isBlock(last);
+};
 const isColumnMark = (el) => !!el && [...el.classList].some((c) => c.startsWith('column-'));
 // SWISS's topic teaser: a heading whose link starts with its icon
 const isTeaser = (el) => /^H[2-4]$/.test(el.tagName) && !!el.querySelector(':scope > a > picture:first-child');
@@ -370,7 +375,11 @@ function applyThemeRules(main, theme) {
       // right away (www's teaser sections draw none: ema-adobe's handover item 7)
       else if (theme.rules.includes('ruled-chapters') && isChapterStart(first)
         && !section.querySelector(':scope > div.related-articles')
-        && !(afterFirst && isBlock(afterFirst) && !isMeta(afterFirst))) {
+        && !(afterFirst && isBlock(afterFirst) && !isMeta(afterFirst))
+        // ... and not right after a section that ends with a block (a teaser row, the Price Bar,
+        // an info box): www's marks draw no rule there (standing order 60: 873 of the 873 such
+        // chapters on the 2,279 marked lufthansa.com articles open without a divider)
+        && !endsWithBlock(sections[i - 1])) {
         section.prepend(separatorParagraph(DIVIDER_SPACE, true));
       }
     }
