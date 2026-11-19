@@ -6313,3 +6313,61 @@ both lists of what is left are in [lufthansa-switch-plan-923.md](../token-free/l
   - The branch: 876d67d.
 - **Held.** Item 3, the hub pages' 16 px before the first view, the switch itself.
 - **Left out of git.** logs/b657 (census, captures, runs, runners, probes) and the /tmp worktrees (wt-tf57, wt-main57).
+
+## Standing order 58 (2026-11-19 03:45 CET to about 10:00 CET): the H2 offset, video, the view opening, text carriers, the scope sample, the gate once more
+
+Order 57 left nothing finished unpushed. Out of git by design: logs/b657 and the /tmp worktrees. The gate and the
+estimate are in [lufthansa-switch-plan-923.md](../token-free/lufthansa-switch-plan-923.md) §12.
+
+1. **The H2 offset (branch, 66e8e79).**
+   - **The cause** (probed in-page on 10 page-widths: each H2's margins, padding, what stands before it, the matching
+     rules). Today the intro's last picture paragraph has 40 px below it on column-mark and flow pages. The collapse's
+     split made it its section's last child, which that rule leaves out, so only 24 px stayed and the first view's
+     heading ended 16 px higher.
+   - **Rule R16b:** a picture ending the section before a view that opens with its heading keeps 40 px below. 108
+     page-widths: sum 867.4 -> 781.6, 30 closer, 6 further.
+   - **Rule R4:** a view right after a view that isn't flush takes the 48 px section gap back. meetings-and-events-
+     organisers 1440: 8.41 -> 6.48 % in the full gate (3.44 with R4 alone).
+   - **Not reached by a shared rule:** the +48 at exclusive-charter (a lone paragraph section split off before its view)
+     and the page-end separators past M.
+2. **Video: no carrier needed (HOLD, nothing to change).** On the 39 worse page-widths with a video marker, each video's
+   block is the same height on both sides on 38; the 39th is a block the check only approximates. The size already
+   rides in the link.
+   - new-onboard-experience's +60 px are three 40 px separators from 768 px drawn at order 56's 60.
+3. **The view opening's 16 px: found, held.** It is the "separator wrapper that ends its section" rule pulling the
+   split-off opening Spacer up 16 px. Taking it out moves digital-self-services further (1440 2.83 -> 4.58 %): order 57's
+   60 px opening already makes up for it (2.74 against today's 2.90).
+4. **Text width, text size, heading-aligned: held.**
+   - Where they are the first box that moves: headings with heading marks to the theme 28, width changes 13,
+     text-size blocks 9.
+   - The heading cases are minority sizes aligned to their section, or the column-view heading width. That rule (R2)
+     was measured on 87 page-widths: sum 624.0 -> 631.4, 7 further.
+   - No carrier fits without a marker.
+5. **The switch scope beyond the recorded pages (sweep-so58-adobe-scope-sample.txt).**
+   - 33 market-root documents (/fr/fr, /xx/de, /xx/en, /mk/de, /us/en, /mk/en, /us/de, /cn/en, /es/es, /pt/en, /hk/en)
+     and 6 with market sections; DA read only, one page per request.
+   - 267 markers: every spelling out, none the collapse doesn't know.
+   - Words, pictures and market coverage are the same on all 39; links on 38 (the 39th: its video link gains #size).
+6. **The gate once more (plan 923 §12).**
+
+   | | order 57 | order 58 |
+   | --- | --- | --- |
+   | worse than today by more than 0.5 | 361 | 348 |
+   | of these explained by www (pass with M at 60) | 22 | 22 |
+   | better by more than 0.5 | 60 | 65 |
+   | sum today / switched | 4,358.13 / 5,705.63 | 4,361.78 / 5,608.63 |
+   | median today / switched | 5.62 / 7.09 | 5.63 / 6.98 |
+
+   It does not pass. Of the 348:
+   - 76 page-widths (217 points) share a signature with at least two other pages: shared rules can reach them, about 5-6
+     more orders at tonight's rate.
+   - 272 (1,118 points) are page-by-page steps: 224 pages, most 1-5 points worse.
+   - The gate as set then needs a few hundred page-level rows or a per-page acceptance by the migration session.
+
+- **Pushed.**
+  - The branch: 66e8e79 (R16b, R4, their tests, bundles; rebased on main e474e4b), never merged.
+  - main: this section's commit, with plan 923 §12 and the scope sample list.
+- **No main code tonight**, so no smoke was needed.
+- **Full suite on main e474e4b.** lh-edge 73 files, site 1,293 files, none failing.
+- **Held.** R2, R3, the item-4 carriers, the switch itself.
+- **Left out of git.** logs/b658 (probes, trials, DA copies, captures, runners) and the /tmp worktrees.

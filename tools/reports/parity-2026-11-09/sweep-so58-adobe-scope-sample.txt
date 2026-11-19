@@ -1,0 +1,62 @@
+# ema-adobe, standing order 58, item 5 (2026-11-19): the switch branch's collapse (token-free-lufthansa-live, 876d67d) over a
+#   sample of lufthansa.com market-root documents outside the recorded set.
+# Sample:
+#   - 33 market-root documents with markers, about three per market: /fr/fr, /xx/de, /xx/en, /mk/de, /us/en, /mk/en,
+#     /us/de, /cn/en, /es/es, /pt/en, /hk/en. 66 of the 77 candidates spread over those markets' upload-state documents
+#     carry markers.
+#   - 6 documents with market sections (Markets rows: /xx/ru x2, /de/de x4), as the 33 have none.
+#   - DA's copies, read only, one page per request (~03:00 UTC).
+# Checks per document (logs/b658/scope-check.mjs):
+#   - the markers left after the collapse (data placeholders like {n} stay by design);
+#   - the words (the text without its markers, letters only);
+#   - the link targets and the pictures (img src), sorted;
+#   - the market settings: the text each Markets value covers, before and after.
+# Result:
+#   - 39 documents, 267 markers, every spelling out, none the collapse does not know.
+#   - Words, pictures and market coverage are the same on all 39.
+#   - Links are the same on 38. The one difference is intended: es/es allegris-premium-economy-san-diego's video link gains
+#     its size, "…60sec.mp4#size=1920x1080".
+# Spellings in the sample: {full-width}, {divider-N}, {column-start-outer}, {column-end-outer}, {heading-small},
+#   {heading-medium}, {heading-large}, {heading-copytext-large}, {column-start}, {column-end}, {column-spaced},
+#   {copytext-small}, {copytext-medium}, {limited-width}, {spacer-N}, {caption}, {links-horizontal}, {indent-N}, the video
+#   settings (controls, round-play-button, autoplay, muted, loop, size-NxN) and their combinations.
+# path	markers before	left	unknown	words	links	pictures	markets
+/fr/fr/100-years	4	0		same	same	same	-
+/fr/fr/automatic-check-in	10	0		same	same	same	-
+/fr/fr/feedback-past-flight	5	0		same	same	same	-
+/xx/de/74h	1	0		same	same	same	-
+/xx/de/book-and-manage/stopover/garmisch-classic	5	0		same	same	same	-
+/xx/de/book-and-manage/stopover/sixt-muc	3	0		same	same	same	-
+/xx/en/32q	1	0		same	same	same	-
+/xx/en/34q	1	0		same	same	same	-
+/xx/en/book-and-manage/stopover/ingolstadt-village	2	0		same	same	same	-
+/mk/de/articles/munich	9	0		same	same	same	-
+/mk/de/articles/tags/raleigh	7	0		same	same	same	-
+/mk/de/articles/explore-the-world/be-picky-frankfurt-insider-tips1	6	0		same	same	same	-
+/us/en/dnsmpi	2	0		same	same	same	-
+/us/en/companion	7	0		same	same	same	-
+/us/en/local-page/customer-relations-usa	30	0		same	same	same	-
+/mk/en/currency-converter	8	0		same	same	same	-
+/mk/en/munich-mountains	8	0		same	same	same	-
+/mk/en/summer-destinations	33	0		same	same	same	-
+/us/de/homepage	1	0		same	same	same	-
+/us/de/assistenzhunde	13	0		same	same	same	-
+/us/de/fmg-valet-parking-service	9	0		same	same	same	-
+/cn/en/homepage	1	0		same	same	same	-
+/cn/en/local-page/china-euro-cup-2024	10	0		same	same	same	-
+/cn/en/local-page/china-euro-cup-2024/european-championship-2024-player-videos-beier	3	0		same	same	same	-
+/es/es/homepage	1	0		same	same	same	-
+/es/es/feedback	4	0		same	same	same	-
+/es/es/articles/highlights/allegris-premium-economy-san-diego	3	0		same	DIFF	same	-
+/pt/en/homepage	1	0		same	same	same	-
+/pt/en/faq-data-security	2	0		same	same	same	-
+/pt/en/sepa-terms-and-conditions	2	0		same	same	same	-
+/hk/en/homepage	1	0		same	same	same	-
+/hk/en/local-page/hongkong-euro-cup-2024	10	0		same	same	same	-
+/hk/en/local-page/hongkong-euro-cup-2024/european-championship-2024-player-videos-beier	3	0		same	same	same	-
+/xx/ru/automatic-check-in	10	0		same	same	same	same (2)
+/xx/ru/pre-check-in	11	0		same	same	same	same (2)
+/de/de/free2move	11	0		same	same	same	same (2)
+/de/de/meetings-und-events-individuelle-angebotsanfrage	9	0		same	same	same	same (2)
+/de/de/meetings-und-events-teilnehmer	9	0		same	same	same	same (2)
+/de/de/cash-and-miles	11	0		same	same	same	same (2)
