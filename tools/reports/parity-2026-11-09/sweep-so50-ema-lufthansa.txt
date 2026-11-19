@@ -1050,6 +1050,6 @@ ITA	/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulatio
 #   option (delta-so51-brussels-faults.txt, HOLD for parity: none of them is recorded).
 # Brussels bf/fr charter: content. The form's own definition hides its contact-details group (www's collapsed fieldset)
 #   and has no date fields (delta-so51-brussels-faults.txt).
-# Discover culinaryjourney (de/de, de/en, xx/fr): fixed in the micro-frontend block (6e21ce5e). The app and its design
+# Discover culinaryjourney (de/de, de/en, xx/fr): fixed in the micro-frontend block (a3a1d1a5). The app and its design
 #   system now load from discover.turnsthe.page's /digitalhangar/ (lh-edge answers it from www.discover-airlines.com)
 #   instead of www.discover-airlines.com, and the app draws its booking-details entry: 476 px at 1440, 776 to 803 at 390.
