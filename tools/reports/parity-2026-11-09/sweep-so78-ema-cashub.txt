@@ -1,0 +1,226 @@
+Standing order 78 - breakage sweep of lufthansa.com's final documents (Thu 19 Nov 2026 20:36 CET to Fri 20 Nov, orders 78 and 79)
+================================================================================================================
+
+What was rendered
+-----------------
+- Final documents: every document in lufthansa.com's upload state on origin/main (tools/importer/da-upload-state.json,
+  the list switch-census.mjs --all reads) less nav, footer and fragment documents (/nav, /footer, /fragments/: drawn
+  inside every page), less every document in a row of delta-so60-switch-01 to -27 (7,894 paths, .txt and .json the
+  same). That leaves 2,038 documents. 950 of them are not pages and were not rendered:
+    768 /data/... (da-form records: app and ancillary data, content-fragment records, the flag navigation's data),
+     68 /xf/lh/... (experience fragments: context teasers drawn inside pages),
+      7 /.da/forms/schemas/... (form schemas, 404 as pages),
+    107 /lhg/... (404 on lufthansa.turnsthe.page, main--lh-com--moved-permanently.aem.page and .aem.live: not
+        published; lh-edge's event map skips /lhg/).
+  The other 1,088 were rendered, with every market root as its homepage path: the 251 roots of scripts/locale-table.js
+  (15 with their own documents, 236 answered from the language versions), /<root>/homepage. That makes 1,198
+  documents and 2,396 page-widths.
+- Source-language copies for the 15 % check: de/en for English, de/de for German, xx/<ll> for the other languages
+  (the neutral versions xx/en and xx/de against de/en and de/de). 55 of them are outside the final set and were
+  rendered for the comparison only: 8 served, 47 not documents (404: local pages, forms' thank-you pages and the like
+  exist in the market alone). Those 47 have no source copy to compare.
+- Host lufthansa.turnsthe.page, as served at the minute of each read. The switch batches were published during the
+  sweep, so a source copy in a batch list shows the code and document of the minute it was read. Widths 1440 x 900 and
+  390 x 844. Chrome headless, unhinted text, consent stored. One browser, 3 pages at once and never more on our host
+  (detail probes ran only between the passes). Each page-width was measured after: the load event, lazy pictures made
+  eager, one scroll through the page, network idle (8 s cap), every section and block reporting loaded, every drawn
+  picture complete, and the height the same on 3 reads 500 ms apart (15 s cap). Not settled, never-loaded and every
+  outlier read again alone.
+- Checks per page-width (order 76's, so77/nb77.mjs): broken or zero-height picture; sideways scroll; a section or block
+  that never loads; consecutive blocks drawn over each other; cells over each other; content out of its block; text
+  spilling out of its box or cut; empty drawn sections; an empty cell beside full ones; headings of one level in
+  different sizes in one block or one section's text; a list in another size than its paragraphs; the page's height
+  against its source-language copy (more than 15 % off at either width).
+  New tonight, for text over another element: a second pass (so78/hit78.mjs with so78/p-hit.js) hit-tested every
+  visible text line in main (first and last line of each text node, at its centre and 3 px inside both ends, below the
+  sticky header). A hit on anything that is not the text's own element or an ancestor or descendant of it is a
+  collision. The showcase notice is a modal dialog (the page under it is inert), so it was taken out first.
+- Requests to www.*, lh-proxy and every airline host were refused and counted, never sent: 10,136 in the sweep, 10,134
+  of them from the final documents, 9,156 from the market homepages (their fare and destination widgets ask www's
+  APIs). DA was read only: single read-only GETs, one per command, of the ten copies in delta-so78-com-faults.txt and
+  of /gb/en/homepage, all answered 200. No upload, preview or publish. No da-upload.mjs.
+- Order 78's turn was cut in the service outage (about 22:30 CET) during the text-collision pass, at 1,096 of 2,396
+  page-widths. Order 79 resumed it from disk with the rest in tree order, 2 pages at once (the third slot for detail
+  reads). This file is pushed after each tree's collision pass. A part marked "collision pass pending" has every
+  other check final.
+- Not changed: styles/themes/ and every shared block file (ema-adobe's tonight), and lufthansa.com's documents.
+- Scratch (not in git): migration-work/parity-588/so78 (nb78.mjs, hit78.mjs, sum78.py, hitsum.py, homeshape.py, the
+  probes, the outputs, DA's ten copies and the dry run).
+
+All 2,396 page-widths of the final documents answered 200 and settled, except 4 page-widths that answered 404 (2
+documents, below). 2 page-widths did not settle in the sweep and 1 had a section and a form block still loading; read
+alone, all three settled with everything loaded. Sideways scroll: 0 anywhere. Empty cells beside full ones: 0. Lists in
+another size than their paragraphs: 0.
+
+Kinds: FAULT = something drawn wrong. LISTED = a fault this file only lists (fewer than 3 documents, not a style
+matter, or its fix is not proven). ROW = a row in delta-so78-com-faults.txt. CONTENT = the document's own. DESIGN = drawn
+so on purpose. FUNCTION = an app or a live answer that the refused hosts withhold here. ARTEFACT = the check, not the
+page.
+
+Flags common to the four own trees (and their market copies)
+------------------------------------------------------------
+These are the same documents in each tree. They are described once here and counted in each part.
+a. /<tree>/homepage, 1440 and 390: "flash teaser over the finder", 11 px. The flight-search section has margin-top
+   -11 px under the flash teaser ("Promotion: Limited-time Black Friday off..."). The finder's card starts with 53 px
+   of padding, so no text or control is drawn over the teaser's text (clip checked at 390). DESIGN (order 76 found the
+   same on SWISS's homepages).
+b. /<tree>/homepage and every market homepage, 390: "out of block", the finder's swap button (aria "Swap origin and
+   destination", 40 x 40, x 336-376) reaches 8 px past the finder's box (22-368) into the 22 px page margin. The
+   arrows glyph lines up with the calendar icon at the field's end, inside the viewport, and nothing else is there
+   (clip checked). DESIGN, not drawn wrong.
+c. /<tree>/help-and-contact and /<tree>/support/support (which redirects there): "broken picture". The help-center app
+   (micro-frontend help-center-web) writes its stage picture as https://lufthansa.com/content/dam/lh/images/
+   local_images/help-center/main.png, drawn 0 px tall here because airline hosts are refused. Real visitors load it
+   from lufthansa.com today. lufthansa.turnsthe.page answers 404 at that path (no DA copy at
+   /content/dam/lh/images/local_images/help-center/main.png). So once lufthansa.com is answered by lh-edge the picture
+   is broken on every help-center page. FAULT at the switch, 9 documents in this sweep (de/en, de/de, at/de, gb/en: 2
+   each; fr/fr support/support). Not a style rule: see "For ema-adobe", 1.
+d. The same pages, 390: "text spill" LI +22 px in the help-center app's topic list ("Current flight information",
+   "Baggage...", "Accessible travel..."). DESIGN (order 76: the app's own list overflow, drawn inside its card).
+e. /<tree>/book-and-manage/trip-management and /<tree>/lufthansa-city/culinaryjourney: "empty section", the
+   micro-frontend's 400 px box with nothing in it. Trip management is an app with no configuration in the document,
+   and the culinary hub calls api.travelid.lufthansa.com. Both are refused here. FUNCTION (order 76: the culinary hub).
+
+de/en (50 documents, 100 page-widths)
+-------------------------------------
+- Broken picture: 2 / 4 page-widths (c). Never loaded: 0. Sideways: 0.
+- Text over another element: 100 / 100 page-widths hit-tested (5,565 text points), 0 collisions. 38 hits are form
+  fields that paint nothing over their own floating labels. One more is /de/en/special-needs 1440 and 390: the form's
+  white "Title" select lies over its own label "Title". The select shows "Title" itself (its first option), and the
+  label only floats up for a chosen value (clip checked at 1440). DESIGN.
+- Out of block: 1 / 1 (b). Overlap: 1 / 2 (a). Text spill: 2 / 2 (d). Empty section: 2 / 4 (e).
+- Heading or list size out of line: 0.
+- Off its source copy: de/en is the source.
+- Faults: c (at the switch). Rows: 2 HOLD documents (delta-so78-com-faults.txt: rebookings-cancellation, refund).
+
+de/de (53 documents, 106 page-widths)
+-------------------------------------
+- Broken picture: 2 / 4 (c). Never loaded, sideways, size: 0.
+- Text over another element: collision pass pending.
+- Out of block 1 (b), overlap 1 (a), text spill 2 (d), empty section 2 (e).
+- Off its source copy: de/de is the source.
+- Faults: c. Rows: 3 HOLD documents (economy-light-fare, rebookings-cancellation, refund).
+
+at/de (50 documents, 100 page-widths)
+-------------------------------------
+- Broken picture: 2 / 4 (c). Never loaded, sideways, size: 0.
+- Text over another element: collision pass pending.
+- Out of block 1 (b), overlap 1 (a), text spill 2 (d), empty section 2 (e).
+- Off its source copy (de/de): 50 compared, 0 more than 15 % off.
+- Faults: c. Rows: 3 HOLD documents (as de/de).
+
+gb/en (51 documents, 102 page-widths)
+-------------------------------------
+- Broken picture: 2 / 4 (c). Never loaded, sideways, size: 0.
+- Text over another element: collision pass pending.
+- Out of block 1 (b), overlap 1 (a), text spill 2 (d), empty section 2 (e).
+- Off its source copy (de/en): 51 compared, 1 more than 15 % off:
+  /gb/en/europcar 390: 1,514 against /de/en/europcar's 1,858 (-18.5 %; 1440 -12.3 %), read again alone: the same.
+  CONTENT: gb/en's document is the car-rental widget alone. de/en's has the widget with de-market text ("You will be
+  entering your data ... Meili Travel Technology") and a section for other markets (data-markets -de). That is
+  market text, not a loss, and the widget (Meili, a third party) draws alike in both.
+- Faults: c. Rows: 2 HOLD documents (as de/en).
+
+The other languages (587 documents, 1,174 page-widths: xx/el 62, xx/fr 56, xx/pt 55, xx/es 52, xx/hk 50, xx/ja 49,
+xx/pl 48, xx/ru 46, xx/it 45, xx/zh 45, xx/ko 43, and the neutral xx/de and xx/en 36)
+------------------------------------------------------------------------------------------------------------------
+- Broken picture, sideways, size: 0. Never loaded: 1 in the sweep (/xx/pt/prepare-for-your-trip/baggage/sport-baggage/
+  register-ammunition1 1440: a section, its breadcrumb and its core form still loading), and 2 did not settle (that one
+  and /xx/es/sixt 1440). Read alone: all loaded and settled (4,340 and 1,129 px), no flag. Final 0.
+- Text over another element: collision pass pending.
+- Out of block: 11 / 11, the homepages' swap button (b). Empty section: 11 / 22 page-widths, the culinary hub in every
+  xx tree (e).
+- Off its source copy: 36 neutral documents compared (xx/en against de/en, xx/de against de/de), 5 more than 15 % off.
+  FAULT, ROW (HOLD):
+    /xx/en/common/seatreservation-condtions/rebookings-cancellation  1440 2,779 vs 1,357 (+104.8 %), 390 4,615 vs 1,843 (+150.4 %)
+    /xx/en/common/seatreservation-condtions/refund                   1440 3,821 vs 1,669 (+128.9 %), 390 6,154 vs 2,274 (+170.6 %)
+    /xx/de/common/seatreservation-condtions/economy-light-fare       1440 3,153 vs 1,494 (+111.0 %), 390 5,335 vs 2,110 (+152.8 %)
+    /xx/de/common/seatreservation-condtions/rebookings-cancellation  1440 2,927 vs 1,384 (+111.5 %), 390 5,200 vs 1,983 (+162.2 %)
+    /xx/de/common/seatreservation-condtions/refund                   1440 4,142 vs 1,720 (+140.8 %), 390 7,293 vs 2,522 (+189.2 %)
+  Same text in each pair. The xx copies (imported 17 Nov) open every FAQ item (accordion option open-4 / open-6 /
+  open-8: the importer's reading of www's expanded items since a904be82, 8 Nov). The de copies, and their gb/en and
+  at/de copies (imported 6 Nov, before that commit), have every item closed. With the items opened in the same load,
+  each de-side copy measures exactly its xx copy's height. delta-so78-com-faults.txt gives the ten de-side copies
+  in this sweep the xx copies' option. The rows are HOLD until www's de-side state is read (see that file). The same
+  question stands for the batch-listed /de/en and /gb/en .../economy-light-fare (closed) against xx/en's (batch 26):
+  ema-adobe's documents.
+- The other xx trees are sources: no comparison.
+
+Market roots (328 documents, 656 page-widths: the 236 market homepages and 92 documents of market roots' own)
+--------------------------------------------------------------------------------------------------------------
+- Broken picture: 1 / 2 (/fr/fr/support/support: c). Sideways, never loaded: 0.
+- Text over another element: collision pass pending.
+- Out of block: 236 / 236, the swap button at 390 (b). Overlap: 32 / 64, the flash teaser (a) on the market homepages
+  that have one.
+- Text spill: 2 / 2.
+  FAULT, LISTED (1 document): /hk/en/local-page/apac-sales-and-station-leaderhip-meeting-hkg-oct23 390. In its
+  table-striped agenda, the link "Message from Elise Becker and Ruediger Munzert" (bold, so a button) is 150 px wide in
+  a 115 px cell. The label does not wrap and runs 55 px into the next cell. The table scrolls (overflow auto) and its
+  own width is right. One document, a 2023 event page. The source's markup is <strong><a>, and an unwrapped link would
+  not be www's bold, so no row. Order 77 proposed the same kind of rule for TAP's table buttons (min-width 0); for
+  lufthansa.com one document does not make a rule.
+  /fr/fr/support/support 390: the help-center list (d).
+- Empty section: 1 / 2, /fr/fr/lufthansa-city/culinaryjourney (e).
+- Heading size: 1 / 1, /se/en/yes3 1440. The destination finder's H2 "Cities results..." is its screen-reader-only
+  results heading (class destination-finder-sr-only), and its H3 is "No results for you" because the fares API is
+  refused. ARTEFACT and FUNCTION.
+- Not served: /mk/de/discover-temporarygarage-do-not-publish/families, 404 at both widths. The document is in the upload
+  state, but its name says not to publish it, and it is not published. LISTED.
+- Off its source copy: 275 compared (the source served at both widths), 213 within 15 %, 62 more than 15 % off; 53
+  have no source document (feedback/feedbackai, local-page/..., carbon-offsetting1 and others that exist in the market
+  alone).
+  59 of the 62 are market homepages against their language version's homepage, and the blocks show why (homeshape.py,
+  served copies):
+    41 are taller and add a destination-finder (the market's own fares; the xx/<ll> neutral homepages have none),
+       e.g. /es/es +47 % / +41 %, /pl/pl +72 % / +66 % (also its own fare teaser and accordion of destinations).
+     2 are taller with a destination-finder and a market hero (/cy/el, /gr/el +87 % / +74 %).
+     1 is taller by a flush band (/ru/ru +13 % / +26 %).
+    15 are shorter: the rest-of-world English homepages (/ca/en, /by/en, /er/en, /il/en, /iq/en, /ir/en, /ly/en, /no/en,
+       /qa/en, /ru/en, /sd/en, /se/en, /ua/en, /ca/de, /ru/de). Each has its market hero ("Lufthansa in Canada" ...)
+       in place of de/en's German-market stage promotions, fare teaser, offers cards and destinations accordion.
+  CONTENT: each market homepage is its own document from its own www page. No section is missing that its siblings
+  of the same shape have. www was not read.
+  The other 3:
+    /al/en/sixt 390 +23.0 % (1440 +14.4 %): al/en's document has an intro paragraph before the car-rental widget,
+      de/en's has the widget alone. CONTENT.
+    /az/de/overview-travel-information 390 -15.6 % (1440 -4.3 %): az/de has no "Flughafen An- und Abreise" teaser
+      (Lufthansa Express rail and partners), which de/de and at/de have. A market text, likely www's (rail for
+      Germany and Austria). Not proven without www. LISTED.
+    /fr/fr/support/support 1440 -86.2 %, 390 -68.8 % against /xx/fr/support/support. fr/fr is the help-center app page,
+      as de/en, de/de, at/de and gb/en are (1,822-2,325 px). The source /xx/fr/support/support is a long static help
+      page (H1 "Aide et Contacts", grey band, carousel cards, accordions: 13,541 / 7,456 px), as /xx/pt's and /xx/ru's
+      are. The odd one is the source, which is in switch batch 15 (ema-adobe's): not fr/fr's fault.
+
+App pages and other (79 documents, 158 page-widths: 75 /content/mobile/lh/..., 3 /content/lh/markets/...,
+/drafts/page-check/test-page)
+-------------------------------------------------------------------------------------------------------------------
+- Broken picture: 68 / 136 page-widths. The app blocks (app-offer, app-article-list from /content/mobile/lh/
+  query-index.json, app-teaser-slider) write www's DAM addresses (https://www.lufthansa.com/content/dam/...), so here
+  all are refused. Every such address in the 78 served documents and the index was asked of our host's /content/dam
+  route, one at a time: 259 addresses, 219 answer 200 (they draw once lufthansa.com is ours), 40 answer 404:
+    39 /content/dam/lh/images/local_images/mobile/100-years/... (the 100 years timeline: mobile_timeline_content_*,
+       new_mobile_timeline_content_*, new_mobile_100y_content_overview_header.png) and
+     1 /content/dam/lh/images/local_variations/c-1037930510-new_mobile_timeline_content_part_2_image_04.png.
+  FAULT at the switch, LISTED: on /content/mobile/lh/de and /en/content-pages/100-years-of-lufthansa, 3 drawn
+  pictures each. On their part-1 to part-3 pages the pictures are DA's own media, wrapped in links to these www
+  addresses: they draw, but the links would 404. The fix is DAM copies of these 40 files (tools/importer/dam-copy.mjs
+  reads www: not tonight). No document row or style rule would do it.
+  The other 66 documents: ARTEFACT of the refusal.
+- Never loaded, sideways, overlaps, sizes: 0.
+- Text over another element: collision pass pending.
+- Not served: /drafts/page-check/test-page (404, a draft). LISTED.
+- No source copies (app pages, not market pages).
+
+For ema-adobe (faults on 3 or more documents)
+---------------------------------------------
+No style rule is proposed. No fault on 3 or more documents is a style matter. Two are not style matters:
+1. The help-center stage picture (c, 9 documents here, every help-center page site-wide). Proposal, code, not CSS:
+   the micro-frontend's brand pictures (BRAND_DESIGN_SYSTEMS[www].pictures, as 70c60a7d did for Austrian's
+   help-center-web on austrian.com) for lufthansa.com's help-center-web, pointing main.png at a DA copy. The copy has to
+   be made first: the file is only on www today. Gate once a copy exists: the stage picture's height on the 9
+   documents at 1440 and 390 (0 px now).
+2. The app pages' 40 missing DAM files (2 documents drawn broken, 6 with dead picture links): copies needed, no code.
+
+Counts
+------
+Final section pending (pushed with the last tree).

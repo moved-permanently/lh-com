@@ -1,0 +1,92 @@
+[
+ {
+  "path": "/de/en/common/seatreservation-condtions/rebookings-cancellation",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-6\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/common/seatreservation-condtions/refund",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-8\">"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/common/seatreservation-condtions/rebookings-cancellation",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-6\">"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/common/seatreservation-condtions/refund",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-8\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/common/seatreservation-condtions/economy-light-fare",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-4\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/common/seatreservation-condtions/rebookings-cancellation",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-6\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/common/seatreservation-condtions/refund",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-8\">"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/common/seatreservation-condtions/economy-light-fare",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-4\">"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/common/seatreservation-condtions/rebookings-cancellation",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-6\">"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/common/seatreservation-condtions/refund",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq\">",
+    "text": "<div class=\"accordion-columns faq open-8\">"
+   }
+  ]
+ }
+]

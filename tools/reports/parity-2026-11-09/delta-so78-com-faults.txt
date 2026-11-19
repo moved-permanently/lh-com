@@ -1,0 +1,55 @@
+# ema-cashub, standing order 78 (2026-11-19), item 2: lufthansa.com's final documents, the one fault of the sweep
+# (sweep-so78-ema-cashub.txt) that a document's own source would fix.
+# The fault: five neutral-version documents are 105 % to 189 % taller than their source-language copies (xx/en against
+# de/en, xx/de against de/de): /xx/en/common/seatreservation-condtions/rebookings-cancellation and /refund,
+# /xx/de/common/seatreservation-condtions/economy-light-fare, /rebookings-cancellation and /refund. The text of each pair
+# is the same (886 words each for xx/en and de/en refund). The only difference in the markup is the FAQ accordion's option:
+# the xx copies (imported 17 Nov) have "accordion-columns faq open-N", every item open (open-4, open-6, open-8: the
+# items' count). The de/en, gb/en, de/de and at/de copies (imported 6 Nov) have "accordion-columns faq", every item
+# closed. The importer has read www's expanded items (maui-collapsible-item expanded -> open-N) only since a904be82,
+# 8 Nov. The 6 Nov imports came before that commit, so their closed items do not say what www shows. The 17 Nov
+# imports read www's xx pages with every item expanded.
+# The rows give the ten de-side copies in this sweep the option their xx copies have. Each is a block option (a
+# carrier), not a style marker: token-free.
+# HOLD, not READY: which state is www's for the de/en, gb/en, de/de and at/de pages is not proven. No request was made
+# to www tonight, and no recording of these pages is on disk. The xx captures make it likely (same text, same block, the
+# neutral version of the same page), but it is still an inference. A row goes READY on one of: a recording or a
+# re-import of one de-side page with today's importer that shows the items expanded, or the owner's word. If www's
+# de-side pages have their items closed, the fault is the other way round (the xx copies' open-N), and these rows must
+# not be applied.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so78-com-faults.json
+#   --list <this file> --docs <lh-com: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (single read-only GETs of admin.da.live, one per document, 19 Nov about 21:45 to
+# 21:50 CET), with every row taken as READY in a scratch list: 10/10 "1 inserted, 0 present", "without the inserts DA's
+# copy byte for byte: true". A second run on the output gives "present" for all 10. No {…} in any output. The anchor
+# '<div class="accordion-columns faq">' is in each DA copy exactly once.
+# Gate (lufthansa.turnsthe.page, 1440 and 390, the row's effect injected in the same load: every item of the page's FAQ
+# accordion opened, so77/nb77s.mjs STEP): each copy then measures exactly its xx copy's height (table), with no new
+# flag of the sweep's check on any of the 20 page-widths. Airline hosts, www.* and lh-proxy were refused per request,
+# none were sent. The pages are not recorded by www, so the half-point gate against www cannot be read.
+# status	path	width	recording	xx copy	as served	with the row	note
+HOLD	/de/en/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,779	1,357	2,779	open-6 (xx/en's); www's de/en state unproven
+HOLD	/de/en/common/seatreservation-condtions/rebookings-cancellation	390	-	4,615	1,843	4,615	as above
+HOLD	/de/en/common/seatreservation-condtions/refund	1440	-	3,821	1,669	3,821	open-8 (xx/en's); www's de/en state unproven
+HOLD	/de/en/common/seatreservation-condtions/refund	390	-	6,154	2,274	6,154	as above
+HOLD	/gb/en/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,779	1,357	2,779	open-6, as de/en
+HOLD	/gb/en/common/seatreservation-condtions/rebookings-cancellation	390	-	4,615	1,843	4,615	as above
+HOLD	/gb/en/common/seatreservation-condtions/refund	1440	-	3,821	1,669	3,821	open-8, as de/en
+HOLD	/gb/en/common/seatreservation-condtions/refund	390	-	6,154	2,274	6,154	as above
+HOLD	/de/de/common/seatreservation-condtions/economy-light-fare	1440	-	3,153	1,494	3,153	open-4 (xx/de's); www's de/de state unproven
+HOLD	/de/de/common/seatreservation-condtions/economy-light-fare	390	-	5,335	2,110	5,335	as above
+HOLD	/de/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,927	1,384	2,927	open-6 (xx/de's); www's de/de state unproven
+HOLD	/de/de/common/seatreservation-condtions/rebookings-cancellation	390	-	5,200	1,983	5,200	as above
+HOLD	/de/de/common/seatreservation-condtions/refund	1440	-	4,142	1,720	4,142	open-8 (xx/de's); www's de/de state unproven
+HOLD	/de/de/common/seatreservation-condtions/refund	390	-	7,293	2,522	7,293	as above
+HOLD	/at/de/common/seatreservation-condtions/economy-light-fare	1440	-	3,153	1,494	3,153	open-4, as de/de
+HOLD	/at/de/common/seatreservation-condtions/economy-light-fare	390	-	5,335	2,110	5,335	as above
+HOLD	/at/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,927	1,384	2,927	open-6, as de/de
+HOLD	/at/de/common/seatreservation-condtions/rebookings-cancellation	390	-	5,200	1,983	5,200	as above
+HOLD	/at/de/common/seatreservation-condtions/refund	1440	-	4,142	1,720	4,142	open-8, as de/de
+HOLD	/at/de/common/seatreservation-condtions/refund	390	-	7,293	2,522	7,293	as above
+#
+# DA change (lh-com), every row's path: the FAQ accordion's class list "accordion-columns faq" gets open-N, where N is
+# its item count (economy-light-fare 4, rebookings-cancellation 6, refund 8), the option its xx copy has.
+# Not in these rows: /de/en/common/seatreservation-condtions/economy-light-fare and its gb/en copy are in switch batch
+# lists (ema-adobe's tonight). xx/en's copy of it is in a batch list too.
