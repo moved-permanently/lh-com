@@ -1466,6 +1466,16 @@ body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 
   }
 }
 
+/* standing order 72, item 2 (addendum 2): from 1025 px the column beside the aside 100 px under a stage, as www's
+   (swiss-first de 1440: www's column H2 101 px under the stage picture, ours 64; -0.65 -> +0.19 %). Not under a flush
+   stage: food-and-beverage's gap on www is a divider module (+0.34 -> +2.57 % with it). Reach: the three swiss-first
+   copies */
+@media (width >= 1025px) {
+  body.brand-swiss main > .section.stage:not(.flush) + .section.with-aside {
+    margin-top: 100px;
+  }
+}
+
 /* standing order 72, item 2: from 1025 px the H3 that opens a card row in the column, after the column's running text,
    52 px under it as www's column view heading (swiss-first, swiss-premium-economy, swiss-economy: www 52, ours 32) */
 @media (width >= 1025px) {

@@ -421,3 +421,16 @@ closer. The sum goes 141.71 -> 108.76.
 - **Five unrecorded samples at 390**, every section loaded and nothing flagged: cn/en cash-and-points, xx/en
   carry-on-baggage, de/de our-european-fares, the de/en new light fare news and the de/en refund fees news.
 - **Group for Business over all 198 page-widths:** 261.02 -> 228.07 (order 71's 184 stay at 143.68: these three are this order's recordings).
+
+## Addendum 2: the SWISS column under a stage (item 2's swiss-first cause, shipped)
+
+- **The cause:** swiss-first's first moving box with the column is its column H2, 37 px high under the stage. www's H2
+  is 101 px under the stage picture, ours 64.
+- **Why it failed in item 2:** there it was tried for every stage. food-and-beverage's stage section is flush (no gap),
+  and its 99 px on www are a divider module: +0.34 -> +2.57 %.
+- **The rule:** from 1025 px, the column beside the aside sits 100 px under a stage that isn't flush.
+- **Gate (all 84 recorded SWISS 1440 page-widths in the same load; the code against live on the same 84):** 1 moved,
+  closer. swiss-first de 1440 goes 4,294 -> 4,330 against www's 4,322 (-0.65 -> +0.19 %).
+- **Reach:** the 3 served swiss-first copies (de, en, fr), of the 14 documents with a stage over the column. The other
+  11 are food-and-beverage's flush stages.
+- **SWISS over all 168 page-widths:** 540.06 -> 539.60.

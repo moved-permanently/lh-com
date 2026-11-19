@@ -44,6 +44,10 @@ test('swiss.css: the split column under the lead, the tab set under the lead, th
   assert.match(swiss, new RegExp(`@media \\(width >= 1025px\\) \\{\\s*${esc(card)} \\{\\s*margin-top: 52px;`));
 });
 
+test('swiss.css: the column 100 px under a stage that is not flush, from 1025 px', () => {
+  assert.match(swiss, /@media \(width >= 1025px\) \{\s*body\.brand-swiss main > \.section\.stage:not\(\.flush\) \+ \.section\.with-aside \{\s*margin-top: 100px;/);
+});
+
 test('swiss.css: the usp teaser title the full width, its own line height, 12 px under it', () => {
   assert.match(swiss, /\.carousel-cards\.usp:is\(\.grid, \.four-up\) \.carousel-cards-slide:not\(\.carousel-cards-text-only, \.carousel-cards-wide\) \.carousel-cards-body:not\(:has\(> \.carousel-cards-cta:last-child\)\) \{\s*padding-bottom: 20px;\s*padding-inline: 0;/);
   assert.match(swiss, /\.carousel-cards\.usp \.carousel-cards-body :is\(h1, h2, h3, h4, h5, h6\) a:any-link \{\s*color: inherit;\s*text-decoration: none;\s*vertical-align: top;/);
