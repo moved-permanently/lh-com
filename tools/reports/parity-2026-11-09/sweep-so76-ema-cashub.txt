@@ -1,0 +1,156 @@
+Standing order 76 - full-site no-breakage sweep, SWISS and Group for Business (Thu 19 Nov 2026, from ~14:10 CET)
+===================================================================================================================
+
+What was rendered
+-----------------
+- Lists: every served document of each brand in its upload state on origin/main (the DA list), as served on
+  swiss.turnsthe.page and b2b.turnsthe.page. The market roots come from tools/workers/lh-edge/src/sites.js: 227 SWISS
+  roots and 187 B2B roots. A root redirects to its /<market>/<lang>/homepage, so a root without its own homepage
+  document was added as that path. Nav, footer and modal-fragment documents were not rendered as pages: they are drawn
+  in every page's header, footer and modals (SWISS 674, B2B 4).
+- Widths 1440 x 900 and 390 x 844. Chrome headless with unhinted text and consent stored. One browser at a time,
+  9-11 pages in parallel inside it, about one page a second on our host.
+- Each page-width was measured only after: the load event, lazy pictures made eager, one scroll through the page,
+  network idle (8 s cap), then every section and block reporting loaded, every drawn picture complete, and the height
+  the same on 3 reads 500 ms apart (15 s cap). Page-widths that did not settle by the cap, errors, sections or blocks
+  not loaded, sideways scroll, overlaps and both sides of every height outlier were read again alone, with 25-40 s caps.
+- Requests to www.*, lh-proxy and every airline host were refused and counted, never sent: SWISS 14,387, B2B 103.
+  www's pages were read only from recordings on disk (swiss-parity-001/-002a/-002b, b2b-parity-014). DA read only;
+  no upload, preview or publish. No row was written. /de/en/overview-manage has no row.
+- Flags per page-width: broken or zero-height picture; sideways scroll (and the element that causes it); a section or
+  block that never loads; consecutive blocks drawn over each other; cells drawn over each other; a block wider than its
+  column; content running out of its block; text spilling out of its own box or cut; an empty drawn section; an empty
+  cell of a multi-cell row beside full ones; headings of one level drawn in different sizes in one block or one
+  section's text; a list drawn in another size than the paragraphs beside it; a page more than 15 % shorter or longer
+  than its source-language copy at the same width (SWISS market copies against /ch/<lang>/same path, B2B against
+  /de/<lang>/same path).
+- Scratch (not in git): migration-work/parity-588/so76 (nb76.mjs, sum.py, grp.py, probes, outputs).
+
+SWISS (swiss.turnsthe.page)
+---------------------------
+Documents rendered 4,661 (all 11 languages: en 1,169 docs, de 1,089, fr 576, it 495, es 300, zh 293, pt 290,
+ru 283, el 281, ko 281, ja 278, less nav/footer/fragments; the 227 market roots are their homepage documents).
+Page-widths 9,322, all 200 in the end. One had an error (a magazine page, connection closed) and answered 200 when
+read again alone. 269 page-widths were read again alone.
+
+Faults found per kind (page-widths / documents as flagged), and what they are:
+
+1. Broken picture: 0 / 0.
+
+2. Sideways scroll: 1 / 1 in the sweep (ch/de immigration-regulations-worldwide 390, a picture 2,178 px wide).
+   Read alone the page is 390 px wide and the picture fits: a broken load. Final count 0.
+
+3. Section or block that never loads: 5 / 3 in the sweep (ch/en homepage 390; ch/it and ch/ja swiss-airrail at both
+   widths: the accordion stayed "loading"). Read alone, every section and block loaded. Final count 0.
+   Pictures still loading at the 15 s cap: 1,343 / 728, with every section and block loaded (1,300 of them magazine
+   pages). Read again alone: 47 sampled magazine page-widths all settled at the same height as in the sweep. The other
+   22 kept 2-3 carousel slide pictures pending at the same height; those slides load when viewed alone
+   (swiss-senses/economy). Not findings.
+
+4. Text or a block running out of its column or over another element
+   - Blocks drawn over each other: 160 / 80. All are design measured from www:
+     . 56 market homepages: the flight search starts 11 px up into the flash teaser strip (flash-teaser.css,
+       www's -11 px on /de/en/homepage).
+     . 24 magazine hub pages: the breadcrumb is drawn on the hero (www's position).
+   - Content outside its block: 22 / 11, /ch/<lang>/baggage-reimbursement at both widths. This is the baggage form's
+     closed help tooltip (maui-tooltip: popup sr-only, opacity 0). Nothing is drawn. Not a fault.
+   - Text spilling out of its box: 19 / 19.
+     . 17 documents (customer-support, contact-us, help-center, hilfe-center at 390): the help-center app's topic
+       list items scroll 22 px wider than their box, but nothing is drawn outside it. This is www's compiled app, not
+       a fault.
+     . LISTED, 2 documents: /ch/el/fly/flight-information/arrival-departure 390 and
+       /ch/ru/fly/flight-information/arrival-departure 390. Cause: the flight-status block's three tabs share 346 px
+       (115 px each) and their labels don't wrap, so the Greek "Αριθμός πτήσης" / "Δρομολόγιο πτήσης" run 13 and
+       26 px into the next tab and Russian "Маршрут рейса" 3 px.
+
+5. Empty section or column
+   - Empty sections: 70 / 35.
+     . 11 culinaryjourney (all languages): the culinary hub app draws inside its shadow DOM (7,787 characters in
+       ch/en's). The check reads light DOM only. Not a fault.
+     . CONTENT, 22 documents (a350/facts and prepare/baggage/baggage-irregularities, all 11 languages each): the
+       document's last section is an empty section with the style padded, drawn as 80 px of space above the footer.
+       On the recorded ch/de baggage-irregularities the page is +5 px (1440) and -31 px (390) from www's height.
+       Taking the 80 px away would put it at -75 / -111, so it stays (parity first).
+     . CONTENT, 1 document: /lt/de/homepage 1440 and 390, a grey section holding a list of 9 empty items (the
+       document's own).
+     . CONTENT, 1 document: /kr/it/book-and-manage/flights 1440 and 390, an empty "column-band grey" section, 64 px
+       (the document's own).
+   - Empty columns: 86 / 80.
+     . CONTENT, 52 documents at 1440 (medical-travel-companions, golf-traveller, immigration-regulations-schengen,
+       corporate-citizenship, economic-sustainability, the local-page conditions pages, ...): the Columns Media
+       sidebar's second cell (the aside) is empty in the document. The sidebar's 75 / 25 grid keeps it as a 201 px
+       blank column, as www's .airem-sidebar does, whatever the cells hold. Nothing is drawn.
+     . 28 documents (core forms: refund-form, emergency-contact, register-sports-baggage, accessible-travel-form,
+       register-animals, ...): a 72 px form cell. This is the Turnstile challenge box ("Verify you are human")
+       while it loads. Read alone, the cell is gone and the page is 72 px shorter (refund-form 4,108 -> 4,036).
+       Not a fault, and it is not hidden.
+
+6. A heading or list drawn in a wrong size against its siblings
+   - Headings: 109 / 60.
+     . FIXED (7682e70a), 11 documents: /ch/<lang>/prepare/baggage/hand-baggage at 390 (all 11 languages).
+       Columns Media link-list icon headings ("1 personal item") drew 18 px beside the fare-class headings
+       ("Economy Basic") at 16 px. www's .link-list headings are .heading-copytext-large: 16 px below 1025 px and
+       18 px from 1025 (www's recorded stylesheet). SWISS's icon headings now take 16 px below 1025 px
+       (columns-media.css). Reach: the option's icon headings are on these 11 documents only (21 each; served copies
+       of 19 Nov). On all 11, each was rendered at 390 and 1440 with the rule on top in the same load: the flag is gone
+       at 390, there are no new flags, heights move 0 px, and 1440 is unchanged.
+     . LISTED, 11 documents (one www page in 11 languages): book-and-manage/offers/miles-and-more, 1440 and 390.
+       "Travel with privileges" draws heading-medium (36 / 28 px) beside heading-small H2s; www's recording (ch/en)
+       has heading-small. Cause: order 71's accordion-headings rule (an H2 right before an accordion is
+       heading-medium). The recorded online-check-in has the same structure (an H2 of the same run before it) and www
+       draws heading-medium there, so no structural rule separates the two. Writing one from a single www page is
+       the risk the site-wide reach rule warns about, so it stays listed.
+     . By design (order 71's accordion-headings rule, www's FAQ headline beside its accordions; unrecorded), 26
+       documents: discover/lufthansa-group/ita-airways "FAQ" (11), prepare/special-care/health-and-travel (11),
+       swiss-choice/hold-the-booking (2), various/airportr (2).
+     . Function (live fares), 12 documents: offers and flights. The destination finder shows its "no results" message
+       heading and its screen-reader heading, because the fare answers are not there.
+   - Lists: 8 / 4.
+     . ch/de terms-conditions/imprint: the footnote list draws 14 px, order 74's small print. Design.
+     . 3 magazine articles (nonna's secret recipes de and en, last-minute destinations de): the lists draw the body's
+       18 px. The 24 px paragraphs beside them are bold sub-headings, which the check took for the paragraph size.
+       Not a fault.
+
+7. A page more than 15 % off its source-language copy at the same width: 47 / 31 after the re-reads (the sweep's 80
+   included broken loads such as ch/en/homepage 390, which read 3,251 px instead of 5,139). All 31 are CONTENT: the
+   copy is its own www page, with other blocks and headings than /ch/<lang> (block and heading lists compared):
+   23 market homepages, ca/en and ca/fr vouchers (two more accordion sections), kr/fr and kr/it agb-extra-services-at-online-check-in
+   (other conditions text), ro/de fly/on-board, kr/it voucher-conditions-overview (a second carousel),
+   kr/it book-and-manage/flights (one Columns Media fewer), gb/en various/airportr (a two-element page against
+   ch/en's 19).
+
+SWISS totals: 7 fault kinds checked. Real faults found: 3 (link-list icon heading size, miles-and-more heading size,
+flight-status tab labels). Fixed by rule: 1 (11 documents). Listed: 2 (13 documents). Content: 5 groups
+(107 documents). The rest are measurement artefacts or design read alone or against www.
+
+Group for Business (b2b.turnsthe.page)
+--------------------------------------
+Documents rendered 912 (729 served documents in de and en less nav/footer, and 183 market roots as their homepage
+paths). Page-widths 1,824, all 200 in the end. During the sweep, 22 page-widths (rows 1,109-1,234, 11 pages at once)
+answered 429 Too Many Requests. They were read again with 3 pages at once and all answered 200; the rest of the sweep
+saw none. 68 page-widths were read again alone.
+
+1. Broken picture: 3 / 2 in the sweep (news/archive en, a320-retrofit de; pictures from the 429 window). Read alone:
+   0.
+2. Sideways scroll: 0.
+3. Section or block that never loads: 0. 16 member documents land on the login page
+   (/de/<lang>/login, login-internal, the experts-members mock authorize page): the member area, function.
+   experts-members draws no main there (2 documents, both widths).
+4. Text or a block out of its column or over another element: 0.
+5. Empty section or column: 0.
+6. Heading or list size against its siblings:
+   - CONTENT, 4 documents (travel-management/hygiene-and-safety: de/de, de/en, xx/de, xx/en), 1440 and 390. The
+     stage's title H2 draws 28-32 px over its teaser H2s at 18 px. www's recording (b2b-parity-014, de/de 390) has the
+     same: heading-medium 28 px over stage-teaser-headline 18 px.
+   - 1 document (program/experts/route-network/lufthansa): the list draws the body's 18 px. The 14 px paragraph
+     beside it is a link line. Not a fault.
+7. More than 15 % off its source copy: 20 / 13. All CONTENT: the copies are their own pages (gb/en
+   programs-and-groups, mx/en news, ch/en travel-classes-and-booking, the al/de travel-management and about-us
+   pages, mx/en privacy, ... carry other sections than /de/<lang>). On phones the source news hub and
+   programs-and-groups draw their tab panels as closed toggles, as designed.
+
+B2B totals: no fault to fix or list. Content: 2 groups (17 documents). Function: the member pages.
+
+READY rows
+----------
+None. Neither brand's faults needed a row: the one fault fixed was by rule, and the listed ones stay listed.
