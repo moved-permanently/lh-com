@@ -7102,3 +7102,81 @@ TAP was last run in order 64 (580.94); this is today's run.
   - logs/p4/so67: captures, heading passes, trial CSS for the held rules, the sweep's copy.
   - content/, migration-work/ and tools/importer/reports/* (not mine).
 - **Cleanup:** no local server started; the suite worktree removed.
+
+## Standing order 68 (received about 22:05 UTC, 2026-11-19)
+
+Themes: Austrian, Cargo, TAP and Air Dolomiti. The families still open after order 67, worked by rule with the usual gate.
+Lists: tools/reports/parity-2026-11-09/gate-so68.txt and closing-so68-ema-test.txt.
+
+### Order 67, finished
+
+- **The report commit:** cd5463fb waited unpushed when the turn ended. It went out as 7571a861 after lint 0, the folder tests (693,
+  0 failed) and the data-only pull's tests; its Build succeeded.
+- **Its closing figures:** Austrian 4,537.46 / 16.05 %, Cargo 1,341.95 / 8.86 %, TAP 584.26 / 9.61 %, Air Dolomiti 1,025.91 / 7.14 %.
+  The Austrian phone re-measure behind them had finished (123 page-widths at 390, 2,133.09 with order 67's phone rule live).
+- **The suite at 9c2d693e (order 67's last code):** 1,315 files passed, 0 failed.
+- **A restart between the turns:** it cleared /tmp. The recordings were relinked from logs/drops and the clean test worktree was made
+  again.
+
+### Shipped
+
+- **Austrian (5eec7d5f):** on phones an unpadded Columns Media grid's rows 38 px apart, as www's (each row's heading 28 px low on
+  overview-travel-information, travel-classes, additional-services). 123 page-widths at 390: 2,133.09 -> 2,094.81, none further.
+  Reach: 129 documents; six unrecorded ones rendered.
+- **Air Dolomiti (bccb1e1e):** over a destination stage an article's byline right under its title, as www's (the stage 21 px low at
+  1440). Every article failed (archistars +3.96). The narrower try, articles with a stage: 118 page-widths 1,025.95 -> 1,000.58,
+  none further. Reach: 44 documents; four unrecorded ones rendered.
+
+### Held
+
+- **Cargo's phone trail and the titles under it:** three tries; speed-zoom, support-and-contact, fleet and live-animals end further.
+  www's phone trail sits differently by template.
+- **TAP's 32 px under a medium heading on phones:** cartoes-de-credito 390 +1.26, stopover/partners 1440 +0.79. No structure separates
+  cartoes from the three pages it would fix.
+
+### Rows
+
+None. No open fault is fixed by a document's own source without a style token.
+
+### The closing list
+
+closing-so68-ema-test.txt. Nothing stays open: every page-width over 3 % carries a class and a reason.
+
+| brand | > 3 % | content | live data | function | font | Lufthansa side | pattern < 3 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Austrian | 230 of 246 | 120 | 0 | 0 | 23 | 33 | 54 |
+| Cargo | 103 of 113 | 35 | 0 | 6 | 28 | 10 | 24 |
+| TAP | 50 of 52 | 14 | 5 | 2 | 0 | 3 | 26 |
+| Air Dolomiti | 94 of 118 | 42 | 14 | 2 | 0 | 8 | 28 |
+
+- **Lufthansa side:** www's own picture renditions on the grid, stage and fleet pages, www's per-template trail on Cargo's phones, and
+  TAP's per-page heading gap.
+- **Held rules:** their page-widths carry the class of what remains, the rule named in the reason. These are the Austrian 1440 cell
+  text, Air Dolomiti's accordion and FAQ titles, its hub trail and button labels, and Cargo's page-top title.
+
+### Each brand's sum and median at the end
+
+| brand | page-widths | sum | median |
+| --- | --- | --- | --- |
+| Austrian | 246 | 4,498.70 | 16.05 % |
+| Cargo | 113 | 1,341.95 | 8.86 % |
+| TAP | 52 | 584.26 | 9.61 % |
+| Air Dolomiti | 118 | 1,000.64 | 6.92 % |
+
+### Final section (about 23:55 UTC, 2026-11-19)
+
+- **Order 67 finished:** 7571a861 (its report, gate list and closing list); Build succeeded. Closing figures as in its own section.
+- **Order 68 pushed:** 5eec7d5f (Austrian phone grid rows), bccb1e1e (Air Dolomiti article byline); Build succeeded. Cargo and TAP:
+  nothing shipped (held, gate-so68.txt). This section, gate-so68.txt and closing-so68-ema-test.txt follow.
+- **Rows:** none.
+- **What stays open:** nothing. 477 page-widths over 3 % carry a class: content 211, pattern under 3 page-widths 132, font 51,
+  Lufthansa side 54, live data 19, function 10.
+- **Checks before each push:** whole-repo lint 0; stylelint on the changed themes 0; folder-reading tests 0 failed; the theme-reading
+  tests passed. Data-only pulls ran the da-upload-sites and loc-sites tests.
+- **The full suite at bccb1e1e:** npm run lint exit 0, stylelint exit 0, 1,316 test files passed, 0 failed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA read or write, no admin purge.
+- **Requests:** our four hosts (reads), GitHub's API. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off.
+- **Not in git:** logs/p4/so67 and so68 (captures, heading passes, trial CSS for the held rules); content/, migration-work/ and
+  tools/importer/reports/* (not mine).
+- **Cleanup:** no local server started; the suite worktree removed.

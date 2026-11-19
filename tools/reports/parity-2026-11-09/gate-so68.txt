@@ -1,0 +1,62 @@
+# ema-test, standing order 68 (2026-11-19/20): every rule gated in this order, on the brand's recorded page-widths (our host as
+#   served, full Chrome, airline hosts refused, captures at full length, the rule in the same load; logs/p4/so68 gate.sh). The gate: no
+#   page-width more than 0.5 points further from www than before, the sum down; a failing pattern gets one narrower second try, then
+#   it is held. The families are the open ones of closing-so67-ema-test.txt (3 or more page-widths sharing a cause).
+
+## Shipped
+
+Austrian, on phones an unpadded Columns Media grid's rows 38 px apart (family "390: h2 -> h2 +28 px", 5 page-widths): 5eec7d5f.
+  www's rows on overview-travel-information, fly/travel-classes and additional-services stand 38 px apart at 390 (each row's heading
+  28 px low against www's 1448 / 1922); ours kept the block's 66 px. The padded grids (book/overview-manage, book/flights) are www's
+  already. Two selectors: an :is() of both picture forms inside :has() matched nothing.
+  123 page-widths at 390: none further, 2,133.09 -> 2,094.81 (overview-travel-information at/de 15.15 -> 5.50 %, at/en 15.48 -> 6.63,
+  travel-classes at/de 11.50 -> 4.30, at/en 11.23 -> 4.08, additional-services at/en 11.13 -> 5.70). 1440 untouched.
+  Reach: 129 of 2,108 documents; six unrecorded ones rendered live with the rule (at/de and pl/pl faq, cn/zh book/overview-manage
+  -84 px, es/es upgrades, gr/el entryregulations, it/it vienna-airport): no sideways scroll.
+
+Air Dolomiti, over a destination stage an article's byline right under its title (family "1440: h1 -> h2 +11 px", 4 page-widths):
+  bccb1e1e. www's reading time stands 20 px under the title, ours 40 (the meta line's 20 px padding): the stage under it 21 px low
+  at 1440 (the stage's title box padding read the other 10).
+  First try, every article: 118 page-widths 1,025.88 -> 1,005.66, but en/articles/dyk/airports-designed-by-archistars 1440 19.44 ->
+  23.40 and 390 17.43 -> 18.54 (no stage).
+  Second, narrower try (pages with a destination stage): 118 page-widths none further, 1,025.95 -> 1,000.58
+  (dove-ladriatico-si-fa-selvaggio 1440 10.63 -> 6.76 %, die-wilde-seite-der-adria 1440 10.56 -> 6.98, street-food-in-munich 390
+  22.05 -> 18.47, where-the-adriatic-becomes-wild 1440 -3.32).
+  Reach: 44 served documents with an article header and a destination stage; four unrecorded ones rendered live at 1440 and 390
+  (der-autopilot, die-barcolana-in-triest, aircraft-maintenance-at-air-dolomiti-hangars, the-best-snowshoeing-near-verona): the
+  byline 20 px higher, each page 20 px shorter, no sideways scroll.
+
+## Held
+
+Cargo, the phone trail and the titles under it (families "390: the first heading +26 px" industries-in-focus / onerecord and
+  "390: the first heading -20 px" ehm / support-and-contact, 6 page-widths), one candidate of three parts at 390 (the trail 2 px under
+  the stage picture, 40 px under the trail before an H1 section, the H1 42 px under a trail-only section):
+  51 page-widths 726.93 -> 710.97, but support-and-contact en 11.74 -> 12.82 and de 11.73 -> 12.77 (the H1 at www's 136, the page
+  further) and speed-zoom de 7.22 -> 7.86, en 7.05 -> 7.61 (its trail section before a grey section).
+  Second, narrower try (no H1 part, the trail moved only before a non-grey section): speed-zoom de 7.22 -> 10.60 (+20 px: its trail
+  section keeps 20 px, not 48, so the 40 adds). Stopped at 27 of 51.
+  The trail part alone, before a non-grey section (its own narrower try): stopped at 46 of 51, 682.97 -> 676.31 but six further:
+  fleet-ulds/fleet en 18.20 -> 24.72, de 15.94 -> 22.35, live-animals de 11.74 -> 14.14, en 11.00 -> 13.00, ulds/containers 14.73 ->
+  16.62, eservices/efreight 9.22 -> 9.73. www draws its phone trail as a "Back" link 18 px higher on the product pages and where ours
+  is on fleet and live-animals: its templates differ (Lufthansa side).
+
+TAP, 32 px under a medium heading on phones, as www's (family "390: h2 -> h2 -4 px", 3 page-widths; TAP's --heading-margin-xl runs 28
+  -> 32 px from 375 to 1440, www's is 32): 52 page-widths 574.05 -> 566.27, but pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito 390
+  9.51 -> 10.77 and en-pt/stopover/partners 1440 13.36 -> 14.15. Narrower (phones, default content only): cartoes' heading is a
+  default-content h2 followed by a paragraph like the three pages', so the same run's 390 row fails it. Held (Lufthansa side: www's
+  gap differs page by page).
+
+## Classed, no rule (closing-so68-ema-test.txt)
+
+Austrian ski-campaign-2026: two documents (gb/en, us/en campaigns), 2 page-widths each: pattern under 3 page-widths.
+Austrian baggage es/es, fr/fr, it/it, pl/pl at 390: the headings at www's y; the last cell's text one line more or less per language
+  (19-26 px before the footer) and the footer 5 px taller (order 66's held toggles): font.
+Cargo sustainable-development-goals: www's environment template draws its headline 24 px (LCAGCP-EnvDefaultHeadline); our document's
+  h2 takes the page's h2 size, and one headline has no token-free carrier: content.
+Cargo live-animals: its notice box and long introduction; de and en depart differently at 1440: content.
+Cargo support-and-contact 1440: its contact cards differ (+64 / +71 px at "contact us"): content.
+
+## Rows
+
+None written. No open fault found in this order is fixed by a document's own source without a style token (the Cargo
+  environment headline would need one; the Air Dolomiti hubs' line breaks are held with the trail rule of order 67).
