@@ -1233,3 +1233,20 @@ body.brand-b2b main > .section > .accordion-columns-wrapper + .default-content-w
 body.brand-b2b main .accordion-columns-wrapper + .default-content-wrapper > p.column-mark.column-start-outer:first-child {
   padding-top: 0;
 }
+
+/* standing order 74, item 2 (the table boxes, b2b-parity-018): www's maui-table cells as theirs. A cell's paragraphs 10px
+   apart (www: the lines of "1 personal item / max. 40 x 30 x 15 cm" 34px apart, ours 48), and from 768px its text 32px
+   in from each side (www's cell padding calc(--maui-spacing-5 + --maui-spacing-1) all round; ours 20 at the sides), so
+   the text wraps where www's does. Not a beside-end table (its own rows, order 73). Code against live, all 198 recorded
+   page-widths: see swiss-b2b-so74.md; carry-on-baggage de/de 1440 +2.04 -> -0.88 %, cash-and-points de/en 1440
+   -4.95 -> -3.86 % */
+body.brand-b2b main .table-striped:not(.beside-end) :is(th, td) > :is(p, ul, ol):not(:last-child) {
+  margin-bottom: 10px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main .table-striped:not(.beside-end) :is(th, td) {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}

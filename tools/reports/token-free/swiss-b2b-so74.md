@@ -241,3 +241,62 @@ overlaps, blocks outside the viewport, clipped text and empty runs.
   discover-airlines): the mark already draws 0 there, so nothing moves.
 
 **Also tried for Group for Business:** 80 px under a table followed by a footnote paragraph (zurich-airport): carry-on-baggage de/en 1440 +1.32 -> +2.17 % (the note after its second table is set in <sup> too, as small print): HOLD.
+
+## Item 2, continued: the table cells (pushed with the final section)
+
+- www's maui-table cells (b2b-parity-018's shadow CSS and recordings):
+  - padding `calc(--maui-spacing-5 + --maui-spacing-1)` on every side, 32 px; ours 32 px above and below, 20 at the
+    sides;
+  - a cell's paragraphs 34 px apart line to line; ours 48 (24 px margin).
+- **Shipped (b2b.css):** a cell's paragraphs and lists 10 px apart, and from 768 px the cell's text 32 px in from each
+  side. Not a beside-end table.
+- Each alone was gated in the same load on the 20 recorded table page-widths:
+  - the gap alone: carry-on-baggage de/en 1440 -2.26 % (+0.94): fails;
+  - the padding alone (at every width): rail-fly 390 +5.07 fails; from 768 px, carry-on-baggage de/en 1440 +0.51
+    fails;
+  - both together pass.
+- **Gate with the code against live, all 198 page-widths:** 8 moved, 6 closer, none more than 0.5 points further; sum
+  150.74 -> 145.86 (the live load includes the quote row, by then served; cash-and-points' +19 is that row).
+  - carry-on-baggage de/de 1440 4,896 -> 4,756 (www 4,798: +2.04 -> -0.88 %), 390 6,718 -> 6,578 (www 6,555: +2.49 ->
+    +0.35 %);
+  - carry-on-baggage de/en 1440 4,761 -> 4,617 (www 4,699: +1.32 -> -1.75 %, +0.43), 390 6,725 -> 6,557 (+1.43 ->
+    -1.10 %);
+  - cash-and-points de/en 1440 6,295 -> 6,367 (www 6,603: -4.66 -> -3.57 %).
+- Reach: 31 tables (813 cells) in 23 of the 729 served documents (census on the decorated pages).
+- Samples (5 unrecorded documents, 1440 and 390, live against the code): xx/en carry-on-baggage -144 / -168 px as
+  its recorded copies.
+  - de/en privacy, the two news tables, xx/de rail-fly: unchanged (tables in their scroll box or with one-line
+    cells).
+  - The flags are the same live and with the code (none from the rule).
+
+## Sum and median at the end of the order (all recorded page-widths, every section loaded)
+
+| Brand | At the start (10:05 CET) | With this order's code and READY rows | Lufthansa's part | Ours |
+| --- | --- | --- | --- | --- |
+| SWISS (168) | 529.24, median 0.84 % | 526.05, median 0.79 % | 38 page-widths, 409.39 | 130, 116.66 (46 more than 1 % off, 87.77) |
+| Group for Business (198) | 172.27, median 0.49 % | 145.86, median 0.39 % | 21 page-widths, 26.38 | 177, 119.48 (42 more than 1 % off, 79.14) |
+
+- **SWISS:** Lufthansa's part is order 73's list:
+  - the offers fare list;
+  - pax-receipt's form;
+  - the magazine grids and ads;
+  - culinaryjourney;
+  - the homepages' and check-in entries.
+- **Group for Business, Lufthansa's part:**
+  - the contact data;
+  - the homepages' entries;
+  - businesstogo's form;
+  - new in this order: meals-on-board's empty accordion item.
+- **Ours, the largest left:**
+  - SWISS:
+    - travel-regulations de 1440 -5.49 % and entertainment-on-board de 390 -4.27 % (order 73's page-end rows,
+      previewed, not yet served);
+    - health-and-travel 1440 -4.73 %;
+    - accessibility-statement 1440 -2.93 % (no carrier for its H2 size);
+    - the 794 px column (held).
+  - Group for Business:
+    - rail-fly 1440 -4.39 % (its advantages' icons are missing in the document, -58; the header-row table);
+    - cash-and-points de/en 1440 -3.57 % (the quote's column view);
+    - alliances -2.98 % (the cards' limited-width text, no carrier);
+    - partner-plus-benefit de/de 390 -2.91 %;
+    - kuala-lumpur (www's empty cell lines).

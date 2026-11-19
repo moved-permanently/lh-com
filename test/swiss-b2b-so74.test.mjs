@@ -42,6 +42,12 @@ test('b2b.css: the gap under a table before a heading, and no gap of its own bef
   [t, b, a, m].forEach((s) => assert.equal(b2b.split(`${s} {`).length - 1, 1, s));
 });
 
+test('b2b.css: table cells as www\'s maui-table cells, not a beside-end table', () => {
+  const c = 'body.brand-b2b main .table-striped:not(.beside-end) :is(th, td)';
+  assert.match(b2b, new RegExp(`\\*/\\n${esc(c)} > :is\\(p, ul, ol\\):not\\(:last-child\\) \\{\\s*margin-bottom: 10px;\\s*\\}`));
+  assert.match(b2b, new RegExp(`@media \\(width >= 768px\\) \\{\\s*${esc(c)} \\{\\s*padding-right: 32px;\\s*padding-left: 32px;\\s*\\}\\s*\\}`));
+});
+
 test('the other themes don\'t carry order 74\'s rules', () => {
   const others = fs.readdirSync(new URL('../styles/themes/', import.meta.url)).filter((f) => !['swiss.css', 'b2b.css'].includes(f) && f.endsWith('.css'));
   others.forEach((f) => assert.doesNotMatch(read(`../styles/themes/${f}`), /standing order 74/, f));

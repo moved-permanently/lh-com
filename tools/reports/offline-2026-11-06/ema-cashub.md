@@ -12848,3 +12848,209 @@ da-upload.mjs. /de/en/overview-manage has no row.
 - Scratch stays in migration-work/parity-588/so73: the served copies, the drafts, the runs, the DA copies and the
   scripts.
 - No background job of mine is running.
+
+
+## Standing order 74 (2026-11-19, from about 10:05 CET)
+
+**Left from order 73:** nothing of mine uncommitted or unpushed. Its worktree was clean at 5ab66967, which is on
+origin. The main checkout's dirty entries belong to other jobs and were left alone (blocks/notifications/notifications.css,
+import-progress.json, the importer reports and the urls-*.txt lists).
+
+**Scratch:** migration-work/parity-588/so74 (not in git).
+- From order 73: fulld.mjs and runfd.sh.
+- New: pop.js, which takes a CSS step out again, so one load gates several candidates alone. Also crop.mjs (www's
+  recorded PNGs, cropped offline), lost.py (the marker census), leadcen.py, final.py, the probes, the drafts and the
+  DA copies.
+
+**Requests:**
+- Every render refused airline hosts, www.* and lh-proxy per request. None was sent.
+- www was read only from the recordings on disk.
+
+**DA:** read only, 9 single GETs, one per command (lh-b2b: four item-3 documents at 10:39 CET, five cash-and-points
+copies at 11:47 CET). No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+**Token-free:** the code is theme CSS, scoped by structure. The rows are a Spacer block each, and a line break in the
+text. No row, rule or importer change puts a style token into a document.
+
+Report: tools/reports/token-free/swiss-b2b-so74.md (method, every gate, the census and the samples).
+
+### Item 1: SWISS
+
+**The 794 px column: HOLD again, with the scopes tried.**
+- www draws the column text at 794 px on untabbed sidebar pages and at 781 px in tab panels. Ours is 843 px on every
+  sidebar page.
+- Every scope fails on 84 recorded 1440 page-widths:
+  - the column, not in a tab panel and not a sidebar Columns Media: 8 further, sum 216.06 -> 221.41;
+  - text only: 5 further;
+  - blocks only: 4 further;
+  - with a page-end rule (64 px under the last sidebar section): 8 further.
+- With the column, the rows draw at www's pitch. What fails is the content around them:
+  - premium-economy's empty line (-42);
+  - food-and-beverage's divider (-99);
+  - green-fare's fare tables;
+  - newsletter's form;
+  - swiss-first's and premium-economy's page end under the last card row (www 114 px, ours about 50);
+  - unaccompanied-minors and accessible-travel, long pages the narrower text makes longer.
+- The page-end rule is right where the column ends with a card row (swiss-first -1.53 -> -0.05 % with the column), but
+  wrong where it ends with text (additional-bag, upgrade-options, mobile-apps +2.01).
+
+**Shipped (swiss.css):**
+- **A footnote list at the page end in small print** (7729cdec), on a page with a footnote link: ch/de imprint 1440
+  2,247 -> 2,244, 390 2,204 -> 2,196 (www 2,196 / 2,134). Reach: 1 of the 57 served documents with a footnote link.
+- **A Profile Tabs panel's lists over two thirds of the content, from 1025 px** (b42114a6), as www's limited-width tab
+  text: ch/en swiss-airrail 1440 6,086 -> 6,284 (www 6,269: -2.92 -> +0.24 %). Reach: 121 lists in 33 documents.
+  The panel's paragraphs are held (new-destinations +1.09).
+
+**Traced and held:**
+- **The title's paragraph as the lead before a block or heading:** www draws that on 4 of 6 recorded pages with the
+  shape. The 1440s get closer, but at 390 group-travel-and-charter goes +1.97, rebook +1.16 and swiss-airrail +0.66
+  points further.
+- **privacy-statement's H3s:** the row h3-large draws heading-medium there, not www's heading-small (+795 px).
+- **accessibility-statement's H2s:** www's are heading-medium. On SWISS flow pages no carrier draws that.
+- health-and-travel's page end, animals-travelling's panel sections, terms-conditions' teasers and the vouchers FAQ
+  end are traced in the report, not closed.
+
+### Item 2: Group for Business
+
+**Shipped (b2b.css, 7729cdec):**
+- a table followed by a heading 71 px under its last row;
+- a button, or an accordion, right before a Spacer without a gap of its own;
+- a column view that opens right after an accordion without its 40 px edge.
+
+**Gates** (code against live, all 198 page-widths):
+- rules 1 to 3: 7 moved, 3 closer, the most further +0.48, sum 169.86 -> 167.11;
+- rule 4 on top: 21 moved, 18 closer, the most further +0.03, sum 167.11 -> 154.50.
+
+Live since the push, to the px: lhg-ita-airways 4,504 / 6,140 (www 4,432 / 6,073; was +3.79 / +2.68 %, now +1.62 /
++1.10 %); carry-on-baggage de/en 4,761 / 6,725, de/de 4,896 / 6,718; corporates-start-of-booking de/en 7,016 / 7,424.
+
+**READY:** delta-so74-b2b-quote-author. The customer quote's author goes on two lines in the five cash-and-points
+copies: the import ran the name and the company together. The helpers previewed it (their state commit at 12:12 CET); it is served, and
+cash-and-points de/en is +19 / +18 px as drafted.
+
+**Shipped with the final section (b2b.css):** table cells as www's maui-table cells. Their paragraphs sit 10 px
+apart, and from 768 px the text is 32 px in from each side.
+- Code against live, all 198 page-widths: 8 moved, 6 closer, none more than 0.5 points further, sum 150.74 -> 145.86.
+  - carry-on-baggage de/de 1440 +2.04 -> -0.88 %, 390 +2.49 -> +0.35 %;
+  - de/en 1440 +1.32 -> -1.75 % (+0.43);
+  - cash-and-points de/en 1440 -4.66 -> -3.57 %.
+- Reach: 31 tables in 23 documents.
+
+**Held, with figures:**
+- 40 px more under every table: carry-on-baggage +2.5 points.
+- rail-fly's header-row table gap: 390 +1.04.
+- the spaced accordion without its 40 px: businesstogo +0.8.
+- a section ending in a Spacer before a grey band: 6 further.
+- a footnote-table gap: carry-on +0.85.
+
+**Lufthansa's, newly found:**
+- **meals-on-board:** www's accordion has an item with an empty title (-56 px, three copies).
+- **rail-fly's advantages:** www shows three icon teasers; our document has the texts without the icons (-58 at 1440).
+  The pictures would have to come into DA.
+
+**Not closed (traced):**
+- **alliances' card text:** limited-width on www. The cleanup took its markers out, and no carrier exists.
+- **our-european-fares:** +240 inside the fare-structure part.
+- **kuala-lumpur:** see item 4.
+
+**The Allegris last section: no row possible.** The "empty 40 px paragraph" under the H1 is not in the documents. It
+is the column view's start mark that token-free.js draws before the Columns Media. Order 72's line saying it was in
+the documents was wrong.
+
+### Item 3: spacing lost when markers came out
+
+- Census: tools/reports/parity-2026-11-09/spacing-lost-so74.txt. The served copies of 17 Nov still held the markers
+  earlier rows had put in; today's hold none.
+  - SWISS: 18 markers, all drawn now (the order 67 and 69 rules).
+  - B2B: 38 markers, of which 9 places in 8 documents draw nothing.
+- READY: delta-so74-b2b-spacing-lost, a Spacer block in each of 4 documents. The helpers previewed it (their state commit at 11:43 CET) and
+  it is served. Measured live, every page-width equals its draft to the px:
+  - de/de homepage 1440 5,371 (www 5,379, was 5,310);
+  - de/en homepage 1440 5,224 (www 5,200, was 5,163);
+  - lufthansa-group-airlines de/de 4,087 / 5,447 (www 4,071 / 5,454);
+  - help-alliance 2,370 / 3,380 (www 2,347 / 3,348).
+- Held:
+  - lufthansa-group-airlines de/en: +1.52 points at 1440.
+  - /de/en/program: the carrier draws 85 px where the markers drew 17.
+- Not restored: lhg-history de/de and intermediaries-start-of-booking (already long), and celebrating de/de (doesn't
+  move).
+- The documents from before the collapse pass (9 Nov) are only in DA's backup folders: one read per document, and a
+  loop of DA reads is refused here.
+
+### Item 4
+
+- **premium-economy:** www draws the space, a `<p>&nbsp;</p>` blank line (42 px) between the title and the lead. No
+  block option or section style draws that. A Spacer block draws 61 px and would break the lead rules (h1 + p). No row.
+- **kuala-lumpur:** www draws the space too, two `<p>&nbsp;</p>` above and below each cell's text. At 1440 the
+  five-column 840 px box already stands in for them (ours 840, www 842). A Table Striped option that pads its cells by
+  two lines could carry them, but none exists. No row.
+
+### Item 5: reach
+
+| Rule | Documents it applies to (census on the decorated pages) |
+| --- | --- |
+| SWISS footnote list | 1 of the 57 with a footnote link |
+| SWISS Profile Tabs lists | 33 of the 55 with Profile Tabs (121 lists) |
+| B2B rules 1 / 2 / 3 / 4 | 5 / 23 / 21 / 30 of 729 |
+
+- **Samples:** 26 unrecorded documents (B2B 21, SWISS 5), at 1440 and 390.
+  - B2B: no flag on any.
+  - SWISS: the flags are the same live and with the code (screen-reader labels, a hero's crop, swiss-senses' 16 px card
+    overlaps), so none comes from a rule.
+- **Movement:** each sample moves only by what its rule gives.
+
+### Final section (standing order 74, about 12:45 CET, 2026-11-19)
+
+**Pushed (origin/main):**
+
+| Commit | Items | What |
+| --- | --- | --- |
+| 7729cdec | 1, 2, 3, 4, 5 | b2b.css: the table, button, accordion and column-view gaps; swiss.css: the footnote list in small print; delta-so74-b2b-spacing-lost READY; spacing-lost-so74.txt; the report; test/swiss-b2b-so74.test.mjs |
+| b42114a6 | 1, 2 | swiss.css: a Profile Tabs panel's lists over two thirds of the content; delta-so74-b2b-quote-author READY; the report's traces |
+| (this commit) | 2 | b2b.css: table cells as www's maui-table cells; this section |
+
+**READY lists** (px as served -> with the row, www in brackets; both lists are served now, measured to the px):
+
+| List | Documents | 1440 | 390 |
+| --- | --- | --- | --- |
+| delta-so74-b2b-spacing-lost | de/de and de/en homepage, lufthansa-group-airlines de/de, help-alliance de/en | homepage de/de 5,310 -> 5,371 (5,379), de/en 5,163 -> 5,224 (5,200); lufthansa-group-airlines 4,026 -> 4,087 (4,071); help-alliance 2,309 -> 2,370 (2,347) | homepages unchanged (from 768 px); lufthansa-group-airlines 5,386 -> 5,447 (5,454); help-alliance 3,319 -> 3,380 (3,348) |
+| delta-so74-b2b-quote-author | cash-and-points de/en, de/de, xx/en, xx/de, cn/en | de/en 6,276 -> 6,295 (6,603), de/de 6,664 -> 6,683 (6,839); the unrecorded copies +19 | de/en 8,829 -> 8,847 (8,957), de/de 9,551 -> 9,569 (9,519, +0.19 points); the unrecorded copies +18 / +19 |
+
+**Held, with figures:**
+- **The SWISS 794 px column:** 4 to 8 page-widths more than 0.5 points further in every scope. The worst are
+  premium-economy +1.80 (full column) and +2.33 (blocks only), for the content listed in item 1.
+- **SWISS, the lead before a block or heading:** 390 +0.66 to +1.97. The Profile Tabs paragraphs: new-destinations
+  +1.09. privacy-statement's h3-large: draws the wrong size.
+- **B2B:**
+  - 40 px under every table: +2.55.
+  - rail-fly's header table: 390 +1.04.
+  - spaced accordions: businesstogo +0.81.
+  - a section ending in a Spacer before a grey band: +0.90.
+  - a footnote-table gap: +0.85.
+  - lufthansa-group-airlines de/en's Spacer: +1.52.
+  - /de/en/program's Spacer: draws 85 px for 17.
+- **Not possible as rows:** the Allegris "empty paragraph" (code's column mark), premium-economy's and kuala-lumpur's
+  empty lines (www draws them, no carrier), the alliances cards' limited-width text (no carrier).
+
+**Sum and median** (all recorded page-widths, every section loaded):
+
+| Brand | Start (10:05 CET) | End (this order's code and READY rows) | Lufthansa's part | Ours |
+| --- | --- | --- | --- | --- |
+| SWISS (168) | 529.24, median 0.84 % | 526.05, median 0.79 % | 409.39 (38 page-widths) | 116.66 (130) |
+| Group for Business (198) | 172.27, median 0.49 % | 145.86, median 0.39 % | 26.38 (21) | 119.48 (177) |
+
+**Checks:**
+- Whole-repo `npm run lint` exited 0 before every push, and stylelint on b2b.css and swiss.css exited 0.
+- test/swiss-b2b-so74.test.mjs passes (9 tests).
+- The full suite on 7729cdec: 1,300 files, 4,885 pass, 0 failures, 5 skipped. On b42114a6: 1,301 files, 4,888 pass,
+  0 failures, 5 skipped. On this commit's code (before this line was added): 1,301 files, 4,889 pass, 0 failures, 5
+  skipped. Each run includes the folder-reading tests.
+
+**DA:** read only, 9 single GETs, one per command. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage
+has no row.
+
+**Requests:** airline hosts, www.* and lh-proxy were refused per request in every render. None was sent.
+
+**Left uncommitted:** nothing of mine.
+- Scratch stays in migration-work/parity-588/so74: the runs, drafts, crops, DA copies and scripts.
+- No background job of mine is running.
