@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/de/en/program/partner-plus-benefit/cash-and-points",
+    "inserts": [
+      {
+        "replace": "<p><strong>Karsten Westermann</strong>Cimpress Deutschland GmbH</p>",
+        "text": "<p><strong>Karsten Westermann</strong><br>Cimpress Deutschland GmbH</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/program/partner-plus-benefit/cash-and-points",
+    "inserts": [
+      {
+        "replace": "<p><strong>Karsten Westermann</strong>Cimpress Deutschland GmbH</p>",
+        "text": "<p><strong>Karsten Westermann</strong><br>Cimpress Deutschland GmbH</p>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/en/program/partner-plus-benefit/cash-and-points",
+    "inserts": [
+      {
+        "replace": "<p><strong>Karsten Westermann</strong>Cimpress Deutschland GmbH</p>",
+        "text": "<p><strong>Karsten Westermann</strong><br>Cimpress Deutschland GmbH</p>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/de/program/partner-plus-benefit/cash-and-points",
+    "inserts": [
+      {
+        "replace": "<p><strong>Karsten Westermann</strong>Cimpress Deutschland GmbH</p>",
+        "text": "<p><strong>Karsten Westermann</strong><br>Cimpress Deutschland GmbH</p>"
+      }
+    ]
+  },
+  {
+    "path": "/cn/en/program/partner-plus-benefit/cash-and-points",
+    "inserts": [
+      {
+        "replace": "<p><strong>Karsten Westermann</strong>Cimpress Deutschland GmbH</p>",
+        "text": "<p><strong>Karsten Westermann</strong><br>Cimpress Deutschland GmbH</p>"
+      }
+    ]
+  }
+]

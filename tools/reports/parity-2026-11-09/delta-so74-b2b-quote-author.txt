@@ -1,0 +1,29 @@
+# ema-cashub, standing order 74 (2026-11-19), item 2: Group for Business cash-and-points, the customer quote's author.
+# Our copies run the name and the company together ("Karsten WestermannCimpress Deutschland GmbH"): the import lost
+# www's line break (b2b-parity-018's HTML: <p class="copytext-small"><b>Karsten Westermann<br> </b>Cimpress Deutschland
+# GmbH</p>). The row puts the line break back, in all five copies (de/en, de/de, xx/en, xx/de, cn/en).
+# Token-free: a line break in the text; no style marker, no class.
+# What is left at the quote (not in the row): www sets the quote and its author in a column view, 82 px under the rule
+# above (ours 36) and 88 px over the rule below (ours 26). Moving the quote into the author's section (space-m) gives
+# 1440 +44 more but puts the quote in that section's small print, which www doesn't: not in the list.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so74-b2b-quote-author.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (five read-only GETs, one per command, 11:47 CET): "1 inserted" each, "without the
+# inserts DA's copy byte for byte: true"; a second run on the output "1 present" each; no {…} in the output.
+# Drafted on b2b.turnsthe.page with this order's b2b.css (so74/fulld.mjs, every section loaded; the served copy with
+# the row as a draft, the unchanged copy drafted first and equal to the code's heights; airline hosts, www.* and
+# lh-proxy refused per request, none sent). Gate: |after %| - |before %| <= 0.5 on every recorded page-width, the sum
+# of |% off www| down (the four recorded page-widths: 9.28 -> 8.70).
+# status	path	width	recording	www page	as served (with this order's code)	with the row	note
+READY	/de/en/program/partner-plus-benefit/cash-and-points	1440	b2b-parity-018	6,603	6,276 (-4.95 %)	6,295 (-4.66 %)	-0.29 points
+READY	/de/en/program/partner-plus-benefit/cash-and-points	390	b2b-parity-018	8,957	8,829 (-1.43 %)	8,847 (-1.23 %)	-0.20 points
+READY	/de/de/program/partner-plus-benefit/cash-and-points	1440	b2b-parity-018	6,839	6,664 (-2.56 %)	6,683 (-2.28 %)	-0.28 points
+READY	/de/de/program/partner-plus-benefit/cash-and-points	390	b2b-parity-018	9,519	9,551 (+0.34 %)	9,569 (+0.53 %)	+0.19 points (within the gate)
+READY	/xx/en/program/partner-plus-benefit/cash-and-points	1440	-	-	6,276	6,295	not recorded (+19)
+READY	/xx/en/program/partner-plus-benefit/cash-and-points	390	-	-	8,829	8,847	not recorded (+18)
+READY	/xx/de/program/partner-plus-benefit/cash-and-points	1440	-	-	6,664	6,683	not recorded (+19)
+READY	/xx/de/program/partner-plus-benefit/cash-and-points	390	-	-	9,551	9,569	not recorded (+18)
+READY	/cn/en/program/partner-plus-benefit/cash-and-points	1440	-	-	6,383	6,402	not recorded (+19)
+READY	/cn/en/program/partner-plus-benefit/cash-and-points	390	-	-	8,792	8,811	not recorded (+19)
+#
+# DA change (lh-b2b), every READY path: the author's paragraph gets a line break between the name and the company.

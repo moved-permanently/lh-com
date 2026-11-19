@@ -1613,3 +1613,15 @@ body.brand-swiss main > .section.padded:first-of-type + .section.grey.flush:has(
 body.brand-swiss main:has(a[href^="#"] > sup) > .section:last-child > .default-content-wrapper:last-child > ol:last-child {
   font-size: var(--body-font-size-xs);
 }
+
+/* standing order 74, item 1 (swiss-airrail traced): the lists in a Profile Tabs panel over two thirds of the content
+   from 1025 px, as the running text elsewhere: www's tab text is a richtext limited-width (swiss-airrail's "Before the
+   flight" list, new-destinations' tabs; swiss-parity-002a / -002b); ours ran over the whole 1264 px.
+   ch/en swiss-airrail 1440 6,086 -> 6,284 (www 6,269: -2.92 -> +0.24 %). The panel's paragraphs are held: with them
+   ch/de new-destinations 1440 goes +0.53 -> +1.61 % */
+@media (width >= 1025px) {
+  body.brand-swiss main .profile-tabs.content .profile-tabs-panel > :is(ul, ol):not(.full-width) {
+    box-sizing: border-box;
+    max-width: 66%;
+  }
+}

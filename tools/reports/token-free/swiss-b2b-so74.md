@@ -62,11 +62,28 @@ animals-travelling. Ours is 843 px on every sidebar page. Three scopes, toggled 
 - Gate: ch/de imprint 1440 2,247 -> 2,244 (www 2,196: +2.32 -> +2.19 %), 390 2,204 -> 2,196 (www 2,134: +3.28 ->
   +2.91 %). No other recorded page-width has the shape. With the code itself: 2,244 / 2,196, to the px.
 
+### Shipped: a Profile Tabs panel's lists over two thirds of the content (swiss.css, from 1025 px)
+
+- swiss-airrail traced: -165 at 1440 in "Travelling by SWISS Air Rail". www's tab panel text is a richtext
+  limited-width, two thirds of the content; ours ran the panel's list over the whole 1264 px (crops of
+  swiss-parity-002b's 1440 PNG and ours). new-destinations' tabs on www are limited-width too.
+- The rule: a list in a Profile Tabs (content) panel at 66 % from 1025 px, as the running text elsewhere.
+- Gate (in-page toggle on the recorded page-widths with a Profile Tabs panel; no other page has one):
+  - ch/en swiss-airrail 1440: 6,086 -> 6,284 (www 6,269: -2.92 -> +0.24 %).
+  - ch/de new-destinations 1440: unchanged.
+  - 390: unchanged (from 1025 px).
+- The panel's paragraphs too: held. new-destinations 1440 would go +0.53 -> +1.61 %.
+- Reach: 121 lists in 33 of the 55 served documents with Profile Tabs (the airrail, payment-options-at-the-airport and
+  swiss-senses destinations copies).
+- Samples (5 unrecorded documents, 1440 and 390): ch/de swiss-airrail 1440 +154 px, the others unchanged. The flags
+  are the same live and with the code (screen-reader labels, the hero's crop, 16 px card overlaps on swiss-senses
+  business), so none comes from the rule.
+
 ### Traced, not shipped
 
 | Page-width | www / ours | Where it drifts | What was tried |
 | --- | --- | --- | --- |
-| swiss-airrail 1440 | 6,269 / 6,086 (-2.92 %) | the intro, -40: www's paragraph before the flight search is the lead (copytext-large 18 / 30, 120 px), ours body text (66 px); then -40 above "Your benefits"; -165 in "Travelling by SWISS Air Rail" (+165 at 390) | the lead before a flight search (14 served documents: the 11 airrail copies, 3 local pages): 1440 -2.92 -> -2.06 %, but 390 +1.44 -> +2.10 % (+0.66): HOLD |
+| swiss-airrail 1440 | 6,269 / 6,086 (-2.92 %) | the intro, -40: www's paragraph before the flight search is the lead (copytext-large 18 / 30, 120 px), ours body text (66 px); then -40 above "Your benefits"; -165 in "Travelling by SWISS Air Rail" (+165 at 390; shipped above for 1440) | the title's paragraph as the lead when a Columns Media, a flight search or a heading follows it, where www draws a lead on 4 of 6 recorded pages with that shape (group-travel-and-charter, rebook, swiss-airrail, arrival-departure; imprint and the FAQ hub not): 1440 all closer or within, but 390 group-travel-and-charter +1.97, rebook +1.16, swiss-airrail +0.66 (long at 390 for other reasons): HOLD |
 | privacy-statement 1440 / 390 | 16,127 / 15,720 (-2.52 %); 29,546 / 28,951 (-2.01 %) | www's H2s heading-medium (40 px lines, ours 31), its H3s heading-small (31 px, ours 20) | the row h3-large on its section (all 11 copies): it draws heading-medium (40 px) on this page, not www's heading-small: 1440 -> 16,515 (+2.41 %), 390 -> 29,867 (+1.09 %). Closer in height, wrong in size: HOLD |
 | accessibility-statement 1440 | 5,901 / 5,728 (-2.93 %) | www's H2s heading-medium (40 / 79 px, ours 31): -12 to -58 per H2 | no carrier: on SWISS flow pages h2-large draws heading-large, and the default is heading-small |
 | health-and-travel 1440 | 3,150 / 3,001 (-4.73 %) | the page end (the column's last part) | the page-end rule above: -4.73 -> -2.70 %, but it fails elsewhere |
@@ -116,10 +133,29 @@ animals-travelling. Ours is 843 px on every sidebar page. Three scopes, toggled 
   accordion's spaced option (40 px above and below).
 - **our-european-fares 390 +2.53 % (de +2.16 %):** +240 (de +113) inside the fare-structure part, between "Discover our
   short- and medium-haul fare structure" and "Exclusive benefits for status customers".
-- **lhg-history-alliances 1440 -2.98 %:** -110 between "Deepening ties" and "Beyond the skies" (the timeline).
+- **lhg-history-alliances 1440 -2.98 %:** -110 between "Deepening ties" and "Beyond the skies".
+  - www's four Joint Venture cards set their text limited-width, two thirds of each card (b2b-parity-003's HTML: richtext
+    limited-width in a three-column view), so each text runs two or three lines longer. Ours runs the full card width.
+  - The document had {limited-width} on those four texts until the cleanup took the markers out (so66's copy of 17
+    Nov). Nothing draws it now, and no carrier gives a card's text that width.
+  - It is not www's rule for card text: of 1,891 column-view texts in the B2B recordings, 30 are limited-width, in 7
+    page-recordings. So it would take a new Columns Media option for one document. Not written; it is in the
+    spacing-lost list's spirit (a width marker, not a spacer).
+- **cash-and-points' customer quote (READY: delta-so74-b2b-quote-author):**
+  - Our five copies run the author's name and company together ("Karsten WestermannCimpress Deutschland GmbH"). The
+    import lost www's line break, and the row puts it back.
+  - de/en 1440 6,276 -> 6,295 (www 6,603: -4.95 -> -4.66 %), 390 8,829 -> 8,847 (-1.43 -> -1.23 %).
+  - de/de 1440 6,664 -> 6,683 (-2.56 -> -2.28 %), 390 9,551 -> 9,569 (+0.34 -> +0.53 %, +0.19).
+  - The unrecorded xx/en, xx/de and cn/en copies: +18 / +19 px each.
+  - Dry run on DA's five copies (one GET each, 11:47 CET): 1 inserted each, back byte for byte, a second run 1 present.
+  - What is left at the quote: www's column view, 82 px above the quote (ours 36) and 88 px below the author (ours 26).
+    Moving the quote into the author's section (space-m) would put it in that section's small print, which www
+    doesn't. Not in the row.
 - **kuala-lumpur** (+2.37 / +2.90 %): see item 4.
 - **The card-grid footer** (order 72's hold): www's 21 to 82 px for the same block shapes; not tried again.
-- **meals-on-board 390 -3.99 %** (three copies): not traced in this order.
+- **meals-on-board 390 -3.99 %, 1440 -1.96 %** (three copies): www's accordion has an item with an empty title between
+  Eurowings and Lufthansa, one row more (about 56 px, b2b-parity-010's 390 PNG). Content on www's side, and an empty
+  item is nothing a row should add: Lufthansa's part.
 
 ### The Allegris last section: no row possible
 
@@ -203,3 +239,5 @@ overlaps, blocks outside the viewport, clipped text and empty runs.
   - 0 flags.
 - Five more documents where the census finds rule 4's element (codeshares, the two EES news, baggage-irregularities,
   discover-airlines): the mark already draws 0 there, so nothing moves.
+
+**Also tried for Group for Business:** 80 px under a table followed by a footnote paragraph (zurich-airport): carry-on-baggage de/en 1440 +1.32 -> +2.17 % (the note after its second table is set in <sup> too, as small print): HOLD.

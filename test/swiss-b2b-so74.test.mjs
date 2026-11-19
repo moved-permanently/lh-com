@@ -24,6 +24,12 @@ test('swiss.css: a footnote list at the page\'s end is small print, only on a pa
   assert.equal(swiss.split(sel).length - 1, 1);
 });
 
+test('swiss.css: a Profile Tabs panel\'s lists over two thirds of the content from 1025 px, its paragraphs not', () => {
+  const sel = 'body.brand-swiss main .profile-tabs.content .profile-tabs-panel > :is(ul, ol):not(.full-width)';
+  assert.match(swiss, new RegExp(`@media \\(width >= 1025px\\) \\{\\s*${esc(sel)} \\{\\s*box-sizing: border-box;\\s*max-width: 66%;\\s*\\}\\s*\\}`));
+  assert.doesNotMatch(swiss, /\.profile-tabs-panel > p:not/);
+});
+
 test('b2b.css: the gap under a table before a heading, and no gap of its own before a Spacer', () => {
   const t = 'body.brand-b2b main .table-striped-wrapper:has(+ .default-content-wrapper > h2:first-child) > .table-striped:not(.beside, .beside-end)';
   const b = 'body.brand-b2b main .default-content-wrapper > p.button-wrapper:has(+ p.spacer)';
@@ -55,6 +61,20 @@ test('the spacing list: READY paths are exactly the JSON\'s, each one Spacer blo
   });
   assert.equal(data.filter((d) => d.inserts[0].text.includes('from-768')).length, 2);
   assert.doesNotMatch(txt, /^READY\t\/de\/en\/travel-solutions\/lufthansa-group-airlines/m);
+});
+
+test('the quote list: the author\'s line break in all five cash-and-points copies, nothing else', () => {
+  const txt = read(`${DIR}delta-so74-b2b-quote-author.txt`);
+  const data = JSON.parse(read(`${DIR}delta-so74-b2b-quote-author.json`));
+  assert.deepEqual([...new Set(listPaths(txt))].sort(), data.map((d) => d.path).sort());
+  assert.equal(data.length, 5);
+  data.forEach(({ path, inserts }) => {
+    assert.match(path, /^\/(de|xx|cn)\/(en|de)\/program\/partner-plus-benefit\/cash-and-points$/);
+    assert.equal(inserts.length, 1);
+    const [i] = inserts;
+    assert.equal(i.text, i.replace.replace('</strong>Cimpress', '</strong><br>Cimpress'));
+    assert.ok(!i.text.includes(i.replace));
+  });
 });
 
 test('the census file names every marker the cleanup took out, and what draws it now', () => {
