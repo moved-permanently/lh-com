@@ -1,0 +1,108 @@
+# ema-test, standing order 67 (2026-11-19): every rule gated in this order, on the brand's recorded page-widths (our host as served,
+#   full Chrome, airline hosts refused, captures at full length, the rule in the same load; logs/p4/so67 gate.sh). The gate: no
+#   page-width more than 0.5 points further from www than before, the sum down; a failing pattern gets one narrower second try.
+#   A breakage fix from ema-cashub's sweep (item 5) ships when none is further and the flagged documents lose the fault, even with
+#   the sum unchanged (no recorded page carries the fault). Sums are over the page-widths read (an ERR row is left out).
+# Bases as served at the start (about 18:00 UTC): Austrian 4,563.56 / 16.05 % (246), Cargo 1,342.22 / 8.86 % (113), Air Dolomiti
+#   1,052.53 / 7.27 % (118), TAP 580.94 / 9.61 % (52, order 64's run; nothing changed for TAP before item 5).
+
+## Shipped
+
+Austrian, on phones a Columns Media grid cell's text 24 px under its heading, 8 px under the cell (item 1): a525bdd9.
+  The heading pass on the /book and /baggage pages: the headings at www's y after order 66's grid rule; in the grid cells the text
+  under the heading 4-5 px low at 390 (ours 28 px under the heading, www 24) and 4 px high at 1440.
+  First try, both parts (< 768 px: 24 / 8; >= 1281 px: 36 / 0): 244 of 246 read, 4,503.79 -> 4,495.24, but entryregulations 1440
+  at/en 8.69 -> 9.68 and at/de 26.56 -> 27.11 further (the 1440 part: 2,372.71 -> 2,373.30).
+  Second, narrower try (phones only), the 123 page-widths at 390: none further, 2,145.75 -> 2,133.09 (sustainable-flying 14.66 ->
+  11.14 %, besondere-anforderungen 5.14 -> 4.18, book/overview-manage 4.59 -> 3.75). The 1440 part held.
+
+Air Dolomiti, the text under the manage-booking form from the start edge (item 3, the aligned page-widths): 27a1b481.
+  www's text-align is left at 1440 and 390 (its measurements: x 360 w 720 at 1440, x 20 w 351 at 390); brief 456 had it centred.
+  118 page-widths: none further, 1,142.78 -> 1,138.37 (bearbeitung-ihrer-buchungen 390 6.96 -> 5.49, manage-flight-booking 390
+  -1.33, gestione-prenotazione-volo 390 -1.16, each copy -0.15 at 1440). test/airdolomiti-manage-text-456 follows (start).
+
+Air Dolomiti, three shared phone and desktop offsets (item 3): 9d91dbe0.
+  - The destination hub's band 18 px under the trail below 1025 px, as www's (band at 140, ours 146; the H1 under it 6 px low on
+    de/reiseziele, destinazioni, en/destinations). 57 page-widths at 390: none further, 589.74 -> 572.48 (de/reiseziele 13.36 ->
+    5.64 %, en/destinations 7.19 points closer, destinazioni 1.88).
+  - The destination stage's title box and pills 8 px lower on phones (www's title text at 421, ours 413 on bari-de, basel-de,
+    monaco-di-baviera, london-eu; the price card already in place), moved in place so the centred card keeps its height.
+    57 at 390: none further, 589.61 -> 588.34.
+  - The FAQ half pages' title 4 px lower from 768 px (www 190, ours 186 at 1440: lounge-zutritt, lounges, parcheggi-convenzionati,
+    seat-reservation in three languages). First try, every width: 117 of 118 read, 1,044.56 -> 1,031.00 but
+    informazioni-per-il-viaggio/prenotazione-del-posto 390 9.94 -> 10.73 (its trail on two lines at 390, the title already 22 px
+    low). Second, narrower try (from 768 px), the 61 page-widths at 1440: none further, 462.70 -> 459.17. The phone part held.
+
+Cargo, on phones a page title under a section holding the trail alone 22 px under it (item 2, support-and-contact): e0103256.
+  First try (22 px on phones, 18 from 768 px), stopped at 79 of 113 when three page-widths had gone further: en/ehm 1440 6.15 ->
+  10.95, en/ecsd 3.67 -> 8.44, en/eaw 6.87 -> 11.50.
+  Second, narrower try (phones only), the 51 page-widths at 390 (37 in the first run's load, the other 14 in their own): none
+  further, 726.02 -> 725.75 (ehm 13.78 -> 13.23 %; the two support-and-contact copies +0.13 and +0.15, inside the gate).
+  Census: 5 served Cargo documents have the structure, all recorded.
+
+TAP, a button in a table cell takes the cell's width (item 5, breakage): 97f7e80a.
+  miles-and-go/club's "Join" ran 30 px into the next cell at 390 on 7 documents (en-pt, es-us and five more); with the rule none
+  (probed live: en-pt and es-us club, 5 overlaps -> 0, height unchanged). 52 page-widths: none further, 578.06 -> 578.06.
+
+Cargo, a URL link line breaks inside the article stage's card (item 5, breakage): cd5a1847 (blocks/hero-card-overlay, body.brand-cargo:
+  the themes set no wrapping, test/heading-wrap, text-wrap-510, cargo-stories-439).
+  116-pentra and 120-world-premiere (en, de) at 390: the link 8-36 px past the card onto the picture; with the rule none (116-pentra
+  +24 px, the URL on two lines). 113 page-widths (112 read): none further, 1,333.76 -> 1,333.76.
+
+Austrian, two breakage faults (item 5): 9c2d693e.
+  - On phones a flight-status tab sized from its label and wrapping (as SWISS's 99bc10ef): es/es "Número de vuelo" 2 px, gr/el
+    "Αριθμός πτήσης" 16 and "Δρομολόγιο πτήσης" 27 px into the next tab; with the rule none (gr/el +21 px). 123 page-widths at
+    390: none further, 2,133.08 -> 2,133.08.
+  - A usp tile's label breaks inside its tile (blocks/cards-icon, body.brand-austrian): at/de/legal 1440 "Beförderungsbedingungen"
+    27 px and "Haftungsbestimmungen" 12 px out; with the rule none (+35 px). 246 page-widths: none further, 4,546.86 -> 4,546.86.
+
+## Held
+
+Cargo, the first section's H1 20 / 40 px from the top as www's (item 2, ebooking-info): 113 page-widths 1,342.22 -> 1,336.76 but
+  four further: en/ebooking-info 1440 12.97 -> 15.46 and 390 12.52 -> 13.04, terms-of-use 1440 9.23 -> 10.27,
+  data-protection-notice-google-analytics 390 65.36 -> 66.19. Narrower (1440 only), the same run's 1440 rows: 616.20 -> 609.76
+  but en/ebooking-info +2.49 and terms-of-use +1.04. The de copy gains 3.10 where the en copy loses 2.49: no structural scope.
+
+Cargo, the H1 under a trail-only section 18 px from 768 px: the first try's 1440 part (above).
+
+Air Dolomiti, the trail shown on phones on the flights-europe hub (item 3, the -90 px pages): 57 page-widths at 390, 647.27 ->
+  649.38; all three matched pages further (de/fluege-in-europa 12.23 -> 13.24, en/flights-europe 12.95 -> 13.24, voli-europa
+  11.57 -> 12.38): the H1 lands on www's 170 but the page ends 90 px taller than www (the heights matched before; www's intro has
+  forced line breaks). No narrower scope has a page left.
+
+Air Dolomiti, a button label that does not fit wraps (item 5, ema-cashub's proposal as real rules: the base button and the four
+  nowrap button rules): stopped at 73 of 118 when two had gone further: de/flotte 390 9.83 -> 10.55 ("Erfahren Sie mehr über Air
+  Dolomiti", cut today, on two lines: 8,055 -> 8,071 px, www 8,053) and de/unsere-dienste/lounge-zutritt 1440 +0.85 (the FAQ button in
+  the side card). Second, narrower try (phones only, the text blocks' secondary buttons left out): 118 page-widths 1,082.22 ->
+  1,082.56, servizi-digitali 390 13.65 -> 14.86 (+24 px). Held: www draws these labels on one line, so the www-like fix is the
+  label's room (size, padding), not wrapping. The 38 flagged documents keep their cut labels.
+
+Austrian, partner tile titles 28 px with text from 768 px (item 5, proposed): 123 page-widths at 1440 2,401.66 -> 2,401.66, none
+  further but the sum not down (no recorded page has a partner tile with text; the sweep's figure, at/de seat-reservation 1440
+  9,507 -> 9,550 px against www 9,984, is from austrian-parity-002a, not on this machine). Not a breakage fault: held for a gate
+  on that recording.
+
+Austrian, the grid cell text 36 px under its heading from 1281 px (item 1): the first try's 1440 part (above).
+
+Air Dolomiti, the FAQ half pages' title 4 px lower on phones (item 3): the first try's phone part (above).
+
+## Classed, no rule
+
+Air Dolomiti fleet pages' first heading -10 at both widths, and the destination pages' -10 at 1440: the H1's own 10 px box padding
+  (the marble box); its text at www's y (347 / 379; 536). Measurement, not an offset.
+Austrian's 17 aligned page-widths (item 1): picture (www's grid pictures are its own renditions, cropped otherwise in the same
+  boxes: gepaeck, baggage, the /book overviews, besondere-anforderungen, special-requirements), text drawing and www's chat button;
+  cn/en tarmac-delay-contingency-plan (its intro 7 px low, one page) is a pattern under 3 page-widths.
+Air Dolomiti's 9 aligned page-widths (item 3): manage-booking 6 (the alignment shipped; www's navy text colour is an inline span
+  in its source: content), flugplan / orario-voli 2 (the timetable form: function), unterstutzung-und-kontakte 1440 (one page).
+TAP's open page-width (item 4): en-pt/help/frequently-asked-questions 390, one page: www's FAQ questions semibold and its chevrons
+  in the text colour, ours regular grey with green chevrons (1440 within 3 %): pattern under 3 page-widths.
+Cargo's ebooking-info, support-and-contact and live-animals families (item 2): page-specific (ebooking-info's held H1 rule above;
+  support-and-contact's phone title shipped; live-animals' notice box link and its tabs band 9 px high after a long introduction,
+  one page in two languages).
+
+## At the end (as served, closing-so67-ema-test.txt's runs)
+
+Austrian 246 page-widths 4,537.46 / 16.05 % (start of the order 4,563.56, of which 16.15 a broken xx/en/homepage 1440 load at the
+  start), Cargo 113 1,341.95 / 8.86 % (1,342.22), TAP 52 584.26 / 9.61 % (order 64's run 580.94, the last before; the TAP rule changes no
+  recorded page-width), Air Dolomiti 118 1,025.91 / 7.14 % (1,052.53).

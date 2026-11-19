@@ -6989,3 +6989,116 @@ documents at 1440 and 390.
 - **Not in git:** logs/p4/so66 (captures, heading passes, trial CSS for the held rules); content/, migration-work/ and
   tools/importer/reports/* (not mine).
 - **Cleanup:** no local server started; the suite worktree removed.
+
+## Standing order 67 (received about 17:35 UTC, 2026-11-19)
+
+Themes: Austrian, Cargo, TAP and Air Dolomiti. Gate as before, one narrower second try per failing pattern. Lists:
+tools/reports/parity-2026-11-09/gate-so67.txt and closing-so67-ema-test.txt.
+
+### Item 1: Austrian's /book and /baggage pages (SHIPPED in a525bdd9)
+
+- **The shared cause:** with order 66's grid rule live, the headings stand at www's y. In the grid cells the text under the heading
+  sat 4-5 px low at 390 (28 px under it, www's 24) and 4 px high at 1440.
+- **The rule, phones only:** the cell text 24 px under its heading, 8 px under the cell. 123 page-widths at 390: 2,145.75 -> 2,133.09,
+  none further (sustainable-flying 14.66 -> 11.14 %). The 1281 px part is held: entryregulations 1440 further (+0.99, +0.55).
+- **Reach:** 257 of 2,108 documents; eight unrecorded ones rendered live at 390 and 1440 (anreise-zu-den-regionalflughaefen,
+  internet-overview, cn/zh unaccompanied-minors, fr/fr arrival-vienna-airport, gr/el voluntary-rebooking, it/it culinary-services,
+  jp/ja pre-order-food, pl/pl unaccompanied-minors): 24 / 8 px at 390, the 1440 values unchanged, nothing scrolls sideways.
+- **The 17 aligned page-widths:** picture (www's grid pictures are its own renditions, cropped otherwise in the same boxes), with
+  text drawing and www's chat button; cn/en tarmac-delay-contingency-plan is one page (its intro 7 px low).
+
+### Item 2: Cargo's open groups
+
+- **support-and-contact (SHIPPED in e0103256):** on phones a page title under a trail-only section 22 px under it. Every width
+  failed (ehm, ecsd, eaw 1440 4.5-4.8 points further). Phones only: 51 page-widths 726.02 -> 725.75, none further. The census finds 5
+  documents with the structure, all recorded; re-measured live: as the gate said.
+- **ebooking-info (HOLD):** the first section's H1 20 / 40 px from the top, as www's. The de copy gains 3.10 where the en copy loses
+  2.49 at 1440; 1440 alone still has two further. No structural scope separates them.
+- **live-animals:** one page in two languages (its notice box link, its tabs band 9 px high after a long introduction): page-specific.
+
+### Item 3: Air Dolomiti's phone offsets (SHIPPED in 27a1b481, 9d91dbe0)
+
+- **The hub band (SHIPPED):** 18 px under the trail below 1025 px, as www's. 57 at 390: 589.74 -> 572.48 (de/reiseziele 13.36 ->
+  5.64 %).
+- **The destination stage (SHIPPED):** the title box and pills 8 px lower on phones. 57 at 390: 589.61 -> 588.34.
+- **The FAQ half pages' title (SHIPPED from 768 px):** 4 px lower, as www's. 61 at 1440: 462.70 -> 459.17. The phone part is held
+  (prenotazione-del-posto 390 +0.79: its trail wraps).
+- **The manage-booking text (SHIPPED):** from the start edge, as www's (left at 1440 and 390; brief 456 had it centred).
+  118 page-widths 1,142.78 -> 1,138.37, none further.
+- **The flights-europe hub's trail on phones (HOLD):** the H1 lands on www's 170, but all three pages end 90 px taller than www.
+- **The -10 px fleet and destination titles:** the H1's own 10 px box padding. The text stands at www's y.
+- **Reach:** the band reaches 142 documents, the stage 130 and the FAQ titles 35; four unrecorded ones each rendered live at 390 and
+  1440 (leisure, neue-reiseziele, kattowitz, palermo; mailand-de; bagaglio-da-stiva, digitale-services, hold-luggage). The
+  manage-booking text reaches its 3 recorded documents.
+- **The 9 aligned page-widths:** manage-booking 6 (content: www's navy is an inline span in its source), the timetable pages 2
+  (function), unterstutzung-und-kontakte 1440 (one page).
+
+### Item 4: TAP's open page-width
+
+en-pt/help/frequently-asked-questions 390: one page. www's questions are semibold and its chevrons are in the text colour; ours are
+regular grey with green chevrons. 1440 is within 3 %. Classed as a pattern under 3 page-widths.
+
+### Item 5: ema-cashub's sweep (sweep-so77-ema-cashub.txt)
+
+| proposal | brand | gate | result |
+| --- | --- | --- | --- |
+| a button in a table cell takes the cell's width | TAP | 52: 578.06 -> 578.06, none further | SHIPPED 97f7e80a; club "Join" overlaps 5 -> 0 |
+| a URL link line breaks in the stage card | Cargo | 113: 1,333.76 -> 1,333.76, none further | SHIPPED cd5a1847 (block file); 4 documents' spill gone |
+| flight-status tabs from their labels on phones | Austrian | 123 at 390: 2,133.08, none further | SHIPPED 9c2d693e; es/es, gr/el overlaps gone |
+| a usp tile label breaks inside its tile | Austrian | 246: 4,546.86, none further | SHIPPED 9c2d693e (block file); at/de/legal spill gone |
+| a cut button label wraps | Air Dolomiti | two tries: de/flotte 390 +0.72, lounge-zutritt 1440 +0.85; phones only: servizi-digitali 390 +1.21 | HOLD |
+| partner tile titles 28 px | Austrian | 123 at 1440: 2,401.66 -> 2,401.66, none further, sum not down | HOLD (its recording, austrian-parity-002a, is not here) |
+
+- **Breakage fixes:** these ship with the sum unchanged when none is further and the flagged documents lose the fault (probed live
+  before and after).
+- **Block files:** the themes set no wrapping (heading-wrap, text-wrap-510, cargo-stories-439), so the two wrapping fixes sit in the
+  blocks' files, brand-scoped.
+- **Air Dolomiti's button labels:** www draws them on one line. The www-like fix is the label's room, not wrapping. The 38 flagged
+  documents keep their cut labels.
+
+### Item 6: the closing list
+
+closing-so67-ema-test.txt:
+
+| brand | > 3 % | content | live data | function | picture | font | pattern < 3 | open (held pattern) | open |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Austrian | 230 of 246 | 120 | 0 | 0 | 11 | 15 | 47 | 24 | 13 |
+| Cargo | 103 of 113 | 18 | 0 | 6 | 0 | 28 | 24 | 6 | 21 |
+| TAP | 50 of 52 | 14 | 5 | 2 | 0 | 0 | 26 | 0 | 3 |
+| Air Dolomiti | 94 of 118 | 13 | 14 | 2 | 5 | 0 | 26 | 29 | 5 |
+
+Not done: no brand reaches open 0. The open groups are named in the list's header, each brand's largest 3 to 5 page-widths.
+
+### Each brand's sum and median at the end
+
+| brand | page-widths | sum | median |
+| --- | --- | --- | --- |
+| Austrian | 246 | 4,537.46 | 16.05 % |
+| Cargo | 113 | 1,341.95 | 8.86 % |
+| TAP | 52 | 584.26 | 9.61 % |
+| Air Dolomiti | 118 | 1,025.91 | 7.14 % |
+
+The figures are as served after the pushes (rows re-measured where a capture predated the code sync; the list's header says which).
+TAP was last run in order 64 (580.94); this is today's run.
+
+### Final section (about 21:30 UTC, 2026-11-19)
+
+- **Pushed:**
+  - Item 1: a525bdd9 (Austrian phone cell text).
+  - Items 2 and 3: 27a1b481 (Air Dolomiti manage-booking text), 9d91dbe0 (Air Dolomiti offsets), e0103256 (Cargo phone title).
+  - Item 5: 97f7e80a (TAP), cd5a1847 (Cargo), 9c2d693e (Austrian).
+  - Both Builds (e0103256, 9c2d693e) succeeded. This section, the gate report and the closing list follow.
+- **Checks before each push:**
+  - Whole-repo lint 0; stylelint on the changed theme and block files 0.
+  - Folder-reading tests 0 failed (693). The theme- and block-reading tests passed.
+  - A first try of the item 5 commits failed three folder tests (the themes may not set wrapping). It was rewritten into the block
+    files before its push.
+  - Data-only pulls ran the da-upload-sites and loc-sites tests.
+- **The full suite at 9c2d693e:** npm run lint exit 0, stylelint exit 0, 1,315 test files passed, 0 failed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA read or write, no admin purge.
+- **Requests:** our four hosts (reads), GitHub's API. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off.
+- **Not in git:**
+  - logs/p4/so67: captures, heading passes, trial CSS for the held rules, the sweep's copy.
+  - content/, migration-work/ and tools/importer/reports/* (not mine).
+- **Cleanup:** no local server started; the suite worktree removed.
