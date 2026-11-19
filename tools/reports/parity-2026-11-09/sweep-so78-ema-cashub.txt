@@ -41,8 +41,8 @@ What was rendered
   of /gb/en/homepage, all answered 200. No upload, preview or publish. No da-upload.mjs.
 - Order 78's turn was cut in the service outage (about 22:30 CET) during the text-collision pass, at 1,096 of 2,396
   page-widths. Order 79 resumed it from disk with the rest in tree order, 2 pages at once (the third slot for detail
-  reads). This file is pushed after each tree's collision pass. A part marked "collision pass pending" has every
-  other check final.
+  reads). This file is pushed after each tree's collision pass (de/en, then de/de, at/de and gb/en together, ...).
+  A part marked "collision pass pending" has every other check final.
 - Not changed: styles/themes/ and every shared block file (ema-adobe's tonight), and lufthansa.com's documents.
 - Scratch (not in git): migration-work/parity-588/so78 (nb78.mjs, hit78.mjs, sum78.py, hitsum.py, homeshape.py, the
   probes, the outputs, DA's ten copies and the dry run).
@@ -96,7 +96,9 @@ de/en (50 documents, 100 page-widths)
 de/de (53 documents, 106 page-widths)
 -------------------------------------
 - Broken picture: 2 / 4 (c). Never loaded, sideways, size: 0.
-- Text over another element: collision pass pending.
+- Text over another element: 106 / 106 page-widths hit-tested (6,372 text points), 0 collisions. 38 hits are form
+  fields over their own floating labels. One more: /de/de/betreuungsbedarf 1440 and 390, the form's "Anrede" select
+  over its own label, as de/en's special-needs. DESIGN.
 - Out of block 1 (b), overlap 1 (a), text spill 2 (d), empty section 2 (e).
 - Off its source copy: de/de is the source.
 - Faults: c. Rows: 3 HOLD documents (economy-light-fare, rebookings-cancellation, refund).
@@ -104,7 +106,9 @@ de/de (53 documents, 106 page-widths)
 at/de (50 documents, 100 page-widths)
 -------------------------------------
 - Broken picture: 2 / 4 (c). Never loaded, sideways, size: 0.
-- Text over another element: collision pass pending.
+- Text over another element: 100 / 100 page-widths hit-tested (6,318 text points), 0 collisions. 38 hits are form
+  fields over their own floating labels. One more: /at/de/betreuungsbedarf 1440 and 390, the form's "Anrede" select
+  over its own label, as de/en's special-needs. DESIGN.
 - Out of block 1 (b), overlap 1 (a), text spill 2 (d), empty section 2 (e).
 - Off its source copy (de/de): 50 compared, 0 more than 15 % off.
 - Faults: c. Rows: 3 HOLD documents (as de/de).
@@ -112,7 +116,9 @@ at/de (50 documents, 100 page-widths)
 gb/en (51 documents, 102 page-widths)
 -------------------------------------
 - Broken picture: 2 / 4 (c). Never loaded, sideways, size: 0.
-- Text over another element: collision pass pending.
+- Text over another element: 102 / 102 page-widths hit-tested (5,994 text points), 0 collisions. 38 hits are form
+  fields over their own floating labels. One more: /gb/en/special-needs 1440 and 390, the form's "Title" select over
+  its own label, as de/en's special-needs. DESIGN.
 - Out of block 1 (b), overlap 1 (a), text spill 2 (d), empty section 2 (e).
 - Off its source copy (de/en): 51 compared, 1 more than 15 % off:
   /gb/en/europcar 390: 1,514 against /de/en/europcar's 1,858 (-18.5 %; 1440 -12.3 %), read again alone: the same.
