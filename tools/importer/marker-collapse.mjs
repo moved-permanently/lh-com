@@ -324,6 +324,22 @@ function pageMetaCell(main, key, doc, create = false) {
   return v;
 }
 
+// the separator section styles (scripts/style-markers.js SECTION_STYLES): above the section's content, or below it
+const SEPARATOR_STYLE_ABOVE = /^(space-[ml]|divider|space-[ml]-(768|below-768)|divider-[ml]-(768|below-768))$/;
+const SEPARATOR_STYLE_BELOW = /^(space-below-[ml]|divider-below|space-below-[ml]-(768|below-768))$/;
+
+/** Takes style off section's Style row; true if it was there. */
+function removeSectionStyle(section, style) {
+  const meta = [...section.children].find((c) => blockName(c) === 'section-metadata');
+  const cell = meta && kvRows(meta).style;
+  if (!cell) return false;
+  const have = cell.textContent.split(',').map((x) => x.trim()).filter(Boolean);
+  const keep = have.filter((x) => toClass(x) !== style);
+  if (keep.length === have.length) return false;
+  cell.textContent = keep.join(', ');
+  return true;
+}
+
 /** A new section right after section with the elements given (styles copied: grey, padded …). */
 function splitSection(section, els, doc, styles = []) {
   const next = doc.createElement('div');
@@ -340,7 +356,18 @@ function splitSection(section, els, doc, styles = []) {
   const meta = [...section.children].find((c) => blockName(c) === 'section-metadata');
   const row = meta && kvRows(meta).markets;
   if (row && row.textContent.trim()) addSectionRow(next, 'Markets', row.textContent.trim(), doc);
-  sectionStyles(section).forEach((s) => addSectionStyle(next, s, doc));
+  // the section's styles go with the part, but not its separators: a space or divider above stays on the first part,
+  // one below moves to the last (standing order 57: hotel-offers' Space below L from 768 px drew after every part)
+  sectionStyles(section).forEach((s) => {
+    if (SEPARATOR_STYLE_BELOW.test(s)) {
+      if (removeSectionStyle(section, s)) addSectionStyle(next, s, doc);
+    } else if (!SEPARATOR_STYLE_ABOVE.test(s)) addSectionStyle(next, s, doc);
+  });
+  // the same for a style the section carries as its class (the served form: Edge Delivery's section classes)
+  [...section.classList].filter((c) => SEPARATOR_STYLE_BELOW.test(c)).forEach((c) => {
+    section.classList.remove(c);
+    next.classList.add(c);
+  });
   styles.forEach((s) => addSectionStyle(next, s, doc));
   return next;
 }

@@ -94,3 +94,18 @@ test('item 2(d): a small separator between a chapter and the next heading in a C
   const cell = main.querySelector('.columns-media > div > div');
   assert.deepEqual([...cell.children].map((e) => (e.matches('p.spacer') ? `sp${e.style.getPropertyValue('--spacer-size')}` : e.tagName)), ['H2', 'P', 'sp25px', 'H2', 'P', 'sp25px', 'H3'], cell.innerHTML);
 });
+
+test('a split keeps a separator style at its end: above on the first part, below moved to the last (Style row and class form)', () => {
+  const styleOf = (s) => {
+    const row = [...s.querySelectorAll(':scope > .section-metadata > div')].find((r) => r.children[0] && r.children[0].textContent.trim() === 'Style');
+    return row ? row.children[1].textContent.split(',').map((x) => x.trim()) : [];
+  };
+  const out = sections(run('<div><p>{column-start}</p><h2>A</h2><p>a</p><p>{column-end}</p><h2>B</h2><p>b</p><div class="section-metadata"><div><div>Style</div><div>grey, space-m, space-below-l-768</div></div></div></div>'));
+  assert.equal(out.length, 2, out.map((s) => s.outerHTML).join('\n'));
+  assert.ok(styleOf(out[0]).includes('space-m') && !styleOf(out[0]).includes('space-below-l-768'), styleOf(out[0]).join());
+  assert.ok(styleOf(out[1]).includes('space-below-l-768') && !styleOf(out[1]).includes('space-m'), styleOf(out[1]).join());
+  assert.ok(styleOf(out[1]).includes('grey'), 'the other styles go with the part');
+  const served = sections(run('<div class="space-below-l-768 space-below-m-below-768"><h1>T</h1><p>intro</p><p>{column-start}</p><h2>A</h2><p>a</p><p>{column-end}</p><h2>B</h2><p>b</p></div>', '/de/en/hotel-offers'));
+  assert.ok(!served[0].classList.contains('space-below-l-768'), served[0].className);
+  assert.ok(served[served.length - 1].classList.contains('space-below-l-768') && served[served.length - 1].classList.contains('space-below-m-below-768'));
+});

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_688341_exports = {};
-  __export(tmp_bundle_flight_status_688341_exports, {
-    default: () => tmp_bundle_flight_status_688341_default
+  var tmp_bundle_flight_status_791555_exports = {};
+  __export(tmp_bundle_flight_status_791555_exports, {
+    default: () => tmp_bundle_flight_status_791555_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -1542,8 +1542,9 @@ var CustomImportScript = (() => {
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
     // the H1's paragraph when it ends its section is the lead (www's p.copytext-large, 22 recorded
-    // pages; standing order 70)
-    swiss: { live: true, rules: ["teaser-groups", "lead-after-h1"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
+    // pages; standing order 70); a flow page's H2 right before or after an accordion (not in a tab
+    // panel) in heading-medium, www's FAQ headlines (standing order 71)
+    swiss: { live: true, rules: ["teaser-groups", "lead-after-h1", "accordion-headings"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
     // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
     // of its own (www: 26 of 33 not at a section's start)
     discover: {
@@ -4220,6 +4221,18 @@ var CustomImportScript = (() => {
     meta.append(row);
     return v;
   }
+  var SEPARATOR_STYLE_ABOVE = /^(space-[ml]|divider|space-[ml]-(768|below-768)|divider-[ml]-(768|below-768))$/;
+  var SEPARATOR_STYLE_BELOW = /^(space-below-[ml]|divider-below|space-below-[ml]-(768|below-768))$/;
+  function removeSectionStyle(section, style) {
+    const meta = [...section.children].find((c) => blockName(c) === "section-metadata");
+    const cell = meta && kvRows(meta).style;
+    if (!cell) return false;
+    const have = cell.textContent.split(",").map((x) => x.trim()).filter(Boolean);
+    const keep = have.filter((x) => toClass(x) !== style);
+    if (keep.length === have.length) return false;
+    cell.textContent = keep.join(", ");
+    return true;
+  }
   function splitSection(section, els, doc, styles = []) {
     const next = doc.createElement("div");
     if (section.dataset && "mcSection" in section.dataset) next.dataset.mcSection = "";
@@ -4230,7 +4243,15 @@ var CustomImportScript = (() => {
     const meta = [...section.children].find((c) => blockName(c) === "section-metadata");
     const row = meta && kvRows(meta).markets;
     if (row && row.textContent.trim()) addSectionRow(next, "Markets", row.textContent.trim(), doc);
-    sectionStyles(section).forEach((s) => addSectionStyle(next, s, doc));
+    sectionStyles(section).forEach((s) => {
+      if (SEPARATOR_STYLE_BELOW.test(s)) {
+        if (removeSectionStyle(section, s)) addSectionStyle(next, s, doc);
+      } else if (!SEPARATOR_STYLE_ABOVE.test(s)) addSectionStyle(next, s, doc);
+    });
+    [...section.classList].filter((c) => SEPARATOR_STYLE_BELOW.test(c)).forEach((c) => {
+      section.classList.remove(c);
+      next.classList.add(c);
+    });
     styles.forEach((s) => addSectionStyle(next, s, doc));
     return next;
   }
@@ -5258,7 +5279,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_688341_default = {
+  var tmp_bundle_flight_status_791555_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5298,5 +5319,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_688341_exports);
+  return __toCommonJS(tmp_bundle_flight_status_791555_exports);
 })();
