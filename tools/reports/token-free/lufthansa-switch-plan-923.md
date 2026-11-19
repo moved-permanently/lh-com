@@ -6226,10 +6226,12 @@ swapped for the served copy's; collapsed with main and rendered on our host agai
 - Result (delta-so62-held-other.txt): 7 documents collapse with ca73778 as they are, tips-senior-travellers with one insert
   after the collapse (H2 small on the view section whose H2 the column split separates only after the headings are weighed);
   all 8 draw like their marked pages (heading sizes equal, heights within 1.8 %).
-- **Accepted, held:** /de/en/book-and-manage/additional-services/travel-insurances. Its footnotes ({copytext-small}) end a
-  padded section and can only be carried as a section of their own (Small print), which draws outside the padded box:
-  +106 px at 1440 (3.8 %), 18.66 % off www against today's 10.23. No carrier draws small print inside a section; the page
-  keeps its marked copy.
+- **/de/en/book-and-manage/additional-services/travel-insurances: collapsed, an accepted page-width difference** (updated
+  by standing order 63: no longer held). Its footnotes ({copytext-small}) end a padded section and can only be carried as a
+  section of their own (Small print), which draws outside the padded box: +106 px at 1440 (3.8 %), 18.66 % off www against
+  today's 10.23. Ben's token-free rule (17 Nov: "if the content isn't token-free, that's a miss") outranks parity, so it
+  went live collapsed in the so62 rerun batch; its 1440 and 390 page-widths count with the accepted differences of §14.7
+  (they are on that list already: 8.43 and 5.99 points over today).
 - /de/en/32n needs no row: DA's source collapsed renders as the live page (0.00 % at both widths). §15's 72 px came from
   order 60's prediction (the served copy collapsed), not from the live copy.
 
