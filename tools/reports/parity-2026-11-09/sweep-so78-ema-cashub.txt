@@ -41,8 +41,8 @@ What was rendered
   of /gb/en/homepage, all answered 200. No upload, preview or publish. No da-upload.mjs.
 - Order 78's turn was cut in the service outage (about 22:30 CET) during the text-collision pass, at 1,096 of 2,396
   page-widths. Order 79 resumed it from disk with the rest in tree order, 2 pages at once (the third slot for detail
-  reads). This file is pushed after each tree's collision pass (de/en, then de/de, at/de and gb/en together, ...).
-  A part marked "collision pass pending" has every other check final.
+  reads). This file is pushed after each tree's collision pass (de/en; de/de, at/de and gb/en; the other
+  languages; the rest). A part marked "collision pass pending" has every other check final.
 - Not changed: styles/themes/ and every shared block file (ema-adobe's tonight), and lufthansa.com's documents.
 - Scratch (not in git): migration-work/parity-588/so78 (nb78.mjs, hit78.mjs, sum78.py, hitsum.py, homeshape.py, the
   probes, the outputs, DA's ten copies and the dry run).
@@ -133,7 +133,11 @@ xx/pl 48, xx/ru 46, xx/it 45, xx/zh 45, xx/ko 43, and the neutral xx/de and xx/e
 - Broken picture, sideways, size: 0. Never loaded: 1 in the sweep (/xx/pt/prepare-for-your-trip/baggage/sport-baggage/
   register-ammunition1 1440: a section, its breadcrumb and its core form still loading), and 2 did not settle (that one
   and /xx/es/sixt 1440). Read alone: all loaded and settled (4,340 and 1,129 px), no flag. Final 0.
-- Text over another element: collision pass pending.
+- Text over another element: 1,174 / 1,174 page-widths hit-tested (75,084 text points), 0 collisions. 544 hits are
+  form fields over their own floating labels. 22 more are the special-needs form's title select over its own label on
+  the 11 xx/<ll>/special-needs documents at both widths, as de/en's. DESIGN. The pass's first probe counted 8 rows of
+  5 aircraft pages (/xx/pl/32a, 32h, 32v, /xx/zh/359, /xx/ja/359) at 390 as under the footer. They are rows of a
+  striped table below its 840 px scroll box, not drawn there. Read again with the clip-aware probe: none.
 - Out of block: 11 / 11, the homepages' swap button (b). Empty section: 11 / 22 page-widths, the culinary hub in every
   xx tree (e).
 - Off its source copy: 36 neutral documents compared (xx/en against de/en, xx/de against de/de), 5 more than 15 % off.
