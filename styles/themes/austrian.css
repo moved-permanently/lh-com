@@ -1918,6 +1918,18 @@ body.brand-austrian main .columns-media:not(.steps, .sidebar) .columns-media-tex
   }
 }
 
+/* standing order 67 item 5 (ema-cashub's sweep so77): on phones a flight-status tab sized from its label, a label that cannot fit
+   wraps inside its tab (es/es "Número de vuelo" ran 2 px, gr/el "Αριθμός πτήσης" 16 and "Δρομολόγιο πτήσης" 27 px into the next
+   tab at 390; none with the rule; gr/el +21 px, two-line tabs), as SWISS's (99bc10ef). Gate, the 123 recorded Austrian 390
+   page-widths: none further, 2,133.08 -> 2,133.08 (no recorded page has the block) */
+@media (width < 768px) {
+  body.brand-austrian .flight-status .flight-status-tab {
+    flex: 1 1 auto;
+    min-width: auto;
+    white-space: normal;
+  }
+}
+
 /* the end of online-check-in (standing order 14; the nine documents with option steps: the steps row, the App part, the
    FAQ button, the Travel ID row, then the divider section): against austrian-parity-017's full-page screenshots, www's
    FAQ button 84 px over "Experience a seamless travel experience with Travel ID" (ours 34: the H2's 32 over the

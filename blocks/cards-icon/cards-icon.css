@@ -262,3 +262,11 @@ body.brand-cargo .cards-icon.widget .cards-icon-label {
     line-height: 18px;
   }
 }
+
+/* Austrian (standing order 67 item 5, ema-cashub's sweep so77): a usp tile's label breaks inside its
+   tile (at/de/legal 1440: "Beförderungsbedingungen" ran 27 px and "Haftungsbestimmungen" 12 px past
+   their tiles; none with the rule, the page +35 px). Gate, the 246 recorded Austrian page-widths:
+   none further, 4,546.86 -> 4,546.86 (no recorded page has such a label) */
+body.brand-austrian main .cards-icon.usp .cards-icon-label {
+  overflow-wrap: anywhere;
+}
