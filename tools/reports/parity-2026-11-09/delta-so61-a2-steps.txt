@@ -1,0 +1,28 @@
+# ema-adobe, standing order 61 item 4 (2026-11-19): A2 (the M++ 70 step, main 3f30d9d) on the documents a batch collapsed with a tool copy
+#   older than A2: they carry L- 80 (or M+ 60) for www's {spacer-70} (or {spacer-65}). Batches read: 01, 02, 03, 04.
+# Each READY row: one text insert on DA's copy (tools/importer/text-inserts-apply.mjs), the Spacer block's class for A2's; the old
+#   class stands once in the copy (checked on the preview copy, our CDN). Token-free: one block option for another, no marker.
+#   Then preview and publish. HOLD rows: not collapsed yet (the batch's run with main's tool writes A2 itself) or not unique.
+# Documents of these batches A2 changes: 21; already with A2's step: 0; READY 2; HOLD 19.
+# status	path	batch	change
+READY	/de/en/add-sports-baggage	batch 01	<div class="spacer l-minus"> -> <div class="spacer m-plus-plus"> (www's separator: 70 px; the collapse of A2 draws it 70)
+READY	/de/en/airport-information	batch 01	<div class="spacer l-minus"> -> <div class="spacer m-plus-plus"> (www's separator: 70 px; the collapse of A2 draws it 70)
+HOLD	/de/en/articles/highlights-european-championship	batch 02	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/baggage-irregularities	batch 03	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/book-and-manage/passenger-receipt-90days/confirmation	batch 03	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/doctor-on-board-news	batch 03	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/europa-tarife-economy-class	batch 03	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/first-class-terminal	batch 03	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/flight-disruptions	batch 03	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/my-bookings	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/register-animal-cabin	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/support/contact/contact-form-confirmation	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/tiere-als-handgepaeck	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/tiere-als-uebergepaeck	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/de/en/upgrades-at-online-check-in	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/gb/en/add-sports-baggage	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself
+HOLD	/gb/en/airport-information	batch 04	not collapsed yet (markers on preview): its batch's collapse with main's tool writes A2 itself

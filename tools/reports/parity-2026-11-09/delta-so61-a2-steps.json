@@ -1,0 +1,24 @@
+[
+ {
+  "path": "/de/en/add-sports-baggage",
+  "from": "so61 A2 follow-up (ema-adobe), batch 01",
+  "change": "spacer l-minus -> spacer m-plus-plus",
+  "inserts": [
+   {
+    "replace": "<div class=\"spacer l-minus\">",
+    "text": "<div class=\"spacer m-plus-plus\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/airport-information",
+  "from": "so61 A2 follow-up (ema-adobe), batch 01",
+  "change": "spacer l-minus -> spacer m-plus-plus",
+  "inserts": [
+   {
+    "replace": "<div class=\"spacer l-minus\">",
+    "text": "<div class=\"spacer m-plus-plus\">"
+   }
+  ]
+ }
+]
