@@ -1,0 +1,36 @@
+# ema-cashub, standing order 73 (2026-11-19), item 2 (continued): SWISS page ends where www keeps an empty container.
+# travel-regulations (10 copies; ch/de recorded, swiss-parity-002a): after the cards www's page holds an empty
+# four-column view (four empty items, every ch/<lang> import snapshot); ours ends at the cards: 1440 -84 px at the
+# footer. entertainment-on-board ch/de (recorded): after the tab set www's page holds an empty padded section (the
+# German snapshot only; en, fr, it ... end at the tab set): 390 -83 px at the footer.
+# The rows: a Spacer block (M) at the end of travel-regulations' last section; on entertainment-on-board a section that
+# holds a Spacer block (M) after the last one. Token-free: a block, no marker.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-swiss-page-ends.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET each, 09:13 CET): 11/11 "1 inserted", "without the inserts
+# DA's copy byte for byte: true"; a second run "1 present"; no {…}.
+# Drafted on swiss.turnsthe.page (so73/fulld.mjs, every section loaded; airline hosts, www.* and lh-proxy refused per
+# request, none sent). Gate: |after %| - |before %| <= 0.5 on every recorded page-width, the sum of |% off www| down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/de/prepare/travel-regulations	1440	swiss-parity-002a	1,547	1,462 (-5.49 %)	1,515 (-2.07 %)	-3.43 points; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/de/prepare/travel-regulations	390	swiss-parity-002a	2,696	2,650 (-1.71 %)	2,723 (+1.00 %)	-0.70 points; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/en/prepare/travel-regulations	1440	-	-	1,467	1,520 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/en/prepare/travel-regulations	390	-	-	2,694	2,767 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/fr/prepare/travel-regulations	1440	-	-	1,446	1,499 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/fr/prepare/travel-regulations	390	-	-	2,682	2,755 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/it/prepare/travel-regulations	1440	-	-	1,446	1,499 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/it/prepare/travel-regulations	390	-	-	2,596	2,669 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/es/prepare/travel-regulations	1440	-	-	1,425	1,470 (+45 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/es/prepare/travel-regulations	390	-	-	2,570	2,615 (+45 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/pt/prepare/travel-regulations	1440	-	-	1,424	1,477 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/pt/prepare/travel-regulations	390	-	-	2,552	2,625 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/ru/prepare/travel-regulations	1440	-	-	1,539	1,592 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/ru/prepare/travel-regulations	390	-	-	2,770	2,843 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/el/prepare/travel-regulations	1440	-	-	1,468	1,521 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/el/prepare/travel-regulations	390	-	-	2,753	2,826 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/ja/prepare/travel-regulations	1440	-	-	1,418	1,471 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/ja/prepare/travel-regulations	390	-	-	2,424	2,497 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/zh/prepare/travel-regulations	1440	-	-	1,281	1,334 (+53 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/zh/prepare/travel-regulations	390	-	-	2,244	2,317 (+73 px)	no recording; a Spacer block (M) for www's empty four-column view at the page end
+READY	/ch/de/fly/on-board/entertainment-on-board	1440	swiss-parity-002b	2,554	2,509 (-1.76 %)	2,602 (+1.88 %)	+0.12 points; a section with a Spacer block (M) for www's empty padded section at the end
+READY	/ch/de/fly/on-board/entertainment-on-board	390	swiss-parity-002b	2,837	2,716 (-4.27 %)	2,809 (-0.99 %)	-3.28 points; a section with a Spacer block (M) for www's empty padded section at the end

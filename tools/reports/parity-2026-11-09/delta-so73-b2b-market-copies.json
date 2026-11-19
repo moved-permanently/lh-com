@@ -1,0 +1,85 @@
+[
+ {
+  "path": "/xx/en/news",
+  "inserts": [
+   {
+    "replace": "\n<div><div class=\"section-metadata\"><div><div>Tab</div><div>Product &amp; Services</div></div><div><div>Tabs</div><div>1</div></div></div></div>",
+    "text": ""
+   },
+   {
+    "replace": "<div><div>style</div><div>grey, wide-text</div></div><div><div>Tab</div><div>Product &amp; Services</div></div>",
+    "text": "<div><div>style</div><div>grey</div></div><div><div>Tab</div><div>Product &amp; Services</div></div>"
+   },
+   {
+    "replace": "\n<div><div class=\"section-metadata\"><div><div>Tab</div><div>Connections</div></div><div><div>Tabs</div><div>1</div></div></div></div>",
+    "text": ""
+   },
+   {
+    "replace": "<div><div>style</div><div>grey, wide-text</div></div><div><div>Tab</div><div>Connections</div></div>",
+    "text": "<div><div>style</div><div>grey</div></div><div><div>Tab</div><div>Connections</div></div>"
+   },
+   {
+    "replace": "\n<div><div class=\"section-metadata\"><div><div>Tab</div><div>Our Partner News</div></div><div><div>Tabs</div><div>1</div></div></div></div>",
+    "text": ""
+   },
+   {
+    "replace": "<div><div>style</div><div>grey, wide-text</div></div><div><div>Tab</div><div>Our Partner News</div></div>",
+    "text": "<div><div>style</div><div>grey</div></div><div><div>Tab</div><div>Our Partner News</div></div>"
+   },
+   {
+    "replace": "<div><div>Tabs</div><div>1</div></div></div></div>\n<div><div class=\"metadata\">",
+    "text": "<div><div>Tabs</div><div>1</div></div></div><div class=\"metadata\">"
+   },
+   {
+    "replace": "</div><div class=\"section-metadata\"><div><div>Style</div><div>wide-text</div></div><div><div>Tab</div><div>Our Partner News</div></div><div><div>Tabs</div><div>1</div></div></div></div>\n<div></div></main>",
+    "text": "</div></div>\n<div></div></main>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/de/news",
+  "inserts": [
+   {
+    "replace": "\n<div><div class=\"section-metadata\"><div><div>Tab</div><div>Produkte und Services</div></div><div><div>Tabs</div><div>1</div></div></div></div>",
+    "text": ""
+   },
+   {
+    "replace": "<div><div>style</div><div>grey, wide-text</div></div><div><div>Tab</div><div>Produkte und Services</div></div>",
+    "text": "<div><div>style</div><div>grey</div></div><div><div>Tab</div><div>Produkte und Services</div></div>"
+   },
+   {
+    "replace": "\n<div><div class=\"section-metadata\"><div><div>Tab</div><div>Connections</div></div><div><div>Tabs</div><div>1</div></div></div></div>",
+    "text": ""
+   },
+   {
+    "replace": "<div><div>style</div><div>grey, wide-text</div></div><div><div>Tab</div><div>Connections</div></div>",
+    "text": "<div><div>style</div><div>grey</div></div><div><div>Tab</div><div>Connections</div></div>"
+   },
+   {
+    "replace": "\n<div><div class=\"section-metadata\"><div><div>Tab</div><div>Unsere Partner-News</div></div><div><div>Tabs</div><div>1</div></div></div></div>",
+    "text": ""
+   },
+   {
+    "replace": "<div><div>style</div><div>grey, wide-text</div></div><div><div>Tab</div><div>Unsere Partner-News</div></div>",
+    "text": "<div><div>style</div><div>grey</div></div><div><div>Tab</div><div>Unsere Partner-News</div></div>"
+   },
+   {
+    "replace": "<div><div>Tabs</div><div>1</div></div></div></div>\n<div><div class=\"metadata\">",
+    "text": "<div><div>Tabs</div><div>1</div></div></div><div class=\"metadata\">"
+   },
+   {
+    "replace": "</div><div class=\"section-metadata\"><div><div>Style</div><div>wide-text</div></div><div><div>Tab</div><div>Unsere Partner-News</div></div><div><div>Tabs</div><div>1</div></div></div></div>\n<div></div></main>",
+    "text": "</div></div>\n<div></div></main>"
+   }
+  ]
+ },
+ {
+  "path": "/al/de/allegris/video-gallery",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://business.lufthansagroup.com/gc/null/de\"><picture><img src=\"https://business.lufthansagroup.com/content/dam/b2b/Allegris/video-gallery/Video-Gallery_1440x512px.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></a></p>",
+    "text": "<p><picture><img src=\"https://business.lufthansagroup.com/content/dam/b2b/Allegris/video-gallery/Video-Gallery_1440x512px.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>"
+   }
+  ]
+ }
+]

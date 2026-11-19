@@ -1,0 +1,47 @@
+# ema-cashub, standing order 73 (2026-11-19), item 3: SWISS market copies against their source. The pages of the market
+# roots /<market>/de and /<market>/en show the market homepage's full title ("Flüge buchen mit SWISS – Ihre Reise
+# beginnt hier", "Book flights with SWISS - your journey starts here") as their breadcrumb's first item; their sources
+# under /ch/de and /ch/en show "Home": the ch homepages are served with Breadcrumb title "Home" (meta breadcrumb-title),
+# 29 of the 32 market homepages with pages under them without it (de/de, de/en, gb/en have it). On phones the German
+# label wraps to a second line: the copy 24 px taller than its source (ar/de legal-notice 390 2,612 against /ch/de's
+# 2,586; with the label "Home" 2,588).
+# The row: a Metadata row Breadcrumb title | Home on each of the 29 homepages (the first row of its Metadata block).
+# The homepages draw as before (a homepage has no breadcrumb); every page under them gets the source's label. No recorded
+# page-width moves (of the market pages only the de/de and us/en homepages are recorded). Token-free: page metadata.
+# Measured with the label set in the page (so73/bc.js, every section loaded) on the market pages paired with a source:
+# ar/de legal-notice 390 2,612 -> 2,588, ar/de profile-conditions 390 3,355 -> 3,331, ro/de fly/on-board 390 4,129 ->
+# 4,105; the English pages and every 1440 unchanged (one line already).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-swiss-market-breadcrumb.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET each, 09:18 to 09:21 CET): 29/29 "1 inserted", "without the inserts
+# DA's copy byte for byte: true"; a second run "1 present"; no {…}.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ae/de/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/de source
+READY	/ae/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/al/de/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	6 pages under it get the first breadcrumb item "Home", as their /ch/de source
+READY	/al/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	6 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/ar/de/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/de source
+READY	/at/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/au/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/br/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/ca/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	6 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/cn/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	4 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/dk/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	3 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/eg/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/es/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	3 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/fr/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/hr/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/hu/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/ie/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/il/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/in/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/jp/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/kr/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	3 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/lt/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/nl/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/no/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/ro/de/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	1 pages under it get the first breadcrumb item "Home", as their /ch/de source
+READY	/se/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	3 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/sg/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/th/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	2 pages under it get the first breadcrumb item "Home", as their /ch/en source
+READY	/us/en/homepage	1440 / 390	-	-	as served	the homepage unchanged (no breadcrumb)	4 pages under it get the first breadcrumb item "Home", as their /ch/en source

@@ -18,7 +18,34 @@ const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const b2b = read('../styles/themes/b2b.css');
 const DIR = '../tools/reports/parity-2026-11-09/';
 const list = (n) => ({ txt: read(`${DIR}${n}.txt`), data: JSON.parse(read(`${DIR}${n}.json`)) });
-const NAMES = ['delta-so73-b2b-video-embeds', 'delta-so73-b2b-content', 'delta-so73-swiss-video-embeds', 'delta-so73-swiss-content'];
+const NAMES = ['delta-so73-b2b-video-embeds', 'delta-so73-b2b-content', 'delta-so73-swiss-video-embeds', 'delta-so73-swiss-content',
+  'delta-so73-swiss-page-ends', 'delta-so73-b2b-headings', 'delta-so73-swiss-market-breadcrumb', 'delta-so73-b2b-market-copies'];
+
+test('item 3, B2B copies: the news hub\'s xx copies as their sources, al/de video-gallery\'s picture unlinked', () => {
+  const d = list('delta-so73-b2b-market-copies').data;
+  assert.deepEqual(d.map((x) => x.path), ['/xx/en/news', '/xx/de/news', '/al/de/allegris/video-gallery']);
+  d.filter((x) => x.path.endsWith('/news')).forEach(({ inserts }) => {
+    assert.equal(inserts.length, 8);
+    assert.equal(inserts.filter((i) => i.text === '' && /^\n<div><div class="section-metadata"><div><div>Tab<\/div>/.test(i.replace)).length, 3);
+    assert.equal(inserts.filter((i) => i.replace.includes('grey, wide-text') && i.text === i.replace.replace('grey, wide-text', 'grey')).length, 3);
+  });
+  const [vg] = d.slice(2);
+  assert.ok(vg.inserts[0].replace.startsWith('<p><a href="https://business.lufthansagroup.com/gc/null/de"><picture>'));
+  assert.ok(vg.inserts[0].text.startsWith('<p><picture>') && !vg.inserts[0].text.includes('<a '));
+});
+
+test('the later lists: page-end Spacer blocks, sap h2-compact, the market homepages\' breadcrumb title', () => {
+  const ends = list('delta-so73-swiss-page-ends').data;
+  assert.equal(ends.length, 11);
+  assert.ok(ends.every((d) => d.inserts.length === 1 && d.inserts[0].text.includes('<div class="spacer"><div><div></div></div></div>')));
+  const [sap] = list('delta-so73-b2b-headings').data;
+  assert.equal(sap.path, '/de/en/news/celebrating-shared-stories/sap');
+  assert.ok(sap.inserts.every((i) => i.text === i.replace.replace('</div></div>', ', h2-compact</div></div>')));
+  const bc = list('delta-so73-swiss-market-breadcrumb').data;
+  assert.equal(bc.length, 29);
+  assert.ok(bc.every((d) => /^\/[a-z]{2}\/(de|en)\/homepage$/.test(d.path) && !d.path.startsWith('/ch/')
+    && d.inserts[0].after === '<div class="metadata">' && d.inserts[0].text === '<div><div>Breadcrumb title</div><div>Home</div></div>'));
+});
 
 test('b2b.css: an Embed with option small is a 560 x 315 YouTube player, at every width', () => {
   const sel = 'body.brand-b2b main .embed.small .media-embed-youtube';

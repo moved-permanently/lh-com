@@ -1,0 +1,15 @@
+[
+ {
+  "path": "/de/en/news/celebrating-shared-stories/sap",
+  "inserts": [
+   {
+    "replace": "<div><div>Style</div><div>wide-text, space-below-m</div></div>",
+    "text": "<div><div>Style</div><div>wide-text, space-below-m, h2-compact</div></div>"
+   },
+   {
+    "replace": "<div><div>Style</div><div>space-m</div></div>",
+    "text": "<div><div>Style</div><div>space-m, h2-compact</div></div>"
+   }
+  ]
+ }
+]

@@ -12735,3 +12735,37 @@ Report: tools/reports/token-free/swiss-b2b-so73.md.
 - Whole-repo `npm run lint` exited 0 before the push, and stylelint on swiss.css and b2b.css exited 0.
 - The targeted tests: 557 files, 2,015 pass, 0 failures. This includes the new test/swiss-b2b-so73.test.mjs and the
   folder-reading tests.
+
+### Item 3 and item 2's last rows (about 09:40 CET, pushed with this section)
+
+**Item 3, copies against their source.**
+- Every market-root document with a source in its language was rendered at 1440 and 390 with every section loaded. That
+  is 243 SWISS pairs, against /ch/<lang>, and 115 Group for Business pairs, against /de/<lang>.
+- More than 1 % apart: SWISS 459 of 486 page-widths, B2B 43 of 227. The full list with causes is
+  tools/reports/token-free/swiss-b2b-so73-pairs.tsv.
+- **SWISS:**
+  - 421 of the 459 are the market homepages, each its own www page.
+  - 37 are copies with the market's own www text.
+  - 1 is drift: a market page's breadcrumb shows the homepage's whole title because 29 market de/en homepages lack the
+    source's Breadcrumb title "Home". Phones get a second line, +24 px.
+- **B2B:**
+  - Drift on 3 documents: the xx news hubs' extra empty tab sections, and al/de video-gallery's picture linked to www's
+    broken /gc/null/de. Each draws its source to the px with its row.
+  - The xx contact pages lack the hotline finder's hours (data).
+  - The rest are the copies' own content.
+
+**Item 2's last rows:**
+- The SWISS page ends where www keeps an empty container: travel-regulations (10 copies) and entertainment-on-board de.
+- The Group for Business sap story's H2s at www's heading-small (h2-compact).
+
+**READY lists in this push** (px as served -> with the row, 1440 / 390):
+
+| List | Documents | Recorded page-widths |
+| --- | --- | --- |
+| delta-so73-swiss-market-breadcrumb | 29 market de/en homepages | none moves (the homepages have no breadcrumb); under them ar/de legal-notice 390 2,612 -> 2,588 (source 2,586) |
+| delta-so73-b2b-market-copies | xx/en, xx/de news; al/de video-gallery | xx news 390 1,296 / 1,292 unchanged (www 1,299 / 1,295); 1440 4,130 -> 4,177, 4,284 -> 4,331, 3,324 -> 3,489 (each its source's height) |
+| delta-so73-swiss-page-ends | 10 travel-regulations, entertainment-on-board de | travel-regulations de 1440 1,462 -> 1,515 (www 1,547: -5.49 -> -2.07 %), 390 2,650 -> 2,723 (-1.71 -> +1.00 %); entertainment-on-board de 1440 2,509 -> 2,602 (www 2,554: -1.76 -> +1.88 %), 390 2,716 -> 2,809 (www 2,837: -4.27 -> -0.99 %) |
+| delta-so73-b2b-headings | de/en sap | 1440 6,420 -> 6,331 (www 6,211: +3.36 -> +1.93 %), 390 9,016 -> 8,930 (www 8,819: +2.23 -> +1.26 %) |
+
+**Checks:** whole-repo `npm run lint` exited 0 before the push, and test/swiss-b2b-so73.test.mjs passes (8 tests). No
+code changed in this push.

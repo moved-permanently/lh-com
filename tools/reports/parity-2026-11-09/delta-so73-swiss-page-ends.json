@@ -1,0 +1,101 @@
+[
+ {
+  "path": "/ch/de/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/prepare/travel-regulations",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer\"><div><div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "before": "<div></div>\n</main>",
+    "text": "<div><div class=\"spacer\"><div><div></div></div></div></div>\n"
+   }
+  ]
+ }
+]

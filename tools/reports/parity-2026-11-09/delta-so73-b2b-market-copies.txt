@@ -1,0 +1,26 @@
+# ema-cashub, standing order 73 (2026-11-19), item 3: Group for Business market copies against their source in the same
+# language (/<market>/de -> /de/de, /<market>/en -> /de/en, the same path; 115 pairs among the 733 served documents),
+# each rendered at 1440 and 390 with every section loaded (b2b.turnsthe.page, Turnstile aborted on both sides). Of the
+# 227 page-widths 43 differ by more than 1 %. Where the copy's document has drifted from its source (the same www text,
+# another structure), a row brings it to the source's:
+# - xx/en and xx/de news (the news hub): each tab opens with an empty section (its Tab row only), the tab sections are
+#   grey and wide-text, and the page metadata stands in a last section of its own given to the last tab. The sources
+#   have one grey section per tab and the metadata in the last of them. 1440: the copies 47 px short of their sources;
+#   with the rows 4,177 / 4,331, the sources' heights to the px; 390 (recorded, b2b-parity-004: www 1,299 / 1,295)
+#   unchanged.
+# - al/de video-gallery: its stage picture is linked to www's broken address https://business.lufthansagroup.com/gc/null/de,
+#   so it draws as a linked badge (the source's picture is not linked): 1440 165 px short of de/de. With the link taken
+#   off, 3,489 = de/de's 3,489; 390 unchanged.
+# The other 40 page-widths are each market's own www content or data, not drift (the report lists them with causes).
+# Token-free: sections dropped, a section style, a link taken off; no marker.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-b2b-market-copies.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET each, 09:32 to 09:34 CET): xx/en, xx/de "8 inserted", al/de
+# "1 inserted", each "without the inserts DA's copy byte for byte: true"; a second run "present"; no {…}.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/xx/en/news	1440	-	-	4,130	4,177 (+47 px)	source /de/en/news 4,177; the copy as its source
+READY	/xx/en/news	390	b2b-parity-004	1,299	1,296	1,296 (+0 px)	source /de/en/news 1,296; the copy as its source
+READY	/xx/de/news	1440	-	-	4,284	4,331 (+47 px)	source /de/de/news 4,331; the copy as its source
+READY	/xx/de/news	390	b2b-parity-004	1,295	1,292	1,292 (+0 px)	source /de/de/news 1,292; the copy as its source
+READY	/al/de/allegris/video-gallery	1440	-	-	3,324	3,489 (+165 px)	source /de/de/allegris/video-gallery 3,489; the copy as its source
+READY	/al/de/allegris/video-gallery	390	-	-	3,765	3,765 (+0 px)	source /de/de/allegris/video-gallery 3,765; the copy as its source

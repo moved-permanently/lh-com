@@ -1,0 +1,15 @@
+# ema-cashub, standing order 73 (2026-11-19), item 2 (continued): Group for Business, the sap story de/en (recorded,
+# b2b-parity-007 at 1440, -014 at 390): www's four H2s are heading-small, ours the default H2 size (38 px lines
+# against www's 32, each H2's section 32 px further down: +132 at "More than a flight path", +207 at the footer).
+# The row: section style h2-compact on the two sections that hold the H2s (added to their Style rows). Token-free: a
+# section style. The German copy (not recorded; www's German classes not on disk) is not in the row: drafted the same
+# way it goes 6,822 -> 6,733 / 9,984 -> 9,866.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-b2b-headings.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET, 09:17 CET): "2 inserted", "without the inserts DA's copy byte for
+# byte: true"; a second run "2 present"; no {…}.
+# Drafted on b2b.turnsthe.page (so73/fulld.mjs, every section loaded; airline hosts, www.* and lh-proxy refused per
+# request, none sent). Gate: |after %| - |before %| <= 0.5 on every recorded page-width, the sum of |% off www| down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/en/news/celebrating-shared-stories/sap	1440	b2b-parity-007	6,211	6,420 (+3.36 %)	6,331 (+1.93 %)	-1.43 points; the H2s at www's heading-small (section style h2-compact)
+READY	/de/en/news/celebrating-shared-stories/sap	390	b2b-parity-014	8,819	9,016 (+2.23 %)	8,930 (+1.26 %)	-0.98 points; the H2s at www's heading-small (section style h2-compact)
