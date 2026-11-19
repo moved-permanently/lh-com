@@ -1,0 +1,13 @@
+# ema-test, standing order 61, item 1 (2026-11-19): /at/en/entryregulations' last three style markers, the phone spacers {spacer-55 / 78 / 35
+#   below-768} (DA moved-permanently/lh-austrian; austrian-parity-015 at 1440, -027 at 390). Data: delta-so61-austrian-entryregulations.json.
+# The carrier: styles/themes/austrian.css "the column views' gaps on phones" (this order): the picture before the outer column view 78 px under
+#   it, the outer view 77 px over the next section, the heading over the accordion 60 px under its paragraph, on phones only; not where a
+#   spacer still stands.
+# Gate of the rule: all 123 recorded Austrian 390 page-widths (from 768 px it changes nothing), our host as served, full Chrome, airline hosts
+#   refused, the rule in the same load: none further from www, the sum 2,035.20 -> 2,034.38 (at/de/entryregulations 25.15 -> 24.33 %).
+# The page with the row: the served page, the three spacers taken out of the decorated page and the rule added, in the same load, against the
+#   recordings. Without the rule the same removal reads 34.83 % at 390 (7,044 px).
+# Dry run: text-inserts-apply --check on DA's current copy (read ~01:40 UTC): 3 inserts made once, the copy byte for byte without them. The
+#   row leaves no "{...}" marker in the document.
+# Each line: READY / HOLD, path, the change, % off www and height as served -> with the row (1440 / 390), the gate.
+READY	/at/en/entryregulations	the three phone spacers out ({spacer-55 below-768}, {spacer-78 below-768}, {spacer-35 below-768}); the theme draws the gaps	1440 8.62 -> 8.62 % (5,523 -> 5,523 px, www 5,538); 390 15.19 -> 15.18 % (7,207 -> 7,207 px, www 7,236; "General information" at www's 766, the spacer's 764)	token-free (no marker left); DA dry run byte for byte (3 inserts)

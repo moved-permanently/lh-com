@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/at/en/entryregulations",
+  "from": "so61 item 1",
+  "inserts": [
+   {
+    "replace": "l and entry regulations.\"></picture></p><p>{spacer-55 below-768}</p></div><div><h2 id=\"general-information\">",
+    "text": "l and entry regulations.\"></picture></p></div><div><h2 id=\"general-information\">"
+   },
+   {
+    "replace": "nformation for Austrian citizens</a></p><p>{spacer-78 below-768}</p><div class=\"section-metadata\"><div><div>",
+    "text": "nformation for Austrian citizens</a></p><div class=\"section-metadata\"><div><div>"
+   },
+   {
+    "replace": "information for entering Austria</a></p><p>{spacer-35 below-768}</p><h2 id=\"country-specific-provisions\">Cou",
+    "text": "information for entering Austria</a></p><h2 id=\"country-specific-provisions\">Cou"
+   }
+  ]
+ }
+]

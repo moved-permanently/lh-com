@@ -1131,6 +1131,29 @@ body.brand-austrian main > .section:has(+ .section.column-view.padded:not(.grey)
   }
 }
 
+/* the column views' gaps on phones (standing order 61, item 1): www's spacing where /at/en/entryregulations' three phone
+   spacers drew it ({spacer-55 / 78 / 35 below-768}), so the row can take them out (austrian-parity-027 at 390):
+   - a picture that ends the section before an outer column view (Column view, Padded): 78 px under it, the view's heading
+     at www's 766 (the spacer drew it at 764);
+   - an outer column view followed by a section: 77 px under it;
+   - a heading that ends its section over an accordion, after a paragraph: 60 px above it.
+   Not where a spacer still stands (the served copy until the row). Gate, all 123 recorded Austrian 390 page-widths (from 768 px
+   nothing changes): none further, the sum 2,035.20 -> 2,034.38 (at/de/entryregulations 25.15 -> 24.33 %); the page with
+   the row 15.19 -> 15.18 % (7,207 px both, www 7,236; without the rule 34.83 %) */
+@media (width < 768px) {
+  body.brand-austrian main > .section:has(+ .section.column-view.padded:not(.grey)) > .default-content-wrapper:last-child > p:last-child:has(> picture:only-child) {
+    padding-bottom: 78px;
+  }
+
+  body.brand-austrian main > .section.column-view.padded:not(.grey):has(+ .section):not(:has(> .default-content-wrapper > p.spacer:last-child)) {
+    margin-bottom: 77px;
+  }
+
+  body.brand-austrian main > .section:has(+ .section.accordion-columns-container) > .default-content-wrapper:last-child > p:not(.spacer) + h2:last-child {
+    margin-top: 60px;
+  }
+}
+
 /* brief 444: the footer's spacing as www's (austrian-parity-002, the same on every page; ours was about
    100 px shorter): the payment heading 23 px further from the link columns; below 1025 px the follow-us
    group 46 px further from the payment badges, the legal links 19 px closer to the social icons and 38 px
