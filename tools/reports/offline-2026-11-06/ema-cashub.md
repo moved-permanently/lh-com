@@ -12391,3 +12391,74 @@ with the H1 itself, for the with-aside section right after it.
   form.
 - The targeted tests: 534 files, 2,213 pass, 0 failures, 3 skipped.
 - The full suite on 389eda64: 1,292 files, 4,849 pass, 0 failures, 5 skipped.
+
+### Final section (standing order 71, about 04:35 CET, 2026-11-19)
+
+**Pushed (origin/main):**
+
+| Commit | Item | What |
+| --- | --- | --- |
+| e1d7d3e8 | 2, 4 | SWISS FAQ headlines (THEMES.swiss accordion-headings) and the phone title 30 px; B2B short tables in their box from 768 px, and the phone tab set after running text 20 px lower; the report tools/reports/token-free/swiss-b2b-so71.md |
+| 49b99fbb | 5 | The column 96 / 76 px under the title's lead; the heading after a text-only card row 28 px from 1025 px; the 794 px column HOLD with its causes; this order's section |
+| c5c4cd50 | 6 | B2B: an H2 right after an accordion in heading-small (THEMES.b2b h2-small-after-accordion); addendum 1 |
+| 553bc997 | 6 | The READY list for lhg-history de/en; addendum 2 |
+| 389eda64 | 6 | SWISS: no section gap under a closing padded section on phones; addendum 3 |
+| c4886350 | 6 | SWISS: the column 96 / 76 px under a title without a lead; addendum 4 |
+| (this commit) | - | This final section |
+
+**The gates** (code against live, every section loaded, none more than 0.5 points further):
+
+| Rule | Page-widths moved | Sum of \|% off www\| |
+| --- | --- | --- |
+| SWISS FAQ headlines + phone title | 28 (14 closer) | 582.27 -> 578.11 |
+| SWISS lead gap + text-row heading | 14 (12 closer) | 578.11 -> 565.04 |
+| SWISS phone page end | 3 (2 closer) | 565.04 -> 561.81 |
+| SWISS title gap | 6 (6 closer) | 561.81 -> 553.34 |
+| B2B short tables + phone tab set | 4 (4 closer) | 167.12 -> 157.41 |
+| B2B H2 after an accordion | 17 (17 closer) | 158.03 -> 150.26 |
+| B2B lhg-history de/en row | 1 (closer) | -3.49 points |
+
+- SWISS over all 168 recorded page-widths: 582.27 at the start of the order, 553.34 now.
+- Group for Business over all 184: 167.12 at the start, 144.06 now. That reading has lhg-history live, and businesstogo
+  read with its Turnstile challenge aborted; the gates account for 20.97 of the 23.06 points.
+- Each rule was measured live after its push, and the row after the helper applied it. All matched the drafted
+  heights.
+
+**READY lists:**
+
+| List | Path | 1440 as served -> with the row | 390 as served -> with the row |
+| --- | --- | --- | --- |
+| delta-so71-b2b-lhg-history-en-spacer | /de/en/about-us/lhg-history | 1,604 -> 1,663 (www 1,690) | 4,199 -> 4,199 (www 4,212) |
+
+The helper applied it by 03:31 CET (2ebe0ff7). The served page measures 1,663 / 4,199.
+
+**Held, with figures:**
+- **The SWISS aside column at 794 px:** with all of this order's rules, 7 page-widths still end more than 0.5 points
+  further. They are newsletter, swiss-first, miles-and-more, food-and-beverage, green-fare, swiss-premium-economy and
+  accessible-travel, all at 1440. Their causes sit outside the column (item 5 in the report).
+- **The fleet hub intro** (item 1, not looked at again): order 70's +0.15 -> +1.18 % at 390.
+- **The B2B table rule's unrecorded reach:** 23 tables in 17 documents now draw 840 px tall. Only kuala-lumpur's is
+  recorded on www.
+- **Tried and not shipped:** B2B 11 px under a stacked button on phones; B2B 21 px under a closing card grid; the SWISS
+  usp teaser geometry; the 794 px column. Figures are in the report.
+
+**Content and function differences (item 7, no rows):**
+- SWISS: offers' priced fares, pax-receipt's receipt form, the magazine's ad slots and the a350 article's longer
+  related list, culinaryjourney's entry screen, arrival-departure's flight status entry.
+- Group for Business: meals-on-board's tenth tab item.
+- Figures are in item 7 of the report.
+
+**Checks:**
+- Whole-repo `npm run lint` exited 0 before every push, and stylelint on swiss.css and b2b.css exited 0.
+- The targeted tests before the last code push: 534 files, 2,213 pass, 0 failures, 3 skipped.
+- The full suite on c4886350: 1,292 files, 4,849 pass, 0 failures, 5 skipped.
+
+**DA:**
+- One read-only GET: lh-b2b /de/en/about-us/lhg-history at 03:05 CET. The earlier note in this order's section ("no
+  request at all") was written before it.
+- Nothing written by me. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+**Left uncommitted:** nothing of mine.
+- Scratch stays in migration-work/parity-588/so71: code snapshots, runs, the DA read and drafts.
+- so71/pre70 there is a half-checked-out folder from a timed-out worktree add. It is not a registered worktree.
+- No background job of mine is running.

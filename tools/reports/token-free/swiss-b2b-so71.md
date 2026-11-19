@@ -291,6 +291,7 @@ the +53 px before "Exklusive Vorteile für Statuskund:innen" is that section's H
   4,259), so it is not in the row.
 - Dry run on DA's current copy (1 read-only GET, 03:05 CET): 1 inserted, byte for byte back without it, a second run
   "1 present", no {…} in the output.
+- The helper applied it by 03:31 CET (2ebe0ff7). The served page measures 1,663 / 4,199, as drafted.
 
 **SWISS, the column under a title without a lead (shipped, a SWISS rule).** refunds 1440 (rank 23, -3.62 %) and
 payment-options 1440 (rank 22, -3.64 %) have the column beside the aside right under the title: www's column starts
