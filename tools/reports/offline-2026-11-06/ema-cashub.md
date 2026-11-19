@@ -12462,3 +12462,146 @@ The helper applied it by 03:31 CET (2ebe0ff7). The served page measures 1,663 / 
 - Scratch stays in migration-work/parity-588/so71: code snapshots, runs, the DA read and drafts.
 - so71/pre70 there is a half-checked-out folder from a timed-out worktree add. It is not a registered worktree.
 - No background job of mine is running.
+
+## Standing order 72 (2026-11-19, from about 04:45 CET)
+
+**Left from order 71:** nothing of mine uncommitted or unpushed. Its worktree was clean at 65586b37, which is on origin.
+The main checkout's dirty entries belong to other jobs and were left alone (blocks/notifications/notifications.css,
+import-progress.json, the importer reports and the urls-*.txt lists).
+
+**Scratch:** migration-work/parity-588/so72 (not in git).
+- full.mjs, runf.sh, gate71.py and rank.py come from order 71.
+- New in this order:
+  - bcmp.py: our boxes matched to www's measurement-JSON boxes by text.
+  - causes.py: where each page-width drifts.
+  - stkp.js, tblp.js, uspp.js, tabsp.js: probes for the stacked buttons, the tables, the usp teasers and the tab sets.
+  - rulecen.mjs with rulep.js: the census of the served documents.
+  - chk.js and shot.mjs: the breakage flags, and screenshots.
+  - xg.py: the gate across two runs.
+- The recordings: parity-588/so64/arch/b2b-parity-018 (sha256 checked), added to so64/b2b-rec.tsv.
+
+**Requests:**
+- Every render refused lh-proxy, www.* and every airline host per request and counted them. None was sent.
+- www was read only from the recordings on disk, and the new index and archive from the R2 drop.
+
+**DA:** no request at all. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+**Token-free:** every change is theme CSS. No list, no row, no importer change.
+
+Report: tools/reports/token-free/swiss-b2b-so72.md (the method, every table and figure).
+
+### Item 1: the Group for Business table box (pushed, 478f9688)
+
+- The seven pages' recordings were up by 04:47 CET: 14 page-widths, each width its own load. On www every table is drawn
+  at its own height: the rows plus 40 px above and below.
+- kuala-lumpur's rows are tall on www only because its cells hold two empty lines above and below their text (content).
+- **Shipped:** the 840 px box for five-column tables only. Of the served tables it then changes only the three
+  kuala-lumpur copies.
+- **Gate (198 page-widths):** 7 moved, 6 closer by 2.3 to 25.3 points (carry-on-baggage 1440 +27.03 / +28.72 ->
+  +2.68 / +3.38 %, the A350-1000 news +56.80 -> +37.37 %).
+- **The one exception: cash-and-points de/en 1440, -5.07 -> -9.31 %.** Its missing YouTube video (-330 px) had been
+  hidden by the box. Taking the box back entirely fails on the same page (and on kuala-lumpur), and no structural rule
+  can separate it from its German copy, which the box took 4.46 % long.
+- The 23 tables in 17 documents, before and after, are in the report.
+
+### Item 2: the 794 px column (HOLD), three SWISS rules on the way (pushed, 478f9688)
+
+- **The first moving box per failing page:**
+  - newsletter: the sign-up text in a 622 px sidebar Columns Media.
+  - swiss-first: the column 37 px high under the stage.
+  - miles-and-more: the lead gap didn't reach it (a column split into parts).
+  - premium-economy: www's empty line above the lead (content).
+  - food-and-beverage: www's divider module (content).
+  - green-fare: www's authored heading classes (content).
+  - accessible-travel: paragraph and link lines.
+- **Shipped:**
+  - The lead gap for a column split into parts.
+  - From 1025 px, the tab bar 24 px under the lead: www's underline is 88 / 89 px under the lead on every tabbed page.
+    Not before an embed panel.
+  - From 1025 px, the column's card row heading 52 px under its text.
+- With them the column still fails 7 page-widths (+0.66 to +1.80 points). What is left on four of them is content.
+
+### Item 3: the three rules tried in order 71
+
+- **B2B stacked button (pushed, 478f9688):** 11 px only where the text's next cell is its own picture. www draws 11
+  there (kuala-lumpur, route-network, celebrating). Before another card's text, www keeps the card gap: those were
+  order 71's ten failures. Gate: 12 moved, 5 closer, worst +0.49.
+- **B2B footer under a closing card grid (HOLD):** www's 21 / 62 / 69 / 82 px under the same block shapes. Nothing
+  separates them.
+- **SWISS usp teasers (pushed, 478f9688):** the recorded 390s do show www's phone layout: one teaser per row, the icon
+  over its title, 180 px pitch, the teaser 150 px tall (ours 155).
+  - The rule: the title full width, its own line box, 12 px under it.
+  - ch/en terms-conditions 390 3,234 -> 3,147 (www 3,147). ch/de 390 +3.53 -> +1.43 %; the 1440s +3.25 / +3.52 ->
+    +1.93 / +2.18 %.
+
+### Item 4: reach
+
+- The census loaded every served Group for Business document (729) and the SWISS documents with each narrow rule's
+  shapes (2,319 of 4,661, plus a random 300 of the rest). Each rule's selector was counted on the decorated page.
+- The figures (documents with an element the rule applies to):
+  - SWISS: the lead 974, the title picture about 1,368, table cells 356, the lead gap 356, the tab bar 201, FAQ
+    headlines 139, the phone end 99, the title gap 96, the card row heading 71, the text-row heading about 35, the
+    one-section page 22, the split-column lead gap 19, the table before an accordion, the panel picture list and the
+    note band 11 each, the usp teaser 2.
+  - B2B: the stacked button 100, the H2 after an accordion 25 (order 71's count), the five-column table box 7 (it
+    changes the 3 kuala-lumpur copies), the phone tab set 3.
+- **Samples:** up to 5 unrecorded documents per rule (82 documents) at 1440 and 390, checked for overlaps, blocks
+  outside the viewport, clipped text and empty runs.
+- Three flags, all fine in screenshots: a stage picture cropped in its box, and an accordion's last border 16 px into
+  the next section. Nothing to fix.
+
+### Item 5: ranks 41 to 60 per brand
+
+- The causes per page-width are in the report.
+- Rules from this list: route-network's stacked button (item 3) and swiss-business' tab bar (item 2).
+- Tried and held: the Allegris last section's H1 gap (9 page-widths further, the same shape stands on contact and
+  partner-plus-benefit).
+- Content and function differences are listed without rows: cash-and-points' and partner-plus-benefit's video, the
+  German FAQ, kuala-lumpur's empty lines, the A350 news layout, premium-economy's empty line, food-and-beverage's
+  divider, green-fare's heading classes, the newsletter's section break, the magazine lists, the flight search and
+  check-in entries.
+
+### Standing order 72, items 4 and 5 (about 07:00 CET, pushed with this section)
+
+**Pushed (origin/main):**
+
+| Commit | Items | What |
+| --- | --- | --- |
+| 478f9688 | 1, 2, 3 | B2B: the 840 px table box for five-column tables only; the stacked button 11 px above its own picture on phones. SWISS: the lead gap for a split column; the tab bar under the lead; the card row heading 52 px; the usp teaser as www's. The report tools/reports/token-free/swiss-b2b-so72.md and test/swiss-b2b-so72.test.mjs |
+| (this commit) | 4, 5 | The report's items 4 and 5 and its checks, and this order's section |
+
+**The gates** (code against live, every section loaded):
+
+| Rules | Page-widths moved | Sum of \|% off www\| |
+| --- | --- | --- |
+| SWISS, all four rules of this order (168 page-widths) | 14 (13 closer, worst +0.47) | 553.34 -> 540.06 |
+| B2B, the table box for five-column tables and the stacked button (198) | 19 (11 closer; cash-and-points de/en 1440 +4.24, the stacked button's worst +0.49) | 342.32 -> 261.02 |
+
+- **SWISS, all 168 recorded page-widths:** the sum 553.34 at the start of the order, 540.06 now. The median goes 1.01 ->
+  0.89 %.
+- **Group for Business:**
+  - All 198 page-widths (order 71's 184 and this order's 14): 342.32 -> 261.02, median 0.52 -> 0.49 %.
+  - Order 71's 184: 144.06 -> 143.68, median 0.47 -> 0.46 %.
+  - businesstogo is read with its Turnstile challenge aborted on both sides.
+- The code's heights matched the in-page steps' to the px. The live CSS carries both theme files' order 72 rules.
+
+**READY lists:** none in this order (no row).
+
+**Held, with figures:**
+- **The 794 px SWISS column:** still 7 page-widths more than 0.5 points further (+0.66 to +1.80) with this order's
+  rules in. Four of them are short or long for content: swiss-premium-economy's empty line, food-and-beverage's
+  divider, green-fare's heading classes, and the page ends under the aside.
+- **B2B footer under a closing card grid:** www's gap is 21 to 82 px for the same block shapes.
+- **B2B Allegris last section:** the H1 gap before a Columns Media at 16 px takes 9 page-widths further (contact,
+  lhg-invoice-receipt-download, partner-plus-benefit).
+- **The phone tables** (seen in item 1): www draws them at full height. Ours keep the 840 px scroll box with taller
+  rows (carry-on-baggage 390 +14.28 / +16.22 %). That is the next table question.
+
+**Checks:**
+- Whole-repo `npm run lint` exited 0 before both pushes, and stylelint on swiss.css and b2b.css exited 0.
+- The targeted tests: 572 files, 0 failures after one test's fix.
+- The full suite on 478f9688: 1,294 files, 4,857 pass, 0 failures, 5 skipped.
+
+**DA:** none at all. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+**Next in this order:** the phone tables (item 1's finding). The final section follows at the end of the order.

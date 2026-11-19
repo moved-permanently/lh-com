@@ -232,22 +232,61 @@ moved, 9 closer, 7 more than 0.5 points further. The sum goes 541.00 -> 540.12.
   end.
 - **Reach:** the usp grids in the census (item 4). None of the other recorded SWISS pages moved.
 
-## Item 4: the reach of the rules of orders 70 to 72
+## Item 4: the reach of the rules of orders 70 to 72 (after the push, live code)
 
-In the addendum below, which comes after this push. The census of the served documents was still running.
+**The census.**
+- Every served page was loaded once at 1440 (so72/rulecen.mjs: sections and blocks loaded, pictures and fonts not
+  fetched, airline hosts refused), and each rule's own selector counted the drawn elements it applies to. The media
+  condition is left aside, so a phone-only rule is counted on every page that has its shape.
+- **Group for Business:** all 729 served documents (the 733 copies without nav, footer and fragments).
+- **SWISS:** the 2,319 of 4,661 documents that have an aside, a table, an accordion, a padded or grey section or a
+  stage (every narrow rule's shapes), plus a random 300 of the other 2,342 for the broad rules.
+- Every load answered 200 except 3 SWISS ones (a timeout each, not counted). 2,182 requests to airline hosts were
+  refused and counted (none sent).
 
-## The code against live (this push)
+**The samples:** up to 5 documents per rule, spread over its list and none of them recorded on www. That is 77
+documents, each rendered at 1440 and 390 on swiss.turnsthe.page or b2b.turnsthe.page with every section loaded.
+so72/chk.js then flags:
+- blocks overlapping the next one in their section;
+- anything drawn outside the viewport;
+- text clipped by a box with hidden overflow;
+- empty runs over 160 px inside a section.
 
-The code as a CODE override of this checkout, against today's live code, on every recorded page-width, every section
-loaded:
-- **SWISS (168):** 14 moved, 13 closer, none more than 0.5 points further (the most is animals-travelling 1440, +0.47).
-  The sum goes 553.34 -> 540.06 and the median 1.01 -> 0.89 %.
-- **Group for Business (198):** 19 moved, 11 closer, one more than 0.5 points further: cash-and-points de/en 1440,
-  +4.24 (item 1). The sum goes 342.32 -> 261.02 and the median 0.52 -> 0.49 %.
-  - On order 71's 184 page-widths: 144.06 -> 143.68, median 0.47 -> 0.46 %.
-  - The eight businesstogo page-widths were read again with their Turnstile challenge aborted on both sides (the
-    challenge's 71 px came and went between loads). With it aborted the code doesn't move them.
-- Every height matched the in-page steps' to the px.
+| Brand | Order | Rule | Served documents with an element it applies to | Sampled (unrecorded) |
+| --- | --- | --- | --- | --- |
+| SWISS | 70 | The lead under the title (lead-after-h1, copytext-large 18/30) | 974 (954 read, 3 in the 299-page sample of the 2,342 others) | /ch/en/fly/check-in/baggage-tags, /corporate/en/company/corporate-responsibility/child-labour, /ch/it/fly/on-board/swiss-business/business-interior, /ch/zh/fly/airport/boarding, /ch/el/prepare/special-care/accessible-travel |
+| SWISS | 70 | A one-section padded page | 22 | /ch/en/fly/on-board/duty-free-shop, /ch/fr/customer-support/refunds/confirmation, /ch/es/customer-support/refunds/confirmation, /ch/zh/customer-support/refunds/confirmation, /ch/el/customer-support/refunds/confirmation |
+| SWISS | 70 | Table cells as maui-table cells (phones: 200 px cells) | 356 | /ch/en/prepare/special-care/children-travelling/unaccompanied-minors, /corporate/fr/media, /ch/es/discover/sustainable-choices/environmental-cost-surcharge, /ch/zh/fly/on-board/entertainment-on-board/swiss-magazine, /ch/el/fly/airport/lounges/companion-rules |
+| SWISS | 70 | A table before an accordion 107 / 104 px under it | 11 | /ch/en/prepare/special-care/children-travelling/unaccompanied-minors, /ch/it/prepare/special-care/children-travelling/unaccompanied-minors, /ch/pt/prepare/special-care/children-travelling/unaccompanied-minors, /ch/ja/prepare/special-care/children-travelling/unaccompanied-minors, /ch/ru/prepare/special-care/children-travelling/unaccompanied-minors |
+| SWISS | 70 | An accordion panel picture beside its titled list (from 768) | 11 | /ch/de/book-and-manage/offers/miles-and-more, /ch/it/book-and-manage/offers/miles-and-more, /ch/pt/book-and-manage/offers/miles-and-more, /ch/ja/book-and-manage/offers/miles-and-more, /ch/ru/book-and-manage/offers/miles-and-more |
+| SWISS | 70 / 71 | The title 31 px under its picture from 768, 30 below | about 1,368 (1,211 read, 23 in the sample) | /ch/en/fly/check-in/baggage-tags, /corporate/en/company/corporate-responsibility/product-responsibility, /ch/es/book-and-manage/corporate-customers/ads-at-swiss/affiliate-partner-programme, /ch/zh/fly/check-in/check-in-times, /ch/el/book-and-manage/corporate-customers/group-travel-and-charter/group-travel |
+| SWISS | 70 | The footer's legal links on phones | every page (the footer) | - |
+| SWISS | 70 | The grey note band under the title | 11 | /ch/en/book-and-manage/partner-offers/travel-insurances, /ch/it/book-and-manage/partner-offers/travel-insurances, /ch/pt/book-and-manage/partner-offers/travel-insurances, /ch/ja/book-and-manage/partner-offers/travel-insurances, /ch/ru/book-and-manage/partner-offers/travel-insurances |
+| SWISS | 71 | FAQ headlines heading-medium (accordion-headings) | 139 | /ch/en/fly/check-in/online-check-in, /ch/fr/discover/lufthansa-group/ita-airways, /ch/es/fly/check-in/online-check-in, /ch/zh/customer-support/refunds, /ch/ru/book-and-manage/swiss-choice/hold-the-booking |
+| SWISS | 71 | The heading 28 px under a text-only card row (from 1025) | about 35 (27 read, 1 in the sample) | /ch/de/fly/on-board/food-and-beverage/special-meals, /corporate/fr/careers/working-at-swiss/offers-for-employees, /ch/es/fly/check-in/electronic-bag-tag, /al/it/book-and-manage/swiss-choice/privacy-seat, /ch/el/fly/on-board/food-and-beverage/special-meals |
+| SWISS | 71 | The column 96 / 76 px under the lead | 356 | /ch/en/prepare/special-care/children-travelling/unaccompanied-minors, /ch/fr/book-and-manage/swiss-choice/advance-seat-reservation, /ch/es/fly/check-in/fast-bag-drop-gva, /ch/zh/prepare/baggage/comfort-devices, /ch/el/fly/on-board/travel-classes/swiss-premium-economy/discover-premium-economy |
+| SWISS | 71 | No section gap under a closing padded section (phones) | 99 | /ch/en/prepare/baggage/baggage-irregularities, /ch/fr/prepare/baggage/baggage-irregularities, /ch/es/prepare/special-care/children-travelling/child-in-businessclass, /ch/zh/book-and-manage/partner-offers/travel-insurances, /ch/el/discover/a350/cabin |
+| SWISS | 71 | The column 96 / 76 px under a title without a lead | 96 | /ch/en/fly/check-in/online-check-in, /ch/de/book-and-manage/overview-manage/manage-bookings, /ch/es/fly/check-in/online-check-in, /ch/zh/fly/flight-information/current-information, /ch/el/book-and-manage/corporate-customers/group-travel-and-charter/group-travel |
+| SWISS | 72 | The lead gap for a column split into parts | 19 | /ch/de/prepare/special-care/health-and-travel, /ch/fr/book-and-manage/offers/miles-and-more, /ch/it/fly/check-in/check-in-times, /ch/pt/fly/check-in/check-in-times, /ch/ja/prepare/special-care/health-and-travel |
+| SWISS | 72 | The tab bar 24 px under the lead (from 1025) | 201 (a census of the 358 tabbed documents) | /ch/de/book-and-manage/corporate-customers/ads-at-swiss/ad-plattforms, /ch/en/fly/airport/lounges/lounges-zurich, /ch/fr/fly/on-board/swiss-economy, /ch/pt/fly/on-board/swiss-business/business-interior, /ch/zh/prepare/special-care/children-travelling/children-at-the-airport (each 24 px shorter at 1440, 390 unchanged, no flag) |
+| SWISS | 72 | The card row heading 52 px in the column (from 1025) | 71 | /ch/en/fly/on-board/swiss-economy, /ch/fr/fly/on-board/swiss-first, /ch/es/fly/on-board/travel-classes/swiss-premium-economy, /ch/zh/fly/on-board/travel-classes/swiss-premium-economy, /ch/ru/fly/airport/lounges/lounges-zurich |
+| SWISS | 72 | The usp teaser | 2 (ch/de and ch/en terms-conditions, both recorded) | - |
+| B2B | 71 | The phone tab set after running text | 3 (the meals-on-board copies, all recorded) | - |
+| B2B | 71 | An H2 after an accordion heading-small | 25 (order 71's count; the probe found the 4 free-baggage copies without a column mark between) | /de/en/program/experts/baggage/free-baggage, /de/de/program/experts/baggage/free-baggage, /xx/en/program/experts/baggage/free-baggage, /xx/de/program/experts/baggage/free-baggage |
+| B2B | 71 / 72 | The 840 px table box, five-column tables only (from 768) | 7 with a five-column table; it changes 3 (the kuala-lumpur copies; privacy's and our-european-fares' tables are 2,000 and 1,882 px and scroll as before) | /de/en/common/privacy, /de/de/common/privacy, /de/de/program/experts/route-network/lufthansa/kuala-lumpur, /xx/de/program/experts/route-network/lufthansa/kuala-lumpur |
+| B2B | 72 | A stacked button 11 px above its own picture (phones) | 100 | /de/en/program/corporate-preferred, /de/en/program/experts/news/experience-swiss-senses-on-flights-to-shanghai-and-johannesburg, /de/en/program/partner-plus-benefit/25-years-partner-plus-benefit, /de/de/program/experts/news/lufthansa-a380-business-class-sitze-werden-zu-sammlerstuecken, /de/de/program/experts/on-board/entertainment-on-board/lufthansa/internet |
+
+**What the 154 page-widths show:** nothing broken to fix.
+- 3 flags, looked at in screenshots, all of them fine:
+  - /ch/fr/fly/on-board/swiss-first and /ch/el/discover/a350/cabin (both widths): the stage's picture is 40 px taller
+    than its 810 / 350 px box and cropped. The text is whole.
+  - /de/en/program/corporate-preferred (both widths): the FAQ accordion's last row border sits 16 px into the grey
+    section after it, as on the recorded pages.
+- Screenshots of the new rules' samples (check-in-times it 1440 for the split-column lead gap, the Lufthansa internet
+  page de 390 for the stacked button) show them as on the recorded pages.
+- Both brands' served pages open with the "Technical showcase" dialog. It is fixed over the page and doesn't move the
+  layout.
+- No empty space, overlap, cut-off text or block outside its column was found.
 
 ## Item 5: the next 20 per brand (ranks 41 to 60, today as served, every section loaded)
 
@@ -301,6 +340,17 @@ matches, www's y in brackets). This order's rules close some of them, as the las
     and this order writes no rows.
   - The page ends. They vary 29 to 145 px with no shared shape.
 
+- **Tried for the Allegris last section and not shipped:**
+  - What it is: the H1 that opens a section before a Columns Media gets order 16's outer column marks. That is 40 px
+    of margin under the H1 and a 40 px mark before the block, where www has 16 px. After the block, a 40 px mark, where
+    www has 77 px before the grey band.
+  - The H1 gap at 16 px (B2B, all 198 page-widths in the same load): 32 moved, 17 closer, 9 more than 0.5 points
+    further (contact de/en 1440 -1.21 -> -3.29 %, lhg-invoice-receipt-download de/en 1440 +1.20 -> -3.31 %,
+    partner-plus-benefit de/de 1440 -0.99 -> -2.90 %). The sum goes 262.03 -> 266.53.
+  - On top of it, the 77 px before a grey band: 36 moved, 28 further. The sum goes 266.53 -> 311.22.
+  - The same H1-and-block shape stands on contact, partner-plus-benefit and the news pages, where www's gap is ours.
+    Held.
+
 **Content and function differences (no rows):**
 
 | Page | Width | Difference |
@@ -316,3 +366,24 @@ matches, www's y in brackets). This order's rules close some of them, as the las
 | SWISS magazine pages (behind-the-wings, a350-special-livery en, jungfrau-region, magazine/en) | 1440 | www's related stories and story grid |
 | SWISS de/de homepage, online-check-in | 390 / 1440 | the flight search and the check-in entry (apps) |
 
+## The code against live (pushed, 478f9688)
+
+The code as a CODE override of this checkout, against today's live code, on every recorded page-width, every section
+loaded:
+- **SWISS (168):** 14 moved, 13 closer, none more than 0.5 points further (the most is animals-travelling 1440, +0.47).
+  The sum goes 553.34 -> 540.06 and the median 1.01 -> 0.89 %.
+- **Group for Business (198):** 19 moved, 11 closer, one more than 0.5 points further: cash-and-points de/en 1440,
+  +4.24 (item 1). The sum goes 342.32 -> 261.02 and the median 0.52 -> 0.49 %.
+  - On order 71's 184 page-widths: 144.06 -> 143.68, median 0.47 -> 0.46 %.
+  - The eight businesstogo page-widths were read again with their Turnstile challenge aborted on both sides (the
+    challenge's 71 px came and went between loads). With it aborted the code doesn't move them.
+- Every height matched the in-page steps' to the px.
+
+## Checks
+
+- Whole-repo `npm run lint` exited 0 before the push (on the rebased tree), and stylelint on swiss.css and b2b.css
+  exited 0.
+- The targeted tests before the push: 572 files, 2,312 pass, 0 failures after the fix, 3 skipped. The one failure,
+  b2b-iframe-player-600, was a test that no other rule names the iframe-player variant. The stacked-button rule's
+  exclusion of that variant did nothing (the player cell has no picture), so it was dropped.
+- The full suite on 478f9688: 1,294 files, 4,857 pass, 0 failures, 5 skipped.
