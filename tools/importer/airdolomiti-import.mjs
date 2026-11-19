@@ -46,7 +46,7 @@ import {
 import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
 import { alternateRows, snapshotHead } from './airdolomiti-alternates.mjs';
 import collapseDocs from './collapse-docs.mjs';
-import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { withRestoredNbsp, headingText } from './nbsp-guard.mjs';
 import { daCopyOf, missingAssets } from './airdolomiti-media.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -698,10 +698,25 @@ function quizRows(page, n) {
   return [[im ? page.img({ url: im.getAttribute('src'), alt: im.getAttribute('alt') || '' }) : '', body]];
 }
 
+// a text's spaces as www shows them: a run of white space one space; a no-break space kept where it
+// touches an element (www's WordPress text binds a bold word or a link to its neighbours with
+// &nbsp;, "begin in&nbsp;<b>Germany</b>", which sets where its lines wrap: destinations at 390,
+// standing order 64), between two words of the text a plain space (text pasted from Word joins
+// whole sentences with &nbsp;; on www those runs reach past a phone's screen, ours broke them
+// inside a word: frankfurt-de 390). A heading's are plain (headingText: its id as the page's anchors).
+const SPACES = (w) => w.replace(/[^\S\u00a0]+/g, ' ');
+export const textRun = (t) => {
+  const s = String(t);
+  const a = s.match(/^\s*/)[0].length;
+  const z = s.length - s.match(/\s*$/)[0].length;
+  if (z <= a) return SPACES(s);
+  return `${SPACES(s.slice(0, a))}${s.slice(a, z).replace(/\s+/g, ' ')}${SPACES(s.slice(z))}`;
+};
+
 function inline(node, page) {
   let out = '';
   node.childNodes.forEach((c) => {
-    if (c.nodeType === 3) { out += esc(c.textContent.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ')); return; }
+    if (c.nodeType === 3) { out += esc(textRun(c.textContent)); return; }
     if (c.nodeType !== 1) return;
     const t = c.tagName;
     if (t === 'BR') { out += '<br>'; return; }
@@ -711,7 +726,7 @@ function inline(node, page) {
       const href = page.href(c.getAttribute('href'));
       const label = inner.trim();
       if (!href || !label) { out += inner; return; }
-      out += `${/^\s/.test(inner) ? ' ' : ''}<a href="${attr(href)}">${label}</a>${/\s$/.test(inner) ? ' ' : ''}`;
+      out += `${/^\s/.test(inner) ? inner[0] : ''}<a href="${attr(href)}">${label}</a>${/\s$/.test(inner) ? inner[inner.length - 1] : ''}`;
       return;
     }
     if (t === 'STRONG' || t === 'B') { out += inner.trim() ? `<strong>${inner}</strong>` : inner; return; }
@@ -722,7 +737,7 @@ function inline(node, page) {
   return out;
 }
 
-const tidy = (h) => h.replace(/\s+/g, ' ').replace(/(<br>\s*)+$/, '').replace(/^(\s*<br>)+/, '').trim();
+const tidy = (h) => h.replace(/[^\S\u00a0]+/g, ' ').replace(/(<br>\s*)+$/, '').replace(/^(\s*<br>)+/, '').trim();
 const empty = (h) => !h.replace(/<br>/g, '').replace(/<[^>]+>/g, (m) => (/^<img/.test(m) ? 'x' : '')).trim();
 
 // a paragraph that is only a bold link to a file (www's RichText link: the fleet's seat maps) as the
@@ -736,7 +751,7 @@ function flow(node, page, mode) {
   let run = '';
   const flush = () => { const h = fileLink(tidy(run)); if (!empty(h)) out.push(`<p>${h}</p>`); run = ''; };
   node.childNodes.forEach((c) => {
-    if (c.nodeType === 3) { run += esc(c.textContent.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ')); return; }
+    if (c.nodeType === 3) { run += esc(textRun(c.textContent)); return; }
     if (c.nodeType !== 1 || /^(SCRIPT|STYLE|NOSCRIPT|FORM|BUTTON|INPUT|SELECT|svg)$/i.test(c.tagName)) return;
     const t = c.tagName;
     const sc = c.getAttribute('data-shortcode');
@@ -759,7 +774,7 @@ function flow(node, page, mode) {
         if (p) out.push(`<p>${p}</p>`);
         im.remove();
       });
-      const h = tidy(inline(c, page)).replace(/<br>/g, ' ');
+      const h = headingText(tidy(inline(c, page))).replace(/<br>/g, ' ');
       if (!empty(h)) out.push(`<${t.toLowerCase()}>${h}</${t.toLowerCase()}>`);
       return;
     }
