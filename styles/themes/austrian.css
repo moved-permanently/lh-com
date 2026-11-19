@@ -54,7 +54,7 @@
    stacks name Arial next ("Portada, Arial, Helvetica, MAMMilesSymbol, sans-serif"), so a Russian page's letters come from whatever
    the machine has for Arial (DejaVu Sans, 13 % wider, where there is none). Liberation Sans 2.1.5 (SIL Open Font License 1.1,
    fonts/austrian/liberation-sans-OFL.txt; metric-compatible with Arial) from our own hosts, for the Cyrillic ranges only: a page
-   without Cyrillic loads nothing. Gate, the 246 recorded page-widths: 4,586.88 -> 4,555.40 (ru/ru/baggage 390 34.17 -> 11.91 %,
+   without Cyrillic loads nothing. Gate (order 65), the 246 recorded Austrian page-widths: 4,586.88 -> 4,555.40 (ru/ru/baggage 390 34.17 -> 11.91 %,
    1440 24.56 -> 6.27); the by/ru and ru/ru homepages further (390 +3.0 / +3.8, 1440 +1.4), accepted by the migration session:
    their content differs from the recording, which the wider fallback had hidden */
 @font-face {
