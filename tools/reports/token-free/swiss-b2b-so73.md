@@ -177,3 +177,68 @@ None of these gets a row.
   - the SWISS Senses start-of-booking xx/en copies: newer text;
   - entertainment-on-board ch/en and xx/en at 1440: extra panels and market sections. At 390 all three draw www's 2,039
     within 24 px.
+
+## Item 4: what is left between each brand and www
+
+**How this is figured:**
+- Today's heights are every recorded page-width with every section loaded, at about 09:00 CET (SWISS 168, Group for
+  Business 198).
+- "With the rows" puts this order's READY rows in: their drafts' heights on the page-widths they move.
+- Each remaining page-width was put on one side by its cause, found in orders 70 to 73:
+  - **Ours:** a row or a theme rule can still close it.
+  - **Lufthansa's:** content, live data or a function that only Lufthansa or their systems decide.
+- The two sides add up to the brand's sum of |% off www|.
+
+### SWISS: today 539.74 (median 0.89 %), with this order's rows 522.09 (median 0.84 %)
+
+**Lufthansa's: 38 page-widths, 409.51 of the 522.09 (78 %).**
+
+| Page | Width | www / ours | % off | What decides it |
+| --- | --- | --- | --- | --- |
+| /ch/en/offers | 390 / 1440 | 31,952 / 1,585; 32,383 / 2,311 | -95.04 / -92.86 | live data: www lists every priced fare from its fares API |
+| /ch/de/book-and-manage/pax-receipt | 390 / 1440 | 2,402 / 1,707; 2,234 / 1,682 | -28.93 / -24.71 | function: www's receipt request form (about 800 px); ours links to it |
+| magazine overview, /travel, /inside-swiss (de, en) | 390 | 10,414 / 8,959 and alike | -11.83 to -13.97 | content and function: www's story grid with advertisement slots |
+| magazine articles (a350-special-livery de/en, hello-boston, up-front-and-flying-high, jungfrau-region, behind-the-wings) | 390 / 1440 | e.g. 7,834 / 6,695 | -14.54 to +7.86 | content: www's related stories under the article (ad slots on phones) |
+| /ch/de/culinaryjourney | 390 | 1,396 / 1,513 | +8.38 | function: the micro-frontend's entry screen |
+| homepages ch/en, us/en, de/de | 390 / 1440 | e.g. us/en 4,920 / 4,752 | -3.41 to +2.57 | function: the stage's flight search and the check-in entry (apps) |
+| arrival-departure, online-check-in | 390 / 1440 | 1,690 / 1,644; 3,728 / 3,656 | -2.72 / -1.93 | function: the flight status and check-in entries |
+
+**Ours: 130 page-widths, 112.61.**
+- 45 are more than 1 % off, for 81.94 of the sum. The furthest, with their causes:
+  - **The held 794 px column.** 7 page-widths would go +0.66 to +1.80 points further today (order 72). It waits for the
+    content in four of them: premium-economy's empty line, food-and-beverage's divider, and the swiss-first and
+    miles-and-more page ends.
+  - **Styling still open (theme rules):**
+    - health-and-travel en 1440 -4.73 %: the aside's teasers and the page end (-112);
+    - imprint de 390 +3.28 % and 1440 +2.32 %: the page end (+44 / +29);
+    - accessibility-statement 1440 -2.93 % and privacy-statement 1440 -2.52 % / 390 -2.01 %: running-text line heights;
+    - animals-travelling 1440 -2.23 % / 390 -2.06 %: the open tab panel's sections;
+    - group-travel-and-charter 1440 -2.46 %; rebook 390 +2.66 %; terms-conditions de/en 1440 +1.93 / +2.18 %; the
+      vouchers FAQ end 390 +2.12 %.
+  - **Not traced yet:** swiss-airrail 1440 -2.92 % (-80 px in the intro, -165 in "Travelling by SWISS Air Rail").
+- **Content that only a marker could carry** (so no row under the token-free rule): swiss-premium-economy 390 -2.02 %,
+  which is www's empty line above the lead.
+- **SWISS is done on our side when** the column and those rules have shipped. What then remains is the 409.51 above
+  plus the content-only lines.
+
+### Group for Business: today 228.07 (median 0.49 %), with this order's rows 169.86 (median 0.49 %)
+
+**Lufthansa's: 16 page-widths, 11.91.**
+- The contact pages' hotline data and www's contact tiles: contact de/en 390 +1.88 %, 1440 -1.21 %; de/de 1440 -1.14 %.
+- The homepages' login and search entries: de/de 1440 -1.28 %.
+- businesstogo's core form (Turnstile).
+
+**Ours: 182 page-widths, 158.07.**
+- 60 are more than 1 % off, for 121.75 of the sum. The furthest, with their causes:
+  - **cash-and-points de/en 1440 -4.69 %** after the video row: the 840 px table box against www's rows (order 72).
+  - **rail-fly de/de 1440 -4.39 %:** -58 and -50 px at the H2s after its header-row tables.
+  - **meals-on-board 390 -3.99 %** (three copies): the tab set.
+  - **lhg-ita-airways en 1440 +3.79 % / 390 +2.68 %:** 24 px more before each news H2 (a B2B rule).
+  - **carry-on-baggage** de/de +3.38 / +3.16 %, de/en +2.68 / +2.10 %: the table boxes.
+  - **lhg-history-alliances 1440 -2.98 %:** -110 at "Beyond the skies".
+  - **our-european-fares 390 +2.53 % (de +2.16 %):** +240 at "Exclusive benefits for status customers".
+- **Held from order 72:** the footer under a closing card grid (www's 21 to 82 px), and the Allegris last section's H1
+  gap.
+- **Content that only a marker could carry:** kuala-lumpur +2.90 / +2.37 %, www's empty lines in the table cells.
+- **Group for Business is done on our side when** those rules have shipped. Below them the brand's median is already
+  0.49 %, and Lufthansa's part is small (11.91).

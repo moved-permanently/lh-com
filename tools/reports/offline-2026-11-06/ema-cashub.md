@@ -12769,3 +12769,82 @@ Report: tools/reports/token-free/swiss-b2b-so73.md.
 
 **Checks:** whole-repo `npm run lint` exited 0 before the push, and test/swiss-b2b-so73.test.mjs passes (8 tests). No
 code changed in this push.
+
+### Item 4 and the final section (standing order 73, about 09:50 CET, 2026-11-19)
+
+**Pushed (origin/main):**
+
+| Commit | Items | What |
+| --- | --- | --- |
+| 1bd29adf | 1, 2 | b2b.css: Embed option small (www's 560 x 315 iframe) and Table Striped beside-end as www's two-column view. Lists delta-so73-b2b-video-embeds, -b2b-content, -swiss-video-embeds, -swiss-content; test/swiss-b2b-so73.test.mjs; report tools/reports/token-free/swiss-b2b-so73.md |
+| 7077a448 | 3, 2 | Lists delta-so73-swiss-market-breadcrumb, -b2b-market-copies, -swiss-page-ends, -b2b-headings; the pair table swiss-b2b-so73-pairs.tsv |
+| (this commit) | 4 | What is left per brand, and this section |
+
+**READY lists** (px as served -> with the row; recorded page-widths, www in brackets; the unrecorded copies' px are in
+each list):
+
+| List | Documents | 1440 | 390 |
+| --- | --- | --- | --- |
+| delta-so73-b2b-video-embeds | cash-and-points de/en, xx/en | de/en 5,988 -> 6,293 (6,603) | 8,559 -> 8,846 (8,957) |
+| delta-so73-b2b-content | cash-and-points de/de, xx/de (FAQ + video); A350-1000 news de/de, de/en | cash de/de 6,984 -> 6,681 (6,839); news de/de 2,827 -> 2,071 (2,058) | 10,657 -> 9,568 (9,519); 2,797 -> 2,797 (2,803) |
+| delta-so73-b2b-headings | sap de/en | 6,420 -> 6,331 (6,211) | 9,016 -> 8,930 (8,819) |
+| delta-so73-b2b-market-copies | xx/en, xx/de news; al/de video-gallery | not recorded: 4,130 -> 4,177, 4,284 -> 4,331, 3,324 -> 3,489 (each its source) | xx news 1,296 / 1,292 unchanged (1,299 / 1,295) |
+| delta-so73-swiss-video-embeds | womenseuro22 ch/de | not recorded: 1,937 -> 2,404 | 1,835 -> 1,960 |
+| delta-so73-swiss-content | 10 green-fare, 11 new-destinations, 11 newsletter | green-fare en 6,070 -> 6,150 (6,240); new-destinations de 6,287 -> 6,102 (6,070); newsletter de 2,111 -> 2,043 (2,015) | 7,490 -> 7,517 (7,481); 5,837 -> 5,692 (5,676); 2,199 -> 2,163 (2,176) |
+| delta-so73-swiss-page-ends | 10 travel-regulations, entertainment-on-board de | travel-regulations de 1,462 -> 1,515 (1,547); eob de 2,509 -> 2,602 (2,554) | 2,650 -> 2,723 (2,696); 2,716 -> 2,809 (2,837) |
+| delta-so73-swiss-market-breadcrumb | 29 market de/en homepages | none recorded moves | under them ar/de legal-notice 2,612 -> 2,588 (source 2,586) |
+
+**Gate:** none of the rowed page-widths ends more than 0.5 points further. The most is cash-and-points de/de 1440 at
++0.19 (-2.31 % against +2.12 % today).
+
+**Sum and median** (all recorded page-widths, every section loaded):
+
+| Brand | Today (09:00 CET) | With this order's READY rows |
+| --- | --- | --- |
+| SWISS (168 page-widths) | 539.74, median 0.89 % | 522.09, median 0.84 % (10 moved, all within the gate) |
+| Group for Business (198) | 228.07, median 0.49 % | 169.86, median 0.49 % (7 moved, all within the gate) |
+
+- **Live after the pushes:** the helpers previewed both brands' first lists within about 30 minutes.
+  - Group for Business is served with them. Measured at 09:47 CET with every section loaded: cash-and-points de/en
+    6,293 / 8,846, de/de 6,681 / 9,568, the A350-1000 news de/de 2,071 / 2,797. Each is its draft to the px.
+  - SWISS was not yet served with them at 09:47 CET (newsletter, green-fare, new-destinations and womenseuro22 still
+    as before).
+
+**Item 4, in short** (the tables are in tools/reports/token-free/swiss-b2b-so73.md):
+- **SWISS:** 78 % of what is left (409.51 of 522.09) is Lufthansa's:
+  - the offers page's fare list (live data, -95 / -93 %);
+  - pax-receipt's request form (function, -29 / -25 %);
+  - the magazine's story grids, related stories and ad slots;
+  - culinaryjourney's app screen;
+  - the homepages' flight search and check-in entries.
+- **SWISS, ours (112.61):** the held 794 px column, page ends and running-text rules (health-and-travel, imprint,
+  accessibility and privacy statements, animals-travelling), and swiss-airrail (not traced).
+- **Group for Business:** only 11.91 is Lufthansa's (the contact data, the homepage entries, the core form).
+- **Group for Business, ours (158.07):** table boxes (cash-and-points de/en, carry-on-baggage, rail-fly), the news H2 gap
+  (lhg-ita-airways), meals-on-board's tab set, our-european-fares, alliances, and the two held order 72 rules.
+- **Content only a marker could carry:** premium-economy's empty line, kuala-lumpur's empty cell lines.
+
+**Held, with figures:**
+- **cash-and-points de/de video alone:** +4.46 points at 1440. It is READY only with the FAQ.
+- **green-fare h2-large:** 390 +4.34 points.
+- **newsletter section join:** 390 +0.64 points.
+- **food-and-beverage's divider or a stage that isn't flush:** 1440 +1.30 to +3.53 points. It waits for the column.
+- **travel-regulations' Spacer in a section of its own:** 390 +1.08 points. The row puts it at the end of the last
+  section instead.
+- **sap de/de:** not recorded, and www's German classes aren't on disk. Drafted -89 / -118 px, not in the list.
+
+**Checks:**
+- Whole-repo `npm run lint` exited 0 before every push, and stylelint on swiss.css and b2b.css exited 0.
+- The targeted tests before the first push: 557 files, 2,015 pass, 0 failures.
+- The full suite on 7077a448 (the last code is 1bd29adf): 1,296 files, 4,872 pass, 0 failures, 5 skipped. The
+  folder-reading tests are in it.
+
+**DA:** read only, 85 single GETs, one per command, every copy kept in so73/dadocs*. No upload, preview, publish or
+da-upload.mjs. /de/en/overview-manage has no row.
+
+**Requests:** airline hosts, www.* and lh-proxy were refused per request in every render. None was sent.
+
+**Left uncommitted:** nothing of mine.
+- Scratch stays in migration-work/parity-588/so73: the served copies, the drafts, the runs, the DA copies and the
+  scripts.
+- No background job of mine is running.
