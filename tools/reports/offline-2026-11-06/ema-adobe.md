@@ -6238,3 +6238,78 @@ runs) and its /tmp worktrees. The plan with the full table is
   0a18699.
 - **Held.** Variant A, items 2(c) and 2(d), and the switch itself (the gate).
 - **Left out of git.** logs/b656 (documents, captures, runs, runners) and the /tmp/wt-tf56* worktrees.
+
+## Standing order 57 (2026-11-18 23:35 CET to about 06:00 CET): column views, held items, in-section carriers, the market census, the collapse leftovers, the gate again
+
+Order 56 left nothing finished unpushed. Out of git by design: logs/b656 and its /tmp worktrees. The gate table and
+both lists of what is left are in [lufthansa-switch-plan-923.md](../token-free/lufthansa-switch-plan-923.md) §9-11.
+
+1. **Column views (branch, 876d67d).**
+   - **Legal pages** (template legal): a chapter heading keeps no heading gap after a divider or text, as www's and the
+     marks'. 56 legal page-widths: sum 437.5 -> 409.0, 7 closer, none further. terms-of-use 1440 12.09 -> 4.83 %
+     (today 2.23), sepa-terms-and-conditions 390 11.82 -> 6.93.
+   - **Hub views:** the related-teasers heading right after its Divider keeps no gap, and a view's opening Spacer
+     draws 60. digital-self-services 1440 4.70 -> 2.74 % (today 2.90), 390 7.07 -> 6.66. Each rule alone moved it
+     further.
+   - **Tried and dropped:** no gap after a divider on every flow page (miles-and-more, europa-tarife-economy-class,
+     flight-disruptions further: www keeps the gap there).
+   - **Measured on all 368 column-view page-widths** (two passes; the 32 px chapter step was the live theme's heading
+     gap, not the view).
+   - **Left:** the hub pages' 16 px before the first view.
+2. **Held items 2(c) and 2(d).**
+   - (c) is closed by the hub rules above.
+   - (d) terms-of-service-group: its in-cell chapter separators are the Columns Media option chapters (main, 6f2d2f8).
+     1440 13.66 -> 4.54 % and 390 14.94 -> 4.75, exactly today's.
+3. **Text width, text size and video markers: measured, no carrier (HOLD).** They stand on the worse page-widths
+   without being what moves them:
+   - the video settings left are the player's own defaults (the size is in the link);
+   - the dropped full-width marks are a minority in their section (106 of 397), mostly a short line after a heading;
+   - small print in mid-section has no in-section carrier yet.
+4. **In-section carriers (main, 6f2d2f8): delta-so57-adobe-in-section-rows.txt / .json, 10 READY.** The Spacer block
+   with its width option, and a new space option on the Divider block (m, l). Figures as served -> with the row:
+
+   | path | 1440 | 390 |
+   | --- | --- | --- |
+   | /de/en/payment-options-at-the-airport | 0.94 -> 2.88 % (2,542 -> 2,562 px; M for www's 40) | 7.04 -> 7.04 % (3,303 px) |
+   | /de/en/free2move | 4.80 -> 4.80 % (3,024 px) | 4.06 -> 3.97 % (4,388 -> 4,389 px) |
+   | /de/en/shopping | 4.07 -> 5.85 % (5,690 -> 5,710 px; L for www's 100) | 8.84 -> 8.84 % (9,937 px) |
+   | 7 copies (gb/en, de/de, at/de) | heights only, as in the list | heights only |
+
+   - payment-options and shopping pass on the collapse value (orders 57/58's gate), not on the points; both come back
+     to www's size with M at 40.
+   - The rows need 6f2d2f8 live (it is) before they are applied.
+5. **The market split: no document affected; one more fix.**
+   - 06bb987 kept only the served form. The documents' own Markets row is now kept on split parts too (6f2d2f8).
+   - Census of every document uploaded since 8 Nov, all sites (6,471 preview copies): 184 with market sections, none
+     differing. The three flagged sections are shared by design (B2B entertainment-on-board x2, ITA voglia-di-volare).
+   - No rows to restore. delta-so57-adobe-market-split.txt.
+6. **Collapse leftovers (main, 6f2d2f8).**
+   - The link list layouts {links-…} are section styles / block options with the class drawn by the theme (the bare
+     marker stayed; beside a column mark it went).
+   - A marker's trailing white space, the no-break space too, goes.
+   - Found on the way and fixed (987ade9): a split kept Space below on its first part (hotel-offers switched 1440
+     22.23 % with ema-test's live row, now 10.45 as before).
+   - test/collapse-leftovers-adobe-so57.test.mjs: 7 tests, red 6 of 6 before 6f2d2f8 and 1 of 7 before 987ade9.
+7. **The gate again (plan 923 §9).**
+
+   | | plan 923 | order 57 |
+   | --- | --- | --- |
+   | worse than today by more than 0.5 | 369 | 361 |
+   | of these explained by www (pass with M at 60) | 19 | 22 |
+   | better by more than 0.5 | 57 | 60 |
+   | sum today / switched | 4,347.02 / 5,767.70 | 4,358.13 / 5,705.63 |
+   | median today / switched | 5.61 / 7.17 | 5.62 / 7.09 |
+
+   It does not pass: 339 page-widths are worse without www's own 60 to explain them (§11 lists each). Against plan
+   923: 21 closer, 5 further (data-collection-canada 1440, unterhaltung-an-bord, passenger-receipt-90,
+   anniversary-super-crane-special; §9.1).
+
+- **Smoke.** lh-edge bundles style-markers.js, so all 12 hosts were smoked before and after 6f2d2f8. Same statuses
+  everywhere. Body changes only in search-index.json and two lh-com sitemaps (index data from the hour's publishes).
+- **Full suite on main 987ade9.** lh-edge 73 files, site 1,292 files, none failing.
+- **Pushed.**
+  - main: 6f2d2f8 (items 2d, 4, 5, 6; bundles; the two lists), 987ade9 (the split fix; bundles), this section's commit
+    with plan 923's update.
+  - The branch: 876d67d.
+- **Held.** Item 3, the hub pages' 16 px before the first view, the switch itself.
+- **Left out of git.** logs/b657 (census, captures, runs, runners, probes) and the /tmp worktrees (wt-tf57, wt-main57).
