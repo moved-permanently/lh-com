@@ -1,0 +1,51 @@
+{
+ "/ch/it/special-care/special-assistance/travel-companion": [
+  {
+   "from": "<div class=\"carousel-cards grid four-up\">",
+   "to": "<div class=\"carousel-cards grid four-up phone-slider\">",
+   "count": 1
+  }
+ ],
+ "/bf/en/special-care/special-assistance/travel-companion": [
+  {
+   "from": "<div class=\"carousel-cards grid four-up\">",
+   "to": "<div class=\"carousel-cards grid four-up phone-slider\">",
+   "count": 1
+  }
+ ],
+ "/bf/fr/special-care/special-assistance/travel-companion": [
+  {
+   "from": "<div class=\"carousel-cards grid four-up\">",
+   "to": "<div class=\"carousel-cards grid four-up phone-slider\">",
+   "count": 1
+  }
+ ],
+ "/ch/fr/special-care/special-assistance/travel-companion": [
+  {
+   "from": "<div class=\"carousel-cards grid four-up\">",
+   "to": "<div class=\"carousel-cards grid four-up phone-slider\">",
+   "count": 1
+  }
+ ],
+ "/ca/en/extra-services/reservation-price-guarantee": [
+  {
+   "from": "<div class=\"carousel-cards grid four-up\">",
+   "to": "<div class=\"carousel-cards grid four-up phone-slider\">",
+   "count": 1
+  }
+ ],
+ "/ca/fr/extra-services/reservation-price-guarantee": [
+  {
+   "from": "<div class=\"carousel-cards grid four-up\">",
+   "to": "<div class=\"carousel-cards grid four-up phone-slider\">",
+   "count": 1
+  }
+ ],
+ "/us/en/extra-services/reservation-price-guarantee": [
+  {
+   "from": "<div class=\"carousel-cards grid four-up\">",
+   "to": "<div class=\"carousel-cards grid four-up phone-slider\">",
+   "count": 1
+  }
+ ]
+}

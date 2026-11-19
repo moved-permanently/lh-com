@@ -1033,3 +1033,23 @@ ITA	/fr/fr/legal/data-protection-overview	390	load error	listed	transient: the p
 Call log:
   - navigating to "https://ita.turnsthe.page/fr/fr/legal/data-protection-overview", waiting u
 ITA	/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-uk	1440	broken picture	listed	transient: the picture failed once at 1440; rendered again, it loads at both widths	/it/en/book-and-prepare/travel-information/entry-regulations/media_11fd1dfc3f28acfddda8c11
+
+## Standing order 51 (2026-11-19, 20:00 to 21:00 UTC): what this sweep listed
+# ITA, the tab-block rule (304ea56d) reach check, finished: the two documents not reached and the phone load that timed out
+#   (/nl/nl/corporate-customers/mice 390, /xx/en/corporate-customers/mice, /xx/ja/.../baggage-assistance) rendered with
+#   the served CSS (the rule is live) at 1440 and 390. The rule matched once at each width, with no fault: no overflow,
+#   nothing cut off, no empty box, no sweep fault. Heights 2,765 / 4,642, 2,488 / 4,138 and 3,332 / 4,655. Nothing moved.
+# ITA pre-check-in (at/de), sea-destinations (it/it), bid-upgrade (it/en): fixed by one ITA theme rule (standing order 51
+#   commit). After a padded column view or an FAQ accordion, a divider-below section's closing separator gets no 16 px
+#   take-back.
+#   Reach over the 66 ITA documents with the divider-below style, at 1440 and 390 with the sweep's checks:
+#     - the rule moves these 3 documents only (+16 px each) and clears their overlaps; nothing new is flagged;
+#     - travel-briefing's 9 copies keep the take-back (by design: nothing drawn crosses).
+#   None of the 82 recorded ITA page-widths moves (sum 52.67 -> 52.67).
+# Brussels ch/it travel-companion: the related-topics cards stack on phones; 7 documents lack the block's phone-slider
+#   option (delta-so51-brussels-faults.txt, HOLD for parity: none of them is recorded).
+# Brussels bf/fr charter: content. The form's own definition hides its contact-details group (www's collapsed fieldset)
+#   and has no date fields (delta-so51-brussels-faults.txt).
+# Discover culinaryjourney (de/de, de/en, xx/fr): fixed in the micro-frontend block (6e21ce5e). The app and its design
+#   system now load from discover.turnsthe.page's /digitalhangar/ (lh-edge answers it from www.discover-airlines.com)
+#   instead of www.discover-airlines.com, and the app draws its booking-details entry: 476 px at 1440, 776 to 803 at 390.

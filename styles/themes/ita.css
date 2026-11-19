@@ -1472,3 +1472,11 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
 body.brand-ita main > .section.section > .profile-tabs-wrapper + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
   margin-top: 0;
 }
+
+/* standing order 51: the same take-back drew a divider-below section's closing separator into the block above it where
+   that block draws to its own end: 6 px into a padded column view's grey box (pre-check-in at/de, sea-destinations
+   it/it) and through the FAQ accordion's last item (bid-upgrade it/en). After those two blocks no take-back. Other
+   blocks keep it (travel-briefing's jump links: nothing drawn crosses there) */
+body.brand-ita main > .section.section.divider-below > :is(.columns-media-wrapper:has(> .columns-media.padded), .accordion-columns-wrapper) + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+  margin-top: 0;
+}

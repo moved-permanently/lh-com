@@ -1,0 +1,31 @@
+# ema-lufthansa, standing order 51 (2026-11-19), item 3: Brussels faults from sweep-so50 (DA moved-permanently/lh-brussels, read with 200 this order). Figures in full Chrome with Liberation Sans for Arial, airline hosts refused per request, 20:00 to 21:00 UTC.
+# 1. ch/it travel-companion, grey column view 1,307 px on phones against be/en's 440.
+#    Cause: the related-topics card block. ch/it's is "carousel-cards grid four-up", which stacks its four cards on phones (about 1,150 px). be/en's is "carousel-cards grid four-up phone-slider", a slider of one card at a time (283 px).
+#    At 1440 the two draw alike, so the difference is phones only.
+#    The same missing option, in 7 documents (every other market copy, be/en, be/fr, be/nl, de/de, es/es and it/it, carries it):
+#      travel-companion: bf/en, bf/fr, ch/fr, ch/it;
+#      reservation-price-guarantee: ca/en, ca/fr, us/en.
+#    A block option is a carrier, not a token. Each document says it for itself, and nothing in the structure sets these 7 apart from the copies that already slide, so this takes rows, not a rule.
+#    Rows: delta-so51-brussels-faults.json, {from, to, count} on DA's current copies. Each was checked with the replace tool's own applyReplacements / revertReplacements: applied once, no style token in the document, the revert byte for byte.
+#    No-breakage render of every row: the served .plain.html as served and with the row, both through the same served page shell on brussels.turnsthe.page, at 1440 and 390.
+#    Why HOLD and not READY: the importer adds phone-slider only where www's own copy carries the phone swiper, so www's copies of these 7 may stack their cards too. None of the 7 is recorded, and nothing moves on a recorded page-width.
+#      Parity first: these rows wait for a 390 recording of one of them (ch/it travel-companion is enough). If www slides there, they become READY as they are; if www stacks, they are dropped and the height is www's.
+# Nothing uploaded or previewed.
+# status	path	rows	height served -> with the row (1440 / 390)	no-breakage render
+HOLD (parity: 390 recording)	/ch/it/special-care/special-assistance/travel-companion	1 row: the related-topics card block gets the phone-slider option (carousel-cards grid four-up -> carousel-cards grid four-up phone-slider)	2482 -> 2482 / 4011 -> 3144	one H1, pictures, blocks, sections and words as served; no broken picture, unknown block or sideways scroll
+HOLD (parity: 390 recording)	/bf/en/special-care/special-assistance/travel-companion	1 row: the related-topics card block gets the phone-slider option (carousel-cards grid four-up -> carousel-cards grid four-up phone-slider)	2555 -> 2555 / 4086 -> 3220	one H1, pictures, blocks, sections and words as served; no broken picture, unknown block or sideways scroll
+HOLD (parity: 390 recording)	/bf/fr/special-care/special-assistance/travel-companion	1 row: the related-topics card block gets the phone-slider option (carousel-cards grid four-up -> carousel-cards grid four-up phone-slider)	2629 -> 2629 / 4211 -> 3345	one H1, pictures, blocks, sections and words as served; no broken picture, unknown block or sideways scroll
+HOLD (parity: 390 recording)	/ch/fr/special-care/special-assistance/travel-companion	1 row: the related-topics card block gets the phone-slider option (carousel-cards grid four-up -> carousel-cards grid four-up phone-slider)	2506 -> 2506 / 4138 -> 3272	one H1, pictures, blocks, sections and words as served; no broken picture, unknown block or sideways scroll
+HOLD (parity: 390 recording)	/ca/en/extra-services/reservation-price-guarantee	1 row: the related-topics card block gets the phone-slider option (carousel-cards grid four-up -> carousel-cards grid four-up phone-slider)	4694 -> 4694 / 6642 -> 5775	one H1, pictures, blocks, sections and words as served; no broken picture, unknown block or sideways scroll
+HOLD (parity: 390 recording)	/ca/fr/extra-services/reservation-price-guarantee	1 row: the related-topics card block gets the phone-slider option (carousel-cards grid four-up -> carousel-cards grid four-up phone-slider)	4828 -> 4828 / 6871 -> 6005	one H1, pictures, blocks, sections and words as served; no broken picture, unknown block or sideways scroll
+HOLD (parity: 390 recording)	/us/en/extra-services/reservation-price-guarantee	1 row: the related-topics card block gets the phone-slider option (carousel-cards grid four-up -> carousel-cards grid four-up phone-slider)	4694 -> 4694 / 6679 -> 5812	one H1, pictures, blocks, sections and words as served; no broken picture, unknown block or sideways scroll
+#
+# 2. bf/fr charter: the request form draws 480 px shorter than be/en's (1,023 against 1,503 at 1440).
+#    Cause: content. The text is the same, but the form is another form definition: the document's own Form block table.
+#      - Its "Contact details" group (fieldset representativeSection: salutation, first name, last name, email, phone, company; 4 of them required) has the rule "hidden". That is 444 of the 480 px: bf/fr with the flag taken out renders the form 1,467 px tall.
+#        The importer writes "hidden" only where www's own fieldset is collapsed (.collapse / .d-none, form-core.js), so the flag comes from www's bf/fr copy.
+#      - Like bf/en, it has no Departure / Return Date fields, a repeatable flights group ("Add another flight", 3 times), the seat stepper at min 0 / max 0, and salutation options without values.
+#        The 23-row definition of be/en, be/nl, ch/*, ca/en, us/en, es/es, it/it, de/de and fr/fr is not used here.
+#    Neither document is recorded, and nothing reveals the group on our host (no rule in the table shows it).
+#    The form keeps www's bf/fr definition as imported: content, no row. If a recording of bf/fr charter shows the group open, the row is the one-cell change of the representativeSection rule from "hidden" to empty.
+#    The form block already makes hidden sections not required, so the form still submits.
