@@ -1884,6 +1884,22 @@ body.brand-austrian main > .section > .fare-teaser-wrapper:has(> .fare-teaser.sp
   }
 }
 
+/* standing order 66, item 3: a Columns Media cell that opens with its picture, then its heading, and ends with a link line (the
+   book, baggage and special-requirements grids): the heading 36 px under the picture, as www's (ours 40: every grid heading and
+   its text 4 px low at 1440, 5 at 390), the 4 px given back under the cell so the next cell stays where www's is. Order 62's part a
+   moved the gap alone and shortened each cell (4 px a cell, the grids 20-32 px short). Gate, the 246 recorded Austrian
+   page-widths: none further, 4,555.51 -> 4,547.40 (besondere-anforderungen 390 5.74 -> 5.14 %, book/overview-manage 390 5.09 ->
+   4.59, es/es baggage 390 7.12 -> 6.63) */
+/* stylelint-disable-next-line no-descending-specificity -- a grid cell's picture paragraph, not the carousel cards' text */
+body.brand-austrian main .columns-media:not(.steps, .sidebar) .columns-media-text:has(> p.link-wrapper:last-child) > p:has(> picture, > a > picture):first-child:has(+ :is(h2, h3)) {
+  margin-bottom: 36px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the same grid cells */
+body.brand-austrian main .columns-media:not(.steps, .sidebar) .columns-media-text:has(> p.link-wrapper:last-child):has(> p:first-child > picture, > p:first-child > a > picture):has(> p:first-child + :is(h2, h3)) {
+  padding-bottom: 4px;
+}
+
 /* the end of online-check-in (standing order 14; the nine documents with option steps: the steps row, the App part, the
    FAQ button, the Travel ID row, then the divider section): against austrian-parity-017's full-page screenshots, www's
    FAQ button 84 px over "Experience a seamless travel experience with Travel ID" (ours 34: the H2's 32 over the
@@ -1933,4 +1949,3 @@ body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .d
     margin-top: 48px;
   }
 }
-
