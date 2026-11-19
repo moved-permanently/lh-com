@@ -1,0 +1,28 @@
+# ema-test, standing order 62, item 1 (2026-11-19): Air Dolomiti's recorded page-widths and the 15 furthest from www.
+# Recordings: airdolomiti-parity-001 to -014 (each archive's sha256 checked), the newest per page and width; www's three domains mapped to our
+#   host (.it as is, .eu under /en, .de under /de): 118 page-widths (61 at 1440, 57 at 390), all answered by airdolomiti.turnsthe.page.
+# Our host as served (04:10 UTC), full Chrome, airline hosts refused, every section loaded before the capture.
+# Air Dolomiti: sum 1,773.98, median 10.46 % (1440: 716.91, median 7.04; 390: 1,057.07, median 17.17).
+# Where the mismatched pixels are: the footer and what follows 27 % (1440) / 25 % (390), the hero card bands 12 / 11 %, the offer and route
+#   card rows 17 % at 1440, the card grids 16 % at 390.
+# No Air Dolomiti rule this order: the 15 furthest are recording states (the offer and route cards caught mid-transition at 1440, the
+#   flight-search drawer left open by the 390 resize, the cookie dialog in -002 / -008 / -010) and content or function differences; the
+#   one layout cause in them (bari's search strip, 8 px) is the shared flight-search block, not the theme. Matching the mid-transition
+#   cards would draw them 400 px tall where www's own CSS draws 140.
+# Each line: rank, path, width, % off www, our height -> www's, recording, cause (content, function and recording differences get no rows).
+
+1	/de/	1440	56.60 %	5,097 -> 5,096 px	airdolomiti-parity-001	recording: the offers row's CardPromo cards caught mid-way through their 0.5 s transition (250 x 400 px portrait, www's phone size; www's own CSS draws them 410 x 140 from 930 px, as ours); content: the notice bar above www's header, ours a grey note under it; the hero picture
+2	/en/	1440	55.12 %	5,093 -> 5,092 px	airdolomiti-parity-001	as /de/: the offers cards mid-transition in the recording, the notice bar, the hero
+3	/	1440	48.31 %	5,075 -> 5,074 px	airdolomiti-parity-001	as /de/: the offers cards mid-transition in the recording, the notice bar, the hero
+4	/en/support-and-contacts	390	44.29 %	1,874 -> 1,874 px	airdolomiti-parity-001	recording: www's flight-search drawer stands open over the lower half (the 390 shot was taken in the same load after resizing from 1440); ours the page as it is
+5	/supporto-e-contatti	390	42.65 %	1,934 -> 1,934 px	airdolomiti-parity-001	recording: the flight-search drawer open (as en)
+6	/de/unterstutzung-und-kontakte	390	41.16 %	1,948 -> 1,948 px	airdolomiti-parity-001	recording: the flight-search drawer open (as en)
+7	/voli-europa	1440	39.23 %	5,142 -> 5,028 px	airdolomiti-parity-001	recording: the route cards (CardPromo) mid-transition, 398 px tall portraits against www's own 140 px; ours 140 px
+8	/en/flights-europe	1440	38.63 %	5,581 -> 5,467 px	airdolomiti-parity-001	recording: the route cards mid-transition (as voli-europa)
+9	/de/fluege-in-europa	1440	37.78 %	5,709 -> 5,567 px	airdolomiti-parity-001	recording: the route cards mid-transition (as voli-europa)
+10	/en/destinations	390	35.13 %	8,000 -> 9,699 px	airdolomiti-parity-002	recording: www's cookie dialog and the flight-search drawer open over the page (airdolomiti-parity-002); both pages capped at 8,000 px (www 9,699)
+11	/en/booking	390	32.90 %	2,267 -> 2,289 px	airdolomiti-parity-001	recording: the flight-search drawer open under the page's own search form; function: www's form is its booking widget, ours the flight search block (other field layout)
+12	/en/articles/destinations/street-food-in-munich	390	31.93 %	6,879 -> 5,720 px	airdolomiti-parity-010	recording: cookie dialog and drawer open (airdolomiti-parity-010); content: our article opens with a feature picture and its Fly-with-us call, www's without; reading time 3 vs 4 minutes
+13	/prenotazioni	390	31.88 %	2,327 -> 2,349 px	airdolomiti-parity-001	recording: the drawer open (as en/booking); function: the booking widget
+14	/en/flight-timetables	390	29.94 %	2,163 -> 2,150 px	airdolomiti-parity-001	recording: the drawer open; function: www's timetable search widget, ours the flight search block
+15	/en/destinations/bari	1440	28.73 %	6,912 -> 6,850 px	airdolomiti-parity-001	content: the second picture band's crop and its caption; the flight-search strip 8 px taller (labels above the fields, the flexible-dates line); the rest within a few px

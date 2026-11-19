@@ -1,0 +1,26 @@
+# ema-test, standing order 62, item 5 (2026-11-19): what the rules of orders 59-62 reach on the served documents, and a check of a sample.
+# Documents: every page document in the brand's upload state (navs, footers, fragments left out), its served .plain.html read from the
+#   brand's turnsthe.page host (Austrian 2,108, Cargo 971, TAP 892, Air Dolomiti 1,563; all answered 200). A document counts when the rule's
+#   selector matches its structure as the page decorates it (sections, blocks, section styles). Order 59 shipped no rule; Air Dolomiti has
+#   none of these rules.
+# Sample: up to 5 documents per rule, unrecorded ones first, rendered on the brand host at 1440 and 390 (airline hosts refused, every section
+#   loaded) with the rule live, or added in the same load for this order's two rules. Checked: the page's sideways overflow, the rule's
+#   elements inside the viewport, siblings overlapping in their section, text cut off, the largest empty gap between sections; and a
+#   screenshot of the first matched section, looked at.
+# Result: nothing broken in the 70 renders (no overflow, no element out of its column, no overlap, no cut-off text, the largest gap
+#   between sections 77 px: the A3b gap itself). Glyph boxes on the Chinese and Japanese pages are the headless browser's missing CJK font,
+#   not a rule. One scope tightened before the push: T1 first reached 23 documents (payment-means and Miles-store pages among them);
+#   it now needs a section that also holds a Columns Media, as the destinations pages' bands do (13).
+# Each line: rule, brand, shipped in, what it does, documents it reaches (of the brand's), sample (renders, problems found), sample paths.
+
+A1	Austrian	o60 6d5a43b5	Column view sections (outer / inner) drawn as www's column views	1 of 2,108	2 renders, 0 with a problem	/at/en/entryregulations
+A2	Austrian	o60 606d45eb	a Columns Media right under the title 13 px lower on phones (not Greek)	187 of 2,108	10 renders, 0 with a problem	/cn/zh/book/flights, /cn/zh/flight-information, /it/it/fly/travel-classes, /pl/pl/additional-services, /pl/pl/partner-angebote
+A3a	Austrian	o61 ebca9cb4	phones: a picture ending the section before an outer view, 78 px under it	1 of 2,108	2 renders, 0 with a problem	/at/en/entryregulations
+A3b	Austrian	o61 ebca9cb4	phones: an outer view 77 px over the next section	1 of 2,108	2 renders, 0 with a problem	/at/en/entryregulations
+A3c	Austrian	o61 ebca9cb4	phones: a heading ending its section over an accordion, after a paragraph, 60 px above it	43 of 2,108	10 renders, 0 with a problem	/at/en/anfrage-rueckerstattung, /it/it/international-lounges, /jp/ja/entryregulations, /pl/pl/entryregulations, /us/en/reservation-priceguarantee
+C1	Cargo	o60 6d5a43b5	from 1025 px an H1 with its intro paragraph two thirds wide (moves only titles longer than 856 px)	87 of 971	10 renders, 0 with a problem	/de/airmail, /de/eaw, /de/meta/meta/company/general-terms, /en/ci/transport-stories, /es/ci/recycling
+C2	Cargo	o60 6d5a43b5	Tabs (panels-space-below)	2 of 971	4 renders, 0 with a problem	/en/add-on-services/smartuld, /en/add-on-services/todoor
+C3	Cargo	o60 6d5a43b5	Tabs (wide-text)	2 of 971	4 renders, 0 with a problem	/de/passive-temp-support, /en/passive-temp-support
+C4	Cargo	o61 346eb2a6	from 768 px an intro under a breadcrumb-only section 18 px lower, 40 px under it	3 of 971	6 renders, 0 with a problem	/en/eaw, /en/ecsd, /en/ehm
+C5	Cargo	o62 (this order)	the stage picture across the column from 1025 px (moves only narrower originals), across the screen on phones unless a grey band follows; the subtitle 20 px under the title on these pages	63 of 971	10 renders, 0 with a problem	/de/fleet-ulds/ulds, /de/speed-pro, /en/fleet-ulds/ulds, /en/portfolio, /en/process-changes
+T1	TAP	o62 (this order)	from 768 px the destinations / miles-store carousel titles centred 40 / 48 px	13 of 892	10 renders, 0 with a problem	/de-de/miles-and-go/meilen-shop, /es-es/destinos/inspirate, /es-es/miles-and-go/tienda-millas, /es-es/reservas/medios-de-pago, /es-us/promos

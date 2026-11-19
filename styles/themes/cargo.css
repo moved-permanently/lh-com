@@ -2500,3 +2500,27 @@ body.brand-cargo main .columns-media .columns-media-text > :is(ul, ol):last-chil
     margin-bottom: 40px;
   }
 }
+
+/* standing order 62, item 2: the stage picture (the page's first section: one picture over the breadcrumb) as www's.
+   - From 1025 px the column's width (1,296 px at 1440): ours kept a narrower original at its own width (fleet, industries-in-focus,
+     containers: 1,220 / 1,224 px, the title 21 px high). And the introduction's subtitle (an H2 right under the H1) 20 px under the
+     title, as www's Introduction-CF1 (11 of 11 recorded), not the section padding's 40, on these stage pages only: a page without
+     such a stage (ebooking-info: the title opens the page) or with a carousel stage (industries-healthcare: its title sits low
+     already) keeps today's.
+   - On phones across the screen (390 px wide, 125 px tall; ours 358 px in the margins), unless a grey introduction band follows it:
+     there www draws the stage the column's width under a "Back" breadcrumb (speed-zoom).
+   Gate, all 113 recorded Cargo page-widths (cargo-parity-013 in): 31 nearer, none further, the sum 1,515.30 -> 1,417.12, the median
+   11.11 -> 9.22 % (containers 1440 15.55 -> 8.82 %, fleet 26.20 -> 19.57 %, efreight 390 14.10 -> 9.22 %) */
+body.brand-cargo main > .section.breadcrumb-container:first-child > .default-content-wrapper:first-child > p:first-child > picture:only-child > img {
+  width: 100%;
+}
+
+body.brand-cargo main > .section.breadcrumb-container:first-child:has(> .default-content-wrapper:first-child > p:first-child > picture:only-child) + .section > .default-content-wrapper > h1 + h2 {
+  margin-top: 0;
+}
+
+@media (width < 1025px) {
+  body.brand-cargo main > .section.breadcrumb-container:first-child:not(:has(+ .section.grey)) > .default-content-wrapper:first-child:has(> p:only-child > picture:only-child) {
+    padding-inline: 0;
+  }
+}

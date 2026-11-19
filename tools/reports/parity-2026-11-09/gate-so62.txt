@@ -1,0 +1,32 @@
+# ema-test, standing order 62, items 2-4 (2026-11-19): the held rules scoped and gated again. Recordings: the newest per page and width
+#   (the consent re-recordings austrian-parity-032 and cargo-parity-013 in). Our host as served, full Chrome, airline hosts refused, every
+#   section loaded, the rule in the same load as today; a rule that applies only below or above a width is gated on the recorded
+#   page-widths at the widths it can reach.
+#
+# Item 2, Cargo's two stage rules (SHIPPED, styles/themes/cargo.css "standing order 62, item 2"):
+#   What the further pages had: ebooking-info (both languages) has no stage (its title opens the page's first section); industries-
+#   healthcare's stage is a Carousel Images block (its title sits 21 px low already, so the subtitle 20 px up moved it further from
+#   www's). Both rules now need a stage of one picture over the breadcrumb. speed-zoom's introduction is a grey band right under the stage:
+#   there www draws the stage the column's width under a "Back" breadcrumb, so the phone rule leaves a stage followed by a grey section.
+#   Gate, all 113 recorded Cargo page-widths: 31 nearer, none further, the sum 1,515.30 -> 1,417.12, the median 11.11 -> 9.22 %
+#   (1440 724.03 -> 696.76; 390 791.27 -> 720.36).
+#
+# Item 4, TAP's carousel section titles (SHIPPED, styles/themes/tap.css "standing order 62, item 4"):
+#   From 768 px only, and only over a phone-slider Cards Teaser in a section that also holds a Columns Media outside the breadcrumb section:
+#   the 5 page-widths that went further keep today's titles (three of them on phones; the baggage pages' three-up grids and
+#   navigator-experiences' listings, whose titles www keeps at the start). Gate, the 26 recorded TAP 1440 page-widths: none further, the
+#   sum 248.29 -> 244.37 (get-inspired 13.51 -> 10.22 %, inspire-se 15.14 -> 14.51 %). locate-baggage's inline search form stays a link:
+#   a function difference (TAP's search is out of scope), no row.
+#
+# Item 3, Austrian's heading and item spacing set, each part alone (HOLD):
+HOLD	part a, the Columns Media item picture 36 px above its heading (ours 40), both widths	246 page-widths: sum 4,559.46 -> 4,697.94; 35 further by more than 0.5
+HOLD	part b, phones: h2 24 px under (ours 28.06)	123 at 390: sum 2,047.42 -> 2,189.74; 32 further
+HOLD	part c, phones: Columns Media rows 73 px apart, a text cell 43 px over the next (ours 66 / 36)	123 at 390: sum 2,047.42 -> 2,246.43; 26 further
+HOLD	part d, from 1281 px: h2 36 px under (ours 32)	123 at 1440: sum 2,512.04 -> 2,544.44; 25 further
+HOLD	parts a + d together inside Columns Media from 1281 px (the item's height unchanged)	123 at 1440: sum 2,512.03 -> 2,512.23 (not down); 1 further (culinary-services 26.06 -> 28.57, a page past the 8,000 px cap)
+# What the further page-widths share: they are the Columns Media item grids (two-up items, a picture over a heading, its text and a
+#   link) of book/* (overview-manage, -extra-services, -services-on-board, -inspiration, flights), the baggage pages in seven languages and
+#   special-requirements / besondere-anforderungen: 9 to 14 of each part's further page-widths are book/*, 4 to 10 are baggage. Since order
+#   60's 13 px rule their items start at www's height and their item pitch is www's to 1-3 px, so a part that changes one gap inside an
+#   item moves every item after it (part a 4 px, b 4 px, c 7 px, d 4 px per item); the remaining ones are long pages past the cap and two
+#   or three homepages (parts b and d reach every h2).

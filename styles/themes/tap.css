@@ -4429,3 +4429,18 @@ body.brand-tap main .default-content-wrapper > :is(h1 + p + h2, h1 + p + p + h2,
     margin-bottom: 16px;
   }
 }
+
+/* standing order 62, item 4: the destinations pages' carousel titles as www's title-l, centred 40 / 48 px (www's h1.text-title-l over
+   its article carousels, get-inspired and inspire-se; ours a 32 px heading at the start): a heading that ends its text right before a
+   phone-slider Cards Teaser in a section that also holds a Columns Media (the destinations pages' article bands), outside the
+   page's first (breadcrumb) section, from 768 px. Not on phones (inspire-se 390 went 2.5 points
+   further: its titles wrap where www's don't line up) and not over the baggage pages' three-up grids or navigator-experiences'
+   listings, whose titles www keeps at the start. Gate, the 26 recorded TAP 1440 page-widths: none further, the sum 248.29 -> 244.37
+   (get-inspired 13.51 -> 10.22 %, inspire-se 15.14 -> 14.51 %) */
+@media (width >= 768px) {
+  body.brand-tap main > .section.columns-media-container:not(.breadcrumb-container) > .default-content-wrapper:has(+ .cards-teaser-wrapper > .cards-teaser.phone-slider) > h2:last-child {
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+  }
+}
