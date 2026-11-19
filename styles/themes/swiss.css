@@ -1648,3 +1648,14 @@ body.brand-swiss main:has(a[href^="#"] > sup) > .section:last-child > .default-c
     padding-bottom: 64px;
   }
 }
+
+/* standing order 77, item 2: an accordion with the option small-headline (the author's choice of www's small headline
+   over it; token-free.js leaves that H2 at the page's heading-small) sits as www's under it from 768 px: www's
+   .heading-small headline 72 px from its top to the first question on the recorded miles-and-more (ch/en 1440), ours
+   52 without the space. ch/en 1440 3,404 (heading-medium) -> 3,396 (www 3,427); phones keep the H2's own margin
+   (390 5,140 -> 5,134, www 5,194; the first question 1 px from www's under the headline) */
+@media (width >= 768px) {
+  body.brand-swiss main .accordion-columns.small-headline {
+    padding-top: 20px;
+  }
+}

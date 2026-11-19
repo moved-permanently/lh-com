@@ -1,0 +1,101 @@
+[
+  {
+    "path": "/ch/de/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/el/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/en/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/es/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/fr/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/it/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/ja/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/pt/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/ru/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/ch/zh/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  },
+  {
+    "path": "/kr/ko/book-and-manage/offers/miles-and-more",
+    "inserts": [
+      {
+        "replace": "<div class=\"accordion-columns faq open-first\">",
+        "text": "<div class=\"accordion-columns faq open-first small-headline\">"
+      }
+    ]
+  }
+]
