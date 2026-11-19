@@ -2841,6 +2841,16 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
   padding-top: 10px;
 }
 
+/* standing order 67, item 3: on phones the title box and the pills 8 px lower, as www's (its title text at 421 against our 413 at
+   390 on bari-de, basel-de, monaco-di-baviera, london-eu; the price card under them already where www's is), moved in place so the
+   centred card keeps its height. Gate, the 57 recorded page-widths at 390: none further, 589.61 -> 588.34 */
+@media (width < 530px) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > :is(h1:first-child, h1:first-child + ul) {
+    position: relative;
+    top: 8px;
+  }
+}
+
 /* stylelint-disable-next-line no-descending-specificity -- the stage's lines, not the fleet's text (above) */
 body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow) {
   margin: 16px 0 0;
@@ -3621,6 +3631,16 @@ body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .flight-search-wr
   margin-bottom: 20px;
   padding: 58px var(--layout-margin) 44px;
   background-color: #05164d;
+}
+
+/* standing order 67, item 3: below 1025 px the band 18 px under the trail, as www's (its band at 140 against our 146 at 390, the
+   title under it 6 px low: reiseziele, destinazioni, destinations); not on the destination pages, whose trail is hidden on phones.
+   Gate, the 57 recorded page-widths at 390: none further, 589.74 -> 572.48 (de/reiseziele 13.36 -> 5.64 %, en/destinations
+   7.19 points closer) */
+@media (width < 1025px) {
+  body.brand-airdolomiti main:not(:has(.hero-card-overlay.destination)) > .section > .breadcrumb-wrapper + .flight-search-wrapper:has(> .flight-search.airdolomiti.strip) {
+    margin-top: 18px;
+  }
 }
 
 /* www's header stays at the top on these pages (its strip under it); ours hid while scrolling down */
@@ -5099,6 +5119,16 @@ body.brand-airdolomiti main > .section.hidden-heading.lead-under-trail > .breadc
 @media (width >= 1025px) {
   body.brand-airdolomiti main > .section:not(.hidden-heading, :has(.accordion-columns.faq)) > .breadcrumb-wrapper:has(+ .default-content-wrapper > h1:first-child) {
     --breadcrumb-top: 0;
+  }
+}
+
+/* standing order 67, item 3: from 768 px the FAQ half pages' title 4 px lower, as www's (its title at 190 against our 186 at 1440:
+   lounge-zutritt, lounges, parcheggi-convenzionati, seat-reservation in three languages); the rules around this one leave
+   these pages out. The same on phones failed the gate (prenotazione-del-posto 390 +0.79, its trail on two lines). Gate, the
+   61 recorded page-widths at 1440: none further, 462.70 -> 459.17 */
+@media (width >= 768px) {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container:not(.hidden-heading):has(.accordion-columns.faq) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1:first-child) {
+    padding-top: 4px;
   }
 }
 
