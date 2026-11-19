@@ -6383,3 +6383,101 @@ all on those recordings. They need re-recording with consent.
 - **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off; .agents/settings.json not written.
 - **Not in git:** logs/p4/so60 (captures, trial CSS, probes, results); content/, migration-work/ and tools/importer/reports/* (not mine).
 - **Cleanup:** the five folder servers (3093-3097) stopped by PID; the trial and suite worktrees removed.
+
+## Standing order 61 (received about 01:45 UTC, 2026-11-19)
+
+Themes: the Austrian and Cargo themes, and from this order TAP's and Air Dolomiti's (brand-scoped files only). The gate is unchanged: all
+recorded page-widths of the brand, the rule in the same load as today, none more than 0.5 points further, the sum down. Rules that apply
+only below or above a width are gated on the recordings at the widths they can reach.
+
+### Item 1: Austrian's last markers (READY, pushed in ebca9cb4)
+
+List: tools/reports/parity-2026-11-09/delta-so61-austrian-entryregulations.txt / .json.
+
+- **The rule:** "the column views' gaps on phones":
+  - the picture that ends the section before an outer column view gets 78 px under it;
+  - the outer view gets 77 px over the next section;
+  - the heading over the accordion gets 60 px above it.
+  - It doesn't apply where a spacer still stands, so the served copy doesn't move until the row is applied.
+- **Gate:** all 123 recorded Austrian 390 page-widths, none further; sum 2,035.20 -> 2,034.38.
+- **READY:** the three phone spacers out (3 inserts); DA dry run byte for byte.
+  - 1440: 8.62 -> 8.62 % (5,523 px both, www 5,538).
+  - 390, old recording: 15.19 -> 15.18 % (7,207 px both, www 7,236; without the rule 34.83 %).
+  - 390, consent re-recording: 23.21 -> 23.21 % (www 7,311).
+
+### Item 2: Cargo's last marker (READY, pushed in 346eb2a6)
+
+List: delta-so61-cargo-ecsd.txt / .json. ecsd's recording showed the cookie dialog (cargo-parity-003), so the row is gated on cargo-parity-013.
+
+- **The rule:** from 768 px, an introduction (title + intro paragraph) right under a breadcrumb-only first section gets 18 px more above it
+  and 40 px under its section.
+  - www: the title 80 px under the breadcrumb's text on ecsd, eaw, ehm and support-and-contact; the next band 83 px under the intro.
+  - support-and-contact's title without an intro is left out (2 points further with it).
+- **Gate:** all 62 recorded Cargo 1440 page-widths, none further; sum 733.26 -> 732.12 (eaw 7.77 -> 6.87 %, ehm 6.39 -> 6.15 %).
+- **READY /en/ecsd:** {spacer-18 from-768} out. 1440: 5.27 -> 3.67 % (1,347 -> 1,338 px, www 1,343). 390: 15.25 -> 15.25 % (1,750 px,
+  www 1,751). Checked again with the rule live. DA dry run byte for byte.
+- **Also READY (eb97862f) /en/passive-temp-support:** the tabs block gets Tabs (wide-text), so its list runs across the panel as on www's
+  re-recording. 1440: 14.07 -> 7.58 % (2,234 -> 2,138 px, www 2,148); no 390 recording. DA dry run byte for byte.
+
+### Item 3: the consent re-recordings (swapped in; the held rules HOLD, pushed in 346eb2a6)
+
+List: gate-so61-consent-recordings.txt.
+
+- **Austrian:** austrian-parity-032, published about 02:15 UTC, replaces 52 page-widths.
+  - Sum and median: 4,547.13 / 13.96 % before -> 4,575.63 / 16.59 % after.
+  - With the dialog gone, the homepages' other campaigns show (ch/de 390 28.80 -> 40.13 %); ski-campaign 1440 33.54 -> 6.47 %.
+- **Cargo:** cargo-parity-013, published about 02:40 UTC, replaces 53 page-widths.
+  - Sum and median: 2,983.36 / 22.35 % before -> 1,524.53 / 11.13 % after.
+- Both archives' sha256 checked against their index.
+- **HOLD, Austrian heading and item spacing set:** sum 4,575.63 -> 4,607.87; 31 page-widths further (special-requirements 390 8.14 ->
+  16.95 %).
+- **HOLD, Cargo stage picture across the column + subtitle 20 px under the title:**
+  - 1440 733.26 -> 713.38 (containers 15.55 -> 8.82 %, fleet 26.20 -> 19.57 %).
+  - Further on ebooking-info 17.58 -> 21.19 / 12.97 -> 15.68 and industries-healthcare 22.15 -> 23.22.
+- **HOLD, Cargo stage picture across the screen on phones:**
+  - 390 791.27 -> 729.10, 26 nearer.
+  - Further on de/en speed-zoom 7.22 -> 11.66 / 7.05 -> 11.35. www draws that stage the column's width.
+- **A correction to order 60:** "the header band holds 49 % of Cargo's mismatched pixels" was wrong. The script counted the candidate
+  captures as header. The correct figures on the old recordings: breadcrumb band 28.3 % at 1440, footer and after 26.2 % at 390. On the new
+  recordings: footer and after 36.3 % / 26.0 %, then the tab sections at 1440 (22.4 %) and the card grids at 390 (23.2 %).
+
+### Item 4: TAP and Air Dolomiti
+
+List: tap-worst15-so61.txt.
+
+- **TAP:** 52 page-widths, sum 588.82, median 9.62 %. A second run 20 minutes later read 583.82, so live widgets and carousels move it
+  by about 1 %.
+- **The 15 furthest, by cause:**
+  - another hero campaign or other quick links (the homepages, four);
+  - a hero carousel caught on another slide or mid-slide (stopover partners, Miles&Go);
+  - live listings (navigator-experiences);
+  - a function: the baggage-status form inline on www, a link on ours (locate-baggage, 377 px);
+  - drift on long capped pages (fly-business, economy-prime);
+  - the destination pages' carousel titles: www centered 40 / 48 px, ours 32 px start-aligned.
+- **HOLD, TAP rule for those titles:** 1440 249.69 -> 246.17 (get-inspired 13.51 -> 10.22 %), but 5 page-widths further, 4 of them on
+  phones.
+- **Air Dolomiti:** not ranked. Its recordings are under no R2 folder in my transcripts or the repository, and none is on this machine. It
+  needs the archive links.
+
+### Item 5: the Austrian homepages' content and function differences (no rows)
+
+List: austrian-homepages-so61.txt, per page-width: % off www, heights, hero, carousel, finder.
+
+- 104 homepage page-widths, sum 3,001.9.
+- **Hero:** another campaign than the recording on 72 page-widths (sum 2,263.8). This is content.
+- **Destination finder:** link only, no offer grid, on 22 (sum 974.6). This is a function difference (live prices off, or no fares). 14
+  homepages have no finder.
+
+### Final section (about 03:50 UTC, 2026-11-19)
+
+- **Pushed:** ebca9cb4, 346eb2a6, eb97862f, each with Build success. This section follows.
+- **Checks before each push:** whole-repo lint 0; stylelint on austrian.css and cargo.css 0; folder-reading tests (676, 0 failed); brand
+  tests passed. Later pulls brought code from other EMAs, and these checks ran again at each rebased commit before its push.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA write. DA reads: 3 single literal-URL GETs
+  (at/en/entryregulations, en/ecsd, en/passive-temp-support), each its own command. No guard block.
+- **Requests:** our hosts, DA, the two R2 drops and GitHub's API. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off; .agents/settings.json not written.
+- **Not in git:** logs/p4/so61 (captures, probes, trial CSS), logs/drops (the two archives); content/, migration-work/ and
+  tools/importer/reports/* (not mine).
+- **The full suite at eb97862f** (this section's base): npm run lint exit 0, stylelint exit 0, 1,292 test files passed, 0 failed.
+- **Cleanup:** no folder server was started this order; the suite worktree removed.
