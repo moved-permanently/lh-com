@@ -306,6 +306,15 @@ function applyThemeRules(main, theme) {
           while (prev && isMeta(prev)) prev = prev.previousElementSibling;
           if ([next, prev].some((x) => x && isBlock(x) && blockName(x) === 'accordion-columns')) size = 'heading-medium';
         }
+        // h2-small-after-accordion (Group for Business, standing order 71): an H2 right after an
+        // accordion in its section (not in a tab panel) is heading-small, www's headline there
+        // (the start-of-booking pages' "Rebookings and refunds": 12 of 12 recorded copies)
+        const afterRule = theme.rules.includes('h2-small-after-accordion');
+        if (afterRule && size === 'heading-medium' && level[1] === '2' && !isTabPanel(section)) {
+          let prev = el.previousElementSibling;
+          while (prev && isMeta(prev)) prev = prev.previousElementSibling;
+          if (prev && isBlock(prev) && blockName(prev) === 'accordion-columns') size = 'heading-small';
+        }
         addUnmarked(el, size, MARKED_SIZE);
       }
       if (theme.text.width === 'full' && TEXT.includes(el.tagName) && !isSeparator(el)

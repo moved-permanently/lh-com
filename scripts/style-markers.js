@@ -248,6 +248,9 @@ export const THEMES = {
     // order 67 (token-free: no document keeps a size marker); an H2 in that size is H2 compact
     headingChoices: { h1: { compact: 'heading-small' }, h3: { large: 'heading-medium', compact: 'heading-copytext-large' } },
     nearChoices: { h3: { 'heading-copytext-large': 'compact' } },
+    // an H2 right after an accordion in heading-small (www's start-of-booking headlines; standing
+    // order 71)
+    rules: ['h2-small-after-accordion'],
     pageTypes: {
       // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
       // brief after 550 narrows it); in a grey band no edge above a block right after a heading

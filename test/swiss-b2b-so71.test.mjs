@@ -54,6 +54,20 @@ test('accordion-headings: the H2 right before or after an accordion, not in a ta
   assert.doesNotMatch(h2s(`<div><h2>Options</h2>${acc}</div>`, 'discover'), /heading-medium/);
 });
 
+test('h2-small-after-accordion: Group for Business\'s H2 right after an accordion in heading-small, not in a tab panel', () => {
+  assert.ok(themeFor('b2b').rules.includes('h2-small-after-accordion'));
+  Object.entries(THEMES).filter(([b]) => b !== 'b2b').forEach(([b]) => assert.ok(!themeFor(b).rules.includes('h2-small-after-accordion'), b));
+  if (!THEMES.b2b.live) return;
+  // the start-of-booking pages: the H2 after the accordion; the one after the Columns Media keeps the theme's size
+  const cm = '<div class="columns-media"><div><div>x</div></div></div>';
+  assert.equal(h2s(`<div><p>Text</p>${acc}<h2>Rebookings</h2>${cm}<h2>Exclusive benefits</h2></div>`, 'b2b'), 'Rebookings:heading-small Exclusive benefits:heading-medium');
+  // the H2 before an accordion (businesstogo's FAQ, special-assistance's Forms) is not this rule's
+  assert.equal(h2s(`<div><h2>FAQ</h2>${acc}</div>`, 'b2b'), 'FAQ:heading-medium');
+  // a tab panel keeps it; a marker's size wins
+  assert.equal(h2s(`<div data-tab="HON">${acc}<h2>In a tab</h2></div>`, 'b2b'), 'In a tab:heading-medium');
+  assert.equal(h2s(`<div>${acc}<h2 class="heading-large">Marked</h2></div>`, 'b2b'), 'Marked:heading-large');
+});
+
 test('swiss.css: the title 30 px under its picture on phones, 31 from 768', () => {
   const css = read('../styles/themes/swiss.css');
   assert.match(css, /\*\/\nbody\.brand-swiss main \.section > \.default-content-wrapper > p:has\(> picture\):has\(\+ h1\):not\(\.column-end\) \{\s*margin-bottom: 30px;\s*\}\n\n@media \(width >= 768px\) \{\s*\/\*[^*]*\*\/\s*body\.brand-swiss main \.section > \.default-content-wrapper > p:has\(> picture\):has\(\+ h1\):not\(\.column-end\) \{\s*margin-bottom: 31px;/);

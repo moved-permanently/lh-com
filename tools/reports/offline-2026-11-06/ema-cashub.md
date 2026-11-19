@@ -12273,3 +12273,39 @@ opens with its H2, www's on every recorded page) and the heading after a text-on
 - arrival-departure 390: the flight status entry, 94 px shorter.
 - Group for Business meals-on-board 390: www has 10 tab items, ours 9 (-51 of the -56 px).
 - Figures per page are in the report.
+
+### Standing order 71, addendum (about 03:00 CET): item 6's start-of-booking headlines, a B2B rule (pushed with this addendum)
+
+**The cause:** on the Allegris and SWISS Senses start-of-booking pages, the +53 px before "Exklusive Vorteile für
+Statuskund:innen" is the H2 "Umbuchungen und Erstattungen…" / "Rebookings and refunds…".
+- www draws it heading-small (24 / 28 px); ours was heading-medium, 160 px (5 lines) against www's 112 (4 lines) at 390.
+- Every recorded B2B H2 right after an accordion is heading-small on www: 12 of 12.
+- H2s right before an accordion are mixed (businesstogo's FAQ copytext-large, experts' heading-medium,
+  special-assistance's "Forms" heading-small), so the rule leaves them alone.
+
+**The rule:** THEMES.b2b `h2-small-after-accordion`: an H2 right after an accordion in its section, outside a tab
+panel, is heading-small (scripts/token-free.js).
+- Reach: 25 H2s in 25 of the 733 served copies.
+- 14 of them are recorded: the start-of-booking pages.
+- 11 are not: carry-on-baggage (3), free-baggage (4) and the two Entry/Exit System news (4).
+
+**Gate (all 184 recorded B2B page-widths):**
+- In the same load: 17 moved, 17 closer, none further. The sum goes 158.03 -> 150.26.
+- The code (CODE override against live, separate loads) gave the same 17.
+- Three businesstogo page-widths also moved by -71 px in those separate loads. That was the form's Turnstile
+  challenge, drawn in one load and not the other. Re-measured with Turnstile aborted, live and the code give the same
+  heights on all 8 businesstogo page-widths.
+
+| Page-width | www | Today | Now |
+| --- | --- | --- | --- |
+| Allegris corporates de/de 390 | 7,407 | 7,543 (+1.84 %) | 7,490 (+1.12 %) |
+| Allegris intermediaries de/de 390 | 9,254 | 9,375 (+1.31 %) | 9,323 (+0.75 %) |
+| SWISS Senses corporates de/de 390 | 6,656 | 6,741 (+1.28 %) | 6,689 (+0.50 %) |
+| SWISS Senses intermediaries de/de 390 | 7,117 | 7,253 (+1.91 %) | 7,201 (+1.18 %) |
+| Allegris corporates de/de 1440 | 7,038 | 7,127 (+1.26 %) | 7,115 (+1.09 %) |
+
+**Checks:**
+- Whole-repo `npm run lint` exit 0, and stylelint on swiss.css and b2b.css exit 0.
+- The targeted tests (order 62's folder list, every SWISS and B2B test, token-free, style-markers and this order's):
+  533 files, 2,207 pass, 0 failures, 3 skipped.
+- test/swiss-b2b-so71.test.mjs has 6 tests.

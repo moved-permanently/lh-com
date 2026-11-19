@@ -89,8 +89,15 @@ section, block and picture loaded on all 12 page-widths. The two passes gave the
   4,774 -> 5,302 against www's 5,179 (-7.82 -> +2.37 %).
 - kuala-lumpur 390 is unchanged at 5,800 (+3.79 %): its table is already as tall as its box there. our-european-fares'
   tables are longer than the box, so they don't change.
-- **Reach:** 33 tables in 25 of the 733 served B2B documents. Of the recorded ones, only kuala-lumpur's is shorter than
-  its box.
+- **Reach:** 33 tables in 25 of the 733 served B2B documents. Measured live at 1440 after the push, 23 of them, in 17
+  documents, are shorter than 840 px and now fill the box:
+  - cash-and-points (5 copies): 560 or 680 -> 840.
+  - carry-on-baggage (3 copies, 3 tables each): 344 to 528 -> 840.
+  - zurich-airport and rail-fly (2 each): 533 and 473 -> 840.
+  - the a350-1000 news (2): 440 -> 840.
+  - kuala-lumpur (3): 312 -> 840.
+- kuala-lumpur is the only one of them with a www recording. The other 16 rest on www's maui-table (theme b2b) drawing
+  every table the same way. That is worth a look on the served pages; the rule is one block of b2b.css to take back.
 
 **The phone tab list.** www's phone tab set is a collapsible list. For each recorded tab set, its first item's distance
 under the H1, www against ours:
@@ -210,7 +217,7 @@ Causes from our headings matched to www's recorded ones by text: where the offse
 | 21 | payment-options 1440 | -4.82 | -72 px from the title to the first accordion item (www's accordion starts lower); -36 at "Payments at the airport" (item 2 closes 28 of it) |
 | 22 | newsletter 1440 | +4.76 | the newsletter form +98 px |
 | 23 | entertainment-on-board 390 | -3.91 | the first tab's open panel: -28 to its H2, -37 to "SWISS Kids", -85 from there to the next tab |
-| 24 | new-destinations 1440 | +3.57 | the Toulouse section +258 px (from "Ihr nächstes Reiseziel" to "Rijeka") |
+| 24 | new-destinations 1440 | +3.57 | +247 px from the Toulouse title to the Rijeka stage: our text column 70 px taller than www's, then a grey section holding only a Spacer block (185 px) where www has 136 px to the stage |
 | 25, 26, 30, 40 | terms-conditions de 390, en 1440, de 1440, en 390 | +3.53, +3.52, +3.25, +2.76 | the usp cards (12, in four blocks): each row about 5 px taller than www's pitch (1440 223 against 218, 390 185 against 180), and at 1440 two of our rows wrap a heading onto a second line (+29 each) where www's wraps one: +60 / +76 px to the footer |
 | 27, 33 | us/en homepage 390, 1440 | -3.41, -3.13 | above "Winter deals" -129 / -29 px (the stage and its flight search), -56 / -110 px at the page end |
 | 28 | miles-and-more 1440 | -3.41 | spread: -48 under the title, -49 before "Travel with privileges", -47 at the end (item 2: -2.57) |
@@ -245,16 +252,26 @@ Causes from our headings matched to www's recorded ones by text: where the offse
 | 39 | SWISS Senses corporates xx/de 390 | +1.52 | +58 at the key points, -81 then +53 around "Exklusive Vorteile", +44 at the end |
 | 40 | lhg-history-booking 1440 | +1.38 | +26 at "The age of online access", +23 at the end |
 
-**The start-of-booking +53 (traced, no rule).** On the Allegris and SWISS Senses start-of-booking pages, the +53 px
-before "Exklusive Vorteile für Statuskund:innen" is the two H2s of that section.
-- www draws them as heading-small (24 / 28 px). So does every start-of-booking copy, and "Reisen mit Kindern" too.
-- Ours are the theme's heading-medium. "Umbuchungen und Erstattungen von Sitzplatzreservierungen" is 160 px (5 lines)
-  against www's 112 (4 lines) at 390 (Allegris de/de: www 4,237, ours 4,214; below the H2 every element sits at www's
-  spacing).
-- No B2B theme rule separates them: the H2s before the tab sets on news, businesstogo and programs-and-groups are
-  heading-medium on www.
-- No B2B carrier gives an H2 heading-small ("H2 compact" is copytext-large). It would need a carrier of its own, and
-  then a row per document.
+**The start-of-booking +53: a B2B theme rule (shipped).** On the Allegris and SWISS Senses start-of-booking pages,
+the +53 px before "Exklusive Vorteile für Statuskund:innen" is that section's H2s.
+- www draws them as heading-small (24 / 28 px); ours were the theme's heading-medium. "Umbuchungen und Erstattungen
+  von Sitzplatzreservierungen" is 160 px (5 lines) against www's 112 (4 lines) at 390 (Allegris de/de: www 4,237,
+  ours 4,214). Below the H2 every element sits at www's spacing.
+- No carrier gives a B2B H2 heading-small ("H2 compact" is copytext-large), but the H2's place does. Every recorded H2
+  right after an accordion is heading-small on www: "Umbuchungen und Erstattungen…" / "Rebookings and refunds…", 12 of
+  12 recorded copies.
+- H2s right before an accordion are mixed on www (businesstogo's FAQ copytext-large, experts' heading-medium,
+  special-assistance's "Forms" heading-small), so they stay as they are.
+- **The rule:** THEMES.b2b `h2-small-after-accordion`: an H2 right after an accordion in its section, outside a tab
+  panel, is heading-small.
+- **Reach:** 25 H2s in 25 of the 733 served copies. 14 are recorded: the start-of-booking pages. The other 11 are not:
+  carry-on-baggage (3), free-baggage (4) and the two Entry/Exit System news (4).
+- **Gate (all 184 recorded B2B page-widths, in the same load):** 17 moved, 17 closer, none further. The sum goes
+  158.03 -> 150.26.
+  - Allegris corporates de/de 390: 7,543 -> 7,490 (www 7,407), +1.84 -> +1.12 %.
+  - SWISS Senses corporates de/de 390: 6,741 -> 6,689 (www 6,656), +1.28 -> +0.50 %.
+  - Allegris corporates de/de 1440: 7,127 -> 7,115 (www 7,038).
+  - The code's figures are in the closing addendum of ema-cashub.md.
 
 ## Item 7: content and function differences (no rows)
 
