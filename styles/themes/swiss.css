@@ -1086,6 +1086,7 @@ body.brand-swiss .carousel-cards.usp .carousel-cards-body :is(h1, h2, h3, h4, h5
 body.brand-swiss .carousel-cards.usp .carousel-cards-body :is(h1, h2, h3, h4, h5, h6) a:any-link {
   color: inherit;
   text-decoration: none;
+  vertical-align: top; /* standing order 72, item 3: the title's line box its own line height */
 }
 
 @media (width >= 1025px) {
@@ -1298,6 +1299,16 @@ body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.
    page-width. ch/de www 3,147 / 1,818: 390 3,506 -> 3,266 (+11.41 -> +3.78 %), 1440 1,957 -> 1,877 (+7.65 -> +3.25 %) */
 body.brand-swiss .carousel-cards.usp:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only, .carousel-cards-wide) .carousel-cards-body:not(:has(> .carousel-cards-cta:last-child)) {
   padding-bottom: 20px;
+  padding-inline: 0; /* standing order 72, item 3 (below) */
+}
+
+/* standing order 72, item 3: the usp teaser as www's teaser-heading (terms-conditions, swiss-parity-002b at 1440 and
+   390): the title the teaser's full width (www 408 / 346 px, ours 372 / 310 with the body's 18 px sides), its line box
+   its own line height (the link's taller inline box made it 28.4 / 24.1 px for 26.4 / 22) and 12 px under it (ours 15):
+   the teaser 154 / 150 px tall as www's (ours 159 / 155), www's 218 / 180 px pitch. en 390 3,234 -> 3,147 (www 3,147).
+   The side padding and the link's alignment are in the rules above */
+body.brand-swiss .carousel-cards.usp:is(.grid, .four-up) .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide:not(.carousel-cards-text-only) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 12px;
 }
 
 /* a page that ends with plain-view teasers (SWISS row 54; standing order 12, item 2; the importer's option plain-view:
@@ -1427,6 +1438,39 @@ body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 
 @media (width >= 768px) {
   body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 + p.copytext-large:last-child) + .section.with-aside:has(> .default-content-wrapper:first-child > h2:first-child) {
     margin-top: 96px;
+  }
+}
+
+/* standing order 72, item 2: the same 96 / 76 px when the column is split into parts and the first part opens with its
+   H2 (miles-and-more: the column's first H2 48 px higher than www's at 1440, 28 at 390; health-and-travel). Of the 168
+   recorded page-widths 5 move, all closer (miles-and-more 1440 -2.57 -> -1.17 %, health-and-travel 1440 -6.25 ->
+   -4.73 %) */
+body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 + p.copytext-large:last-child) + .section.with-aside:has(> .section-part:first-child > .default-content-wrapper:first-child > h2:first-child) {
+  margin-top: 76px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 + p.copytext-large:last-child) + .section.with-aside:has(> .section-part:first-child > .default-content-wrapper:first-child > h2:first-child) {
+    margin-top: 96px;
+  }
+}
+
+/* standing order 72, item 2: from 1025 px a tab set right under the title's lead sits 24 px under it, as www's tab bar
+   (its underline 88 / 89 px under the lead on swiss-business, swiss-economy, baggage-irregularities, animals-travelling
+   and entertainment-on-board; ours 113). Not before a tab panel that opens with an embed: entertainment-on-board's
+   panel starts 93 px under www's tab bar (ours 72), and with the tab bar alone that short page went 0.94 points further.
+   Phones keep the section gap: there the tab set is the toggle list */
+@media (width >= 1025px) {
+  body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1 + p.copytext-large:last-child):has(+ .section.section-tabs + .section:not(.embed-container)) {
+    margin-bottom: 24px;
+  }
+}
+
+/* standing order 72, item 2: from 1025 px the H3 that opens a card row in the column, after the column's running text,
+   52 px under it as www's column view heading (swiss-first, swiss-premium-economy, swiss-economy: www 52, ours 32) */
+@media (width >= 1025px) {
+  body.brand-swiss main > .section.with-aside .default-content-wrapper:has(+ .columns-media-wrapper) > p + h3:last-child {
+    margin-top: 52px;
   }
 }
 

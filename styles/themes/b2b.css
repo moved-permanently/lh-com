@@ -1069,17 +1069,32 @@ body.brand-b2b main .default-content-wrapper > ul.links-responsive + p.spacer:la
   }
 }
 
-/* standing order 71, item 4: from 768px a table shorter than its box fills it, as www's maui-table (theme b2b) draws
-   it: the box 840px tall and the rows sharing the rest (kuala-lumpur's flight table at 1440: rows 258 / 282 / 302 px on
-   www, ours 88 / 112 / 112 -> 237 / 302 / 302; 1440 -7.82 -> +2.38 %). Below 768px the table keeps its own height (at
-   390 kuala-lumpur's is already as tall as its box). A longer table scrolls in the same 840px box as before */
+/* standing order 71, item 4, scoped in standing order 72, item 1: from 768px a five-column table shorter than its box
+   fills the 840px box, the rows sharing the rest (kuala-lumpur's flight table at 1440: rows 258 / 282 / 302 px on www,
+   ours 88 / 112 / 112 -> 237 / 302 / 302; 1440 -7.82 -> +2.38 %). www's maui-table draws every other table at its own
+   height (b2b-parity-018, 2026-11-19: carry-on-baggage, cash-and-points, zurich-airport, rail-fly, the A350-1000 news;
+   the box is the rows plus 40px above and below), and kuala-lumpur's rows are tall there because each of its cells
+   holds two empty lines above and two below its text. Below 768px a table keeps its own height. A longer table scrolls
+   in the same 840px box as before */
 @media (width >= 768px) {
-  body.brand-b2b main .table-striped:not(.beside, .beside-end, .columns, .matrix):has(> table) {
+  body.brand-b2b main .table-striped:not(.beside, .beside-end, .columns, .matrix):has(> table tr:first-child > :nth-child(5)) {
     height: 840px;
   }
 
-  body.brand-b2b main .table-striped:not(.beside, .beside-end, .columns, .matrix) > table {
+  body.brand-b2b main .table-striped:not(.beside, .beside-end, .columns, .matrix):has(> table tr:first-child > :nth-child(5)) > table {
     height: 100%;
+  }
+}
+
+/* standing order 72, item 3: below 768px a stacked text that ends with a button sits 11px above its own picture, as
+   www's (kuala-lumpur both rows, route-network, celebrating-shared-stories: 11px in the recorded PNGs; ours 36). Only
+   when the next cell is the row's picture: before another card's text (hygiene-and-safety's briefings, the
+   partner-plus-benefit and experts stages) www keeps the card gap; a video player (help-alliance) has no picture.
+   Of the 198 recorded page-widths 12 move, 5 closer, none more than 0.49 points further (kuala-lumpur 390
+   +3.79 -> +2.90 %) */
+@media (width < 768px) {
+  body.brand-b2b main .columns-media .columns-media-row > .columns-media-text:not(:last-child):has(> p.button-wrapper:last-child):has(+ .columns-media-media picture) {
+    margin-bottom: 11px;
   }
 }
 

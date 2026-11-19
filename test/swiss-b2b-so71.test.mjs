@@ -95,7 +95,9 @@ test('swiss.css: the title 30 px under its picture on phones, 31 from 768', () =
 test('b2b.css: the tab set after running text on phones, the short table in its box from 768', () => {
   const css = read('../styles/themes/b2b.css');
   assert.match(css, /@media \(width < 768px\) \{\s*body\.brand-b2b main > \.section:has\(> \.default-content-wrapper:last-child > p:last-child:not\(\[class\]\)\):not\(:has\(> \.default-content-wrapper:last-child > p:last-child > picture\)\) \+ \.section\.section-tabs \+ \.section\.section-tab-panel \{\s*padding-top: 20px;/);
-  assert.match(css, /@media \(width >= 768px\) \{\s*body\.brand-b2b main \.table-striped:not\(\.beside, \.beside-end, \.columns, \.matrix\):has\(> table\) \{\s*height: 840px;\s*\}\s*body\.brand-b2b main \.table-striped:not\(\.beside, \.beside-end, \.columns, \.matrix\) > table \{\s*height: 100%;/);
+  // order 72: only a five-column table fills the box (www draws the others at their own height, b2b-parity-018)
+  assert.match(css, /@media \(width >= 768px\) \{\s*body\.brand-b2b main \.table-striped:not\(\.beside, \.beside-end, \.columns, \.matrix\):has\(> table tr:first-child > :nth-child\(5\)\) \{\s*height: 840px;\s*\}\s*body\.brand-b2b main \.table-striped:not\(\.beside, \.beside-end, \.columns, \.matrix\):has\(> table tr:first-child > :nth-child\(5\)\) > table \{\s*height: 100%;/);
+  assert.doesNotMatch(css, /:has\(> table\) \{\s*height: 840px;/);
   // nested :has is invalid CSS (the rule would be dropped): none in the new rules
   css.split('\n').filter((l) => l.includes('section-tabs + .section.section-tab-panel')).forEach((l) => assert.doesNotMatch(l, /:has\([^)]*:has\(/));
   const others = fs.readdirSync(new URL('../styles/themes/', import.meta.url)).filter((f) => !['swiss.css', 'b2b.css'].includes(f) && f.endsWith('.css'));
