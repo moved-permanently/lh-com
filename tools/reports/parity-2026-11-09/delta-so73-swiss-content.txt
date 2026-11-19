@@ -1,0 +1,87 @@
+# ema-cashub, standing order 73 (2026-11-19), item 2: SWISS content causes a row can close (ranks 1 to 60 of orders
+# 71 and 72). Token-free: section styles, a block dropped, a block's content moved; no marker.
+# 1. green-fare (10 copies; ch/en recorded, swiss-parity-002b): www's H3s "…Europe" / "…the rest of the world" are
+#    heading-small (every ch/<lang> import snapshot), ours copytext-large. The row: section style h3-large on the first
+#    column section (a section-metadata block at its end). www's H2s are heading-medium too, but h2-large takes 390
+#    +4.34 points further (7,490 -> 7,815 against www's 7,481): HOLD, not in this list.
+# 2. new-destinations (11 copies; ch/de recorded, swiss-parity-002a): a grey section holds only a Spacer block (L, 185 px
+#    drawn) between the Toulouse column and the Rijeka stage; www has 136 px there. The row: that section goes (the
+#    Spacer block M instead: -60 px, 1440 +2.59 %; the section gone: 1440 +0.53 %).
+# 3. newsletter (11 copies; ch/de recorded, swiss-parity-002a): the sign-up text stands in a sidebar Columns Media 622 px
+#    wide with an empty second cell; www's text runs in the column. The row: the cell's content as the section's own
+#    text. (Also joining "Sie haben sich bereits…" into that section: 390 +0.64 points, not in the row.)
+# Held, no row: food-and-beverage's gap under its flush stage (www's divider module, -99 px): the stage not flush
+# (+2.24 points at 1440), a divider above the column (+1.30 / +0.86), both (+3.53). Today's page is +0.34 % at both
+# widths: www's -99 px under the stage is offset further down. Order 72 measured it at -1.01 % with the held 794 px
+# column; the divider is a row for when that column ships, not before.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-swiss-content.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET each, 08:39 to 08:42 CET): 32/32 "1 inserted", "without the inserts
+# DA's copy byte for byte: true"; a second run "1 present"; no {…}.
+# Drafted on swiss.turnsthe.page (so73/fulld.mjs, every section loaded; airline hosts, www.* and lh-proxy refused per
+# request, none sent). Gate: |after %| - |before %| <= 0.5 on every recorded page-width, the sum of |% off www| down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/de/fly/on-board/green-fare	1440	-	-	6,361	6,440 (+79 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/de/fly/on-board/green-fare	390	-	-	8,067	8,094 (+27 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/en/fly/on-board/green-fare	1440	swiss-parity-002b	6,240	6,070 (-2.72 %)	6,150 (-1.44 %)	-1.28 points; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/en/fly/on-board/green-fare	390	swiss-parity-002b	7,481	7,490 (+0.12 %)	7,517 (+0.48 %)	+0.36 points; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/fr/fly/on-board/green-fare	1440	-	-	6,296	6,375 (+79 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/fr/fly/on-board/green-fare	390	-	-	8,168	8,225 (+57 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/it/fly/on-board/green-fare	1440	-	-	6,257	6,337 (+80 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/it/fly/on-board/green-fare	390	-	-	7,838	7,865 (+27 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/es/fly/on-board/green-fare	1440	-	-	6,252	6,331 (+79 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/es/fly/on-board/green-fare	390	-	-	7,946	7,972 (+26 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/pt/fly/on-board/green-fare	1440	-	-	6,257	6,337 (+80 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/pt/fly/on-board/green-fare	390	-	-	7,796	7,823 (+27 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/ru/fly/on-board/green-fare	1440	-	-	6,609	6,688 (+79 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/ru/fly/on-board/green-fare	390	-	-	8,986	9,013 (+27 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/el/fly/on-board/green-fare	1440	-	-	6,402	6,482 (+80 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/el/fly/on-board/green-fare	390	-	-	8,837	8,894 (+57 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/ja/fly/on-board/green-fare	1440	-	-	6,133	6,212 (+79 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/ja/fly/on-board/green-fare	390	-	-	7,465	7,491 (+26 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/zh/fly/on-board/green-fare	1440	-	-	5,736	5,776 (+40 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/zh/fly/on-board/green-fare	390	-	-	6,497	6,510 (+13 px)	no recording; the H3s one size up, as www's heading-small (section style h3-large)
+READY	/ch/de/discover/new-destinations	1440	swiss-parity-002a	6,070	6,287 (+3.57 %)	6,102 (+0.53 %)	-3.05 points; the grey section holding only a Spacer block (L) goes
+READY	/ch/de/discover/new-destinations	390	swiss-parity-002a	5,676	5,837 (+2.84 %)	5,692 (+0.28 %)	-2.55 points; the grey section holding only a Spacer block (L) goes
+READY	/ch/en/discover/new-destinations	1440	-	-	6,285	6,100 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/en/discover/new-destinations	390	-	-	5,814	5,669 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/fr/discover/new-destinations	1440	-	-	6,311	6,126 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/fr/discover/new-destinations	390	-	-	5,970	5,825 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/it/discover/new-destinations	1440	-	-	6,331	6,146 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/it/discover/new-destinations	390	-	-	6,011	5,866 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/es/discover/new-destinations	1440	-	-	6,331	6,146 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/es/discover/new-destinations	390	-	-	5,885	5,740 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/pt/discover/new-destinations	1440	-	-	6,331	6,146 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/pt/discover/new-destinations	390	-	-	5,976	5,831 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/ru/discover/new-destinations	1440	-	-	6,460	6,275 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/ru/discover/new-destinations	390	-	-	6,353	6,208 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/el/discover/new-destinations	1440	-	-	6,397	6,212 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/el/discover/new-destinations	390	-	-	6,318	6,173 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/ja/discover/new-destinations	1440	-	-	6,312	6,127 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/ja/discover/new-destinations	390	-	-	5,839	5,694 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/zh/discover/new-destinations	1440	-	-	6,263	6,078 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/zh/discover/new-destinations	390	-	-	5,599	5,454 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/kr/ko/discover/new-destinations	1440	-	-	6,256	6,071 (-185 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/kr/ko/discover/new-destinations	390	-	-	5,678	5,533 (-145 px)	no recording; the grey section holding only a Spacer block (L) goes
+READY	/ch/de/customer-support/newsletter	1440	swiss-parity-002a	2,015	2,111 (+4.76 %)	2,043 (+1.39 %)	-3.37 points; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/de/customer-support/newsletter	390	swiss-parity-002a	2,176	2,199 (+1.06 %)	2,163 (-0.60 %)	-0.46 points; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/en/customer-support/newsletter	1440	-	-	1,991	1,879 (-112 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/en/customer-support/newsletter	390	-	-	1,881	1,845 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/fr/customer-support/newsletter	1440	-	-	2,103	1,947 (-156 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/fr/customer-support/newsletter	390	-	-	2,125	2,089 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/it/customer-support/newsletter	1440	-	-	2,133	2,021 (-112 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/it/customer-support/newsletter	390	-	-	2,119	2,083 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/es/customer-support/newsletter	1440	-	-	2,111	1,999 (-112 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/es/customer-support/newsletter	390	-	-	2,079	2,043 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/pt/customer-support/newsletter	1440	-	-	2,037	1,925 (-112 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/pt/customer-support/newsletter	390	-	-	2,035	1,999 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/ru/customer-support/newsletter	1440	-	-	2,182	2,070 (-112 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/ru/customer-support/newsletter	390	-	-	2,249	2,213 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/el/customer-support/newsletter	1440	-	-	2,199	2,065 (-134 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/el/customer-support/newsletter	390	-	-	2,293	2,257 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/ja/customer-support/newsletter	1440	-	-	2,062	1,950 (-112 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/ja/customer-support/newsletter	390	-	-	1,955	1,919 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/zh/customer-support/newsletter	1440	-	-	1,993	1,921 (-72 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/ch/zh/customer-support/newsletter	390	-	-	1,821	1,781 (-40 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/kr/ko/customer-support/newsletter	1440	-	-	1,993	1,903 (-90 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media
+READY	/kr/ko/customer-support/newsletter	390	-	-	1,907	1,871 (-36 px)	no recording; the sign-up text in the column as www's, out of its sidebar Columns Media

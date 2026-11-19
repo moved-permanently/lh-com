@@ -1,0 +1,19 @@
+# ema-cashub, standing order 73 (2026-11-19), item 1: SWISS documents where www embeds a video and ours shows a plain
+# link. Census: all 5,335 served lh-swiss documents (swiss.turnsthe.page, 2026-11-19 ~08:05 CET), every YouTube / video
+# link and its block, then the 293 documents with one outside an Embed block rendered at 1440, every section loaded.
+# www's side: the import snapshots of www.swiss.com (ch/<lang>, 2,812 pages: 73 with a YouTube iframe, 177 with video
+# elements) matched to every served copy of the page, and the recordings (so62/rec-www.tsv).
+# Ours draws a plain link where www embeds on one document: /ch/de/womenseuro22 (www's player in the column after "Nati
+# gleich Nati"; ours a bare link in a section of its own below the aside). Not rows: the teaser cards' "Watch on
+# YouTube" links (www's teasers carry the player and the link; ours too), new-lounges-zurich's link to the mini series
+# (www's link), the magazine articles' links in their text (no www DOM on disk; the links stand in running text), the
+# homepages' header video (market homepages are their own www pages; the ch homepages play it).
+# The row: the link as an Embed block at the end of the column's section (www's .video-player: 16:9 over the column),
+# its paragraph out of the last section (the page metadata stays there). Token-free: a block, no marker.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-swiss-video-embeds.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET, 08:39 CET): "2 inserted", "without the inserts DA's copy byte for
+# byte: true"; a second run "2 present"; no {…}. Not recorded by www: no gate figure, the page draws www's player.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/de/womenseuro22	1440	-	-	1,937	2,404 (+467 px)	no recording; www's player at the column's end (import snapshot), 16:9 over the column
+READY	/ch/de/womenseuro22	390	-	-	1,835	1,960 (+125 px)	no recording; www's player at the column's end (import snapshot), 16:9 over the column

@@ -1,0 +1,15 @@
+[
+ {
+  "path": "/ch/de/womenseuro22",
+  "inserts": [
+   {
+    "replace": "Schweizer Nati.</p></div><div><div class=\"section-metadata\"><div><div>Style</div><div>sidebar-aside</div></div></div></div>",
+    "text": "Schweizer Nati.</p><div class=\"embed\"><div><div><p><a href=\"https://www.youtube-nocookie.com/embed/IEHod0ymoFk\">https://www.youtube-nocookie.com/embed/IEHod0ymoFk</a></p></div></div></div></div><div><div class=\"section-metadata\"><div><div>Style</div><div>sidebar-aside</div></div></div></div>"
+   },
+   {
+    "replace": "<div><p><a href=\"https://www.youtube-nocookie.com/embed/IEHod0ymoFk\">https://www.youtube-nocookie.com/embed/IEHod0ymoFk</a></p><div class=\"metadata\">",
+    "text": "<div><div class=\"metadata\">"
+   }
+  ]
+ }
+]

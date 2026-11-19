@@ -1,0 +1,28 @@
+# ema-cashub, standing order 73 (2026-11-19), item 2: Group for Business content causes a row can close (ranks 1 to 60
+# of orders 71 and 72, and the German cash-and-points FAQ found with item 1). Token-free: blocks and block options only.
+# 1. cash-and-points de/de and its xx/de copy: the five FAQ answers stand as plain paragraphs without their questions
+#    under "Cash & Points: häufig gestellte Fragen"; www (b2b-parity-018) draws an accordion of the five questions, as
+#    the English copy's accordion-columns faq. The row: an accordion-columns faq with www's questions (from the
+#    recording) and the answers, plus item 1's video (Embed, option small) under "Cash & Points: Punkte einlösen neu
+#    gedacht". The accordion alone takes 1440 to -6.77 % (+4.65 points); with the video both widths pass.
+# 2. The A350-1000 news (de/de recorded, b2b-parity-018 at its double-hyphen address; de/en the same document): www sets
+#    the article's text and its table in one column and the picture beside them (twocolumn view, 1440); ours stacks
+#    them (+37.37 % at 1440). The row: a Table Striped with option beside-end, the first row picture | text, then the
+#    table's rows. styles/themes/b2b.css (this commit) draws it as www's: the rows at their own height in a box 40 px
+#    taller above and below from 768 px, stacked on phones with the served copy's gaps. Without that code the row takes
+#    390 +2.43 points further (the campaign spec table's gaps), with it 390 stays at the px.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-b2b-content.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET each, 08:20 to 08:39 CET): every document "inserted" (2 inserts on
+# cash-and-points, 1 on the news), "without the inserts DA's copy byte for byte: true"; a second run "present"; no {…}.
+# Drafted on b2b.turnsthe.page (so73/fulld.mjs, this commit's code as a CODE override, every section loaded; airline
+# hosts, www.* and lh-proxy refused per request, none sent). Gate: |after %| - |before %| <= 0.5, the sum down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/de/program/partner-plus-benefit/cash-and-points	1440	b2b-parity-018	6,839	6,984 (+2.12 %)	6,681 (-2.31 %)	+0.19 points; the FAQ as www's accordion (its five questions) and www's 560 x 315 video
+READY	/de/de/program/partner-plus-benefit/cash-and-points	390	b2b-parity-018	9,519	10,657 (+11.96 %)	9,568 (+0.51 %)	-11.44 points; the FAQ as www's accordion (its five questions) and www's 560 x 315 video
+READY	/xx/de/program/partner-plus-benefit/cash-and-points	1440	-	-	6,984	6,681 (-303 px)	no recording; the FAQ as www's accordion (its five questions) and www's 560 x 315 video
+READY	/xx/de/program/partner-plus-benefit/cash-and-points	390	-	-	10,657	9,568 (-1089 px)	no recording; the FAQ as www's accordion (its five questions) and www's 560 x 315 video
+READY	/de/de/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia	1440	b2b-parity-018	2,058	2,827 (+37.37 %)	2,071 (+0.63 %)	-36.73 points; the text and table beside the picture as www's two-column view (Table Striped beside-end)
+READY	/de/de/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia	390	b2b-parity-018	2,803	2,797 (-0.21 %)	2,797 (-0.21 %)	+0.00 points; the text and table beside the picture as www's two-column view (Table Striped beside-end)
+READY	/de/en/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia	1440	-	-	2,817	2,061 (-756 px)	no recording; the text and table beside the picture as www's two-column view (Table Striped beside-end)
+READY	/de/en/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia	390	-	-	2,797	2,797 (+0 px)	no recording; the text and table beside the picture as www's two-column view (Table Striped beside-end)

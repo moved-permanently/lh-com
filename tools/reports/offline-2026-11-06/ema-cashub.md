@@ -12667,3 +12667,71 @@ homepage flight search and the check-in entry.
   the code snapshots.
 - The new recordings are extracted in so64/arch/b2b-parity-018 and listed in so64/b2b-rec.tsv (scratch).
 - No background job of mine is running.
+
+
+## Standing order 73 (2026-11-19, from about 08:05 CET)
+
+**Left from order 72:** nothing of mine uncommitted or unpushed. Its last commit, 433e52ec, is on origin, and its
+worktree was clean. The main checkout's dirty entries belong to other jobs and were left alone
+(blocks/notifications/notifications.css, import-progress.json, the importer reports and the urls-*.txt lists).
+
+**Scratch:** migration-work/parity-588/so73 (not in git).
+- The census: vcen.mjs, swvid.py, the vp.js probe and vpsum.py.
+- The drafts: fulld.mjs (full.mjs with a DOCS draft folder), mk2.py, mkvid.py, mkfaq.py, mks.py, mkw.py, dg.py.
+- The rows: mkrows.py and mkdelta.py.
+- DA's copies: dadocs/ and dadocs-sw/, one read-only GET each.
+
+**Requests:**
+- Every render refused airline hosts, www.* and lh-proxy per request. None was sent.
+- www was read only from the recordings and import snapshots on disk.
+
+**DA:** read only, 39 single GETs, one per command. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage
+has no row.
+
+**Token-free:** every row is a block, a block option, a section style, or a block taken out. The code is two B2B option
+rules that reach only the documents that carry the options.
+
+Report: tools/reports/token-free/swiss-b2b-so73.md.
+
+### Items 1 and 2: videos and content rows (pushed with this section)
+
+**Item 1, videos.**
+- The census covered all 733 B2B and 5,335 SWISS served documents. The 81 and 293 documents with a video link outside an
+  embed were rendered with every section loaded.
+- Where www embeds and ours shows a link:
+  - Group for Business cash-and-points de/en and de/de, and their xx copies. www draws a 560 x 315 iframe.
+  - SWISS /ch/de/womenseuro22 (www's player in the column).
+- The B2B rows use an Embed with option small (b2b.css). Without the option the player is 1264 x 711.
+
+**Item 2, content causes:**
+- B2B: the German cash-and-points FAQ as www's accordion (together with its video), and the A350-1000 news as www's
+  two-column view (Table Striped beside-end, with b2b.css for www's maui-table rows).
+- SWISS: green-fare's H3s at www's heading-small (h3-large), new-destinations' Spacer-only grey section taken out, and
+  the newsletter's sign-up text out of its sidebar Columns Media.
+
+**READY lists** (px as served -> with the row, 1440 / 390; recorded page-widths with www):
+
+| List | Documents | Recorded page-widths |
+| --- | --- | --- |
+| delta-so73-b2b-video-embeds | de/en, xx/en cash-and-points | de/en 1440 5,988 -> 6,293 (www 6,603: -9.31 -> -4.69 %), 390 8,559 -> 8,846 (www 8,957: -4.44 -> -1.24 %) |
+| delta-so73-b2b-content | de/de, xx/de cash-and-points; de/de, de/en A350-1000 news | cash de/de 1440 6,984 -> 6,681 (www 6,839: +2.12 -> -2.31 %), 390 10,657 -> 9,568 (www 9,519: +11.96 -> +0.51 %); news de/de 1440 2,827 -> 2,071 (www 2,058: +37.37 -> +0.63 %), 390 2,797 -> 2,797 |
+| delta-so73-swiss-video-embeds | /ch/de/womenseuro22 | not recorded: 1,937 -> 2,404 / 1,835 -> 1,960 |
+| delta-so73-swiss-content | 10 green-fare, 11 new-destinations, 11 newsletter | green-fare en 1440 6,070 -> 6,150 (www 6,240: -2.72 -> -1.44 %), 390 7,490 -> 7,517 (+0.12 -> +0.48 %); new-destinations de 1440 6,287 -> 6,102 (www 6,070: +3.57 -> +0.53 %), 390 5,837 -> 5,692 (+2.84 -> +0.28 %); newsletter de 1440 2,111 -> 2,043 (www 2,015: +4.76 -> +1.39 %), 390 2,199 -> 2,163 (+1.06 -> -0.60 %) |
+
+- Every unrecorded copy, with its px, is in its list.
+- **On the brand sums:**
+  - Group for Business: -4.62, -3.20, +0.19, -11.44 and -36.73 points.
+  - SWISS: -1.28, +0.36, -3.05, -2.55, -3.37 and -0.46 points.
+  - These land once the helpers apply the rows.
+
+**Held, with figures:**
+- **The de/de video alone:** +4.46 points at 1440. It is READY only together with the FAQ.
+- **green-fare h2-large:** 390 +4.34 points.
+- **The newsletter's section join:** 390 +0.64 points.
+- **food-and-beverage's divider or a stage that isn't flush:** +1.30 to +3.53 points at 1440. Today's page is +0.34 %,
+  so this waits for the 794 px column.
+
+**Checks:**
+- Whole-repo `npm run lint` exited 0 before the push, and stylelint on swiss.css and b2b.css exited 0.
+- The targeted tests: 557 files, 2,015 pass, 0 failures. This includes the new test/swiss-b2b-so73.test.mjs and the
+  folder-reading tests.

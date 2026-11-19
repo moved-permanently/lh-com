@@ -1,0 +1,33 @@
+# ema-cashub, standing order 73 (2026-11-19), item 1: Group for Business documents where www embeds a video and ours
+# shows a plain link. Census: all 733 served lh-b2b documents (b2b.turnsthe.page, 2026-11-19 ~08:05 CET), every
+# YouTube / video link and its block, then the 81 documents with one (not a footer) rendered at 1440 with every section loaded (the
+# links still drawn as links, the players). www's side: the recordings b2b-parity-001 to -018 (www's iframes and video
+# elements). Ours draws a plain link where www embeds on four documents only: cash-and-points de/en and de/de (recorded,
+# b2b-parity-018: www's iframe component under "Cash & Points: points redemption reimagined", max-width 560 px,
+# height 315 px, at the text's left edge) and their xx/en and xx/de copies (the same documents, not recorded).
+# Not rows: partner-plus-benefit (www's recording, b2b-parity-001, has a picture teaser there, no video); the SWISS
+# experts page (de/en, xx/en: a picture, an H4 and a paragraph each linking to the video, a teaser as imported; not
+# recorded, so not changed); entertainment-on-board's share link and the
+# first-class / mx news card links (www's links); allegris video-gallery, help-alliance, sap and bcd-travel play already.
+# The row: the paragraph holding the link becomes an Embed block, option small (styles/themes/b2b.css: the YouTube player
+# at most 560 px wide and 315 px tall, as www's iframe; without the option the Embed draws 16:9 over the content width,
+# 1264 x 711 at 1440: de/en 1440 +701 px, de/de +10.25 points). Token-free: a block and its option, no marker.
+# de/de and xx/de: the video alone takes de/de 1440 +4.46 points further (+2.12 -> +6.58 %): that copy is long for its
+# FAQ (the answers stand as plain paragraphs without their questions; www: an accordion). Its rows are HOLD here and
+# READY together with the FAQ in delta-so73-b2b-content.txt.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so73-b2b-video-embeds.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (one read-only GET each, 08:20 CET): 2/2 "1 inserted", "without the inserts DA's copy
+# byte for byte: true"; a second run on the output "1 present"; no {…} in any insert.
+# Drafted on b2b.turnsthe.page (so73/fulld.mjs: the served .plain.html with the row, this commit's code as a CODE
+# override; every section loaded; unhinted; airline hosts, www.* and lh-proxy refused per request, none sent). Gate:
+# |after %| - |before %| <= 0.5 on every recorded page-width, the sum of |% off www| down.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/en/program/partner-plus-benefit/cash-and-points	1440	b2b-parity-018	6,603	5,988 (-9.31 %)	6,293 (-4.69 %)	-4.62 points; www's 560 x 315 player under its H2 (Embed, option small)
+READY	/de/en/program/partner-plus-benefit/cash-and-points	390	b2b-parity-018	8,957	8,559 (-4.44 %)	8,846 (-1.24 %)	-3.20 points; www's 560 x 315 player under its H2 (Embed, option small)
+READY	/xx/en/program/partner-plus-benefit/cash-and-points	1440	-	-	5,988	6,293 (+305 px)	no recording; www's 560 x 315 player under its H2 (Embed, option small)
+READY	/xx/en/program/partner-plus-benefit/cash-and-points	390	-	-	8,559	8,846 (+287 px)	no recording; www's 560 x 315 player under its H2 (Embed, option small)
+HOLD	/de/de/program/partner-plus-benefit/cash-and-points	1440	b2b-parity-018	6,839	6,984 (+2.12 %)	7,289 (+6.58 %)	+4.46 points; the video alone; READY together with the FAQ in delta-so73-b2b-content
+HOLD	/de/de/program/partner-plus-benefit/cash-and-points	390	b2b-parity-018	9,519	10,657 (+11.96 %)	10,944 (+14.97 %)	+3.02 points; the video alone; READY together with the FAQ in delta-so73-b2b-content
+HOLD	/xx/de/program/partner-plus-benefit/cash-and-points	1440	-	-	6,984	7,289 (+305 px)	no recording; the video alone; READY together with the FAQ in delta-so73-b2b-content
+HOLD	/xx/de/program/partner-plus-benefit/cash-and-points	390	-	-	10,657	10,944 (+287 px)	no recording; the video alone; READY together with the FAQ in delta-so73-b2b-content

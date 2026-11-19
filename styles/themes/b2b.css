@@ -1104,6 +1104,40 @@ body.brand-b2b main .default-content-wrapper > ul.links-responsive + p.spacer:la
   }
 }
 
+/* standing order 73, item 2: a Table Striped beside-end is www's two-column view of an article's text and its table,
+   the picture beside them (the A350-1000 news, b2b-parity-018; the documents get the option with a row,
+   delta-so73-b2b-content.txt). www's maui-table: rows at their own height (88px at 1440) in a box 40px taller above
+   and below, not the campaign spec rows' 68px; below 768px the text, the table and the picture stacked with the
+   served copy's gaps (the table 67px under the text, the picture 40px under the table at its own aspect). Reach: only
+   documents that carry the option (none before the row). de/de 1440 +37.37 -> +0.63 %, 390 -0.21 -> -0.21 % */
+@media (width >= 768px) {
+  body.brand-b2b main .table-striped.beside-end :is(th, td) {
+    padding-bottom: 32px;
+  }
+
+  body.brand-b2b main .table-striped.beside-end .table-striped-table {
+    padding: 40px 0;
+  }
+}
+
+@media (width < 768px) {
+  body.brand-b2b main .table-striped.beside-end > .table-striped-main > .table-striped-table {
+    margin-top: 32px;
+  }
+
+  body.brand-b2b main .table-striped.beside-end > .table-striped-aside {
+    margin-top: 40px;
+  }
+
+  body.brand-b2b main .table-striped.beside-end > .table-striped-aside img {
+    aspect-ratio: auto;
+  }
+
+  body.brand-b2b main .table-striped.beside-end > .table-striped-aside > :last-child {
+    margin-bottom: 0;
+  }
+}
+
 /* standing order 72, item 3: below 768px a stacked text that ends with a button sits 11px above its own picture, as
    www's (kuala-lumpur both rows, route-network, celebrating-shared-stories: 11px in the recorded PNGs; ours 36). Only
    when the next cell is the row's picture: before another card's text (hygiene-and-safety's briefings, the
@@ -1125,6 +1159,16 @@ body.brand-b2b main .default-content-wrapper > ul.links-responsive + p.spacer:la
     aspect-ratio: auto;
     height: 315px;
   }
+}
+
+/* standing order 73, item 1: an Embed with option small is www's iframe component standing alone in the running text
+   (the Columns Media "iframe-player" stands beside text): www draws its YouTube player at most 560px wide and 315px
+   tall at every width, at the text's left edge (cash-and-points de/en and de/de, b2b-parity-018; the documents get the
+   block with a row, delta-so73-b2b-video-embeds.txt). Reach: only documents that carry the option (none before it) */
+body.brand-b2b main .embed.small .media-embed-youtube {
+  max-width: 560px;
+  height: 315px;
+  aspect-ratio: auto;
 }
 
 /* standing order 23 of ema-lufthansa (2026-11-15): after a sidebar Columns Media whose text ends with a button, a heading

@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/de/en/program/partner-plus-benefit/cash-and-points",
+  "inserts": [
+   {
+    "replace": "<h2 id=\"cash--points-points-redemption-reimagined\">Cash &amp; Points: points redemption reimagined</h2><p><a href=\"https://www.youtube.com/embed/61-yM0_dZro?si=uvP5nTETqTH1vznz&amp;enablejsapi=1\">PartnerPlusBenefit Cash &amp; Points EN | Lufthansa Group for Business</a></p>",
+    "text": "<h2 id=\"cash--points-points-redemption-reimagined\">Cash &amp; Points: points redemption reimagined</h2><div class=\"embed small\"><div><div><p><a href=\"https://www.youtube.com/embed/61-yM0_dZro?si=uvP5nTETqTH1vznz&amp;enablejsapi=1\">PartnerPlusBenefit Cash &amp; Points EN | Lufthansa Group for Business</a></p></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/en/program/partner-plus-benefit/cash-and-points",
+  "inserts": [
+   {
+    "replace": "<h2 id=\"cash--points-points-redemption-reimagined\">Cash &amp; Points: points redemption reimagined</h2><p><a href=\"https://www.youtube.com/embed/61-yM0_dZro?si=uvP5nTETqTH1vznz&amp;enablejsapi=1\">PartnerPlusBenefit Cash &amp; Points EN | Lufthansa Group for Business</a></p>",
+    "text": "<h2 id=\"cash--points-points-redemption-reimagined\">Cash &amp; Points: points redemption reimagined</h2><div class=\"embed small\"><div><div><p><a href=\"https://www.youtube.com/embed/61-yM0_dZro?si=uvP5nTETqTH1vznz&amp;enablejsapi=1\">PartnerPlusBenefit Cash &amp; Points EN | Lufthansa Group for Business</a></p></div></div></div>"
+   }
+  ]
+ }
+]

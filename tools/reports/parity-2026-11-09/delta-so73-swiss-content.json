@@ -1,0 +1,290 @@
+[
+ {
+  "path": "/ch/de/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "before": "</div><div><div class=\"cards-teaser\">",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h3-large</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/discover/new-destinations",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"spacer l\"><div><div></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>flush, grey</div></div></div></div>\n",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Um den Newsletter zu abonnieren, melden Sie sich einfach mit Ihrer Travel ID an. Damit erhalten Sie nicht nur Zugriff auf unseren Newsletter, sondern können auch Ihr gesamtes Reiseerlebnis durch eine Reihe von Vorteilen aufwerten:</p><ul> <li>Exklusive Promotionen: Gehören Sie zu den Ersten, die Flug- und Sonderangebote direkt in ihren Posteingang erhalten.</li> <li>Mühelose Organisation Ihrer Reise: Nutzen Sie Ihre Travel ID, um Buchungen zu verwalten, schneller einzuchecken und zügig Meilen zu sammeln.</li> <li>Einfacher Zugriff: Melden Sie sich einmalig an und erhalten Sie massgeschneiderte Informationen zu allen Fluggesellschaften der Lufthansa Group – SWISS, Austrian Airlines, Brussels Airlines und Lufthansa.</li> </ul><p>Sind Sie bereit, Ihr Reiseerlebnis auf ein ganz neues Niveau zu bringen? Klicken Sie unten, um immer auf dem Laufenden zu bleiben und automatisch über die besten Angebote aller Fluggesellschaften der Lufthansa Group informiert zu werden.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/de/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fde%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Für Travel ID registrieren</a></em></p></div><div></div></div></div>",
+    "text": "<p>Um den Newsletter zu abonnieren, melden Sie sich einfach mit Ihrer Travel ID an. Damit erhalten Sie nicht nur Zugriff auf unseren Newsletter, sondern können auch Ihr gesamtes Reiseerlebnis durch eine Reihe von Vorteilen aufwerten:</p><ul> <li>Exklusive Promotionen: Gehören Sie zu den Ersten, die Flug- und Sonderangebote direkt in ihren Posteingang erhalten.</li> <li>Mühelose Organisation Ihrer Reise: Nutzen Sie Ihre Travel ID, um Buchungen zu verwalten, schneller einzuchecken und zügig Meilen zu sammeln.</li> <li>Einfacher Zugriff: Melden Sie sich einmalig an und erhalten Sie massgeschneiderte Informationen zu allen Fluggesellschaften der Lufthansa Group – SWISS, Austrian Airlines, Brussels Airlines und Lufthansa.</li> </ul><p>Sind Sie bereit, Ihr Reiseerlebnis auf ein ganz neues Niveau zu bringen? Klicken Sie unten, um immer auf dem Laufenden zu bleiben und automatisch über die besten Angebote aller Fluggesellschaften der Lufthansa Group informiert zu werden.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/de/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fde%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Für Travel ID registrieren</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>To subscribe, simply register through Travel ID. This not only grants you access to our newsletter but also enhances your overall travel experience with a host of benefits:</p><ul> <li>Exclusive Promotions: Be the first to catch flight deals and special offers directly in your inbox.</li> <li>Effortless Travel Management: Use your Travel ID to manage bookings, check in faster, and collect miles seamlessly.</li> <li>Seamless Access: Log in once and receive tailored information across all Lufthansa Group airlines—SWISS, Austrian Airlines, Brussels Airlines and Lufthansa.</li> </ul><p>Ready to take your travel experience to the next level? Click below to stay informed and enjoy the best offers from all Lufthansa Group airlines automatically.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fen%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Subscribe with Travel ID</a></em></p></div><div></div></div></div>",
+    "text": "<p>To subscribe, simply register through Travel ID. This not only grants you access to our newsletter but also enhances your overall travel experience with a host of benefits:</p><ul> <li>Exclusive Promotions: Be the first to catch flight deals and special offers directly in your inbox.</li> <li>Effortless Travel Management: Use your Travel ID to manage bookings, check in faster, and collect miles seamlessly.</li> <li>Seamless Access: Log in once and receive tailored information across all Lufthansa Group airlines—SWISS, Austrian Airlines, Brussels Airlines and Lufthansa.</li> </ul><p>Ready to take your travel experience to the next level? Click below to stay informed and enjoy the best offers from all Lufthansa Group airlines automatically.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fen%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Subscribe with Travel ID</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Pour vous abonner, il vous suffit de vous connecter avec votre Travel ID. La création d’un compte Travel ID vous donne accès à notre newsletter, mais également à une multitude de privilèges liés à votre voyage :</p><ul> <li>Promotions exclusives : faites partie des premières personnes à recevoir des promotions sur les vols et des offres spéciales directement dans votre boîte mail</li> <li>Gestion des voyages en toute simplicité : utilisez votre Travel ID pour gérer vos réservations, vous enregistrer plus rapidement et accumuler des Miles en toute transparence.</li> <li>Accès facile : connectez-vous une seule fois et recevez des informations personnalisées sur toutes les compagnies du Lufthansa Group - SWISS, Austrian Airlines, Brussels Airlines et Lufthansa.</li> </ul><p>Prêt à faire passer votre expérience de voyage au niveau supérieur ? Cliquez ci-dessous pour rester informé et profiter automatiquement des meilleures offres de toutes les compagnies du Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/fr/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Ffr%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">S’abonner avec Travel ID</a></em></p></div><div></div></div></div>",
+    "text": "<p>Pour vous abonner, il vous suffit de vous connecter avec votre Travel ID. La création d’un compte Travel ID vous donne accès à notre newsletter, mais également à une multitude de privilèges liés à votre voyage :</p><ul> <li>Promotions exclusives : faites partie des premières personnes à recevoir des promotions sur les vols et des offres spéciales directement dans votre boîte mail</li> <li>Gestion des voyages en toute simplicité : utilisez votre Travel ID pour gérer vos réservations, vous enregistrer plus rapidement et accumuler des Miles en toute transparence.</li> <li>Accès facile : connectez-vous une seule fois et recevez des informations personnalisées sur toutes les compagnies du Lufthansa Group - SWISS, Austrian Airlines, Brussels Airlines et Lufthansa.</li> </ul><p>Prêt à faire passer votre expérience de voyage au niveau supérieur ? Cliquez ci-dessous pour rester informé et profiter automatiquement des meilleures offres de toutes les compagnies du Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/fr/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Ffr%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">S’abonner avec Travel ID</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Per iscriversi le basta registrarsi con il suo Travel ID. Non solo potrà accedere alla nostra newsletter, ma anche migliorare la sua esperienza di viaggio in generale grazie a tantissimi vantaggi:</p><ul> <li>Promozioni esclusive: sia la prima persona a ricevere promozioni sui voli e offerte speciali, direttamente nella sua casella di posta.</li> <li>Gestione semplificata dei viaggi: utilizzi il suo Travel ID per gestire le prenotazioni, accelerare le procedure di check-in e accumulare miglia in totale semplicità.</li> <li>Accesso semplificato: effettui l’accesso una sola volta e riceva informazioni personalizzate su tutte le linee aeree del Lufthansa Group: SWISS, Austrian Airlines, Brussels Airlines e Lufthansa.</li> </ul><p>Non vede l’ora di vivere un’esperienza di viaggio di livello superiore? Faccia clic qui sotto per ricevere automaticamente gli ultimi aggiornamenti e godere delle migliori offerte di tutte le linee aeree del Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fit%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Iscrizione con Travel ID</a></em></p></div><div></div></div></div>",
+    "text": "<p>Per iscriversi le basta registrarsi con il suo Travel ID. Non solo potrà accedere alla nostra newsletter, ma anche migliorare la sua esperienza di viaggio in generale grazie a tantissimi vantaggi:</p><ul> <li>Promozioni esclusive: sia la prima persona a ricevere promozioni sui voli e offerte speciali, direttamente nella sua casella di posta.</li> <li>Gestione semplificata dei viaggi: utilizzi il suo Travel ID per gestire le prenotazioni, accelerare le procedure di check-in e accumulare miglia in totale semplicità.</li> <li>Accesso semplificato: effettui l’accesso una sola volta e riceva informazioni personalizzate su tutte le linee aeree del Lufthansa Group: SWISS, Austrian Airlines, Brussels Airlines e Lufthansa.</li> </ul><p>Non vede l’ora di vivere un’esperienza di viaggio di livello superiore? Faccia clic qui sotto per ricevere automaticamente gli ultimi aggiornamenti e godere delle migliori offerte di tutte le linee aeree del Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fit%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Iscrizione con Travel ID</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Para suscribirse, simplemente regístrese a través de Travel ID. Esto no solo le da acceso a nuestro boletín de noticias, sino que también mejora su experiencia de viaje general con una serie de ventajas:</p><ul> <li>Promociones exclusivas: sea de los primeros en recibir ofertas de vuelos y promociones especiales directamente en su bandeja de entrada.</li> <li>Gestión de viajes sin complicaciones: utilice su Travel ID para gestionar reservas, realizar la facturación más rápido y acumular millas fácilmente.</li> <li>Acceso unificado: inicie sesión una vez y reciba información personalizada en todas las compañías aéreas de Lufthansa Group: SWISS, Austrian Airlines, Brussels Airlines y Lufthansa.</li> </ul><p>¿Listo para llevar su experiencia de viaje al siguiente nivel? Haga clic a continuación para mantenerse informado y disfrutar automáticamente de las mejores ofertas de todas las compañías aéreas de Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fes%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Suscríbase con Travel ID</a></em></p></div><div></div></div></div>",
+    "text": "<p>Para suscribirse, simplemente regístrese a través de Travel ID. Esto no solo le da acceso a nuestro boletín de noticias, sino que también mejora su experiencia de viaje general con una serie de ventajas:</p><ul> <li>Promociones exclusivas: sea de los primeros en recibir ofertas de vuelos y promociones especiales directamente en su bandeja de entrada.</li> <li>Gestión de viajes sin complicaciones: utilice su Travel ID para gestionar reservas, realizar la facturación más rápido y acumular millas fácilmente.</li> <li>Acceso unificado: inicie sesión una vez y reciba información personalizada en todas las compañías aéreas de Lufthansa Group: SWISS, Austrian Airlines, Brussels Airlines y Lufthansa.</li> </ul><p>¿Listo para llevar su experiencia de viaje al siguiente nivel? Haga clic a continuación para mantenerse informado y disfrutar automáticamente de las mejores ofertas de todas las compañías aéreas de Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fes%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Suscríbase con Travel ID</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Para se inscrever, basta se cadastrar no Travel ID. Isto não só lhe concede acesso à nossa newsletter, mas também melhora sua experiência geral de viagem com uma série de benefícios:</p><ul> <li>Promoções exclusivas: Seja o primeiro a receber promoções de voos e ofertas especiais diretamente na sua caixa de entrada.</li> <li>Gerenciamento fácil de viagens: Use seu Travel ID para gerenciar reservas, fazer check-in mais rapidamente e acumular milhas com facilidade.</li> <li>Acesso fácil: Faça login uma vez e receba informações personalizadas sobre todas as companhias aéreas do Grupo Lufthansa: SWISS, Austrian Airlines, Brussels Airlines e Lufthansa.</li> </ul><p>Pronto(a) para levar sua experiência de viagem para o próximo nível? Clique abaixo para se manter informado(a) e aproveitar automaticamente as melhores ofertas de todas as companhias aéreas do Grupo Lufthansa.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fpt%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Inscrever-se com Travel ID</a></em></p></div><div></div></div></div>",
+    "text": "<p>Para se inscrever, basta se cadastrar no Travel ID. Isto não só lhe concede acesso à nossa newsletter, mas também melhora sua experiência geral de viagem com uma série de benefícios:</p><ul> <li>Promoções exclusivas: Seja o primeiro a receber promoções de voos e ofertas especiais diretamente na sua caixa de entrada.</li> <li>Gerenciamento fácil de viagens: Use seu Travel ID para gerenciar reservas, fazer check-in mais rapidamente e acumular milhas com facilidade.</li> <li>Acesso fácil: Faça login uma vez e receba informações personalizadas sobre todas as companhias aéreas do Grupo Lufthansa: SWISS, Austrian Airlines, Brussels Airlines e Lufthansa.</li> </ul><p>Pronto(a) para levar sua experiência de viagem para o próximo nível? Clique abaixo para se manter informado(a) e aproveitar automaticamente as melhores ofertas de todas as companhias aéreas do Grupo Lufthansa.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fpt%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Inscrever-se com Travel ID</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Для оформления подписки зарегистрируйтесь с Travel ID. Это позволит не только получать нашу рассылку, но и сделает ваше путешествие комфортнее благодаря множеству преимуществ:</p><ul> <li>Эксклюзивные промоакции: узнавайте в числе первых о выгодных вариантах перелетов и специальных предложениях.</li> <li>Удобное управление путешествием: используйте Travel ID для управления бронированиями, более быстрой регистрации на рейс и простого накопления миль.</li> <li>Единый доступ: войдите в систему один раз и получайте индивидуальную информацию обо всех авиакомпаниях Lufthansa Group: SWISS, Austrian Airlines, Brussels Airlines и Lufthansa.</li> </ul><p>Готовы сделать путешествия еще комфортнее? Нажмите ниже, чтобы автоматически получать лучшие предложения всех авиакомпаний Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fru%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Подписаться с Travel ID</a></em></p></div><div></div></div></div>",
+    "text": "<p>Для оформления подписки зарегистрируйтесь с Travel ID. Это позволит не только получать нашу рассылку, но и сделает ваше путешествие комфортнее благодаря множеству преимуществ:</p><ul> <li>Эксклюзивные промоакции: узнавайте в числе первых о выгодных вариантах перелетов и специальных предложениях.</li> <li>Удобное управление путешествием: используйте Travel ID для управления бронированиями, более быстрой регистрации на рейс и простого накопления миль.</li> <li>Единый доступ: войдите в систему один раз и получайте индивидуальную информацию обо всех авиакомпаниях Lufthansa Group: SWISS, Austrian Airlines, Brussels Airlines и Lufthansa.</li> </ul><p>Готовы сделать путешествия еще комфортнее? Нажмите ниже, чтобы автоматически получать лучшие предложения всех авиакомпаний Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fru%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Подписаться с Travel ID</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Για να εγγραφείτε, απλώς εγγραφείτε μέσω του Travel ID. Αυτό όχι μόνο σας παρέχει πρόσβαση στο ενημερωτικό μας δελτίο, αλλά βελτιώνει επίσης τη συνολική ταξιδιωτική σας εμπειρία με μια σειρά από οφέλη:</p><ul> <li>Αποκλειστικές προσφορές: Γίνετε ο πρώτος που θα λάβετε προσφορές πτήσεων και ειδικές προσφορές απευθείας στα εισερχόμενά σας.</li> <li>Εύκολη διαχείριση ταξιδιών: Χρησιμοποιήστε το Travel ID σας για να διαχειριστείτε τις κρατήσεις, να κάνετε check in πιο γρήγορα και να συλλέξετε μίλια απρόσκοπτα.</li> <li>Απρόσκοπτη πρόσβαση: Συνδεθείτε μία φορά και λάβετε εξατομικευμένες πληροφορίες για όλες τις αεροπορικές εταιρείες του Lufthansa Group—SWISS, Austrian Airlines, Brussels Airlines και Lufthansa.</li> </ul><p>Είστε έτοιμοι να αναβαθμίσετε την ταξιδιωτική σας εμπειρία στο επόμενο επίπεδο; Κάντε κλικ παρακάτω για να μένετε ενημερωμένοι και να απολαμβάνετε αυτόματα τις καλύτερες προσφορές από όλες τις αεροπορικές εταιρείες του Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fel%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Εγγραφή με Travel ID</a></em></p></div><div></div></div></div>",
+    "text": "<p>Για να εγγραφείτε, απλώς εγγραφείτε μέσω του Travel ID. Αυτό όχι μόνο σας παρέχει πρόσβαση στο ενημερωτικό μας δελτίο, αλλά βελτιώνει επίσης τη συνολική ταξιδιωτική σας εμπειρία με μια σειρά από οφέλη:</p><ul> <li>Αποκλειστικές προσφορές: Γίνετε ο πρώτος που θα λάβετε προσφορές πτήσεων και ειδικές προσφορές απευθείας στα εισερχόμενά σας.</li> <li>Εύκολη διαχείριση ταξιδιών: Χρησιμοποιήστε το Travel ID σας για να διαχειριστείτε τις κρατήσεις, να κάνετε check in πιο γρήγορα και να συλλέξετε μίλια απρόσκοπτα.</li> <li>Απρόσκοπτη πρόσβαση: Συνδεθείτε μία φορά και λάβετε εξατομικευμένες πληροφορίες για όλες τις αεροπορικές εταιρείες του Lufthansa Group—SWISS, Austrian Airlines, Brussels Airlines και Lufthansa.</li> </ul><p>Είστε έτοιμοι να αναβαθμίσετε την ταξιδιωτική σας εμπειρία στο επόμενο επίπεδο; Κάντε κλικ παρακάτω για να μένετε ενημερωμένοι και να απολαμβάνετε αυτόματα τις καλύτερες προσφορές από όλες τις αεροπορικές εταιρείες του Lufthansa Group.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fel%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Εγγραφή με Travel ID</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Travel IDから登録するだけで、簡単にご購読いただけます。ご登録いただくと、ニュースレターをお楽しみいただけるだけでなく、ご旅行体験をより充実させるさまざまな特典もご利用いただけます。</p><ul> <li>会員限定キャンペーン：お得なフライト情報や特別キャンペーン情報をいち早くメールでお届けします。</li> <li>ご旅行の管理が簡単に：Travel IDで、予約の管理から、スピーディーなチェックイン、マイルの獲得まで、すべてをスムーズに行えます。</li> <li>シームレスなアクセス：1度ログインするだけで、ルフトハンザ グループの航空会社（SWISS、オーストリア航空、ブリュッセル航空、ルフトハンザ）から、お客様向けにカスタマイズされた情報をお届けします。</li> </ul><p>ワンランク上のご旅行をお楽しみください。以下をクリックすると、ルフトハンザ グループ航空会社のお得な情報を自動的にお届けします。</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fja%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Travel IDで配信登録する</a></em></p></div><div></div></div></div>",
+    "text": "<p>Travel IDから登録するだけで、簡単にご購読いただけます。ご登録いただくと、ニュースレターをお楽しみいただけるだけでなく、ご旅行体験をより充実させるさまざまな特典もご利用いただけます。</p><ul> <li>会員限定キャンペーン：お得なフライト情報や特別キャンペーン情報をいち早くメールでお届けします。</li> <li>ご旅行の管理が簡単に：Travel IDで、予約の管理から、スピーディーなチェックイン、マイルの獲得まで、すべてをスムーズに行えます。</li> <li>シームレスなアクセス：1度ログインするだけで、ルフトハンザ グループの航空会社（SWISS、オーストリア航空、ブリュッセル航空、ルフトハンザ）から、お客様向けにカスタマイズされた情報をお届けします。</li> </ul><p>ワンランク上のご旅行をお楽しみください。以下をクリックすると、ルフトハンザ グループ航空会社のお得な情報を自動的にお届けします。</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fja%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Travel IDで配信登録する</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>欢迎来到获取最新旅游信息和独家优惠的专属来源。订阅我们的新闻简报，接收个性化内容、旅行实用资讯和精彩促销活动，帮助您在做旅行计划时先人一步。</p><p>若要订阅，只需使用 Travel ID 即可注册。这不仅能让您获得我们的新闻简报，还能为您带来多重优惠，提升您的整体旅行体验：</p><ul> <li>专属促销活动：第一时间将航班优惠和特别优惠直接发送到您的收件箱。</li> <li>便捷的旅行管理：使用您的 Travel ID 管理预订、快速办理登机手续并畅快地收集里程。</li> <li>顺畅访问：只需登录一次，即可收到汉莎集团所有航空公司（瑞士国际航空、奥地利航空、布鲁塞尔航空和汉莎航空）的个性化信息。</li> </ul><p>准备好升级您的旅行体验了吗？ 点击下方，即可随时了解汉莎集团所有航空公司的最新信息，并自动享受精彩优惠。</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/zh/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fzh%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">使用 Travel ID 订阅</a></em></p></div><div></div></div></div>",
+    "text": "<p>欢迎来到获取最新旅游信息和独家优惠的专属来源。订阅我们的新闻简报，接收个性化内容、旅行实用资讯和精彩促销活动，帮助您在做旅行计划时先人一步。</p><p>若要订阅，只需使用 Travel ID 即可注册。这不仅能让您获得我们的新闻简报，还能为您带来多重优惠，提升您的整体旅行体验：</p><ul> <li>专属促销活动：第一时间将航班优惠和特别优惠直接发送到您的收件箱。</li> <li>便捷的旅行管理：使用您的 Travel ID 管理预订、快速办理登机手续并畅快地收集里程。</li> <li>顺畅访问：只需登录一次，即可收到汉莎集团所有航空公司（瑞士国际航空、奥地利航空、布鲁塞尔航空和汉莎航空）的个性化信息。</li> </ul><p>准备好升级您的旅行体验了吗？ 点击下方，即可随时了解汉莎集团所有航空公司的最新信息，并自动享受精彩优惠。</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/zh/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fch%2Fzh%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">使用 Travel ID 订阅</a></em></p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/customer-support/newsletter",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\"><div><div><p>Travel ID로 간편하게 등록하면 구독하실 수 있습니다. 이를 통해 뉴스레터에 액세스하고 다양한 혜택과 함께 전반적인 여행 경험을 향상시킬 수 있습니다.</p><ul> <li>독점 프로모션: 항공편 상품과 특별 혜택을 받은 편지함에서 가장 먼저 확인하세요.</li> <li>간편한 여행 관리: Travel ID를 사용해서 예약을 관리하고, 더 신속하게 체크인하며, 원활하게 마일리지를 적립할 수 있습니다.</li> <li>원활한 액세스: 로그인 한 번으로 스위스 항공, 오스트리아 항공, 브뤼셀 항공, 루프트한자 등 루프트한자 그룹의 모든 항공사에 대한 맞춤 정보를 받아볼 수 있습니다.</li> </ul><p>여행 경험을 한 차원 업그레이드할 준비 되셨나요? 아래를 클릭해서 최신 정보와 루프트한자 그룹 항공사에서 제공하는 최고의 혜택을 자동으로 받아보세요.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fkr%2Fko%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Travel ID로 구독하기</a></em></p></div><div></div></div></div>",
+    "text": "<p>Travel ID로 간편하게 등록하면 구독하실 수 있습니다. 이를 통해 뉴스레터에 액세스하고 다양한 혜택과 함께 전반적인 여행 경험을 향상시킬 수 있습니다.</p><ul> <li>독점 프로모션: 항공편 상품과 특별 혜택을 받은 편지함에서 가장 먼저 확인하세요.</li> <li>간편한 여행 관리: Travel ID를 사용해서 예약을 관리하고, 더 신속하게 체크인하며, 원활하게 마일리지를 적립할 수 있습니다.</li> <li>원활한 액세스: 로그인 한 번으로 스위스 항공, 오스트리아 항공, 브뤼셀 항공, 루프트한자 등 루프트한자 그룹의 모든 항공사에 대한 맞춤 정보를 받아볼 수 있습니다.</li> </ul><p>여행 경험을 한 차원 업그레이드할 준비 되셨나요? 아래를 클릭해서 최신 정보와 루프트한자 그룹 항공사에서 제공하는 최고의 혜택을 자동으로 받아보세요.</p><p><em><a href=\"https://swiss.miles-and-more.com/web/row/en/enrolment.html?client_id=sAwlvrK8fb55GvHqM5Me9iAWpF9rchZL&amp;principal_type=EMAIL&amp;redirect_uri=https%3A%2F%2Fwww.swiss.com&amp;reduced_state=NONE&amp;response_type=code&amp;scope=AUTHENTICATED+IDENTIFIED+urn%3Amilesandmore%3Atech%3Abackground%3Av1%3Aactive&amp;state=%2Fkr%2Fko%2Fcustomer-support%2Fnewsletter&amp;target_state=AUTHENTICATED&amp;target_url=https%3A%2F%2Fconsent.msp.miles-and-more.com%2F\">Travel ID로 구독하기</a></em></p>"
+   }
+  ]
+ }
+]
