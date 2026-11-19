@@ -1046,6 +1046,14 @@ body.brand-airdolomiti .article-header .article-header-meta {
   padding-top: 20px;
 }
 
+/* standing order 68: over a destination stage (the Ancona articles in three languages, street-food-in-munich) the byline right under
+   the title, as www's (its reading time 20 px under the title, ours 40: the stage then 21 px low at 1440). For every article it
+   failed the gate (airports-designed-by-archistars 1440 +3.96, 390 +1.11). Gate, the 118 recorded Air Dolomiti page-widths: none
+   further, 1,025.95 -> 1,000.58 (dove-ladriatico-si-fa-selvaggio 1440 10.63 -> 6.76 %, street-food-in-munich 390 -3.58) */
+body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) .article-header .article-header-meta {
+  padding-top: 0;
+}
+
 body.brand-airdolomiti .article-header .article-header-byline {
   font-family: var(--body-font-family);
   font-size: 16px;
