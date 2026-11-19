@@ -50,6 +50,31 @@
     url('https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/CoreSansMedium.woff2') format('woff2');
 }
 
+/* Cyrillic text in Arial's metrics on every machine (standing order 66, item 1): Portada and CoreSans have no Cyrillic, and www's
+   stacks name Arial next ("Portada, Arial, Helvetica, MAMMilesSymbol, sans-serif"), so a Russian page's letters come from whatever
+   the machine has for Arial (DejaVu Sans, 13 % wider, where there is none). Liberation Sans 2.1.5 (SIL Open Font License 1.1,
+   fonts/austrian/liberation-sans-OFL.txt; metric-compatible with Arial) from our own hosts, for the Cyrillic ranges only: a page
+   without Cyrillic loads nothing. Gate, the 246 recorded page-widths: 4,586.88 -> 4,555.40 (ru/ru/baggage 390 34.17 -> 11.91 %,
+   1440 24.56 -> 6.27); the by/ru and ru/ru homepages further (390 +3.0 / +3.8, 1440 +1.4), accepted by the migration session:
+   their content differs from the recording, which the wider fallback had hidden */
+@font-face {
+  font-family: "Austrian Cyrillic";
+  font-style: normal;
+  font-weight: 100 500;
+  font-display: swap;
+  src: url('/fonts/austrian/liberation-sans-regular.ttf') format('truetype');
+  unicode-range: U+0400-04FF, U+0500-052F, U+1C80-1C8F, U+2DE0-2DFF, U+A640-A69F;
+}
+
+@font-face {
+  font-family: "Austrian Cyrillic";
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url('/fonts/austrian/liberation-sans-bold.ttf') format('truetype');
+  unicode-range: U+0400-04FF, U+0500-052F, U+1C80-1C8F, U+2DE0-2DFF, U+A640-A69F;
+}
+
 :root {
   /* palette: the --lh-* names lh-com's blocks read, with Austrian's values */
   --lh-deepblue: #1a1a1a; /* os-text: text, borders, dark surfaces */
@@ -83,8 +108,8 @@
   --border-light-color: #e7e7e7;
 
   /* fonts: Portada for headings (SemiBold), CoreSans for copy, 16/24 px body */
-  --body-font-family: coresans, arial, helvetica, mammilessymbol, sans-serif;
-  --heading-font-family: portada, arial, helvetica, mammilessymbol, sans-serif;
+  --body-font-family: coresans, "austrian cyrillic", arial, helvetica, mammilessymbol, sans-serif;
+  --heading-font-family: portada, "austrian cyrillic", arial, helvetica, mammilessymbol, sans-serif;
   --heading-light-weight: 700; /* www's heading-medium / heading-small: Portada 700 (brief 386) */
   --body-font-size-m: 16px; /* with --body-line-height 1.5: 24px */
   --body-letter-spacing: 0.05px;
