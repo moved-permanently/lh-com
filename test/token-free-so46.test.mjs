@@ -20,7 +20,7 @@ const css = (f) => fs.readFileSync(new URL(`../styles/themes/${f}`, import.meta.
 const rows = (b) => JSON.parse(fs.readFileSync(new URL(`${R}delta-so46-${b}-token-free.json`, import.meta.url), 'utf8'));
 
 test('the rows remove markers only; what they add is a block option', () => {
-  ['ita', 'discover'].forEach((b) => {
+  ['brussels', 'ita', 'discover'].forEach((b) => {
     const data = rows(b);
     assert.ok(Object.keys(data).length > 0, b);
     Object.values(data).flat().forEach((r) => {
@@ -33,6 +33,12 @@ test('the rows remove markers only; what they add is a block option', () => {
   });
   assert.deepEqual(Object.keys(rows('ita')).length, 8);
   assert.deepEqual(Object.keys(rows('discover')).length, 5);
+});
+
+test('Brussels: the two page ends', () => {
+  const b = css('brussels.css');
+  assert.ok(b.includes('body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1):has(> .default-content-wrapper:last-child > ul:last-child):not(:has(~ .section:not(:empty))) { padding-bottom: 54px; }'));
+  assert.ok(b.includes('body.brand-brussels main > .section.padded:has(> .columns-media-wrapper:last-child > .columns-media.sidebar) + .section:has(> .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up):not(:has(~ .section:not(:empty))) { padding-bottom: 96px; }'));
 });
 
 test('ITA: a padded view closing with links keeps its H2 in heading-small', () => {

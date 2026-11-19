@@ -1605,3 +1605,33 @@ body.brand-brussels main > .section.flush.grey:not(.column-view):has(> .carousel
 body.brand-brussels main .default-content-wrapper > p.spacer[style*="--spacer-size: 60px"]:not(.divider) {
   height: 41px;
 }
+
+/* brusselsairlines.com: a page that closes with a link list in a plain section (legal-notices: www's footer 170 px under the
+   last link at 1440, 209 at 390 in brussels-parity-007 and -012; ours 48 without the document's separators). The carrier
+   of the space its "{spacer-77 from-768}" / "{spacer-23 below-768}" gave until standing order 46 (token-free content);
+   with it be/en legal-notices is www's height at both widths (1,428 / 1,867; today 1,428 / 1,843). The padding also
+   keeps the list's 10 px margin, so 54 / 88 px. be/fr's (a padded section) keeps its own end, 15 px from www's */
+/* stylelint-disable-next-line no-descending-specificity -- another section than the sidebar link-list rule above */
+body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1):has(> .default-content-wrapper:last-child > ul:last-child):not(:has(~ .section:not(:empty))) {
+  padding-bottom: 54px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section:not(.padded, .grey, .sidebar, .sidebar-h1):has(> .default-content-wrapper:last-child > ul:last-child):not(:has(~ .section:not(:empty))) {
+    padding-bottom: 88px;
+  }
+}
+
+/* a page that closes with a four-up card grid in a section of its own after a padded sidebar intro (the lounges hub:
+   de/de's "{spacer-89 below-768}" / "{spacer-48 from-768}" until standing order 46): 96 px under the cards on phones,
+   33 from 768, the page then www's height at both widths (de/de lounges 2,401 / 1,344; today 2,379 / 1,344). www's own
+   gap there is 157 px (brussels-parity-006 and -013), the cards' content above it ours 46 px taller at 1440 */
+body.brand-brussels main > .section.padded:has(> .columns-media-wrapper:last-child > .columns-media.sidebar) + .section:has(> .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up):not(:has(~ .section:not(:empty))) {
+  padding-bottom: 96px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section.padded:has(> .columns-media-wrapper:last-child > .columns-media.sidebar) + .section:has(> .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up):not(:has(~ .section:not(:empty))) {
+    padding-bottom: 33px;
+  }
+}
