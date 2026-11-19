@@ -6179,23 +6179,23 @@ failed picture; 2 sideways scrolls on /xx/ru/sixt and /xx/el/sixt at 390 were th
 - Batches 01 and 02 were collapsed with a tool copy older than A2: their 3 A2 documents carry L- 80 for www's `{spacer-70}`
   (READY rows: delta-so61-a2-steps.txt). Batch 03 is collapsed with A2 (baggage-irregularities: M++).
 - /de/en/admission-rules (batch 01) was republished on live at 15:21:47 UTC as an older, doubled and marked copy (every
-  heading twice; 17,460 px at 1440 against the predicted 7,305). Its preview copy (15:32 UTC) is collapsed and single: a
-  publish from preview fixes it.
+  heading twice; 17,460 px at 1440 against the predicted 7,305). By 16:03 UTC live carried its collapsed, single preview
+  copy of 15:32 again, and it draws as predicted (3.60 / 4.72 %, captured again).
 
 **The gate on live, batches 01 and 02** (112 recorded page-widths of their documents as served on lufthansa.turnsthe.page,
-15:20-15:35 UTC, against the recordings; today and the prediction from §14.8):
+15:20-15:35 UTC, admission-rules at 16:05 UTC, against the recordings; today and the prediction from §14.8):
 
 | | today | order 60 predicted | live |
 | --- | --- | --- | --- |
-| sum of % off www | 750.12 | 900.55 | 932.90 |
-| median | 5.93 | 6.99 | 7.43 |
-| worse than today by more than 0.5 | - | 47 | 49 |
+| sum of % off www | 750.12 | 900.55 | 911.00 |
+| median | 5.93 | 6.99 | 7.34 |
+| worse than today by more than 0.5 | - | 47 | 48 |
 | of these not explained by www (failing) | - | 45 | 44 |
-| better than today by more than 0.5 | - | 8 | 8 |
+| better than today by more than 0.5 | - | 8 | 9 |
 
-- Without /de/en/admission-rules (its live copy is the regression above): 110 page-widths, sums today 741.46, predicted
-  892.23, live 902.68; median 6.01 / 7.11 / 7.39.
-- Of the remaining 10.45 points over the prediction, 11.7 are /de/en/additional-services at both widths: the same heights
+- admission-rules as captured at 15:20-15:35 UTC (the doubled copy): live 932.90, median 7.43; captured again at 16:05 UTC
+  with the collapsed copy: the table.
+- Of the 10.45 points over the prediction, 11.7 are /de/en/additional-services at both widths: the same heights
   and boxes, another frame of the stage video behind "A good journey starts with the right ..." (logs: one band, y
   3,857-4,666 at 1440). Without it the live sum is below the prediction.
 - /de/en/32n 1440: 72 px taller than predicted (7.75 against 6.14 %). Its live copy carries the view styles on both sections
