@@ -247,7 +247,7 @@ export const THEMES = {
         m: 40,
         s: 25,
         steps: {
-          xs: 16, s: 25, m: 40, 'm-plus': 60, 'l-minus': 80, l: 120,
+          xs: 16, s: 25, m: 40, 'm-plus': 60, 'm-plus-plus': 70, 'l-minus': 80, l: 120,
         },
       },
       pageTypes: {
@@ -703,8 +703,13 @@ const dividerPx = (opts) => {
 };
 
 // a Spacer block's size from its options (l, s, else M)
-// a Spacer block's near-value steps beyond M and L (options xs, m-plus, l-minus; standing order 59)
-export const STEP_SPACE = { xs: 16, 'm-plus': 60, 'l-minus': 80 };
+// a Spacer block's near-value steps beyond M and L (options xs, m-plus, m-plus-plus,
+// l-minus; standing orders 59 and 61)
+// M++ 70 (standing order 61, A2: www's {spacer-70}, the confirmation pages' separator:
+// 42 page-widths 27.6 points closer; the 6 it moves further are accepted differences)
+export const STEP_SPACE = {
+  xs: 16, 'm-plus': 60, 'm-plus-plus': 70, 'l-minus': 80,
+};
 
 const spacerPx = (opts) => {
   if (opts.includes('l')) return SPACE.l;

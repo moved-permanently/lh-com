@@ -110,7 +110,8 @@ function decoratePurposeBlocks(main, theme = {}) {
     if (what.kind === 'spacer' || what.kind === 'divider') {
       // a Spacer block draws the page's M / L (a theme's own space, e.g. lufthansa.com's M at 40)
       const sizes = what.fromTablet ? PAGE_SPACE_768 : PAGE_SPACE;
-      // a near-value step (xs, m-plus, l-minus) draws its own size; S its 25; M / L the page's
+      // a near-value step (xs, m-plus, m-plus-plus, l-minus) draws its own size; S its 25;
+      // M / L the page's
       const step = options.find((o) => STEP_SPACE[o]);
       let sized = what.px === SMALL_SPACE ? SMALL_SPACE : sizes[what.px === SPACE.l ? 'l' : 'm'];
       if (step) sized = STEP_SPACE[step];

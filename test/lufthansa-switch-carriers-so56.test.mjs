@@ -93,9 +93,9 @@ test('(L) an H2 marked heading-large (one step from the default) is the choice H
   assert.ok(!/h2-large/.test(run('<div><h2>A {heading-large}</h2><p>x</p></div><div><h2>B</h2></div>', 'austrian')), 'austrian: the default, as before');
 });
 
-test('near-value steps (standing order 59): each separator the nearest of XS 16, S 25, M 40, M+ 60, L- 80, L 120 (a tie to the larger); drawn at its size', async () => {
-  // a tie to the larger step: 50 M+, 70 L-, 100 L
-  const cases = [[5, null], [12, 'xs'], [25, 's'], [36, 'm'], [50, 'm-plus'], [55, 'm-plus'], [70, 'l-minus'], [75, 'l-minus'], [100, 'l'], [110, 'l']];
+test('near-value steps (standing orders 59 and 61): each separator the nearest of XS 16, S 25, M 40, M+ 60, M++ 70, L- 80, L 120 (a tie to the larger); drawn at its size', async () => {
+  // a tie to the larger step: 50 M+, 65 M++, 75 L-, 100 L
+  const cases = [[5, null], [12, 'xs'], [25, 's'], [36, 'm'], [50, 'm-plus'], [55, 'm-plus'], [65, 'm-plus-plus'], [70, 'm-plus-plus'], [75, 'l-minus'], [100, 'l'], [110, 'l']];
   cases.forEach(([n, step]) => {
     const html = run(`<div><p>a</p><p>{spacer-${n}}</p><p>b</p></div>`);
     assert.ok(!MARKER.test(html), html);
@@ -103,10 +103,10 @@ test('near-value steps (standing order 59): each separator the nearest of XS 16,
     if (step === null) assert.ok(!/spacer/.test(html), `${n}: ${html}`);
     else assert.equal((cls || ' m').trim(), step, `${n}: ${html}`);
   });
-  const { document: d4 } = parseHTML('<html><body><main><div><p>a</p><div class="spacer xs"><div><div></div></div></div><div class="spacer m-plus"><div><div></div></div></div><div class="spacer l-minus from-768"><div><div></div></div></div><p>b</p></div></main></body></html>');
+  const { document: d4 } = parseHTML('<html><body><main><div><p>a</p><div class="spacer xs"><div><div></div></div></div><div class="spacer m-plus"><div><div></div></div></div><div class="spacer m-plus-plus"><div><div></div></div></div><div class="spacer l-minus from-768"><div><div></div></div></div><p>b</p></div></main></body></html>');
   globalThis.document = d4;
   const { default: decorateTokenFree } = await import('../scripts/token-free.js');
   const m4 = d4.querySelector('main');
   decorateTokenFree(m4, { brand: 'lufthansa', path: '/gb/en/baggage', read: () => '' });
-  assert.deepEqual([...m4.querySelectorAll('p.spacer')].map((x) => x.style.getPropertyValue('--spacer-size')), ['16px', '60px', '80px'], m4.innerHTML);
+  assert.deepEqual([...m4.querySelectorAll('p.spacer')].map((x) => x.style.getPropertyValue('--spacer-size')), ['16px', '60px', '70px', '80px'], m4.innerHTML);
 });

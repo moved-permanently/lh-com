@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_1166320_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_1166320_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_1166320_default
+  var tmp_bundle_austrian_hero_banner_1382835_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_1382835_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_1382835_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5542,6 +5542,7 @@ var CustomImportScript = (() => {
             s: 25,
             m: 40,
             "m-plus": 60,
+            "m-plus-plus": 70,
             "l-minus": 80,
             l: 120
           }
@@ -9601,7 +9602,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_1166320_default = {
+  var tmp_bundle_austrian_hero_banner_1382835_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9641,5 +9642,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_1166320_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_1382835_exports);
 })();
