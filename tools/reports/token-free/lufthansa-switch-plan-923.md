@@ -6204,3 +6204,39 @@ failed picture; 2 sideways scrolls on /xx/ru/sixt and /xx/el/sixt at 390 were th
 - Every other page-width is within 0.5 points of the prediction.
 - The prediction is order 60's (§14.8), without A2 and B2. B2 draws on these live pages; A2 only where a collapse wrote M++,
   none in batches 01 and 02.
+
+## 16. Standing order 62 (2026-11-19): DA's source as the reference, the held documents
+
+DA's source is the reference from 16:19 CET (the migration session): the carrier column of delta-so60-switch-NN came from
+collapsing the served copy, which has no Metadata block (Theme, Headings) and carries its section styles as classes.
+
+**Why the collapse wrote what it wrote on the 9 held documents** (DA's source read 17:40 CET, read only; its pictures
+swapped for the served copy's; collapsed with main and rendered on our host against the marked page as served):
+- Two tool faults, fixed in ca73778 (own tests, full suite: lh-edge 73, site 1,312 files, none failing; 12-host smoke
+  before and after, all exit 0):
+  - a block's title option drew every heading of the block in its level's choice, also an unmarked heading of another
+    level (lhg-wifi's H2 36 -> 48 px; tips-senior-travellers' and first-class's H4s): now no title option then, and a
+    level-scoped option (h2-large, h2-compact, h2-small, h3-large, h4-large; new block options) where every heading of
+    that level asks for the same choice (first-class's sidebar H3);
+  - a split part copied its section's padded and flush from DA's Section Metadata, which the served form (classes) never
+    did and the gate of §6-§14 measured: free2move drew three padded boxes (+166 px at 1440), digital-self-services' views
+    took their Spacer section's flush (14.67 % off www at 1440 against 3.65). Now padded and flush stay with the first part.
+- Count-only: lounges (grey, flush) and meetings-and-events (flush) carry the same styles as before, as Section Metadata
+  rows the collapse rewrites and counts; unterhaltung-an-bord is a flow page from DA's Theme and Headings rows.
+- Result (delta-so62-held-other.txt): 7 documents collapse with ca73778 as they are, tips-senior-travellers with one insert
+  after the collapse (H2 small on the view section whose H2 the column split separates only after the headings are weighed);
+  all 8 draw like their marked pages (heading sizes equal, heights within 1.8 %).
+- **Accepted, held:** /de/en/book-and-manage/additional-services/travel-insurances. Its footnotes ({copytext-small}) end a
+  padded section and can only be carried as a section of their own (Small print), which draws outside the padded box:
+  +106 px at 1440 (3.8 %), 18.66 % off www against today's 10.23. No carrier draws small print inside a section; the page
+  keeps its marked copy.
+- /de/en/32n needs no row: DA's source collapsed renders as the live page (0.00 % at both widths). §15's 72 px came from
+  order 60's prediction (the served copy collapsed), not from the live copy.
+
+**The batches already run** (item 3): 29 documents of batches 01-04 collapse differently with ca73778 (their pre-batch
+source rebuilt from order 60's census copy with its section styles back as Section Metadata and Theme / Headings from the
+served head; the rebuilt source collapses to the live copies' carriers on all 18 documents compared). 22 of them are on
+live: READY to run again from their pre-batch DA version (delta-so62-held-other.txt); against the marked page the new collapse adds no heading
+difference anywhere and removes some (all-check-in, online-check-in, flight-disruptions: heading sizes equal now); heights
+stay within 3 % on all but lufthansa-guide-service 1440 (3.1 % with both tools). 362
+of the 7,706 documents of batches 01-26 collapse differently with ca73778.
