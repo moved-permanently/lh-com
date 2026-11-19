@@ -1,0 +1,27 @@
+# ema-test, standing order 63, item 1 (2026-11-19): Air Dolomiti on its re-recordings (airdolomiti-parity-015 / -016 / -017, each width its
+#   own load, consent accepted, the cards settled; sha256 checked) - they replace all 118 recorded page-widths (the index lists 134
+#   replacements: every older recording of each page and width).
+# Our host as served, full Chrome, airline hosts refused, every section loaded, captured at full length.
+# Air Dolomiti: sum 1,773.98 -> 1,288.25, median 10.46 -> 7.36 % (1440: 670.88, median 5.26; 390: 617.37, median 8.39).
+# No Air Dolomiti rule: the six furthest and four more are the CardPromo cards. The recordings' own DOM measurements have them 432-443 x
+#   140 px at 1440 (x 36 / 504 / 972 on the homepage, y 1,044), exactly ours, while their screenshots draw them 250 x 400: a recording
+#   state, not www's layout. Drawing ours 400 px tall would move us away from www's real page. The re-recording would need the
+#   cards' transition switched off during the shot. The rest are content (the notice bar above www's header, pictures, an article's
+#   feature picture) and line wraps.
+# Each line: rank, path, width, % off www, our height -> www's, recording, cause.
+
+1	/de/	1440	56.59 %	5,097 -> 5,096 px	airdolomiti-parity-016	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition; content: www's notice bar above the header (ours a note in the hero), the hero picture
+2	/en/	1440	54.84 %	5,093 -> 5,092 px	airdolomiti-parity-015	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition; the notice bar, the hero
+3	/	1440	48.27 %	5,075 -> 5,074 px	airdolomiti-parity-017	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition; the notice bar, the hero
+4	/voli-europa	1440	38.97 %	5,142 -> 5,028 px	airdolomiti-parity-017	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition (78 route cards on www, 140 px each in its DOM)
+5	/en/flights-europe	1440	38.30 %	5,581 -> 5,466 px	airdolomiti-parity-015	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition (105 route cards)
+6	/de/fluege-in-europa	1440	37.44 %	5,709 -> 5,567 px	airdolomiti-parity-016	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition (105 route cards)
+7	/en/destinations	390	32.02 %	9,629 -> 9,698 px	airdolomiti-parity-015	our text wraps a few words differently per paragraph (the article runs 69 px shorter); the destination cards further down
+8	/en/destinations/bari	1440	28.65 %	6,912 -> 6,850 px	airdolomiti-parity-015	content: the second picture band's crop and caption; the flight-search strip 8 px taller (labels above the fields)
+9	/en/destinations/london-eu	1440	26.27 %	7,428 -> 7,514 px	airdolomiti-parity-015	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition (the Flights to London cards); the article's pictures
+10	/destinazioni/monaco-di-baviera	1440	25.82 %	7,115 -> 7,172 px	airdolomiti-parity-017	recording: the screenshot draws the CardPromo cards 250 x 400 px, while the same recording's settled DOM (measurements/*-cards.json) has them 432-443 x 140 px, as ours: the full-page shot re-lays the page out (the viewport stretched) and catches the cards' 0.5 s transition (18 route cards)
+11	/en/destinations/london-eu	390	25.47 %	9,807 -> 10,013 px	airdolomiti-parity-015	long article (www 10,013 px): line wraps and the route cards stacked on phones; ours 206 px shorter
+12	/	390	25.05 %	6,525 -> 6,552 px	airdolomiti-parity-017	content: www's notice bar above the header (27 px), ours a note in the hero; the rest follows 27 px lower
+13	/en/	390	23.98 %	6,495 -> 6,522 px	airdolomiti-parity-015	as / at 390: the notice bar above the header
+14	/de/	390	23.67 %	6,565 -> 6,592 px	airdolomiti-parity-016	as / at 390: the notice bar above the header
+15	/en/articles/destinations/street-food-in-munich	390	22.04 %	6,879 -> 6,766 px	airdolomiti-parity-015	content: our article opens with a feature picture and its Fly-with-us call, www's without; reading time 3 vs 4 minutes
