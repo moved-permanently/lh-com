@@ -1,0 +1,240 @@
+[
+ {
+  "path": "/de/en/digital-self-services",
+  "from": "so62 held-other (ema-adobe), batch 03",
+  "change": "collapse with main ca73778",
+  "tool": "ca73778",
+  "inserts": []
+ },
+ {
+  "path": "/de/en/first-class",
+  "from": "so62 held-other (ema-adobe), batch 03",
+  "change": "collapse with main ca73778",
+  "tool": "ca73778",
+  "inserts": []
+ },
+ {
+  "path": "/de/en/free2move",
+  "from": "so62 held-other (ema-adobe), batch 03",
+  "change": "collapse with main ca73778",
+  "tool": "ca73778",
+  "inserts": []
+ },
+ {
+  "path": "/de/en/lounges",
+  "from": "so62 held-other (ema-adobe), batch 03",
+  "change": "collapse with main ca73778",
+  "tool": "ca73778",
+  "inserts": []
+ },
+ {
+  "path": "/de/en/during-your-trip/lhg-wifi",
+  "from": "so62 held-other (ema-adobe), batch 03",
+  "change": "collapse with main ca73778",
+  "tool": "ca73778",
+  "inserts": []
+ },
+ {
+  "path": "/de/en/meetings-and-events",
+  "from": "so62 held-other (ema-adobe), batch 04",
+  "change": "collapse with main ca73778",
+  "tool": "ca73778",
+  "inserts": []
+ },
+ {
+  "path": "/de/en/unterhaltung-an-bord",
+  "from": "so62 held-other (ema-adobe), batch 04",
+  "change": "collapse with main ca73778",
+  "tool": "ca73778",
+  "inserts": []
+ },
+ {
+  "path": "/de/en/tips-senior-travellers",
+  "from": "so62 held-other (ema-adobe), batch 04",
+  "change": "collapse with main ca73778, then the view's H2 small",
+  "tool": "ca73778",
+  "inserts": [
+   {
+    "replace": "<div>padded, column-view, flush</div>",
+    "text": "<div>padded, column-view, flush, h2-small</div>"
+   }
+  ],
+  "after": "collapse"
+ },
+ {
+  "path": "/de/en/100-years/chronicle",
+  "from": "so62 item 3 (ema-adobe), batch 01",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/32n",
+  "from": "so62 item 3 (ema-adobe), batch 01",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "so62 item 3 (ema-adobe), batch 01",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/all-check-in",
+  "from": "so62 item 3 (ema-adobe), batch 01",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/articles/highlights/soccer-event-in-north-america",
+  "from": "so62 item 3 (ema-adobe), batch 03",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/boeing787",
+  "from": "so62 item 3 (ema-adobe), batch 03",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/doctor-on-board",
+  "from": "so62 item 3 (ema-adobe), batch 03",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/farealert/best-price-alert",
+  "from": "so62 item 3 (ema-adobe), batch 03",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/flight-disruptions",
+  "from": "so62 item 3 (ema-adobe), batch 03",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/lufthansa-guide-service",
+  "from": "so62 item 3 (ema-adobe), batch 03",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/miles-and-more",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/online-check-in",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/passengers-using-wheelchairs",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/sports-baggage",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/tiere-als-uebergepaeck",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/uebergepaeck",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/de/en/unaccompanied-minors",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/gb/en/100-years/chronicle",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/gb/en/320",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/gb/en/32n",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/gb/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ },
+ {
+  "path": "/gb/en/all-check-in",
+  "from": "so62 item 3 (ema-adobe), batch 04",
+  "change": "again from the pre-batch copy with main ca73778",
+  "tool": "ca73778",
+  "inserts": [],
+  "source": "pre-batch DA version"
+ }
+]
