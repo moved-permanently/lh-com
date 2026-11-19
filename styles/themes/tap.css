@@ -4450,3 +4450,13 @@ body.brand-tap main .default-content-wrapper > :is(h1 + p + h2, h1 + p + p + h2,
     text-align: center;
   }
 }
+
+/* standing order 64, item 4: a section title alone above a stacked Columns Media block (economy-prime's "Benefits that enhance your
+   journey") centred across the page, as www's (its box centred at 720 px at 1440, its text centred on phones); ours stood at the
+   790 px column's start. Gate, the 52 recorded TAP page-widths: none further, the sum 581.05 -> 580.94 (economy-prime 390
+   16.02 -> 15.95, 1440 6.20 -> 6.16) */
+/* stylelint-disable-next-line no-descending-specificity -- a lone section title above a stacked block, not the tab panels' titles */
+body.brand-tap main .default-content-wrapper:has(> h2:only-child):has(+ .columns-media-wrapper > .columns-media.stack) > h2 {
+  margin-inline: auto;
+  text-align: center;
+}
