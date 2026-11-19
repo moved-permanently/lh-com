@@ -3846,6 +3846,13 @@ body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .table-striped-
   margin-top: 16px;
 }
 
+/* a button in a table cell takes the cell's width, not the base button's 150 px (standing order 67 item 5, ema-cashub's sweep
+   so77: miles-and-go/club's "Join" ran 30 px into the next cell at 390 on 7 documents; with the rule none). Gate, the 52 recorded
+   TAP page-widths: none further, 578.06 -> 578.06 (no recorded page has such a table) */
+body.brand-tap main .table-striped :is(td, th) a.button:any-link {
+  min-width: 0;
+}
+
 /* a three-up card without a button (the buy-ticket steps): www keeps 48 px under its text, the
    text's own 24 px and 24 more (229 px at 1440 and 390, as www) */
 body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body:not(:has(> .button-wrapper)) {
