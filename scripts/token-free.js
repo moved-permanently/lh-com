@@ -96,7 +96,7 @@ function addUnmarked(el, cls, marked) {
  * "{small}" (scripts/library-page.js decorateAppScreen).
  */
 function decoratePurposeBlocks(main, theme = {}) {
-  const opening = (theme.columnViews || {}).opening;
+  const { opening } = theme.columnViews || {};
   const selector = ['spacer', 'divider', 'app-spacer', 'app-divider', 'app-text'].map((n) => `:scope > div > div.${n}`).join(', ');
   main.querySelectorAll(selector).forEach((block) => {
     const [name, ...options] = [...block.classList];
@@ -111,7 +111,10 @@ function decoratePurposeBlocks(main, theme = {}) {
       const alone = sec && sec.classList.contains('column-view')
         && [...sec.children].filter((c) => !c.classList.contains('section-metadata')).length === 1;
       const viewOpening = opening && what.kind === 'spacer' && alone && what.px !== SPACE.l && what.px !== SMALL_SPACE;
-      const px = what.kind === 'spacer' ? (viewOpening ? opening : sized) : what.px;
+      // a Divider with its space option (m, l) the page's M / L too
+      const dividerSized = what.px === DIVIDER_SPACE ? what.px : sizes[what.px === SPACE.l ? 'l' : 'm'];
+      let px = dividerSized;
+      if (what.kind === 'spacer') px = viewOpening ? opening : sized;
       const p = separatorParagraph(px, what.kind === 'divider');
       // from 768px only (styles.css hides p.spacer.from-768 below), or below 768px only
       // (p.spacer.below-768, hidden from 768px)

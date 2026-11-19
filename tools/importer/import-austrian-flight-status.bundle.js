@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_791555_exports = {};
-  __export(tmp_bundle_austrian_flight_status_791555_exports, {
-    default: () => tmp_bundle_austrian_flight_status_791555_default
+  var tmp_bundle_austrian_flight_status_799132_exports = {};
+  __export(tmp_bundle_austrian_flight_status_799132_exports, {
+    default: () => tmp_bundle_austrian_flight_status_799132_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -5493,13 +5493,29 @@ var CustomImportScript = (() => {
       // the column view carrier: a section of its own per www column view (the collapse writes it
       // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
       // carrier")
-      columnViews: { carrier: "column-view" },
+      // a view's opening Spacer (a view section that holds only it) at 60: www's hub views open 60 px
+      // below what comes before (standing order 57; with the related-teasers heading rule:
+      // digital-self-services 1440 4.70 -> 2.74 %, 390 7.07 -> 6.66 %; either alone moves it further)
+      columnViews: { carrier: "column-view", opening: 60 },
       // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
       // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
       // the H1 default, which the collapse would take, so a choice of their own the collapse
       // keeps (section style H1 compact)
-      headingChoices: { h1: { compact: "heading-medium" } },
-      nearChoices: { h1: { "heading-medium": "compact" } },
+      // standing order 56 (the switch's carriers): H2s marked heading-small (card titles in Cards
+      // Teaser, www's smaller headings) keep it as the choice "small" (block option title-small,
+      // section style H2 small); {limited-width} headings as limited-headings
+      headingChoices: {
+        h1: { compact: "heading-medium" },
+        h2: { large: "heading-large", compact: "heading-copytext-large", small: "heading-small" }
+      },
+      nearChoices: { h1: { "heading-medium": "compact" }, h2: { "heading-small": "small", "heading-large": "large" } },
+      limitedHeadings: true,
+      // M at 40 (Ben, 18 Nov: "we should aim for parity"; www's separators are 40 px;
+      // decision 3 lifted)
+      // M at 60 from 768 px (the separators shown from 768 px only: www's {spacer-60 from-768}, 41 of
+      // the 68 such on the recorded service pages); a small separator, the Spacer block option s
+      // (25 px: www's {spacer-25}; standing order 56, plan 923)
+      space: { m: 40, s: 25, from768: { m: 60 } },
       pageTypes: {
         // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
         // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
@@ -5508,18 +5524,27 @@ var CustomImportScript = (() => {
         // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
         flow: {
           headingChoices: { h3: { large: "heading-small" } },
-          nearChoices: { h1: { "heading-medium": "compact" }, h3: { "heading-small": "large" } }
+          nearChoices: {
+            h1: { "heading-medium": "compact" },
+            h2: { "heading-small": "small", "heading-large": "large" },
+            h3: { "heading-small": "large" }
+          }
         },
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
         // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
         // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
-        // lh-com-pass-check.md, ema-adobe's handover item 2)
+        // lh-com-pass-check.md, ema-adobe's handover item 2). Their separators keep M at 60: www's
+        // are 60 there (86 of the 98 {spacer-N} markers of the 16 recorded 100-years documents; 40
+        // on 12), while the service pages' are 40 (standing order 56 item 1, logs/b656/sep-sizes.mjs)
+        "100-years": { space: { m: 60, s: 25 } },
         // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
         // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
         "insights-tag": { rules: ["rule-before-info-box"] }
-      }
+      },
+      // the switch (standing orders 55-56, branch token-free-lufthansa-live: never merged from here)
+      live: true
     },
     // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
     // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
@@ -8538,10 +8563,16 @@ var CustomImportScript = (() => {
   }
   function collapseHeadings(main, doc, stats, marks, theme) {
     const wishes = /* @__PURE__ */ new Map();
+    const limited = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
       if (!/^H[1-6]$/.test(el.tagName)) return;
       const size = tokens.find((t) => SIZE_TOKEN.test(t));
-      tokens.filter((t) => t === "limited-width").forEach(() => count(stats, "theme", "heading"));
+      tokens.filter((t) => t === "limited-width").forEach(() => {
+        if (theme.limitedHeadings && !blockOf(el, main)) {
+          const s = sectionOf(el, main);
+          limited.set(s, (limited.get(s) || 0) + 1);
+        } else count(stats, "theme", "heading");
+      });
       if (!size) return;
       const inBlock = blockOf(el, main);
       const keptIn = inBlock && ((theme.keepSizesIn || {})[blockName(inBlock)] || []).includes(size);
@@ -8554,6 +8585,13 @@ var CustomImportScript = (() => {
       if (w.kind === "default") count(stats, "theme", "heading");
       else if (w.kind === "none") count(stats, "theme", "heading-no-choice");
       else wishes.set(el, w.choice);
+    });
+    limited.forEach((n, section) => {
+      const all = ownText(section).filter((el) => /^H[2-6]$/.test(el.tagName)).length;
+      if (n * 2 > all) {
+        addSectionStyle(section, "limited-headings", doc);
+        count(stats, "carrier", "heading-width", n);
+      } else count(stats, "theme", "heading", n);
     });
     const blocks = /* @__PURE__ */ new Map();
     const sections = /* @__PURE__ */ new Map();
@@ -8571,7 +8609,7 @@ var CustomImportScript = (() => {
     });
     blocks.forEach((choices, block) => {
       const all = block.querySelectorAll(HEADING2).length;
-      const top = ["large", "compact"].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
+      const top = ["large", "compact", "small"].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
       if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, "carrier", "heading", top[1]);
       else count(stats, "theme", "heading-aligned", choices.length);
     });
@@ -8892,7 +8930,8 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
-    const { rules } = themeFor(ctx.brand, ctx.pageType);
+    const { rules, space } = themeFor(ctx.brand, ctx.pageType);
+    const small = !!(space && space.s);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse31 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
@@ -8926,12 +8965,28 @@ var CustomImportScript = (() => {
         const seps = run.els.map(parse31);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
+        const at = (q) => seps.filter((m) => m[3] === q).reduce((a, m) => a + Number(m[2]), 0);
+        if (!divider && seps.every((m) => m[3] === " from-768" || m[3] === " below-768") && seps.some((m) => m[3] === " from-768") && seps.some((m) => m[3] === " below-768")) {
+          [["from-768", at(" from-768")], ["below-768", at(" below-768")]].forEach(([opt, n]) => {
+            if (n <= 31) {
+              count(stats, "theme", `separator-${opt}`, 1);
+              return;
+            }
+            const blk = doc.createElement("div");
+            blk.className = `spacer${n >= 90 ? " l" : ""} ${opt}`;
+            blk.innerHTML = "<div><div></div></div>";
+            run.els[0].before(blk);
+            count(stats, "carrier", `separator-${opt}`, 1);
+          });
+          run.els.forEach((el) => el.remove());
+          return;
+        }
         const tablet = seps.every((m) => m[3] === " from-768");
         if (!tablet) seps.filter((m) => m[3] === " from-768").forEach(() => count(stats, "theme", "separator-from-768"));
         const phone = seps.every((m) => m[3] === " below-768");
         if (!phone) seps.filter((m) => m[3] === " below-768").forEach(() => count(stats, "theme", "separator-below-768"));
         let size = null;
-        if (!divider && px <= 31) size = "none";
+        if (!divider && px <= 31) size = small && px > 20 ? "s" : "none";
         else if (!divider) size = px < 90 ? "m" : "l";
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
         const before = run.els[0].previousElementSibling;
@@ -8947,11 +9002,20 @@ var CustomImportScript = (() => {
         if (tablet || phone) {
           const opt = tablet ? "from-768" : "below-768";
           const b2 = doc.createElement("div");
-          b2.className = divider ? `divider ${opt}` : `spacer${size === "l" ? " l" : ""} ${opt}`;
+          b2.className = divider ? `divider ${opt}` : `spacer${size === "l" ? " l" : ""}${size === "s" ? " s" : ""} ${opt}`;
           b2.innerHTML = "<div><div></div></div>";
           run.els[0].before(b2);
           remove();
           count(stats, "carrier", `separator-${opt}`, run.els.length);
+          return;
+        }
+        if (size === "s") {
+          const b2 = doc.createElement("div");
+          b2.className = "spacer s";
+          b2.innerHTML = "<div><div></div></div>";
+          run.els[0].before(b2);
+          remove();
+          count(stats, "carrier", "separator-s", run.els.length);
           return;
         }
         if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
@@ -9500,7 +9564,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_791555_default = {
+  var tmp_bundle_austrian_flight_status_799132_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9540,5 +9604,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_791555_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_799132_exports);
 })();
