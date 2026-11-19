@@ -292,6 +292,19 @@ the +53 px before "Exklusive Vorteile für Statuskund:innen" is that section's H
 - Dry run on DA's current copy (1 read-only GET, 03:05 CET): 1 inserted, byte for byte back without it, a second run
   "1 present", no {…} in the output.
 
+**SWISS, the column under a title without a lead (shipped, a SWISS rule).** refunds 1440 (rank 23, -3.62 %) and
+payment-options 1440 (rank 22, -3.64 %) have the column beside the aside right under the title: www's column starts
+lower by the lead gap's 96 / 76 px. With it, refunds' H2 lands at 847 against www's 845.
+- **The rule:** the lead gap's spacing when the title's section ends with the H1 itself, for the with-aside section
+  right after it.
+- Excluded: a grey band (new-destinations' joined bands, where www has no such gap: +1.58 / +1.34 points without the
+  exception) and a column opening with a sidebar Columns Media (newsletter's sign-up, www's sidebar view: +2.38 / +1.29
+  points, a page long by its form).
+- **Gate (code against live, all 168 SWISS page-widths):** 6 moved, all 6 closer. The sum goes 561.81 -> 553.34.
+  - refunds 1440 / 390: -3.62 / -1.14 -> -1.21 / +0.31 %.
+  - payment-options 1440 / 390: -3.64 / -2.61 -> -1.61 / -1.21 %.
+  - online-check-in 1440 / 390: -3.22 / -0.65 -> -1.93 / -0.14 %.
+
 **SWISS, the page end on phones (shipped, a SWISS rule).** travel-insurances 390 (+3.06 % before this order, rank 36)
 ends 85 px long after "Versicherungsbedingungen". Most of that is the last section's gap.
 - On www the footer sits 39 px under the last ink at 390; ours keeps the padded section's 20 px padding and the 48 px

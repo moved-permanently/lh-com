@@ -109,6 +109,9 @@ test('swiss.css: the column 96 / 76 px under the lead when it opens with its H2;
   assert.match(css, new RegExp(`\\*/\\n${esc(sel)} \\{\\s*margin-top: 76px;\\s*\\}\\n\\n@media \\(width >= 768px\\) \\{\\s*${esc(sel)} \\{\\s*margin-top: 96px;`));
   const row = 'body.brand-swiss main .columns-media-wrapper:has(> .columns-media:not(.padded)):not(:has(picture, img, video, iframe)) + .default-content-wrapper:has(> :is(h2, h3):first-child)';
   assert.match(css, new RegExp(`@media \\(width >= 1025px\\) \\{\\s*/\\*[^*]*\\*/\\s*${esc(row)} \\{\\s*margin-top: 28px;`));
+  // the same gap under a title without a lead, not for a grey band or a column opening with a sidebar Columns Media
+  const sel2 = 'body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1:last-child) + .section.with-aside:not(.grey, :has(> .columns-media-wrapper:first-child))';
+  assert.match(css, new RegExp(`\\*/\\n${esc(sel2)} \\{\\s*margin-top: 76px;\\s*\\}\\n\\n@media \\(width >= 768px\\) \\{\\s*${esc(sel2)} \\{\\s*margin-top: 96px;`));
   // below 768 px the page's last padded section after others without its section gap; a one-section page keeps order 70's
   assert.match(css, /@media \(width < 768px\) \{\s*body\.brand-swiss main > \.section\.padded:last-child:not\(:first-child\) \{\s*margin-bottom: 0;/);
   // the picture rows keep 48 / 64 px (test/swiss-row-headings.test.mjs)

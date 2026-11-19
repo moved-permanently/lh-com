@@ -1396,6 +1396,23 @@ body.brand-swiss main .default-content-wrapper > h1 + p.copytext-large {
   letter-spacing: 0.2px;
 }
 
+/* standing order 71, item 6: the column beside the aside 96 px under the title (76 below 768 px) when the title's
+   section ends with the title itself (no lead) and the column follows right after it, as under a lead (the next rule;
+   refunds: www's H2 at 845, ours 799 -> 847; payment-options' accordion 72 px lower on www; online-check-in). Not a grey
+   band (new-destinations' joined bands, www has no gap there) and not a column that opens
+   with a sidebar Columns Media (newsletter's sign-up, www's sidebar view; the page is long by its form). Of the 168
+   recorded page-widths 6 move, all closer: refunds 1440 -3.62 -> -1.21 %, payment-options 1440 -3.64 -> -1.61 %,
+   online-check-in 1440 -3.22 -> -1.93 % */
+body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1:last-child) + .section.with-aside:not(.grey, :has(> .columns-media-wrapper:first-child)) {
+  margin-top: 76px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main > .section:has(> .default-content-wrapper:last-child > h1:last-child) + .section.with-aside:not(.grey, :has(> .columns-media-wrapper:first-child)) {
+    margin-top: 96px;
+  }
+}
+
 /* standing order 71, item 5: the column beside the aside starts 96 px under the lead (76 below 768 px), as www's
    sidebar-content after its title and lead (unaccompanied-minors, upgrade-options, miles-and-more,
    swiss-premium-economy, special-meals: www 96 / 76 on every one; ours 48, the sections' gap), when that section opens

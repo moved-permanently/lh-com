@@ -12366,3 +12366,28 @@ section gap under it.
 - Details are in the report.
 
 **Checks:** whole-repo `npm run lint` exit 0, and stylelint on swiss.css exit 0. The targeted tests: 533 files, 2,210 pass, 0 failures, 3 skipped.
+
+### Standing order 71, addendum 4 (about 04:20 CET): the column under a title without a lead (pushed with this addendum)
+
+**The cause:** refunds 1440 (-3.62 %) and payment-options 1440 (-3.64 %), ranks 22 and 23 after this order's first
+rules, have the column beside the aside right under the title. On www it starts lower by the same 96 px (76 on phones)
+as after a lead: with it, refunds' H2 lands at 847 against www's 845.
+
+**The rule (styles/themes/swiss.css):** the lead gap's spacing (item 5's rule) also when the title's section ends
+with the H1 itself, for the with-aside section right after it.
+- Not for a grey band: new-destinations' joined bands, where www has no such gap. Without the exception it went +1.58
+  / +1.34 points.
+- Not for a column that opens with a sidebar Columns Media: newsletter's sign-up, www's sidebar view, on a page long by
+  its form. Without the exception it went +2.38 / +1.29 points.
+
+**Gate (code against live, all 168 SWISS page-widths):** 6 moved, all 6 closer. The sum goes 561.81 -> 553.34.
+- refunds 1440 / 390: -3.62 / -1.14 -> -1.21 / +0.31 %.
+- payment-options 1440 / 390: -3.64 / -2.61 -> -1.61 / -1.21 %.
+- online-check-in 1440 / 390: -3.22 / -0.65 -> -1.93 / -0.14 %.
+
+**Checks:**
+- Whole-repo `npm run lint` exit 0, and stylelint on swiss.css exit 0.
+- stylelint wanted the two :not() merged into one, which drops the selector one class. The code run used the merged
+  form.
+- The targeted tests: 534 files, 2,213 pass, 0 failures, 3 skipped.
+- The full suite on 389eda64: 1,292 files, 4,849 pass, 0 failures, 5 skipped.
