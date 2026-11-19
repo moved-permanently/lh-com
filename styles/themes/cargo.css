@@ -2589,3 +2589,14 @@ body.brand-cargo main > .section.breadcrumb-container:first-child:has(> .default
     padding-left: 21px;
   }
 }
+
+/* standing order 66, item 3: a product page's short introduction (its H1 and one paragraph) 39 px above the grey tabs band, as
+   www's (its band 9 px higher: 728 against our 737 at 1440, the tabs and the panel with it). From 768 px. First try, every section
+   before a grey tabs band: 688.09 -> 613.24 but speed-zoom (the breadcrumb section above) and live-animals (a long introduction)
+   further. This narrower second try, the 62 recorded Cargo 1440 page-widths: none further, 688.09 -> 616.20 (airmail 6.89 -> 2.19 %,
+   perishables 7.23 -> 2.45, passive-temp-support 10.56 -> 5.54) */
+@media (width >= 768px) {
+  body.brand-cargo main > .section:not(.breadcrumb-container):has(> .default-content-wrapper:only-child > h1:first-child + p:last-child):has(+ .section.grey.accordion-columns-container) {
+    margin-bottom: 39px;
+  }
+}
