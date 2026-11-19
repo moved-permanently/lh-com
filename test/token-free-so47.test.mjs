@@ -6,6 +6,8 @@
      space to the footer;
    - Brussels' closing link-list end (order 46) sits on the list itself and takes link lists only (order 46's form
      also took 14 terms pages' closing bullet lists);
+   - Brussels' one-message pages (title, text, closing button) keep www's space under the button: the carrier of the
+     "{spacer-11}" order 44's rows removed from be/en unsubscribe-failure;
    - Discover punta-cana de/de: its "{spacer-30}" goes without a carrier (the migration session's decision).
    The rows (delta-so47-*-token-free.json) remove markers only.
    Run: node --test test/token-free-so47.test.mjs */
@@ -39,6 +41,13 @@ test('Brussels: the notice carriers, scoped to the notice shape', () => {
   ['padding-top: 32px;', 'padding-top: 17px;', 'padding-bottom: 40px;'].forEach((v) => assert.ok(b.includes(v), v));
   // not page-wide: no unscoped form of the heading or accordion-end carrier
   assert.ok(!b.includes('body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper > :is(p, ul, ol) + h2'));
+});
+
+test('Brussels: a one-message page keeps the space under its closing button', () => {
+  const b = css('brussels.css');
+  const sel = 'body.brand-brussels main > .section.section.section:only-child:not(.padded, .grey, .sidebar, .sidebar-h1) > .default-content-wrapper:last-child:has(> h1:first-child):not(:has(> :not(h1, p))) > p.button-wrapper:last-child';
+  assert.ok(b.includes(`${sel} { padding-bottom: 29px; }`), 'phones');
+  assert.ok(b.includes(`@media (width >= 768px) { ${sel} { padding-bottom: 32px; } }`), 'from 768');
 });
 
 test('Brussels: the closing link-list end takes link lists only', () => {

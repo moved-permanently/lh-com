@@ -1673,3 +1673,18 @@ body.brand-brussels main > .section.sidebar-h1:has(> .default-content-wrapper > 
     padding-bottom: 40px;
   }
 }
+
+/* standing order 47: a one-message page (one plain section: a title, text and a closing button; farealert's
+   unsubscribe pages in five languages, retain-your-status, the birthright thank-you page) keeps www's space under its
+   button: 32 px more from 768, 29 on phones, the carrier of the "{spacer-11}" order 44's token-free rows removed from
+   be/en unsubscribe-failure (907 -> 939 / 1,328 -> 1,357; www 940 / 1,364). The selector is the gated one (the
+   repeated section class gave the draft its weight against the theme, which loads after a draft) */
+body.brand-brussels main > .section.section.section:only-child:not(.padded, .grey, .sidebar, .sidebar-h1) > .default-content-wrapper:last-child:has(> h1:first-child):not(:has(> :not(h1, p))) > p.button-wrapper:last-child {
+  padding-bottom: 29px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section.section.section:only-child:not(.padded, .grey, .sidebar, .sidebar-h1) > .default-content-wrapper:last-child:has(> h1:first-child):not(:has(> :not(h1, p))) > p.button-wrapper:last-child {
+    padding-bottom: 32px;
+  }
+}
