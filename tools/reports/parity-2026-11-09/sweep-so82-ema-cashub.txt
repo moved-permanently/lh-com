@@ -80,3 +80,31 @@ The help center's faq.png (item 2)
   so its FAQ card picture is missing in both places: parity.
 - So no picture-map line is written. A line pointing at a missing copy would change nothing, and none should be
   invented. If www publishes the file later, the copy and the line follow as main.png's (059cb062).
+
+Item 1 - the confirmation pages' Spacer XXL rows (delta-so82-com-faults.txt)
+----------------------------------------------------------------------------
+- ema-adobe's a4bc3aff (Spacer step XXL, 375 px, for {spacer-400}) is on main and served (style-markers.js md5 equal on
+  origin/main, aem.live and lufthansa.turnsthe.page, 08:01 CET). It does not hold the option.
+- 11 READY documents (22 rows): xx/es, xx/fr, xx/pt, xx/ru, xx/hk, xx/zh, xx/it, xx/el, xx/ja, xx/ko, xx/pl. Each is
+  support/contact/contact-form-confirmation: a Spacer block xxl after the text, and the section's space-below-l goes.
+  That is what the collapse now writes for {spacer-400}. fr/fr is still marked in DA (batch 27), so its collapse
+  writes the same.
+- Dry run on DA's current copies 11/11. Gate (injected in the same load): the home button 400 px above the footer on
+  all 22 page-widths (the order's 400 +/- 10), each page +255 px, no flag came or went.
+- Against www's recording it is 25 px short. www's home button ends 424.8 px above the footer (lh-parity-017, xx/it),
+  as our marked copy did (1,496 = 1,496). For ema-adobe: XXL at 400, its own first try, gives www's 425 to the pixel.
+  The rows need no change if the step moves.
+
+Post-rule sweep 2: ema-lufthansa's P3 (ema-adobe c6859755, styles.css; served 08:08 CET)
+-----------------------------------------------------------------------------------------
+- Reach in all 8,980 served copies: a divider-below section whose last block is a Columns Media with only separators
+  after it: 25 documents (air-baltic in de/en, gb/en, de/de, at/de, xx/el, xx/es ...; visual-impairment; pre-check-in;
+  smart-bags), against ema-adobe's 30 from its own scan.
+- Rendered at 1440 and 390, 3 pages at once, order 80's checks and the collision probe: 50 page-widths, all 200 and
+  settled. No flag of any kind, no text under another element: breakage from the rule none.
+
+Post-rule sweep 3: ema-adobe's XXL (a4bc3aff)
+--------------------------------------------
+- It changes only Spacer blocks with the option xxl, and no served document has one yet. The documents it will reach
+  are this list's 11 rows and fr/fr after its collapse. The gate above is their render with it. Nothing else to sweep
+  until the rows are applied.

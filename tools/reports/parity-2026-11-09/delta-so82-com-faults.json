@@ -43,5 +43,148 @@
     "text": "<div class=\"accordion-columns faq\">"
    }
   ]
+ },
+ {
+  "path": "/xx/es/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/pt/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/el/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/ja/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/support/contact/contact-form-confirmation",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"spacer xxl\"><div><div></div></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-l</div></div></div>",
+    "text": ""
+   }
+  ]
  }
 ]

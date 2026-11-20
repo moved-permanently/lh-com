@@ -33,4 +33,51 @@ READY	/xx/de/common/seatreservation-condtions/economy-light-fare	390	-	-	5,335	2
 HOLD	/xx/en/common/seatreservation-condtions/economy-light-fare	1440	-	-	3,025	1,525	open-4; in switch batch 26 (still marked): READY once its state commit is on main
 HOLD	/xx/en/common/seatreservation-condtions/economy-light-fare	390	-	-	4,824	2,055	as above
 #
-# DA change (lh-com), every READY path: "accordion-columns faq open-N" -> "accordion-columns faq".
+# DA change (lh-com), every READY path above: "accordion-columns faq open-N" -> "accordion-columns faq".
+#
+# Item 1 (standing order 82): the contact-form confirmation pages get ema-adobe's Spacer XXL.
+# ema-adobe's a4bc3aff (feat(lufthansa theme, collapse): "a Spacer step XXL for www's 400px separator") is on main and
+# served: scripts/style-markers.js md5 c7443a907293 on origin/main, main--lh-com--moved-permanently.aem.live and
+# lufthansa.turnsthe.page, 08:02 CET. The Spacer block option xxl draws 375 px (its 25 px paragraph margin above
+# makes 400).
+# The switched xx copies have "section style space-below-l" where their marked copies had {spacer-400}. The row writes
+# what the collapse now writes for {spacer-400}: a Spacer block xxl after the text (before the page's metadata), and
+# the section's space-below-l goes. A Spacer block and its option are carriers: token-free.
+# fr/fr is not in these rows: DA's copy is still marked ({spacer-400}; batch 27 not collapsed), so the collapse writes
+# the Spacer xxl itself.
+# Dry run on DA's current copies (11 single read-only GETs, 08:05 CET): 11/11 "2 inserted, 0 present", "without the
+# inserts DA's copy byte for byte: true"; a second run gives "2 present" for all 11; no {…}; each anchor exactly once.
+# Gate (lufthansa.turnsthe.page, 1440 and 390, the row's effect injected in the same load: the section without
+# space-below-l, its separator paragraph at the xxl size): text-to-footer (the home button to the footer's top) 400 px
+# on all 22 page-widths. That is the order's 400 +/- 10. No flag came or went, nothing else moved (the page grows by
+# exactly 255 px).
+# Against www's recording (lh-parity-017, xx/it): www's home button ends 424.8 px above the footer. The marked copy
+# had 425 (1,496 = www's 1,496 at 1440). With xxl at 375 the copies stop 25 px short: xx/it 1,471 against 1,496
+# (-1.7 %). ema-adobe's first try (xxl 400) gave 425: www's to the pixel. These rows need no change if the step moves
+# to 400; every xxl page follows.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/xx/es/support/contact/contact-form-confirmation	1440	-	-	1,216	1,471	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/es/support/contact/contact-form-confirmation	390	-	-	1,493	1,748	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/fr/support/contact/contact-form-confirmation	1440	-	-	1,216	1,471	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/fr/support/contact/contact-form-confirmation	390	-	-	1,493	1,748	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/pt/support/contact/contact-form-confirmation	1440	-	-	1,216	1,471	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/pt/support/contact/contact-form-confirmation	390	-	-	1,488	1,743	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/ru/support/contact/contact-form-confirmation	1440	-	-	1,189	1,444	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/ru/support/contact/contact-form-confirmation	390	-	-	1,507	1,762	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/hk/support/contact/contact-form-confirmation	1440	-	-	1,121	1,376	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/hk/support/contact/contact-form-confirmation	390	-	-	1,208	1,463	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/zh/support/contact/contact-form-confirmation	1440	-	-	1,121	1,376	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/zh/support/contact/contact-form-confirmation	390	-	-	1,208	1,463	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/it/support/contact/contact-form-confirmation	1440	lh-parity-017	1,496	1,216	1,471	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/it/support/contact/contact-form-confirmation	390	lh-parity-017	1,782	1,466	1,721	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/el/support/contact/contact-form-confirmation	1440	-	-	1,216	1,471	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/el/support/contact/contact-form-confirmation	390	-	-	1,466	1,721	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/ja/support/contact/contact-form-confirmation	1440	-	-	1,121	1,376	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/ja/support/contact/contact-form-confirmation	390	-	-	1,316	1,571	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/ko/support/contact/contact-form-confirmation	1440	-	-	1,121	1,376	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/ko/support/contact/contact-form-confirmation	390	-	-	1,276	1,531	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/pl/support/contact/contact-form-confirmation	1440	-	-	1,216	1,471	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+READY	/xx/pl/support/contact/contact-form-confirmation	390	-	-	1,466	1,721	Spacer xxl for space-below-l; gap 400 (www 425 from the home button)
+#
+# DA change (lh-com), these 11 paths: a Spacer block "spacer xxl" before the metadata block; the section-metadata Style
+# space-below-l removed.
