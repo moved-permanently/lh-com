@@ -1,0 +1,49 @@
+# ema-lufthansa, standing order 53 (2026-11-20): do ema-adobe's lufthansa.com rules in the shared code move the other sites?
+# Sites: Brussels, ITA, Discover, SWISS, Group for Business and Austrian, all on the same code (styles/styles.css, blocks/).
+# What decides it:
+#   - Every rule so far is scoped to body.brand-lufthansa.
+#   - scripts/brand.js loadBrandTheme adds that class only when the page has no brand meta (brandOf: the "brand" meta naming
+#     a known brand). A page with its brand meta gets body.brand-<brand> and never brand-lufthansa.
+#   - So (1) a census of every served document of the six sites reads its brand meta and whether its markup holds a rule's
+#     targets; (2) the documents that hold the targets are rendered.
+# Renders:
+#   - On each brand host, 1440 x 900 and 390 x 844, three browsers at once, one page at a time each (full Chrome, Liberation
+#     Sans for Arial, airline hosts refused), order 50's load and checks.
+#   - Each page is rendered as served, counting in the page how many elements each rule's selector matches (and the same
+#     selector without the brand scope, to show the targets are there), and again with styles/styles.css as it was before
+#     the pushes.
+#   - Brussels, ITA and Discover are also set against order 50's renders of the same page-widths (sw-<brand>.jsonl).
+#     SWISS, Group for Business and Austrian had no order 50 or 52 renders; for them the before-push stylesheet is the base.
+#   - A finding: a height more than 1 % off, or a flag the other render has not.
+# A finding on 3 or more documents of a brand would get its scoping as a proposal for ema-adobe here. Nothing was changed
+#   in the shared code by this order; nothing uploaded, previewed or published.
+
+## The census: every served document of the six sites, its brand meta and the shared rules' targets
+# site	documents	HTTP 200	brand meta	without a brand meta	H1	German H1 (path /xx/de/)	H2 before a four-up Carousel Cards	Subpage Nav	Overlay Cards Teaser
+brussels	1605	1605	brussels 1605	0	1603	202	10	0	0
+ita	2442	2442	ita 2442	0	2346	233	0	0	0
+discover	557	557	discover 557	0	549	200	0	0	0
+swiss	4661	4661	swiss 4661	0	4339	292	13	0	0
+b2b	729	729	b2b 727	2	727	399	6	0	0
+#   without a brand meta: /de/de/experts-members, /de/en/experts-members
+austrian	2272	2272	austrian 2272	0	2156	225	2	0	0
+# Group for Business /de/de/experts-members and /de/en/experts-members: not documents without a brand. They are the eXperts
+#   member area: an anonymous request gets a 302 to our host's mock experts login (/service/secured/api/experts/login ->
+#   /_lh-backends/mock-experts/authorize), and the census followed it to that login page. The documents themselves carry
+#   brand b2b (read on main--lh-b2b--moved-permanently.aem.live: "eXperts member area | Lufthansa Group for Business").
+#   By design.
+# Result: all 12,266 served documents of the six sites carry their own brand meta, so body.brand-lufthansa is set on none of
+#   them. No rule scoped to it can reach them, whatever its targets.
+
+## Round r64: d633ef1d, d68141ca, 50441c13, da91d70f, a0a22f28 (order 65 1d)
+# rules: the Subpage Nav after a grey band keeps its place from 768px (d633ef1); on phones a German H1's long word breaks at the column (d68141c), widened to H1 and H2 (a0a22f28); the H2 before a four-up Carousel Cards in www's large size (50441c1); the H2 right before an overlay Cards Teaser in www's small size (da91d70)
+# scope: all five in styles/styles.css, each selector starts body.brand-lufthansa
+# how: 120 documents picked from the census: per brand up to 12 German documents with an H1 and H2s, every document with the H2-before-four-up-Carousel shape (up to 10), up to 4 more with a four-up Carousel; no document of the six sites has a Subpage Nav after a grey band or an overlay Cards Teaser
+# verdict: stays scoped: every page carries its own brand class; the five rules matched 0 elements on 240 page-widths; heights within 1 % of the before-push stylesheet and of order 50, no new flag
+# brand	documents	page-widths	body class	scoped rules matched	targets matched without the brand scope	findings (over 1 % or a new flag, against the before-push stylesheet and order 50)
+brussels	26	52	brand-brussels 52	0	H2 before four-up carousel 8; H1 (de) 26; H2 (de) 60	0
+ita	16	32	brand-ita 32	0	H1 (de) 24; H2 (de) 44	0
+discover	16	32	brand-discover 32	0	H1 (de) 26; H2 (de) 110	0
+swiss	26	52	brand-swiss 52	0	H1 (de) 34; H2 (de) 70	0
+b2b	22	44	brand-b2b 44	0	H1 (de) 38; H2 before four-up carousel 12; H2 (de) 52	0
+austrian	14	28	brand-austrian 28	0	H1 (de) 26; H2 (de) 74	0
