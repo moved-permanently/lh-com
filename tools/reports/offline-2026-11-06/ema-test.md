@@ -7213,3 +7213,70 @@ bccb1e1e. Lists: tools/reports/parity-2026-11-09/sweep-so69-ema-test.txt and del
 - **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off.
 - **Not in git:** logs/p4/so69 (the sweep script, census tables, renders); content/, migration-work/, tools/importer/reports/*.
 - **Cleanup:** no local server started; the suite worktree removed; no render left running.
+
+## Standing order 70 (received about 10:15 CET, 2026-11-20)
+
+lufthansa.com's 65 kept documents, order 69's 4 HOLD rows, Rule 1, and the publish rounds until 16:00. Lists:
+tools/reports/parity-2026-11-09/delta-so70-com-kept.txt, delta-so69-com-faults.txt and sweep-so70-ema-test.txt.
+
+- **At the start:** delta-so69-com-faults.txt was changed but not committed. Item 2's DA read was half done and not yet in a
+  commit. Nothing was unpushed.
+- **Item 1, the kept documents:**
+  - DA's marked copies and live's served copies were read (read only; their markers are equal). I measured live's marked copy
+    against the same load with the collapsed copy injected, on lufthansa.turnsthe.page at 1440 and 390.
+  - Main's collapse passed 0 of 65. The collapse ran on live's copy with DA's metadata, because live's copy has no Theme row and
+    without it the page type comes out wrong.
+  - Cause: one style per heading level and section. A minority's headings took the majority's size, or the majority's headings
+    lost theirs.
+  - Fix e56340a4 (lufthansa only): a section whose own headings of one level ask for different sizes, with text between them,
+    is split where the wish changes, and each part takes its own level style. Then 49 of 49 pass: every heading equal, heights
+    within 1 %.
+  - DA's copies collapse to the gated copy (65 of 65).
+  - Rows: 49 READY (tips-senior-travellers 12, the three impairment pages 11 each, first-class 4) and 16 HOLD.
+    - book-and-manage/flights/ana (15 documents): one Columns Media row has two H2 sizes. The narrower second try (h3-large,
+      h2-compact) still draws the title cell 24 px against 48.
+    - autumn-campaign22 gb/en (1 document): an H1 asks heading-small, and the theme has no such H1 choice.
+    - Each HOLD row has a proposal measured at 0.00 %: ANA's card headings H4; gb/en's second H1 an H2 in an h2-small section.
+- **Item 2:** the 4 rows are READY. DA already held both changes. Only the preview and publish were left. Both are live as changed (read 15:15 CET:
+  pl/pl's second title an H2; es/es's Spacer xxl).
+- **Item 3:** Rule 1 is withdrawn, with no code. Below 768 px the finder's tabs are icon-only, and the label is the tab's visually
+  hidden name (1 px, clip-path inset(50%)). Order 69 measured the hidden text's run. The flight-status tab draws inside its tab.
+  This order's sweep skips text hidden by clip-path.
+- **Item 4:**
+  - Helper B's round holds2 (a638f349) collapsed all 65 kept documents. The 16 HOLD documents got their proposals.
+  - Preview: the copies are as gated, and there is no breakage.
+  - Live (from 14:15 CET), against the marked copies swept before:
+    - 130 page-widths, nothing new.
+    - Heights within 1 % on 129 of 130 (the other: the POI maps' load flake on xx/es first-class).
+    - Every heading's size and weight as marked on 130 of 130.
+  - The 12 login and profile pages' round (publish-so60-appshell-01) never came. It was not swept.
+
+### Final section (about 15:35 CET, 2026-11-20)
+
+- **Commits:**
+  - e56340a4: the collapse fix, its test, and the 14 bundles.
+  - d082dce2: the rows, item 2's rows, and Rule 1 withdrawn. Pushed at 11:47 CET; Build success.
+  - d1050208, 8b01f9f3, 3105d0fc: the rounds. This commit adds this section.
+- **Rows:**
+  - delta-so70-com-kept.txt:
+    - READY 49: tips-senior-travellers 12, cognitive-impairment 11, hearing-impairment 11, visual-impairment 11, first-class 4.
+    - HOLD 16: book-and-manage/flights/ana 15, autumn-campaign22 1 (a family below 3, decided page by page).
+  - delta-so69-com-faults.txt: READY 4.
+- **Rule 1:** a false finding (hidden labels), withdrawn. No code, and the block's files are untouched.
+- **Leftovers:**
+  - The 16 HOLD rows stay HOLD. Helper B published them with the proposals, which draw as live's marked copy (headings and
+    heights equal). ANA's outline now skips a level (H2 -> H4).
+  - The appshell round was not swept, because it never came.
+  - /xx/es/first-class's POI maps draw their boxes empty in some loads (either copy). That is a load flake, not the switch.
+- **Checks:**
+  - Before each push: whole-repo lint 0, stylelint 0, the full suite.
+  - At 4f2d2d44 / d082dce2: 1,321 of 1,321 test files passed.
+  - At this commit: the suite's result is in the push below.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs. DA was read only (single GETs of the 65 kept copies and item
+  2's 2 documents).
+- **Requests:** our hosts (lufthansa.turnsthe.page, the lh-com aem.page and aem.live origins), admin.da.live (read), GitHub.
+  Every other host was refused in the renders. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row); theme and block style files. The optional plugins
+  stay off.
+- **Not in git:** logs/p4/so70 (the gate, collapse and sweep scripts, DA and live copies, renders); content/, migration-work/,
+  tools/importer/reports/*.
