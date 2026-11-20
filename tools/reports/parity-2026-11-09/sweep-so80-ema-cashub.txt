@@ -159,13 +159,22 @@ Rule 2 for ema-adobe - German page titles wider than a phone's column (PROPOSED)
   "Sitzplatzreservierung" 360 px, "Flughafenrestaurants", "Europameisterschaft". 6 documents in batches 07 and 12 (de/de
   advance-seat-reservation, best-airport-restaurants, business-class-culinary-journey-with-johann-lafer; at/de's three
   above). The H1s have hyphens: manual and overflow-wrap: normal.
-- Rule (the narrow form, recommended):
+- Rule (the narrow form, recommended; with h2 since batch 13's /at/de/common/accessibility-statement and batch 14's
+  /at/de/rail-fly-bedingungen, whose H2 words run out the same way):
     @media (width < 768px) {
-      body.brand-lufthansa main h1:lang(de) {
+      body.brand-lufthansa main :is(h1, h2):lang(de) {
         overflow-wrap: break-word;
       }
     }
-- Gate (injected in the same load), on every German document of batches 07 and 12 at 390 (413 page-widths): the 6
+- Gate of this form (injected in the same load), on every German document of batches 07, 12 and 13 at 390 (708
+  page-widths): the 10 H1 and H2 spills are gone, no flag came, 7 heights move +31 to +40 px (the broken word's
+  line), nothing else: /de/de/advance-seat-reservation 13,762 -> 13,802, the euro 2024 quiz 3,519 -> 3,558,
+  /at/de/articles/tags/miami 9,471 -> 9,510, /at/de/common/accessibility-statement 11,286 -> 11,317,
+  /at/de/common/seatreservation-condtions/seat-reservations 4,649 -> 4,689, and two whose word ran out by less than
+  the check's 2 px (/at/de/discover-lufthansa/carbon-offsetting/climate-protection-projects 7,189 -> 7,229,
+  /at/de/entryprocesses 5,504 -> 5,543).
+- The h1-only form's first gate:
+  on every German document of batches 07 and 12 at 390 (413 page-widths): the 6
   spills are gone and no flag came. On the 12 documents where the wider form below moved anything, the narrow form
   moves 2 heights (+40 px: /de/de/advance-seat-reservation 13,762 -> 13,802, the euro 2024 quiz 3,519 -> 3,558) and
   nothing else: the long word breaks at the column's edge without a hyphen.
@@ -247,3 +256,28 @@ Batch 14 (on live; 295 of 300 documents swept)
   19 Nov, marked): 1440 2,029 -> 2,077 and 1,606 -> 1,654; 390 3,219 -> 3,267 and 2,085 -> 2,133. Every one is +48 px
   (+1.5 % to +3.0 %), within 15 %, no flag before or after.
 - Rows: 0.
+
+Batches 12 to 14 against their marked copies (ema-lufthansa's renders)
+----------------------------------------------------------------------
+- ema-lufthansa's dde5cd4d (marked-so52-ema-lufthansa.tsv) has every document of batches 12, 13, 14 and 16 rendered
+  while still marked on live, at 1440 and 390 (2,400 page-widths). Their render: full Chrome, Liberation Sans for
+  Arial, scrolled to the end, every section loaded. Ours: headless shell, unhinted text, the sweep's settle. Against
+  them (more than 15 % off is a finding; a re-read alone counts where there was one):
+    batch 12: 600 page-widths compared, 4 off. /at/de/articles/explore-the-world/experience-art-live,
+      experience-nature and next-level-gaming at 1440 (+26.0 % to +27.5 %: 8,400 -> 10,677, 8,951 -> 11,277,
+      8,453 -> 10,779), and on-the-scene-supper-clubs-ny 1440 (+17.1 %). Their 390 heights are within 15 %, and so is
+      each against its de/de copy in this sweep. Every other copy is switched (batches 02, 05, 08), so no marked copy
+      can be rendered here again. LISTED for ema-adobe and ema-lufthansa: a 1440-only move of 2,277 to 2,326 px on
+      the three "experience" articles. The collapse wrote no carrier there ("theme defaults only"). Whether the switch
+      or the two renders' conditions make it is not proven tonight.
+      (/at/de/.../on-the-scene-food-trends-istanbul 390 was a broken load in the sweep; read alone 7,406 against
+      their 7,413.)
+    batch 13: 590 compared, 9 off, all /at/de/book-and-manage/stopover/<partner> pages (breuninger,
+      garmisch-classic, hop-on-hop-off-muc, ingolstadt-village, leonardo-hotel, munich-airport, sixt-muc). Each is
+      +500 px at 1440 and +532 to +553 px at 390, and that is the POI map's 500 px view. A copy still marked tonight,
+      /xx/it/book-and-manage/stopover/munich-airport (batch 20), measures 2,969 at 1440 here against at/de's switched
+      2,943, with the same sections (columns-media sidebar 999 px with the map). The difference is the map in the two
+      renders, not the switch. ARTEFACT.
+    batch 14: 590 compared, 13 off, the same xx/fr stopover partner pages (+500 / +547 to +550 px). ARTEFACT, as
+      batch 13.
+- Batch 07 has no marked render. Batch 16's is in that file for its part.
