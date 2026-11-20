@@ -705,7 +705,44 @@ function headingWish(theme, level, size) {
   return has ? { kind: 'choice', choice } : { kind: 'none' };
 }
 
-function collapseHeadings(main, doc, stats, marks, theme) {
+/**
+ * Heading runs (lufthansa.com, standing order 70): a section whose own headings of one level ask for different sizes
+ * (tips-senior-travellers' H2 heading-small over its carousel cards, then an H2 that asks nothing; the impairment pages'
+ * H3 heading-small between unmarked H3s; first-class's fourteen H2 heading-small, then "The First Class fleet"
+ * heading-large) is split where that level's wish changes, so each part's level-scoped section style draws its headings as
+ * the marked page did. One style per level and section drew them all in the majority's size (the minority 24 -> 28 px, or
+ * 28 -> 48). A separator paragraph right before the heading opens the new part; headings back to back stay together. As the small-print run and the parallax
+ * image, the part takes the section's styles but a separator above, padded and flush (splitSection).
+ */
+function splitHeadingRuns(main, doc, marks, theme) {
+  const choiceOf = (h) => {
+    const size = (marks.get(h) || []).find((t) => SIZE_TOKEN.test(t));
+    if (!size || (theme.keepSizes || []).includes(size)) return null;
+    const w = headingWish(theme, Number(h.tagName[1]), size);
+    return w.kind === 'choice' ? w.choice : null;
+  };
+  [...main.children].forEach((section) => {
+    const cuts = new Set();
+    ['H2', 'H3', 'H4'].forEach((tag) => {
+      const hs = ownText(section).filter((el) => el.tagName === tag);
+      const asks = hs.map(choiceOf);
+      if (!asks.some(Boolean) || new Set(asks).size < 2) return;
+      hs.forEach((h, i) => { if (i && asks[i] !== asks[i - 1]) cuts.add(h); });
+    });
+    if (!cuts.size) return;
+    let part = section;
+    [...section.children].filter((el) => cuts.has(el)).forEach((h) => {
+      let at = h;
+      while (at.previousElementSibling && at.previousElementSibling.tagName === 'P' && SEPARATOR.test(textOf(at.previousElementSibling))) at = at.previousElementSibling;
+      // headings back to back stay together (a heading run of bare headings: the majority's style, a minority the default)
+      if (!at.previousElementSibling || /^H[1-6]$/.test(at.previousElementSibling.tagName)) return;
+      part = splitBefore(part, at, doc) || part;
+    });
+  });
+}
+
+function collapseHeadings(main, doc, stats, marks, theme, brand) {
+  if (brand === 'lufthansa') splitHeadingRuns(main, doc, marks, theme);
   const wishes = new Map(); // heading -> choice
   // two-thirds headings (standing order 56, the switch plan's {limited-width} headings): on a theme with
   // limitedHeadings, a section whose own headings are mostly marked limited-width takes the section style
@@ -1356,7 +1393,7 @@ export function collapseMain(main, opts = {}) {
   });
   collapseVideos(main, doc, stats, marks);
   collapseCaptions(main, doc, stats, marks, hand);
-  collapseHeadings(main, doc, stats, marks, theme);
+  collapseHeadings(main, doc, stats, marks, theme, brand);
   collapseColumns(main, doc, stats, marks, theme);
   collapseText(main, doc, stats, marks, theme, brand, hand);
   collapseCells(main, stats, marks, hand);

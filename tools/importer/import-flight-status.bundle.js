@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_378454_exports = {};
-  __export(tmp_bundle_flight_status_378454_exports, {
-    default: () => tmp_bundle_flight_status_378454_default
+  var tmp_bundle_flight_status_565826_exports = {};
+  __export(tmp_bundle_flight_status_565826_exports, {
+    default: () => tmp_bundle_flight_status_565826_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -4664,7 +4664,35 @@ var CustomImportScript = (() => {
     const has = ((theme.headingChoices || {})[`h${level}`] || {})[choice];
     return has ? { kind: "choice", choice } : { kind: "none" };
   }
-  function collapseHeadings(main, doc, stats, marks, theme) {
+  function splitHeadingRuns(main, doc, marks, theme) {
+    const choiceOf = (h) => {
+      const size = (marks.get(h) || []).find((t) => SIZE_TOKEN.test(t));
+      if (!size || (theme.keepSizes || []).includes(size)) return null;
+      const w = headingWish(theme, Number(h.tagName[1]), size);
+      return w.kind === "choice" ? w.choice : null;
+    };
+    [...main.children].forEach((section) => {
+      const cuts = /* @__PURE__ */ new Set();
+      ["H2", "H3", "H4"].forEach((tag) => {
+        const hs = ownText(section).filter((el) => el.tagName === tag);
+        const asks = hs.map(choiceOf);
+        if (!asks.some(Boolean) || new Set(asks).size < 2) return;
+        hs.forEach((h, i) => {
+          if (i && asks[i] !== asks[i - 1]) cuts.add(h);
+        });
+      });
+      if (!cuts.size) return;
+      let part = section;
+      [...section.children].filter((el) => cuts.has(el)).forEach((h) => {
+        let at = h;
+        while (at.previousElementSibling && at.previousElementSibling.tagName === "P" && SEPARATOR.test(textOf(at.previousElementSibling))) at = at.previousElementSibling;
+        if (!at.previousElementSibling || /^H[1-6]$/.test(at.previousElementSibling.tagName)) return;
+        part = splitBefore(part, at, doc) || part;
+      });
+    });
+  }
+  function collapseHeadings(main, doc, stats, marks, theme, brand) {
+    if (brand === "lufthansa") splitHeadingRuns(main, doc, marks, theme);
     const wishes = /* @__PURE__ */ new Map();
     const limited = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
@@ -5283,7 +5311,7 @@ var CustomImportScript = (() => {
     });
     collapseVideos(main, doc, stats, marks);
     collapseCaptions(main, doc, stats, marks, hand);
-    collapseHeadings(main, doc, stats, marks, theme);
+    collapseHeadings(main, doc, stats, marks, theme, brand);
     collapseColumns(main, doc, stats, marks, theme);
     collapseText(main, doc, stats, marks, theme, brand, hand);
     collapseCells(main, stats, marks, hand);
@@ -5478,7 +5506,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_378454_default = {
+  var tmp_bundle_flight_status_565826_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5518,5 +5546,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_378454_exports);
+  return __toCommonJS(tmp_bundle_flight_status_565826_exports);
 })();
