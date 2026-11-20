@@ -372,3 +372,24 @@ Batch 09 (on live; 300 of 300 documents swept)
   shanghai-best-restaurants-and-traditional-chinese-dishes +6 px, articles/tags/miami +11 px).
 - Against its own marked copy: none on disk for batch 09.
 - Rows: 0.
+
+Batch 10 (on live; 299 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY: 283 de/de, 16 at/de swept. Live census 04:01 CET: 1 still marked
+  (/de/de/book-and-manage/flights/ana, held). Swept: 598 page-widths, all 200. 2 did not settle in the sweep
+  (/de/de/assistenzhunde 1440, /de/de/articles/tags/zurich 390): read again alone at the end (final section). The 16
+  at/de pages against de/de: 32 page-widths compared, 0 more than 15 % off. Text points hit-tested: 102,298.
+- Broken pictures, sideways scroll, heading size: 0.
+- Text over another element: 0 FAULT. ARTEFACT or DESIGN, as before: the overlay card teasers' stretched link, the blog
+  overview's screen-reader line, form and flight-status selects over their labels, /de/de/cash-and-miles's and
+  /de/de/local-page/discover-japan1's icon-only finder tabs at 390, the search page's screen-reader sentence. The
+  sub-page nav pages of this batch (/de/de/mobility-partner-program-healthcare, /de/de/upgrade-premium-economy-class
+  ...) no longer collide: ema-adobe shipped Rule 1 at 02:34 CET (d633ef1d, "the Subpage Nav after a grey band keeps
+  its place from 768px").
+- Text cut: 19 documents and list size 19 (the overlay card teasers' list items, the blog tags: ARTEFACT, DESIGN).
+  Empty columns: 4 (Columns Media empty text cells, CONTENT). Empty section: /de/de/culinaryjourney (FUNCTION).
+- Text spill at 390: 7 documents, Rule 2's (the de/de copies of batches 13's and 14's): H1s on
+  seatreservation-condtions/seat-reservations, informationen-zum-datenschutz, security-fast-lanes and the hearing- and
+  visual-impairment pages; H2s on common/accessibility-statement and rail-fly-bedingungen.
+- Against its own marked copy: none on disk for batch 10.
+- Rows: 0.
