@@ -3043,3 +3043,12 @@ body.brand-lufthansa main .default-content-wrapper:has(+ .cards-teaser-wrapper >
   font-weight: var(--heading-light-weight, 300);
   text-transform: none;
 }
+
+/* lufthansa.com: a divider-below section that ends with a Columns Media: its closing divider keeps its place under the
+   block (standing order 65, ema-lufthansa's sweep-so52 P3; ITA's 666f7906). styles.css takes 16px back above a closing
+   wrapper of separators only after a block, and the block draws to its own end, so the divider's line stood 15px inside an
+   air-baltic column view and 7px inside pre-check-in's padded one (30 documents of the switched batches) */
+/* stylelint-disable-next-line no-descending-specificity -- a divider-below section's closing divider, not a modal link's wrapper */
+body.brand-lufthansa main > .section.divider-below > .columns-media-wrapper + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+  margin-top: 0;
+}
