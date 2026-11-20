@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/gb/en/doctor-on-board-news",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/flying-with-small-children",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ }
+]

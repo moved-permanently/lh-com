@@ -1,0 +1,25 @@
+# ema-cashub, standing order 80 (2026-11-20), item 1: source faults of the switched batches' sweep
+# (sweep-so80-ema-cashub.txt), a document's own source fixing them.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so80-com-faults.json
+#   --list <this file> --docs <lh-com: DA's current copies, <path>.html> --out <dir> [--check]
+#
+# Batch 07: gb/en's card grid without de/en's phone-slider.
+# /gb/en/doctor-on-board-news and /gb/en/flying-with-small-children are de/en's documents in gb/en, but for one
+# option. de/en's "carousel-cards grid phone-slider" (www's one-card swiper below 1025 px, which the importer reads from
+# www's markup since d15b355c, 6 Nov) is gb/en's "carousel-cards grid": its cards stack on phones. gb/en's
+# doctor-on-board-news was uploaded 26 Oct, before that rule. The rows give gb/en's grid the option, as order 51's and
+# 56's carries from de/en did. The option is a block option (a carrier), not a style marker: token-free.
+# DA read: single read-only GETs of the two gb/en copies (admin.da.live, 20 Nov about 01:05 CET), 200.
+# Dry run on those copies: 2/2 "1 inserted, 0 present", "without the inserts DA's copy byte for byte: true". A second
+# run on the output: "0 inserted, 1 present". No {…} in the output. The anchor '<div class="carousel-cards grid">' is
+# in each copy exactly once.
+# Gate: the same document with the option is de/en's. Their markup differs only in the option and the links' /de/en/
+# paths, so with the row each gb/en page measures de/en's (lufthansa.turnsthe.page, read alone at 00:58 CET). Not
+# recorded by www tonight.
+# status	path	width	recording	de/en copy	as served	with the row	note
+READY	/gb/en/doctor-on-board-news	390	-	2,362	3,057	2,362	phone-slider, as de/en
+READY	/gb/en/doctor-on-board-news	1440	-	-	-	unchanged	the option draws from 1025 px as without it
+READY	/gb/en/flying-with-small-children	390	-	4,359	5,082	4,359	phone-slider, as de/en
+READY	/gb/en/flying-with-small-children	1440	-	-	-	unchanged	as above
+#
+# DA change (lh-com), both paths: "carousel-cards grid" -> "carousel-cards grid phone-slider".

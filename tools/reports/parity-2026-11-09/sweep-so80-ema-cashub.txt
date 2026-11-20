@@ -1,0 +1,122 @@
+Standing order 80 - breakage sweep of lufthansa.com's switch batches 07 to 16 on live (Fri 20 Nov 2026, from 00:25 CET)
+====================================================================================================================
+
+How each batch is swept
+-----------------------
+- A batch's documents: the READY rows of tools/reports/parity-2026-11-09/delta-so60-switch-NN.txt less the documents
+  that live still has marked. The import helper's state commits on main ("so60 switch batch NN: n documents
+  collapsed", "so60 batch NNh: n held documents cleared") give counts only, no paths. So tools/importer/
+  switch-census.mjs --batch <list> --env live (our main--lh-com--moved-permanently.aem.live, 3 requests at a time)
+  names them: a document with markers on live is held or skipped and not swept. The census also says when a batch is on
+  live: all its documents read with 0 markers but the held ones.
+- Host lufthansa.turnsthe.page, widths 1440 x 900 and 390 x 844, at most 3 pages at once, order 79's settle (load, lazy
+  pictures eager, one scroll, network idle, every section and block loaded, pictures complete, 3 equal heights).
+  so80/nb80.mjs runs order 76's checks and so78's text-collision probe (p-hit.js) in the same load: broken pictures,
+  sideways scroll, never-loaded sections and blocks, overlaps, out of block, text spill or cut, empty sections and
+  cells, heading and list sizes, text drawn under another element. Requests to www.*, lh-proxy and the airline hosts
+  are refused and counted, never sent.
+- Each page against its source-language copy (de/en for English, de/de for German, xx/<ll>; xx/en and xx/de against
+  de/en and de/de): more than 15 % off at either width is a finding. A source not rendered yet tonight is rendered in
+  the same run (its state that minute: switched or still marked).
+- Each page against its own marked copy as rendered before its batch, where one exists: the only pre-batch renders of
+  lufthansa.com documents on disk are order 78's (19 Nov, 20:36 to 21:23 CET). Of batches 07 to 16 they hold
+  /xx/fr/faq-data-security and /xx/fr/faq-password-security (batch 14) and /xx/fr/support/support (batch 15).
+  Everywhere else there is no "before" to compare, and the part says so.
+- Kinds: FAULT = drawn wrong. PROPOSED = a rule for ema-adobe, gated with the rule injected in the same load. ROW = a
+  source fix in delta-so80-com-faults.txt. LISTED = not proven, or fewer than 3 documents with no row. CONTENT = the
+  document's own. DESIGN = drawn so on purpose (www's, or a documented rule). FUNCTION = an app or live answer that the
+  refused hosts withhold. ARTEFACT = the check, not the page.
+- Scratch (not in git): migration-work/parity-588/so80 (mk80.py, nb80.mjs, sum80.py, census.sh, the probes, outputs).
+
+Batch 07 (on live; 299 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY. Live census 00:08 CET: 299 with 0 markers, 1 still marked (/gb/en/first-class, 47 markers:
+  held, not swept). Swept: 299 documents (gb/en, de/de and de/en pages), 598 page-widths, all 200, all settled.
+  Also rendered: 186 source copies (372 page-widths) for the 15 % check. Text points hit-tested: 107,005. Refused
+  requests: 239.
+- Broken pictures, sideways scroll, never loaded, heading or list size: 0.
+- Text over another element: FAULT, PROPOSED (below, "Rule 1"): the sub-page navigation drawn over the page title at
+  1440 on /gb/en/mobility-partner-program-healthcare ("Lufthansa Global Healthcare and Medical Se|rvices", the nav box
+  from x 1046 over the title's end) and /gb/en/upgrade-premium-economy-class ("One journey, countless possibilities",
+  second line). The same on their de/en copies (batch 04), and on the still-marked xx/fr, xx/ru copies. Not caused by
+  the switch. The other hits: form selects over their own floating labels (/gb/en/feedback-past-flight,
+  /gb/en/group-travel), the flight-status form's selects over their labels: DESIGN. The search page's screen-reader
+  sentence over an empty spacer: ARTEFACT.
+- Text cut: 66 documents at both widths, every one a de/de article. The related-articles card titles (h3
+  .related-articles-title, 36 px at 1440 and 28 px at 390) are clamped at 3 lines ("Schlafen im Flugzeug: 7 Tipps
+  von Schlafmedizinern, ..."). That is the block's own www rule (related-articles.css: "the live titles are cut with an
+  ellipsis after about three lines"). The section's h3-large carrier does not reach them (scripts/token-free.js sizes
+  only a section's own default content). DESIGN.
+- Text spill: 3 documents at 390, a German H1 word wider than the column: /de/de/advance-seat-reservation
+  ("Sitzplatzreservierung" 360 px in 346), /de/de/articles/explore-flying/best-airport-restaurants
+  ("Flughafenrestaurants"), /de/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer (+5 px).
+  FAULT. See "Rule 2" (being gated across the batches).
+- Empty columns: 4 documents at 1440 (/gb/en/first-class-terminal, /gb/en/tips-senior-travellers,
+  /de/de/100-years/global-network: a Columns Media sidebar's empty text cell, 26 px; /gb/en/passengers-with-sensory-
+  impairment: a nested-2 row whose two text cells are empty beside the app-store logos, 32 px). Nothing is drawn in
+  them, and their de/en copies have the same. LISTED (CONTENT of the views).
+- Empty section: /gb/en/culinaryjourney, the culinary hub's 400 px box (FUNCTION: api.travelid.lufthansa.com refused).
+- Off its source copy (de/en for gb/en; de/de pages are sources): 364 page-widths compared, 7 documents more than 15 %
+  off, each read again alone with its source (same heights):
+    ROW (READY) /gb/en/doctor-on-board-news 390 3,057 vs 2,362 (+29.4 %) and /gb/en/flying-with-small-children 390
+      5,082 vs 4,359 (+16.6 %). The documents are the same as de/en's but for one option: de/en's card grid has
+      phone-slider (www's one-card swiper below 1025 px, which the importer reads from www's markup since d15b355c,
+      6 Nov) and gb/en's has not (gb/en's doctor-on-board-news uploaded 26 Oct, before that rule). The rows give gb/en's
+      grid the option, as order 51's and 56's language and market carries did. Expected: gb/en's 390 heights equal to
+      de/en's, 1440 unchanged.
+    LISTED /gb/en/economy-class 1440 -16.7 %, /gb/en/first-class-terminal 390 -16.3 %, /gb/en/shopping 1440 -16.0 %:
+      de/en's documents have an intro paragraph in the hero that gb/en's lacks, and gb/en's hero has the option
+      narrow. /gb/en/special-meals 1440 +18.7 %: gb/en has a column view where de/en has a card carousel, and de/en
+      has more text. These are the copies' own text and blocks, from their own www pages. Not proven without www.
+    LISTED /gb/en/unterhaltung-an-bord 1440 8,137 vs 2,888 (+181.8 %): the documents differ in structure (gb/en: a
+      spacer and an h3-large section, de/en: two Columns Media more). This is order 24's in-flight entertainment
+      carousel page (its flag figures are in the cashub report). Not a breakage.
+  4 documents have no de/en document to compare (/gb/en/grouptravel, /gb/en/local-page/ski-campaign-2026, /gb/en/sale,
+  /gb/en/unhide-fashion: 404 at de/en).
+- Against its own marked copy before the batch: none on disk for batch 07.
+- Rows: 2 READY (delta-so80-com-faults.txt). Rules: 1 proposed, 1 being gated.
+
+Rule 1 for ema-adobe - the sub-page navigation's top (PROPOSED)
+---------------------------------------------------------------
+- Cause: styles.css's last-section pull-up after a grey band (body.brand-lufthansa main > .section.grey +
+  .section:last-child:not(...) { margin-top: -48px; margin-bottom: 0 }) also matches the sub-page nav's section. From
+  768 px that section is out of the flow (subpage-nav.css: position absolute, top var(--subpage-nav-top)), so the -48
+  px moves the nav 48 px above the place the block computes (20 px above the first element after the page title).
+  Measured at 1440: /gb/en/mobility-partner-program-healthcare's nav section top 207 where the block set 255 (main 122
+  + 133), the title 182-235. /de/en/upgrade-info (its nav after a non-grey section) is 255 where set.
+- Rule (from 768 px, after that rule in styles.css; :is() keeps it above the pull-up's weight, 0,8,2 against 0,7,3):
+    @media (width >= 768px) {
+      body.brand-lufthansa main > .section.grey + .section.subpage-nav-container:last-child:is(.subpage-nav-container, :has(> .subpage-nav-wrapper > .subpage-nav)) {
+        margin-top: 0;
+      }
+    }
+- Reach in batch 07's set (served copies): 12 documents whose nav section is the last after a grey band (de/en and
+  gb/en mobility-partner-program-healthcare, tiere-als-uebergepaeck, upgrade-business-class-long-haul,
+  upgrade-first-class, upgrade-premium-economy-class, upgrade-to-business-class), and the same templates in every tree.
+- Gate (injected in the same load, every one of the 92 documents with a sub-page nav in batch 07's set, 1440 and 390,
+  184 page-widths): the nav collisions before the rule (4 page-widths: both pages above and their de/en copies at
+  1440) are gone with it. No page height changed (the nav is out of the flow). No flag came or went. Below 768 px
+  nothing matches. Not recorded by www tonight: the place is the block's own computation (www's .container-subnav 20 px
+  above the content), which the rule restores.
+
+Item 2 - the help-center stage picture (shipped) and the seat-reservation FAQ rows (waiting)
+--------------------------------------------------------------------------------------------
+- lufthansa.turnsthe.page/content/dam/lh/images/local_images/help-center/main.png answered 200 at 00:39 CET (image/png,
+  1920 x 1280, 2,926,346 bytes, sha256 225ce06d9992267039ca4ab4cd42fff817f1340eebe966161915c39ec739e6bf); faq.png 404.
+- 059cb062 (feat(micro-frontend)): lhDesign.pictures for help-center-web, the app's
+  https://lufthansa.com/content/dam/lh/images/local_images/help-center/main.png -> the page's own
+  /content/dam/lh/images/local_images/help-center/main.png, as Austrian's map (70c60a7d). README line, new test
+  micro-frontend-lufthansa-pictures-so80, the Austrian test's lufthansa.com line updated.
+- Gate before the push (the swap injected in the same load) on the 9 help-center documents (help-and-contact and
+  support/support of de/en, de/de, at/de, gb/en; /fr/fr/support/support) at 1440 and 390: the stage picture 0 -> 375
+  px at 1440, 0 -> 210 px at 390, loaded at 1920 px, page heights unchanged, no block or section moved: 18/18.
+  As served after the push (no injection): the same 18 page-widths draw the stage from /content/dam/..., 375 / 210 px,
+  no broken picture, heights as before (1,822 / 2,122 / 2,194 px; fr/fr 1,872 / 2,325).
+- Checks before the push: site suite 1,321 files (4,947 pass, 0 fail, 5 skipped), lh-edge suite 432/432, whole-repo
+  lint exit 0, the folder-reading and micro-frontend tests (100/100). 12-host smoke as answers files before and after:
+  every --compare exit 0 (no answer changed).
+- Seat-reservation FAQ (delta-so78-com-faults.txt, 20 HOLD rows): the Captures child's recording is not in the
+  lufthansa.com drop yet (lh-deliveries.json's newest delivery is lh-snapshots-088, 9 Nov). The rows stay HOLD until
+  it is. Already in the drop: lh-snapshots-069 (6 Nov, sha256 9f267317... checked) holds www's
+  /de/de/common/seatreservation-condtions/refund. Its 8 maui-collapsible-item elements carry no expanded attribute,
+  so on that capture www's de/de items were closed. If tonight's recording agrees, the rows are dropped.
