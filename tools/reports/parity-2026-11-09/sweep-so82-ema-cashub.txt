@@ -118,3 +118,13 @@ Post-rule sweep 4: Rule 3, the narrower form (ema-adobe 2798d6d2, styles.css: pa
   xx/pt and xx/ru lounges (order 80's ARTEFACT), and one Columns Media empty text cell (CONTENT).
 - The seat terms page as served now: /xx/es 1,751 / 2,778 against www's 1,653 / 2,747 (+5.9 % / +1.1 %; from +7.0 % /
   +4.2 %). The 1440 card rows stay 24 px taller than www's (item 2b above).
+
+The rows as applied (30b2c619, "so82 com faults: xx seat-reservation FAQ closed + contact-form Spacer xxl, 17 docs")
+-------------------------------------------------------------------------------------------------------------------
+- The helper applied all 17 documents (the 6 FAQ pages and the 11 confirmation copies). aem.page and aem.live serve
+  them: "spacer xxl" on the confirmation pages, "accordion-columns faq" without open-N on the FAQ pages (10:22 CET).
+- Rendered as served on lufthansa.turnsthe.page at 1440 and 390: 34 page-widths, all 200, no flag. Every height is the
+  gate's to the pixel: the FAQ pages closed, e.g. xx/en refund 1,669 / 2,274 against www's 1,718 / 2,282. Every
+  confirmation copy's home button is 400 px above the footer.
+- fr/fr's confirmation page was held in batch 27 (cf2f6b82): DA's copy still has {spacer-400} (read 09:20 CET) and draws
+  the marked page, which is www's height.
