@@ -250,7 +250,7 @@
 # broken picture: 1 documents, 1 page-widths; transient 1
 # sideways scroll: none
 # out of the page or its column: none
-# drawn over another element: 7 documents, 13 page-widths; by design 11, listed: 1 document, on its marked copy before the batch too 2
+# drawn over another element: 7 documents, 13 page-widths; by design 11, proposed P3 2
 # empty section: 8 documents, 16 page-widths; by design 14, function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses 2
 # empty column: none
 # heading in another size than its siblings: none
@@ -262,8 +262,8 @@
 # batch	path	width	kind	class	measured
 13	/at/de/book-and-manage/cancellation-and-refund/refund/refund-form	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "Ticket-Erstattung manuell beantragenBitt" by 16px
 13	/at/de/book-and-manage/cancellation-and-refund/refund/refund-form	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "Ticket-Erstattung manuell beantragenBitt" by 16px
-13	/at/de/book-and-manage/flights/air-baltic	390	drawn over another element	listed: 1 document, on its marked copy before the batch too (not the collapse): the contact view's closing separator 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Kontakt bei Änderungen Um Ihre Buchung z" by 16px
-13	/at/de/book-and-manage/flights/air-baltic	1440	drawn over another element	listed: 1 document, on its marked copy before the batch too (not the collapse): the contact view's closing separator 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Kontakt bei Änderungen Um Ihre Buchung z" by 16px
+13	/at/de/book-and-manage/flights/air-baltic	390	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Kontakt bei Änderungen Um Ihre Buchung z" by 16px
+13	/at/de/book-and-manage/flights/air-baltic	1440	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Kontakt bei Änderungen Um Ihre Buchung z" by 16px
 13	/at/de/book-and-manage/flights/wetlease-hub	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "airBaltic ist die nationale Airline Lett" by 16px
 13	/at/de/book-and-manage/flights/wetlease-hub	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "airBaltic ist die nationale Airline Lett" by 16px
 13	/at/de/common/accessibility-statement	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.accordion-columns-wrapper "ÖsterreichMarktüberwachungsbehörde Digit" by 16px
@@ -344,7 +344,7 @@
 # broken picture: none
 # sideways scroll: none
 # out of the page or its column: none
-# drawn over another element: 20 documents, 56 page-widths; by design 52, listed: on its marked copy before the batch too 2, listed 2
+# drawn over another element: 20 documents, 56 page-widths; by design 52, proposed P3 4
 # empty section: 7 documents, 14 page-widths; by design 14
 # empty column: none
 # heading in another size than its siblings: none
@@ -400,8 +400,8 @@
 17	/xx/ru/advance-seat-reservations-terms-and-conditions	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "ВОЗВРАТ Как выполнить возврат средств? М" by 16px
 17	/xx/ru/airport-information	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
 17	/xx/ru/airport-information	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
-17	/xx/ru/book-and-manage/flights/air-baltic	390	drawn over another element	listed: on its marked copy before the batch too (not the collapse), as at/de's in batch 13: the contact view's closing separator 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "К кому обратиться в случае изменения ваш" by 16px
-17	/xx/ru/book-and-manage/flights/air-baltic	1440	drawn over another element	listed: on its marked copy before the batch too (not the collapse), as at/de's in batch 13: the contact view's closing separator 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "К кому обратиться в случае изменения ваш" by 16px
+17	/xx/ru/book-and-manage/flights/air-baltic	390	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "К кому обратиться в случае изменения ваш" by 16px
+17	/xx/ru/book-and-manage/flights/air-baltic	1440	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "К кому обратиться в случае изменения ваш" by 16px
 17	/xx/ru/book-and-manage/stopover	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Больше вдохновения с Lufthansa Insights " by 16px
 17	/xx/ru/common/accessibility-statement	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.accordion-columns-wrapper "АвстрияMarktüberwachungsbehörde Digitale" by 16px
 17	/xx/ru/doctor-on-board	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
@@ -414,8 +414,8 @@
 17	/xx/ru/lufthansa-first-class-fleet	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.accordion-columns-wrapper "Подробное описание салона Первого класса" by 16px
 17	/xx/ru/lufthansa-terminal-muenchen	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
 17	/xx/ru/lufthansa-terminal-muenchen	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
-17	/xx/ru/pre-check-in	390	drawn over another element	listed (1 document; new with the collapse): the closing divider 7 px into the padded column view above it at both widths, the shape ITA's 51 rule fixed for its theme; for ema-adobe if more copies show it (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "Ночная регистрация на рейсы в США, Канад" by 16px
-17	/xx/ru/pre-check-in	1440	drawn over another element	listed (1 document; new with the collapse): the closing divider 7 px into the padded column view above it at both widths, the shape ITA's 51 rule fixed for its theme; for ema-adobe if more copies show it (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "Ночная регистрация на рейсы в США, Канад" by 16px
+17	/xx/ru/pre-check-in	390	drawn over another element	proposed P3 (new with the collapse): the closing divider 7 px into the padded column view above (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "Ночная регистрация на рейсы в США, Канад" by 16px
+17	/xx/ru/pre-check-in	1440	drawn over another element	proposed P3 (new with the collapse): the closing divider 7 px into the padded column view above (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "Ночная регистрация на рейсы в США, Канад" by 16px
 17	/xx/ru/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Austrian Airlines Заявить о задержке при" by 16px
 17	/xx/ru/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Austrian Airlines Заявить о задержке при" by 16px
 17	/xx/ru/register-animal-cabin	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "General informationPlease give us your c" by 16px
@@ -481,25 +481,24 @@
 # broken picture: none
 # sideways scroll: none
 # out of the page or its column: none
-# drawn over another element: 17 documents, 43 page-widths; by design 37, fault 6
-# empty section: 7 documents, 14 page-widths; by design 12, fault 2
+# drawn over another element: 17 documents, 43 page-widths; by design 37, proposed P3 6
+# empty section: 7 documents, 14 page-widths; by design 12, function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses 2
 # empty column: none
 # heading in another size than its siblings: none
 # list in another size than its paragraphs: none
 # height against the marked copy (more than 2 % and 24 px): 63 page-widths; holding 62, transient 1
-# proposed rules for ema-adobe (a fault of one signature on 3 or more documents): 3
+# proposed rules for ema-adobe (a fault of one signature on 3 or more documents): 2
 #   PROPOSED	height against the marked copy	37 documents	documents the collapse gave "section style column-view" draw off their marked copy (most common moves: +48 px x20, +96 px x6, +88 px x5)	/xx/hk/book-and-manage/additional-services/get-your-guide, /xx/hk/book-and-manage/digital-self-services/airline-apps, /xx/hk/cancellations-and-refunds, /xx/hk/child-restraint-systems, /xx/hk/childrens-menus-on-board, /xx/hk/dangerous-dogs …
 #   PROPOSED	height against the marked copy	15 documents	documents the collapse gave "section style wide-text" draw off their marked copy (most common moves: +48 px x6, +71 px x3, +88 px x3)	/xx/hk/book-and-manage/additional-services/travel-insurances, /xx/hk/child-restraint-systems, /xx/hk/dangerous-dogs, /xx/hk/doctor-on-board-news, /xx/hk/lufthansa-guide-service, /xx/hk/meetings-and-events-delegates …
-#   PROPOSED	drawn over another element	3 documents	div.default-content-wrapper over div.columns-media-wrapper "" by #px	/xx/hk/book-and-manage/flights/air-baltic, /xx/hk/pre-check-in, /xx/zh/book-and-manage/flights/air-baltic
 # batch	path	width	kind	class	measured
 18	/xx/hk/book-and-manage/cancellation-and-refund/refund/refund-form	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "手動申請機票退款提交表單前，請檢查並填妥您的詳細資訊。預訂已取消我希望申請機票退" by 16px
 18	/xx/hk/book-and-manage/cancellation-and-refund/refund/refund-form	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "手動申請機票退款提交表單前，請檢查並填妥您的詳細資訊。預訂已取消我希望申請機票退" by 16px
-18	/xx/hk/book-and-manage/flights/air-baltic	390	drawn over another element	fault (second look: drawn 15 px over); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "計劃變更時該聯絡誰 如需更改預訂，請透過漢莎航空 App 應用程式或我們的網站使" by 16px
-18	/xx/hk/book-and-manage/flights/air-baltic	1440	drawn over another element	fault (second look: drawn 15 px over); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "計劃變更時該聯絡誰 如需更改預訂，請透過漢莎航空 App 應用程式或我們的網站使" by 16px
+18	/xx/hk/book-and-manage/flights/air-baltic	390	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "計劃變更時該聯絡誰 如需更改預訂，請透過漢莎航空 App 應用程式或我們的網站使" by 16px
+18	/xx/hk/book-and-manage/flights/air-baltic	1440	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "計劃變更時該聯絡誰 如需更改預訂，請透過漢莎航空 App 應用程式或我們的網站使" by 16px
 18	/xx/hk/book-and-manage/stopover	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "透過漢莎航空 Insights 獲得更多靈感 您需要知道關於慕尼黑及我們許多其他" by 16px
 18	/xx/hk/common/accessibility-statement	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.accordion-columns-wrapper "奧地利Marktüberwachungsbehörde Digitale Bar" by 16px
-18	/xx/hk/culinaryjourney	390	empty section	fault (second look: still empty); on the marked copy before the batch too	div.section.micro-frontend-container ""
-18	/xx/hk/culinaryjourney	1440	empty section	fault (second look: still empty); on the marked copy before the batch too	div.section.micro-frontend-container ""
+18	/xx/hk/culinaryjourney	390	empty section	function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses (airline host); listed (fault (second look: still empty); on the marked copy before the batch too)	div.section.micro-frontend-container ""
+18	/xx/hk/culinaryjourney	1440	empty section	function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses (airline host); listed (fault (second look: still empty); on the marked copy before the batch too)	div.section.micro-frontend-container ""
 18	/xx/hk/doctor-on-board	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
 18	/xx/hk/doctor-on-board	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
 18	/xx/hk/doctor-on-board-news	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
@@ -510,8 +509,8 @@
 18	/xx/hk/lufthansa-first-class-fleet	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.accordion-columns-wrapper "A340-600 的頭等艙詳情 空中服務員會根據您的需求，將座位轉換成一張 2 " by 16px
 18	/xx/hk/lufthansa-terminal-muenchen	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
 18	/xx/hk/lufthansa-terminal-muenchen	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
-18	/xx/hk/pre-check-in	390	drawn over another element	fault (second look: drawn 7 px over); new against the marked copy	div.default-content-wrapper over div.columns-media-wrapper "飛往美國、加拿大和墨西哥的航班提供夜間預辦登機服務 夜間預辦登機服務櫃台位於指定" by 16px
-18	/xx/hk/pre-check-in	1440	drawn over another element	fault (second look: drawn 7 px over); new against the marked copy	div.default-content-wrapper over div.columns-media-wrapper "飛往美國、加拿大和墨西哥的航班提供夜間預辦登機服務 夜間預辦登機服務櫃台位於指定" by 16px
+18	/xx/hk/pre-check-in	390	drawn over another element	proposed P3 (new with the collapse): the closing divider 7 px into the padded column view above (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "飛往美國、加拿大和墨西哥的航班提供夜間預辦登機服務 夜間預辦登機服務櫃台位於指定" by 16px
+18	/xx/hk/pre-check-in	1440	drawn over another element	proposed P3 (new with the collapse): the closing divider 7 px into the padded column view above (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "飛往美國、加拿大和墨西哥的航班提供夜間預辦登機服務 夜間預辦登機服務櫃台位於指定" by 16px
 18	/xx/hk/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "奧地利航空 申報行李延誤 布魯塞爾航空 申報行李延誤 漢莎航空 申報行李延誤 瑞" by 16px
 18	/xx/hk/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "奧地利航空 申報行李延誤 布魯塞爾航空 申報行李延誤 漢莎航空 申報行李延誤 瑞" by 16px
 18	/xx/hk/register-animal-cabin	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "General informationPlease give us your c" by 16px
@@ -546,8 +545,8 @@
 18	/xx/zh/advance-seat-reservations-terms-and-conditions	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "退款 该如何申请退款？ 我能否收到代金券形式的退款？ 我的座位预订在哪些情况下可" by 16px
 18	/xx/zh/airport-information	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
 18	/xx/zh/airport-information	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
-18	/xx/zh/book-and-manage/flights/air-baltic	390	drawn over another element	fault (second look: drawn 15 px over); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "计划有变请联系 如需更改预订，请通过汉莎航空 App 应用程序或我们的网站使用汉" by 16px
-18	/xx/zh/book-and-manage/flights/air-baltic	1440	drawn over another element	fault (second look: drawn 15 px over); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "计划有变请联系 如需更改预订，请通过汉莎航空 App 应用程序或我们的网站使用汉" by 16px
+18	/xx/zh/book-and-manage/flights/air-baltic	390	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "计划有变请联系 如需更改预订，请通过汉莎航空 App 应用程序或我们的网站使用汉" by 16px
+18	/xx/zh/book-and-manage/flights/air-baltic	1440	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "计划有变请联系 如需更改预订，请通过汉莎航空 App 应用程序或我们的网站使用汉" by 16px
 18	/xx/zh/book-and-manage/stopover	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "通过汉莎航空 Insights 汲取更多灵感 关于慕尼黑及我们众多其他目的地的一" by 16px
 18	/xx/hk/book-and-manage/additional-services/get-your-guide	390	height against the marked copy	listed: cause not located	1840 -> 1888 (+48 px, +2.6 %); holds (rendered again: 1888; first 1888); located: main's collapse of the kept marked copy, rendered here: 1840 -> 1888 (+48 px), in sections 1 -> sections 2; breadcrumb-container 975 -> h2-small  breadcrumb-container 282
 18	/xx/hk/book-and-manage/additional-services/get-your-guide	1440	height against the marked copy	listed: cause not located	1874 -> 1949 (+75 px, +4.0 %); holds (rendered again: 1949; first 1949); located: main's collapse of the kept marked copy, rendered here: 1874 -> 1949 (+75 px), in sections 1 -> sections 2; breadcrumb-container 1117 -> h2-small  breadcrumb-container 557
@@ -620,7 +619,6 @@
 # batch 17: height against the marked copy | 11 documents | documents the collapse gave "section style wide-text" draw off their marked copy (most common moves: +88 px x4, +71 px x1, +109 px x1) | /xx/hk/advance-seat-reservations-terms-and-conditions, /xx/ru/advance-seat-reservations-terms-and-conditions, /xx/ru/book-and-manage/additional-services/travel-insurances, /xx/ru/doctor-on-board-news, /xx/ru/lounge-companions, /xx/ru/lufthansa-guide-service …
 # batch 18: height against the marked copy | 37 documents | documents the collapse gave "section style column-view" draw off their marked copy (most common moves: +48 px x20, +96 px x6, +88 px x5) | /xx/hk/book-and-manage/additional-services/get-your-guide, /xx/hk/book-and-manage/digital-self-services/airline-apps, /xx/hk/cancellations-and-refunds, /xx/hk/child-restraint-systems, /xx/hk/childrens-menus-on-board, /xx/hk/dangerous-dogs …
 # batch 18: height against the marked copy | 15 documents | documents the collapse gave "section style wide-text" draw off their marked copy (most common moves: +48 px x6, +71 px x3, +88 px x3) | /xx/hk/book-and-manage/additional-services/travel-insurances, /xx/hk/child-restraint-systems, /xx/hk/dangerous-dogs, /xx/hk/doctor-on-board-news, /xx/hk/lufthansa-guide-service, /xx/hk/meetings-and-events-delegates …
-# batch 18: drawn over another element | 3 documents | div.default-content-wrapper over div.columns-media-wrapper "" by #px | /xx/hk/book-and-manage/flights/air-baltic, /xx/hk/pre-check-in, /xx/zh/book-and-manage/flights/air-baltic
 
 ## Proposals for ema-adobe, located (lufthansa.com's theme and the collapse are ema-adobe's; nothing changed here)
 
@@ -645,3 +643,18 @@
 #   47 to 139 px more per section at 1440 than the marked spacer (fashion-guide: at/de +408 at 1440 live; reproduced on
 #   xx/fr's kept marked copy, 15,634 -> 16,049 at 1440 and 12,006 -> 12,085 at 390). Three copies of one document: listed
 #   for ema-adobe with P1, not counted as 3 documents.
+
+# P3. A divider-below section's closing divider drawn into the column view above it (6 documents so far, both widths).
+#   Where:
+#     - air-baltic at/de (batch 13), xx/ru (17), xx/hk and xx/zh (18): drawn 15 px over. A grey limited-headings section;
+#       the column view has no padding of its own. It was on each marked copy before its batch too (not the collapse).
+#     - pre-check-in xx/ru (17) and xx/hk (18): drawn 7 px over, after a padded column view (8 px padding). New with the
+#       collapse: the marked copies drew no overlap.
+#   The cause, read on xx/zh air-baltic and xx/hk pre-check-in at 1440:
+#     - the section ends with a wrapper holding only the closing divider (p.spacer.divider, 25 px);
+#     - styles.css takes 16 px back above such a wrapper after a block (margin-top -16px);
+#     - the column view draws to its own end, so the divider's line lands inside it.
+#   The same shape ITA had, fixed for its theme in 666f7906 (standing order 51): after a padded column view or an FAQ
+#     accordion in a divider-below section, no take-back. A lufthansa.com rule would be ema-adobe's, gated on its recorded
+#     page-widths, e.g. body.brand-lufthansa main > .section.divider-below > .columns-media-wrapper +
+#     .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) { margin-top: 0; } (not written or gated here).
