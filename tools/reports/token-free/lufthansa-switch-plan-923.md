@@ -5460,6 +5460,7 @@ Ben's decision (§14): the page-by-page differences are accepted; so are the hel
 | /de/en/all-check-in 1440 | 0.88 | page | (b) | head h2 "Bag drop-off": bottom +9 (h +9) |
 | /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation 390 | 0.82 | page | (e) | section section: bottom -4 (h -4) |
 | /de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk 390 | 0.80 | page | (b) | head h2 "Travellers who require a visa to enter t": bottom +16 |
+| /de/en/tiere-als-handgepaeck 390 | 0.80 | page | new | added by standing order 66 (the final gate, §15.1): today 4.52, predicted 5.02, live 5.32 on two captures; no shared rule reaches it |
 | /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich 390 | 0.79 | page | (a) | block columns-media: bottom -19 |
 | /de/en/anmeldung-tiere-frachtraum 390 | 0.76 | page | (d) | block form: bottom +29 (h +29) |
 | /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 1440 | 0.75 | page | (a) | block columns-media: bottom +11 |
@@ -6242,9 +6243,9 @@ failed capture was taken again: at/de services-am-flughafen 390 read 900 px, the
   - xx/pt meetings-and-events 390, +2.41.
 - **Against the accepted list (§14.7).** Of the 277 failing page-widths, 275 are on §14.7's list. The other two:
   - /de/en/doctor-on-board-news 390 is A2's (order 61; the batch 03 watch named it), accepted with A2;
-  - /de/en/tiere-als-handgepaeck 390 is the one page-width further than the accepted list: today 4.52, predicted 5.02
-    (+0.50, the border), live 5.32 on two captures. No rule of orders 64-65 reaches it. It is for the decision whether
-    it joins the list.
+  - /de/en/tiere-als-handgepaeck 390 was the one page-width further than the accepted list: today 4.52, predicted 5.02
+    (+0.50, the border), live 5.32 on two captures. No rule of orders 64-65 reaches it. Standing order 66 added it to
+    §14.7 as a page-by-page difference.
 - **The accepted list as it stands after tonight's rules:**
   - 275 of §14.7's page-widths still fail, and A2's doctor-on-board-news 390 beside them. B2's two no longer count:
     fmg-valet-parking-service 390 (6.06) is explained by www's own 60 (4.81), and lufthansa-terminal-muenchen 390 (8.78)

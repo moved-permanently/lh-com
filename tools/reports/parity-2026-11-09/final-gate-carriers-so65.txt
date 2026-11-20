@@ -8,6 +8,11 @@
 #   styles only (the reference writes an h1-/h2-/h3- style the live copy has not: the reference's Headings come from the served
 #   head, so DA's source decides which is right); other (the sections or blocks differ). To check against DA's source once it
 #   reads again; nothing here is a row.
+# Standing order 66 (2026-11-20, 10:10 UTC), DA read again (read only, 200): every one of the 85 has the same section styles,
+#   blocks and options in DA's current source as on live (logs/b662/carriers.mjs without a reference: 85 of 85 same). So the
+#   rebuilt reference was what differed, not the live copies: all 85 are "same". The 10 marked "collapsed before the fix" below
+#   are not the old tool's output now either: their live copies carry the fixed collapse's block options (h3-large, h2-compact),
+#   order 62's rerun rows applied. No document differs, so no row (delta-so66-com-carriers.txt has none for item 1).
 # path	batch	kind	the first differences (DA = the reference)
 /gb/en/doctor-on-board-news	07	a later row (phone-slider)	1 sections differ: 2: DA grey,h2-small[s.spacer carousel-cards.grid] / live grey,h2-small[s.spacer carousel-cards.grid.phone-slider]
 /gb/en/flying-with-small-children	07	a later row (phone-slider)	1 sections differ: 2: DA column-view,flush,grey,h2-small[carousel-cards.grid] / live column-view,flush,grey,h2-small[carousel-cards.grid.phone-slider]
