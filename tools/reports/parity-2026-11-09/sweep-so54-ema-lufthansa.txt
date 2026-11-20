@@ -65,7 +65,7 @@ cargo	(default)	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
 #     three card headings as H4 accepted;
 #   - a carrier document against its switched page before the row: the headings must stay; the height moves by the ending the row
 #     restores (its marked copy was not kept).
-# round-01: 45 documents published 12:20-12:20 UTC, rendered 12:27 UTC; page-widths: headings as before the row 90
+# round-01: 45 documents seen published at the 12:20-12:20 UTC check (3-minute checks), rendered 12:27 UTC; page-widths: headings as before the row 90
 #   carrier page-widths, height moves in px: -314 x1, -275 x1, -48 x64, -43 x1, -32 x1, -24 x12, -16 x1, +0 x9
 #   (-48 / -24: the page-end gap under the last column view the row removes, 24 for a column-spaced view; the
 #   travel-insurances copies also had their footnotes section split in the same DA commit, fa4b18a0)
@@ -160,7 +160,7 @@ round-01	carrier	/gb/de/book-and-manage/additional-services/travel-insurances	14
 round-01	carrier	/gb/de/book-and-manage/additional-services/travel-insurances	390	headings as before the row	4432 -> 4118 (-7.08 %)	8	
 round-01	carrier	/gb/en/book-and-manage/additional-services/travel-insurances	1440	headings as before the row	3142 -> 3126 (-0.51 %)	8	
 round-01	carrier	/gb/en/book-and-manage/additional-services/travel-insurances	390	headings as before the row	4709 -> 4434 (-5.84 %)	8	
-# round-02: 65 documents published 13:11-13:11 UTC, rendered 13:20 UTC; page-widths: accepted (ANA: the three card headings as H4) 30, equal to the marked copy 98, differs from the marked copy 2
+# round-02: 65 documents seen published at the 13:11-13:11 UTC check (3-minute checks), rendered 13:20 UTC; page-widths: accepted (ANA: the three card headings as H4) 30, equal to the marked copy 98, as its HOLD row proposes (the second H1 an H2, same size and weight) 2
 # round	list	path	width	class	height before -> now (%)	headings	first differing headings
 round-02	kept	/at/de/book-and-manage/flights/ana	1440	accepted (ANA: the three card headings as H4)	3471 -> 3471 (+0.00 %)	11	#7 h2 24px 700 -> h4 24px 700 "Überprüfen Sie Ihre Reisedokumente" ; #8 h2 24px 700 -> h4 24px 700 "Zeit für Check-in und Gepäckaufgabe" ; #9 h2 24px 700 -> h4 24px 700 "Gepäckinformationen für Flüge mit ANA"
 round-02	kept	/at/de/book-and-manage/flights/ana	390	accepted (ANA: the three card headings as H4)	5448 -> 5448 (+0.00 %)	11	#7 h2 20.0563px 700 -> h4 20.0563px 700 "Überprüfen Sie Ihre Reisedokumente" ; #8 h2 20.0563px 700 -> h4 20.0563px 700 "Zeit für Check-in und Gepäckaufgabe" ; #9 h2 20.0563px 700 -> h4 20.0563px 700 "Gepäckinformationen für Flüge mit ANA"
@@ -172,8 +172,8 @@ round-02	kept	/fr/fr/book-and-manage/flights/ana	1440	accepted (ANA: the three c
 round-02	kept	/fr/fr/book-and-manage/flights/ana	390	accepted (ANA: the three card headings as H4)	5787 -> 5787 (+0.00 %)	11	#7 h2 20.0563px 700 -> h4 20.0563px 700 "Vérifiez vos documents de voyage" ; #8 h2 20.0563px 700 -> h4 20.0563px 700 "Prévoyez du temps pour l’enregistrement " ; #9 h2 20.0563px 700 -> h4 20.0563px 700 "Informations relatives aux bagages pour "
 round-02	kept	/fr/fr/tips-senior-travellers	1440	equal to the marked copy	13157 -> 13197 (+0.30 %)	44	
 round-02	kept	/fr/fr/tips-senior-travellers	390	equal to the marked copy	21345 -> 21377 (+0.15 %)	44	
-round-02	kept	/gb/en/autumn-campaign22	1440	differs from the marked copy	45202 -> 45202 (+0.00 %)	3	#2 h1 28px 300 -> h2 28px 300 "Check out all our offers and start plann"
-round-02	kept	/gb/en/autumn-campaign22	390	differs from the marked copy	22071 -> 22071 (+0.00 %)	3	#2 h1 22.0845px 300 -> h2 22.0845px 300 "Check out all our offers and start plann"
+round-02	kept	/gb/en/autumn-campaign22	1440	as its HOLD row proposes (the second H1 an H2, same size and weight)	45202 -> 45202 (+0.00 %)	3	#2 h1 28px 300 -> h2 28px 300 "Check out all our offers and start plann"
+round-02	kept	/gb/en/autumn-campaign22	390	as its HOLD row proposes (the second H1 an H2, same size and weight)	22071 -> 22071 (+0.00 %)	3	#2 h1 22.0845px 300 -> h2 22.0845px 300 "Check out all our offers and start plann"
 round-02	kept	/gb/en/book-and-manage/flights/ana	1440	accepted (ANA: the three card headings as H4)	3444 -> 3444 (+0.00 %)	11	#7 h2 24px 700 -> h4 24px 700 "Check your travel documents" ; #8 h2 24px 700 -> h4 24px 700 "Time for check-in and bag drop" ; #9 h2 24px 700 -> h4 24px 700 "Baggage information for flights with ANA"
 round-02	kept	/gb/en/book-and-manage/flights/ana	390	accepted (ANA: the three card headings as H4)	5140 -> 5140 (+0.00 %)	11	#7 h2 20.0563px 700 -> h4 20.0563px 700 "Check your travel documents" ; #8 h2 20.0563px 700 -> h4 20.0563px 700 "Time for check-in and bag drop" ; #9 h2 20.0563px 700 -> h4 20.0563px 700 "Baggage information for flights with ANA"
 round-02	kept	/gb/en/first-class	1440	equal to the marked copy	21503 -> 21558 (+0.26 %)	38	
@@ -292,4 +292,10 @@ round-02	kept	/xx/zh/prepare-for-your-trip/special-travel-needs/travel-with-need
 round-02	kept	/xx/zh/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	390	equal to the marked copy	8202 -> 8186 (-0.20 %)	21	
 round-02	kept	/xx/zh/tips-senior-travellers	1440	equal to the marked copy	11801 -> 11841 (+0.34 %)	44	
 round-02	kept	/xx/zh/tips-senior-travellers	390	equal to the marked copy	15903 -> 15935 (+0.20 %)	44	
+# The rounds as main names them: the import helper's DA-state commits fa4b18a0 ("so66 com carriers: 45 documents ...", 13:03
+#   CET) and a638f349 ("so60 holds2 (so70): 65 kept lufthansa.com documents collapsed ...", 13:03 CET); the carriers went live
+#   12:17-12:20 UTC, the kept documents 13:09-13:11 UTC. No commit subject on main carries publish-so60-holds2-NN or
+#   publish-so66-com-carriers-NN; the rounds here are the two groups as live showed them.
+# After both rounds the live census reads 0 for both lists (switch-census.mjs --env live: delta-so70-com-kept 65 of 65
+#   read, 0 marked; delta-so66-com-carriers 45 of 45 read, 0 marked).
 # Not published by the last check: 0 of 110
