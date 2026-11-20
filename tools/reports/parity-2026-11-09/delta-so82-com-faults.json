@@ -45,6 +45,15 @@
   ]
  },
  {
+  "path": "/xx/en/common/seatreservation-condtions/economy-light-fare",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns faq open-4\">",
+    "text": "<div class=\"accordion-columns faq\">"
+   }
+  ]
+ },
+ {
   "path": "/xx/es/support/contact/contact-form-confirmation",
   "inserts": [
    {

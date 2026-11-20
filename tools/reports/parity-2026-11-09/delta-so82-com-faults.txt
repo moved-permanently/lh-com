@@ -14,7 +14,8 @@
 # Dry run on DA's current copies (single read-only GETs of admin.da.live, one per document, 20 Nov about 06:55 CET):
 # 5/5 "1 inserted, 0 present", "without the inserts DA's copy byte for byte: true". A second run on the output gives
 # "1 present" for all 5. No {…} in the output. Each anchor ('<div class="accordion-columns faq open-N">') is in its DA
-# copy exactly once.
+# copy exactly once. xx/en economy-light-fare (batch 26, collapsed by 57b1c650): its DA copy read 08:56 CET, still
+# "accordion-columns faq open-4", 0 markers; dry run "1 inserted", byte for byte, a second run "1 present".
 # Gate (lufthansa.turnsthe.page, 1440 and 390, the row's effect injected in the same load: every item of the page's
 # FAQ accordion closed, so77/nb77s.mjs STEP): heights in the table, no flag came or went on the 10 page-widths.
 # Against www (xx/en refund only, the recorded page): 1440 1,669 against 1,718 (-2.9 %, from +122 %), 390 2,274
@@ -30,8 +31,8 @@ READY	/xx/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	-	2
 READY	/xx/de/common/seatreservation-condtions/rebookings-cancellation	390	-	-	5,200	1,983	as above
 READY	/xx/de/common/seatreservation-condtions/economy-light-fare	1440	-	-	3,153	1,494	open-4 dropped (same import reading)
 READY	/xx/de/common/seatreservation-condtions/economy-light-fare	390	-	-	5,335	2,110	as above
-HOLD	/xx/en/common/seatreservation-condtions/economy-light-fare	1440	-	-	3,025	1,525	open-4; in switch batch 26 (still marked): READY once its state commit is on main
-HOLD	/xx/en/common/seatreservation-condtions/economy-light-fare	390	-	-	4,824	2,055	as above
+READY	/xx/en/common/seatreservation-condtions/economy-light-fare	1440	-	-	3,045	1,545	open-4 dropped (same import reading); batch 26 collapsed (57b1c650), DA copy read 08:56 CET
+READY	/xx/en/common/seatreservation-condtions/economy-light-fare	390	-	-	4,844	2,075	as above (gated again on the collapsed copy, 08:58 CET: no flag)
 #
 # DA change (lh-com), every READY path above: "accordion-columns faq open-N" -> "accordion-columns faq".
 #

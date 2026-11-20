@@ -48,7 +48,8 @@ d. /xx/en/common/seatreservation-condtions/refund: www closes all 8 FAQ items on
    all 8 (open-8: 3,821 / 6,154). It differs from ours, so there are rows (delta-so82-com-faults.txt): 5 documents
    READY (xx/en refund and rebookings-cancellation; xx/de refund, rebookings-cancellation and economy-light-fare: the
    same 17 Nov import read every item as expanded, and on xx/en refund that reading is not www's first load), and
-   xx/en economy-light-fare HOLD until its batch 26 state commit. Gate: with the items closed xx/en refund draws 1,669 /
+   xx/en economy-light-fare, HOLD until its batch 26 state commit, READY since 57b1c650 (08:45 CET; dry-run and gated
+   again on its collapsed copy: 3,045 / 4,844 -> 1,545 / 2,075). Gate: with the items closed xx/en refund draws 1,669 /
    2,274 against www's 1,718 / 2,282 (-2.9 % / -0.4 %, from +122 % / +170 %). No flag came or went on the 10
    page-widths.
 
@@ -108,3 +109,12 @@ Post-rule sweep 3: ema-adobe's XXL (a4bc3aff)
 - It changes only Spacer blocks with the option xxl, and no served document has one yet. The documents it will reach
   are this list's 11 rows and fr/fr after its collapse. The gate above is their render with it. Nothing else to sweep
   until the rows are applied.
+
+Post-rule sweep 4: Rule 3, the narrower form (ema-adobe 2798d6d2, styles.css: padded Columns Media only; served 08:15 CET)
+--------------------------------------------------------------------------------------------------------------------------
+- Reach: order 81's 42 documents with an icon heading and text in a Columns Media cell (ema-adobe counts 70 with its
+  wider selector's first try). All 42 at 1440 and 390, 2 pages at once: 84 page-widths, all 200 and settled.
+- No breakage. The only flags are known ones: the lounge finder's select clipping its long placeholder on xx/fr, xx/pl,
+  xx/pt and xx/ru lounges (order 80's ARTEFACT), and one Columns Media empty text cell (CONTENT).
+- The seat terms page as served now: /xx/es 1,751 / 2,778 against www's 1,653 / 2,747 (+5.9 % / +1.1 %; from +7.0 % /
+  +4.2 %). The 1440 card rows stay 24 px taller than www's (item 2b above).
