@@ -123,7 +123,7 @@ Item 2 - the help-center stage picture (shipped) and the seat-reservation FAQ ro
 
 Batch 12 (on live; 300 of 300 documents swept)
 ----------------------------------------------
-- Documents: 300 READY, all at/de. Live census 00:50 CET: 300 with 0 markers, none held. Swept: 600 page-widths, all
+- Documents: 300 READY, all at/de. Live census 00:48 CET: 300 with 0 markers, none held. Swept: 600 page-widths, all
   200. Also rendered: their 300 de/de source copies (600 page-widths). Text points hit-tested: 111,624. Refused
   requests: 3,527 (the article pages' widgets ask www's APIs).
 - Broken pictures, sideways scroll, heading size: 0. Never loaded / not settled: 1 in the sweep
@@ -186,7 +186,7 @@ Rule 2 for ema-adobe - German page titles wider than a phone's column (PROPOSED)
 
 Batch 13 (on live; 295 of 300 documents swept)
 ----------------------------------------------
-- Documents: 300 READY, all at/de. Live census 01:38 CET: 295 with 0 markers, 5 still marked (held, not swept):
+- Documents: 300 READY, all at/de. Live census 01:30 CET: 295 with 0 markers, 5 still marked (held, not swept):
   /at/de/book-and-manage/flights/ana, /at/de/business-class, /at/de/first-class, /at/de/lounges,
   /at/de/meetings-and-events. Swept: 590 page-widths, all 200, all settled. Also rendered: 294 source copies (de/de).
   Text points hit-tested: 107,491. Refused requests: 659.
@@ -303,3 +303,40 @@ Batch 15 (on live; 291 of 300 documents swept)
 - Against its own marked copy before the batch: /xx/fr/support/support (order 78, 19 Nov, marked): 1440 13,541 ->
   13,700 (+1.2 %), 390 7,456 -> 7,554 (+1.3 %). Within 15 %, no flag.
 - Rows: 0.
+
+Batch 16 (on live; 294 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY: 254 xx/pt, 21 xx/es, 15 xx/ru at the first census (03:08 CET, 10 still marked). The helper's
+  "so60 batch 16h: 4 held documents cleared" then cleared 4 (/xx/es/unterhaltung-an-bord, /xx/pt/alleinreisende-kinder,
+  /xx/pt/first-class, /xx/pt/unterhaltung-an-bord), and they were swept after. 6 still marked at the second census
+  (held, not swept): /xx/es/tips-senior-travellers, /xx/pt/book-and-manage/flights/ana, /xx/pt/tips-senior-travellers
+  and the three xx/pt travel-with-needs impairment pages. Swept: 588 page-widths, all 200, all settled. Text points
+  hit-tested: 98,722 and the 4 cleared documents. The xx pages are sources: no source comparison.
+- Broken pictures, sideways scroll, never loaded, heading or list size, text cut, text spill: 0.
+- Text over another element: Rule 1's fault on 4 more pages at 1440 (/xx/es/upgrade-premium-economy-class,
+  /xx/pt/upgrade-business-class-longo-curso, /xx/pt/upgrade-para-a-business-class,
+  /xx/pt/upgrade-premium-economy-class). DESIGN: form selects and the flight-status selects over their labels.
+  /xx/pt/lounges 1440: the lounge finder's select clips its long Portuguese placeholder ("Classe de viagem ou estatuto
+  de passag…" inside its field, clip checked). The probe hit the clipped rest under the actions box: ARTEFACT. Its
+  English labels ("Find your airport lounge", "City", "Search lounges") are the finder's fallback while the refused
+  label answer is missing: FUNCTION. /xx/pt/first-class 1440: 5 paragraphs hit under the footer in the sweep. Read
+  alone: 0 (positions moved during that load).
+- Empty columns: 4 documents (Columns Media empty text cells, CONTENT). Empty section: /xx/pt/culinaryjourney
+  (FUNCTION).
+- Against its own marked copy (ema-lufthansa's renders of batch 16, 580 page-widths compared): 17 page-widths more than
+  15 % off.
+    - 15 are the xx/pt stopover partner pages (bayerischer-hof, breuninger, garmisch-classic, hop-on-hop-off-muc,
+      ingolstadt-village, leonardo-hotel, munich-airport, neuschwanstein, sixt-muc, zugspitze; +491 to +577 px). That
+      is the POI map's view, as batch 13: ARTEFACT.
+    - FAULT, LISTED for ema-adobe: /xx/pt/support/contact/contact-form-confirmation, 1440 1,496 -> 1,216 (-18.7 %) and
+      390 1,768 -> 1,488 (-15.8 %). Its marked copy had {spacer-400} after the thank-you text (the importer's reading of
+      www's 400 px). The collapse wrote "section style space-below-l" for it, which draws 120 px: the page lost 280
+      px. The still-marked /xx/it copy (batch 20) measures 1,496 / 1,746 here, and the switched /xx/pt and /xx/es
+      copies 1,216. The same collapse row is on 15 copies: xx/it, xx/ru, xx/zh, xx/ko, xx/pl, xx/ja, xx/fr, xx/es,
+      xx/el, xx/hk, xx/pt and fr/fr ("1 -> 0 section style space-below-l 1"), xx/fr's and xx/es's in batches 14 and
+      15 of this file. The de/en, de/de, gb/en and at/de copies had a smaller mark ("block spacer l-minus") and draw
+      1,139. Not a style rule. The collapse's carrier for a 400 px spacer is the question: a Spacer block that draws
+      400 px, or a section style that does, would give the marked page's height back. That is the switch's tool and
+      ema-adobe's call (token-free either way).
+- Rows: 0.
+
