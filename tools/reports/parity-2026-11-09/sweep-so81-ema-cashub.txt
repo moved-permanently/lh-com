@@ -111,3 +111,25 @@ Item 5 - the help center's FAQ card picture, for the Captures child to copy
   at 05:25 CET.
 - Once it answers 200, the micro-frontend's lufthansa.com map (059cb062, APPS help-center-web lhDesign.pictures)
   needs its second line, for faq.png as for main.png. I would write it and gate it as order 80's main.png.
+
+Batch 20 (on live; 294 of 300 documents swept)
+----------------------------------------------
+- Not in sweep-so52-ema-lufthansa.txt (its parts end at batch 19), so swept here. Documents: 300 READY: 158 xx/it, 136
+  xx/el. On live at 05:30 CET (census: 9 still marked; "so60 batch 20h" cleared 3). 6 still marked at 05:39 CET (held,
+  not swept): /xx/el/book-and-manage/flights/ana, /xx/el/business-class, /xx/it/tips-senior-travellers and the three
+  xx/it travel-with-needs impairment pages. Swept: 588 page-widths, all 200, order 80's checks and the collision probe
+  in one load, 3 pages at most. Text points hit-tested: 103,195. The xx pages are sources: no source comparison.
+- Against its own marked copy: rendered here while still marked, 05:16 to 05:28 CET (marked-2021: the census showed all
+  300 marked at 05:28:16, and 9 at 05:29:55; only the renders before 05:28:16 count). 532 page-widths compared: 183
+  unchanged, the most common moves +48 px (44), -24 (12), +24 (11), -40 (9). 1 document more than 15 % off:
+  /xx/it/support/contact/contact-form-confirmation 1440 1,496 -> 1,216 (-18.7 %), 390 1,746 -> 1,466 (-16.0 %): item 2's
+  lost 280 px.
+- Broken pictures, sideways scroll, never loaded, heading or list size, text spill: 0. 2 page-widths did not settle in
+  the sweep (/xx/el/first-class-personal-assistant 390, /xx/el/first-class-terminal 1440). Read alone: settled, 3,541
+  and 12,464 px (their marked renders 3,541 and 12,522).
+- Text over another element: 0 FAULT (form selects over their own labels on /xx/it/feedback-past-flight and others:
+  DESIGN).
+- Text cut: /xx/el/cash-and-miles 1440, the finder's "Αναζήτηση πτήσεων" button 6 px narrower than its label's
+  scrollWidth. The same on its marked render. The label is drawn whole (clip checked): ARTEFACT.
+- Empty columns: 4 (Columns Media empty text cells, CONTENT). Empty section: /xx/it/culinaryjourney (FUNCTION).
+- Rows: 0 (the confirmation page is item 2's proposal).
