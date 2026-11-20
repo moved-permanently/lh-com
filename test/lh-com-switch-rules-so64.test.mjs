@@ -31,8 +31,8 @@ test('Rule 1: the Subpage Nav section after a grey band keeps no pull-up, from 7
   assert.match(r.body, /^margin-top: 0;$/);
 });
 
-test('Rule 2: on phones a German page title breaks a word longer than the column, without hyphens (the narrow form)', () => {
-  const r = ruleOf('body.brand-lufthansa main h1:lang(de)');
+test('Rule 2: on phones a German page title or H2 breaks a word longer than the column, without hyphens (the narrow form; H2 since standing order 65)', () => {
+  const r = ruleOf('body.brand-lufthansa main :is(h1, h2):lang(de)');
   assert.ok(r, 'the rule is in styles.css');
   assert.equal(r.media, '@media (width < 768px)');
   assert.match(r.body, /^overflow-wrap: break-word;$/);

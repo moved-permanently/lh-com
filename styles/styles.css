@@ -1059,9 +1059,11 @@ body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .defa
 
 /* lufthansa.com on phones: a German page title's word longer than the column ("Sitzplatzreservierung" 360px in 346,
    "Datenschutzhinweise", "Europameisterschaft") breaks at the column's edge instead of running out of it (standing order 64,
-   ema-cashub's sweep-so80 Rule 2, the narrow form: no hyphens; no www recording of a reached page tells www's breaks) */
+   ema-cashub's sweep-so80 Rule 2, the narrow form: no hyphens; no www recording of a reached page tells www's breaks); and an
+   H2's (standing order 65: "Verbraucherschlichtungsstelle", "Marktüberwachungsbehörde", the conditions pages' article
+   headings; 10 German documents) */
 @media (width < 768px) {
-  body.brand-lufthansa main h1:lang(de) {
+  body.brand-lufthansa main :is(h1, h2):lang(de) {
     overflow-wrap: break-word;
   }
 }
