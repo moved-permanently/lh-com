@@ -50,3 +50,43 @@ Item 3: the reach of 5eec7d5f and bccb1e1e on the brand hosts (documents not ren
     y 1,514-2,332. That is the stage's booking bar, a ::after fixed at the viewport's foot (airdolomiti.css, 15vh, as www's
     sticky bar): the text scrolls under it by design. The probe now treats a fixed pseudo-element as fixed; the 36 page-widths
     read again at 1440: 0 collisions. DESIGN. No breakage from bccb1e1e.
+
+Batch 22 (xx/ja, xx/ko; on live from about 06:40 CET; 294 of 300 documents swept)
+-------------------------------------------------------------------------------------
+- Documents: 300 READY. State commit 6974ee0b ("292 collapsed"), then 7458b554 ("so60 batch 22h: 2 held documents cleared"). Live
+  census 06:40 CET: 292 with 0 markers, 8 still marked; at 06:58 CET 6 still marked (held, not swept):
+  /xx/ja/prepare-for-your-trip/special-travel-needs/travel-with-needs/{cognitive,hearing,visual}-impairment, /xx/ja/tips-senior-
+  travellers, /xx/ko/book-and-manage/flights/ana, /xx/ko/business-class. The 2 cleared (/xx/ja/unterhaltung-an-bord,
+  /xx/ko/first-class) were swept after the rest.
+- Swept: 294 documents, 588 page-widths, all 200. 59 page-widths did not reach 3 equal heights in 15 s (fare finders and
+  carousels waiting on refused hosts); their checks were read at the end of the wait. Refused requests: 818. Text points
+  hit-tested: 151,125 (the collision pass clip-aware: points outside an ancestor's clipping box, such as a scrolling table's
+  hidden rows, are not tested; the first pass without that read the table rows of 10 documents as collisions, read again).
+- Every flag below is on the document's marked copy too, rendered before the batch (01:11-03:25 CET, same checks): nothing new
+  drawn wrong by the switch, except the 4 overlaps marked new.
+  - Broken picture, sideways scroll, never loaded: 0.
+  - Text over another element: 2 documents. /xx/ko/flights (both widths): the destination finder's screen-reader-only headings
+    (destination-finder-sr-only, 1 px boxes) under its filter heading, and they "spill" their 1 px box: ARTEFACT (order 79 saw the
+    same on /se/en/yes3). /xx/ko/feedback-past-flight: the file field's "optional" hint inside its own drop zone: DESIGN. Form
+    fields over their own floating labels and hints: 20 documents, 39 page-widths: DESIGN.
+  - Cut label: 10 documents, all form labels: the masked date and age labels of the register forms (form-label-masked: the field
+    shows them as its placeholder), the flight finder's screen-reader trip-type label (flight-search-sr-only), the lounge
+    finder's labels in their select boxes. DESIGN / ARTEFACT, on the marked copies too.
+  - Overlap of blocks: 18 documents, 33 page-widths, all 16 or 24 px: an empty default-content box (a spacer's or divider's
+    paragraph, nothing drawn) pulled 16 px up into a padded Columns Media, a form or a cards block by its own margin-top. Nothing
+    is drawn over anything. DESIGN. New with the switch: /xx/ja/pre-check-in and /xx/ko/pre-check-in (both widths, the same
+    16 px empty box after the padded block: the collapse's carrier for their {spacer}): DESIGN, as the 14 others.
+  - Empty block: 7 documents. The POI map's 500 px box on 6 stopover pages and 100-years/destinations (its map tiles come from a
+    refused host) and the culinary hub's micro-frontend box (/xx/ko/culinaryjourney: api.travelid.lufthansa.com refused):
+    FUNCTION.
+- Against the marked copy: 588 page-widths compared, 3 more than 15 % off, each read again alone (the same heights):
+  - /xx/ja/support/contact/contact-form-confirmation 1440 1,401 -> 1,121 (-20.0 %), 390 1,596 -> 1,316 (-17.5 %). The marked
+    {spacer-400} under the thank-you text became the section style space-below-l (the batch row's carrier): 280 px less empty
+    space, nothing else changed. /de/en's copy, switched in batch 04, draws the same (1,139 at 1440). LISTED for ema-adobe: the
+    collapse writes space-below-l for {spacer-400}; if www's thank-you pages keep the 400 px, a Spacer block carrier would. Not a
+    breakage.
+  - /xx/ko/book-and-manage/stopover/bayerischer-hof 390 3,496 -> 2,964 (-15.2 %; 1440 0 %), and zugspitze 390 -14.4 % (under
+    the threshold, the same cause): the marked {limited-width} also narrowed the text column at 390; the switched pages ("theme
+    defaults only") draw full width like their 13 stopover siblings, which had no such marker (each within 0.6 % of its marked
+    copy). CONTENT of the marker, not a fault.
+- Faults for ema-adobe (3 or more documents): none in this batch. Rows: none.
