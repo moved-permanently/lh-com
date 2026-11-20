@@ -1,0 +1,2407 @@
+# ema-lufthansa, standing order 52 (2026-11-20): lufthansa.com documents rendered while still marked on live, before their
+# switch batch went live. Same load and measure as sweep-so52-ema-lufthansa.txt (lufthansa.turnsthe.page, 1440 x 900 and
+# 390 x 844, full Chrome, Liberation Sans for Arial, airline hosts refused, network idle, scrolled to the end, every section
+# loaded). The live census showed every document of the batch marked when its render began and when it ended.
+# For ema-cashub's sweep-so80 ("against its own marked copy"): batches 14 and 16 are its own; 12 and 13 are in both files.
+# flags: the sweep's raw flags on the marked copy (before second looks).
+# batch	path	width	height	rendered (UTC)	flags
+12	/at/de/articles/explore-the-world/essentials-toronto-facts	1440	4920	23:11-23:23	
+12	/at/de/articles/explore-the-world/essentials-toronto-facts	390	4965	23:11-23:23	
+12	/at/de/articles/explore-the-world/essentials-vienna-facts	1440	5496	23:11-23:23	
+12	/at/de/articles/explore-the-world/essentials-vienna-facts	390	6496	23:11-23:23	
+12	/at/de/articles/explore-the-world/essentials-washington-facts	1440	5276	23:11-23:23	
+12	/at/de/articles/explore-the-world/essentials-washington-facts	390	6038	23:11-23:23	
+12	/at/de/articles/explore-the-world/essentials-zurich-facts	1440	5253	23:11-23:23	
+12	/at/de/articles/explore-the-world/essentials-zurich-facts	390	5794	23:11-23:23	
+12	/at/de/articles/explore-the-world/experience-art-live	1440	8400	23:11-23:23	
+12	/at/de/articles/explore-the-world/experience-art-live	390	9805	23:11-23:23	
+12	/at/de/articles/explore-the-world/experience-nature	1440	8951	23:11-23:23	
+12	/at/de/articles/explore-the-world/experience-nature	390	11558	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-apgujeong-seoul	1440	5443	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-apgujeong-seoul	390	8376	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-arroios-lissabon	1440	4893	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-arroios-lissabon	390	7112	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-back-bay-boston	1440	5984	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-back-bay-boston	390	8725	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-bandra-mumbai	1440	5051	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-bandra-mumbai	390	7265	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-chiswick-london	1440	5240	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-chiswick-london	390	7570	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-citta-studi-milan	1440	5637	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-citta-studi-milan	390	8868	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-city-centre-cape-town	1440	5680	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-city-centre-cape-town	390	8181	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-comercial-drive-vancouver	1440	5417	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-comercial-drive-vancouver	390	7505	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-coyoacan-mexico-city	1440	5291	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-coyoacan-mexico-city	390	8031	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-creative-quarter-dublin	1440	5618	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-creative-quarter-dublin	390	8631	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-helsinki	1440	6160	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-helsinki	390	9801	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-houston	1440	5816	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-houston	390	8501	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-malaga	1440	5304	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-district-malaga	390	7347	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-district-nairobi	1440	5366	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-nairobi	390	7453	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-porto	1440	5341	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-porto	390	7490	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-viii-budapest	1440	5343	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-viii-budapest	390	8116	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-district-zurich	1440	5531	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-district-zurich	390	8505	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-gamlebyen-oslo	1440	5273	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-gamlebyen-oslo	390	7186	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-geylang-singapur	1440	5511	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-geylang-singapur	390	8447	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-gulou-beijing	1440	5595	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-gulou-beijing	390	7932	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-hollywood-road-hong-kong	1440	5187	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-hollywood-road-hong-kong	390	7755	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-indiranagar-bengaluru	1440	5216	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-indiranagar-bengaluru	390	7824	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-ipanema-rio-de-janeiro	1440	5798	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-ipanema-rio-de-janeiro	390	8754	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-japantown-san-francisco	1440	5028	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-japantown-san-francisco	390	7408	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-kadikoey-istanbul	1440	5247	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-kadikoey-istanbul	390	7958	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur	1440	6043	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-kampung-attap-kuala-lumpur	390	8808	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-kreuzberg-berlin	1440	5700	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-kreuzberg-berlin	390	8208	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-larchmont-la	1440	4918	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-larchmont-la	390	7179	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-le-sentier-paris	1440	5522	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-le-sentier-paris	390	8370	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-mallorca	1440	5210	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-mallorca	390	7703	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-metaxourgeio-athens	1440	5607	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-metaxourgeio-athens	390	8790	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington	1440	6287	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington	390	10213	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-munich-sendling	1440	4986	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-munich-sendling	390	7304	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-nice-ouest	1440	5278	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-nice-ouest	390	7410	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-noord-amsterdam	1440	5678	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-noord-amsterdam	390	8735	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-ny-brooklyn	1440	5034	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-ny-brooklyn	390	7249	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-osterbro-kopenhagen	1440	5957	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-osterbro-kopenhagen	390	9361	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-palermo-buenos-aires	1440	5356	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-palermo-buenos-aires	390	7696	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-plaza-midwood-charlotte	1440	5823	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-plaza-midwood-charlotte	390	8994	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-poblenou-barcelona	1440	5991	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-poblenou-barcelona	390	9733	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-rome-pigneto-rome	1440	6234	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-rome-pigneto-rome	390	10168	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-rosebank-johannesburg	1440	5394	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-rosebank-johannesburg	390	7952	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-sachsenhausen-frankfurt	1440	5100	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-sachsenhausen-frankfurt	390	7441	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-salamanca-madrid	1440	5435	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-salamanca-madrid	390	8358	23:11-23:23	
+12	/at/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg	1440	5477	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg	390	7621	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-schaumburg-chicago	1440	4999	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-schaumburg-chicago	390	7358	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-seventh-district-vienna	1440	5698	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-seventh-district-vienna	390	8787	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-shinjuku-tokyo	1440	5296	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-shinjuku-tokyo	390	8358	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-song-wat-road-bangkok	1440	6090	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-song-wat-road-bangkok	390	9672	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-south-beach-miami	1440	4916	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-south-beach-miami	390	7109	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-the-bund-shanghai	1440	5179	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-the-bund-shanghai	390	7427	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-toronto-summerhill	1440	4874	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-toronto-summerhill	390	7063	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-vasastaden-stockholm	1440	5693	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-vasastaden-stockholm	390	8892	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-vrsovice-prague	1440	5464	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-vrsovice-prague	390	8351	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-west-seattle-seattle	1440	5670	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/in-my-hood-west-seattle-seattle	390	8165	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/know-before-you-go-algiers	1440	7445	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-algiers	390	7736	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-almaty	1440	7433	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-almaty	390	7565	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-amman	1440	7764	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-amman	390	8329	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-atlanta	1440	7347	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-atlanta	390	7421	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-beijing	1440	7855	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-beijing	390	7658	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-berlin	1440	7543	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-berlin	390	7596	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-bilbao	1440	7273	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-bilbao	390	7147	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-bogota	1440	7317	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-bogota	390	7385	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-boston	1440	7395	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-boston	390	7545	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-cagliari	1440	7263	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-cagliari	390	7074	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-cairo	1440	7358	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-cairo	390	7171	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-casablanca	1440	7252	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-casablanca	390	7287	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-catania	1440	7192	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-catania	390	6960	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-chennai	1440	8097	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-chennai	390	8016	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-dallas	1440	7220	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-dallas	390	7275	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-denver	1440	7367	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-denver	390	7422	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-detroit	1440	8072	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-detroit	390	8081	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-dubai	1440	7419	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-dubai	390	7582	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-edinburgh	1440	7232	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-edinburgh	390	7125	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-faro	1440	8698	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-faro	390	8374	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-gothenburg	1440	7274	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-gothenburg	390	7120	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-hamburg	1440	7517	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-hamburg	390	7768	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-houston	1440	7313	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-houston	390	7366	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-hyderabad	1440	7709	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-hyderabad	390	8302	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-kuala-lumpur	1440	8179	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-kuala-lumpur	390	8063	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-larnaca	1440	7217	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-larnaca	390	6897	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-ljubljana	1440	7398	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-ljubljana	390	7577	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-malaga	1440	7445	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-malaga	390	7523	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-manchester	1440	7255	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-manchester	390	7210	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-marseille	1440	7380	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-marseille	390	7481	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-minneapolis-st-paul	1440	7475	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-minneapolis-st-paul	390	7982	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-nairobi	1440	7293	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-nairobi	390	7345	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-nice	1440	7344	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-nice	390	7472	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-olbia	1440	7313	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-olbia	390	7364	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-porto	1440	7412	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-porto	390	7562	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-raleigh-durham	1440	7983	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-raleigh-durham	390	7998	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-riga	1440	7398	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-riga	390	7685	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-riyadh	1440	7358	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-riyadh	390	7609	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-san-diego	1440	7437	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-san-diego	390	7707	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-seattle	1440	7422	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-seattle	390	7612	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-st-louis	1440	7534	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-st-louis	390	7840	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tallinn	1440	7317	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tallinn	390	7411	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tbilisi	1440	7556	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tbilisi	390	8103	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tel-aviv	1440	7538	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tel-aviv	390	7683	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-thessaloniki	1440	7432	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-thessaloniki	390	7509	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tirana	1440	7530	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tirana	390	7912	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tunis	1440	7197	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-tunis	390	7269	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-valletta	1440	7170	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-valletta	390	7002	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-venice	1440	7340	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-venice	390	7311	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-vilnius	1440	7413	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-vilnius	390	7387	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-zagreb	1440	7267	23:11-23:23	
+12	/at/de/articles/explore-the-world/know-before-you-go-zagreb	390	7220	23:11-23:23	
+12	/at/de/articles/explore-the-world/my-experiences-in-vancouver	1440	4766	23:11-23:23	
+12	/at/de/articles/explore-the-world/my-experiences-in-vancouver	390	6460	23:11-23:23	
+12	/at/de/articles/explore-the-world/new-shopping	1440	11175	23:11-23:23	
+12	/at/de/articles/explore-the-world/new-shopping	390	12193	23:11-23:23	
+12	/at/de/articles/explore-the-world/next-level-gaming	1440	8453	23:11-23:23	
+12	/at/de/articles/explore-the-world/next-level-gaming	390	10298	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-architecture-copenhagen	1440	5920	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-architecture-copenhagen	390	8537	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-art-and-pubs-dublin	1440	5172	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-art-and-pubs-dublin	390	7103	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-art-johannesburg	1440	5905	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-art-johannesburg	390	8620	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-bar-basso-milan	1440	5914	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-bar-basso-milan	390	8462	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires	1440	5114	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires	390	6930	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-braamfontein-johannesburg	1440	5258	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-braamfontein-johannesburg	390	7077	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-brunch-restaurants-la	1440	5112	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-brunch-restaurants-la	390	6918	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich	1440	5144	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich	390	7203	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-chicago-beer	1440	5461	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-chicago-beer	390	7508	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-creative-architecture-prague	1440	5623	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-creative-architecture-prague	390	8190	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-culinary-trip-washington	1440	5563	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-culinary-trip-washington	390	8231	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-fashion-and-culture-budapest	1440	5574	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-fashion-and-culture-budapest	390	8213	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-mumbai	1440	5822	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-mumbai	390	8342	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-trends-amsterdam	1440	5393	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-trends-amsterdam	390	7607	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-trends-bengaluru	1440	5544	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-trends-bengaluru	390	7841	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul	1440	5296	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul	390	7413	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-hidden-gems-seoul	1440	5854	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-hidden-gems-seoul	390	8793	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-humor-vienna	1440	5810	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-humor-vienna	390	8502	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-listening-bars-toronto	1440	5315	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-listening-bars-toronto	390	7475	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-lunch-mexico-city	1440	5357	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-lunch-mexico-city	390	7470	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-mallorca	1440	5688	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-mallorca	390	8225	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-music-cape-town	1440	5484	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-music-cape-town	390	7827	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-samba-rio-de-janeiro	1440	5255	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-samba-rio-de-janeiro	390	7150	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-san-francisco-fashion	1440	5446	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-san-francisco-fashion	390	7767	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shanghai-art-scene	1440	5667	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shanghai-art-scene	390	8196	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shopping-barcelona	1440	6478	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shopping-barcelona	390	10067	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shopping-lisbon	1440	5542	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shopping-lisbon	390	8065	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shopping-tokyo	1440	5418	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-shopping-tokyo	390	7738	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-sports-miami	1440	5624	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-sports-miami	390	7983	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-stockholm	1440	5474	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-stockholm	390	7784	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-street-art-charlotte	1440	5721	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-street-art-charlotte	390	8157	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-street-art-london	1440	5297	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-street-art-london	390	7342	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-streetart-athens	1440	5262	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-streetart-athens	390	7115	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-super-bros-frankfurt	1440	5349	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-super-bros-frankfurt	390	7462	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-supper-clubs-ny	1440	4810	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-supper-clubs-ny	390	7458	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-techno-sound-rome	1440	5988	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-techno-sound-rome	390	8970	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-tips-oslo	1440	5975	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-tips-oslo	390	8843	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-topic-bangkok	1440	5198	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-topic-bangkok	390	8675	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-topic-helsinki	1440	6095	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-topic-helsinki	390	9470	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-topic-zurich	1440	5550	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-topic-zurich	390	7983	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-trends-madrid	1440	5764	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-trends-madrid	390	8332	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-urban-farming-singapore	1440	5496	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-urban-farming-singapore	390	7807	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-vancouver-donuts	1440	5188	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-vancouver-donuts	390	7093	23:11-23:23	
+12	/at/de/articles/explore-the-world/on-the-scene-wellness-cuisine-hong-kong	1440	5849	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/on-the-scene-wellness-cuisine-hong-kong	390	8850	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/perfect-day-nice-cote-dazur	1440	7333	23:11-23:23	
+12	/at/de/articles/explore-the-world/perfect-day-nice-cote-dazur	390	10289	23:11-23:23	
+12	/at/de/articles/explore-the-world/perfect-day-seattle	1440	7795	23:11-23:23	
+12	/at/de/articles/explore-the-world/perfect-day-seattle	390	11045	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/perfect-day-tips-vancouver	1440	7161	23:11-23:23	
+12	/at/de/articles/explore-the-world/perfect-day-tips-vancouver	390	8657	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/picture-perfect-austin	1440	8047	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-austin	390	10895	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-beijing	1440	7954	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-beijing	390	10671	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-bogota	1440	7795	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-bogota	390	10227	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-boston	1440	7865	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-boston	390	10386	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-cairo	1440	7650	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-cairo	390	9744	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-elevator-boys	1440	6755	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/picture-perfect-elevator-boys	390	9382	23:11-23:23	emptyCols
+12	/at/de/articles/explore-the-world/picture-perfect-hyderabad	1440	7196	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-hyderabad	390	9702	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-la	1440	7159	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-la	390	9445	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-ny	1440	6869	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-ny	390	8845	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-riad	1440	8293	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-riad	390	11427	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-singapore	1440	7355	23:11-23:23	
+12	/at/de/articles/explore-the-world/picture-perfect-singapore	390	10014	23:11-23:23	
+12	/at/de/articles/explore-the-world/sao-paulo-sights	1440	5199	23:11-23:23	
+12	/at/de/articles/explore-the-world/sao-paulo-sights	390	7511	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-bangkok	1440	6480	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-bangkok	390	8150	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-beijing	1440	7760	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-beijing	390	10795	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-boston	1440	7891	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-boston	390	11219	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-buenos-aires	1440	6717	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-buenos-aires	390	8365	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-charlotte	1440	6863	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-charlotte	390	8860	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-hong-kong	1440	6664	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-hong-kong	390	8618	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-johannesburg	1440	7558	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-johannesburg	390	10505	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-los-angeles	1440	7065	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-los-angeles	390	9106	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-mexico-city	1440	6532	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-mexico-city	390	7975	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-seoul	1440	7252	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-seoul	390	9282	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-singapore	1440	6309	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-singapore	390	7728	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-tokyo	1440	6359	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-tokyo	390	7810	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-washington	1440	6695	23:11-23:23	
+12	/at/de/articles/explore-the-world/stop-over-washington	390	8265	23:11-23:23	
+12	/at/de/articles/explore-the-world/team-sport	1440	11158	23:11-23:23	
+12	/at/de/articles/explore-the-world/team-sport	390	11151	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-amsterdam	1440	4997	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-amsterdam	390	6902	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-athens	1440	5395	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-athens	390	8022	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-bangkok	1440	6211	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-bangkok	390	9261	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-barcelona	1440	6027	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-barcelona	390	9324	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-bengaluru	1440	4866	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-bengaluru	390	6719	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-boston	1440	6436	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-boston	390	10281	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-budapest	1440	5245	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-budapest	390	7493	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-buenos-aires	1440	5272	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-buenos-aires	390	7453	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-cape-town	1440	5117	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-cape-town	390	7108	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-charlotte	1440	5165	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-charlotte	390	7261	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-chicago	1440	4969	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-chicago	390	6702	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-dublin	1440	5443	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-dublin	390	7887	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-frankfurt	1440	4573	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-frankfurt	390	6236	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-helsinki	1440	6673	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-helsinki	390	10215	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-hong-kong	1440	5369	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-hong-kong	390	7710	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-istanbul	1440	5202	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-istanbul	390	7516	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-johannesburg	1440	5669	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-johannesburg	390	8384	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-la	1440	5184	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-la	390	7260	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-lisbon	1440	5752	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-lisbon	390	8599	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-london	1440	5436	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-london	390	8286	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-madrid	1440	5184	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-madrid	390	7313	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-mallorca	1440	5505	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-mallorca	390	7875	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-mexico-city	1440	5321	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-mexico-city	390	7428	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-miami	1440	5023	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-miami	390	6805	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-milan	1440	5523	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-milan	390	8031	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-mumbai	1440	5011	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-mumbai	390	6808	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-munich	1440	4900	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-munich	390	6533	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-ny	1440	5107	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-ny	390	7276	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-oslo	1440	5716	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-oslo	390	8910	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-paris	1440	5486	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-paris	390	8000	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-prague	1440	5138	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-prague	390	7443	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-rio-de-janeiro	1440	5428	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-rio-de-janeiro	390	7773	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-rome	1440	6061	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-rome	390	9569	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-san-francisco	1440	4957	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-san-francisco	390	6677	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-seoul	1440	5891	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-seoul	390	8919	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-shanghai	1440	4839	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-shanghai	390	6676	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-singapore	1440	5482	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-singapore	390	7742	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-stockholm	1440	5905	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-stockholm	390	8946	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-tokyo	1440	6002	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-tokyo	390	9066	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-toronto	1440	4794	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-toronto	390	6406	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-vienna	1440	5805	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-vienna	390	8890	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-washington	1440	5715	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-washington	390	8528	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-zurich	1440	5513	23:11-23:23	
+12	/at/de/articles/explore-the-world/what-i-learned-living-in-zurich	390	8319	23:11-23:23	
+12	/at/de/articles/highlights	1440	6933	23:11-23:23	
+12	/at/de/articles/highlights	390	9505	23:11-23:23	
+12	/at/de/articles/highlights-european-championship	1440	6986	23:11-23:23	
+12	/at/de/articles/highlights-european-championship	390	10047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-great-hope	1440	7506	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-great-hope	390	9583	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-locations	1440	7535	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-locations	390	9186	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-andrich	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-andrich	390	2901	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-anton	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-anton	390	2874	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-baumann	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-baumann	390	2901	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-beier	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-beier	390	2874	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-fuellkrug	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-fuellkrug	390	2874	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-kimmich	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-kimmich	390	2874	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-kroos	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-kroos	390	2874	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-mittelstaedt	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-mittelstaedt	390	2968	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-raum	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-raum	390	2874	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-tah	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-tah	390	2901	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-ter-stegen	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-ter-stegen	390	2874	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-undav	1440	3047	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-player-videos-undav	390	2901	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-quiz	1440	4475	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-quiz	390	3369	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-thank-you	1440	5972	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/european-championship-2024-thank-you	390	5370	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/hungary-with-pride-and-passion	1440	5260	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/hungary-with-pride-and-passion	390	6959	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/lose-like-the-germans	1440	4973	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/lose-like-the-germans	390	4571	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/meet-the-germans	1440	6152	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/meet-the-germans	390	5576	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/scotland-with-heart-and-energy	1440	5239	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/scotland-with-heart-and-energy	390	6642	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/swiss-passion-meets-precision	1440	5563	23:11-23:23	
+12	/at/de/articles/highlights-european-championship/swiss-passion-meets-precision	390	7236	23:11-23:23	
+12	/at/de/articles/highlights/all-it-takes-is-a-yes	1440	6123	23:11-23:23	
+12	/at/de/articles/highlights/all-it-takes-is-a-yes	390	7980	23:11-23:23	
+12	/at/de/articles/highlights/allegris-a-new-flight-experience	1440	6253	23:11-23:23	
+12	/at/de/articles/highlights/allegris-a-new-flight-experience	390	7926	23:11-23:23	
+12	/at/de/articles/highlights/allegris-business-class-shanghai	1440	6539	23:11-23:23	
+12	/at/de/articles/highlights/allegris-business-class-shanghai	390	6857	23:11-23:23	
+12	/at/de/articles/highlights/allegris-business-san-diego	1440	7062	23:11-23:23	
+12	/at/de/articles/highlights/allegris-business-san-diego	390	7784	23:11-23:23	
+12	/at/de/articles/highlights/allegris-destinations	1440	9787	23:11-23:23	
+12	/at/de/articles/highlights/allegris-destinations	390	9825	23:11-23:23	
+12	/at/de/articles/highlights/allegris-dirk-nowitzki	1440	5845	23:11-23:23	
+12	/at/de/articles/highlights/allegris-dirk-nowitzki	390	7681	23:11-23:23	
+12	/at/de/articles/highlights/allegris-essentials	1440	5948	23:11-23:23	
+12	/at/de/articles/highlights/allegris-essentials	390	6323	23:11-23:23	
+12	/at/de/articles/highlights/allegris-experiences	1440	6073	23:11-23:23	
+12	/at/de/articles/highlights/allegris-experiences	390	8006	23:11-23:23	
+12	/at/de/articles/highlights/allegris-new-york	1440	6504	23:11-23:23	
+12	/at/de/articles/highlights/allegris-new-york	390	7994	23:11-23:23	
+12	/at/de/articles/highlights/allegris-premium-economy-san-diego	1440	6965	23:11-23:23	
+12	/at/de/articles/highlights/allegris-premium-economy-san-diego	390	7871	23:11-23:23	
+12	/at/de/articles/highlights/allegris-travel-hacks	1440	5213	23:11-23:23	
+12	/at/de/articles/highlights/allegris-travel-hacks	390	6697	23:11-23:23	
+12	/at/de/articles/highlights/allegris-typologies	1440	6609	23:11-23:23	
+12	/at/de/articles/highlights/allegris-typologies	390	7297	23:11-23:23	
+12	/at/de/articles/highlights/austin-texas-city-of-live-music	1440	5386	23:11-23:23	
+12	/at/de/articles/highlights/austin-texas-city-of-live-music	390	8568	23:11-23:23	
+12	/at/de/articles/highlights/chisinau-winter	1440	5293	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/chisinau-winter	390	7502	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/dfb-partnership-diversity-success	1440	5765	23:11-23:23	
+12	/at/de/articles/highlights/dfb-partnership-diversity-success	390	7055	23:11-23:23	
+12	/at/de/articles/highlights/exclusive-first-class-tracksuit	1440	7136	23:11-23:23	
+12	/at/de/articles/highlights/exclusive-first-class-tracksuit	390	9198	23:11-23:23	
+12	/at/de/articles/highlights/fashion-footprints-new-york	1440	9489	23:11-23:23	
+12	/at/de/articles/highlights/fashion-footprints-new-york	390	10756	23:11-23:23	
+12	/at/de/articles/highlights/fashion-guide	1440	16779	23:11-23:23	headSize
+12	/at/de/articles/highlights/fashion-guide	390	13197	23:11-23:23	headSize
+12	/at/de/articles/highlights/hyderabad-city-of-pearls-and-programmers	1440	7719	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/hyderabad-city-of-pearls-and-programmers	390	10936	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/johannesburg-winter	1440	4819	23:11-23:23	
+12	/at/de/articles/highlights/johannesburg-winter	390	6213	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/minneapolis-best-winter-activities	1440	6787	23:11-23:23	
+12	/at/de/articles/highlights/minneapolis-best-winter-activities	390	9252	23:11-23:23	
+12	/at/de/articles/highlights/minneapolis-winter	1440	5481	23:11-23:23	
+12	/at/de/articles/highlights/minneapolis-winter	390	7993	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/new-york-fashion-week	1440	8242	23:11-23:23	
+12	/at/de/articles/highlights/new-york-fashion-week	390	11835	23:11-23:23	
+12	/at/de/articles/highlights/raleigh-nc-winter	1440	5130	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/raleigh-nc-winter	390	7362	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/rome-art-and-culture	1440	8381	23:11-23:23	
+12	/at/de/articles/highlights/rome-art-and-culture	390	11335	23:11-23:23	
+12	/at/de/articles/highlights/sao-paulo-carnival-brazil-largest-street-carnival	1440	5754	23:11-23:23	
+12	/at/de/articles/highlights/sao-paulo-carnival-brazil-largest-street-carnival	390	8352	23:11-23:23	
+12	/at/de/articles/highlights/seattle-winter	1440	4940	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/seattle-winter	390	6933	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes	1440	6964	23:11-23:23	
+12	/at/de/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes	390	10079	23:11-23:23	
+12	/at/de/articles/highlights/soccer-event-in-north-america	1440	8297	23:11-23:23	overlap
+12	/at/de/articles/highlights/soccer-event-in-north-america	390	9390	23:11-23:23	overlap
+12	/at/de/articles/highlights/sports-experiences-rio-de-janeiro	1440	7873	23:11-23:23	
+12	/at/de/articles/highlights/sports-experiences-rio-de-janeiro	390	10654	23:11-23:23	
+12	/at/de/articles/highlights/stefan-marx-travel-hacks	1440	5756	23:11-23:23	
+12	/at/de/articles/highlights/stefan-marx-travel-hacks	390	7103	23:11-23:23	
+12	/at/de/articles/highlights/the-art-of-flying-extra-long-bed	1440	5971	23:11-23:23	
+12	/at/de/articles/highlights/the-art-of-flying-extra-long-bed	390	7811	23:11-23:23	
+12	/at/de/articles/highlights/the-art-of-flying-extra-space-seat	1440	6051	23:11-23:23	
+12	/at/de/articles/highlights/the-art-of-flying-extra-space-seat	390	7932	23:11-23:23	
+12	/at/de/articles/highlights/the-art-of-flying-suite	1440	5991	23:11-23:23	
+12	/at/de/articles/highlights/the-art-of-flying-suite	390	8080	23:11-23:23	
+12	/at/de/articles/highlights/vancouver-winter	1440	5127	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/vancouver-winter	390	6446	23:11-23:23	emptyCols
+12	/at/de/articles/highlights/winter-destinations	1440	5360	23:11-23:23	headSize
+12	/at/de/articles/highlights/winter-destinations	390	7503	23:11-23:23	headSize
+12	/at/de/articles/tags	1440	1988	23:11-23:23	
+12	/at/de/articles/tags	390	2490	23:11-23:23	
+12	/at/de/articles/tags/algiers	1440	3303	23:11-23:23	
+12	/at/de/articles/tags/algiers	390	4317	23:11-23:23	
+12	/at/de/articles/tags/allegris	1440	7396	23:11-23:23	
+12	/at/de/articles/tags/allegris	390	8154	23:11-23:23	
+12	/at/de/articles/tags/allegris-inspires	1440	4594	23:11-23:23	
+12	/at/de/articles/tags/allegris-inspires	390	6398	23:11-23:23	
+12	/at/de/articles/tags/almaty	1440	3272	23:11-23:23	
+12	/at/de/articles/tags/almaty	390	4364	23:11-23:23	
+12	/at/de/articles/tags/amman	1440	3245	23:11-23:23	
+12	/at/de/articles/tags/amman	390	4358	23:11-23:23	
+12	/at/de/articles/tags/amsterdam	1440	9047	23:11-23:23	
+12	/at/de/articles/tags/amsterdam	390	10966	23:11-23:23	
+12	/at/de/articles/tags/art	1440	4715	23:11-23:23	
+12	/at/de/articles/tags/art	390	6700	23:11-23:23	
+12	/at/de/articles/tags/art-basel-miami-beach	1440	5786	23:11-23:23	
+12	/at/de/articles/tags/art-basel-miami-beach	390	6325	23:11-23:23	
+12	/at/de/articles/tags/athens	1440	9015	23:11-23:23	
+12	/at/de/articles/tags/athens	390	11297	23:11-23:23	
+13	/at/de/articles/tags/atlanta	1440	3301	23:24-23:37	
+13	/at/de/articles/tags/atlanta	390	4342	23:24-23:37	
+13	/at/de/articles/tags/bangkok	1440	5035	23:24-23:37	
+13	/at/de/articles/tags/bangkok	390	7110	23:24-23:37	
+13	/at/de/articles/tags/barcelona	1440	8939	23:24-23:37	
+13	/at/de/articles/tags/barcelona	390	11209	23:24-23:37	
+13	/at/de/articles/tags/be-picky	1440	4791	23:24-23:37	
+13	/at/de/articles/tags/be-picky	390	6660	23:24-23:37	
+13	/at/de/articles/tags/beijing	1440	8831	23:24-23:37	
+13	/at/de/articles/tags/beijing	390	10917	23:24-23:37	
+13	/at/de/articles/tags/bengaluru	1440	7623	23:24-23:37	
+13	/at/de/articles/tags/bengaluru	390	10041	23:24-23:37	
+13	/at/de/articles/tags/berlin	1440	4126	23:24-23:37	
+13	/at/de/articles/tags/berlin	390	5717	23:24-23:37	
+13	/at/de/articles/tags/bilbao	1440	3166	23:24-23:37	
+13	/at/de/articles/tags/bilbao	390	4234	23:24-23:37	
+13	/at/de/articles/tags/bogota	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/bogota	390	4277	23:24-23:37	
+13	/at/de/articles/tags/boston	1440	8715	23:24-23:37	
+13	/at/de/articles/tags/boston	390	10778	23:24-23:37	
+13	/at/de/articles/tags/budapest	1440	4648	23:24-23:37	
+13	/at/de/articles/tags/budapest	390	6655	23:24-23:37	
+13	/at/de/articles/tags/buenos-aires	1440	4958	23:24-23:37	
+13	/at/de/articles/tags/buenos-aires	390	6820	23:24-23:37	
+13	/at/de/articles/tags/cagliari	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/cagliari	390	4296	23:24-23:37	
+13	/at/de/articles/tags/cairo	1440	3121	23:24-23:37	
+13	/at/de/articles/tags/cairo	390	4115	23:24-23:37	
+13	/at/de/articles/tags/cape-town	1440	7274	23:24-23:37	
+13	/at/de/articles/tags/cape-town	390	9022	23:24-23:37	
+13	/at/de/articles/tags/casablanca	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/casablanca	390	4443	23:24-23:37	
+13	/at/de/articles/tags/catania	1440	3192	23:24-23:37	
+13	/at/de/articles/tags/catania	390	4291	23:24-23:37	
+13	/at/de/articles/tags/charlotte	1440	4964	23:24-23:37	
+13	/at/de/articles/tags/charlotte	390	6966	23:24-23:37	
+13	/at/de/articles/tags/chennai	1440	3178	23:24-23:37	
+13	/at/de/articles/tags/chennai	390	4318	23:24-23:37	
+13	/at/de/articles/tags/chicago	1440	7284	23:24-23:37	
+13	/at/de/articles/tags/chicago	390	9002	23:24-23:37	
+13	/at/de/articles/tags/copenhagen	1440	4927	23:24-23:37	
+13	/at/de/articles/tags/copenhagen	390	6650	23:24-23:37	
+13	/at/de/articles/tags/dallas	1440	3174	23:24-23:37	
+13	/at/de/articles/tags/dallas	390	4127	23:24-23:37	
+13	/at/de/articles/tags/denver	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/denver	390	4466	23:24-23:37	
+13	/at/de/articles/tags/detroit	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/detroit	390	4358	23:24-23:37	
+13	/at/de/articles/tags/dubai	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/dubai	390	4225	23:24-23:37	
+13	/at/de/articles/tags/dublin	1440	4786	23:24-23:37	
+13	/at/de/articles/tags/dublin	390	6703	23:24-23:37	
+13	/at/de/articles/tags/eat-see-do	1440	4855	23:24-23:37	
+13	/at/de/articles/tags/eat-see-do	390	6480	23:24-23:37	
+13	/at/de/articles/tags/edinburgh	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/edinburgh	390	4398	23:24-23:37	
+13	/at/de/articles/tags/essentials	1440	4795	23:24-23:37	
+13	/at/de/articles/tags/essentials	390	6088	23:24-23:37	
+13	/at/de/articles/tags/faro	1440	3192	23:24-23:37	
+13	/at/de/articles/tags/faro	390	4240	23:24-23:37	
+13	/at/de/articles/tags/fly-with-me	1440	4838	23:24-23:37	
+13	/at/de/articles/tags/fly-with-me	390	6554	23:24-23:37	
+13	/at/de/articles/tags/flying-high	1440	3486	23:24-23:37	
+13	/at/de/articles/tags/flying-high	390	4484	23:24-23:37	
+13	/at/de/articles/tags/food	1440	4780	23:24-23:37	
+13	/at/de/articles/tags/food	390	6616	23:24-23:37	
+13	/at/de/articles/tags/frankfurt	1440	7751	23:24-23:37	
+13	/at/de/articles/tags/frankfurt	390	9601	23:24-23:37	
+13	/at/de/articles/tags/frequent-flyers	1440	4913	23:24-23:37	
+13	/at/de/articles/tags/frequent-flyers	390	6792	23:24-23:37	
+13	/at/de/articles/tags/future-of-flying	1440	4915	23:24-23:37	
+13	/at/de/articles/tags/future-of-flying	390	6701	23:24-23:37	
+13	/at/de/articles/tags/gothenburg	1440	3178	23:24-23:37	
+13	/at/de/articles/tags/gothenburg	390	4243	23:24-23:37	
+13	/at/de/articles/tags/hamburg	1440	3906	23:24-23:37	
+13	/at/de/articles/tags/hamburg	390	5422	23:24-23:37	
+13	/at/de/articles/tags/helsinki	1440	4875	23:24-23:37	
+13	/at/de/articles/tags/helsinki	390	6903	23:24-23:37	
+13	/at/de/articles/tags/history	1440	4807	23:24-23:37	
+13	/at/de/articles/tags/history	390	6562	23:24-23:37	
+13	/at/de/articles/tags/hong-kong	1440	4588	23:24-23:37	
+13	/at/de/articles/tags/hong-kong	390	6521	23:24-23:37	
+13	/at/de/articles/tags/houston	1440	4028	23:24-23:37	
+13	/at/de/articles/tags/houston	390	5698	23:24-23:37	
+13	/at/de/articles/tags/hyderabad	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/hyderabad	390	4256	23:24-23:37	
+13	/at/de/articles/tags/in-my-hood	1440	4819	23:24-23:37	
+13	/at/de/articles/tags/in-my-hood	390	6549	23:24-23:37	
+13	/at/de/articles/tags/inside-lufthansa	1440	5585	23:24-23:37	
+13	/at/de/articles/tags/inside-lufthansa	390	7913	23:24-23:37	
+13	/at/de/articles/tags/istanbul	1440	4690	23:24-23:37	
+13	/at/de/articles/tags/istanbul	390	6483	23:24-23:37	
+13	/at/de/articles/tags/johannesburg	1440	4948	23:24-23:37	
+13	/at/de/articles/tags/johannesburg	390	6799	23:24-23:37	
+13	/at/de/articles/tags/know-before-you-go	1440	4877	23:24-23:37	
+13	/at/de/articles/tags/know-before-you-go	390	6742	23:24-23:37	
+13	/at/de/articles/tags/kuala-lumpur	1440	3702	23:24-23:37	
+13	/at/de/articles/tags/kuala-lumpur	390	5300	23:24-23:37	
+13	/at/de/articles/tags/larnaca	1440	3212	23:24-23:37	
+13	/at/de/articles/tags/larnaca	390	4226	23:24-23:37	
+13	/at/de/articles/tags/lisbon	1440	4800	23:24-23:37	
+13	/at/de/articles/tags/lisbon	390	6603	23:24-23:37	
+13	/at/de/articles/tags/ljubljana	1440	3134	23:24-23:37	
+13	/at/de/articles/tags/ljubljana	390	4199	23:24-23:37	
+13	/at/de/articles/tags/london	1440	9101	23:24-23:37	
+13	/at/de/articles/tags/london	390	11165	23:24-23:37	
+13	/at/de/articles/tags/los-angeles	1440	4940	23:24-23:37	
+13	/at/de/articles/tags/los-angeles	390	6781	23:24-23:37	
+13	/at/de/articles/tags/madrid	1440	4882	23:24-23:37	
+13	/at/de/articles/tags/madrid	390	6928	23:24-23:37	
+13	/at/de/articles/tags/malaga	1440	4029	23:24-23:37	
+13	/at/de/articles/tags/malaga	390	5766	23:24-23:37	
+13	/at/de/articles/tags/mallorca	1440	4791	23:24-23:37	
+13	/at/de/articles/tags/mallorca	390	6769	23:24-23:37	
+13	/at/de/articles/tags/manchester	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/manchester	390	4310	23:24-23:37	
+13	/at/de/articles/tags/marseille	1440	3272	23:24-23:37	
+13	/at/de/articles/tags/marseille	390	4412	23:24-23:37	
+13	/at/de/articles/tags/mexico-city	1440	4936	23:24-23:37	
+13	/at/de/articles/tags/mexico-city	390	6826	23:24-23:37	
+13	/at/de/articles/tags/miami	1440	7452	23:24-23:37	
+13	/at/de/articles/tags/miami	390	9472	23:24-23:37	
+13	/at/de/articles/tags/milan	1440	4881	23:24-23:37	
+13	/at/de/articles/tags/milan	390	6997	23:24-23:37	
+13	/at/de/articles/tags/minneapolis-st-paul	1440	3257	23:24-23:37	
+13	/at/de/articles/tags/minneapolis-st-paul	390	4504	23:24-23:37	
+13	/at/de/articles/tags/mumbai	1440	7651	23:24-23:37	
+13	/at/de/articles/tags/mumbai	390	9509	23:24-23:37	
+13	/at/de/articles/tags/munich	1440	7590	23:24-23:37	
+13	/at/de/articles/tags/munich	390	9357	23:24-23:37	
+13	/at/de/articles/tags/music	1440	4833	23:24-23:37	
+13	/at/de/articles/tags/music	390	6754	23:24-23:37	
+13	/at/de/articles/tags/my-world	1440	4813	23:24-23:37	
+13	/at/de/articles/tags/my-world	390	6612	23:24-23:37	
+13	/at/de/articles/tags/nairobi	1440	4109	23:24-23:37	
+13	/at/de/articles/tags/nairobi	390	5839	23:24-23:37	
+13	/at/de/articles/tags/new-york	1440	7441	23:24-23:37	
+13	/at/de/articles/tags/new-york	390	9353	23:24-23:37	
+13	/at/de/articles/tags/nice	1440	4087	23:24-23:37	
+13	/at/de/articles/tags/nice	390	5690	23:24-23:37	
+13	/at/de/articles/tags/olbia	1440	3192	23:24-23:37	
+13	/at/de/articles/tags/olbia	390	4294	23:24-23:37	
+13	/at/de/articles/tags/on-the-scene	1440	4870	23:24-23:37	
+13	/at/de/articles/tags/on-the-scene	390	6747	23:24-23:37	
+13	/at/de/articles/tags/oslo	1440	4872	23:24-23:37	
+13	/at/de/articles/tags/oslo	390	6860	23:24-23:37	
+13	/at/de/articles/tags/paris	1440	4770	23:24-23:37	
+13	/at/de/articles/tags/paris	390	6519	23:24-23:37	
+13	/at/de/articles/tags/perfect-day	1440	4813	23:24-23:37	
+13	/at/de/articles/tags/perfect-day	390	6641	23:24-23:37	
+13	/at/de/articles/tags/picture-perfect	1440	5160	23:24-23:37	
+13	/at/de/articles/tags/picture-perfect	390	7142	23:24-23:37	
+13	/at/de/articles/tags/porto	1440	4022	23:24-23:37	
+13	/at/de/articles/tags/porto	390	5612	23:24-23:37	
+13	/at/de/articles/tags/prague	1440	4732	23:24-23:37	
+13	/at/de/articles/tags/prague	390	6576	23:24-23:37	
+13	/at/de/articles/tags/raleigh-durham	1440	3230	23:24-23:37	
+13	/at/de/articles/tags/raleigh-durham	390	4314	23:24-23:37	
+13	/at/de/articles/tags/riga	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/riga	390	4292	23:24-23:37	
+13	/at/de/articles/tags/rio-de-janeiro	1440	4934	23:24-23:37	
+13	/at/de/articles/tags/rio-de-janeiro	390	6655	23:24-23:37	
+13	/at/de/articles/tags/riyadh	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/riyadh	390	4225	23:24-23:37	
+13	/at/de/articles/tags/rome	1440	4752	23:24-23:37	
+13	/at/de/articles/tags/rome	390	6476	23:24-23:37	
+13	/at/de/articles/tags/san-diego	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/san-diego	390	4269	23:24-23:37	
+13	/at/de/articles/tags/san-francisco	1440	7422	23:24-23:37	
+13	/at/de/articles/tags/san-francisco	390	9160	23:24-23:37	
+13	/at/de/articles/tags/seattle	1440	3986	23:24-23:37	
+13	/at/de/articles/tags/seattle	390	5489	23:24-23:37	
+13	/at/de/articles/tags/seoul	1440	4881	23:24-23:37	
+13	/at/de/articles/tags/seoul	390	6847	23:24-23:37	
+13	/at/de/articles/tags/shanghai	1440	7368	23:24-23:37	
+13	/at/de/articles/tags/shanghai	390	9016	23:24-23:37	
+13	/at/de/articles/tags/shopping	1440	4861	23:24-23:37	
+13	/at/de/articles/tags/shopping	390	6789	23:24-23:37	
+13	/at/de/articles/tags/singapore	1440	4841	23:24-23:37	
+13	/at/de/articles/tags/singapore	390	6627	23:24-23:37	
+13	/at/de/articles/tags/sport	1440	4820	23:24-23:37	
+13	/at/de/articles/tags/sport	390	6631	23:24-23:37	
+13	/at/de/articles/tags/st-louis	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/st-louis	390	4189	23:24-23:37	
+13	/at/de/articles/tags/stockholm	1440	4731	23:24-23:37	
+13	/at/de/articles/tags/stockholm	390	6521	23:24-23:37	
+13	/at/de/articles/tags/stop-over	1440	4932	23:24-23:37	
+13	/at/de/articles/tags/stop-over	390	6918	23:24-23:37	
+13	/at/de/articles/tags/tallinn	1440	3178	23:24-23:37	
+13	/at/de/articles/tags/tallinn	390	4292	23:24-23:37	
+13	/at/de/articles/tags/tbilisi	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/tbilisi	390	4292	23:24-23:37	
+13	/at/de/articles/tags/team-stories	1440	5551	23:24-23:37	
+13	/at/de/articles/tags/team-stories	390	7498	23:24-23:37	
+13	/at/de/articles/tags/tel-aviv	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/tel-aviv	390	4283	23:24-23:37	
+13	/at/de/articles/tags/thessaloniki	1440	3178	23:24-23:37	
+13	/at/de/articles/tags/thessaloniki	390	4304	23:24-23:37	
+13	/at/de/articles/tags/tirana	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/tirana	390	4319	23:24-23:37	
+13	/at/de/articles/tags/tokyo	1440	4468	23:24-23:37	
+13	/at/de/articles/tags/tokyo	390	6310	23:24-23:37	
+13	/at/de/articles/tags/toronto	1440	4735	23:24-23:37	
+13	/at/de/articles/tags/toronto	390	6402	23:24-23:37	
+13	/at/de/articles/tags/tunis	1440	3192	23:24-23:37	
+13	/at/de/articles/tags/tunis	390	4240	23:24-23:37	
+13	/at/de/articles/tags/valletta	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/valletta	390	4331	23:24-23:37	
+13	/at/de/articles/tags/vancouver	1440	4848	23:24-23:37	
+13	/at/de/articles/tags/vancouver	390	6641	23:24-23:37	
+13	/at/de/articles/tags/venice	1440	3165	23:24-23:37	
+13	/at/de/articles/tags/venice	390	4270	23:24-23:37	
+13	/at/de/articles/tags/vienna	1440	4791	23:24-23:37	
+13	/at/de/articles/tags/vienna	390	6888	23:24-23:37	
+13	/at/de/articles/tags/vilnius	1440	3218	23:24-23:37	
+13	/at/de/articles/tags/vilnius	390	4252	23:24-23:37	
+13	/at/de/articles/tags/washington-dc	1440	4814	23:24-23:37	
+13	/at/de/articles/tags/washington-dc	390	6900	23:24-23:37	
+13	/at/de/articles/tags/what-i-learned	1440	4791	23:24-23:37	
+13	/at/de/articles/tags/what-i-learned	390	6743	23:24-23:37	
+13	/at/de/articles/tags/what-the-hack	1440	4888	23:24-23:37	
+13	/at/de/articles/tags/what-the-hack	390	6766	23:24-23:37	
+13	/at/de/articles/tags/yes-stories	1440	5540	23:24-23:37	
+13	/at/de/articles/tags/yes-stories	390	6664	23:24-23:37	
+13	/at/de/articles/tags/zagreb	1440	3245	23:24-23:37	
+13	/at/de/articles/tags/zagreb	390	4310	23:24-23:37	
+13	/at/de/articles/tags/zurich	1440	4885	23:24-23:37	
+13	/at/de/articles/tags/zurich	390	6948	23:24-23:37	
+13	/at/de/assistenzhunde	1440	2343	23:24-23:37	
+13	/at/de/assistenzhunde	390	3797	23:24-23:37	
+13	/at/de/automatic-check-in	1440	3000	23:24-23:37	
+13	/at/de/automatic-check-in	390	4831	23:24-23:37	
+13	/at/de/baggage-irregularities	1440	3960	23:24-23:37	
+13	/at/de/baggage-irregularities	390	5408	23:24-23:37	
+13	/at/de/bedeutsamste-strecken	1440	2466	23:24-23:37	
+13	/at/de/bedeutsamste-strecken	390	2875	23:24-23:37	
+13	/at/de/befoerderungsbedingungen-group	1440	2093	23:24-23:37	
+13	/at/de/befoerderungsbedingungen-group	390	4014	23:24-23:37	
+13	/at/de/befoerderungsbedingungen-lh	1440	26330	23:24-23:37	
+13	/at/de/befoerderungsbedingungen-lh	390	46423	23:24-23:37	
+13	/at/de/besondere-befoerderungsbedingungen-bus	1440	9852	23:24-23:37	
+13	/at/de/besondere-befoerderungsbedingungen-bus	390	17569	23:24-23:37	
+13	/at/de/bid-upgrade	1440	3889	23:24-23:37	
+13	/at/de/bid-upgrade	390	5250	23:24-23:37	
+13	/at/de/boarding	1440	3239	23:24-23:37	
+13	/at/de/boarding	390	4850	23:24-23:37	
+13	/at/de/boeing787	1440	7640	23:24-23:37	
+13	/at/de/boeing787	390	8462	23:24-23:37	
+13	/at/de/book-and-manage/additional-services/get-your-guide	1440	1969	23:24-23:37	
+13	/at/de/book-and-manage/additional-services/get-your-guide	390	2432	23:24-23:37	
+13	/at/de/book-and-manage/additional-services/travel-insurances	1440	2841	23:24-23:37	
+13	/at/de/book-and-manage/additional-services/travel-insurances	390	4434	23:24-23:37	
+13	/at/de/book-and-manage/cancellation-and-refund/refund/confirmation	1440	1504	23:24-23:37	
+13	/at/de/book-and-manage/cancellation-and-refund/refund/confirmation	390	1956	23:24-23:37	
+13	/at/de/book-and-manage/cancellation-and-refund/refund/refund-form	1440	4002	23:24-23:37	overlap
+13	/at/de/book-and-manage/cancellation-and-refund/refund/refund-form	390	5325	23:24-23:37	overlap
+13	/at/de/book-and-manage/digital-self-services/airline-apps	1440	1688	23:24-23:37	
+13	/at/de/book-and-manage/digital-self-services/airline-apps	390	3484	23:24-23:37	
+13	/at/de/book-and-manage/flights/air-baltic	1440	6221	23:24-23:37	overlap
+13	/at/de/book-and-manage/flights/air-baltic	390	10331	23:24-23:37	overlap
+13	/at/de/book-and-manage/flights/ana	1440	3471	23:24-23:37	
+13	/at/de/book-and-manage/flights/ana	390	5448	23:24-23:37	
+13	/at/de/book-and-manage/flights/giftvoucher	1440	3722	23:24-23:37	
+13	/at/de/book-and-manage/flights/giftvoucher	390	6175	23:24-23:37	
+13	/at/de/book-and-manage/flights/helvetic	1440	5348	23:24-23:37	
+13	/at/de/book-and-manage/flights/helvetic	390	7767	23:24-23:37	
+13	/at/de/book-and-manage/flights/lufthansa-voucher	1440	4333	23:24-23:37	
+13	/at/de/book-and-manage/flights/lufthansa-voucher	390	6980	23:24-23:37	
+13	/at/de/book-and-manage/flights/wetlease-hub	1440	2971	23:24-23:37	overlap
+13	/at/de/book-and-manage/flights/wetlease-hub	390	3450	23:24-23:37	overlap
+13	/at/de/book-and-manage/offers-and-destination/companion-special-business-class	1440	2648	23:24-23:37	
+13	/at/de/book-and-manage/offers-and-destination/companion-special-business-class	390	3526	23:24-23:37	
+13	/at/de/book-and-manage/offers-and-destination/europe-offers	1440	2931	23:24-23:37	
+13	/at/de/book-and-manage/offers-and-destination/europe-offers	390	3037	23:24-23:37	
+13	/at/de/book-and-manage/offers-and-destination/nordamerika-angebote	1440	2640	23:24-23:37	
+13	/at/de/book-and-manage/offers-and-destination/nordamerika-angebote	390	3310	23:24-23:37	
+13	/at/de/book-and-manage/offers-and-destination/weltweite-angebote	1440	3071	23:24-23:37	
+13	/at/de/book-and-manage/offers-and-destination/weltweite-angebote	390	3758	23:24-23:37	
+13	/at/de/book-and-manage/passenger-receipt-90days/confirmation	1440	1116	23:24-23:37	
+13	/at/de/book-and-manage/passenger-receipt-90days/confirmation	390	1379	23:24-23:37	
+13	/at/de/book-and-manage/pax-receipt/invoices-different-countries	1440	2045	23:24-23:37	
+13	/at/de/book-and-manage/pax-receipt/invoices-different-countries	390	2397	23:24-23:37	
+13	/at/de/book-and-manage/rebook	1440	1913	23:24-23:37	
+13	/at/de/book-and-manage/rebook	390	2497	23:24-23:37	
+13	/at/de/book-and-manage/rebook/involuntary-rebooking	1440	5030	23:24-23:37	
+13	/at/de/book-and-manage/rebook/involuntary-rebooking	390	8215	23:24-23:37	
+13	/at/de/book-and-manage/rebook/voluntary-rebooking	1440	6313	23:24-23:37	
+13	/at/de/book-and-manage/rebook/voluntary-rebooking	390	10460	23:24-23:37	
+13	/at/de/book-and-manage/stopover	1440	13262	23:24-23:37	
+13	/at/de/book-and-manage/stopover	390	18624	23:24-23:37	
+13	/at/de/book-and-manage/stopover/bayerischer-hof	1440	2950	23:24-23:37	
+13	/at/de/book-and-manage/stopover/bayerischer-hof	390	4087	23:24-23:37	
+13	/at/de/book-and-manage/stopover/breuninger	1440	2425	23:24-23:37	
+13	/at/de/book-and-manage/stopover/breuninger	390	3185	23:24-23:37	
+13	/at/de/book-and-manage/stopover/garmisch-classic	1440	2748	23:24-23:37	
+13	/at/de/book-and-manage/stopover/garmisch-classic	390	3948	23:24-23:37	
+13	/at/de/book-and-manage/stopover/hop-on-hop-off-muc	1440	2458	23:24-23:37	
+13	/at/de/book-and-manage/stopover/hop-on-hop-off-muc	390	3101	23:24-23:37	
+13	/at/de/book-and-manage/stopover/ingolstadt-village	1440	2625	23:24-23:37	
+13	/at/de/book-and-manage/stopover/ingolstadt-village	390	3856	23:24-23:37	
+13	/at/de/book-and-manage/stopover/leonardo-hotel	1440	2377	23:24-23:37	
+13	/at/de/book-and-manage/stopover/leonardo-hotel	390	3091	23:24-23:37	
+13	/at/de/book-and-manage/stopover/muc-city-pass	1440	2468	23:24-23:37	
+13	/at/de/book-and-manage/stopover/muc-city-pass	390	3441	23:24-23:37	
+13	/at/de/book-and-manage/stopover/munich-airport	1440	2443	23:24-23:37	
+13	/at/de/book-and-manage/stopover/munich-airport	390	3285	23:24-23:37	
+13	/at/de/book-and-manage/stopover/neuschwanstein	1440	3092	23:24-23:37	
+13	/at/de/book-and-manage/stopover/neuschwanstein	390	4031	23:24-23:37	
+13	/at/de/book-and-manage/stopover/rosewood	1440	2511	23:24-23:37	
+13	/at/de/book-and-manage/stopover/rosewood	390	2896	23:24-23:37	
+13	/at/de/book-and-manage/stopover/sixt-muc	1440	2456	23:24-23:37	
+13	/at/de/book-and-manage/stopover/sixt-muc	390	3494	23:24-23:37	
+13	/at/de/book-and-manage/stopover/sixt-ride-bavaria	1440	2804	23:24-23:37	
+13	/at/de/book-and-manage/stopover/sixt-ride-bavaria	390	4224	23:24-23:37	
+13	/at/de/book-and-manage/stopover/zugspitze	1440	3042	23:24-23:37	
+13	/at/de/book-and-manage/stopover/zugspitze	390	4108	23:24-23:37	
+13	/at/de/business-class	1440	10476	23:24-23:37	
+13	/at/de/business-class	390	14348	23:24-23:37	
+13	/at/de/business-class-auf-kurz-und-mittelstrecken	1440	2867	23:24-23:37	
+13	/at/de/business-class-auf-kurz-und-mittelstrecken	390	4140	23:24-23:37	
+13	/at/de/business-services/for-corporate-customers/meetings-and-events/exklusives-event-angebot-dubai	1440	987	23:24-23:37	
+13	/at/de/business-services/for-corporate-customers/meetings-and-events/exklusives-event-angebot-dubai	390	1312	23:24-23:37	
+13	/at/de/cancellations-and-refunds	1440	2394	23:24-23:37	
+13	/at/de/cancellations-and-refunds	390	3211	23:24-23:37	
+13	/at/de/cash-and-miles	1440	2991	23:24-23:37	
+13	/at/de/cash-and-miles	390	4505	23:24-23:37	
+13	/at/de/check-in-baggage	1440	3523	23:24-23:37	
+13	/at/de/check-in-baggage	390	3542	23:24-23:37	
+13	/at/de/check-in-deadlines	1440	1396	23:24-23:37	
+13	/at/de/check-in-deadlines	390	1820	23:24-23:37	
+13	/at/de/common/accessibility-statement	1440	7027	23:24-23:37	overlap
+13	/at/de/common/accessibility-statement	390	11286	23:24-23:37	
+13	/at/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	1440	2783	23:24-23:37	
+13	/at/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	390	3957	23:24-23:37	
+13	/at/de/common/baggage-conditions	1440	5431	23:24-23:37	
+13	/at/de/common/baggage-conditions	390	10019	23:24-23:37	
+13	/at/de/common/compensation-voucher	1440	4267	23:24-23:37	
+13	/at/de/common/compensation-voucher	390	7182	23:24-23:37	
+13	/at/de/common/imprint/lufthansa-insights-imprint	1440	2828	23:24-23:37	
+13	/at/de/common/imprint/lufthansa-insights-imprint	390	4937	23:24-23:37	
+13	/at/de/common/seatreservation-condtions/seat-reservations	1440	2938	23:24-23:37	
+13	/at/de/common/seatreservation-condtions/seat-reservations	390	4649	23:24-23:37	
+13	/at/de/common/terms-and-conditions/terms-and-conditions-promocode	1440	1916	23:24-23:37	
+13	/at/de/common/terms-and-conditions/terms-and-conditions-promocode	390	3805	23:24-23:37	
+13	/at/de/companion-special-business-class-eu	1440	2752	23:24-23:37	
+13	/at/de/companion-special-business-class-eu	390	2746	23:24-23:37	
+13	/at/de/companion-special-first-class	1440	2523	23:24-23:37	
+13	/at/de/companion-special-first-class	390	2552	23:24-23:37	
+13	/at/de/concur-geschaeftsbedingungen	1440	1969	23:24-23:37	
+13	/at/de/concur-geschaeftsbedingungen	390	3279	23:24-23:37	
+13	/at/de/cookie-policy	1440	10078	23:24-23:37	
+13	/at/de/cookie-policy	390	13343	23:24-23:37	
+13	/at/de/crn	1440	3241	23:24-23:37	
+13	/at/de/crn	390	2966	23:24-23:37	
+13	/at/de/culinaryjourney	1440	1524	23:24-23:37	emptySections
+13	/at/de/culinaryjourney	390	1661	23:24-23:37	emptySections
+13	/at/de/dangerous-dogs	1440	2448	23:24-23:37	
+13	/at/de/dangerous-dogs	390	4139	23:24-23:37	
+13	/at/de/datenerfassung-fuer-die-usa	1440	5173	23:24-23:37	headSize
+13	/at/de/datenerfassung-fuer-die-usa	390	7902	23:24-23:37	headSize
+13	/at/de/datenerfassung-fuer-kanada	1440	4221	23:24-23:37	
+13	/at/de/datenerfassung-fuer-kanada	390	5621	23:24-23:37	
+13	/at/de/datenschutz	1440	1582	23:24-23:37	
+13	/at/de/datenschutz	390	1938	23:24-23:37	
+13	/at/de/datenschutz-lufthansa-facebook	1440	6773	23:24-23:37	headSize
+13	/at/de/datenschutz-lufthansa-facebook	390	10781	23:24-23:37	headSize
+13	/at/de/digital-self-services	1440	4541	23:24-23:37	
+13	/at/de/digital-self-services	390	5645	23:24-23:37	
+13	/at/de/digital-travel-companion	1440	11217	23:24-23:37	
+13	/at/de/digital-travel-companion	390	9377	23:24-23:37	
+13	/at/de/digitale-gepaeckservices	1440	3720	23:24-23:37	
+13	/at/de/digitale-gepaeckservices	390	4944	23:24-23:37	
+13	/at/de/discover-lufthansa/carbon-offsetting/climate-protection-projects	1440	5052	23:24-23:37	
+13	/at/de/discover-lufthansa/carbon-offsetting/climate-protection-projects	390	7189	23:24-23:37	
+13	/at/de/discover-lufthansa/carbon-offsetting/saf	1440	3881	23:24-23:37	
+13	/at/de/discover-lufthansa/carbon-offsetting/saf	390	5736	23:24-23:37	
+13	/at/de/discover-lufthansa/flightreservation-priceguarantee	1440	3803	23:24-23:37	
+13	/at/de/discover-lufthansa/flightreservation-priceguarantee	390	5156	23:24-23:37	
+13	/at/de/discover-lufthansa/lufthansa-fleet/351	1440	7966	23:24-23:37	
+13	/at/de/discover-lufthansa/lufthansa-fleet/351	390	9062	23:24-23:37	
+13	/at/de/discover-lufthansa/lufthansa-group-airlines/ita-airways	1440	3832	23:24-23:37	
+13	/at/de/discover-lufthansa/lufthansa-group-airlines/ita-airways	390	5843	23:24-23:37	
+13	/at/de/discover-lufthansa/miles-and-more-credit-card	1440	4583	23:24-23:37	
+13	/at/de/discover-lufthansa/miles-and-more-credit-card	390	8275	23:24-23:37	
+13	/at/de/discover-lufthansa/new-onboard-experience	1440	15411	23:24-23:37	
+13	/at/de/discover-lufthansa/new-onboard-experience	390	18846	23:24-23:37	
+13	/at/de/discover-lufthansa/register-newsletter	1440	2177	23:24-23:37	
+13	/at/de/discover-lufthansa/register-newsletter	390	2667	23:24-23:37	
+13	/at/de/doctor-on-board	1440	3920	23:24-23:37	emptySections
+13	/at/de/doctor-on-board	390	5020	23:24-23:37	emptySections
+13	/at/de/doctor-on-board-news	1440	2478	23:24-23:37	emptySections
+13	/at/de/doctor-on-board-news	390	3184	23:24-23:37	emptySections
+13	/at/de/during-your-trip/internet-overview	1440	2906	23:24-23:37	
+13	/at/de/during-your-trip/internet-overview	390	4542	23:24-23:37	
+13	/at/de/during-your-trip/lhg-wifi	1440	3852	23:24-23:37	
+13	/at/de/during-your-trip/lhg-wifi	390	6073	23:24-23:37	
+13	/at/de/e9n-1	1440	3241	23:24-23:37	
+13	/at/de/e9n-1	390	2868	23:24-23:37	
+13	/at/de/e9n-2	1440	3241	23:24-23:37	
+13	/at/de/e9n-2	390	2868	23:24-23:37	
+13	/at/de/economy-class	1440	6991	23:24-23:37	
+13	/at/de/economy-class	390	8937	23:24-23:37	
+13	/at/de/electronic-bag-tags	1440	2866	23:24-23:37	
+13	/at/de/electronic-bag-tags	390	4039	23:24-23:37	
+13	/at/de/entryprocesses	1440	2824	23:24-23:37	
+13	/at/de/entryprocesses	390	5375	23:24-23:37	
+13	/at/de/europa-tarife-economy-class	1440	5581	23:24-23:37	
+13	/at/de/europa-tarife-economy-class	390	8094	23:24-23:37	
+13	/at/de/europcar	1440	1162	23:24-23:37	
+13	/at/de/europcar	390	1636	23:24-23:37	
+13	/at/de/event/esorics-2027	1440	1991	23:24-23:37	
+13	/at/de/event/esorics-2027	390	2751	23:24-23:37	
+13	/at/de/event/exklusives-event-angebot-dxb	1440	5872	23:24-23:37	headSize
+13	/at/de/event/exklusives-event-angebot-dxb	390	8592	23:24-23:37	headSize
+13	/at/de/exclusive-charter	1440	2130	23:24-23:37	
+13	/at/de/exclusive-charter	390	2813	23:24-23:37	
+13	/at/de/faq-data-security	1440	1324	23:24-23:37	
+13	/at/de/faq-data-security	390	1645	23:24-23:37	
+13	/at/de/faq-password-security	1440	1354	23:24-23:37	
+13	/at/de/faq-password-security	390	1711	23:24-23:37	
+13	/at/de/farealert/best-price-alert	1440	3971	23:24-23:37	
+13	/at/de/farealert/best-price-alert	390	5133	23:24-23:37	
+13	/at/de/feedback	1440	2879	23:24-23:37	
+13	/at/de/feedback	390	3727	23:24-23:37	
+13	/at/de/feedback-past-flight	1440	6185	23:24-23:37	
+13	/at/de/feedback-past-flight	390	7502	23:24-23:37	
+13	/at/de/fia-valet-service	1440	3470	23:24-23:37	
+13	/at/de/fia-valet-service	390	5030	23:24-23:37	
+13	/at/de/first-class	1440	22291	23:24-23:37	overlap,headSize
+13	/at/de/first-class	390	22973	23:24-23:37	headSize
+13	/at/de/first-class-lounges	1440	3981	23:24-23:37	
+13	/at/de/first-class-lounges	390	6183	23:24-23:37	
+13	/at/de/first-class-personal-assistant	1440	2237	23:24-23:37	
+13	/at/de/first-class-personal-assistant	390	3355	23:24-23:37	
+13	/at/de/first-class-terminal	1440	10662	23:24-23:37	
+13	/at/de/first-class-terminal	390	9589	23:24-23:37	
+13	/at/de/first-class-valet-parking-service	1440	1755	23:24-23:37	
+13	/at/de/first-class-valet-parking-service	390	2528	23:24-23:37	
+13	/at/de/fliegen-mit-baby	1440	2286	23:24-23:37	
+13	/at/de/fliegen-mit-baby	390	2987	23:24-23:37	
+13	/at/de/fliegen-mit-kindern	1440	5574	23:24-23:37	
+13	/at/de/fliegen-mit-kindern	390	6348	23:24-23:37	
+13	/at/de/fliegen-mit-kleinkind	1440	3376	23:24-23:37	
+13	/at/de/fliegen-mit-kleinkind	390	5427	23:24-23:37	
+13	/at/de/fluege	1440	4063	23:24-23:37	
+13	/at/de/fluege	390	5370	23:24-23:37	
+13	/at/de/flughafeninformation	1440	3282	23:24-23:37	emptySections
+13	/at/de/flughafeninformation	390	5942	23:24-23:37	emptySections
+13	/at/de/flugplan-und-flugstatus	1440	3117	23:24-23:37	overlap
+13	/at/de/flugplan-und-flugstatus	390	3973	23:24-23:37	overlap
+13	/at/de/flugsuche	1440	2101	23:24-23:37	
+13	/at/de/flugsuche	390	3521	23:24-23:37	
+13	/at/de/flugunregelmaessigkeiten	1440	5048	23:24-23:37	
+13	/at/de/flugunregelmaessigkeiten	390	8148	23:24-23:37	
+13	/at/de/flynet	1440	6144	23:24-23:37	headSize
+13	/at/de/flynet	390	8284	23:24-23:37	headSize
+13	/at/de/fmg-valet-parking-service	1440	2986	23:24-23:37	
+13	/at/de/fmg-valet-parking-service	390	3907	23:24-23:37	
+13	/at/de/frankfurt-fair	1440	3506	23:24-23:37	
+13	/at/de/frankfurt-fair	390	5451	23:24-23:37	
+13	/at/de/free2move	1440	3051	23:24-23:37	
+13	/at/de/free2move	390	4558	23:24-23:37	
+13	/at/de/freigepaeck-regeln	1440	3512	23:24-23:37	
+13	/at/de/freigepaeck-regeln	390	5355	23:24-23:37	
+13	/at/de/gefaehrliche-gegenstaende	1440	5068	23:24-23:37	
+13	/at/de/gefaehrliche-gegenstaende	390	9415	23:24-23:37	
+13	/at/de/gepaeck	1440	4727	23:24-23:37	
+13	/at/de/gepaeck	390	7521	23:24-23:37	
+13	/at/de/geschaeftsbedingungen	1440	1844	23:24-23:37	
+13	/at/de/geschaeftsbedingungen	390	3106	23:24-23:37	
+13	/at/de/gesund-reisen	1440	3277	23:24-23:37	
+13	/at/de/gesund-reisen	390	4294	23:24-23:37	
+13	/at/de/good-for-train	1440	1514	23:24-23:37	
+13	/at/de/good-for-train	390	1416	23:24-23:37	
+13	/at/de/green-fare	1440	5634	23:24-23:37	
+13	/at/de/green-fare	390	7152	23:24-23:37	
+13	/at/de/group-travel	1440	7663	23:24-23:37	emptySections
+13	/at/de/group-travel	390	8896	23:24-23:37	emptySections
+13	/at/de/handgepaeck	1440	12084	23:24-23:37	
+13	/at/de/handgepaeck	390	12616	23:24-23:37	
+13	/at/de/hotelangebote	1440	3435	23:24-23:37	overlap
+13	/at/de/hotelangebote	390	4618	23:24-23:37	overlap
+13	/at/de/impressum	1440	2564	23:24-23:37	
+13	/at/de/impressum	390	4251	23:24-23:37	
+13	/at/de/informationen-zum-datenschutz	1440	17642	23:24-23:37	headSize
+13	/at/de/informationen-zum-datenschutz	390	34534	23:24-23:37	headSize
+13	/at/de/inspiredby	1440	3158	23:24-23:37	
+13	/at/de/inspiredby	390	3923	23:24-23:37	
+13	/at/de/inspiredby-japan	1440	2042	23:24-23:37	
+13	/at/de/inspiredby-japan	390	1923	23:24-23:37	
+13	/at/de/inspiredby-nepal	1440	2015	23:24-23:37	
+13	/at/de/inspiredby-nepal	390	1927	23:24-23:37	
+13	/at/de/kinder-an-bord	1440	2419	23:24-23:37	
+13	/at/de/kinder-an-bord	390	3733	23:24-23:37	
+13	/at/de/kindermenues-an-bord	1440	4486	23:24-23:37	overlap,headSize
+13	/at/de/kindermenues-an-bord	390	5043	23:24-23:37	overlap,headSize
+13	/at/de/local-page/black-friday	1440	2972	23:24-23:37	
+13	/at/de/local-page/black-friday	390	4589	23:24-23:37	
+13	/at/de/lounge-begleitung	1440	3496	23:24-23:37	
+13	/at/de/lounge-begleitung	390	4926	23:24-23:37	
+13	/at/de/lounges	1440	5964	23:24-23:37	
+13	/at/de/lounges	390	6873	23:24-23:37	
+13	/at/de/lufthansa-am-flughafen-duesseldorf	1440	2927	23:24-23:37	
+13	/at/de/lufthansa-am-flughafen-duesseldorf	390	4037	23:24-23:37	
+13	/at/de/lufthansa-am-flughafen-frankfurt	1440	4527	23:24-23:37	
+13	/at/de/lufthansa-am-flughafen-frankfurt	390	7731	23:24-23:37	
+13	/at/de/lufthansa-am-flughafen-wien	1440	2507	23:24-23:37	
+13	/at/de/lufthansa-am-flughafen-wien	390	3118	23:24-23:37	
+13	/at/de/lufthansa-at-berlin-airport	1440	2919	23:24-23:37	
+13	/at/de/lufthansa-at-berlin-airport	390	4732	23:24-23:37	
+13	/at/de/lufthansa-at-zuerich-airport	1440	2558	23:24-23:37	
+13	/at/de/lufthansa-at-zuerich-airport	390	3142	23:24-23:37	
+13	/at/de/lufthansa-aviation-group	1440	2762	23:24-23:37	
+13	/at/de/lufthansa-aviation-group	390	3878	23:24-23:37	
+13	/at/de/lufthansa-business-class-on-long-haul-routes	1440	3301	23:24-23:37	
+13	/at/de/lufthansa-business-class-on-long-haul-routes	390	4505	23:24-23:37	
+13	/at/de/lufthansa-ejournals	1440	3546	23:24-23:37	
+13	/at/de/lufthansa-ejournals	390	4205	23:24-23:37	
+13	/at/de/lufthansa-express	1440	4245	23:24-23:37	
+13	/at/de/lufthansa-express	390	6519	23:24-23:37	
+13	/at/de/lufthansa-express-bus	1440	4971	23:24-23:37	
+13	/at/de/lufthansa-express-bus	390	7896	23:24-23:37	
+13	/at/de/lufthansa-express-rail	1440	7709	23:24-23:37	
+13	/at/de/lufthansa-express-rail	390	10975	23:24-23:37	
+13	/at/de/lufthansa-firmenkunden	1440	3380	23:24-23:37	
+13	/at/de/lufthansa-firmenkunden	390	4171	23:24-23:37	
+13	/at/de/lufthansa-first-class-entertainment	1440	3064	23:24-23:37	
+13	/at/de/lufthansa-first-class-entertainment	390	3803	23:24-23:37	
+13	/at/de/lufthansa-first-class-flotte	1440	4191	23:24-23:37	
+13	/at/de/lufthansa-first-class-flotte	390	4283	23:24-23:37	
+13	/at/de/lufthansa-first-class-komfort	1440	2820	23:24-23:37	
+13	/at/de/lufthansa-first-class-komfort	390	3476	23:24-23:37	
+13	/at/de/lufthansa-group-star-alliance-and-partner-airlines	1440	6057	23:24-23:37	
+13	/at/de/lufthansa-group-star-alliance-and-partner-airlines	390	11053	23:24-23:37	
+13	/at/de/lufthansa-guide-service	1440	3750	23:24-23:37	
+13	/at/de/lufthansa-guide-service	390	5828	23:24-23:37	
+13	/at/de/lufthansa-reiseklassen	1440	3290	23:24-23:37	
+13	/at/de/lufthansa-reiseklassen	390	4736	23:24-23:37	
+13	/at/de/lufthansa-terminal-muenchen	1440	4273	23:24-23:37	
+13	/at/de/lufthansa-terminal-muenchen	390	6864	23:24-23:37	
+13	/at/de/medikamenten-transport	1440	2826	23:24-23:37	
+13	/at/de/medikamenten-transport	390	4132	23:24-23:37	
+13	/at/de/meetings-and-events	1440	3609	23:24-23:37	
+13	/at/de/meetings-and-events	390	4149	23:24-23:37	
+13	/at/de/meetings-und-events-individuelle-angebotsanfrage	1440	2907	23:24-23:37	
+13	/at/de/meetings-und-events-individuelle-angebotsanfrage	390	4230	23:24-23:37	
+13	/at/de/meetings-und-events-teilnehmer	1440	2557	23:24-23:37	
+13	/at/de/meetings-und-events-teilnehmer	390	3575	23:24-23:37	
+13	/at/de/mein-logbuch	1440	3110	23:24-23:37	
+13	/at/de/mein-logbuch	390	3563	23:24-23:37	
+13	/at/de/meine-buchungen	1440	3522	23:24-23:37	
+13	/at/de/meine-buchungen	390	5261	23:24-23:37	
+13	/at/de/menues-auf-langstreckenfluegen	1440	3256	23:24-23:37	
+13	/at/de/menues-auf-langstreckenfluegen	390	4796	23:24-23:37	
+13	/at/de/menues-reiseklassen	1440	2250	23:24-23:37	
+13	/at/de/menues-reiseklassen	390	3241	23:24-23:37	
+13	/at/de/miles-and-more	1440	3491	23:24-23:37	
+13	/at/de/miles-and-more	390	4516	23:24-23:37	
+13	/at/de/mit-kindern-am-flughafen	1440	3099	23:24-23:37	
+13	/at/de/mit-kindern-am-flughafen	390	4203	23:24-23:37	
+13	/at/de/mobility-partner-program-healthcare	1440	3545	23:24-23:37	
+13	/at/de/mobility-partner-program-healthcare	390	4972	23:24-23:37	
+13	/at/de/munich-fair	1440	2439	23:24-23:37	
+13	/at/de/munich-fair	390	3239	23:24-23:37	
+13	/at/de/nachhaltiger-fliegen	1440	4256	23:24-23:37	
+13	/at/de/nachhaltiger-fliegen	390	6660	23:24-23:37	
+13	/at/de/nutzungsbedingungen	1440	3911	23:24-23:37	
+13	/at/de/nutzungsbedingungen	390	6447	23:24-23:37	
+13	/at/de/nutzungsbedingungen-waehrungsumrechnung	1440	2035	23:24-23:37	
+13	/at/de/nutzungsbedingungen-waehrungsumrechnung	390	3200	23:24-23:37	
+13	/at/de/onboard-delights	1440	7191	23:24-23:37	
+13	/at/de/onboard-delights	390	10584	23:24-23:37	
+13	/at/de/onboard-delights-faq	1440	1872	23:24-23:37	
+13	/at/de/onboard-delights-faq	390	2647	23:24-23:37	
+13	/at/de/online-check-in	1440	3648	23:24-23:37	
+13	/at/de/online-check-in	390	5918	23:24-23:37	
+13	/at/de/online-check-in-info	1440	2682	23:24-23:37	
+13	/at/de/online-check-in-info	390	3115	23:24-23:37	
+13	/at/de/online-check-in-mit-der-ganzen-familie	1440	2546	23:24-23:37	
+13	/at/de/online-check-in-mit-der-ganzen-familie	390	3348	23:24-23:37	
+13	/at/de/opc	1440	2630	23:24-23:37	
+13	/at/de/opc	390	3331	23:24-23:37	
+13	/at/de/overview-special-request	1440	2773	23:24-23:37	
+13	/at/de/overview-special-request	390	4028	23:24-23:37	
+13	/at/de/passenger-receipt-90	1440	3379	23:24-23:37	
+13	/at/de/passenger-receipt-90	390	4328	23:24-23:37	
+13	/at/de/passenger-rights	1440	6178	23:24-23:37	
+13	/at/de/passenger-rights	390	10320	23:24-23:37	
+13	/at/de/passengers-using-wheelchairs	1440	11623	23:24-23:37	
+13	/at/de/passengers-using-wheelchairs	390	21452	23:24-23:37	
+13	/at/de/passengers-with-sensory-impairment	1440	8690	23:24-23:37	
+13	/at/de/passengers-with-sensory-impairment	390	15555	23:24-23:37	
+13	/at/de/pre-check-in	1440	2426	23:24-23:37	
+13	/at/de/pre-check-in	390	3740	23:24-23:37	
+13	/at/de/premium-economy-class	1440	7084	23:24-23:37	
+13	/at/de/premium-economy-class	390	9534	23:24-23:37	
+13	/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time	1440	1949	23:24-23:37	
+13	/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time	390	3218	23:24-23:37	
+13	/at/de/prepare-for-your-trip/all-check-in/emergency-contact-form/confirmation	1440	1112	23:24-23:37	
+13	/at/de/prepare-for-your-trip/all-check-in/emergency-contact-form/confirmation	390	1335	23:24-23:37	
+14	/at/de/prepare-for-your-trip/all-check-in/group-check-in-counter	1440	5195	23:39-23:51	
+14	/at/de/prepare-for-your-trip/all-check-in/group-check-in-counter	390	6249	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-conditions	1440	2316	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-conditions	390	3940	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	2778	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	4613	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	1440	3836	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	390	5512	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	1440	2287	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	390	3052	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440	2666	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	390	5072	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries	1440	4415	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries	390	7595	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation	1440	1245	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm/confirmation	390	1670	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	1440	1465	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	390	1877	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	1440	1218	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	390	1616	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	1440	1218	23:39-23:51	
+14	/at/de/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	390	1616	23:39-23:51	
+14	/at/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	1440	5685	23:39-23:51	
+14	/at/de/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	390	9447	23:39-23:51	
+14	/at/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	1440	2761	23:39-23:51	
+14	/at/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	390	3453	23:39-23:51	
+14	/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	1440	2515	23:39-23:51	
+14	/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	390	3349	23:39-23:51	
+14	/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	1440	2585	23:39-23:51	
+14	/at/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	390	3621	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions	1440	2593	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions	390	2943	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	1440	7460	23:39-23:51	broken,headSize
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	390	13434	23:39-23:51	headSize
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	1440	5391	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	390	10190	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	1440	1113	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	390	1403	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	1440	4456	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	390	8300	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	1440	5820	23:39-23:51	
+14	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	390	11149	23:39-23:51	
+14	/at/de/prepare-for-your-trip/travel-classes/business-class	1440	10476	23:39-23:51	
+14	/at/de/prepare-for-your-trip/travel-classes/business-class	390	14348	23:39-23:51	
+14	/at/de/prepare-for-your-trip/travel-classes/economy-basic	1440	4163	23:39-23:51	
+14	/at/de/prepare-for-your-trip/travel-classes/economy-basic	390	5323	23:39-23:51	
+14	/at/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass	1440	5282	23:39-23:51	
+14	/at/de/prepare-for-your-trip/travelling-with-children/child-in-businessclass	390	6546	23:39-23:51	
+14	/at/de/rail-and-fly	1440	4842	23:39-23:51	overlap
+14	/at/de/rail-and-fly	390	7048	23:39-23:51	
+14	/at/de/rail-fly-bedingungen	1440	3108	23:39-23:51	
+14	/at/de/rail-fly-bedingungen	390	5577	23:39-23:51	
+14	/at/de/rechnungsbeleg	1440	2172	23:39-23:51	
+14	/at/de/rechnungsbeleg	390	3464	23:39-23:51	
+14	/at/de/refund	1440	2527	23:39-23:51	
+14	/at/de/refund	390	3599	23:39-23:51	
+14	/at/de/register-animal-cabin	1440	5687	23:39-23:51	overlap
+14	/at/de/register-animal-cabin	390	7906	23:39-23:51	overlap
+14	/at/de/reisebueros	1440	1731	23:39-23:51	
+14	/at/de/reisebueros	390	2375	23:39-23:51	
+14	/at/de/reisen-mit-besonderen-anforderungen	1440	2146	23:39-23:51	
+14	/at/de/reisen-mit-besonderen-anforderungen	390	4081	23:39-23:51	
+14	/at/de/rollstuhlbatterien	1440	3538	23:39-23:51	
+14	/at/de/rollstuhlbatterien	390	5078	23:39-23:51	
+14	/at/de/schengen	1440	3041	23:39-23:51	
+14	/at/de/schengen	390	4655	23:39-23:51	
+14	/at/de/secure-flight	1440	1301	23:39-23:51	
+14	/at/de/secure-flight	390	2371	23:39-23:51	
+14	/at/de/security-fast-lanes	1440	2954	23:39-23:51	
+14	/at/de/security-fast-lanes	390	3636	23:39-23:51	
+14	/at/de/sepa-bedingungen	1440	1822	23:39-23:51	
+14	/at/de/sepa-bedingungen	390	2751	23:39-23:51	
+14	/at/de/sepa-bedingungen-b	1440	1927	23:39-23:51	
+14	/at/de/sepa-bedingungen-b	390	3008	23:39-23:51	
+14	/at/de/services-am-flughafen	1440	2851	23:39-23:51	
+14	/at/de/services-am-flughafen	390	3619	23:39-23:51	
+14	/at/de/services-am-flughafen-frankfurt	1440	2273	23:39-23:51	
+14	/at/de/services-am-flughafen-frankfurt	390	3331	23:39-23:51	
+14	/at/de/services-am-flughafen-muenchen	1440	1907	23:39-23:51	
+14	/at/de/services-am-flughafen-muenchen	390	2120	23:39-23:51	
+14	/at/de/shopping	1440	4871	23:39-23:51	
+14	/at/de/shopping	390	9110	23:39-23:51	
+14	/at/de/sicherheit-fuer-kleinkinder-an-bord	1440	2949	23:39-23:51	
+14	/at/de/sicherheit-fuer-kleinkinder-an-bord	390	5270	23:39-23:51	
+14	/at/de/sitzplaene	1440	4877	23:39-23:51	
+14	/at/de/sitzplaene	390	5836	23:39-23:51	
+14	/at/de/sitzplatzreservierungen-konditionen	1440	1649	23:39-23:51	overlap
+14	/at/de/sitzplatzreservierungen-konditionen	390	2768	23:39-23:51	overlap
+14	/at/de/sondermahlzeiten	1440	6134	23:39-23:51	
+14	/at/de/sondermahlzeiten	390	6967	23:39-23:51	
+14	/at/de/speisen-und-getraenke	1440	5114	23:39-23:51	
+14	/at/de/speisen-und-getraenke	390	7063	23:39-23:51	
+14	/at/de/sportgepaeck	1440	4928	23:39-23:51	
+14	/at/de/sportgepaeck	390	8066	23:39-23:51	
+14	/at/de/sportgepaeck-hinzufuegen	1440	4481	23:39-23:51	overlap
+14	/at/de/sportgepaeck-hinzufuegen	390	5663	23:39-23:51	overlap
+14	/at/de/support/contact/contact-form-confirmation	1440	1139	23:39-23:51	
+14	/at/de/support/contact/contact-form-confirmation	390	1402	23:39-23:51	
+14	/at/de/support/contact/passenger-duty-united-kingdom	1440	1887	23:39-23:51	
+14	/at/de/support/contact/passenger-duty-united-kingdom	390	2752	23:39-23:51	
+14	/at/de/support/feedback-and-contact-airlines	1440	2104	23:39-23:51	
+14	/at/de/support/feedback-and-contact-airlines	390	4489	23:39-23:51	
+14	/at/de/support/search/search-result	1440	1144	23:39-23:51	
+14	/at/de/support/search/search-result	390	1324	23:39-23:51	
+14	/at/de/tiere-als-handgepaeck	1440	4195	23:39-23:51	
+14	/at/de/tiere-als-handgepaeck	390	5510	23:39-23:51	
+14	/at/de/tiere-als-uebergepaeck	1440	6117	23:39-23:51	
+14	/at/de/tiere-als-uebergepaeck	390	9009	23:39-23:51	
+14	/at/de/tips-senior-travellers	1440	13112	23:39-23:51	overlap
+14	/at/de/tips-senior-travellers	390	20985	23:39-23:51	overlap
+14	/at/de/travel-briefing	1440	6333	23:39-23:51	
+14	/at/de/travel-briefing	390	9296	23:39-23:51	
+14	/at/de/travel-expense-management	1440	2984	23:39-23:51	
+14	/at/de/travel-expense-management	390	3738	23:39-23:51	
+14	/at/de/travel-id-terms-conditions	1440	10038	23:39-23:51	
+14	/at/de/travel-id-terms-conditions	390	18529	23:39-23:51	
+14	/at/de/travelling-with-animals	1440	2682	23:39-23:51	
+14	/at/de/travelling-with-animals	390	4008	23:39-23:51	
+14	/at/de/traveltricks	1440	3707	23:39-23:51	
+14	/at/de/traveltricks	390	4784	23:39-23:51	
+14	/at/de/uebergepaeck	1440	3164	23:39-23:51	
+14	/at/de/uebergepaeck	390	4918	23:39-23:51	
+14	/at/de/unterhaltung-an-bord	1440	8253	23:39-23:51	
+14	/at/de/unterhaltung-an-bord	390	8105	23:39-23:51	
+14	/at/de/upgrade-business-class-langstrecke	1440	2549	23:39-23:51	
+14	/at/de/upgrade-business-class-langstrecke	390	3852	23:39-23:51	
+14	/at/de/upgrade-first-class	1440	2602	23:39-23:51	
+14	/at/de/upgrade-first-class	390	3962	23:39-23:51	
+14	/at/de/upgrade-in-die-business-class	1440	2572	23:39-23:51	
+14	/at/de/upgrade-in-die-business-class	390	3982	23:39-23:51	
+14	/at/de/upgrade-in-die-premium-economy-class	1440	2323	23:39-23:51	
+14	/at/de/upgrade-in-die-premium-economy-class	390	3293	23:39-23:51	
+14	/at/de/upgrade-informationen	1440	2287	23:39-23:51	
+14	/at/de/upgrade-informationen	390	3422	23:39-23:51	
+14	/at/de/upgrade-premium-economy-class	1440	2574	23:39-23:51	
+14	/at/de/upgrade-premium-economy-class	390	3975	23:39-23:51	
+14	/at/de/upgrademoeglichkeiten	1440	3535	23:39-23:51	
+14	/at/de/upgrademoeglichkeiten	390	5077	23:39-23:51	
+14	/at/de/upgrades-im-online-check-in	1440	3284	23:39-23:51	emptySections
+14	/at/de/upgrades-im-online-check-in	390	4030	23:39-23:51	emptySections
+14	/at/de/zahlungsmoeglichkeiten-am-flughafen	1440	2562	23:39-23:51	
+14	/at/de/zahlungsmoeglichkeiten-am-flughafen	390	3371	23:39-23:51	
+14	/at/de/zeitfenster-sicherheitskontrolle	1440	2879	23:39-23:51	
+14	/at/de/zeitfenster-sicherheitskontrolle	390	3072	23:39-23:51	
+14	/xx/fr/100-years	1440	8492	23:39-23:51	
+14	/xx/fr/100-years	390	10444	23:39-23:51	
+14	/xx/fr/100-years/cabin-design	1440	17247	23:39-23:51	overlap
+14	/xx/fr/100-years/cabin-design	390	21184	23:39-23:51	overlap
+14	/xx/fr/100-years/campaigns	1440	17147	23:39-23:51	
+14	/xx/fr/100-years/campaigns	390	16054	23:39-23:51	
+14	/xx/fr/100-years/chronicle	1440	35410	23:39-23:51	headSize
+14	/xx/fr/100-years/chronicle	390	46386	23:39-23:51	headSize
+14	/xx/fr/100-years/crane	1440	9779	23:39-23:51	
+14	/xx/fr/100-years/crane	390	11575	23:39-23:51	
+14	/xx/fr/100-years/destinations	1440	17494	23:39-23:51	overlap
+14	/xx/fr/100-years/destinations	390	19583	23:39-23:51	overlap
+14	/xx/fr/100-years/fleet	1440	29157	23:39-23:51	
+14	/xx/fr/100-years/fleet	390	38418	23:39-23:51	
+14	/xx/fr/100-years/global-network	1440	16290	23:39-23:51	headSize
+14	/xx/fr/100-years/global-network	390	18807	23:39-23:51	headSize
+14	/xx/fr/100-years/history	1440	9667	23:39-23:51	
+14	/xx/fr/100-years/history	390	12338	23:39-23:51	
+14	/xx/fr/100-years/history/menu-on-board	1440	12527	23:39-23:51	
+14	/xx/fr/100-years/history/menu-on-board	390	13335	23:39-23:51	
+14	/xx/fr/31h	1440	5891	23:39-23:51	
+14	/xx/fr/31h	390	6368	23:39-23:51	
+14	/xx/fr/320	1440	6465	23:39-23:51	
+14	/xx/fr/320	390	6960	23:39-23:51	
+14	/xx/fr/321	1440	5893	23:39-23:51	
+14	/xx/fr/321	390	6494	23:39-23:51	
+14	/xx/fr/32l	1440	3096	23:39-23:51	
+14	/xx/fr/32l	390	2982	23:39-23:51	
+14	/xx/fr/32n	1440	6607	23:39-23:51	
+14	/xx/fr/32n	390	7256	23:39-23:51	
+14	/xx/fr/32q	1440	6489	23:39-23:51	
+14	/xx/fr/32q	390	7134	23:39-23:51	
+14	/xx/fr/333	1440	3077	23:39-23:51	
+14	/xx/fr/333	390	2966	23:39-23:51	
+14	/xx/fr/34p	1440	3067	23:39-23:51	
+14	/xx/fr/34p	390	2965	23:39-23:51	
+14	/xx/fr/35a	1440	7717	23:39-23:51	
+14	/xx/fr/35a	390	8718	23:39-23:51	
+14	/xx/fr/388	1440	7611	23:39-23:51	
+14	/xx/fr/388	390	8659	23:39-23:51	
+14	/xx/fr/74h	1440	7240	23:39-23:51	
+14	/xx/fr/74h	390	8241	23:39-23:51	
+14	/xx/fr/accessible-travel	1440	5813	23:39-23:51	
+14	/xx/fr/accessible-travel	390	10993	23:39-23:51	
+14	/xx/fr/additional-services	1440	4383	23:39-23:51	overlap
+14	/xx/fr/additional-services	390	6165	23:39-23:51	
+14	/xx/fr/admission-rules	1440	7314	23:39-23:51	
+14	/xx/fr/admission-rules	390	8703	23:39-23:51	
+14	/xx/fr/adresses-dans-le-monde-entier	1440	1276	23:39-23:51	overlap
+14	/xx/fr/adresses-dans-le-monde-entier	390	1499	23:39-23:51	overlap
+14	/xx/fr/advance-seat-reservation	1440	26695	23:39-23:51	headSize
+14	/xx/fr/advance-seat-reservation	390	22073	23:39-23:51	headSize
+14	/xx/fr/advance-seat-reservations-terms-and-conditions	1440	1729	23:39-23:51	overlap
+14	/xx/fr/advance-seat-reservations-terms-and-conditions	390	2807	23:39-23:51	overlap
+14	/xx/fr/advice-for-travellers-with-special-needs-to-and-from-the-usa	1440	6191	23:39-23:51	
+14	/xx/fr/advice-for-travellers-with-special-needs-to-and-from-the-usa	390	10588	23:39-23:51	
+14	/xx/fr/affiliatemarketing	1440	2942	23:39-23:51	
+14	/xx/fr/affiliatemarketing	390	4369	23:39-23:51	
+14	/xx/fr/all-check-in	1440	2843	23:39-23:51	
+14	/xx/fr/all-check-in	390	3643	23:39-23:51	
+14	/xx/fr/alleinreisende-kinder	1440	7558	23:39-23:51	
+14	/xx/fr/alleinreisende-kinder	390	12528	23:39-23:51	
+14	/xx/fr/anmeldung-tiere-frachtraum	1440	6457	23:39-23:51	
+14	/xx/fr/anmeldung-tiere-frachtraum	390	9172	23:39-23:51	
+14	/xx/fr/arrival-services	1440	3913	23:39-23:51	
+14	/xx/fr/arrival-services	390	4956	23:39-23:51	
+14	/xx/fr/articles/highlights	1440	5283	23:39-23:51	
+14	/xx/fr/articles/highlights	390	7388	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-business-class-shanghai	1440	6693	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-business-class-shanghai	390	7065	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-business-san-diego	1440	7015	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-business-san-diego	390	7653	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-new-york	1440	6967	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-new-york	390	7825	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-premium-economy-san-diego	1440	6980	23:39-23:51	
+14	/xx/fr/articles/highlights/allegris-premium-economy-san-diego	390	7829	23:39-23:51	
+14	/xx/fr/articles/highlights/fashion-guide	1440	16786	23:39-23:51	headSize
+14	/xx/fr/articles/highlights/fashion-guide	390	13355	23:39-23:51	headSize
+14	/xx/fr/articles/highlights/the-art-of-flying-extra-long-bed	1440	6040	23:39-23:51	
+14	/xx/fr/articles/highlights/the-art-of-flying-extra-long-bed	390	7999	23:39-23:51	
+14	/xx/fr/articles/highlights/the-art-of-flying-extra-space-seat	1440	6073	23:39-23:51	
+14	/xx/fr/articles/highlights/the-art-of-flying-extra-space-seat	390	8123	23:39-23:51	
+14	/xx/fr/articles/highlights/the-art-of-flying-suite	1440	6172	23:39-23:51	
+14	/xx/fr/articles/highlights/the-art-of-flying-suite	390	8401	23:39-23:51	
+14	/xx/fr/articles/tags	1440	2014	23:39-23:51	
+14	/xx/fr/articles/tags	390	2558	23:39-23:51	
+14	/xx/fr/articles/tags/allegris	1440	5589	23:39-23:51	
+14	/xx/fr/articles/tags/allegris	390	6009	23:39-23:51	
+14	/xx/fr/articles/tags/allegris-inspires	1440	4632	23:39-23:51	
+14	/xx/fr/articles/tags/allegris-inspires	390	6589	23:39-23:51	
+14	/xx/fr/articles/tags/art	1440	4821	23:39-23:51	
+14	/xx/fr/articles/tags/art	390	6636	23:39-23:51	
+14	/xx/fr/assistenzhunde	1440	2409	23:39-23:51	
+14	/xx/fr/assistenzhunde	390	4113	23:39-23:51	
+14	/xx/fr/automatic-check-in	1440	3087	23:39-23:51	
+14	/xx/fr/automatic-check-in	390	5056	23:39-23:51	
+14	/xx/fr/baggage-irregularities	1440	8966	23:39-23:51	
+14	/xx/fr/baggage-irregularities	390	7583	23:39-23:51	
+14	/xx/fr/batteries-de-fauteuil-roulant	1440	3460	23:39-23:51	
+14	/xx/fr/batteries-de-fauteuil-roulant	390	4976	23:39-23:51	
+14	/xx/fr/besondere-befoerderungsbedingungen-bus	1440	9646	23:39-23:51	
+14	/xx/fr/besondere-befoerderungsbedingungen-bus	390	17363	23:39-23:51	
+14	/xx/fr/bid-upgrade	1440	4050	23:39-23:51	
+14	/xx/fr/bid-upgrade	390	5560	23:39-23:51	
+14	/xx/fr/boarding	1440	3319	23:39-23:51	
+14	/xx/fr/boarding	390	4918	23:39-23:51	
+14	/xx/fr/boeing787	1440	7337	23:39-23:51	
+14	/xx/fr/boeing787	390	8495	23:39-23:51	
+14	/xx/fr/book-and-manage/additional-services/get-your-guide	1440	2023	23:39-23:51	
+14	/xx/fr/book-and-manage/additional-services/get-your-guide	390	2500	23:39-23:51	
+14	/xx/fr/book-and-manage/additional-services/travel-insurances	1440	2867	23:39-23:51	
+14	/xx/fr/book-and-manage/additional-services/travel-insurances	390	3798	23:39-23:51	
+14	/xx/fr/book-and-manage/best-price	1440	1430	23:39-23:51	
+14	/xx/fr/book-and-manage/best-price	390	2125	23:39-23:51	
+14	/xx/fr/book-and-manage/digital-self-services/airline-apps	1440	1765	23:39-23:51	
+14	/xx/fr/book-and-manage/digital-self-services/airline-apps	390	3643	23:39-23:51	
+14	/xx/fr/book-and-manage/flights/air-baltic	1440	6479	23:39-23:51	overlap
+14	/xx/fr/book-and-manage/flights/air-baltic	390	11019	23:39-23:51	overlap
+14	/xx/fr/book-and-manage/flights/ana	1440	3637	23:39-23:51	
+14	/xx/fr/book-and-manage/flights/ana	390	5787	23:39-23:51	
+14	/xx/fr/book-and-manage/flights/giftvoucher	1440	3668	23:39-23:51	
+14	/xx/fr/book-and-manage/flights/giftvoucher	390	6155	23:39-23:51	
+14	/xx/fr/book-and-manage/flights/helvetic	1440	5473	23:39-23:51	
+14	/xx/fr/book-and-manage/flights/helvetic	390	8067	23:39-23:51	
+14	/xx/fr/book-and-manage/passenger-receipt-90days/confirmation	1440	1143	23:39-23:51	
+14	/xx/fr/book-and-manage/passenger-receipt-90days/confirmation	390	1420	23:39-23:51	
+14	/xx/fr/book-and-manage/pax-receipt	1440	2166	23:39-23:51	
+14	/xx/fr/book-and-manage/pax-receipt	390	2703	23:39-23:51	
+14	/xx/fr/book-and-manage/pax-receipt/invoices-different-countries	1440	2071	23:39-23:51	
+14	/xx/fr/book-and-manage/pax-receipt/invoices-different-countries	390	2371	23:39-23:51	
+14	/xx/fr/book-and-manage/rebook	1440	1912	23:39-23:51	
+14	/xx/fr/book-and-manage/rebook	390	2616	23:39-23:51	
+14	/xx/fr/book-and-manage/rebook/involuntary-rebooking	1440	5105	23:39-23:51	
+14	/xx/fr/book-and-manage/rebook/involuntary-rebooking	390	8379	23:39-23:51	
+14	/xx/fr/book-and-manage/rebook/voluntary-rebooking	1440	6443	23:39-23:51	
+14	/xx/fr/book-and-manage/rebook/voluntary-rebooking	390	10562	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover	1440	13365	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover	390	18483	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/bayerischer-hof	1440	2556	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/bayerischer-hof	390	3764	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/breuninger	1440	2452	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/breuninger	390	3253	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/garmisch-classic	1440	2801	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/garmisch-classic	390	3992	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/hop-on-hop-off-muc	1440	2512	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/hop-on-hop-off-muc	390	3139	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/ingolstadt-village	1440	2447	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/ingolstadt-village	390	3427	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/leonardo-hotel	1440	2431	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/leonardo-hotel	390	3253	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/muc-city-pass	1440	2601	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/muc-city-pass	390	3620	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/munich-airport	1440	2496	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/munich-airport	390	3326	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/neuschwanstein	1440	2645	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/neuschwanstein	390	3465	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/rosewood	1440	2510	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/rosewood	390	3024	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/sixt-muc	1440	2591	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/sixt-muc	390	3740	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/sixt-ride-bavaria	1440	2857	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/sixt-ride-bavaria	390	4475	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/zugspitze	1440	2596	23:39-23:51	
+14	/xx/fr/book-and-manage/stopover/zugspitze	390	3690	23:39-23:51	
+14	/xx/fr/business-class	1440	10677	23:39-23:51	
+14	/xx/fr/business-class	390	14684	23:39-23:51	
+14	/xx/fr/business-class-on-short-and-medium-haul	1440	2921	23:39-23:51	
+14	/xx/fr/business-class-on-short-and-medium-haul	390	4177	23:39-23:51	
+14	/xx/fr/cancellations-and-refunds	1440	2421	23:39-23:51	
+14	/xx/fr/cancellations-and-refunds	390	3248	23:39-23:51	
+14	/xx/fr/cash-and-miles	1440	2418	23:39-23:51	
+14	/xx/fr/cash-and-miles	390	3493	23:39-23:51	
+14	/xx/fr/check-in-baggage	1440	3646	23:39-23:51	
+14	/xx/fr/check-in-baggage	390	3881	23:39-23:51	
+14	/xx/fr/check-in-with-the-family	1440	2642	23:39-23:51	
+14	/xx/fr/check-in-with-the-family	390	3581	23:39-23:51	
+14	/xx/fr/common/accessibility-statement	1440	12102	23:39-23:51	
+14	/xx/fr/common/accessibility-statement	390	17618	23:39-23:51	
+14	/xx/fr/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	1440	2809	23:39-23:51	
+14	/xx/fr/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	390	4125	23:39-23:51	
+14	/xx/fr/common/compensation-voucher	1440	4378	23:39-23:51	
+14	/xx/fr/common/compensation-voucher	390	7060	23:39-23:51	
+14	/xx/fr/common/imprint/lufthansa-insights-imprint	1440	2842	23:39-23:51	
+14	/xx/fr/common/imprint/lufthansa-insights-imprint	390	4965	23:39-23:51	
+14	/xx/fr/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page	1440	6906	23:39-23:51	
+14	/xx/fr/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page	390	10494	23:39-23:51	
+14	/xx/fr/common/seatreservation-condtions/seat-reservations	1440	9087	23:39-23:51	
+14	/xx/fr/common/seatreservation-condtions/seat-reservations	390	17253	23:39-23:51	
+14	/xx/fr/concur-terms-and-conditions	1440	1810	23:39-23:51	
+14	/xx/fr/concur-terms-and-conditions	390	2903	23:39-23:51	
+14	/xx/fr/conditions-de-prelevement-sepa-b	1440	2061	23:39-23:51	
+14	/xx/fr/conditions-de-prelevement-sepa-b	390	3105	23:39-23:51	
+14	/xx/fr/conditions-generales-conversion-de-devises	1440	2062	23:39-23:51	
+14	/xx/fr/conditions-generales-conversion-de-devises	390	3210	23:39-23:51	
+14	/xx/fr/cookie-policy	1440	9802	23:39-23:51	
+14	/xx/fr/cookie-policy	390	13252	23:39-23:51	
+14	/xx/fr/crn	1440	3267	23:39-23:51	
+14	/xx/fr/crn	390	3060	23:39-23:51	
+14	/xx/fr/culinaryjourney	1440	1550	23:39-23:51	emptySections
+14	/xx/fr/culinaryjourney	390	1702	23:39-23:51	emptySections
+14	/xx/fr/dangerous-dogs	1440	2525	23:39-23:51	
+14	/xx/fr/dangerous-dogs	390	4164	23:39-23:51	
+14	/xx/fr/data-collection-canada	1440	5847	23:39-23:51	
+14	/xx/fr/data-collection-canada	390	5613	23:39-23:51	
+14	/xx/fr/data-collection-usa	1440	6037	23:39-23:51	headSize
+14	/xx/fr/data-collection-usa	390	6979	23:39-23:51	headSize
+14	/xx/fr/data-protection-information	1440	17651	23:39-23:51	headSize
+14	/xx/fr/data-protection-information	390	34325	23:39-23:51	headSize
+14	/xx/fr/datenschutz	1440	1595	23:39-23:51	
+14	/xx/fr/datenschutz	390	2084	23:39-23:51	
+14	/xx/fr/dcc	1440	3575	23:39-23:51	
+14	/xx/fr/dcc	390	5104	23:39-23:51	
+14	/xx/fr/digital-baggage-services	1440	3786	23:39-23:51	
+14	/xx/fr/digital-baggage-services	390	4978	23:39-23:51	
+14	/xx/fr/digital-self-services	1440	4407	23:39-23:51	
+14	/xx/fr/digital-self-services	390	6499	23:39-23:51	
+14	/xx/fr/digital-travel-companion	1440	11212	23:39-23:51	
+14	/xx/fr/digital-travel-companion	390	9116	23:39-23:51	
+14	/xx/fr/discover-lufthansa/carbon-offsetting/climate-protection-projects	1440	5043	23:39-23:51	
+14	/xx/fr/discover-lufthansa/carbon-offsetting/climate-protection-projects	390	7162	23:39-23:51	
+14	/xx/fr/discover-lufthansa/carbon-offsetting/saf	1440	4043	23:39-23:51	
+14	/xx/fr/discover-lufthansa/carbon-offsetting/saf	390	6127	23:39-23:51	
+14	/xx/fr/discover-lufthansa/flightreservation-priceguarantee	1440	3757	23:39-23:51	
+14	/xx/fr/discover-lufthansa/flightreservation-priceguarantee	390	5023	23:39-23:51	
+14	/xx/fr/discover-lufthansa/lufthansa-fleet/351	1440	8064	23:39-23:51	
+14	/xx/fr/discover-lufthansa/lufthansa-fleet/351	390	9357	23:39-23:51	
+14	/xx/fr/discover-lufthansa/lufthansa-group-airlines/ita-airways	1440	3855	23:39-23:51	
+14	/xx/fr/discover-lufthansa/lufthansa-group-airlines/ita-airways	390	5779	23:39-23:51	
+14	/xx/fr/discover-lufthansa/new-onboard-experience	1440	15079	23:39-23:51	
+14	/xx/fr/discover-lufthansa/new-onboard-experience	390	19321	23:39-23:51	
+14	/xx/fr/doctor-on-board	1440	4001	23:39-23:51	emptySections
+14	/xx/fr/doctor-on-board	390	5088	23:39-23:51	emptySections
+14	/xx/fr/doctor-on-board-news	1440	2520	23:39-23:51	emptySections
+14	/xx/fr/doctor-on-board-news	390	3293	23:39-23:51	emptySections
+14	/xx/fr/during-your-trip/internet-overview	1440	3222	23:39-23:51	
+14	/xx/fr/during-your-trip/internet-overview	390	4924	23:39-23:51	
+14	/xx/fr/during-your-trip/lhg-wifi	1440	4322	23:39-23:51	
+14	/xx/fr/during-your-trip/lhg-wifi	390	6684	23:39-23:51	
+14	/xx/fr/e9n-1	1440	3267	23:39-23:51	
+14	/xx/fr/e9n-1	390	2998	23:39-23:51	
+14	/xx/fr/e9n-2	1440	3267	23:39-23:51	
+14	/xx/fr/e9n-2	390	2967	23:39-23:51	
+14	/xx/fr/economy-class	1440	6556	23:39-23:51	
+14	/xx/fr/economy-class	390	8461	23:39-23:51	
+14	/xx/fr/electronic-bag-tags	1440	2920	23:39-23:51	
+14	/xx/fr/electronic-bag-tags	390	4032	23:39-23:51	
+14	/xx/fr/emergency-contact	1440	2951	23:39-23:51	
+14	/xx/fr/emergency-contact	390	3363	23:39-23:51	
+14	/xx/fr/entryprocesses	1440	2875	23:39-23:51	
+14	/xx/fr/entryprocesses	390	5466	23:39-23:51	
+14	/xx/fr/europa-tarife-economy-class	1440	5538	23:39-23:51	
+14	/xx/fr/europa-tarife-economy-class	390	7802	23:39-23:51	
+14	/xx/fr/exclusive-charter	1440	2182	23:39-23:51	
+14	/xx/fr/exclusive-charter	390	3005	23:39-23:51	
+14	/xx/fr/faq-data-security	1440	2029	23:39-23:51	
+14	/xx/fr/faq-data-security	390	3219	23:39-23:51	
+14	/xx/fr/faq-password-security	1440	1606	23:39-23:51	
+14	/xx/fr/faq-password-security	390	2085	23:39-23:51	
+14	/xx/fr/farealert/best-price-alert	1440	3944	23:39-23:51	
+14	/xx/fr/farealert/best-price-alert	390	5261	23:39-23:51	
+14	/xx/fr/feedback	1440	3003	23:39-23:51	
+14	/xx/fr/feedback	390	3943	23:39-23:51	
+14	/xx/fr/feedback-past-flight	1440	6171	23:39-23:51	
+14	/xx/fr/feedback-past-flight	390	7608	23:39-23:51	
+14	/xx/fr/fia-valet-service	1440	3544	23:39-23:51	
+14	/xx/fr/fia-valet-service	390	5249	23:39-23:51	
+14	/xx/fr/first-class	1440	23736	23:39-23:51	overlap,headSize
+14	/xx/fr/first-class	390	24876	23:39-23:51	headSize
+14	/xx/fr/first-class-lounges	1440	4130	23:39-23:51	
+14	/xx/fr/first-class-lounges	390	6436	23:39-23:51	
+14	/xx/fr/first-class-personal-assistant	1440	2236	23:39-23:51	
+14	/xx/fr/first-class-personal-assistant	390	3396	23:39-23:51	
+14	/xx/fr/first-class-terminal	1440	10698	23:39-23:51	
+14	/xx/fr/first-class-terminal	390	9794	23:39-23:51	
+14	/xx/fr/first-class-valet-parking-service	1440	1821	23:39-23:51	
+14	/xx/fr/first-class-valet-parking-service	390	2529	23:39-23:51	
+14	/xx/fr/fliegen-mit-baby	1440	2285	23:39-23:51	
+14	/xx/fr/fliegen-mit-baby	390	3004	23:39-23:51	
+14	/xx/fr/fliegen-mit-kleinkind	1440	3453	23:39-23:51	
+14	/xx/fr/fliegen-mit-kleinkind	390	5424	23:39-23:51	
+14	/xx/fr/flight-search	1440	2151	23:39-23:51	
+14	/xx/fr/flight-search	390	3691	23:39-23:51	
+14	/xx/fr/flights	1440	4010	23:39-23:51	
+14	/xx/fr/flights	390	5571	23:39-23:51	
+14	/xx/fr/flughafeninformation	1440	3326	23:39-23:51	emptySections
+14	/xx/fr/flughafeninformation	390	5978	23:39-23:51	emptySections
+14	/xx/fr/flugunregelmaessigkeiten	1440	5127	23:39-23:51	
+14	/xx/fr/flugunregelmaessigkeiten	390	8442	23:39-23:51	
+14	/xx/fr/fly-more-sustainabl	1440	4147	23:39-23:51	
+14	/xx/fr/fly-more-sustainabl	390	6256	23:39-23:51	
+14	/xx/fr/flynet	1440	6858	23:39-23:51	headSize
+14	/xx/fr/flynet	390	9006	23:39-23:51	headSize
+14	/xx/fr/fmg-valet-parking-service	1440	2985	23:39-23:51	
+14	/xx/fr/fmg-valet-parking-service	390	3940	23:39-23:51	
+14	/xx/fr/frankfurt-fair	1440	3532	23:39-23:51	
+14	/xx/fr/frankfurt-fair	390	5792	23:39-23:51	
+14	/xx/fr/free2move	1440	3078	23:39-23:51	
+14	/xx/fr/free2move	390	4553	23:39-23:51	
+14	/xx/fr/freigepaeck-regeln	1440	3642	23:39-23:51	
+14	/xx/fr/freigepaeck-regeln	390	5729	23:39-23:51	
+14	/xx/fr/gefaehrliche-gegenstaende	1440	4324	23:39-23:51	
+14	/xx/fr/gefaehrliche-gegenstaende	390	7740	23:39-23:51	
+14	/xx/fr/gepaeck	1440	4778	23:39-23:51	
+14	/xx/fr/gepaeck	390	7700	23:39-23:51	
+14	/xx/fr/gesund-reisen	1440	3383	23:39-23:51	
+14	/xx/fr/gesund-reisen	390	4563	23:39-23:51	
+14	/xx/fr/green-fare	1440	6010	23:39-23:51	
+14	/xx/fr/green-fare	390	7984	23:39-23:51	
+14	/xx/fr/group-travel	1440	7659	23:39-23:51	emptySections
+14	/xx/fr/group-travel	390	8754	23:39-23:51	emptySections
+14	/xx/fr/handgepaeck	1440	12286	23:39-23:51	
+14	/xx/fr/handgepaeck	390	13170	23:39-23:51	
+14	/xx/fr/heures-limites-d-enregistrement	1440	1422	23:39-23:51	
+14	/xx/fr/heures-limites-d-enregistrement	390	1915	23:39-23:51	
+14	/xx/fr/hotel-offers	1440	3343	23:39-23:51	overlap
+14	/xx/fr/hotel-offers	390	4611	23:39-23:51	overlap
+14	/xx/fr/imprint	1440	2571	23:39-23:51	
+14	/xx/fr/imprint	390	4378	23:39-23:51	
+14	/xx/fr/informations-enregistrement-en-ligne	1440	3469	23:39-23:51	
+14	/xx/fr/informations-enregistrement-en-ligne	390	4301	23:39-23:51	
+14	/xx/fr/kinder-an-bord	1440	2445	23:39-23:51	
+14	/xx/fr/kinder-an-bord	390	3798	23:39-23:51	
+14	/xx/fr/kindermenues-an-bord	1440	4915	23:39-23:51	headSize
+14	/xx/fr/kindermenues-an-bord	390	5628	23:39-23:51	headSize
+14	/xx/fr/lounge-begleitung	1440	3495	23:39-23:51	
+14	/xx/fr/lounge-begleitung	390	5012	23:39-23:51	
+14	/xx/fr/lounges	1440	5837	23:39-23:51	
+14	/xx/fr/lounges	390	6691	23:39-23:51	
+14	/xx/fr/lufthansa-a-aeroport-de-vienne	1440	2534	23:39-23:51	
+14	/xx/fr/lufthansa-a-aeroport-de-vienne	390	3136	23:39-23:51	
+14	/xx/fr/lufthansa-am-flughafen-frankfurt	1440	4284	23:39-23:51	
+14	/xx/fr/lufthansa-am-flughafen-frankfurt	390	7583	23:39-23:51	
+14	/xx/fr/lufthansa-at-berlin-airport	1440	3026	23:39-23:51	
+14	/xx/fr/lufthansa-at-berlin-airport	390	4719	23:39-23:51	
+14	/xx/fr/lufthansa-at-duesseldorf-airport	1440	3008	23:39-23:51	
+14	/xx/fr/lufthansa-at-duesseldorf-airport	390	4159	23:39-23:51	
+14	/xx/fr/lufthansa-at-zuerich-airport	1440	2585	23:39-23:51	
+14	/xx/fr/lufthansa-at-zuerich-airport	390	3240	23:39-23:51	
+14	/xx/fr/lufthansa-aviation-group	1440	2831	23:39-23:51	
+14	/xx/fr/lufthansa-aviation-group	390	4027	23:39-23:51	
+14	/xx/fr/lufthansa-business-class-on-long-haul-routes	1440	3404	23:39-23:51	
+14	/xx/fr/lufthansa-business-class-on-long-haul-routes	390	4785	23:39-23:51	
+14	/xx/fr/lufthansa-corporate-customers	1440	3394	23:39-23:51	
+14	/xx/fr/lufthansa-corporate-customers	390	4219	23:39-23:51	
+14	/xx/fr/lufthansa-express	1440	4405	23:39-23:51	
+14	/xx/fr/lufthansa-express	390	6950	23:39-23:51	
+14	/xx/fr/lufthansa-express-bus	1440	6879	23:39-23:51	
+14	/xx/fr/lufthansa-express-bus	390	8436	23:39-23:51	
+14	/xx/fr/lufthansa-express-rail	1440	8026	23:39-23:51	
+14	/xx/fr/lufthansa-express-rail	390	11157	23:39-23:51	
+14	/xx/fr/lufthansa-first-class-confort	1440	2819	23:39-23:51	
+14	/xx/fr/lufthansa-first-class-confort	390	3463	23:39-23:51	
+14	/xx/fr/lufthansa-first-class-entertainment	1440	3090	23:39-23:51	
+14	/xx/fr/lufthansa-first-class-entertainment	390	3919	23:39-23:51	
+14	/xx/fr/lufthansa-first-class-fleet	1440	5051	23:39-23:51	
+14	/xx/fr/lufthansa-first-class-fleet	390	7185	23:39-23:51	
+14	/xx/fr/lufthansa-group-star-alliance-and-partner-airlines	1440	6218	23:39-23:51	
+14	/xx/fr/lufthansa-group-star-alliance-and-partner-airlines	390	11152	23:39-23:51	
+14	/xx/fr/lufthansa-guide-service	1440	3945	23:39-23:51	
+14	/xx/fr/lufthansa-guide-service	390	6025	23:39-23:51	
+14	/xx/fr/lufthansa-reiseklassen	1440	3226	23:39-23:51	
+14	/xx/fr/lufthansa-reiseklassen	390	4724	23:39-23:51	
+14	/xx/fr/lufthansa-terminal-muenchen	1440	4554	23:39-23:51	
+14	/xx/fr/lufthansa-terminal-muenchen	390	7433	23:39-23:51	
+14	/xx/fr/medikamenten-transport	1440	2886	23:39-23:51	
+14	/xx/fr/medikamenten-transport	390	4313	23:39-23:51	
+14	/xx/fr/meetings-and-events	1440	3715	23:39-23:51	
+14	/xx/fr/meetings-and-events	390	4355	23:39-23:51	
+14	/xx/fr/meetings-et-events-organisateur	1440	3051	23:39-23:51	
+14	/xx/fr/meetings-et-events-organisateur	390	4302	23:39-23:51	
+14	/xx/fr/meetings-et-events-participants	1440	2616	23:39-23:51	
+14	/xx/fr/meetings-et-events-participants	390	3675	23:39-23:51	
+14	/xx/fr/meine-buchungen	1440	4062	23:39-23:51	
+14	/xx/fr/meine-buchungen	390	5948	23:39-23:51	
+14	/xx/fr/menus-classes-de-voyage	1440	2277	23:39-23:51	
+14	/xx/fr/menus-classes-de-voyage	390	3233	23:39-23:51	
+14	/xx/fr/menus-on-long-haul-flights	1440	3282	23:39-23:51	
+14	/xx/fr/menus-on-long-haul-flights	390	4700	23:39-23:51	
+14	/xx/fr/miles-and-more	1440	3493	23:39-23:51	
+14	/xx/fr/miles-and-more	390	4475	23:39-23:51	
+14	/xx/fr/mit-kindern-am-flughafen	1440	3184	23:39-23:51	
+14	/xx/fr/mit-kindern-am-flughafen	390	4339	23:39-23:51	
+14	/xx/fr/mobility-partner-program-healthcare	1440	3692	23:39-23:51	
+14	/xx/fr/mobility-partner-program-healthcare	390	5125	23:39-23:51	
+14	/xx/fr/mon-journal-de-bord	1440	3095	23:39-23:51	
+14	/xx/fr/mon-journal-de-bord	390	3628	23:39-23:51	
+14	/xx/fr/munich-fair	1440	2651	23:39-23:51	
+14	/xx/fr/munich-fair	390	3561	23:39-23:51	
+14	/xx/fr/onboard-delights	1440	7467	23:39-23:51	
+14	/xx/fr/onboard-delights	390	10915	23:39-23:51	
+14	/xx/fr/onboard-delights-faq	1440	1899	23:39-23:51	
+14	/xx/fr/onboard-delights-faq	390	2805	23:39-23:51	
+14	/xx/fr/online-check-in	1440	3634	23:39-23:51	
+14	/xx/fr/online-check-in	390	6071	23:39-23:51	
+14	/xx/fr/opc	1440	2721	23:39-23:51	
+14	/xx/fr/opc	390	3662	23:39-23:51	
+14	/xx/fr/overview-special-request	1440	2853	23:39-23:51	
+14	/xx/fr/overview-special-request	390	4295	23:39-23:51	
+14	/xx/fr/partner	1440	2738	23:39-23:51	
+14	/xx/fr/partner	390	3656	23:39-23:51	
+14	/xx/fr/passenger-receipt-90	1440	3860	23:39-23:51	
+14	/xx/fr/passenger-receipt-90	390	4552	23:39-23:51	
+14	/xx/fr/passenger-rights	1440	5796	23:39-23:51	
+14	/xx/fr/passenger-rights	390	9483	23:39-23:51	
+14	/xx/fr/passengers-using-wheelchairs	1440	11441	23:39-23:51	
+14	/xx/fr/passengers-using-wheelchairs	390	21272	23:39-23:51	
+14	/xx/fr/passengers-with-sensory-impairment	1440	8826	23:39-23:51	
+14	/xx/fr/passengers-with-sensory-impairment	390	16063	23:39-23:51	
+14	/xx/fr/payment-options-at-the-airport	1440	2503	23:39-23:51	
+14	/xx/fr/payment-options-at-the-airport	390	3481	23:39-23:51	
+14	/xx/fr/pre-check-in	1440	2468	23:39-23:51	
+14	/xx/fr/pre-check-in	390	3988	23:39-23:51	
+14	/xx/fr/premium-economy-class	1440	7203	23:39-23:51	
+14	/xx/fr/premium-economy-class	390	9732	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-conditions	1440	2370	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-conditions	390	4101	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	2805	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	4614	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	1440	3854	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	390	5417	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	1440	2366	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	390	3157	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/electronic-devices-and-batteries	1440	4360	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/electronic-devices-and-batteries	390	7471	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation	1440	1272	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation	390	1724	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	1440	1334	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	390	1746	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	1440	1299	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	390	1684	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	1440	1299	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	390	1684	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	1440	5794	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	390	9688	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	1440	2731	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	390	3576	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	1440	2568	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	390	3442	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	1440	2665	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	390	3795	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/medical-travel-companions	1440	2620	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/medical-travel-companions	390	2968	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	1440	8668	23:39-23:51	headSize
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	390	13883	23:39-23:51	headSize
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	1440	5550	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	390	10290	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	1440	1140	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	390	1444	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	1440	5047	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	390	8796	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	1440	5937	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	390	11436	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/travel-classes/business-class	1440	10677	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/travel-classes/business-class	390	14684	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/travel-classes/economy-basic	1440	4190	23:39-23:51	
+14	/xx/fr/prepare-for-your-trip/travel-classes/economy-basic	390	5542	23:39-23:51	
+16	/xx/es/terms-of-use	1440	3840	00:50-01:04	
+16	/xx/es/terms-of-use	390	6275	00:50-01:04	
+16	/xx/es/tiempos-limite-de-check-in	1440	1449	00:50-01:04	
+16	/xx/es/tiempos-limite-de-check-in	390	1902	00:50-01:04	
+16	/xx/es/tiere-als-handgepaeck	1440	4275	00:50-01:04	
+16	/xx/es/tiere-als-handgepaeck	390	5791	00:50-01:04	
+16	/xx/es/tiere-als-uebergepaeck	1440	6277	00:50-01:04	
+16	/xx/es/tiere-als-uebergepaeck	390	9204	00:50-01:04	
+16	/xx/es/timetable-and-flight-status	1440	3111	00:50-01:04	
+16	/xx/es/timetable-and-flight-status	390	4016	00:50-01:04	
+16	/xx/es/tips-senior-travellers	1440	13257	00:50-01:04	overlap
+16	/xx/es/tips-senior-travellers	390	21419	00:50-01:04	overlap
+16	/xx/es/travel-agencies	1440	1783	00:50-01:04	
+16	/xx/es/travel-agencies	390	2483	00:50-01:04	
+16	/xx/es/travel-expense-management	1440	3064	00:50-01:04	
+16	/xx/es/travel-expense-management	390	4026	00:50-01:04	
+16	/xx/es/travel-id-terms-conditions	1440	9983	00:50-01:04	
+16	/xx/es/travel-id-terms-conditions	390	18046	00:50-01:04	
+16	/xx/es/travelling-and-corona	1440	3120	00:50-01:04	emptySections
+16	/xx/es/travelling-and-corona	390	4226	00:50-01:04	emptySections
+16	/xx/es/travelling-with-animals	1440	2732	00:50-01:04	
+16	/xx/es/travelling-with-animals	390	4114	00:50-01:04	
+16	/xx/es/travelling-with-children	1440	5681	00:50-01:04	
+16	/xx/es/travelling-with-children	390	6484	00:50-01:04	
+16	/xx/es/traveltricks	1440	3724	00:50-01:04	
+16	/xx/es/traveltricks	390	5494	00:50-01:04	
+16	/xx/es/uebergepaeck	1440	3221	00:50-01:04	
+16	/xx/es/uebergepaeck	390	5101	00:50-01:04	
+16	/xx/es/unterhaltung-an-bord	1440	8211	00:50-01:04	
+16	/xx/es/unterhaltung-an-bord	390	8242	00:50-01:04	
+16	/xx/es/upgrade-a-business-class	1440	2578	00:50-01:04	
+16	/xx/es/upgrade-a-business-class	390	3937	00:50-01:04	
+16	/xx/es/upgrade-business-class-larga-distancia	1440	2572	00:50-01:04	
+16	/xx/es/upgrade-business-class-larga-distancia	390	3944	00:50-01:04	
+16	/xx/es/upgrade-first-class	1440	2625	00:50-01:04	
+16	/xx/es/upgrade-first-class	390	4027	00:50-01:04	
+16	/xx/es/upgrade-info	1440	2266	00:50-01:04	
+16	/xx/es/upgrade-info	390	3511	00:50-01:04	
+16	/xx/es/upgrade-options	1440	3639	00:50-01:04	
+16	/xx/es/upgrade-options	390	5192	00:50-01:04	
+16	/xx/es/upgrade-premium-economy-class	1440	2604	00:50-01:04	
+16	/xx/es/upgrade-premium-economy-class	390	4001	00:50-01:04	
+16	/xx/es/upgrade-to-premium-economy-class	1440	2385	00:50-01:04	
+16	/xx/es/upgrade-to-premium-economy-class	390	3362	00:50-01:04	
+16	/xx/es/upgrades-im-online-check-in	1440	3365	00:50-01:04	emptySections
+16	/xx/es/upgrades-im-online-check-in	390	4245	00:50-01:04	emptySections
+16	/xx/pt/100-years	1440	8585	00:50-01:04	
+16	/xx/pt/100-years	390	10392	00:50-01:04	
+16	/xx/pt/100-years/cabin-design	1440	17007	00:50-01:04	overlap
+16	/xx/pt/100-years/cabin-design	390	20656	00:50-01:04	overlap
+16	/xx/pt/100-years/campaigns	1440	17121	00:50-01:04	
+16	/xx/pt/100-years/campaigns	390	15606	00:50-01:04	
+16	/xx/pt/100-years/chronicle	1440	34861	00:50-01:04	headSize
+16	/xx/pt/100-years/chronicle	390	44993	00:50-01:04	headSize
+16	/xx/pt/100-years/crane	1440	9774	00:50-01:04	
+16	/xx/pt/100-years/crane	390	11650	00:50-01:04	
+16	/xx/pt/100-years/destinations	1440	19844	00:50-01:04	
+16	/xx/pt/100-years/destinations	390	21786	00:50-01:04	
+16	/xx/pt/100-years/fleet	1440	23550	00:50-01:04	overlap
+16	/xx/pt/100-years/fleet	390	23940	00:50-01:04	overlap
+16	/xx/pt/100-years/global-network	1440	16483	00:50-01:04	headSize
+16	/xx/pt/100-years/global-network	390	18349	00:50-01:04	headSize
+16	/xx/pt/100-years/history	1440	9791	00:50-01:04	
+16	/xx/pt/100-years/history	390	12205	00:50-01:04	
+16	/xx/pt/100-years/history/menu-on-board	1440	12424	00:50-01:04	
+16	/xx/pt/100-years/history/menu-on-board	390	12822	00:50-01:04	
+16	/xx/pt/31h	1440	5864	00:50-01:04	
+16	/xx/pt/31h	390	6394	00:50-01:04	
+16	/xx/pt/320	1440	6411	00:50-01:04	
+16	/xx/pt/320	390	6871	00:50-01:04	
+16	/xx/pt/321	1440	5839	00:50-01:04	
+16	/xx/pt/321	390	6470	00:50-01:04	
+16	/xx/pt/32n	1440	6545	00:50-01:04	
+16	/xx/pt/32n	390	7143	00:50-01:04	
+16	/xx/pt/32q	1440	6435	00:50-01:04	
+16	/xx/pt/32q	390	7071	00:50-01:04	
+16	/xx/pt/333	1440	3077	00:50-01:04	
+16	/xx/pt/333	390	3019	00:50-01:04	
+16	/xx/pt/33p	1440	3169	00:50-01:04	
+16	/xx/pt/33p	390	3170	00:50-01:04	
+16	/xx/pt/33q	1440	3256	00:50-01:04	
+16	/xx/pt/33q	390	3220	00:50-01:04	
+16	/xx/pt/343	1440	3169	00:50-01:04	
+16	/xx/pt/343	390	3174	00:50-01:04	
+16	/xx/pt/34p	1440	3067	00:50-01:04	
+16	/xx/pt/34p	390	2987	00:50-01:04	
+16	/xx/pt/34q	1440	3220	00:50-01:04	
+16	/xx/pt/34q	390	3252	00:50-01:04	
+16	/xx/pt/35a	1440	7664	00:50-01:04	
+16	/xx/pt/35a	390	8510	00:50-01:04	
+16	/xx/pt/388	1440	7572	00:50-01:04	
+16	/xx/pt/388	390	8685	00:50-01:04	
+16	/xx/pt/74h	1440	7213	00:50-01:04	
+16	/xx/pt/74h	390	8182	00:50-01:04	
+16	/xx/pt/accessible-travel	1440	5747	00:50-01:04	
+16	/xx/pt/accessible-travel	390	10912	00:50-01:04	
+16	/xx/pt/additional-services	1440	6683	00:50-01:04	overlap
+16	/xx/pt/additional-services	390	8420	00:50-01:04	
+16	/xx/pt/admission-rules	1440	7332	00:50-01:04	
+16	/xx/pt/admission-rules	390	8707	00:50-01:04	
+16	/xx/pt/advance-seat-reservation	1440	26641	00:50-01:04	headSize
+16	/xx/pt/advance-seat-reservation	390	22005	00:50-01:04	headSize
+16	/xx/pt/advance-seat-reservations-terms-and-conditions	1440	1675	00:50-01:04	overlap
+16	/xx/pt/advance-seat-reservations-terms-and-conditions	390	2762	00:50-01:04	overlap
+16	/xx/pt/advice-for-travellers-with-special-needs-to-and-from-the-usa	1440	6138	00:50-01:04	
+16	/xx/pt/advice-for-travellers-with-special-needs-to-and-from-the-usa	390	10500	00:50-01:04	
+16	/xx/pt/affiliatemarketing	1440	2889	00:50-01:04	
+16	/xx/pt/affiliatemarketing	390	4270	00:50-01:04	
+16	/xx/pt/airport-information	1440	3275	00:50-01:04	emptySections
+16	/xx/pt/airport-information	390	5915	00:50-01:04	emptySections
+16	/xx/pt/all-check-in	1440	2843	00:50-01:04	
+16	/xx/pt/all-check-in	390	3610	00:50-01:04	
+16	/xx/pt/alleinreisende-kinder	1440	7584	00:50-01:04	
+16	/xx/pt/alleinreisende-kinder	390	12295	00:50-01:04	
+16	/xx/pt/anmeldung-tiere-frachtraum	1440	6338	00:50-01:04	
+16	/xx/pt/anmeldung-tiere-frachtraum	390	8752	00:50-01:04	
+16	/xx/pt/arrival-services	1440	3913	00:50-01:04	
+16	/xx/pt/arrival-services	390	5073	00:50-01:04	
+16	/xx/pt/assistenzhunde	1440	2409	00:50-01:04	
+16	/xx/pt/assistenzhunde	390	3918	00:50-01:04	
+16	/xx/pt/automatic-check-in	1440	3002	00:50-01:04	
+16	/xx/pt/automatic-check-in	390	4838	00:50-01:04	
+16	/xx/pt/baggage-irregularities	1440	8936	00:50-01:04	
+16	/xx/pt/baggage-irregularities	390	7494	00:50-01:04	
+16	/xx/pt/baterias-para-cadeiras-de-rodas	1440	3379	00:50-01:04	
+16	/xx/pt/baterias-para-cadeiras-de-rodas	390	5052	00:50-01:04	
+16	/xx/pt/besondere-befoerderungsbedingungen-bus	1440	9513	00:50-01:04	
+16	/xx/pt/besondere-befoerderungsbedingungen-bus	390	16974	00:50-01:04	
+16	/xx/pt/bid-upgrade	1440	3888	00:50-01:04	
+16	/xx/pt/bid-upgrade	390	5314	00:50-01:04	
+16	/xx/pt/boarding	1440	3320	00:50-01:04	
+16	/xx/pt/boarding	390	4846	00:50-01:04	
+16	/xx/pt/boeing787	1440	7716	00:50-01:04	
+16	/xx/pt/boeing787	390	8738	00:50-01:04	
+16	/xx/pt/book-and-manage/additional-services/get-your-guide	1440	1996	00:50-01:04	
+16	/xx/pt/book-and-manage/additional-services/get-your-guide	390	2454	00:50-01:04	
+16	/xx/pt/book-and-manage/additional-services/travel-insurances	1440	2841	00:50-01:04	
+16	/xx/pt/book-and-manage/additional-services/travel-insurances	390	3703	00:50-01:04	
+16	/xx/pt/book-and-manage/best-price	1440	1430	00:50-01:04	
+16	/xx/pt/book-and-manage/best-price	390	2162	00:50-01:04	
+16	/xx/pt/book-and-manage/digital-self-services/airline-apps	1440	1738	00:50-01:04	
+16	/xx/pt/book-and-manage/digital-self-services/airline-apps	390	3599	00:50-01:04	
+16	/xx/pt/book-and-manage/flights/air-baltic	1440	6723	00:50-01:04	overlap
+16	/xx/pt/book-and-manage/flights/air-baltic	390	11086	00:50-01:04	overlap
+16	/xx/pt/book-and-manage/flights/ana	1440	3509	00:50-01:04	
+16	/xx/pt/book-and-manage/flights/ana	390	5563	00:50-01:04	
+16	/xx/pt/book-and-manage/flights/giftvoucher	1440	3538	00:50-01:04	
+16	/xx/pt/book-and-manage/flights/giftvoucher	390	5806	00:50-01:04	
+16	/xx/pt/book-and-manage/flights/helvetic	1440	5425	00:50-01:04	
+16	/xx/pt/book-and-manage/flights/helvetic	390	7942	00:50-01:04	
+16	/xx/pt/book-and-manage/passenger-receipt-90days/confirmation	1440	1143	00:50-01:04	
+16	/xx/pt/book-and-manage/passenger-receipt-90days/confirmation	390	1442	00:50-01:04	
+16	/xx/pt/book-and-manage/pax-receipt	1440	2139	00:50-01:04	
+16	/xx/pt/book-and-manage/pax-receipt	390	2705	00:50-01:04	
+16	/xx/pt/book-and-manage/pax-receipt/invoices-different-countries	1440	2071	00:50-01:04	
+16	/xx/pt/book-and-manage/pax-receipt/invoices-different-countries	390	2366	00:50-01:04	
+16	/xx/pt/book-and-manage/rebook	1440	1912	00:50-01:04	
+16	/xx/pt/book-and-manage/rebook	390	2629	00:50-01:04	
+16	/xx/pt/book-and-manage/rebook/involuntary-rebooking	1440	5078	00:50-01:04	
+16	/xx/pt/book-and-manage/rebook/involuntary-rebooking	390	8086	00:50-01:04	
+16	/xx/pt/book-and-manage/rebook/voluntary-rebooking	1440	6363	00:50-01:04	
+16	/xx/pt/book-and-manage/rebook/voluntary-rebooking	390	10201	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover	1440	16313	00:50-01:04	overlap
+16	/xx/pt/book-and-manage/stopover	390	24195	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/bayerischer-hof	1440	2503	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/bayerischer-hof	390	3639	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/breuninger	1440	2460	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/breuninger	390	3275	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/garmisch-classic	1440	2774	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/garmisch-classic	390	4041	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/hop-on-hop-off-muc	1440	2485	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/hop-on-hop-off-muc	390	3113	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/ingolstadt-village	1440	2456	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/ingolstadt-village	390	3392	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/leonardo-hotel	1440	2439	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/leonardo-hotel	390	3221	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/muc-city-pass	1440	2503	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/muc-city-pass	390	3679	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/munich-airport	1440	2469	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/munich-airport	390	3437	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/neuschwanstein	1440	2750	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/neuschwanstein	390	3622	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/rosewood	1440	2510	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/rosewood	390	2993	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/sixt-muc	1440	2545	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/sixt-muc	390	3666	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/sixt-ride-bavaria	1440	2830	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/sixt-ride-bavaria	390	4298	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/zugspitze	1440	2773	00:50-01:04	
+16	/xx/pt/book-and-manage/stopover/zugspitze	390	3846	00:50-01:04	
+16	/xx/pt/business-class	1440	10688	00:50-01:04	
+16	/xx/pt/business-class	390	14696	00:50-01:04	
+16	/xx/pt/business-class-on-short-and-medium-haul	1440	2894	00:50-01:04	
+16	/xx/pt/business-class-on-short-and-medium-haul	390	4122	00:50-01:04	
+16	/xx/pt/cancellations-and-refunds	1440	2387	00:50-01:04	
+16	/xx/pt/cancellations-and-refunds	390	3253	00:50-01:04	
+16	/xx/pt/cash-and-miles	1440	2418	00:50-01:04	
+16	/xx/pt/cash-and-miles	390	3407	00:50-01:04	
+16	/xx/pt/check-in-baggage	1440	3538	00:50-01:04	
+16	/xx/pt/check-in-baggage	390	3629	00:50-01:04	
+16	/xx/pt/check-in-with-the-family	1440	2561	00:50-01:04	
+16	/xx/pt/check-in-with-the-family	390	3464	00:50-01:04	
+16	/xx/pt/common/accessibility-statement	1440	6855	00:50-01:04	overlap
+16	/xx/pt/common/accessibility-statement	390	10797	00:50-01:04	
+16	/xx/pt/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	1440	2782	00:50-01:04	
+16	/xx/pt/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	390	3834	00:50-01:04	
+16	/xx/pt/common/compensation-voucher	1440	4378	00:50-01:04	
+16	/xx/pt/common/compensation-voucher	390	7009	00:50-01:04	
+16	/xx/pt/common/imprint/lufthansa-insights-imprint	1440	2908	00:50-01:04	
+16	/xx/pt/common/imprint/lufthansa-insights-imprint	390	5023	00:50-01:04	
+16	/xx/pt/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page	1440	6731	00:50-01:04	
+16	/xx/pt/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page	390	10188	00:50-01:04	
+16	/xx/pt/common/seatreservation-condtions/seat-reservations	1440	2940	00:50-01:04	
+16	/xx/pt/common/seatreservation-condtions/seat-reservations	390	4562	00:50-01:04	
+16	/xx/pt/concur-terms-and-conditions	1440	1810	00:50-01:04	
+16	/xx/pt/concur-terms-and-conditions	390	2925	00:50-01:04	
+16	/xx/pt/condicoes-gerais-conversao-de-moedas	1440	2035	00:50-01:04	
+16	/xx/pt/condicoes-gerais-conversao-de-moedas	390	3097	00:50-01:04	
+16	/xx/pt/condicoes-sepa	1440	1917	00:50-01:04	
+16	/xx/pt/condicoes-sepa	390	2723	00:50-01:04	
+16	/xx/pt/condicoes-sepa-b	1440	2022	00:50-01:04	
+16	/xx/pt/condicoes-sepa-b	390	2936	00:50-01:04	
+16	/xx/pt/conforto-lufthansa-first-class	1440	2819	00:50-01:04	
+16	/xx/pt/conforto-lufthansa-first-class	390	3564	00:50-01:04	
+16	/xx/pt/cookie-policy	1440	9667	00:50-01:04	
+16	/xx/pt/cookie-policy	390	12859	00:50-01:04	
+16	/xx/pt/crn	1440	3267	00:50-01:04	
+16	/xx/pt/crn	390	3060	00:50-01:04	
+16	/xx/pt/culinaryjourney	1440	1550	00:50-01:04	emptySections
+16	/xx/pt/culinaryjourney	390	1751	00:50-01:04	emptySections
+16	/xx/pt/dangerous-dogs	1440	2501	00:50-01:04	
+16	/xx/pt/dangerous-dogs	390	4216	00:50-01:04	
+16	/xx/pt/data-collection-usa	1440	5983	00:50-01:04	headSize
+16	/xx/pt/data-collection-usa	390	6642	00:50-01:04	headSize
+16	/xx/pt/data-protection-information	1440	17134	00:50-01:04	headSize
+16	/xx/pt/data-protection-information	390	32936	00:50-01:04	headSize
+16	/xx/pt/datenschutz	1440	1568	00:50-01:04	
+16	/xx/pt/datenschutz	390	2039	00:50-01:04	
+16	/xx/pt/dcc	1440	3551	00:50-01:04	
+16	/xx/pt/dcc	390	5082	00:50-01:04	
+16	/xx/pt/digital-baggage-services	1440	3747	00:50-01:04	
+16	/xx/pt/digital-baggage-services	390	4973	00:50-01:04	
+16	/xx/pt/digital-self-services	1440	4330	00:50-01:04	
+16	/xx/pt/digital-self-services	390	6351	00:50-01:04	
+16	/xx/pt/digital-travel-companion	1440	10984	00:50-01:04	
+16	/xx/pt/digital-travel-companion	390	8822	00:50-01:04	
+16	/xx/pt/discover-lufthansa/carbon-offsetting/climate-protection-projects	1440	5043	00:50-01:04	
+16	/xx/pt/discover-lufthansa/carbon-offsetting/climate-protection-projects	390	7098	00:50-01:04	
+16	/xx/pt/discover-lufthansa/carbon-offsetting/saf	1440	3803	00:50-01:04	
+16	/xx/pt/discover-lufthansa/carbon-offsetting/saf	390	5819	00:50-01:04	
+16	/xx/pt/discover-lufthansa/flightreservation-priceguarantee	1440	3781	00:50-01:04	
+16	/xx/pt/discover-lufthansa/flightreservation-priceguarantee	390	5099	00:50-01:04	
+16	/xx/pt/discover-lufthansa/lufthansa-fleet/351	1440	7970	00:50-01:04	
+16	/xx/pt/discover-lufthansa/lufthansa-fleet/351	390	9117	00:50-01:04	
+16	/xx/pt/discover-lufthansa/lufthansa-group-airlines/ita-airways	1440	3858	00:50-01:04	
+16	/xx/pt/discover-lufthansa/lufthansa-group-airlines/ita-airways	390	5753	00:50-01:04	
+16	/xx/pt/discover-lufthansa/new-onboard-experience	1440	15008	00:50-01:04	
+16	/xx/pt/discover-lufthansa/new-onboard-experience	390	18897	00:50-01:04	
+16	/xx/pt/doctor-on-board	1440	3974	00:50-01:04	emptySections
+16	/xx/pt/doctor-on-board	390	5191	00:50-01:04	emptySections
+16	/xx/pt/doctor-on-board-news	1440	2520	00:50-01:04	emptySections
+16	/xx/pt/doctor-on-board-news	390	3236	00:50-01:04	emptySections
+16	/xx/pt/during-your-trip/internet-overview	1440	3247	00:50-01:04	
+16	/xx/pt/during-your-trip/internet-overview	390	4912	00:50-01:04	
+16	/xx/pt/during-your-trip/lhg-wifi	1440	4209	00:50-01:04	
+16	/xx/pt/during-your-trip/lhg-wifi	390	6512	00:50-01:04	
+16	/xx/pt/e9n-1	1440	3267	00:50-01:04	
+16	/xx/pt/e9n-1	390	3020	00:50-01:04	
+16	/xx/pt/e9n-2	1440	3267	00:50-01:04	
+16	/xx/pt/e9n-2	390	3020	00:50-01:04	
+16	/xx/pt/economy-class	1440	8423	00:50-01:04	
+16	/xx/pt/economy-class	390	10496	00:50-01:04	
+16	/xx/pt/electronic-bag-tags	1440	2920	00:50-01:04	
+16	/xx/pt/electronic-bag-tags	390	4112	00:50-01:04	
+16	/xx/pt/emergency-contact	1440	2903	00:50-01:04	
+16	/xx/pt/emergency-contact	390	3344	00:50-01:04	
+16	/xx/pt/enderecos-em-todo-o-mundo	1440	1276	00:50-01:04	overlap
+16	/xx/pt/enderecos-em-todo-o-mundo	390	1521	00:50-01:04	overlap
+16	/xx/pt/entryprocesses	1440	2878	00:50-01:04	
+16	/xx/pt/entryprocesses	390	5420	00:50-01:04	
+16	/xx/pt/europa-tarife-economy-class	1440	5696	00:50-01:04	
+16	/xx/pt/europa-tarife-economy-class	390	8172	00:50-01:04	
+16	/xx/pt/exclusive-charter	1440	2129	00:50-01:04	
+16	/xx/pt/exclusive-charter	390	2927	00:50-01:04	
+16	/xx/pt/farealert/best-price-alert	1440	4387	00:50-01:04	
+16	/xx/pt/farealert/best-price-alert	390	5669	00:50-01:04	
+16	/xx/pt/feedback-past-flight	1440	6102	00:50-01:04	
+16	/xx/pt/feedback-past-flight	390	7189	00:50-01:04	
+16	/xx/pt/fia-valet-service	1440	3517	00:50-01:04	
+16	/xx/pt/fia-valet-service	390	5228	00:50-01:04	
+16	/xx/pt/first-class	1440	21419	00:50-01:04	overlap
+16	/xx/pt/first-class	390	23247	00:50-01:04	
+16	/xx/pt/first-class-lounges	1440	4088	00:50-01:04	
+16	/xx/pt/first-class-lounges	390	6462	00:50-01:04	
+16	/xx/pt/first-class-personal-assistant	1440	2236	00:50-01:04	
+16	/xx/pt/first-class-personal-assistant	390	3391	00:50-01:04	
+16	/xx/pt/first-class-terminal	1440	12685	00:50-01:04	
+16	/xx/pt/first-class-terminal	390	11937	00:50-01:04	
+16	/xx/pt/first-class-valet-parking-service	1440	1821	00:50-01:04	
+16	/xx/pt/first-class-valet-parking-service	390	2680	00:50-01:04	
+16	/xx/pt/fliegen-mit-baby	1440	2259	00:50-01:04	
+16	/xx/pt/fliegen-mit-baby	390	2986	00:50-01:04	
+16	/xx/pt/fliegen-mit-kleinkind	1440	3481	00:50-01:04	
+16	/xx/pt/fliegen-mit-kleinkind	390	5476	00:50-01:04	
+16	/xx/pt/flight-search	1440	2127	00:50-01:04	
+16	/xx/pt/flight-search	390	3662	00:50-01:04	
+16	/xx/pt/flights	1440	3778	00:50-01:04	
+16	/xx/pt/flights	390	5085	00:50-01:04	
+16	/xx/pt/flugunregelmaessigkeiten	1440	5086	00:50-01:04	
+16	/xx/pt/flugunregelmaessigkeiten	390	8094	00:50-01:04	
+16	/xx/pt/fly-more-sustainabl	1440	4156	00:50-01:04	
+16	/xx/pt/fly-more-sustainabl	390	6309	00:50-01:04	
+16	/xx/pt/flynet	1440	6937	00:50-01:04	headSize
+16	/xx/pt/flynet	390	9036	00:50-01:04	headSize
+16	/xx/pt/fmg-valet-parking-service	1440	2985	00:50-01:04	
+16	/xx/pt/fmg-valet-parking-service	390	3956	00:50-01:04	
+16	/xx/pt/frankfurt-fair	1440	4548	00:50-01:04	headSize
+16	/xx/pt/frankfurt-fair	390	5325	00:50-01:04	headSize
+16	/xx/pt/free2move	1440	3024	00:50-01:04	
+16	/xx/pt/free2move	390	4513	00:50-01:04	
+16	/xx/pt/freigepaeck-regeln	1440	3538	00:50-01:04	
+16	/xx/pt/freigepaeck-regeln	390	5546	00:50-01:04	
+16	/xx/pt/gefaehrliche-gegenstaende	1440	4294	00:50-01:04	
+16	/xx/pt/gefaehrliche-gegenstaende	390	7602	00:50-01:04	
+16	/xx/pt/gepaeck	1440	4724	00:50-01:04	
+16	/xx/pt/gepaeck	390	7644	00:50-01:04	
+16	/xx/pt/gesund-reisen	1440	3309	00:50-01:04	
+16	/xx/pt/gesund-reisen	390	4371	00:50-01:04	
+16	/xx/pt/green-fare	1440	5794	00:50-01:04	
+16	/xx/pt/green-fare	390	7723	00:50-01:04	
+16	/xx/pt/group-travel	1440	7605	00:50-01:04	emptySections
+16	/xx/pt/group-travel	390	8674	00:50-01:04	emptySections
+16	/xx/pt/handgepaeck	1440	12272	00:50-01:04	
+16	/xx/pt/handgepaeck	390	13077	00:50-01:04	
+16	/xx/pt/horas-limite-de-check-in	1440	1343	00:50-01:04	
+16	/xx/pt/horas-limite-de-check-in	390	1764	00:50-01:04	
+16	/xx/pt/hotel-offers	1440	3470	00:50-01:04	overlap
+16	/xx/pt/hotel-offers	390	4763	00:50-01:04	overlap
+16	/xx/pt/imprint	1440	2577	00:50-01:04	
+16	/xx/pt/imprint	390	4403	00:50-01:04	
+16	/xx/pt/kinder-an-bord	1440	2485	00:50-01:04	
+16	/xx/pt/kinder-an-bord	390	3855	00:50-01:04	
+16	/xx/pt/kindermenues-an-bord	1440	4915	00:50-01:04	headSize
+16	/xx/pt/kindermenues-an-bord	390	5538	00:50-01:04	headSize
+16	/xx/pt/lounge-begleitung	1440	3519	00:50-01:04	
+16	/xx/pt/lounge-begleitung	390	5058	00:50-01:04	
+16	/xx/pt/lounges	1440	5825	00:50-01:04	
+16	/xx/pt/lounges	390	6880	00:50-01:04	
+16	/xx/pt/lufthansa-am-flughafen-frankfurt	1440	4230	00:50-01:04	
+16	/xx/pt/lufthansa-am-flughafen-frankfurt	390	7203	00:50-01:04	
+16	/xx/pt/lufthansa-at-berlin-airport	1440	2972	00:50-01:04	
+16	/xx/pt/lufthansa-at-berlin-airport	390	4687	00:50-01:04	
+16	/xx/pt/lufthansa-at-duesseldorf-airport	1440	2954	00:50-01:04	
+16	/xx/pt/lufthansa-at-duesseldorf-airport	390	4073	00:50-01:04	
+16	/xx/pt/lufthansa-at-zuerich-airport	1440	2585	00:50-01:04	
+16	/xx/pt/lufthansa-at-zuerich-airport	390	3272	00:50-01:04	
+16	/xx/pt/lufthansa-aviation-group	1440	2777	00:50-01:04	
+16	/xx/pt/lufthansa-aviation-group	390	3914	00:50-01:04	
+16	/xx/pt/lufthansa-business-class-on-long-haul-routes	1440	3377	00:50-01:04	
+16	/xx/pt/lufthansa-business-class-on-long-haul-routes	390	4671	00:50-01:04	
+16	/xx/pt/lufthansa-corporate-customers	1440	3488	00:50-01:04	
+16	/xx/pt/lufthansa-corporate-customers	390	4390	00:50-01:04	
+16	/xx/pt/lufthansa-express	1440	4390	00:50-01:04	
+16	/xx/pt/lufthansa-express	390	6857	00:50-01:04	
+16	/xx/pt/lufthansa-express-bus	1440	6813	00:50-01:04	
+16	/xx/pt/lufthansa-express-bus	390	8340	00:50-01:04	
+16	/xx/pt/lufthansa-express-rail	1440	7953	00:50-01:04	
+16	/xx/pt/lufthansa-express-rail	390	10956	00:50-01:04	
+16	/xx/pt/lufthansa-first-class-entertainment	1440	3130	00:50-01:04	
+16	/xx/pt/lufthansa-first-class-entertainment	390	4049	00:50-01:04	
+16	/xx/pt/lufthansa-first-class-fleet	1440	4076	00:50-01:04	overlap
+16	/xx/pt/lufthansa-first-class-fleet	390	4261	00:50-01:04	overlap
+16	/xx/pt/lufthansa-group-star-alliance-and-partner-airlines	1440	6217	00:50-01:04	
+16	/xx/pt/lufthansa-group-star-alliance-and-partner-airlines	390	11102	00:50-01:04	
+16	/xx/pt/lufthansa-guide-service	1440	3978	00:50-01:04	
+16	/xx/pt/lufthansa-guide-service	390	6009	00:50-01:04	
+16	/xx/pt/lufthansa-no-aeroporto-de-viena	1440	2534	00:50-01:04	
+16	/xx/pt/lufthansa-no-aeroporto-de-viena	390	3236	00:50-01:04	
+16	/xx/pt/lufthansa-reiseklassen	1440	3226	00:50-01:04	
+16	/xx/pt/lufthansa-reiseklassen	390	4743	00:50-01:04	
+16	/xx/pt/lufthansa-terminal-muenchen	1440	4323	00:50-01:04	
+16	/xx/pt/lufthansa-terminal-muenchen	390	7047	00:50-01:04	
+16	/xx/pt/medikamenten-transport	1440	2817	00:50-01:04	
+16	/xx/pt/medikamenten-transport	390	4236	00:50-01:04	
+16	/xx/pt/meetings-and-events	1440	3611	00:50-01:04	
+16	/xx/pt/meetings-and-events	390	4188	00:50-01:04	
+16	/xx/pt/meetings-e-events-participantes	1440	2563	00:50-01:04	
+16	/xx/pt/meetings-e-events-participantes	390	3505	00:50-01:04	
+16	/xx/pt/meetings-e-events-promotores	1440	3024	00:50-01:04	
+16	/xx/pt/meetings-e-events-promotores	390	4226	00:50-01:04	
+16	/xx/pt/meine-buchungen	1440	4008	00:50-01:04	
+16	/xx/pt/meine-buchungen	390	5865	00:50-01:04	
+16	/xx/pt/menus-classes-de-viagem	1440	2250	00:50-01:04	
+16	/xx/pt/menus-classes-de-viagem	390	3317	00:50-01:04	
+16	/xx/pt/menus-on-long-haul-flights	1440	3309	00:50-01:04	
+16	/xx/pt/menus-on-long-haul-flights	390	4865	00:50-01:04	
+16	/xx/pt/miles-and-more	1440	3349	00:50-01:04	
+16	/xx/pt/miles-and-more	390	4923	00:50-01:04	
+16	/xx/pt/mit-kindern-am-flughafen	1440	3225	00:50-01:04	
+16	/xx/pt/mit-kindern-am-flughafen	390	4431	00:50-01:04	
+16	/xx/pt/mobility-partner-program-healthcare	1440	3599	00:50-01:04	
+16	/xx/pt/mobility-partner-program-healthcare	390	5000	00:50-01:04	
+16	/xx/pt/munich-fair	1440	2438	00:50-01:04	
+16	/xx/pt/munich-fair	390	3373	00:50-01:04	
+16	/xx/pt/o-meu-registo-de-bordo	1440	3041	00:50-01:04	
+16	/xx/pt/o-meu-registo-de-bordo	390	3435	00:50-01:04	
+16	/xx/pt/onboard-delights	1440	7575	00:50-01:04	
+16	/xx/pt/onboard-delights	390	11011	00:50-01:04	
+16	/xx/pt/onboard-delights-faq	1440	1926	00:50-01:04	
+16	/xx/pt/onboard-delights-faq	390	2758	00:50-01:04	
+16	/xx/pt/online-check-in	1440	3647	00:50-01:04	
+16	/xx/pt/online-check-in	390	5915	00:50-01:04	
+16	/xx/pt/online-check-in-info	1440	3469	00:50-01:04	
+16	/xx/pt/online-check-in-info	390	4310	00:50-01:04	
+16	/xx/pt/opc	1440	2667	00:50-01:04	
+16	/xx/pt/opc	390	3482	00:50-01:04	
+16	/xx/pt/overview-special-request	1440	2826	00:50-01:04	
+16	/xx/pt/overview-special-request	390	4202	00:50-01:04	
+16	/xx/pt/partner	1440	2711	00:50-01:04	
+16	/xx/pt/partner	390	3651	00:50-01:04	
+16	/xx/pt/passenger-receipt-90	1440	3860	00:50-01:04	
+16	/xx/pt/passenger-receipt-90	390	4574	00:50-01:04	
+16	/xx/pt/passenger-rights	1440	5914	00:50-01:04	
+16	/xx/pt/passenger-rights	390	9434	00:50-01:04	
+16	/xx/pt/passengers-using-wheelchairs	1440	11321	00:50-01:04	
+16	/xx/pt/passengers-using-wheelchairs	390	21175	00:50-01:04	
+16	/xx/pt/passengers-with-sensory-impairment	1440	8758	00:50-01:04	
+16	/xx/pt/passengers-with-sensory-impairment	390	15758	00:50-01:04	
+16	/xx/pt/payment-options-at-the-airport	1440	2503	00:50-01:04	
+16	/xx/pt/payment-options-at-the-airport	390	3477	00:50-01:04	
+16	/xx/pt/pre-check-in	1440	2444	00:50-01:04	
+16	/xx/pt/pre-check-in	390	3859	00:50-01:04	
+16	/xx/pt/premium-economy-class	1440	7197	00:50-01:04	
+16	/xx/pt/premium-economy-class	390	9720	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-conditions	1440	2370	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-conditions	390	3882	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	2777	00:50-01:04	overlap
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	4594	00:50-01:04	overlap
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	1440	3790	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay	390	5247	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	1440	2289	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	390	2907	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/electronic-devices-and-batteries	1440	4357	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/electronic-devices-and-batteries	390	7400	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation	1440	1272	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sporting-firearm1/confirmation	390	1746	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	1440	1334	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage/confirmation	390	1795	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	1440	1245	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold/confirmation	390	1679	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	1440	1323	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation	390	1811	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	1440	5699	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system	390	9465	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	1440	2704	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	390	3409	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	1440	2568	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	390	3488	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	1440	2665	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing	390	3792	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/medical-travel-companions	1440	2647	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/medical-travel-companions	390	3802	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	1440	8547	00:50-01:04	headSize
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	390	13568	00:50-01:04	headSize
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	1440	5495	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	390	10281	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	1440	1140	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation	390	1466	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	1440	4980	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	390	8809	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	1440	5852	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	390	11243	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/travel-classes/business-class	1440	10688	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/travel-classes/business-class	390	14696	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/travel-classes/economy-basic	1440	4190	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/travel-classes/economy-basic	390	5464	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/travelling-with-children/child-in-businessclass	1440	5202	00:50-01:04	
+16	/xx/pt/prepare-for-your-trip/travelling-with-children/child-in-businessclass	390	6288	00:50-01:04	
+16	/xx/pt/rail-and-fly	1440	4710	00:50-01:04	
+16	/xx/pt/rail-and-fly	390	7095	00:50-01:04	
+16	/xx/pt/rechnungsbeleg	1440	2120	00:50-01:04	
+16	/xx/pt/rechnungsbeleg	390	3395	00:50-01:04	
+16	/xx/pt/refund	1440	2499	00:50-01:04	
+16	/xx/pt/refund	390	3612	00:50-01:04	
+16	/xx/pt/register-animal-cabin	1440	5623	00:50-01:04	overlap
+16	/xx/pt/register-animal-cabin	390	7622	00:50-01:04	overlap
+16	/xx/pt/schengen	1440	3930	00:50-01:04	
+16	/xx/pt/schengen	390	4761	00:50-01:04	
+16	/xx/pt/seat-maps	1440	4927	00:50-01:04	
+16	/xx/pt/seat-maps	390	5587	00:50-01:04	
+16	/xx/pt/secure-flight	1440	1381	00:50-01:04	
+16	/xx/pt/secure-flight	390	2476	00:50-01:04	
+16	/xx/pt/security-check-time-slot	1440	2946	00:50-01:04	
+16	/xx/pt/security-check-time-slot	390	3158	00:50-01:04	
+16	/xx/pt/security-fast-lanes	1440	3007	00:50-01:04	
+16	/xx/pt/security-fast-lanes	390	3766	00:50-01:04	
+16	/xx/pt/services-am-flughafen-frankfurt	1440	2327	00:50-01:04	
+16	/xx/pt/services-am-flughafen-frankfurt	390	3533	00:50-01:04	
+16	/xx/pt/services-at-the-airport	1440	2944	00:50-01:04	
+16	/xx/pt/services-at-the-airport	390	3761	00:50-01:04	
+16	/xx/pt/servicos-no-aeroporto-de-munique	1440	1933	00:50-01:04	
+16	/xx/pt/servicos-no-aeroporto-de-munique	390	2271	00:50-01:04	
+16	/xx/pt/shopping	1440	5781	00:50-01:04	
+16	/xx/pt/shopping	390	10246	00:50-01:04	
+16	/xx/pt/sicherheit-fuer-kleinkinder-an-bord	1440	2909	00:50-01:04	
+16	/xx/pt/sicherheit-fuer-kleinkinder-an-bord	390	5068	00:50-01:04	
+16	/xx/pt/special-meals	1440	6570	00:50-01:04	
+16	/xx/pt/special-meals	390	7524	00:50-01:04	
+16	/xx/pt/speisen-und-getraenke	1440	4991	00:50-01:04	
+16	/xx/pt/speisen-und-getraenke	390	7088	00:50-01:04	
+16	/xx/pt/sportgepaeck-hinzufuegen	1440	4462	00:50-01:04	overlap
+16	/xx/pt/sportgepaeck-hinzufuegen	390	5742	00:50-01:04	overlap
+16	/xx/pt/sports-baggage	1440	4954	00:50-01:04	
+16	/xx/pt/sports-baggage	390	8236	00:50-01:04	
+16	/xx/pt/support/contact/contact-form-confirmation	1440	1496	00:50-01:04	
+16	/xx/pt/support/contact/contact-form-confirmation	390	1768	00:50-01:04	
+16	/xx/pt/support/contact/passenger-duty-united-kingdom	1440	1937	00:50-01:04	
+16	/xx/pt/support/contact/passenger-duty-united-kingdom	390	2801	00:50-01:04	
+16	/xx/pt/support/feedback-and-contact-airlines	1440	2103	00:50-01:04	
+16	/xx/pt/support/feedback-and-contact-airlines	390	4552	00:50-01:04	
+16	/xx/pt/support/support	1440	13514	00:50-01:04	
+16	/xx/pt/support/support	390	7394	00:50-01:04	
+16	/xx/pt/terms-and-conditions-lh	1440	25407	00:50-01:04	
+16	/xx/pt/terms-and-conditions-lh	390	44810	00:50-01:04	
+16	/xx/pt/terms-of-service-group	1440	2199	00:50-01:04	
+16	/xx/pt/terms-of-service-group	390	4011	00:50-01:04	
+16	/xx/pt/terms-of-use	1440	3921	00:50-01:04	
+16	/xx/pt/terms-of-use	390	6486	00:50-01:04	
+16	/xx/pt/tiere-als-handgepaeck	1440	4248	00:50-01:04	
+16	/xx/pt/tiere-als-handgepaeck	390	5734	00:50-01:04	
+16	/xx/pt/tiere-als-uebergepaeck	1440	6223	00:50-01:04	
+16	/xx/pt/tiere-als-uebergepaeck	390	9172	00:50-01:04	
+16	/xx/pt/timetable-and-flight-status	1440	3084	00:50-01:04	
+16	/xx/pt/timetable-and-flight-status	390	4063	00:50-01:04	
+16	/xx/pt/tips-senior-travellers	1440	13149	00:50-01:04	overlap
+16	/xx/pt/tips-senior-travellers	390	20948	00:50-01:04	overlap
+16	/xx/pt/travel-agencies	1440	1784	00:50-01:04	
+16	/xx/pt/travel-agencies	390	2492	00:50-01:04	
+16	/xx/pt/travel-expense-management	1440	3037	00:50-01:04	
+16	/xx/pt/travel-expense-management	390	3882	00:50-01:04	
+16	/xx/pt/travel-id-terms-conditions	1440	10118	00:50-01:04	
+16	/xx/pt/travel-id-terms-conditions	390	18172	00:50-01:04	
+16	/xx/pt/travelling-with-animals	1440	2732	00:50-01:04	
+16	/xx/pt/travelling-with-animals	390	4109	00:50-01:04	
+16	/xx/pt/travelling-with-children	1440	5627	00:50-01:04	
+16	/xx/pt/travelling-with-children	390	6425	00:50-01:04	
+16	/xx/pt/traveltricks	1440	3697	00:50-01:04	
+16	/xx/pt/traveltricks	390	4722	00:50-01:04	
+16	/xx/pt/uebergepaeck	1440	3221	00:50-01:04	
+16	/xx/pt/uebergepaeck	390	5139	00:50-01:04	
+16	/xx/pt/unterhaltung-an-bord	1440	8197	00:50-01:04	
+16	/xx/pt/unterhaltung-an-bord	390	8058	00:50-01:04	
+16	/xx/pt/upgrade-business-class-longo-curso	1440	2545	00:50-01:04	
+16	/xx/pt/upgrade-business-class-longo-curso	390	3982	00:50-01:04	
+16	/xx/pt/upgrade-first-class	1440	2571	00:50-01:04	
+16	/xx/pt/upgrade-first-class	390	3999	00:50-01:04	
+16	/xx/pt/upgrade-info	1440	2172	00:50-01:04	
+16	/xx/pt/upgrade-info	390	3433	00:50-01:04	
+16	/xx/pt/upgrade-options	1440	3612	00:50-01:04	
+16	/xx/pt/upgrade-options	390	5086	00:50-01:04	
+16	/xx/pt/upgrade-para-a-business-class	1440	2551	00:50-01:04	
+16	/xx/pt/upgrade-para-a-business-class	390	3976	00:50-01:04	
+16	/xx/pt/upgrade-premium-economy-class	1440	2550	00:50-01:04	
+16	/xx/pt/upgrade-premium-economy-class	390	4000	00:50-01:04	
+16	/xx/pt/upgrade-to-premium-economy-class	1440	2450	00:50-01:04	
+16	/xx/pt/upgrade-to-premium-economy-class	390	3455	00:50-01:04	
+16	/xx/pt/upgrades-im-online-check-in	1440	3338	00:50-01:04	emptySections
+16	/xx/pt/upgrades-im-online-check-in	390	4105	00:50-01:04	emptySections
+16	/xx/pt/viajar-com-necessidades-especiais	1440	2122	00:50-01:04	
+16	/xx/pt/viajar-com-necessidades-especiais	390	4120	00:50-01:04	
+16	/xx/ru/100-years	1440	8702	00:50-01:04	
+16	/xx/ru/100-years	390	10631	00:50-01:04	
+16	/xx/ru/100-years/cabin-design	1440	17358	00:50-01:04	overlap
+16	/xx/ru/100-years/cabin-design	390	21670	00:50-01:04	overlap
+16	/xx/ru/100-years/campaigns	1440	17291	00:50-01:04	
+16	/xx/ru/100-years/campaigns	390	16140	00:50-01:04	
+16	/xx/ru/100-years/chronicle	1440	35577	00:50-01:04	headSize
+16	/xx/ru/100-years/chronicle	390	47766	00:50-01:04	headSize
+16	/xx/ru/100-years/crane	1440	9976	00:50-01:04	
+16	/xx/ru/100-years/crane	390	12296	00:50-01:04	
+16	/xx/ru/100-years/destinations	1440	20409	00:50-01:04	
+16	/xx/ru/100-years/destinations	390	23006	00:50-01:04	
+16	/xx/ru/100-years/fleet	1440	24325	00:50-01:04	overlap
+16	/xx/ru/100-years/fleet	390	25599	00:50-01:04	overlap
+16	/xx/ru/100-years/global-network	1440	16850	00:50-01:04	headSize
+16	/xx/ru/100-years/global-network	390	19965	00:50-01:04	headSize
+16	/xx/ru/100-years/history	1440	9471	00:50-01:04	
+16	/xx/ru/100-years/history	390	11911	00:50-01:04	
+16	/xx/ru/100-years/history/menu-on-board	1440	12460	00:50-01:04	
+16	/xx/ru/100-years/history/menu-on-board	390	13192	00:50-01:04	
+16	/xx/ru/319	1440	3227	00:50-01:04	
+16	/xx/ru/319	390	2960	00:50-01:04	
+16	/xx/ru/31h	1440	5945	00:50-01:04	
+16	/xx/ru/31h	390	6579	00:50-01:04	
+16	/xx/ru/31w	1440	3227	00:50-01:04	
+16	/xx/ru/31w	390	2960	00:50-01:04	
+16	/xx/ru/320	1440	6519	00:50-01:04	
+16	/xx/ru/320	390	7144	00:50-01:04	
+16	/xx/ru/321	1440	5920	00:50-01:04	
+16	/xx/ru/321	390	6624	00:50-01:04	

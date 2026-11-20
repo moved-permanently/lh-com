@@ -2,10 +2,17 @@
 # batches of delta-so60-switch-NN.txt), each once it is on live.
 # Which batches: 12 and up as they went live in this order's window. ema-cashub's sweep-so80-ema-cashub.txt was read on main
 #   before each batch; a batch it had started is not swept here.
-# Documents: each batch file's rows less the ones the import helper's state commits on main leave held or skipped. Collapsed
-#   means the document's tools/importer/da-upload-state.json entry changed in "so60 switch batch NN" or a later
-#   "so60 batch NNh" commit; the rest of the batch is held and listed under its part.
-# On live: switch-census.mjs --env live showed markers on held documents only.
+#   - At this order's start (00:03 CET) sweep-so80 was not on main, so batches 12 and 13 were swept here when each went live.
+#   - sweep-so80 reached main later. It covers batches 07 to 16 and has parts for 12 and 13 too. These two parts add what it
+#     says it lacks there: each document against its own marked copy, rendered before its batch.
+#   - From then on, batches 14 to 16 are ema-cashub's and are not swept here. This file takes 17 to 26 as each goes live.
+#   - The marked copies rendered here before batches 14 to 16 (heights at 1440 and 390) are in
+#     marked-so52-ema-lufthansa.tsv for its comparison.
+# Documents: each batch file's rows less the ones the import helper's state commits on main leave held or skipped. Those
+#   commits give counts only: "so60 switch batch NN: n documents collapsed" less "so60 batch NNh: n held documents cleared".
+#   Which ones: the documents still marked on live (switch-census.mjs --env live). A batch is on live once only that many
+#   remain marked. (Batch 12's first pass took the documents whose upload-state entry changed in the batch commit; 44 had
+#   not changed though collapsed and live, so they were swept after it, all 300 in the part.)
 # How rendered: lufthansa.turnsthe.page at 1440 x 900 and 390 x 844, three browsers at once with one page at a time each
 #   (full Chrome, Liberation Sans for Arial, airline hosts refused). Each load waited to network idle, scrolled to the end
 #   for the lazy pictures, waited again, and every section loaded before measuring.
@@ -326,3 +333,7 @@
 13	/at/de/online-check-in-info	1440	height against the marked copy	listed: cause not located	2682 -> 2784 (+102 px, +3.8 %); holds (rendered again: 2784; first 2784)
 13	/at/de/passenger-receipt-90	390	height against the marked copy	transient	4328 -> 4448 (+120 px, +2.8 %); transient: rendered again 4376 (+48 px)
 13	/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time	390	height against the marked copy	listed: cause not located	3218 -> 3308 (+90 px, +2.8 %); holds (rendered again: 3308; first 3308)
+
+## Proposed for ema-adobe (lufthansa.com theme and shared blocks), every batch so far
+# batch 13: height against the marked copy | 29 documents | documents the collapse gave "section style column-view" draw off their marked copy (most common moves: +48 px x8, +96 px x6, -102 px x3) | /at/de/book-and-manage/additional-services/get-your-guide, /at/de/book-and-manage/digital-self-services/airline-apps, /at/de/book-and-manage/offers-and-destination/nordamerika-angebote, /at/de/companion-special-first-class, /at/de/crn, /at/de/datenschutz …
+# batch 13: height against the marked copy | 11 documents | documents the collapse gave "section style wide-text" draw off their marked copy (most common moves: +88 px x2, +133 px x1, +72 px x1) | /at/de/book-and-manage/additional-services/travel-insurances, /at/de/book-and-manage/offers-and-destination/nordamerika-angebote, /at/de/companion-special-first-class, /at/de/doctor-on-board-news, /at/de/event/exklusives-event-angebot-dxb, /at/de/gesund-reisen …
