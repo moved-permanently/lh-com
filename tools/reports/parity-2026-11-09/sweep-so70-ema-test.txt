@@ -12,3 +12,25 @@ the earlier hit was a load in progress. So there is no fault and no rule: the bl
 69's proposed CSS would have made the hidden labels wrap for nothing. The sweep's collision pass (logs/p4/so69/sw69.cjs) already
 skips sr-only text; the finder's labels are hidden by clip-path, which it did not read as hidden. Order 70's sweeps below read
 clip-path inset(50%) as hidden too.
+
+Item 4: the publish rounds
+--------------------------
+Watched from 11:47 CET: main every minute for a round's state commit, and the live census of delta-so70-com-kept.txt's 49 READY
+rows every 10 minutes.
+
+Round "so60 holds2 (so70)": the 65 kept documents, collapsed on preview (a638f349, 13:03 CET, DA state; census page 0)
+  - What was written: the 65 preview copies (aem.page .plain.html, read 13:05) against what this order gated, normalised as served
+    (section styles as classes, pictures aside): the 49 READY rows' copies equal the gated collapse; the 16 HOLD rows' copies equal
+    their proposals as measured (ANA's three card headings H4, the block h2-large and h3-large; gb/en autumn-campaign22's second
+    H1 an H2 in a section h2-small): 65 of 65.
+  - Breakage sweep on preview (logs/p4/so70/sweep/sw70.cjs, order 69's checks, clip-hidden text skipped; 3 pages at once):
+    65 documents, 130 page-widths, all 200; every request off the host refused (686). Baseline: live's marked copies swept the
+    same way at 13:08-13:25 CET (130 page-widths, all 200).
+    overlap 28 page-widths (16 documents), cut 24 (12): all on the marked copy too (the 16 px wrapper overlaps and the lounge
+      finder's long labels, as order 69 listed).
+    empty 5 page-widths (first-class gb/en, xx/es, xx/fr): the POI maps' 500 px boxes left empty. They are empty in some loads of
+      either copy (live's marked copy: at/de, gb/en, xx/es at 390, xx/fr at 1440), with the off-host map requests refused; the
+      two collisions on xx/es and xx/fr first-class are the route lists over the empty map box. Not the switch.
+    No broken own-host picture, no sideways scroll, no block left loading.
+  - Heights: not compared on preview. The preview host draws switched documents 21 to 3,240 px taller than lufthansa.turnsthe.page
+    (10 control documents of batch 26, 20 page-widths), so the comparison waits for live, against the marked copies swept above.
