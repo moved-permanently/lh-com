@@ -37,7 +37,7 @@
 # empty column: 98 documents, 176 page-widths; by design 176
 # heading in another size than its siblings: none
 # list in another size than its paragraphs: none
-# height against the marked copy (more than 2 % and 24 px): 13 page-widths
+# height against the marked copy (more than 2 % and 24 px): 13 page-widths; holding 7, transient 6
 # proposed rules for ema-adobe (a fault of one signature on 3 or more documents): 0
 # batch	path	width	kind	class	measured
 12	/at/de/articles/explore-the-world/in-my-hood-arroios-lissabon	390	empty column	by design (second look: drawn once in view, e.g. a map's tiles); on the marked copy before the batch too	div.poi-map.block.poi-map-with-aside "Für mehr Infos zu den Tipps bitte auf di" > cell 1 (346x500)
@@ -219,16 +219,110 @@
 12	/at/de/articles/highlights/soccer-event-in-north-america	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "In der Lufthansa First Class trifft exkl" by 16px
 12	/at/de/articles/highlights/vancouver-winter	390	empty column	by design (second look: drawn once in view, e.g. a map's tiles); on the marked copy before the batch too	div.poi-map.block.poi-map-with-aside "Für mehr Infos zu den Tipps bitte auf di" > cell 1 (346x500)
 12	/at/de/articles/highlights/vancouver-winter	1440	empty column	by design (second look: drawn once in view, e.g. a map's tiles); on the marked copy before the batch too	div.poi-map.block.poi-map-with-aside "Für mehr Infos zu den Tipps bitte auf di" > cell 1 (622x500)
-12	/at/de/articles/explore-the-world/experience-nature	390	height against the marked copy	listed	11558 -> 12310 (+752 px, +6.5 %)
-12	/at/de/articles/explore-the-world/next-level-gaming	1440	height against the marked copy	listed	8453 -> 10779 (+2326 px, +27.5 %)
-12	/at/de/articles/explore-the-world/on-the-scene-supper-clubs-ny	1440	height against the marked copy	listed	4810 -> 5632 (+822 px, +17.1 %)
-12	/at/de/articles/explore-the-world/on-the-scene-topic-bangkok	1440	height against the marked copy	listed	5198 -> 5874 (+676 px, +13.0 %)
-12	/at/de/articles/explore-the-world/stop-over-buenos-aires	1440	height against the marked copy	listed	6717 -> 900 (-5817 px, -86.6 %)
-12	/at/de/articles/highlights-european-championship/european-championship-2024-quiz	390	height against the marked copy	listed	3369 -> 3519 (+150 px, +4.5 %)
-12	/at/de/articles/highlights-european-championship/european-championship-2024-quiz	1440	height against the marked copy	listed	4475 -> 4598 (+123 px, +2.7 %)
-12	/at/de/articles/highlights/all-it-takes-is-a-yes	1440	height against the marked copy	listed	6123 -> 6799 (+676 px, +11.0 %)
-12	/at/de/articles/highlights/fashion-guide	1440	height against the marked copy	listed	16779 -> 17187 (+408 px, +2.4 %)
-12	/at/de/articles/highlights/new-york-fashion-week	1440	height against the marked copy	listed	8242 -> 8865 (+623 px, +7.6 %)
-12	/at/de/articles/tags/algiers	1440	height against the marked copy	listed	3303 -> 3218 (-85 px, -2.6 %)
-12	/at/de/articles/tags/art	390	height against the marked copy	listed	6700 -> 6505 (-195 px, -2.9 %)
-12	/at/de/articles/tags/art-basel-miami-beach	390	height against the marked copy	listed	6325 -> 6180 (-145 px, -2.3 %)
+12	/at/de/articles/explore-the-world/experience-nature	390	height against the marked copy	transient	11558 -> 12310 (+752 px, +6.5 %); transient: rendered again 11534 (-24 px)
+12	/at/de/articles/explore-the-world/next-level-gaming	1440	height against the marked copy	transient	8453 -> 10779 (+2326 px, +27.5 %); transient: rendered again 8409 (-44 px)
+12	/at/de/articles/explore-the-world/on-the-scene-supper-clubs-ny	1440	height against the marked copy	listed: cause not located (its marked markup was not kept; 1440 only, the related-articles row and the h3-large section as on its collapsed de/de, gb/en and de/en copies)	4810 -> 5632 (+822 px, +17.1 %); holds (rendered again: 5632; first 5632)
+12	/at/de/articles/explore-the-world/on-the-scene-topic-bangkok	1440	height against the marked copy	listed: cause not located (its marked markup was not kept; 1440 only)	5198 -> 5874 (+676 px, +13.0 %); holds (rendered again: 5874; first 5874)
+12	/at/de/articles/explore-the-world/stop-over-buenos-aires	1440	height against the marked copy	transient	6717 -> 900 (-5817 px, -86.6 %); transient: rendered again 6693 (-24 px)
+12	/at/de/articles/highlights-european-championship/european-championship-2024-quiz	390	height against the marked copy	listed: cause not located (its marked markup was not kept; the collapse wrote section style divider)	3369 -> 3519 (+150 px, +4.5 %); holds (rendered again: 3519; first 3519)
+12	/at/de/articles/highlights-european-championship/european-championship-2024-quiz	1440	height against the marked copy	listed: cause not located (its marked markup was not kept; the collapse wrote section style divider)	4475 -> 4598 (+123 px, +2.7 %); holds (rendered again: 4598; first 4598)
+12	/at/de/articles/highlights/all-it-takes-is-a-yes	1440	height against the marked copy	listed: cause not located (its marked markup was not kept; 1440 only; the wide-text section's video is 1,264 x 711 at 1440)	6123 -> 6799 (+676 px, +11.0 %); holds (rendered again: 6799; first 6799)
+12	/at/de/articles/highlights/fashion-guide	1440	height against the marked copy	collapse: its 18 {spacer-100} became space-l carriers, each section with one 47-139 px taller at 1440 (reproduced on batch 14's kept marked xx/fr copy: 15,634 -> 16,049 at 1440, 12,006 -> 12,085 at 390); see the proposed space-l rule	16779 -> 17187 (+408 px, +2.4 %); holds (rendered again: 17187; first 17187)
+12	/at/de/articles/highlights/new-york-fashion-week	1440	height against the marked copy	transient	8242 -> 8865 (+623 px, +7.6 %); transient: rendered again 8339 (+97 px)
+12	/at/de/articles/tags/algiers	1440	height against the marked copy	listed: cause not located (its marked markup was not kept; 85 px shorter at 1440)	3303 -> 3218 (-85 px, -2.6 %); holds (rendered again: 3218; first 3218)
+12	/at/de/articles/tags/art	390	height against the marked copy	transient	6700 -> 6505 (-195 px, -2.9 %); transient: rendered again 6700 (+0 px)
+12	/at/de/articles/tags/art-basel-miami-beach	390	height against the marked copy	transient	6325 -> 6180 (-145 px, -2.3 %); transient: rendered again 6375 (+50 px)
+
+## Batch 13: 297 documents rendered, 594 page-widths (1440 and 390); held or skipped 3; marked copy rendered before the batch: 300 documents
+# commits: c5aa275c, cdc48fe7
+# live census at the start: lh-com live: 300 documents, read 300, missing 0, errors 0, with markers 3
+# held or skipped (not swept): /at/de/book-and-manage/flights/ana, /at/de/business-class, /at/de/first-class
+# load error: none
+# status not 200: none
+# section or block never loads: none
+# broken picture: 1 documents, 1 page-widths; transient 1
+# sideways scroll: none
+# out of the page or its column: none
+# drawn over another element: 7 documents, 13 page-widths; by design 11, listed: 1 document, on its marked copy before the batch too 2
+# empty section: 8 documents, 16 page-widths; by design 14, function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses 2
+# empty column: none
+# heading in another size than its siblings: none
+# list in another size than its paragraphs: none
+# height against the marked copy (more than 2 % and 24 px): 43 page-widths; holding 42, transient 1
+# proposed rules for ema-adobe (a fault of one signature on 3 or more documents): 2
+#   PROPOSED	height against the marked copy	29 documents	documents the collapse gave "section style column-view" draw off their marked copy (most common moves: +48 px x8, +96 px x6, -102 px x3)	/at/de/book-and-manage/additional-services/get-your-guide, /at/de/book-and-manage/digital-self-services/airline-apps, /at/de/book-and-manage/offers-and-destination/nordamerika-angebote, /at/de/companion-special-first-class, /at/de/crn, /at/de/datenschutz …
+#   PROPOSED	height against the marked copy	11 documents	documents the collapse gave "section style wide-text" draw off their marked copy (most common moves: +88 px x2, +133 px x1, +72 px x1)	/at/de/book-and-manage/additional-services/travel-insurances, /at/de/book-and-manage/offers-and-destination/nordamerika-angebote, /at/de/companion-special-first-class, /at/de/doctor-on-board-news, /at/de/event/exklusives-event-angebot-dxb, /at/de/gesund-reisen …
+# batch	path	width	kind	class	measured
+13	/at/de/book-and-manage/cancellation-and-refund/refund/refund-form	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "Ticket-Erstattung manuell beantragenBitt" by 16px
+13	/at/de/book-and-manage/cancellation-and-refund/refund/refund-form	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "Ticket-Erstattung manuell beantragenBitt" by 16px
+13	/at/de/book-and-manage/flights/air-baltic	390	drawn over another element	listed: 1 document, on its marked copy before the batch too (not the collapse): the contact view's closing separator 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Kontakt bei Änderungen Um Ihre Buchung z" by 16px
+13	/at/de/book-and-manage/flights/air-baltic	1440	drawn over another element	listed: 1 document, on its marked copy before the batch too (not the collapse): the contact view's closing separator 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Kontakt bei Änderungen Um Ihre Buchung z" by 16px
+13	/at/de/book-and-manage/flights/wetlease-hub	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "airBaltic ist die nationale Airline Lett" by 16px
+13	/at/de/book-and-manage/flights/wetlease-hub	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "airBaltic ist die nationale Airline Lett" by 16px
+13	/at/de/common/accessibility-statement	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.accordion-columns-wrapper "ÖsterreichMarktüberwachungsbehörde Digit" by 16px
+13	/at/de/culinaryjourney	390	empty section	function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses (airline host); a visitor's browser asks www for it; listed (fault (second look: still empty); on the marked copy before the batch too)	div.section.micro-frontend-container ""
+13	/at/de/culinaryjourney	1440	empty section	function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses (airline host); a visitor's browser asks www for it; listed (fault (second look: still empty); on the marked copy before the batch too)	div.section.micro-frontend-container ""
+13	/at/de/digital-self-services	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.flush.column-view.padded ""
+13	/at/de/digital-self-services	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.flush.column-view.padded ""
+13	/at/de/digital-travel-companion	390	broken picture	transient (rendered again: no fault); new against the marked copy	/at/de/media_18670d619911a94a8f0481848c141afb97eb82c88.jpg?width=750&format=webply&optimiz
+13	/at/de/digital-travel-companion	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
+13	/at/de/digital-travel-companion	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
+13	/at/de/doctor-on-board	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
+13	/at/de/doctor-on-board	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
+13	/at/de/flughafeninformation	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
+13	/at/de/flughafeninformation	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
+13	/at/de/flugplan-und-flugstatus	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Die Lufthansa App – Ihr digitaler Reiseb" by 16px
+13	/at/de/flugplan-und-flugstatus	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Die Lufthansa App – Ihr digitaler Reiseb" by 16px
+13	/at/de/group-travel	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
+13	/at/de/group-travel	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
+13	/at/de/hotelangebote	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Übernachten wie zu Hause Sie möchten dem" by 16px
+13	/at/de/hotelangebote	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Übernachten wie zu Hause Sie möchten dem" by 16px
+13	/at/de/inspiredby	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
+13	/at/de/inspiredby	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
+13	/at/de/kindermenues-an-bord	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Kids Box auf Europaflügen Auch auf Europ" by 24px
+13	/at/de/kindermenues-an-bord	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Kids Box auf Europaflügen Auch auf Europ" by 24px
+13	/at/de/lufthansa-first-class-flotte	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
+13	/at/de/lufthansa-first-class-flotte	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
+13	/at/de/book-and-manage/additional-services/get-your-guide	1440	height against the marked copy	listed: cause not located	1969 -> 2125 (+156 px, +7.9 %); holds (rendered again: 2125; first 2125)
+13	/at/de/book-and-manage/additional-services/travel-insurances	1440	height against the marked copy	listed: cause not located	2841 -> 2974 (+133 px, +4.7 %); holds (rendered again: 2974; first 2974)
+13	/at/de/book-and-manage/digital-self-services/airline-apps	1440	height against the marked copy	listed: cause not located	1688 -> 1736 (+48 px, +2.8 %); holds (rendered again: 1736; first 1736)
+13	/at/de/book-and-manage/offers-and-destination/nordamerika-angebote	390	height against the marked copy	listed: cause not located	3310 -> 3382 (+72 px, +2.2 %); holds (rendered again: 3382; first 3382)
+13	/at/de/companion-special-first-class	1440	height against the marked copy	listed: cause not located	2523 -> 2580 (+57 px, +2.3 %); holds (rendered again: 2580; first 2580)
+13	/at/de/crn	390	height against the marked copy	listed: cause not located	2966 -> 2864 (-102 px, -3.4 %); holds (rendered again: 2864; first 2864)
+13	/at/de/datenschutz	1440	height against the marked copy	listed: cause not located	1582 -> 1540 (-42 px, -2.7 %); holds (rendered again: 1540; first 1540)
+13	/at/de/discover-lufthansa/carbon-offsetting/saf	1440	height against the marked copy	listed: cause not located	3881 -> 3978 (+97 px, +2.5 %); holds (rendered again: 3978; first 3978)
+13	/at/de/doctor-on-board-news	390	height against the marked copy	listed: cause not located	3184 -> 3112 (-72 px, -2.3 %); holds (rendered again: 3112; first 3112)
+13	/at/de/doctor-on-board-news	1440	height against the marked copy	listed: cause not located	2478 -> 2366 (-112 px, -4.5 %); holds (rendered again: 2366; first 2366)
+13	/at/de/e9n-1	390	height against the marked copy	listed: cause not located	2868 -> 2766 (-102 px, -3.6 %); holds (rendered again: 2766; first 2766)
+13	/at/de/e9n-2	390	height against the marked copy	listed: cause not located	2868 -> 2766 (-102 px, -3.6 %); holds (rendered again: 2766; first 2766)
+13	/at/de/entryprocesses	390	height against the marked copy	listed: cause not located	5375 -> 5504 (+129 px, +2.4 %); holds (rendered again: 5504; first 5504)
+13	/at/de/entryprocesses	1440	height against the marked copy	listed: cause not located	2824 -> 2940 (+116 px, +4.1 %); holds (rendered again: 2940; first 2940)
+13	/at/de/europcar	1440	height against the marked copy	listed: cause not located	1162 -> 1136 (-26 px, -2.2 %); holds (rendered again: 1136; first 1136)
+13	/at/de/event/exklusives-event-angebot-dxb	390	height against the marked copy	listed: cause not located	8592 -> 8777 (+185 px, +2.2 %); holds (rendered again: 8777; first 8777)
+13	/at/de/exclusive-charter	390	height against the marked copy	listed: cause not located	2813 -> 2909 (+96 px, +3.4 %); holds (rendered again: 2909; first 2909)
+13	/at/de/exclusive-charter	1440	height against the marked copy	listed: cause not located	2130 -> 2226 (+96 px, +4.5 %); holds (rendered again: 2226; first 2226)
+13	/at/de/faq-data-security	390	height against the marked copy	listed: cause not located	1645 -> 1693 (+48 px, +2.9 %); holds (rendered again: 1693; first 1693)
+13	/at/de/faq-data-security	1440	height against the marked copy	listed: cause not located	1324 -> 1372 (+48 px, +3.6 %); holds (rendered again: 1372; first 1372)
+13	/at/de/faq-password-security	390	height against the marked copy	listed: cause not located	1711 -> 1759 (+48 px, +2.8 %); holds (rendered again: 1759; first 1759)
+13	/at/de/faq-password-security	1440	height against the marked copy	listed: cause not located	1354 -> 1402 (+48 px, +3.5 %); holds (rendered again: 1402; first 1402)
+13	/at/de/farealert/best-price-alert	1440	height against the marked copy	listed: cause not located	3971 -> 3857 (-114 px, -2.9 %); holds (rendered again: 3857; first 3857)
+13	/at/de/geschaeftsbedingungen	1440	height against the marked copy	listed: cause not located	1844 -> 1892 (+48 px, +2.6 %); holds (rendered again: 1892; first 1892)
+13	/at/de/gesund-reisen	390	height against the marked copy	listed: cause not located	4294 -> 4382 (+88 px, +2.0 %); holds (rendered again: 4382; first 4382)
+13	/at/de/gesund-reisen	1440	height against the marked copy	listed: cause not located	3277 -> 3365 (+88 px, +2.7 %); holds (rendered again: 3365; first 3365)
+13	/at/de/inspiredby	1440	height against the marked copy	listed: cause not located	3158 -> 3259 (+101 px, +3.2 %); holds (rendered again: 3259; first 3259)
+13	/at/de/kindermenues-an-bord	1440	height against the marked copy	listed: cause not located	4486 -> 4594 (+108 px, +2.4 %); holds (rendered again: 4594; first 4594)
+13	/at/de/local-page/black-friday	1440	height against the marked copy	listed: cause not located	2972 -> 3078 (+106 px, +3.6 %); holds (rendered again: 3078; first 3078); located: main's collapse of the kept marked copy, rendered here: 2231 -> 2231 (+0 px), in 
+13	/at/de/lufthansa-business-class-on-long-haul-routes	390	height against the marked copy	listed: cause not located	4505 -> 4601 (+96 px, +2.1 %); holds (rendered again: 4601; first 4601)
+13	/at/de/lufthansa-business-class-on-long-haul-routes	1440	height against the marked copy	listed: cause not located	3301 -> 3397 (+96 px, +2.9 %); holds (rendered again: 3397; first 3397)
+13	/at/de/lufthansa-ejournals	1440	height against the marked copy	listed: cause not located	3546 -> 3625 (+79 px, +2.2 %); holds (rendered again: 3625; first 3625)
+13	/at/de/lufthansa-express	1440	height against the marked copy	listed: cause not located	4245 -> 4341 (+96 px, +2.3 %); holds (rendered again: 4341; first 4341)
+13	/at/de/lufthansa-guide-service	1440	height against the marked copy	listed: cause not located	3750 -> 3869 (+119 px, +3.2 %); holds (rendered again: 3869; first 3869)
+13	/at/de/lufthansa-terminal-muenchen	1440	height against the marked copy	listed: cause not located	4273 -> 4361 (+88 px, +2.1 %); holds (rendered again: 4361; first 4361)
+13	/at/de/meetings-und-events-individuelle-angebotsanfrage	1440	height against the marked copy	listed: cause not located	2907 -> 2971 (+64 px, +2.2 %); holds (rendered again: 2971; first 2971)
+13	/at/de/meine-buchungen	1440	height against the marked copy	listed: cause not located	3522 -> 3419 (-103 px, -2.9 %); holds (rendered again: 3419; first 3419)
+13	/at/de/menues-reiseklassen	1440	height against the marked copy	listed: cause not located	2250 -> 2298 (+48 px, +2.1 %); holds (rendered again: 2298; first 2298)
+13	/at/de/mit-kindern-am-flughafen	1440	height against the marked copy	listed: cause not located	3099 -> 3195 (+96 px, +3.1 %); holds (rendered again: 3195; first 3195)
+13	/at/de/nutzungsbedingungen-waehrungsumrechnung	1440	height against the marked copy	listed: cause not located	2035 -> 2083 (+48 px, +2.4 %); holds (rendered again: 2083; first 2083)
+13	/at/de/online-check-in-info	1440	height against the marked copy	listed: cause not located	2682 -> 2784 (+102 px, +3.8 %); holds (rendered again: 2784; first 2784)
+13	/at/de/passenger-receipt-90	390	height against the marked copy	transient	4328 -> 4448 (+120 px, +2.8 %); transient: rendered again 4376 (+48 px)
+13	/at/de/prepare-for-your-trip/airport-information/services-at-the-airport/security-waiting-time	390	height against the marked copy	listed: cause not located	3218 -> 3308 (+90 px, +2.8 %); holds (rendered again: 3308; first 3308)
