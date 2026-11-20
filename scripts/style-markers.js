@@ -246,8 +246,12 @@ export const THEMES = {
       space: {
         m: 40,
         s: 25,
+        // XXL 375 (standing order 65, ema-cashub's sweep-so81 item 2): www's 400px
+        // separator on the contact-form confirmation pages ({spacer-400}, the only
+        // separators of 248px or more: 13 documents), after the text's last paragraph,
+        // whose own 25px is part of www's 400 (the text ends 400px above the footer)
         steps: {
-          xs: 16, s: 25, m: 40, 'm-plus': 60, 'm-plus-plus': 70, 'l-minus': 80, l: 120,
+          xs: 16, s: 25, m: 40, 'm-plus': 60, 'm-plus-plus': 70, 'l-minus': 80, l: 120, xxl: 375,
         },
       },
       pageTypes: {
@@ -729,8 +733,10 @@ const dividerPx = (opts) => {
 // l-minus; standing orders 59 and 61)
 // M++ 70 (standing order 61, A2: www's {spacer-70}, the confirmation pages' separator:
 // 42 page-widths 27.6 points closer; the 6 it moves further are accepted differences)
+// XXL 375 (standing order 65): www's 400px separator above the footer on the
+// contact-form confirmation pages, less the 25px the last paragraph above it keeps
 export const STEP_SPACE = {
-  xs: 16, 'm-plus': 60, 'm-plus-plus': 70, 'l-minus': 80,
+  xs: 16, 'm-plus': 60, 'm-plus-plus': 70, 'l-minus': 80, xxl: 375,
 };
 
 const spacerPx = (opts) => {

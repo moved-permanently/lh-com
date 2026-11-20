@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_1568324_exports = {};
-  __export(tmp_bundle_app_entry_1568324_exports, {
-    default: () => tmp_bundle_app_entry_1568324_default
+  var tmp_bundle_app_entry_378454_exports = {};
+  __export(tmp_bundle_app_entry_378454_exports, {
+    default: () => tmp_bundle_app_entry_378454_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3033,6 +3033,10 @@ var CustomImportScript = (() => {
         space: {
           m: 40,
           s: 25,
+          // XXL 375 (standing order 65, ema-cashub's sweep-so81 item 2): www's 400px
+          // separator on the contact-form confirmation pages ({spacer-400}, the only
+          // separators of 248px or more: 13 documents), after the text's last paragraph,
+          // whose own 25px is part of www's 400 (the text ends 400px above the footer)
           steps: {
             xs: 16,
             s: 25,
@@ -3040,7 +3044,8 @@ var CustomImportScript = (() => {
             "m-plus": 60,
             "m-plus-plus": 70,
             "l-minus": 80,
-            l: 120
+            l: 120,
+            xxl: 375
           }
         },
         pageTypes: {
@@ -7021,7 +7026,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_1568324_default = {
+  var tmp_bundle_app_entry_378454_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7061,5 +7066,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_1568324_exports);
+  return __toCommonJS(tmp_bundle_app_entry_378454_exports);
 })();
