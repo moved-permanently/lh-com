@@ -72,3 +72,22 @@ discover	32	64	brand-discover 64	0	Spacer paragraphs 62; closing divider after C
 swiss	33	66	brand-swiss 66	0	Spacer paragraphs 122	0
 b2b	22	44	brand-b2b 44	0	Spacer paragraphs 98	0
 austrian	41	82	brand-austrian 82	0	closing divider after Columns Media 4; Spacer paragraphs 106	0
+
+## Round P1: none: held by order 65 (38eefada, 09:52 UTC)
+# rules: P1, a column view split out by the collapse (ema-lufthansa's sweep-so52): not pushed. Order 65 found the 48 px below the view (the page-end gap above the footer), tried two carrier forms of the marked rule (1,048 and 277 documents) and held it
+# how: prepared anyway: the column-view documents of the other sites from census 4 (Brussels 51, ITA 9, SWISS 33, Austrian 157; 45 of them) rendered at 1440 and 390 as served at 09:48 UTC with the rule counter, a base for a later push (90 page-widths, in the scratch folder)
+# verdict: nothing to check: no P1 rule on main by the end of this order (watched from 07:00 to 11:00 UTC: c6859755, a4bc3aff and 2798d6d2 were order 65's last pushes to styles/, blocks/ and scripts/; order 66's 19d3812c followed, round r66)
+
+## Round r66: 19d3812c (order 66 item 4, 10:47 UTC)
+# rules: from 768px a column view holding only a link or button, right after a flush view, draws as part of that view (margin-top -32px, no padding above)
+# scope: styles/styles.css, the selector starts body.brand-lufthansa
+# how: the 45 column-view documents of the other sites (census 4: Brussels 51, ITA 9, SWISS 33, Austrian 157; Discover and Group for Business have none) rendered at 1440 and 390 as served at 11:02 UTC, against the same pages rendered at 09:48 UTC before the push (and order 50 where there is one)
+# verdict: stays scoped: the rule matched 0 elements on 90 page-widths (no link-only column view after a flush one on these pages even unscoped; the column-view sections themselves are there). The one finding is not the rule: Brussels /ch/it/special-care/special-assistance/travel-companion 390 is 21.6 % shorter than order 50's render (4,011 -> 3,144), the related-topics cards sliding since order 52's phone-slider row went live; against 09:48 it is unchanged
+# brand	documents	page-widths	body class	scoped rules matched	targets matched without the brand scope	findings (over 1 % or a new flag, against the before-push stylesheet and order 50)
+brussels	12	24	brand-brussels 24	0	column-view sections 24	1
+ita	9	18	brand-ita 18	0	column-view sections 18	0
+discover	0	0		0	none on these pages	0
+swiss	12	24	brand-swiss 24	0	column-view sections 24	0
+b2b	0	0		0	none on these pages	0
+austrian	12	24	brand-austrian 24	0	column-view sections 28	0
+# finding	brussels	/ch/it/special-care/special-assistance/travel-companion	390	order 50	4011	3144	-21.62	[]

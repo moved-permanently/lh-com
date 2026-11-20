@@ -917,6 +917,11 @@
 #       moves it into a section of its own ("column-view padded").
 #     - That section starts below the theme's gap between sections, 40 px at 1440 and 32 px at 390 (under the breadcrumb
 #       section). Its padding (40 / 20 px) replaces the range's own spacing; the rest of the 48 px is that difference.
+#   Correction (standing order 53, from ema-adobe's order 65 final section, 38eefada): the 48 px is not above the split-out
+#     view but below it. In both copies the view and its text start at the same place. The split-out view is the page's last
+#     section and keeps the section gap above the footer, where the marked page had none (styles.css's marked rule for a page
+#     ending with a column view keys on the {column-end} mark). The section starts measured here were the collapsed copy's
+#     only; the marked copy's text was not set against them. ema-adobe held P1 after two gated tries.
 #   For ema-adobe to decide against www (no recording was read here): either the column view keeps the marked copy's
 #     place (no section gap above a column view the collapse split out of the section before it), or the 48 px is
 #     accepted as www's (plan 923 section 14.7's accepted page-width differences).
