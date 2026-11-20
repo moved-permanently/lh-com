@@ -1,0 +1,100 @@
+Standing order 83 - ema-cashub, Fri 20 Nov 2026, 11:15 to 16:00 CET
+===================================================================
+Read-only on our hosts (lufthansa.turnsthe.page, main--lh-com--moved-permanently.aem.live), at most 3 pages at once.
+DA read only. No upload, preview or publish. Scratch (not in git): migration-work/parity-588/so83.
+
+Step 0 - connection check (11:05 CET)
+-------------------------------------
+- GET https://admin.da.live/source/moved-permanently/lh-com/de/en/homepage.html: HTTP 200 (the homepage's source).
+- GET https://admin.hlx.page/status/moved-permanently/lh-com/main/de/en/homepage: HTTP 200.
+- git fetch origin: works. git log -1 origin/main: 38eefada 2026-11-20 09:52:45 +0000 "docs(report, plan, lists):
+  standing order 65 - the final gate after batch 26 (plan 923 §15.1) and the order's final section". 38eefad is on it.
+
+Item 1 - a4bc3af's reach and the narrower Rule 3, on live
+---------------------------------------------------------
+- Rule 3: order 82's sweep of its reach (9e15c107) already ran on the narrower form 2798d6d, served at the time. Here it
+  was run again with P3's and a4bc3af's reach in one pass.
+- Reach and pass (11:10 to 11:20 CET, 3 pages at once, order 82's checks: order 76's flags and the text-collision probe):
+    - a4bc3af: the 13 documents with the old {spacer-400}. These are the 12 contact-form confirmation copies (xx/es,
+      fr, pt, ru, hk, zh, it, el, ja, ko, pl and fr/fr) and /es/es/local-page/form-submission-error. All of them now
+      draw the Spacer xxl.
+    - Rule 3 (narrower): 42 documents.
+    - P3: 25 documents.
+  99 documents in all, 198 page-widths, all 200 and settled.
+- Faults: none. The only flags are known ones: the lounge finder's select clipping its long placeholder (xx/fr, xx/pl,
+  xx/pt, xx/ru lounges at 1440: ARTEFACT, order 80) and one Columns Media empty text cell (CONTENT).
+- The 13 a4bc3af documents: the home button (on the error page, its last text) ends 400 px above the footer on every
+  confirmation copy and 448 px on form-submission-error. Each is 25 px shorter than its marked copy where one was
+  rendered before its batch: xx/it, xx/el, xx/pl 1,496 -> 1,471 and 1,746 -> 1,721; xx/pt 1,496 -> 1,471 and 1,768 ->
+  1,743; xx/ja, xx/ko 1,401 -> 1,376; es/es form-submission-error 1,478 -> 1,453 and 1,728 -> 1,703. That is the step's
+  375. See item 3a.
+
+Item 2 - rounds 669 to 671 on live
+----------------------------------
+- 14 documents, 28 page-widths, all 200 and settled, no flag:
+    - /de/en/login, /gb/en/login, /de/de/anmeldung, /at/de/anmeldung;
+    - profile/account-statement and profile/travel-cockpit in de/en, gb/en, de/de and at/de;
+    - /pl/pl/autumn-campaign22 and /es/es/local-page/form-submission-error.
+- The app shells draw (probe p-shell.js, both widths):
+    - The 4 login pages: their two login cards, "Travel ID" with its Login link and "Booking code" / "Buchungscode"
+      with "Enter booking code", then the tour operator link (Carousel Cards grid, 1,264 x 253-280 at 1440).
+    - The 8 profile pages: the profile navigation (Overview, Bookings, Profile, Miles & More) and the logged-out
+      placeholders ("Log in now" / "Jetzt einloggen" twice), then their cards (3 or 4) and their headings.
+- Against their marked copies:
+    - /pl/pl/autumn-campaign22 2,276 / 2,330 -> 2,206 / 2,260 (-3.1 % / -3.0 %: the H2's h2-small carrier, bfcd156f and
+      35dda00e);
+    - /es/es/local-page/form-submission-error 1,478 / 1,728 -> 1,453 / 1,703 (-1.7 % / -1.4 %: the Spacer xxl);
+    - both renders from ema-lufthansa's marked-so53-ema-lufthansa.tsv.
+  The 12 login and profile pages have no marked render on disk (none in this agent's renders or ema-lufthansa's
+  marked files), so they are compared with nothing. Today's figures: login 1,432 / 1,779 (en), 1,459 / 1,820 (de);
+  account-statement 2,172-2,235 / 3,491-3,665; travel-cockpit 1,561-1,588 / 2,456-2,813.
+- The 17 so82 documents (done in order 82): read again here, the same as their gates (1,669 / 2,274 for xx/en refund,
+  the confirmation copies above).
+
+Item 3 - three findings
+-----------------------
+a. The Spacer step at 400 instead of 375 (PROPOSAL for ema-adobe; scripts/style-markers.js is yours today).
+   - Injected in the same load on all 13 of a4bc3af's documents at 1440 and 390 (26 page-widths): every xxl separator
+     paragraph at 400 px.
+   - Every copy that has a marked render comes back to it to the pixel: xx/it, xx/el, xx/pl 1,496 / 1,746; xx/pt
+     1,496 / 1,768; xx/ja and xx/ko 1,401 / 1,596 and 1,556; es/es form-submission-error 1,478 / 1,728.
+   - Against www (lh-parity-017, xx/it): 1,496 at 1440 = www's 1,496. The home button is 425 px above the footer, www
+     424.8.
+   - The others move +25 px with the same gap.
+   - No flag came or went; nothing else moved (only xxl Spacers draw differently, and only these 13 documents have
+     one).
+   - The change: STEP_SPACE xxl 375 -> 400 (and the SPACE steps' xxl). a4bc3af's own first try was 400 and drew 425;
+     www's recording shows 425 (the text's last paragraph keeps its 25 px, and www's separator's 400 come after it).
+b. The seat terms pages' card spacing at 1440 (PROPOSAL for ema-adobe; a shared pattern on 16 page-widths).
+   - The card view (a padded Columns Media whose cells open with an icon heading) is a flex column with gap 66 px:
+     columns-media.css's "66px between rows", www's gap between two column views elsewhere. On www's xx/es seat
+     terms (lh-parity-017) the card rows are 236 px apart; ours are 260, the same content.
+   - A 42 px gap from 768 px, injected in the same load on Rule 3's whole reach at 1440 (42 page-widths):
+       - every advance-seat-reservations-terms-and-conditions copy -24 px (14), /xx/es 1,751 -> 1,727 against www's
+         1,653 (nearer);
+       - sitzplatzreservierungen-konditionen -24 (2);
+       - lufthansa-express-rail-briefing -72 (2, three row gaps; no www recording);
+       - carry-on-baggage, lounges and cognitive-impairment unchanged;
+       - no flag came.
+   - No carrier sets a row gap, so there is no row. Proposed rule (columns-media.css or the theme):
+       @media (width >= 768px) {
+         body.brand-lufthansa .columns-media.padded:has(> .columns-media-row > .columns-media-text > :is(h3, h4) > picture) {
+           gap: 42px;
+         }
+       }
+   - The rest of the seat terms' +98 px at 1440 is 24 px above the first row (the block's 32 px top padding) and 50
+     px below the last (the section's end). Listed with it: the marked copy (16 px text, 22 px to the link, no
+     space-below-l) was 1,675, +1.3 % against www.
+c. The "experience" articles' related teasers (PROPOSAL for ema-adobe and the importer; a shared pattern).
+   - Reach: 20 documents with a run of 3 or more linked teasers in default content, each a linked picture and an H4
+     linking to the same page: new-shopping, experience-art-live, team-sport, next-level-gaming and experience-nature
+     under articles/explore-the-world, in de/en, gb/en, de/de and at/de ("Looking for more?" / "Lust auf mehr?").
+     www draws them as a four-column view (div.fourcolumn column-view, col-md-6 col-lg).
+   - Emulated in the same load: the run wrapped in a grid, 4 columns from 1025 px, 2 from 768, 1 below. On
+     /at/de/articles/explore-the-world/experience-art-live: 1440 10,677 -> 8,097 against www's 8,322 (from +28.3 % to
+     -2.7 %); 390 10,508 -> 10,532 against www's 10,606 (nearer). No flag came.
+   - An existing carrier could hold them: Carousel Cards with option four-up (Lufthansa's teaser cards). But the row
+     would move the four teasers out of the default content into a block. That is a restructure that wants a draft
+     render for its gate, not an option on an existing block. So it is a proposal, for ema-adobe (or the importer: the
+     fourcolumn view has no parser here), not a row today.
+- The accepted list: nothing new. All three are shared patterns with proposals.
