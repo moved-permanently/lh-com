@@ -90,3 +90,38 @@ Batch 22 (xx/ja, xx/ko; on live from about 06:40 CET; 294 of 300 documents swept
     defaults only") draw full width like their 13 stopover siblings, which had no such marker (each within 0.6 % of its marked
     copy). CONTENT of the marker, not a fault.
 - Faults for ema-adobe (3 or more documents): none in this batch. Rows: none.
+
+Batch 23 (xx/ko, xx/pl; on live from about 07:23 CET; 292 of 300 documents swept)
+-------------------------------------------------------------------------------------
+- Documents: 300 READY. State commit d6e2a8d0 ("287 collapsed"), then 44191abd ("so60 batch 23h: 4 held documents cleared"). Live
+  census 07:23 CET: 288 with 0 markers, 12 still marked; at about 07:40 CET 8 still marked (held, not swept): xx/ko and xx/pl
+  .../travel-with-needs/{cognitive,hearing,visual}-impairment, /xx/ko/tips-senior-travellers, /xx/pl/book-and-manage/flights/ana.
+  The 4 cleared (/xx/ko/unaccompanied-minors, /xx/ko/unterhaltung-an-bord, /xx/pl/first-class, /xx/pl/meetings-and-events) were
+  swept after the rest.
+- Swept: 292 documents, 584 page-widths, all 200; 65 did not reach 3 equal heights in 15 s (read at the end of the wait). Refused
+  requests: 789. Text points hit-tested (clip-aware): 149,157.
+- Every flag is on the document's marked copy too except the 2 overlaps and 2 empty boxes marked new below.
+  - Broken picture, sideways scroll, never loaded: 0.
+  - Text over another element: 4 documents. /xx/pl/flights: the destination finder's screen-reader headings (ARTEFACT, as in batch
+    22). /xx/pl/feedback-past-flight: the file field's "optional" hint in its drop zone (DESIGN). /xx/pl/hotel-offers 1440: the
+    hotel search's screen-reader note "To łącze prowadzi do zewnętrznej strony" (flight-search-sr-only, 1 px) under its own
+    footnote: ARTEFACT. /xx/pl/cash-and-miles 390: the flight finder's tab label "Wynajem samochodu" (car rental) under the next
+    tab button: FAULT, LISTED (1 document; on the marked copy too; the shared flight-search block's tab row at 390 with the
+    longest Polish label, ema-adobe's). Form fields over their own floating labels: 17 documents (DESIGN).
+  - Cut label: 11 documents, the same form labels as batch 22 (masked date and age labels, the finder's screen-reader trip-type
+    label, the lounge finder's labels): DESIGN / ARTEFACT. Text spill: 3 documents, screen-reader texts and the lounge finder's
+    label: ARTEFACT.
+  - Overlap of blocks: 15 documents, the 16 px empty spacer box pulled into the block above (DESIGN, as batch 22); new with the
+    switch: /xx/pl/pre-check-in (as xx/ja's and xx/ko's).
+  - Empty block: 10 documents, the POI map's 500 px box on the stopover pages and 100-years/destinations, the culinary hub's
+    micro-frontend: FUNCTION. "New" on ingolstadt-village and sixt-muc at 1440 only because the map's box is drawn in some loads
+    and not in others (see below).
+- Against the marked copy: 584 page-widths compared, 7 more than 15 % off:
+  - The thank-you pages /xx/ko and /xx/pl/support/contact/contact-form-confirmation, 1440 -20.0 / -18.7 %, 390 -18.0 / -16.0 %:
+    the marked {spacer-400} written as space-below-l (280 px), as batch 22's xx/ja copy. LISTED (above).
+  - /xx/pl/book-and-manage/stopover/ingolstadt-village 1440 +20.4 %, neuschwanstein 1440 +19.3 %, zugspitze 1440 -16.2 %: the POI
+    map block draws its 500 px box in one load and nothing in another (its tiles come from a refused host). The marked copies
+    themselves differ by that box between the height run and the check run (breuninger 390: 3,263 against 3,795), and read
+    again twice after the switch all three draw the box (2,947 / 3,039 / 3,123; zugspitze's marked copy 3,131). ARTEFACT of the
+    refused map, not the switch.
+- Faults for ema-adobe (3 or more documents): none in this batch. Rows: none.
