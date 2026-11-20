@@ -131,3 +131,57 @@ documents collapsed, census page 0", the publish-so60-holds2 round)
 - Against their marked copies (ema-lufthansa's marked-so54-ema-lufthansa.tsv, 110 page-widths, and this agent's
   marked-2021, 20): all 130 compared, 32 unchanged, none more than 15 % off. The moves: -16 px (44), -23 (22), +32 (12),
   +40 (12), +80 (4), -25 (3), +55 (1). These are the collapse's carriers' near-value steps, as in the batches.
+
+After round 2 (14:08 to 16:00 CET)
+- No more lufthansa.com rounds went live. livewatch.py polled the live route until 15:59 CET. A direct read of the
+  admin log (since=120m, 15:59 CET) shows only round 2's entries (14:08 CET) on the live route. No list named
+  publish-so60-holds2-NN or publish-so66-* went live after it. The watcher has been stopped.
+
+Final section
+=============
+Step 0 (11:05 CET):
+- DA source of de/en/homepage.html: HTTP 200.
+- admin.hlx.page status of main/de/en/homepage: HTTP 200.
+- git fetch: works. origin/main 38eefada 2026-11-20 09:52:45 +0000, which is at 38eefad. Later main was at eaf09418
+  (13:32 UTC).
+
+Commits (all docs, this file only; each cherry-picked onto origin/main, with whole-repo lint exit 0 and the
+folder-reading tests run before each push):
+- bd13c509: items 0 to 3;
+- c5ce78c2: item 4, round 1;
+- 97cf05b2: item 4, round 2;
+- this final section.
+No row, theme, block or marker-collapse file was touched.
+
+Full suite (15:01 CET, main eaf09418, four chunks): 1,325 test files, 4,963 passes, 0 fails.
+
+Sweep counts and faults per item:
+- Item 1: 99 documents, 198 page-widths (a4bc3af's 13, Rule 3 narrower 42, P3 25). Faults: none (known lounge-select
+  ARTEFACT and one CONTENT empty cell). The 13 are 25 px short of their marked copies (the step's 375).
+- Item 2: 14 documents, 28 page-widths. Faults: none. The login and profile shells draw their cards and
+  placeholders. pl/pl autumn-campaign22 -3.1 % / -3.0 %, es/es form-submission-error -1.7 % / -1.4 % against their
+  marked copies.
+- Item 3: three shared patterns, each emulated in the same load on its reach, no flag came:
+    - a. xxl 400: 26 page-widths;
+    - b. 42 px card-row gap: 42 page-widths;
+    - c. four-up teasers: 20 documents.
+- Item 4: 2 rounds, 110 documents, 220 page-widths, no breakage:
+    - round 1, so66, 45 documents;
+    - round 2, holds2, 65 documents: 130 compared with marked copies, none more than 15 % off.
+
+Rows or proposals written:
+- Rows: none (no shared pattern had an existing carrier that fits without a restructure).
+- Proposals, for ema-adobe:
+    - a. STEP_SPACE xxl 375 -> 400. All 13 documents return to their marked copies to the pixel; xx/it = www's 1,496.
+    - b. Columns Media card view (padded, icon-heading cells) gap 42 px from 768. Seat terms -24 per copy, nearer www,
+      none further.
+    - c. Related teasers as a four-column view, via Carousel Cards four-up or an importer parser for www's fourcolumn
+      view. experience-art-live 1440 +28.3 % -> -2.7 %.
+- Accepted list: nothing new.
+
+Left over, and why:
+- The 12 login and profile pages have no marked render on disk (none by this agent or ema-lufthansa), so they have
+  no before figure. Today's heights are in item 2 as their baseline.
+- Round 1's 43 de/en documents (batches 01 to 06, ema-adobe's) have no marked render on disk, so they were not
+  compared. All 90 page-widths are free of flags.
+- The three proposals wait for ema-adobe (theme, block and style-markers files are theirs today).
