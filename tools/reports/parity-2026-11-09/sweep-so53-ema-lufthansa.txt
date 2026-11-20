@@ -35,6 +35,18 @@ austrian	2272	2272	austrian 2272	0	2156	225	2	0	0
 # Result: all 12,266 served documents of the six sites carry their own brand meta, so body.brand-lufthansa is set on none of
 #   them. No rule scoped to it can reach them, whatever its targets.
 
+## Census 4 (for order 65's rules): documents per site holding each target, from the served sections and blocks
+# Edge Delivery writes a section style as the section div's class (<div class="divider-below">), not a section-metadata block.
+#   Census 1 looked for a grey section in section metadata; it changes nothing there, since no document of the six sites has
+#   a Subpage Nav at all.
+# site	Spacer or Divider block	column-view section	divider-below section with a Columns Media	heading right before a Cards Teaser	heading right before a Carousel Cards	padded Columns Media	Spacer or Divider block with option xxl
+brussels	254	51	0	0	589	161	0
+ita	101	9	2	19	1001	146	0
+discover	114	0	21	0	55	17	0
+swiss	298	33	1	0	573	216	0
+b2b	100	0	7	0	85	0	0
+austrian	267	157	2	51	837	516	0
+
 ## Round r64: d633ef1d, d68141ca, 50441c13, da91d70f, a0a22f28 (order 65 1d)
 # rules: the Subpage Nav after a grey band keeps its place from 768px (d633ef1); on phones a German H1's long word breaks at the column (d68141c), widened to H1 and H2 (a0a22f28); the H2 before a four-up Carousel Cards in www's large size (50441c1); the H2 right before an overlay Cards Teaser in www's small size (da91d70)
 # scope: all five in styles/styles.css, each selector starts body.brand-lufthansa
@@ -47,3 +59,16 @@ discover	16	32	brand-discover 32	0	H1 (de) 26; H2 (de) 110	0
 swiss	26	52	brand-swiss 52	0	H1 (de) 34; H2 (de) 70	0
 b2b	22	44	brand-b2b 44	0	H1 (de) 38; H2 before four-up carousel 12; H2 (de) 52	0
 austrian	14	28	brand-austrian 28	0	H1 (de) 26; H2 (de) 74	0
+
+## Round r65: c6859755 (order 65 1b, P3), a4bc3aff (order 65 1e, Spacer XXL), 2798d6d2 (order 65 1c, teaser text)
+# rules: a divider-below section's closing divider stays under its Columns Media (c6859755); a Spacer step XXL of 375px for {spacer-400} (a4bc3aff: the collapse's lufthansa.com steps gain xxl, and scripts/style-markers.js STEP_SPACE, which draws a Spacer or Divider block's option on every site, gains xxl: 375); the teaser text beside an icon heading in a padded Columns Media at 16px / 1.5 (2798d6d2)
+# scope: c6859755 and 2798d6d2 in styles/styles.css, each selector starts body.brand-lufthansa. a4bc3aff is not scoped by brand: STEP_SPACE is shared, so any site's Spacer or Divider block with option xxl would draw 375px instead of M; the collapse writes xxl only from lufthansa.com's theme steps (THEMES.lufthansa.space.steps)
+# how: census 4 (below) read every served document's sections, blocks and their options; 201 documents picked from it (up to 8 per target kind and site: divider-below sections with a Columns Media, padded Columns Media, Spacer or Divider blocks, column-view sections, headings right before Carousel Cards and Cards Teaser), rendered as served and with styles.css before c6859755 and scripts/style-markers.js before a4bc3aff
+# verdict: stays scoped: c6859755 and 2798d6d2 matched 0 elements on 402 page-widths (their targets are there unscoped: the closing divider after a Columns Media on ITA, Discover and Austrian); a4bc3aff reaches no other site today: no Spacer or Divider block with option xxl in any of the 12,265 documents read, so nothing draws differently; heights within 1 %, no new flag. Proposal for ema-adobe (no finding, a guard): if another brand's collapse ever writes xxl, STEP_SPACE would draw it 375px there too; a brand-scoped step (the theme's steps) would keep it lufthansa.com's
+# brand	documents	page-widths	body class	scoped rules matched	targets matched without the brand scope	findings (over 1 % or a new flag, against the before-push stylesheet and order 50)
+brussels	32	64	brand-brussels 64	0	Spacer paragraphs 44	0
+ita	41	82	brand-ita 82	0	closing divider after Columns Media 4; Spacer paragraphs 36	0
+discover	32	64	brand-discover 64	0	Spacer paragraphs 62; closing divider after Columns Media 2	0
+swiss	33	66	brand-swiss 66	0	Spacer paragraphs 122	0
+b2b	22	44	brand-b2b 44	0	Spacer paragraphs 98	0
+austrian	41	82	brand-austrian 82	0	closing divider after Columns Media 4; Spacer paragraphs 106	0
