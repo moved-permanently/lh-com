@@ -34,3 +34,17 @@ Round "so60 holds2 (so70)": the 65 kept documents, collapsed on preview (a638f34
     No broken own-host picture, no sideways scroll, no block left loading.
   - Heights: not compared on preview. The preview host draws switched documents 21 to 3,240 px taller than lufthansa.turnsthe.page
     (10 control documents of batch 26, 20 page-widths), so the comparison waits for live, against the marked copies swept above.
+
+The same round on live (census 14:15 CET: the 49 READY rows' documents read without markers; the 16 HOLD rows' documents
+served with their proposals, no marker left)
+  - Breakage sweep on lufthansa.turnsthe.page, 14:15-14:23 CET: 65 documents, 130 page-widths, all 200. Against live's marked
+    copies of 13:08-13:25 (the same host, the same checks): overlap 28 and cut 24 page-widths, all on the marked copy too; empty 1
+    and collide 1 (a first-class POI map, on the marked copy too). Nothing new. No broken own-host picture, no sideways scroll,
+    no block left loading.
+  - Heights against the marked copies: 129 of 130 page-widths within 1 % (ANA and autumn-campaign22 0.00 %; tips-senior-travellers
+    at most +0.34 %; the impairment pages at most -0.35 %; first-class 7 of 8). The one beyond: /xx/es/first-class at 390,
+    25,630 -> 24,662 (-3.78 %): the marked render drew the two POI maps' boxes empty (the flake above), the switched one didn't;
+    against the marked copy without them (24,582, 10:45 CET) +0.33 %.
+  - Headings (logs/p4/so70/inj70.cjs's reads of live, 14:24-14:33 CET) against live's marked copy read at 12:10 (READY rows) and
+    10:50 (HOLD rows): every heading's size and weight equal on 130 of 130 page-widths (ANA's card headings now H4 and
+    autumn-campaign22's second title an H2, as proposed; the other 49 documents' tags as before).
