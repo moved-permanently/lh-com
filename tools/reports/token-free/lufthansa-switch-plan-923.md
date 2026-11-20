@@ -9,6 +9,7 @@ ema-adobe, 2026-11-18. Follows [lufthansa-switch-plan-919.md](lufthansa-switch-p
 *Updated by standing order 58 (2026-11-19): §12 has the gate once more (348 worse, 22 explained by www, 65 better; switched sum 5,608.63) and the estimate of what is left.*
 *Updated by standing order 59 (2026-11-19): §13 has the near-value steps and the gate once more (329 worse, 10 explained by www, 319 failing, 61 better; switched sum 5,407.58), the sort by kind and the estimate.*
 *Updated by standing order 61 (2026-11-19): §15 has the switch on live (interim: batches 01 and 02).*
+*Updated by standing order 65 (2026-11-20): §15.1 has the final gate after batch 26 (7,707 documents, 70 held; live sum 5,346.62 against the predicted 5,347.48; 277 failing, 275 of them accepted, one further than the list) and the accepted list as it stands.*
 *Updated by standing order 60 (2026-11-19): §14 is the switch package: the code first (backwards compatible: a document with markers draws as today until its batch), 27 collapse batches for the 7,894 marked documents, the census after each batch; four shared-pattern rules (C2, D2, G, I), the gate once more (303 failing, 10 explained by www, 63 better; switched sum 5,347.48), the 303 accepted.*
 
 **The gate does not pass.** Of the 670 recorded lufthansa.com page-widths that carry markers, 369 read worse
@@ -6204,6 +6205,55 @@ failed picture; 2 sideways scrolls on /xx/ru/sixt and /xx/el/sixt at 390 were th
 - Every other page-width is within 0.5 points of the prediction.
 - The prediction is order 60's (§14.8), without A2 and B2. B2 draws on these live pages; A2 only where a collapse wrote M++,
   none in batches 01 and 02.
+
+### 15.1 The final gate, after batch 26 (standing order 65, 2026-11-20)
+
+Batch 26's state commit was on main at 07:50 UTC. At 07:55 its 207 documents read 0 markers on live, and the gate ran
+(logs/b664/final-gate.sh: inputs outside /tmp, a fresh capture folder).
+
+**The census of batches 01-26 on live** (switch-census.mjs, our aem.live host): 7,707 documents read, none missing, no
+errors. 7,637 switched; 70 still marked, the held documents: 0-2 a batch in 01-13, 5-8 a batch in 14-25, 0 in 26.
+
+**The carrier check:** 7,552 of the 7,637 switched documents carry what DA's source collapses to: the same section styles, blocks and options. The reference is the rebuilt pre-batch source collapsed with ca73778 (logs/b663/eq62), because DA's own reads answer 401. The other 85 are listed in tools/reports/parity-2026-11-09/final-gate-carriers-so65.txt, to check against DA's source once it reads again:
+  - 10 were collapsed before the fix (order 62's 362);
+  - 2 carry a later row's option (gb/en phone-slider);
+  - 41 differ only in heading-size section styles the reference writes and the live copy has not (the reference's Headings come from the served head);
+  - 32 differ in sections or blocks (e.g. digital-travel-companion, vacation-packing-list, 100-years/destinations).
+
+**The 670 recorded page-widths as served** on lufthansa.turnsthe.page, 07:55-08:48 UTC, against www's recordings. One
+failed capture was taken again: at/de services-am-flughafen 390 read 900 px, then 7.47.
+
+| | today | order 60 predicted | live |
+| --- | --- | --- | --- |
+| sum of % off www | 4,361.78 | 5,347.48 | 5,346.62 |
+| median | 5.63 | 6.71 | 6.80 |
+| worse than today by more than 0.5 | - | 313 | 298 |
+| of these not explained by www (failing) | - | 303 | 277 |
+| better than today by more than 0.5 | - | 63 | 66 |
+
+- The live draw carries the rules of orders 64 and 65 (d633ef1, d68141c, 50441c1, da91d70, a0a22f2, c685975, a4bc3af,
+  2798d6d) and the rows the helpers applied since order 60. Against the prediction: 50 page-widths closer by more than
+  0.5, 34 further.
+- The furthest from the prediction:
+  - additional-services in four trees, +5.1 to +6.6. That is §15's stage video: another frame behind its first view at
+    capture time; the same reading on a second capture.
+  - miles-and-more in four trees, +3.8 to +4.5. No rule of orders 64-65 reaches it, and a second capture reads the same;
+    not located tonight.
+  - xx/pt meetings-and-events 390, +2.41.
+- **Against the accepted list (§14.7).** Of the 277 failing page-widths, 275 are on §14.7's list. The other two:
+  - /de/en/doctor-on-board-news 390 is A2's (order 61; the batch 03 watch named it), accepted with A2;
+  - /de/en/tiere-als-handgepaeck 390 is the one page-width further than the accepted list: today 4.52, predicted 5.02
+    (+0.50, the border), live 5.32 on two captures. No rule of orders 64-65 reaches it. It is for the decision whether
+    it joins the list.
+- **The accepted list as it stands after tonight's rules:**
+  - 275 of §14.7's page-widths still fail, and A2's doctor-on-board-news 390 beside them. B2's two no longer count:
+    fmg-valet-parking-service 390 (6.06) is explained by www's own 60 (4.81), and lufthansa-terminal-muenchen 390 (8.78)
+    is better than today (10.22);
+  - 28 of §14.7's no longer fail (logs/b665/final-check.txt): the de/en confirmation pages (contact-form, passenger-receipt,
+    the animal and sport baggage registrations) at both widths, secure-flight 390, lhg-wifi both widths,
+    first-class-personal-assistant / -comfort / -valet-parking-service 390, upgrade-info 390, fr/fr meetings-and-events
+    1440, tiere-als-uebergepaeck 1440, all-check-in both widths, lufthansa-at-duesseldorf-airport 390, lufthansa-express
+    390, digital-baggage-services 390, articles/tags/munich 1440, frankfurt-fair 390 (de/en, gb/en).
 
 ## 16. Standing order 62 (2026-11-19): DA's source as the reference, the held documents
 

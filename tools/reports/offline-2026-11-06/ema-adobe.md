@@ -1,5 +1,133 @@
 
 
+## Standing order 65 (2026-11-20, about 06:40 to 13:00 CET): the sweeps' proposals, the final gate
+
+Order 64 left nothing unpushed. Kept out of git: logs/b665 (the live copies of all 26 batches, the trials, captures and probes),
+logs/b664. Plugins stayed off, as asked.
+
+**How each proposal was gated** (as in order 64).
+- **Full reach:** read from the live copies of batches 01-26, fetched read only from our aem.live host: 7,707 documents, 6,543
+  switched on live.
+- **Breakage check:** each reached page-width drawn on lufthansa.turnsthe.page as served and with the rule in the same run,
+  with order 63's checks plus heading spill and the nav over the title.
+- **www gate:** the reached page-widths with a www recording, captured as served and with the rule. A page-width read
+  further is captured again before it counts.
+- **Push:** through push-merge (the tests that read the stylesheets or import the changed scripts, stylelint, whole-repo lint
+  exit 0 with no errors). Then the md5 check.
+
+**Item 1, the proposals.**
+
+- **1a. P1, held.** The 48px is not above the split-out column view, as the proposal put it, but below it.
+  - On faq-data-security, the view and its text start at the same place in both copies. The split-out view is the page's
+    last section and keeps the section gap (48px) above the footer. The marked page had none: styles.css's marked rule
+    "a page whose content ends with a column view" keys on the {column-end} mark ending the last section, and the
+    carriers have no such rule. So the 48px is real: faq-data-security 1440 went 0.97 -> 9.20 % with the switch.
+  - First try, the carrier form of the marked rule (a non-grey, non-flush column view ending the page, or right before a
+    closing Subpage Nav, keeps no gap): 1,048 documents; against www 192 page-widths, sum 1,735.79 -> 1,583.50, but 82
+    closer and 49 further.
+  - Second, narrower try: only pages of two sections (the first, then the view: the collapse's split of one marked
+    section): 277 documents; 52 page-widths, 34 closer, 9 further (payment-options-at-the-airport +2.57 / +2.55,
+    rail-fly-terms-and-conditions +1.68 / +2.35, faq-baggage-delay 1440 +2.29, services-at-frankfurt-airport 390 +1.33,
+    lufthansa-aviation-group 390 +0.79).
+  - The reason, read on their marked copies: the marked theme drew three endings, and the collapsed document carries none
+    of them.
+    - {column-end} or {column-end-outer} last: no gap (airline-apps, business-terms: these land on today's figure exactly).
+    - {column-end column-spaced}: 24px (rail-fly, services-at-frankfurt-airport). The collapse dropped column-spaced
+      without a carrier.
+    - A Spacer from-768 after the view (payment-options).
+  - Held. What would close it is in the collapse: a carrier where the marked range ended the page (the section style
+    flush already means no gap below), one for column-spaced's 24px, then rows for the documents.
+  - faq-data-security's and faq-password-security's www captures read 900px (the viewport only) in this run. The page
+    itself draws normally (1,372 / 1,604px read alone), so those were failed captures; not counted.
+- **1b. P3, c685975.** In a divider-below section that ends with a Columns Media, no take-back above the closing divider.
+  - Reach: 30 documents (air-baltic and pre-check-in in each tree, visual-impairment, smart-bags), 60 page-widths. Nothing
+    new flagged, no sideways scroll; the divider and what follows sit 16px lower. The 3 served captures that failed,
+    read again alone: no fault.
+  - www (de/en air-baltic and visual-impairment, 4 page-widths): 22.99 -> 22.05, none further (air-baltic 1440 -0.88).
+- **1c. Rule 3, 2798d6d, the narrower second try.** The text after an icon heading in a padded Columns Media at 16px / 1.5.
+  - First try (every Columns Media): /de/en/carry-on-baggage 1440 further against www, +8.71, and +1.32 on a second capture.
+    Its icon cards are a link-list Columns Media (the baggage allowances).
+  - Narrower (padded only): 70 documents, 140 page-widths, nothing new flagged, no sideways scroll. Heights move only where
+    the text was 18px: the seat terms -12 to -45 (1440) and -30 to -150px (390); sitzplatzreservierungen-konditionen -45 /
+    -114; the rail briefing -30 to -33 / -183 to -225.
+  - www (8 page-widths): 85.88 -> 75.66, none further (advance-seat-reservations-terms-and-conditions 390 -7.49, 1440 -2.73;
+    carry-on-baggage unchanged).
+  - Not closed (ema-cashub's sweep-so82): the seat terms' 1440 card row pitch, 260px against www's 236 (the icon heading's
+    12px padding).
+- **1d. Rule 2's H2 form, a0a22f2.** Below 768px a German H2 breaks a word longer than the column too.
+  - Reach: the 10 German documents with an H2 wider than its box at 390 (order 64's scan of all 1,982; batches 15-23 hold no
+    German pages). The 9 spills at 390 are gone, nothing new flagged, no sideways scroll, 7 heights +31px; 1440 unchanged.
+  - www: no reached page is recorded. On the 53 German phone recordings of switched pages it moves nothing (694.95 ->
+    695.01, capture noise; no height moved).
+- **1e. A Spacer step XXL for {spacer-400}, a4bc3af.** A near-value step of lufthansa.com and a Spacer block option xxl
+  (scripts/style-markers.js); the collapse writes a Spacer block xxl for {spacer-400} where it stands. 14 import bundles
+  were rebuilt.
+  - Only separators of 248px or more round to it: the 13 {spacer-400} documents of the census (12 confirmation copies and
+    es/es form-submission-error). {spacer-150} (84 documents) stays L.
+  - Test copy (xx/pt's confirmation page, its marked copy collapsed with this tool, drawn as main with this code):
+
+    | | text to footer | page 1440 / 390 |
+    | --- | --- | --- |
+    | as served (space-below-l) | 145px | 1,216 / 1,488 |
+    | first try, 400px | 425px | 1,496 / 1,768 |
+    | second try, 375px | 400px | 1,471 / 1,743 |
+    | www | 400px | about 1,471 / 1,721-1,743 |
+
+    At 400px the last paragraph's own 25px came on top, so the step draws 375. Nothing else moved: only xxl Spacers draw
+    differently, and no live document has one yet. ema-cashub writes the rows for the switched copies.
+  - lh-edge bundles style-markers.js, so its deploy ran. 12-host smoke before and after: every host answers the same
+    against order 61's baseline but for content hashes of republished pages and sitemaps. This morning's before-run had
+    429s on two hosts (lufthansa, swiss-cn), which now answer 200.
+
+**The md5 check (item 3).** After each push, every changed served file on main--lh-com--moved-permanently.aem.live and on
+lufthansa.turnsthe.page against origin/main matched within 1-3 checks, about 30 seconds apart:
+- a0a22f2: styles.css ca1f8897….
+- c685975 + a4bc3af: styles.css 1fc9aba6… and scripts/style-markers.js c7443a90….
+- 2798d6d: styles.css 468844d8….
+
+None differed. Tests and import bundles are not served (.hlxignore).
+
+**The final gate (item 2)** (plan 923 §15.1). Batch 26's state commit was on main at 07:50 UTC; at 07:55 its 207 documents
+read 0 markers on live. No new rule started after that (all five proposals were through by 07:09), and the gate ran:
+logs/b664/final-gate.sh, inputs outside /tmp.
+- **Census of batches 01-26 on live:** 7,707 documents read, none missing, no errors. 7,637 switched; 70 still marked, the
+  held documents (0-2 a batch in 01-13, 5-8 in 14-25, 0 in 26).
+- **The carrier check:** 7,552 of the 7,637 switched documents carry what DA's source collapses to: the same section styles, blocks and options. The reference is the rebuilt pre-batch source collapsed with ca73778 (logs/b663/eq62), because DA's own reads answer 401. The other 85 are listed in tools/reports/parity-2026-11-09/final-gate-carriers-so65.txt, to check against DA's source once it reads again:
+  - 10 were collapsed before the fix (order 62's 362);
+  - 2 carry a later row's option (gb/en phone-slider);
+  - 41 differ only in heading-size section styles the reference writes and the live copy has not (the reference's Headings come from the served head);
+  - 32 differ in sections or blocks (e.g. digital-travel-companion, vacation-packing-list, 100-years/destinations).
+- **The 670 recorded page-widths** as served, against www (07:55-08:48 UTC). One failed capture was taken again (at/de
+  services-am-flughafen 390: 900px, then 7.47).
+
+  | | today | order 60 predicted | live |
+  | --- | --- | --- | --- |
+  | sum of % off www | 4,361.78 | 5,347.48 | 5,346.62 |
+  | median | 5.63 | 6.71 | 6.80 |
+  | worse than today by more than 0.5 | - | 313 | 298 |
+  | failing (not explained by www) | - | 303 | 277 |
+  | better than today by more than 0.5 | - | 63 | 66 |
+
+  - Against the prediction: 50 page-widths closer, 34 further. The furthest are additional-services in four trees
+    (+5.1 to +6.6: §15's stage video frame, the same on a second capture) and miles-and-more in four trees (+3.8 to +4.5:
+    no rule of orders 64-65 reaches it; not located).
+  - Against the accepted list: 275 of the 277 failing are on §14.7's list. A2's doctor-on-board-news 390 is accepted with
+    A2 (named in the batch 03 watch).
+  - **One is further than the accepted list:** /de/en/tiere-als-handgepaeck 390, today 4.52, predicted 5.02 (the border),
+    live 5.32 on two captures. No rule of orders 64-65 reaches it; whether it joins the list is your decision.
+- **The accepted list as it stands after tonight's rules:** 275 of §14.7's 303 still fail, plus A2's doctor-on-board-news
+  390. 28 no longer fail: the de/en confirmation pages at both widths, secure-flight 390, lhg-wifi, the first-class service
+  pages at 390, upgrade-info 390, all-check-in, frankfurt-fair 390 and others; §15.1 names them all. B2's two no longer
+  count.
+- Listed for later, not taken (ema-cashub's sweep-so82):
+  - the seat terms' 1440 card row pitch (260 against www's 236px);
+  - the "experience" articles' related teasers, which are default content where www draws a four-column view (a block,
+    not a rule).
+
+- **Full suite** on main 2798d6d (all of this order's code; 07:12-07:33 UTC, no browser beside it): lh-edge 73 files, site
+  1,320 files, none failing.
+- **Pushed** (main): a0a22f2, c685975, a4bc3af, 2798d6d, and this section's commit.
+
 ## Standing order 64 (2026-11-20, about 02:10 to 10:00 CET): four lufthansa.com rules from the sweeps, the final gate ready
 
 Order 63 left nothing unpushed. Kept out of git: logs/b664 (the live copies, scans, trial and www-gate captures, the final
