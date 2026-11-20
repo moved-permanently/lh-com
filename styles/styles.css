@@ -1057,6 +1057,15 @@ body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .defa
   }
 }
 
+/* lufthansa.com on phones: a German page title's word longer than the column ("Sitzplatzreservierung" 360px in 346,
+   "Datenschutzhinweise", "Europameisterschaft") breaks at the column's edge instead of running out of it (standing order 64,
+   ema-cashub's sweep-so80 Rule 2, the narrow form: no hyphens; no www recording of a reached page tells www's breaks) */
+@media (width < 768px) {
+  body.brand-lufthansa main h1:lang(de) {
+    overflow-wrap: break-word;
+  }
+}
+
 /* lufthansa.com: section style gap-after-small, www's 24px to the next section instead of the section gap's 48px (standing
    order 33: www's gap from a section ending with a Columns Media to a stage or a flush grey band is 24px on some pages and
    48px on others, by sections padding our documents do not carry; rows put the style where it measures closer:

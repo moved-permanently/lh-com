@@ -3,6 +3,8 @@
    reach over the live batches (no page-width further from www by more than 0.5 points, sum down, nothing new flagged):
    - Rule 1 (ema-cashub, sweep-so80-ema-cashub.txt): from 768px the Subpage Nav's section as the last section after a grey band
      keeps no pull-up margin (the pull-up drew the nav 48px over the page title).
+   - Rule 2 (ema-cashub): on phones a German H1's word longer than the column breaks at its edge (overflow-wrap, no hyphens:
+     no www recording of a reached page tells www's breaks, so the narrow form).
    Run: node --test test/lh-com-switch-rules-so64.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -27,6 +29,14 @@ test('Rule 1: the Subpage Nav section after a grey band keeps no pull-up, from 7
   assert.ok(r, 'the rule is in styles.css');
   assert.equal(r.media, '@media (width >= 768px)');
   assert.match(r.body, /^margin-top: 0;$/);
+});
+
+test('Rule 2: on phones a German page title breaks a word longer than the column, without hyphens (the narrow form)', () => {
+  const r = ruleOf('body.brand-lufthansa main h1:lang(de)');
+  assert.ok(r, 'the rule is in styles.css');
+  assert.equal(r.media, '@media (width < 768px)');
+  assert.match(r.body, /^overflow-wrap: break-word;$/);
+  assert.doesNotMatch(r.body, /hyphens/);
 });
 
 test('Rule 1 comes after the pull-up it overrides', () => {
