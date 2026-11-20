@@ -3030,3 +3030,14 @@ body.brand-lufthansa main > .section:not(.h2-small) > .default-content-wrapper:h
   font-weight: var(--heading-large-weight, 700);
   text-transform: var(--heading-large-transform, none);
 }
+
+/* lufthansa.com: an H2 right before a Cards Teaser with the option overlay (the tag pages' "Explore more" / "Mehr entdecken")
+   is www's small headline, as its marked copy drew it ({heading-small}: 514 of the 514 such headings of the switched batches,
+   none unmarked; www's tag-page recordings draw it small). The rule gives it .heading-small's declarations (standing order 64) */
+/* stylelint-disable-next-line no-descending-specificity -- an H2 before an overlay teaser grid, not one after a divider in an h2-small section */
+body.brand-lufthansa main .default-content-wrapper:has(+ .cards-teaser-wrapper > .cards-teaser.overlay) > h2:last-child {
+  margin-bottom: var(--heading-margin-l);
+  font-size: var(--heading-font-size-l);
+  font-weight: var(--heading-light-weight, 300);
+  text-transform: none;
+}

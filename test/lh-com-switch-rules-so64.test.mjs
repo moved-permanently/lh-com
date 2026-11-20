@@ -47,6 +47,14 @@ test('Dive Deeper: an H2, one paragraph, then a four-up Carousel Cards draws as 
   assert.equal(r.body.replace(/\s+/g, ' '), large, 'the same declarations as .heading-large');
 });
 
+test('Explore more: an H2 right before an overlay Cards Teaser draws as heading-small', () => {
+  const r = ruleOf('body.brand-lufthansa main .default-content-wrapper:has(+ .cards-teaser-wrapper > .cards-teaser.overlay) > h2:last-child');
+  assert.ok(r, 'the rule is in styles.css');
+  assert.equal(r.media, '');
+  const small = css.match(/main :is\(h1, h2, h3, h4, h5, h6\)\.heading-small \{([^}]*)\}/)[1].trim().replace(/\s+/g, ' ');
+  assert.equal(r.body.replace(/\s+/g, ' '), small, 'the same declarations as .heading-small');
+});
+
 test('Rule 1 comes after the pull-up it overrides', () => {
   const pull = css.indexOf('body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper)');
   const rule = css.indexOf('body.brand-lufthansa main > .section.grey + .section.subpage-nav-container:last-child');
