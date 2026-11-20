@@ -340,3 +340,17 @@ Batch 16 (on live; 294 of 300 documents swept)
       ema-adobe's call (token-free either way).
 - Rows: 0.
 
+
+Batch 08 (on live; 300 of 300 documents swept)
+----------------------------------------------
+- Swept after batch 16. Batches 08 to 11 were on live at the order's start, and the batches landing during the night
+  went first. Documents: 300 READY, all de/de articles. Live census 03:28 CET: 0 still marked. Swept: 600 page-widths:
+  599 answered 200 and settled, and /de/de/articles/explore-the-world/eat-see-do-boston 390 timed out in the sweep
+  (read again alone at the end: see the final section). de/de pages are sources: no source comparison. Text points
+  hit-tested: 120,960. Refused requests: 4,125 (the articles' widgets).
+- Broken pictures, sideways scroll, never loaded, heading or list size, text spill: 0. Text over another element: 0.
+- Text cut: 298 documents, the related-articles titles' 3-line clamp ("Know Before You Go: ...", "Schlafen im
+  Flugzeug: ..."): DESIGN, as batch 07.
+- Empty columns: 105 documents, the POI map's view before it nears the viewport: ARTEFACT, as batch 12.
+- Against its own marked copy: none on disk for batch 08.
+- Rows: 0.
