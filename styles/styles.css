@@ -1047,6 +1047,16 @@ body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .defa
   }
 }
 
+@media (width >= 768px) {
+  /* the Subpage Nav's section as that last section (standing order 64, ema-cashub's sweep-so80 Rule 1): from 768px it is out of
+     the flow at the top its block computes (www's nav 20px above the content), so the pull-up's -48px drew it 48px higher,
+     over the end of the page title (mobility-partner-program-healthcare, the upgrade pages); :is() keeps it above the
+     pull-up's weight */
+  body.brand-lufthansa main > .section.grey + .section.subpage-nav-container:last-child:is(.subpage-nav-container, :has(> .subpage-nav-wrapper > .subpage-nav)) {
+    margin-top: 0;
+  }
+}
+
 /* lufthansa.com: section style gap-after-small, www's 24px to the next section instead of the section gap's 48px (standing
    order 33: www's gap from a section ending with a Columns Media to a stage or a flush grey band is 24px on some pages and
    48px on others, by sections padding our documents do not carry; rows put the style where it measures closer:
