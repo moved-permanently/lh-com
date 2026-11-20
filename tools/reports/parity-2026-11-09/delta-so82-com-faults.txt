@@ -1,0 +1,36 @@
+# ema-cashub, standing order 82 (2026-11-20), item 2: the xx seat-reservation conditions pages open every FAQ item;
+# www closes them.
+# Evidence: lh-parity-017.tar.gz (so81-recordings-2026-11-20.json, sha256 2f5d74b1de8fee09f27c689ca68719a85a3b0cc656b0646fcf61a5ebada573f8,
+# checked) records www's /xx/en/common/seatreservation-condtions/refund at 1440 and 390. All 8 FAQ items are closed on
+# first load; www's heights are 1,718 and 2,282. Ours opens all 8 (accordion option open-8): 3,821 and 6,154.
+# lh-parity-016 records the de/de and de/en refund pages closed too: 3 of 3 recorded copies close the items.
+# Why the xx copies open them: their 17 Nov imports read www's maui-collapsible-item "expanded" on every item. For
+# xx/en refund that reading is not www's first load (the recording above). The same import wrote open-6 on
+# rebookings-cancellation and open-4 on economy-light-fare from the same reading, so those copies get the same row.
+# The pages are not recorded separately.
+# The rows drop the open-N option (a block option, a carrier: token-free either way). The block keeps faq.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so82-com-faults.json
+#   --list <this file> --docs <lh-com: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (single read-only GETs of admin.da.live, one per document, 20 Nov about 06:55 CET):
+# 5/5 "1 inserted, 0 present", "without the inserts DA's copy byte for byte: true". A second run on the output gives
+# "1 present" for all 5. No {…} in the output. Each anchor ('<div class="accordion-columns faq open-N">') is in its DA
+# copy exactly once.
+# Gate (lufthansa.turnsthe.page, 1440 and 390, the row's effect injected in the same load: every item of the page's
+# FAQ accordion closed, so77/nb77s.mjs STEP): heights in the table, no flag came or went on the 10 page-widths.
+# Against www (xx/en refund only, the recorded page): 1440 1,669 against 1,718 (-2.9 %, from +122 %), 390 2,274
+# against 2,282 (-0.4 %, from +170 %). The closed pages also measure exactly their de/en and de/de copies.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/xx/en/common/seatreservation-condtions/refund	1440	lh-parity-017	1,718	3,821	1,669	open-8 dropped; www closes all 8
+READY	/xx/en/common/seatreservation-condtions/refund	390	lh-parity-017	2,282	6,154	2,274	as above
+READY	/xx/en/common/seatreservation-condtions/rebookings-cancellation	1440	-	-	2,779	1,357	open-6 dropped (same import reading)
+READY	/xx/en/common/seatreservation-condtions/rebookings-cancellation	390	-	-	4,615	1,843	as above
+READY	/xx/de/common/seatreservation-condtions/refund	1440	-	-	4,142	1,720	open-8 dropped (same import reading)
+READY	/xx/de/common/seatreservation-condtions/refund	390	-	-	7,293	2,522	as above
+READY	/xx/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	-	2,927	1,384	open-6 dropped (same import reading)
+READY	/xx/de/common/seatreservation-condtions/rebookings-cancellation	390	-	-	5,200	1,983	as above
+READY	/xx/de/common/seatreservation-condtions/economy-light-fare	1440	-	-	3,153	1,494	open-4 dropped (same import reading)
+READY	/xx/de/common/seatreservation-condtions/economy-light-fare	390	-	-	5,335	2,110	as above
+HOLD	/xx/en/common/seatreservation-condtions/economy-light-fare	1440	-	-	3,025	1,525	open-4; in switch batch 26 (still marked): READY once its state commit is on main
+HOLD	/xx/en/common/seatreservation-condtions/economy-light-fare	390	-	-	4,824	2,055	as above
+#
+# DA change (lh-com), every READY path: "accordion-columns faq open-N" -> "accordion-columns faq".
