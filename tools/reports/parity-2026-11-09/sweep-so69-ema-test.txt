@@ -226,7 +226,9 @@ Item 2: batch 27 (fr/fr, mk/de, 187 documents) on preview (main--lh-com--moved-p
 
 For ema-adobe (faults on 3 or more documents)
 ---------------------------------------------
-Rule 1, proposed: the flight finder's tab labels on phones. At 390 the finder's three tabs share the bar (a third each, 102 px),
+Rule 1: WITHDRAWN by order 70 (sweep-so70-ema-test.txt, item 3): below 768 px the tabs are icon-only, and the label is the tab's
+visually hidden name (1 px, clip-path inset(50%)); the overflow below was the hidden text's run, which no one sees. No fault.
+Rule 1, as proposed then: the flight finder's tab labels on phones. At 390 the finder's three tabs share the bar (a third each, 102 px),
 and the label is nowrap (blocks/flight-search: .flight-search-tab-label), so "Rental car" runs 19 px out of its tab into the next
 one, "Voiture de location" 80 px, "Wynajem samochodu" 98 px, and on the four-tab finder "Flight & Hotel" 59 px. Found on 22
 documents of batches 23-26 at 390 (listed in their parts) and /fr/fr/cash-and-miles in batch 27, on their marked copies too: not

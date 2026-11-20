@@ -1,16 +1,20 @@
 # ema-test, standing order 69 (2026-11-20), item 1: source faults found by the breakage sweep of switch batches 22-26
-# (sweep-so69-ema-test.txt), a document's own source fixing them. Both rows HOLD: DA's current copies were not read and no dry
-# run was made before the end of the order; they turn READY once the import helpers' dry run on DA's copy shows the change alone.
-# Token-free: a heading level and a section style h2-small (a carrier); a Spacer block (a carrier). No {…} marker.
-# status	path	width	marked copy	as served	expected with the row	note
-HOLD	/pl/pl/autumn-campaign22	390	2,330	2,750	about 2,330	the second heading an H2 with section style h2-small, as /pl/en/autumn-campaign22 (its first section: h2-small, H1, picture, H2)
-HOLD	/pl/pl/autumn-campaign22	1440	-	-	shorter	the same change; 1440 within 15 % of the marked copy
-HOLD	/es/es/local-page/form-submission-error	1440	1,478	1,198	about 1,453	a Spacer xxl after the text for the marked {spacer-400}, as ema-cashub's order 82 rows for the contact-form-confirmation copies (delta-so82-com-faults)
-HOLD	/es/es/local-page/form-submission-error	390	1,728	1,448	about 1,703	as above
+# (sweep-so69-ema-test.txt), a document's own source fixing them. Token-free: a heading level and a section style h2-small (a
+# carrier); a Spacer block xxl (a carrier). No {…} marker.
+# Standing order 70 item 2: both rows READY. DA read (single read-only GETs, 20 Nov about 10:20 CET): both DA copies already
+# hold the change (pl/pl: the second heading an <h2>, the first section's style h2-small; es/es: a Spacer xxl after the text,
+# the section's style wide-text without space-below-l). Live still serves the earlier copy (read 10:25 CET), so what is left is
+# the preview and publish of DA's copy; a dry run of the change on DA's copy finds it present.
+# Gate: lufthansa.turnsthe.page, the change injected into live's served copy in the same load (logs/p4/so70/inj70.cjs), against
+# the marked copy rendered before its batch (order 69: pre-24, pre-25).
+# status	path	width	marked copy	as served	with the row	note
+READY	/pl/pl/autumn-campaign22	390	2,330	2,750	2,260	-3.0 % against the marked copy, as /pl/en/autumn-campaign22's switched copy (2,184 -> 2,114, -3.2 %: the collapse's carriers for its {spacer-50} and {divider-25}); the H2 22 px light (heading-small), as the marked H1 {heading-small}
+READY	/pl/pl/autumn-campaign22	1440	2,276	2,385	2,206	-3.1 %, the same cause; the H2 28 px light, as the marked copy's
+READY	/es/es/local-page/form-submission-error	1440	1,478	1,198	1,453	-1.7 % against the marked copy: the Spacer xxl draws 375 px where {spacer-400} drew 400, as ema-cashub's order 82 rows for the contact-form confirmation pages
+READY	/es/es/local-page/form-submission-error	390	1,728	1,448	1,703	-1.4 %, as above
 #
-# /pl/pl/autumn-campaign22: the Polish document's first section holds two H1s ("Gdzie znajdziesz swoje następne wspomnienia?" and
-#   "Poznaj wszystkie nasze oferty i już dziś zacznij planować..."); /pl/en's holds an H1 and an H2 in a section h2-small. The marked
-#   {heading-small} drew the Polish second H1 small; the collapse writes h2-small for H2s only, so it now draws at the title's size
-#   (+420 px at 390). The DA change: the second <h1> an <h2>, and the section's style h2-small.
-# /es/es/local-page/form-submission-error: its {spacer-400} is now space-below-l (280 px less space under the text), the same as the
-#   contact-form-confirmation copies for which order 82 wrote Spacer xxl rows READY.
+# /pl/pl/autumn-campaign22: the Polish document's first section held two H1s; /pl/en's holds an H1 and an H2 in a section
+#   h2-small. The marked {heading-small} drew the Polish second H1 small; the collapse writes h2-small for H2s only, so it drew
+#   at the title's size (+420 px at 390). The DA change: the second <h1> an <h2>, and the section's style h2-small.
+# /es/es/local-page/form-submission-error: its {spacer-400} had become space-below-l (280 px less space under the text). The DA
+#   change: a Spacer xxl after the text, the section's space-below-l gone.

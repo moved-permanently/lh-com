@@ -1,0 +1,14 @@
+ema-test, standing order 70 (2026-11-20, 10:15-16:00 CET): lufthansa.com
+=========================================================================
+
+Item 3: Rule 1 (order 69) withdrawn, no code
+-------------------------------------------
+Order 69's Rule 1 said the flight finder's tab labels run out of their tabs at 390 on 23 documents ("Rental car" 19 px, "Voiture
+de location" 80 px). That was wrong. Below 768 px the finder's tabs are icon-only by design. The label (.flight-search-tab-label)
+is the tab's visually hidden name: position absolute, 1 x 1 px, clip-path inset(50%). Order 69's text-range probe measured the
+hidden text's run, which no one sees. A clipped screenshot of the finder at 390 shows three icons and no text. The
+/fr/fr/timetable-and-flight-status tab named with Rule 1 draws its text at 35-124 px inside its tab (22-137 px) on a fresh load;
+the earlier hit was a load in progress. So there is no fault and no rule: the block's files (ema-adobe's) are untouched, and order
+69's proposed CSS would have made the hidden labels wrap for nothing. The sweep's collision pass (logs/p4/so69/sw69.cjs) already
+skips sr-only text; the finder's labels are hidden by clip-path, which it did not read as hidden. Order 70's sweeps below read
+clip-path inset(50%) as hidden too.
