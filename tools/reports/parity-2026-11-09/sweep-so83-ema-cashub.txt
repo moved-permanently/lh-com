@@ -116,3 +116,18 @@ carriers: 45 documents, column-view ending + travel-insurances split", the publi
   marked-so53, batch 25): 3,027 / 3,978 -> 3,180 / 4,118 (+5.1 % / +3.5 %: fd3698ae's mid-section footnotes split
   into their own section). The 43 de/en documents were switched in batches 01 to 06 (ema-adobe's), and no marked
   render of them is on disk. Not compared.
+
+Round 2 (live 14:08 CET; one publish of 65 paths; its DA state is a638f349 "so60 holds2 (so70): 65 kept lufthansa.com
+documents collapsed, census page 0", the publish-so60-holds2 round)
+- 65 documents: the kept documents of delta-so70-com-kept: the ana, first-class, tips-senior-travellers and
+  travel-with-needs impairment pages, and others, in xx/el, es, fr, hk, it, ja, ko, pl, pt, ru, zh, fr/fr, gb/en, at/de
+  and de/de. The live census of delta-so70-com-kept's READY rows: 49 read, 0 with markers.
+- Rendered at 1440 and 390, order 82's checks with the collision probe: 130 page-widths, all 200 and settled. /xx/es/
+  first-class 390 (24,662 px, the longest) outlasted the sweep's run and was read again alone: settled, no flag.
+- Breakage: none. The only flags are known ones:
+    - the lounge finder's select clipping its long placeholder on the tips-senior-travellers pages (fr/fr, xx/fr,
+      xx/pl, xx/pt, xx/ru at 1440: ARTEFACT, order 80);
+    - the Columns Media sidebar's empty 26 px text cell on 16 documents at 1440 (CONTENT, order 80).
+- Against their marked copies (ema-lufthansa's marked-so54-ema-lufthansa.tsv, 110 page-widths, and this agent's
+  marked-2021, 20): all 130 compared, 32 unchanged, none more than 15 % off. The moves: -16 px (44), -23 (22), +32 (12),
+  +40 (12), +80 (4), -25 (3), +55 (1). These are the collapse's carriers' near-value steps, as in the batches.
