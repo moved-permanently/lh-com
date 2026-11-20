@@ -1,3 +1,10 @@
+# WITHDRAWN (standing order 81, 2026-11-20): every row below. www keeps the items closed. The Captures child's
+# recording lh-parity-016 (so80-recordings-2026-11-20.json, sha256 67fa7371...dc301f checked) shows all 8 FAQ items of
+# www's de/de and de/en /common/seatreservation-condtions/refund closed on first load, at 1440 and 390 (www's page
+# heights: de/de 1,769 / 2,530, de/en 1,718 / 2,282). Ours, with the items closed as served: de/de 1,720 / 2,522, de/en
+# 1,669 / 2,274. So the de-side copies' closed items are www's, and these rows would have opened them: none is to be
+# applied. The xx/en and xx/de copies keep their open-N (their own www pages, read with every item expanded by the
+# 17 Nov imports; not recorded tonight), so no row for them either.
 # ema-cashub, standing order 78 (2026-11-19), item 2: lufthansa.com's final documents, the one fault of the sweep
 # (sweep-so78-ema-cashub.txt) that a document's own source would fix.
 # The fault: five neutral-version documents are 105 % to 189 % taller than their source-language copies (xx/en against
@@ -28,26 +35,26 @@
 # flag of the sweep's check on any of the 20 page-widths. Airline hosts, www.* and lh-proxy were refused per request,
 # none were sent. The pages are not recorded by www, so the half-point gate against www cannot be read.
 # status	path	width	recording	xx copy	as served	with the row	note
-HOLD	/de/en/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,779	1,357	2,779	open-6 (xx/en's); www's de/en state unproven
-HOLD	/de/en/common/seatreservation-condtions/rebookings-cancellation	390	-	4,615	1,843	4,615	as above
-HOLD	/de/en/common/seatreservation-condtions/refund	1440	-	3,821	1,669	3,821	open-8 (xx/en's); www's de/en state unproven
-HOLD	/de/en/common/seatreservation-condtions/refund	390	-	6,154	2,274	6,154	as above
-HOLD	/gb/en/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,779	1,357	2,779	open-6, as de/en
-HOLD	/gb/en/common/seatreservation-condtions/rebookings-cancellation	390	-	4,615	1,843	4,615	as above
-HOLD	/gb/en/common/seatreservation-condtions/refund	1440	-	3,821	1,669	3,821	open-8, as de/en
-HOLD	/gb/en/common/seatreservation-condtions/refund	390	-	6,154	2,274	6,154	as above
-HOLD	/de/de/common/seatreservation-condtions/economy-light-fare	1440	-	3,153	1,494	3,153	open-4 (xx/de's); www's de/de state unproven
-HOLD	/de/de/common/seatreservation-condtions/economy-light-fare	390	-	5,335	2,110	5,335	as above
-HOLD	/de/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,927	1,384	2,927	open-6 (xx/de's); www's de/de state unproven
-HOLD	/de/de/common/seatreservation-condtions/rebookings-cancellation	390	-	5,200	1,983	5,200	as above
-HOLD	/de/de/common/seatreservation-condtions/refund	1440	-	4,142	1,720	4,142	open-8 (xx/de's); www's de/de state unproven
-HOLD	/de/de/common/seatreservation-condtions/refund	390	-	7,293	2,522	7,293	as above
-HOLD	/at/de/common/seatreservation-condtions/economy-light-fare	1440	-	3,153	1,494	3,153	open-4, as de/de
-HOLD	/at/de/common/seatreservation-condtions/economy-light-fare	390	-	5,335	2,110	5,335	as above
-HOLD	/at/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,927	1,384	2,927	open-6, as de/de
-HOLD	/at/de/common/seatreservation-condtions/rebookings-cancellation	390	-	5,200	1,983	5,200	as above
-HOLD	/at/de/common/seatreservation-condtions/refund	1440	-	4,142	1,720	4,142	open-8, as de/de
-HOLD	/at/de/common/seatreservation-condtions/refund	390	-	7,293	2,522	7,293	as above
+WITHDRAWN	/de/en/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,779	1,357	2,779	open-6 (xx/en's); www's de/en state unproven
+WITHDRAWN	/de/en/common/seatreservation-condtions/rebookings-cancellation	390	-	4,615	1,843	4,615	as above
+WITHDRAWN	/de/en/common/seatreservation-condtions/refund	1440	-	3,821	1,669	3,821	open-8 (xx/en's); www's de/en state unproven
+WITHDRAWN	/de/en/common/seatreservation-condtions/refund	390	-	6,154	2,274	6,154	as above
+WITHDRAWN	/gb/en/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,779	1,357	2,779	open-6, as de/en
+WITHDRAWN	/gb/en/common/seatreservation-condtions/rebookings-cancellation	390	-	4,615	1,843	4,615	as above
+WITHDRAWN	/gb/en/common/seatreservation-condtions/refund	1440	-	3,821	1,669	3,821	open-8, as de/en
+WITHDRAWN	/gb/en/common/seatreservation-condtions/refund	390	-	6,154	2,274	6,154	as above
+WITHDRAWN	/de/de/common/seatreservation-condtions/economy-light-fare	1440	-	3,153	1,494	3,153	open-4 (xx/de's); www's de/de state unproven
+WITHDRAWN	/de/de/common/seatreservation-condtions/economy-light-fare	390	-	5,335	2,110	5,335	as above
+WITHDRAWN	/de/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,927	1,384	2,927	open-6 (xx/de's); www's de/de state unproven
+WITHDRAWN	/de/de/common/seatreservation-condtions/rebookings-cancellation	390	-	5,200	1,983	5,200	as above
+WITHDRAWN	/de/de/common/seatreservation-condtions/refund	1440	-	4,142	1,720	4,142	open-8 (xx/de's); www's de/de state unproven
+WITHDRAWN	/de/de/common/seatreservation-condtions/refund	390	-	7,293	2,522	7,293	as above
+WITHDRAWN	/at/de/common/seatreservation-condtions/economy-light-fare	1440	-	3,153	1,494	3,153	open-4, as de/de
+WITHDRAWN	/at/de/common/seatreservation-condtions/economy-light-fare	390	-	5,335	2,110	5,335	as above
+WITHDRAWN	/at/de/common/seatreservation-condtions/rebookings-cancellation	1440	-	2,927	1,384	2,927	open-6, as de/de
+WITHDRAWN	/at/de/common/seatreservation-condtions/rebookings-cancellation	390	-	5,200	1,983	5,200	as above
+WITHDRAWN	/at/de/common/seatreservation-condtions/refund	1440	-	4,142	1,720	4,142	open-8, as de/de
+WITHDRAWN	/at/de/common/seatreservation-condtions/refund	390	-	7,293	2,522	7,293	as above
 #
 # DA change (lh-com), every row's path: the FAQ accordion's class list "accordion-columns faq" gets open-N, where N is
 # its item count (economy-light-fare 4, rebookings-cancellation 6, refund 8), the option its xx copy has.
