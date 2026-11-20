@@ -98,3 +98,21 @@ c. The "experience" articles' related teasers (PROPOSAL for ema-adobe and the im
      render for its gate, not an option on an existing block. So it is a proposal, for ema-adobe (or the importer: the
      fourcolumn view has no parser here), not a row today.
 - The accepted list: nothing new. All three are shared patterns with proposals.
+
+Item 4 - publish rounds as they go live
+---------------------------------------
+How a round is found: the publish lists are not on main. admin.hlx.page/log (read only, route "live") lists every
+published path. so83/livewatch.py polls it every 3 minutes from 11:15 CET and takes a round when it goes quiet.
+Between 10:16 and 13:16 CET no lufthansa.com document was published.
+
+Round 1 (live 13:16 to 13:20 CET; publish job 2026-11-20-12-19-13-af168fd4; its DA state is fa4b18a0 "so66 com
+carriers: 45 documents, column-view ending + travel-insurances split", the publish-so66 round)
+- 45 documents: 43 de/en (meetings-and-events-delegates and -organisers, pre-check-in,
+  business-class-on-short-and-medium-haul, travelling-with-special-requirements, my-logbook ...) and the
+  travel-insurances pages in gb/de and gb/en.
+- Rendered at 1440 and 390 on lufthansa.turnsthe.page, 3 pages at once, order 82's checks with the collision probe: 90
+  page-widths, all 200 and settled. No flag of any kind, no text under another element. Breakage: none.
+- Against their marked copies: only gb/de travel-insurances has a marked render on disk (ema-lufthansa's
+  marked-so53, batch 25): 3,027 / 3,978 -> 3,180 / 4,118 (+5.1 % / +3.5 %: fd3698ae's mid-section footnotes split
+  into their own section). The 43 de/en documents were switched in batches 01 to 06 (ema-adobe's), and no marked
+  render of them is on disk. Not compared.
