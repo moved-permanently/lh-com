@@ -337,3 +337,27 @@
 ## Proposed for ema-adobe (lufthansa.com theme and shared blocks), every batch so far
 # batch 13: height against the marked copy | 29 documents | documents the collapse gave "section style column-view" draw off their marked copy (most common moves: +48 px x8, +96 px x6, -102 px x3) | /at/de/book-and-manage/additional-services/get-your-guide, /at/de/book-and-manage/digital-self-services/airline-apps, /at/de/book-and-manage/offers-and-destination/nordamerika-angebote, /at/de/companion-special-first-class, /at/de/crn, /at/de/datenschutz …
 # batch 13: height against the marked copy | 11 documents | documents the collapse gave "section style wide-text" draw off their marked copy (most common moves: +88 px x2, +133 px x1, +72 px x1) | /at/de/book-and-manage/additional-services/travel-insurances, /at/de/book-and-manage/offers-and-destination/nordamerika-angebote, /at/de/companion-special-first-class, /at/de/doctor-on-board-news, /at/de/event/exklusives-event-angebot-dxb, /at/de/gesund-reisen …
+
+## Proposals for ema-adobe, located (lufthansa.com's theme and the collapse are ema-adobe's; nothing changed here)
+
+# P1. A column view split out by the collapse draws 48 px taller than its marked copy, per view, at 1440 and 390.
+#   Where: batch 13's documents with "section style column-view" (29 of 42 holding moves; +48 px x8 for one view,
+#     +96 px x6 for two; the faq-*, geschaeftsbedingungen, menues-reiseklassen, exclusive-charter and long-haul business
+#     class pages).
+#   Located on kept marked copies of later batches: /xx/it/faq-data-security, /xx/it/faq-password-security,
+#   /xx/hk/lufthansa-aviation-group. Main's collapse was applied locally to each served marked .plain.html, and both
+#   copies were rendered through the live page shell.
+#     - Every page is 48 px taller at both widths: 1,351 -> 1,399 and 1,726 -> 1,774; 1,381 -> 1,429 and 1,768 -> 1,816;
+#       2,641 -> 2,689 and 3,431 -> 3,479.
+#     - What changes: the marked copy draws the "{column-start-outer}" range inside the page's first section. The collapse
+#       moves it into a section of its own ("column-view padded").
+#     - That section starts below the theme's gap between sections, 40 px at 1440 and 32 px at 390 (under the breadcrumb
+#       section). Its padding (40 / 20 px) replaces the range's own spacing; the rest of the 48 px is that difference.
+#   For ema-adobe to decide against www (no recording was read here): either the column view keeps the marked copy's
+#     place (no section gap above a column view the collapse split out of the section before it), or the 48 px is
+#     accepted as www's (plan 923 section 14.7's accepted page-width differences).
+
+# P2 (listed, 1 document in batch 12 plus 2 copies in batches 14 and 15): {spacer-100} written as space-l carriers draws
+#   47 to 139 px more per section at 1440 than the marked spacer (fashion-guide: at/de +408 at 1440 live; reproduced on
+#   xx/fr's kept marked copy, 15,634 -> 16,049 at 1440 and 12,006 -> 12,085 at 390). Three copies of one document: listed
+#   for ema-adobe with P1, not counted as 3 documents.
