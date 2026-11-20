@@ -393,3 +393,73 @@ Batch 10 (on live; 299 of 300 documents swept)
   visual-impairment pages; H2s on common/accessibility-statement and rail-fly-bedingungen.
 - Against its own marked copy: none on disk for batch 10.
 - Rows: 0.
+
+Batch 11 (on live; 300 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY, all at/de. Live census 04:15 CET: 0 still marked (/at/de/alleinreisende-kinder, marked at
+  00:08, cleared by "so60 batch 11h"). Swept: 600 page-widths, all 200. 1 did not settle in the sweep
+  (/at/de/articles/explore-flying/meet-the-makers-lufthansa-allegris-business-class 390). Read alone: settled, 13,208
+  px, no flag. Against de/de: 599 page-widths compared, 0 more than 15 % off. Text points hit-tested: 119,223.
+- Broken pictures, sideways scroll, never loaded, heading size, text over another element: 0.
+- Text cut: 268 documents (the related-articles clamp and the overlay card teasers' list items: DESIGN, ARTEFACT).
+  Empty columns: 50 (the POI map before it nears the viewport: ARTEFACT).
+- Text spill at 390: 3 German H1s, Rule 2's (the at/de copies of batch 07's advance-seat-reservation,
+  best-airport-restaurants, business-class-culinary-journey-with-johann-lafer).
+- Against its own marked copy: none on disk for batch 11.
+- Rows: 0.
+
+Final section (standing order 80)
+=================================
+Per batch (documents swept / page-widths / still marked on live and not swept):
+  07  299 / 598 / 1     08  300 / 600 / 0     09  300 / 600 / 0     10  299 / 598 / 1     11  300 / 600 / 0
+  12  300 / 600 / 0     13  295 / 590 / 5     14  295 / 590 / 5     15  291 / 582 / 9     16  294 / 588 / 6
+  10 batches, 2,973 documents, 5,946 page-widths, all 200 in the end. 852 source copies (1,704 page-widths) were
+  rendered for the 15 % check. Every page-width went through the collision pass (about 1.1 million text points).
+Re-reads at the end, alone: the two timeouts (/de/de/articles/explore-the-world/eat-see-do-boston 390,
+  .../on-the-scene-hidden-gems-seoul 1440) and the three page-widths that did not settle (/de/de/assistenzhunde 1440,
+  /de/de/articles/tags/zurich 390, the allegris article at 390) all answered 200, settled and drew no fault.
+Faults per kind (after re-reads):
+  broken pictures 0 (6 in the sweeps, all loaded alone); sideways scroll 0; never loaded 0 (4 in the sweeps); answers:
+    all 200 (1 page-width answered 500 in the sweep, 2 timed out);
+  text over another element: 1 fault, Rule 1: the sub-page nav over long page titles from 768 px. 13 documents in these
+    batches (healthcare, upgrade and surclassement pages of gb/en, at/de, xx/fr, xx/es, xx/pt) and their de copies.
+    ema-adobe shipped the rule at 02:34 CET (d633ef1d). The pages flagged after that time (batches 15 and 16) were read
+    again at 04:33 CET: /xx/pt/upgrade-premium-economy-class, /xx/pt/upgrade-business-class-longo-curso,
+    /xx/fr/surclassement-en-business-class and /xx/es/upgrade-premium-economy-class at 1440 have no collision now,
+    so those sweeps still had the old stylesheet;
+  text out of its box: German H1 and H2 words at 390, Rule 2: 28 documents in batches 07 and 09 to 14 (the same
+    pages in de/de, at/de);
+  height against the marked copy: 1 fault, the contact-form confirmation's lost 280 px (15 copies, listed for
+    ema-adobe: the collapse's carrier for {spacer-400});
+  empty sections, columns, cut text, list sizes: 0 faults. The POI map before it nears the viewport, the overlay
+    cards' stretched links, the related-articles clamp, the blog tags and the empty Columns Media text cells are
+    artefacts, design or content, each explained in its part;
+  off its source copy: 2 source faults (ROW READY) and 12 documents that are the copies' own text (LISTED).
+Rules proposed to ema-adobe:
+  Rule 1 (styles.css: the sub-page nav's section out of the grey-band pull-up from 768 px; gated on 92 documents: 4
+    collisions gone, no height or flag moved). Shipped by ema-adobe in d633ef1d.
+  Rule 2 (German H1 and H2: overflow-wrap break-word below 768 px; gated on 708 page-widths: 10 spills gone, 7 heights
+    +31 to +40 px). Not shipped yet.
+  Neither was changed by me: I changed no theme or shared-block file except item 2's micro-frontend change.
+Rows: delta-so80-com-faults.txt, 4 READY rows (2 documents x 2 widths: gb/en doctor-on-board-news and
+  flying-with-small-children get de/en's phone-slider), dry-run on DA's current copies.
+  delta-so78-com-faults.txt's 20 HOLD rows stay HOLD: at 04:32 CET the Captures child's recording of www's de/de and
+  de/en refund pages was not in the drop (lh-deliveries.json's newest is 9 Nov, and no deliveries.md is at the drop's
+  root or in the lufthansa.com folder). The 6 Nov snapshot there (lh-snapshots-069) shows de/de's 8 items closed. If
+  the recording agrees, the 20 rows are dropped with that reason.
+The help-center change: 059cb062, lufthansa.com's help-center-web stage picture from our /content/dam copy (item 2).
+  Gate before the push: 18/18 page-widths of the 9 help-center documents. The stage goes 0 -> 375 px (1440) and 0 ->
+  210 px (390), heights unchanged, nothing else moved. As served after the push: the same. Site suite 1,321 files 0
+  fail, lh-edge suite 432/432, 12-host smoke compare before and after all exit 0.
+The 40 timeline files (order 79's app pictures): all 40 answer 200 on lufthansa.turnsthe.page's /content/dam route at
+  04:32 CET (the Captures child's copies). The two 100-years overview app pages' pictures resolve once lufthansa.com is
+  ours. Nothing in the repo was changed for them.
+Listed:
+  - the three "experience" articles' +26 % at 1440 against their marked renders (cause unproven);
+  - the held documents of each batch;
+  - the Columns Media empty text cells;
+  - the copies' own text differences;
+  - /xx/pt/lounges' English finder labels (FUNCTION).
+Checks before each push of this file: whole-repo npm run lint exit 0 (eslint and stylelint), the folder-reading tests
+  (14 files, 76 tests) on origin/main of the minute. Full suite before this final section on a4f4af35: 1,322 files,
+  4,950 pass, 0 fail, 5 skipped (and on 4b579ca1 before batch 16's part: 1,321 files, 0 fail).
