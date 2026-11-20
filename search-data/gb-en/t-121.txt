@@ -1,0 +1,8 @@
+["/widgets/lh-app/lh-app.html?app=flight-preferences","/widgets/lh-app/lh-app.html?app=flight-preferences"]
+["/widgets/lh-app/lh-app.html?app=login-gate","/widgets/lh-app/lh-app.html?app=login-gate /widgets/lh-app/lh-app.html?app=web-student-verification-cug"]
+["/widgets/lh-app/lh-app.html?app=frequent-flyer-program","/widgets/lh-app/lh-app.html?app=frequent-flyer-program"]
+["/widgets/lh-app/lh-app.html?app=personal-information","/widgets/lh-app/lh-app.html?app=personal-information"]
+["/widgets/lh-app/lh-app.html?app=mfa-security","/widgets/lh-app/lh-app.html?app=mfa-security"]
+["Discover essential travel documents for your Lufthansa flight. Ensure a smooth journey by checking passport, visa, and health requirements.","/widgets/lh-app/lh-app.html?app=login-gate /widgets/lh-app/lh-app.html?app=personal-documents"]
+["/widgets/lh-app/lh-app.html?app=travel-partners","/widgets/lh-app/lh-app.html?app=travel-partners"]
+["/widgets/lh-app/lh-app.html?app=payment-methods","/widgets/lh-app/lh-app.html?app=payment-methods"]
