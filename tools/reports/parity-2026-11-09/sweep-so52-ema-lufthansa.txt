@@ -759,8 +759,8 @@
 # broken picture: none
 # sideways scroll: none
 # out of the page or its column: none
-# drawn over another element: 13 documents, 37 page-widths; by design 33, fault 4
-# empty section: 9 documents, 18 page-widths; by design 16, fault 2
+# drawn over another element: 13 documents, 37 page-widths; by design 33, proposed P3 4
+# empty section: 9 documents, 18 page-widths; by design 16, function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses 2
 # empty column: none
 # heading in another size than its siblings: none
 # list in another size than its paragraphs: none
@@ -793,11 +793,11 @@
 20	/xx/el/advance-seat-reservations-terms-and-conditions	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "ΕΠΙΣΤΡΟΦΕΣ ΧΡΗΜΑΤΩΝ Πώς υποβάλλω αίτηση " by 16px
 20	/xx/el/airport-information	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
 20	/xx/el/airport-information	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
-20	/xx/el/book-and-manage/flights/air-baltic	390	drawn over another element	fault (second look: drawn 15 px over); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Με ποιον να επικοινωνήσετε εάν αλλάξουν " by 16px
-20	/xx/el/book-and-manage/flights/air-baltic	1440	drawn over another element	fault (second look: drawn 15 px over); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Με ποιον να επικοινωνήσετε εάν αλλάξουν " by 16px
+20	/xx/el/book-and-manage/flights/air-baltic	390	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Με ποιον να επικοινωνήσετε εάν αλλάξουν " by 16px
+20	/xx/el/book-and-manage/flights/air-baltic	1440	drawn over another element	proposed P3 (on its marked copy before the batch too): the closing divider 15 px into the column view above (fault (second look: drawn 15 px over); on the marked copy before the batch too)	div.default-content-wrapper over div.columns-media-wrapper "Με ποιον να επικοινωνήσετε εάν αλλάξουν " by 16px
 20	/xx/el/book-and-manage/stopover	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Περισσότερη έμπνευση με το Lufthansa Ins" by 16px
-20	/xx/el/culinaryjourney	390	empty section	fault (second look: still empty); on the marked copy before the batch too	div.section.micro-frontend-container ""
-20	/xx/el/culinaryjourney	1440	empty section	fault (second look: still empty); on the marked copy before the batch too	div.section.micro-frontend-container ""
+20	/xx/el/culinaryjourney	390	empty section	function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses (airline host); listed (fault (second look: still empty); on the marked copy before the batch too)	div.section.micro-frontend-container ""
+20	/xx/el/culinaryjourney	1440	empty section	function: the culinary hub on lufthansa.com loads from www.lufthansa.com, which this measurement refuses (airline host); listed (fault (second look: still empty); on the marked copy before the batch too)	div.section.micro-frontend-container ""
 20	/xx/el/doctor-on-board	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
 20	/xx/el/doctor-on-board	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
 20	/xx/el/doctor-on-board-news	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); on the marked copy before the batch too	div.section ""
@@ -814,8 +814,8 @@
 20	/xx/it/indirizzi-in-tutto-il-mondo	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.accordion-columns-wrapper "EuropaLufthansa German AirlinesCustomer " by 16px
 20	/xx/it/lufthansa-terminal-muenchen	390	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
 20	/xx/it/lufthansa-terminal-muenchen	1440	empty section	by design (second look: a section holding only Spacer or divider paragraphs); new against the marked copy	div.section ""
-20	/xx/it/pre-check-in	390	drawn over another element	fault (second look: drawn 7 px over); new against the marked copy	div.default-content-wrapper over div.columns-media-wrapper "Check-in alla vigilia della partenza per" by 16px
-20	/xx/it/pre-check-in	1440	drawn over another element	fault (second look: drawn 7 px over); new against the marked copy	div.default-content-wrapper over div.columns-media-wrapper "Check-in alla vigilia della partenza per" by 16px
+20	/xx/it/pre-check-in	390	drawn over another element	proposed P3 (new with the collapse): the closing divider 7 px into the padded column view above (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "Check-in alla vigilia della partenza per" by 16px
+20	/xx/it/pre-check-in	1440	drawn over another element	proposed P3 (new with the collapse): the closing divider 7 px into the padded column view above (fault (second look: drawn 7 px over); new against the marked copy)	div.default-content-wrapper over div.columns-media-wrapper "Check-in alla vigilia della partenza per" by 16px
 20	/xx/it/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Austrian Airlines Segnalazione di bagagl" by 16px
 20	/xx/it/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.columns-media-wrapper "Austrian Airlines Segnalazione di bagagl" by 16px
 20	/xx/it/register-animal-cabin	390	drawn over another element	by design (second look: nothing drawn crosses); on the marked copy before the batch too	div.default-content-wrapper over div.form-wrapper "Informazioni generaliLa preghiamo di ind" by 16px
@@ -907,7 +907,7 @@
 #   Where: the documents the collapse gave "section style column-view": batch 13, 29 of 42 holding moves (+48 px x8 for one
 #     view, +96 px x6 for two: the faq-*, geschaeftsbedingungen, menues-reiseklassen, exclusive-charter and long-haul
 #     business class pages); batch 17, 29 of 45 (+48 px x8, +88 px x5, +96 px x5; the same pages in xx/hk and xx/ru); batch 18, 37 of 62;
-#     batch 19, 42 of 69 (+48 px x23).
+#     batch 19, 42 of 69 (+48 px x23); batch 20, 34 of 64 (+48 px x16, +96 px x8).
 #   Located on kept marked copies of later batches: /xx/it/faq-data-security, /xx/it/faq-password-security,
 #   /xx/hk/lufthansa-aviation-group. Main's collapse was applied locally to each served marked .plain.html, and both
 #   copies were rendered through the live page shell.
@@ -926,11 +926,12 @@
 #   xx/fr's kept marked copy, 15,634 -> 16,049 at 1440 and 12,006 -> 12,085 at 390). Three copies of one document: listed
 #   for ema-adobe with P1, not counted as 3 documents.
 
-# P3. A divider-below section's closing divider drawn into the column view above it (8 documents, both widths).
+# P3. A divider-below section's closing divider drawn into the column view above it (10 documents, both widths).
 #   Where:
-#     - air-baltic at/de (batch 13), xx/ru (17), xx/hk and xx/zh (18), xx/it (19): drawn 15 px over. A grey limited-headings section;
+#     - air-baltic at/de (batch 13), xx/ru (17), xx/hk and xx/zh (18), xx/it (19), xx/el (20): drawn 15 px
+#       over. A grey limited-headings section;
 #       the column view has no padding of its own. It was on each marked copy before its batch too (not the collapse).
-#     - pre-check-in xx/ru (17), xx/hk (18) and xx/zh (19): drawn 7 px over, after a padded column view (8 px padding). New with the
+#     - pre-check-in xx/ru (17), xx/hk (18), xx/zh (19) and xx/it (20): drawn 7 px over, after a padded column view (8 px padding). New with the
 #       collapse: the marked copies drew no overlap.
 #   The cause, read on xx/zh air-baltic and xx/hk pre-check-in at 1440:
 #     - the section ends with a wrapper holding only the closing divider (p.spacer.divider, 25 px);
@@ -941,6 +942,6 @@
 #     page-widths, e.g. body.brand-lufthansa main > .section.divider-below > .columns-media-wrapper +
 #     .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) { margin-top: 0; } (not written or gated here).
 
-# Listed, not a layout fault: culinaryjourney at/de (13), xx/hk (18), xx/it and xx/zh (19). The culinary hub's section stays
+# Listed, not a layout fault: culinaryjourney at/de (13), xx/hk (18), xx/it and xx/zh (19), xx/el (20). The culinary hub's section stays
 #   empty here because the app loads from www.lufthansa.com and this measurement refuses airline hosts. It was empty on
 #   each marked copy too. In a visitor's browser it loads from www (a function, as Discover's was before a3a1d1a5).
