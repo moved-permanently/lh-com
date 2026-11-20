@@ -354,3 +354,21 @@ Batch 08 (on live; 300 of 300 documents swept)
 - Empty columns: 105 documents, the POI map's view before it nears the viewport: ARTEFACT, as batch 12.
 - Against its own marked copy: none on disk for batch 08.
 - Rows: 0.
+
+Batch 09 (on live; 300 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY, all de/de (articles, tags, highlights). Live census 03:46 CET: 0 still marked. Swept: 600
+  page-widths: 599 answered 200 and settled, and /de/de/articles/explore-the-world/on-the-scene-hidden-gems-seoul 1440
+  timed out in the sweep (read again alone at the end: final section). Sources: no comparison (de/de). Text points
+  hit-tested: 116,343. Refused requests: 2,512.
+- Broken pictures, sideways scroll, never loaded, heading size: 0.
+- Text over another element: 0 FAULT. ARTEFACT, as batches 12 and 13: the overlay card teasers' stretched link (106
+  documents) and the blog overview's screen-reader line (53).
+- Text cut: 270 documents: the related-articles titles' clamp (164, DESIGN) and the overlay card teasers' list items
+  (106, ARTEFACT). List size: 102 documents, the blog overview's tag pills (DESIGN). Empty columns: 54 documents, the
+  POI map before it nears the viewport (ARTEFACT).
+- Text spill at 390: 4 German H1s, Rule 2's: the de/de copies of batch 12's and 13's pages
+  (european-championship-2024-locations +8 px, european-championship-2024-quiz +16 px,
+  shanghai-best-restaurants-and-traditional-chinese-dishes +6 px, articles/tags/miami +11 px).
+- Against its own marked copy: none on disk for batch 09.
+- Rows: 0.
