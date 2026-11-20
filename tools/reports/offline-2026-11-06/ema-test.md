@@ -7180,3 +7180,36 @@ closing-so68-ema-test.txt. Nothing stays open: every page-width over 3 % carries
 - **Not in git:** logs/p4/so67 and so68 (captures, heading passes, trial CSS for the held rules); content/, migration-work/ and
   tools/importer/reports/* (not mine).
 - **Cleanup:** no local server started; the suite worktree removed.
+
+## Standing order 69 (received about 00:05 UTC, 2026-11-20)
+
+The breakage sweep of lufthansa.com's switch batches 22 to 26 on live, batch 27 on preview, and the reach of 5eec7d5f and
+bccb1e1e. Lists: tools/reports/parity-2026-11-09/sweep-so69-ema-test.txt and delta-so69-com-faults.txt.
+
+- **Before each batch:** its marked copies were rendered on live while it was still marked: heights for the 15 % check, then the
+  same checks, so each flag is known as the switch's or as already there.
+- **Batches 22-26:** 1,380 documents, 2,760 page-widths, all 200. No broken own-host picture, no sideways scroll, no block that
+  never loads, and no overlap caused by the switch. Every flag but harmless 16 px empty spacer boxes is on the marked copy too.
+- **Rule 1 for ema-adobe (proposed):** the flight finder's tab labels at 390 run out of their tabs on 22 documents (pre-existing,
+  the shared block). Gated by injection on 13 pages: fixed, nothing moves.
+- **Rows:** 4 HOLD rows in delta-so69-com-faults.txt (2 documents x 2 widths):
+  - /pl/pl/autumn-campaign22: a second H1 now drawn at the title's size;
+  - /es/es/local-page/form-submission-error: its {spacer-400} space lost, as order 82's confirmation pages.
+  DA was not read, and no dry run was made.
+- **Batch 27 on preview:** 184 of 187 documents (368 page-widths) after its state commit at about 09:15 CET. Rule 1 again on one
+  page, and one flight-status tab overlap listed (1 document). No breakage otherwise.
+- **The reach of 5eec7d5f and bccb1e1e:** 156 unrendered documents on the brand hosts, no breakage.
+
+### Final section (about 09:35 CET, 2026-11-20)
+
+- **Pushed during the order:** parts of sweep-so69-ema-test.txt after the reach check and after batches 22 and 23
+  (d7049032, 4234b4d3, 2c52a70e); this commit adds batches 24-27, Rule 1, the counts and delta-so69-com-faults.txt.
+- **Checks before each push:** whole-repo lint 0 and the folder-reading tests; the suite worktree's lint and stylelint 0. No theme
+  or block file changed in this order.
+- **The full suite at 5e0d0b8e:** npm run lint exit 0, stylelint exit 0, 1,320 test files passed, 0 failed.
+- **Remote:** no uploads, previews or publishes, no da-upload.mjs, no DA read or write. Census reads of our aem.live and aem.page.
+- **Requests:** our hosts (lufthansa.turnsthe.page, austrian.turnsthe.page, airdolomiti.turnsthe.page, the lh-com aem.page and
+  aem.live origins), GitHub. Every other host refused in the renders. No airline host.
+- **Not touched:** .migration/project.json; /de/en/overview-manage (no row). The optional plugins stay off.
+- **Not in git:** logs/p4/so69 (the sweep script, census tables, renders); content/, migration-work/, tools/importer/reports/*.
+- **Cleanup:** no local server started; the suite worktree removed; no render left running.

@@ -82,9 +82,8 @@ Batch 22 (xx/ja, xx/ko; on live from about 06:40 CET; 294 of 300 documents swept
 - Against the marked copy: 588 page-widths compared, 3 more than 15 % off, each read again alone (the same heights):
   - /xx/ja/support/contact/contact-form-confirmation 1440 1,401 -> 1,121 (-20.0 %), 390 1,596 -> 1,316 (-17.5 %). The marked
     {spacer-400} under the thank-you text became the section style space-below-l (the batch row's carrier): 280 px less empty
-    space, nothing else changed. /de/en's copy, switched in batch 04, draws the same (1,139 at 1440). LISTED for ema-adobe: the
-    collapse writes space-below-l for {spacer-400}; if www's thank-you pages keep the 400 px, a Spacer block carrier would. Not a
-    breakage.
+    space, nothing else changed. /de/en's copy, switched in batch 04, draws the same (1,139 at 1440). Not a breakage; ema-cashub's
+    order 82 rows (delta-so82-com-faults.txt, READY) give the xx copies, this one included, a Spacer xxl (www's gap 425 px).
   - /xx/ko/book-and-manage/stopover/bayerischer-hof 390 3,496 -> 2,964 (-15.2 %; 1440 0 %), and zugspitze 390 -14.4 % (under
     the threshold, the same cause): the marked {limited-width} also narrowed the text column at 390; the switched pages ("theme
     defaults only") draw full width like their 13 stopover siblings, which had no such marker (each within 0.6 % of its marked
@@ -118,10 +117,153 @@ Batch 23 (xx/ko, xx/pl; on live from about 07:23 CET; 292 of 300 documents swept
     and not in others (see below).
 - Against the marked copy: 584 page-widths compared, 7 more than 15 % off:
   - The thank-you pages /xx/ko and /xx/pl/support/contact/contact-form-confirmation, 1440 -20.0 / -18.7 %, 390 -18.0 / -16.0 %:
-    the marked {spacer-400} written as space-below-l (280 px), as batch 22's xx/ja copy. LISTED (above).
+    the marked {spacer-400} written as space-below-l (280 px), as batch 22's xx/ja copy. Both in order 82's READY rows (above).
   - /xx/pl/book-and-manage/stopover/ingolstadt-village 1440 +20.4 %, neuschwanstein 1440 +19.3 %, zugspitze 1440 -16.2 %: the POI
     map block draws its 500 px box in one load and nothing in another (its tiles come from a refused host). The marked copies
     themselves differ by that box between the height run and the check run (breuninger 390: 3,263 against 3,795), and read
     again twice after the switch all three draw the box (2,947 / 3,039 / 3,123; zugspitze's marked copy 3,131). ARTEFACT of the
     refused map, not the switch.
 - Faults for ema-adobe (3 or more documents): none in this batch. Rows: none.
+
+Batch 24 (xx/pl's rest and market roots ae to fr; on live from about 07:56 CET; 294 of 300 documents swept)
+----------------------------------------------------------------------------------------------------------------
+- Documents: 300 READY. State commits 7800d273 ("293 collapsed") and 60047383 ("so60 batch 24h: 5 held documents cleared"). Live
+  census 07:56 CET: 294 with 0 markers, 6 still marked (/ba/en/flights, /es/en/unaccompanied-minors, /es/es/alleinreisende-
+  kinder, /xx/pl/tips-senior-travellers, /xx/pl/unaccompanied-minors, /xx/pl/unterhaltung-an-bord: not swept). At 08:28 CET 5 of
+  them read 0 markers too, after this batch's sweep; only /xx/pl/tips-senior-travellers is still marked. The 5 are not swept
+  tonight.
+- Swept: 294 documents, 588 page-widths, all 200; 154 did not reach 3 equal heights in 15 s (market homepages: fare finders and
+  destination finders wait on refused APIs). Refused requests: 4,239. Text points hit-tested: 135,474.
+- A re-read of the 34 documents with collisions, one page at a time, got 52 answers 429 (rate limited while the census of batch
+  25 ran); 43 of those were read again later, one page at a time, all 200 (the other 9 keep the sweep's row). A 429 re-read never
+  replaces the sweep's row.
+- Every flag is on the document's marked copy too, except two 16 px empty spacer boxes (/ae/de/pre-check-in, as batches 22-23).
+  - Broken picture: 0 (one re-read at 390 drew 3 pictures of /be/en/local-page/experience-america broken: that re-read was rate
+    limited; read again, all drawn. ARTEFACT). Sideways scroll, never loaded: 0.
+  - Text over another element, FAULT, PROPOSED ("Rule 1" below): the flight finder's tab labels at 390. "Rental car" runs 19 px
+    out of its tab into the next one (the label nowrap in a third of the bar), "Wynajem samochodu" 98 px: /ae/en/cash-and-miles,
+    /be/en/local-page/experience-america, /br/pt/pix, /ca/de/cash-and-miles, /ch/it/cash-and-miles, /cl/de/cash-and-miles,
+    /dk/en/yes, /es/es/asia-specials, /es/es/bizum, /es/es/local-page/descubre-la-belleza-de-alemania (and /ch/en/local-page/
+    experience-america's "Flights" / "Flight & Hotel" tabs). On the marked copies too: not the switch.
+  - Text over another element, ARTEFACT: the flash teaser's screen-reader label "Promotion:" / "Angebot:" / "Promoción:"
+    (flash-teaser-sr-only, 1 px) under the teaser's own text on 5 homepages; the destination finder's 5 x 1 px legend under its
+    chips (/ar/fr/homepage); the car-rental widget's screen-reader note (car-rental-sr-only, 1 x 1 px) on /be/en/europcar. The
+    article pages' hits at 390 (on-the-scene-bookstores-buenos-aires in am/de, br/de, by/de; a-perfect-day-buenos-aires):
+    those loads had not settled (6,970 px and growing); read alone the page is 6,300 px and nothing is drawn over its text.
+    The probe now skips screen-reader-only text.
+  - Cut label: 91 documents, the flight finder's screen-reader trip-type label (flight-search-sr-only) on the market homepages,
+    the form's screen-reader and masked labels: ARTEFACT / DESIGN. Form fields over their own labels: 93 documents (DESIGN).
+  - Overlap: 14 documents, the 16 px empty spacer box (DESIGN). Text spill: 1 (a screen-reader text).
+- Against the marked copy: 588 compared, 3 more than 15 % off:
+  - /cn/zh/local-page/cn-ewallet-payment 1440 3,383 -> 4,242 (+25.4 %; 390 within 15 %): the marked {full-width} is now the
+    section style wide-text (the batch row's carrier): the text column narrower than the full width, so the text runs longer.
+    LISTED for ema-adobe (the collapse's mapping of {full-width}); not drawn wrong.
+  - /es/es/local-page/form-submission-error 1440 -18.9 %, 390 -16.2 %: {spacer-400} written as space-below-l (280 px), as the
+    thank-you pages, but not in order 82's rows: ROW (HOLD, delta-so69-com-faults.txt), the same Spacer xxl.
+
+Batch 25 (market roots fr to pl; on live from about 08:32 CET; 293 of 300 documents swept)
+------------------------------------------------------------------------------------------
+- Documents: 300 READY. State commit 58444581 ("292 collapsed"). Live census 08:32 CET: 293 with 0 markers, 7 still marked (held,
+  not swept): /fr/fr/book-and-manage/flights/ana, /fr/fr/business-class, /fr/fr/meetings-and-events, /fr/fr/prepare-for-your-
+  trip/travel-classes/business-class, /fr/fr/tips-senior-travellers, /fr/fr/unterhaltung-an-bord, /pl/pl/flights.
+- Swept: 293 documents, 586 page-widths, all 200; 145 not settled in 15 s (finders). Refused requests: 4,257. Text points:
+  146,420.
+- Every flag is on the document's marked copy too.
+  - Broken picture, sideways scroll, never loaded: 0.
+  - Text over another element: the finder tab labels at 390 (Rule 1): /fr/fr/asia-specials ("Voiture de location"),
+    /jp/en/local-page/schedule-for-japan-routes, /lb/en/cash-and-miles, /my/en/cash-and-miles, /my/en/local-page/kul-promo-code-
+    oct26, /no/en/yes, /pl/en/local-page/spring-holiday-planner ("Rental car"), /pl/pl/local-page/spring-holiday-planner
+    ("Wynajem samochodu"). ARTEFACT: the articles index's screen-reader result count under its first card (/fr/fr/articles/tags/
+    allegris, /mk/de/articles/munich), and 3 article pages at 390 that had not settled.
+  - Cut label: 93 documents, the finder's and forms' screen-reader labels (ARTEFACT / DESIGN). Form fields over their labels: 91
+    documents (DESIGN). Overlap: 15 documents, the 16 px empty spacer box (DESIGN).
+- Against the marked copy: 586 compared, 1 more than 15 % off:
+  - /pl/pl/autumn-campaign22 390 2,330 -> 2,750 (+18.0 %; read again alone: 2,750). FAULT, ROW (HOLD, delta-so69-com-faults.txt):
+    the Polish document's second heading is an H1 ("Poznaj wszystkie nasze oferty i już dziś zacznij planować..."), where
+    /pl/en/autumn-campaign22 has an H2. The marked {heading-small} on it drew it small; the collapse writes h2-small only for H2s,
+    so pl/pl's second H1 now draws at the page title's size (pl/en, with its H2 and h2-small, is 2,114 against its 2,184). A
+    document fix, not a style rule: the heading an H2 and the section style h2-small, as pl/en's.
+
+Batch 26 (xx/de, xx/en and the rest; on live from about 08:54 CET; 207 of 207 documents swept)
+----------------------------------------------------------------------------------------------
+- Documents: 207 READY. State commit 57b1c650 ("207 collapsed"). Live census 08:54 CET: 207 with 0 markers, none held.
+- Swept: 207 documents, 414 page-widths, all 200; 84 not settled in 15 s. Refused requests: 2,512. Text points: 93,884.
+- 35 of the marked copies' check renders (04:30-05:05 CET) were answered 429; those page-widths have no "before" for the flags
+  (their heights are from the height run, all 200).
+- Every flag with a marked render is on the marked copy too.
+  - Broken picture, sideways scroll, never loaded: 0.
+  - Text over another element: the finder tab labels at 390 (Rule 1): /us/en/best-price-search, /se/en/discoverymode2023.
+  - Cut label: 41 documents, the finder's screen-reader trip-type label (flight-search-sr-only) and the forms' screen-reader
+    labels; "new" on 2 documents (se/en/yes, se/en/local-page/ski-campaign-2026) only because their marked copies' finder had not
+    drawn in that load. ARTEFACT. Form fields over their labels: 40 documents (DESIGN).
+  - Overlap: 3 documents, the 16 px empty spacer box (DESIGN). Empty block: 11 documents, the POI maps (FUNCTION).
+- Against the marked copy: 414 compared, 3 more than 15 % off, all /xx/de/book-and-manage/stopover pages (hop-on-hop-off-muc 390
+  +17.8 %, sixt-muc 390 +15.8 %, garmisch-classic 1440 -15.4 %): the POI map's 500 px box drawn in one load and not in the other,
+  as batch 23's. ARTEFACT.
+
+Item 2: batch 27 (fr/fr, mk/de, 187 documents) on preview (main--lh-com--moved-permanently.aem.page; 184 of 187 swept)
+--------------------------------------------------------------------------------------------------------------------------
+- Documents: 187 READY. State commit cf2f6b82 ("184 fr/fr + mk/de documents collapsed", about 09:15 CET). Preview census 09:20
+  CET: 184 with 0 markers, 3 still marked (held, not swept): /fr/fr/alleinreisende-kinder, /fr/fr/first-class,
+  /fr/fr/support/contact/contact-form-confirmation.
+- Swept on preview, the same checks, 3 pages at once: 184 documents, 368 page-widths, all 200; 10 not settled in 15 s. Refused
+  requests: 1,583. Text points: 92,294. The marked copies were rendered on preview before the collapse (03:05-03:20 CET, heights
+  only), so the flags have no "before"; each is of a kind batches 22-26 showed on their marked copies.
+  - Broken picture, sideways scroll, never loaded: 0.
+  - Text over another element: /fr/fr/cash-and-miles 390, the finder's "Voiture de location" tab label (Rule 1).
+    /fr/fr/timetable-and-flight-status 390: the flight-status block's tab label "Numéro de vol" under the next tab: FAULT, LISTED
+    (1 document here; the same fault order 77 fixed for SWISS, 99bc10ef, and order 67 for Austrian, 9c2d693e: a tab sized from
+    its label below 768 px, the label wrapping; lufthansa.com's is ema-adobe's). The articles index's screen-reader status line
+    "Vous êtes sur la page 1 des résultats" (blog-overview-sr, 1 x 1 px) under its first card on 3 index pages: ARTEFACT.
+    Form fields over their own labels: 13 documents (DESIGN).
+  - Cut label: 11 documents, screen-reader labels (blog-overview-sr, flight-search-sr-only), the lounge finder's and the
+    online check-in form's labels in their fields: DESIGN / ARTEFACT. Spill: 3, screen-reader texts.
+  - Overlap: 7 documents, the 16 px empty spacer box (DESIGN). Empty block: the POI maps, the culinary hub and the destination
+    finder's grid on /fr/fr/flights (its fares are refused): FUNCTION.
+- Against the marked copy: 368 compared, 2 more than 15 % off: /fr/fr/book-and-manage/stopover/bayerischer-hof 1440 -16.6 % and
+  neuschwanstein 1440 -15.8 %, the POI map's 500 px box drawn in one load and not in the other (as batches 23 and 26). ARTEFACT.
+- Faults for ema-adobe: Rule 1 again (1 document). Rows: none.
+
+For ema-adobe (faults on 3 or more documents)
+---------------------------------------------
+Rule 1, proposed: the flight finder's tab labels on phones. At 390 the finder's three tabs share the bar (a third each, 102 px),
+and the label is nowrap (blocks/flight-search: .flight-search-tab-label), so "Rental car" runs 19 px out of its tab into the next
+one, "Voiture de location" 80 px, "Wynajem samochodu" 98 px, and on the four-tab finder "Flight & Hotel" 59 px. Found on 22
+documents of batches 23-26 at 390 (listed in their parts) and /fr/fr/cash-and-miles in batch 27, on their marked copies too: not
+the switch, the shared block.
+  @media (width < 768px) {
+    .flight-search .flight-search-tab-label {
+      min-width: 0;
+      white-space: normal;
+      text-align: center;
+    }
+  }
+Injected on 13 documents at 390 (the three-tab finders /ae/en/cash-and-miles, /be/en/local-page/experience-america,
+/xx/pl/cash-and-miles, /fr/fr/asia-specials, /no/en/yes, /us/en/best-price-search, /se/en/discoverymode2023, the four-tab
+/ch/en/local-page/experience-america, and the one-tab /xx/pl, /xx/ko, /de/en, /xx/fr/flight-search, plus /de/de/flight-search
+without tabs): every overflow gone, the tab row's height the same (52 px), every page's height the same, nothing else moved. The
+labels wrap inside their tabs only where they did not fit. Lufthansa.com's theme and the block are ema-adobe's: not changed here.
+
+No other fault reaches 3 documents. Listed for ema-adobe, not breakage: the collapse's {full-width} -> wide-text on
+/cn/zh/local-page/cn-ewallet-payment (+25 % at 1440).
+
+Counts
+------
+Swept on live (documents / page-widths; the collision pass on the same page-widths):
+  batch 22   294 / 588   (6 held)
+  batch 23   292 / 584   (8 held)
+  batch 24   294 / 588   (6 held at the sweep, 5 cleared after it)
+  batch 25   293 / 586   (7 held)
+  batch 26   207 / 414   (0 held)
+  total    1,380 / 2,760, all answered 200
+  batch 27   184 / 368   on preview (3 held)
+  and before their batches: 1,407 marked copies (2,814 page-widths) on live for the heights, the same again with the checks for
+  batches 22-26, and batch 27's 187 on preview.
+Item 3: 156 brand-host documents (312 page-widths, then 36 read again): no breakage from 5eec7d5f or bccb1e1e.
+Faults: the finder tab labels (Rule 1, 22 documents, pre-existing); 1 document source fault (/pl/pl/autumn-campaign22, the switch
+  made it visible) and 1 spacing loss (/es/es/local-page/form-submission-error): rows HOLD. No broken own-host picture, sideways
+  scroll, never-loaded block or switch-caused overlap.
+Rows: delta-so69-com-faults.txt, 4 HOLD rows (2 documents x 2 widths). Rules proposed: 1.
+Pace: at most 3 pages at once on lufthansa.turnsthe.page, except about 15 minutes at 03:30 CET when a restarted queue left a second
+  3-page run of batch 22's marked-copy checks going (6 pages at once); no 429 in that window. The re-read of batch 24 at 08:20 CET
+  ran beside the batch 25 census and got 52 answers 429 (read again later).
