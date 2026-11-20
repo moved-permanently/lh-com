@@ -3052,3 +3052,13 @@ body.brand-lufthansa main .default-content-wrapper:has(+ .cards-teaser-wrapper >
 body.brand-lufthansa main > .section.divider-below > .columns-media-wrapper + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
   margin-top: 0;
 }
+
+/* lufthansa.com: the teaser text beside an icon heading in a padded Columns Media (the seat-reservation terms' cards, the rail
+   briefing's) at www's 16px / 1.5 (p.desc-inline 1.6rem / 150%); the collapse dropped its {copytext-medium} as body text (16
+   against the brand's 18). Not the link-list blocks (carry-on-baggage's allowances moved further). Standing order 65,
+   ema-cashub's sweep-so81 Rule 3 */
+/* stylelint-disable-next-line no-descending-specificity -- a teaser card's text, not a stage's picture paragraph */
+body.brand-lufthansa .columns-media.padded .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) ~ p:not(.link-wrapper, .button-wrapper) {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
