@@ -3062,3 +3062,15 @@ body.brand-lufthansa .columns-media.padded .columns-media-row > .columns-media-t
   font-size: var(--body-font-size-s);
   line-height: 1.5;
 }
+
+/* lufthansa.com from 768px: a column view holding only a link or button, right after a flush view, draws as part of that view
+   (no padding above it, the view's own 32px taken back). The fixed collapse (ca73778) splits such a closing link off its
+   view, and the split part no longer copies flush: miles-and-more's "Register now" and meetings-and-events' group link stood
+   70px lower than the marked page drew them (standing order 66: miles-and-more 1440 in 4 trees 8.7-8.9 -> 3.2 %). Not on
+   phones: there the German copies' next heading wraps on www and moved further */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.column-view.flush:not(.grey) + .section.column-view:not(.flush, .grey):has(> .default-content-wrapper:only-child > p:is(.button-wrapper, .link-wrapper):only-child) {
+    margin-top: -32px;
+    padding-top: 0;
+  }
+}

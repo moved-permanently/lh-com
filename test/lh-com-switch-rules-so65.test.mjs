@@ -5,6 +5,8 @@
      the block (no take-back above the closing wrapper; ITA's 666f7906).
    - Rule 3 (ema-cashub, sweep-so81), the narrower second try: the teaser text beside an icon heading in a padded Columns
      Media at www's 16px / 1.5 (the first try, every Columns Media, moved carry-on-baggage's allowance list further).
+   - Standing order 66: from 768px a column view holding only a link or button, right after a flush view, draws as part of it
+     (the fixed collapse's split part; miles-and-more, meetings-and-events).
    Run: node --test test/lh-com-switch-rules-so65.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -39,4 +41,11 @@ test('Rule 3: the teaser text beside an icon heading in a padded Columns Media a
   assert.equal(r.media, '');
   assert.match(r.body, /font-size: var\(--body-font-size-s\);\s*line-height: 1\.5;/);
   assert.equal(ruleOf('body.brand-lufthansa .columns-media .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) ~ p:not(.link-wrapper, .button-wrapper)'), null, 'not the first try (every block)');
+});
+
+test('Standing order 66: from 768px a link-only column view after a flush view takes no padding above it, not on phones', () => {
+  const r = ruleOf('body.brand-lufthansa main > .section.column-view.flush:not(.grey) + .section.column-view:not(.flush, .grey):has(> .default-content-wrapper:only-child > p:is(.button-wrapper, .link-wrapper):only-child)');
+  assert.ok(r, 'the rule is in styles.css');
+  assert.equal(r.media, '@media (width >= 768px)');
+  assert.match(r.body, /margin-top: -32px;\s*padding-top: 0;/);
 });
