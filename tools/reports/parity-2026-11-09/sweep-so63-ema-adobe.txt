@@ -1,0 +1,68 @@
+# ema-adobe, standing order 63 item 1 (2026-11-19/20): the breakage sweep of the switched lufthansa.com documents.
+# Every document of the collapse batches on live (delta-so60-switch-NN less the paths still marked on live, helper B's held
+#   ones, and the skipped redirects), rendered as served on lufthansa.turnsthe.page (our host; www's hosts refused) at 1440
+#   and 390, at most 3 pages at a time (logs/b663/sweep.cjs). The so62 rerun batch's 31 documents are in batches 01-04 and
+#   are swept with them (their live copies as they are now).
+# Checks: broken pictures (pictures from www, which our host refuses, apart); sideways scroll; sections or blocks that never
+#   load; text over the text before it in a section's default content; empty sections (a section of separators only is the
+#   space it carries) and empty cells of the column and card blocks (a slider's controls apart); a heading whose size
+#   differs from its siblings of the same level in the same section or block; a list whose text size differs from the
+#   section's other lists; the page height more than 15 % off its marked copy as rendered before its batch (order 60's
+#   census copy as the page's main: the site draws a marked document as before the switch). The same checks run on the marked
+#   copy: a fault it shows too is marked "before the switch too".
+# Rendering as the parity captures (logs/b655/capture-dm.cjs): a desktop user agent (with headless Chrome's own, embeds such
+#   as /xx/ru/sixt's never draw: 1658 against 4954 px at 390), the network quiet, every section and block loaded, a scroll
+#   a viewport at a time. Every page-width with a fault was rendered once more; a fault the recheck doesn't show again is a
+#   capture's artefact, listed after the batch's faults and not counted.
+# One part per batch: documents and page-widths swept, the excluded paths, then each fault: path, width, kind, what was seen.
+# Later batches get the same sweep once on live (logs/b663/sweep-loop.sh), each its own part.
+
+## batch 01: 300 documents, 600 page-widths swept; excluded: none
+# faults: 0 on 0 documents, 0 of them before the switch too (none); not on the recheck (a capture's artefact): 0; captures failed: 0
+
+## batch 02: 300 documents, 600 page-widths swept; excluded: none
+# faults: 0 on 0 documents, 0 of them before the switch too (none); not on the recheck (a capture's artefact): 0; captures failed: 0
+
+## batch 03: 299 documents, 598 page-widths swept; excluded: skipped /de/en/business-class
+# faults: 4 on 2 documents, 4 of them before the switch too (heading size out of line 2, empty section 2); not on the recheck (a capture's artefact): 1; captures failed: 0
+/de/en/homepage	1440	heading size out of line	div.carousel-cards.block H3: "Use code NOV40 and save €" 28px, "Family time, far away" 18px, "Special welcome package: " 28px, "Your taste of fall" 18px, "Start your trip relaxed" 18px, "eSIM by Breeze" 18px (at y 1927); before the switch too
+/de/en/homepage	390	heading size out of line	div.carousel-cards.block H3: "Use code NOV40 and save €" 22.0845px, "Family time, far away" 18px, "Special welcome package: " 22.0845px, "Your taste of fall" 18px, "Start your trip relaxed" 18px, "eSIM by Breeze" 18px (at y 2017); before the switch too
+/de/en/culinaryjourney	1440	empty section	div.section.micro-frontend-container 400 px (at y 147); before the switch too
+/de/en/culinaryjourney	390	empty section	div.section.micro-frontend-container 400 px (at y 169); before the switch too
+/de/en/articles/tags/thessaloniki	1440	height off its marked copy	900 -> 3125 px (247.2 %); not on the recheck (3178 -> 3125 px)
+
+## batch 04: 300 documents, 600 page-widths swept; excluded: none
+# faults: 2 on 1 documents, 2 of them before the switch too (empty column 2); not on the recheck (a capture's artefact): 1; captures failed: 0
+/de/en/passengers-with-sensory-impairment	1440	empty column	div.columns-media.nested-2 cell 408x32 (at y 6636); before the switch too
+/de/en/passengers-with-sensory-impairment	1440	empty column	div.columns-media.nested-2 cell 408x32 (at y 6636); before the switch too
+/gb/en/articles/explore-the-world/be-picky-helsinkis-insider-tips	1440	height off its marked copy	900 -> 4453 px (394.8 %); not on the recheck (4453 -> 4453 px)
+
+## batch 05: 300 documents, 600 page-widths swept; excluded: none
+# faults: 0 on 0 documents, 0 of them before the switch too (none); not on the recheck (a capture's artefact): 0; captures failed: 0
+
+## batch 06: 297 documents, 594 page-widths swept; excluded: held /gb/en/autumn-campaign22, held /gb/en/book-and-manage/flights/ana, held /gb/en/business-class
+# faults: 0 on 0 documents, 0 of them before the switch too (none); not on the recheck (a capture's artefact): 1; captures failed: 0
+/gb/en/articles/tags/porto	1440	broken picture	https://lufthansa.turnsthe.page/gb/en/articles/explore-the-world/media_1ff39718d92e54e52620eef38def9b2046fd3d082.jpg?wid (at y 1029); not on the recheck (3963 -> 3963 px)
+
+# Batches 01-06 together (swept 20:08-00:09 UTC; the service restart at 21:25 UTC stopped the run once, it went on from the
+#   rows written): 1,796 documents, 3,592 page-widths, no capture failed. No fault the switch made: every fault counted is
+#   on the marked copy too, and the three height and picture flags were capture artefacts (not on the recheck).
+# The faults counted, all on the marked copy too, each on one document (item 2: listed, no rule; delta-so63-com-faults.txt):
+#   /de/en/homepage, its slider's card titles at 28 and 18 px (H3, both widths): the document's own cards, two with the
+#     larger title as before the switch;
+#   /de/en/culinaryjourney, its app's section empty, 400 px (both widths): the app loads from www, which our host's captures
+#     refuse; the page as served draws the same before and after the switch;
+#   /de/en/passengers-with-sensory-impairment 1440, two empty 408x32 cells beside the store badges (Columns Media nested-2):
+#     the document's own empty cells, which keep the badges at a third of the width; nothing shows broken.
+# Not a fault by the checks above, but a size change: on 80 documents of batches 01-06 the marked copy draws a heading at
+#   another size than its siblings (its size marker) that the switched page doesn't flag: the heading now either draws at
+#   its siblings' size or stands apart from them (not told apart per document tonight). The ones measured are the first:
+#   heading-size markers with no carrier in default content (plan 923 §13 item 3: no structure predicts them; held), e.g.
+#   what-the-hack-sleep-on-a-plane's two "Did You Know ..." H3 {heading-small} 28 -> 24 px. Two of them share a place:
+#   - the tag pages' "Explore more" H2 {heading-small} right before the Cards Teaser (overlay): 28 -> 36 px at 1440
+#     (/de/en/articles/tags/miami measured); 268 tag pages of the 26 batches carry it (123 de/en, 122 gb/en);
+#   - "Dive Deeper With Our Interest-based Episode" H2 {heading-large} right before the Carousel Cards: 48 -> 36 px; 20 pages.
+#   No rule tonight: gating one on its full reach (about 1,000 renders against www's recordings) doesn't fit the order's
+#   hours; both are written up for the next order (final section).
+# The 3 broken pictures the marked copies showed (allegris-business-class-dirk-nowitzki, a-perfect-day-dublin-in-one-day,
+#   be-picky-oslo-insider-tips) draw on the switched pages.

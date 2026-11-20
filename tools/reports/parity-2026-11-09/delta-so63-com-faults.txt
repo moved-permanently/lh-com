@@ -1,0 +1,14 @@
+# ema-adobe, standing order 63 item 2 (2026-11-20): the faults of the breakage sweep (sweep-so63-ema-adobe.txt) of so60 switch
+#   batches 01-06 (the so62 rerun batch's 31 documents among them). No fault reached 3 documents, and none is the switch's:
+#   each is on the document's marked copy too (order 60's census copy as main, drawn as before its batch). So no rule and no
+#   row for the helper; the faults are listed here. Reference: the served copies on lufthansa.turnsthe.page (DA reads answer
+#   401 since about 18:00 UTC), checked against order 60's census copy (the pre-batch served copy).
+# The later batches' parts are added to sweep-so63-ema-adobe.txt as they go live (logs/b663/sweep-loop.sh); a fault there that
+#   DA's source would fix gets a row below, with DA's copy as it is, the change and the gate.
+# status	path	batch	widths	kind	what was seen	why no row
+LISTED	/de/en/homepage	03	1440, 390	heading size out of line	the slider's (Carousel Cards) card titles at 28 and 18 px: two promo cards with the larger title	the document's own cards, drawn the same before the switch; no marker involved
+LISTED	/de/en/culinaryjourney	03	1440, 390	empty section	the app's section (micro-frontend) empty, 400 px	the app loads from www, which our host's captures refuse; the same before the switch
+LISTED	/de/en/passengers-with-sensory-impairment	04	1440	empty column	two empty 408x32 cells beside the store badges (Columns Media nested-2)	the document's own empty cells: they keep the badges at a third of the width; nothing shows broken
+# Capture artefacts (not on the recheck, not counted): /de/en/articles/tags/thessaloniki 1440 (marked copy drew 900 px once,
+#   3178 on the recheck), /gb/en/articles/explore-the-world/be-picky-helsinkis-insider-tips 1440 (the same, 4453 px),
+#   /gb/en/articles/tags/porto 1440 (a card picture once; it answers 200, 577 KB, and drew on the recheck).
