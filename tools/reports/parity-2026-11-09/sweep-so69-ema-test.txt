@@ -1,0 +1,52 @@
+Standing order 69 - breakage sweep of lufthansa.com's switch batches 22 to 26 on live, batch 27 on preview, and the reach of
+5eec7d5f and bccb1e1e on the brand hosts (ema-test, Fri 20 Nov 2026, from 01:05 CET)
+=====================================================================================================================
+
+How each batch is swept
+-----------------------
+- A batch's documents: the READY rows of tools/reports/parity-2026-11-09/delta-so60-switch-NN.txt less the documents live still has
+  marked. The state commits ("so60 switch batch NN: n documents collapsed") give counts only, so tools/importer/switch-census.mjs
+  --batch <list> --env live (main--lh-com--moved-permanently.aem.live, 3 requests at a time) names them: a document with markers on
+  live is held or skipped and not swept. The census also says when a batch is on live: polled every 4 minutes, the batch counts as
+  live when at most a tenth of its documents still read marked.
+- Host lufthansa.turnsthe.page, widths 1440 x 900 and 390 x 844, Chrome headless shell 1254 with unhinted text, consent and the
+  showcase notice stored, at most 3 pages at once. Each page-width settles as order 79's: load, lazy pictures eager, one scroll,
+  network idle (8 s cap), every section and block loaded, every drawn own picture complete, the height the same on 3 reads 500 ms
+  apart (15 s cap). Requests off our host (www.*, lh-proxy, airline hosts, third parties) are refused and counted, never sent;
+  pictures from them do not count.
+- Checks per page-width (logs/p4/so69/sw69.cjs, order 79's kinds): a broken own-host picture (complete, no pixels); sideways scroll;
+  a section or block never loaded; consecutive blocks drawn over each other; a cut-off label (a button, link button, label, tab,
+  summary or heading whose text is wider than its clipping box); text out of its block; an empty block; and a collision pass: the
+  first and last line of every text node in main, at its centre and 3 px inside both ends, hit-tested below the sticky header. A hit
+  on anything but the text's own element, an ancestor or a descendant is a collision; fixed elements (the demo badge, the stage bars
+  fixed at the viewport's foot) and stretched card links (a link whose ::after covers its card) are not, nor text inside a closed
+  details. Form fields over their own floating labels are counted apart (DESIGN).
+- Each page against its own marked copy as rendered before its batch: the batches' documents were rendered on live from 01:11 CET,
+  before any of batches 22-26 was published (heights; logs/p4/so69/pre-NN.jsonl). More than 15 % off at either width is a finding,
+  read again alone.
+- Kinds: FAULT = drawn wrong. PROPOSED = a rule for ema-adobe (lufthansa.com's theme and the shared files are theirs; not edited here).
+  ROW = a source fix in delta-so69-com-faults.txt. LISTED = not proven, or fewer than 3 documents with no row. CONTENT = the
+  document's own. DESIGN = drawn so on purpose. FUNCTION = an app or a live answer the refused hosts withhold. ARTEFACT = the check.
+- Scratch (not in git): logs/p4/so69 (sw69.cjs, sum69.py, post.sh, the census and sweep outputs).
+
+Item 3: the reach of 5eec7d5f and bccb1e1e on the brand hosts (documents not rendered on 19 Nov)
+-------------------------------------------------------------------------------------------------
+- 5eec7d5f (Austrian, on phones an unpadded Columns Media grid's rows 38 px apart): its census on the served documents names 129;
+  minus the 3 recorded ones and the 6 rendered on 19 Nov, 120 documents, 240 page-widths on austrian.turnsthe.page (00:15-01:05 CET
+  20 Nov, one page at a time, both widths: the rule is phones only, 1440 for the no-breakage check). All 200. Refused requests:
+  272.
+  - Broken picture, sideways scroll, never loaded, overlap of blocks, cut label, text out of its block, empty block: 0, except one
+    broken-picture flag: /it/it/additional-services 390, the footer's 27 px svg icon (media_19b514...). Read again alone at 390 and
+    1440 it is drawn (30 px wide, the file answers 200): ARTEFACT, a load of the minute. Not in the rule's grid.
+  - Text over another element: 239 page-widths clean; 1 flag, /gr/el/unaccompanied-minors 390 (a table header cell "under" a
+    heading at y 6,651). Read again alone, the header cell stands at 6,311 with nothing over it, and nothing is drawn at 6,651
+    but its section: ARTEFACT (layout still moving in that load). Not in the rule's grid.
+  - 103 page-widths did not reach 3 equal heights in 15 s (carousels and the fare finder's live answers, refused here). Their
+    flags were read at the end of the wait. No breakage from 5eec7d5f.
+- bccb1e1e (Air Dolomiti, over a destination stage an article's byline right under its title): census 44 served documents; minus
+  the recorded ones and the 4 rendered on 19 Nov, 36 documents, 72 page-widths on airdolomiti.turnsthe.page. All 200.
+  - Broken picture, sideways, never loaded, overlap, cut label, out of block, empty block: 0.
+  - Text over another element: the first pass flagged 36 page-widths at 1440, the article text "under" the destination stage at
+    y 1,514-2,332. That is the stage's booking bar, a ::after fixed at the viewport's foot (airdolomiti.css, 15vh, as www's
+    sticky bar): the text scrolls under it by design. The probe now treats a fixed pseudo-element as fixed; the 36 page-widths
+    read again at 1440: 0 collisions. DESIGN. No breakage from bccb1e1e.
