@@ -1,0 +1,32 @@
+# ema-test, standing order 71 item 2 (2026-11-20): book-and-manage/flights/ana, the heading order. Since round holds2 (order 70's
+#   proposal) the 15 copies draw the second row's three card headings as H4 directly under the H2 "What you need to remember":
+#   the outline skips a level. Token-free form with H2 then H3 at live's sizes: the Columns Media block split at its rows into two
+#   Columns Media blocks (existing block options only; no new carrier, no rule, no commit needed):
+#     row 1 (the three cards "Starting your trip", "Travel classes", "Inflight service", H3): "columns-media padded h3-large"
+#       (on the flow page H3 large = heading-small, 28 px light, as now)
+#     row 2 (the title cell H2 and three card headings): "columns-media padded h2-large", the card headings H4 -> H3 (the flow
+#       theme's H3 is heading-copytext-large, 24 / 20 px bold, as the H4 draws now)
+#   Outline then: H1, H2, H3 x 3, H2, H3 x 3, H2, H2.
+# DA change per document: in the Columns Media block holding both rows, move its second row into a new Columns Media block right
+#   after it (same section); first block's options: padded, h3-large; second block's: padded, h2-large; its three <h4> -> <h3>.
+# Gate: lufthansa.turnsthe.page, live's served copy (the published H4 form, read 15:39 CET) against the same load with the changed
+#   copy injected (logs/p4/so70/inj70.cjs), 15:40-15:50 CET: every heading's size and weight equal in order (the tags H4 -> H3 as
+#   intended), heights within 1 %, no sideways scroll, every block loaded. 30 of 30 page-widths; the second block draws 2 px
+#   higher from row 2 on (the gap between two blocks against two rows of one).
+# The narrower variant without padded on the second block: 13 of 30 (-0.70 to -1.41 %), not used.
+# status	path	change	1440 live	1440 with the change	390 live	390 with the change
+READY	/at/de/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,471	3,469 (-0.06 %)	5,448	5,446 (-0.04 %)
+READY	/de/de/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,471	3,469 (-0.06 %)	5,448	5,446 (-0.04 %)
+READY	/fr/fr/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,637	3,635 (-0.05 %)	5,787	5,785 (-0.03 %)
+READY	/gb/en/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,444	3,442 (-0.06 %)	5,140	5,138 (-0.04 %)
+READY	/xx/el/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,617	3,615 (-0.06 %)	5,805	5,803 (-0.03 %)
+READY	/xx/es/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,531	3,529 (-0.06 %)	5,405	5,403 (-0.04 %)
+READY	/xx/fr/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,637	3,635 (-0.05 %)	5,787	5,785 (-0.03 %)
+READY	/xx/hk/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	2,996	2,994 (-0.07 %)	3,916	3,914 (-0.05 %)
+READY	/xx/it/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,477	3,475 (-0.06 %)	5,247	5,245 (-0.04 %)
+READY	/xx/ja/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,104	3,102 (-0.06 %)	4,295	4,293 (-0.05 %)
+READY	/xx/ko/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,077	3,075 (-0.06 %)	4,343	4,341 (-0.05 %)
+READY	/xx/pl/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,503	3,501 (-0.06 %)	5,496	5,494 (-0.04 %)
+READY	/xx/pt/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,509	3,507 (-0.06 %)	5,563	5,561 (-0.04 %)
+READY	/xx/ru/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	3,660	3,658 (-0.05 %)	5,964	5,962 (-0.03 %)
+READY	/xx/zh/book-and-manage/flights/ana	Columns Media split at its rows: padded h3-large / padded h2-large, card headings H4 -> H3	2,969	2,967 (-0.07 %)	3,807	3,805 (-0.05 %)

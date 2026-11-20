@@ -1,0 +1,70 @@
+ema-test, standing order 71 (2026-11-20, 15:35-20:00 CET): lufthansa.com
+=========================================================================
+
+Item 1: round 669, the login and profile pages (live 10:03 CET; no state commit, app shells are not tracked)
+------------------------------------------------------------------------------------------------------------
+12 documents: /de/en/login, /gb/en/login, /de/de/anmeldung, /at/de/anmeldung, and /{de/en, gb/en, de/de, at/de}/profile/
+account-statement and /profile/travel-cockpit (the profile pages live under /profile/; the bare paths answer 404). All 12 answer
+200 on lufthansa.turnsthe.page, with 0 markers in their served copies. Rendered 15:45-16:00 CET at 1440 and 390, one page at a
+time, every request off the host refused (logs/p4/so71/login71.cjs; order 69's checks with logs/p4/so70/sweep/sw70.cjs).
+
+- Login pages (4 x 2 widths): the Carousel Cards block draws its two cards side by side at 1440 (622 px each, 253 px high in
+  English, 280 in German) and stacked at 390 (Travel ID 209 px, booking code 236 / 263 px), each with its heading, text and
+  button ("Login", "Enter booking code" / "Buchungscode eingeben"). Grey band, breadcrumb and spacing as served.
+- Profile pages (8 x 2): the Profile Nav bar draws (64 px at 1440, the 49 px menu button at 390) with the current tab marked
+  (Overview / Übersicht, Miles & More). The logged-out placeholders draw: each "Please log in to view this page" / "Bitte loggen
+  Sie sich ein" gate is 68 px with its "Log in now" button. The apps that need a login render nothing, as the widget's README says
+  for a logged-out visitor (my-trips, airport-services, fare-alert-overview, sdui-statement). The cards below (4 or 5) draw with
+  their pictures.
+- Every page-width: status 200, no sideways scroll, no own-host picture failed, every block loaded. Order 69's checks: the only
+  flag is the 16 px breadcrumb / default-content wrapper overlap on the 4 login pages, the same harmless kind order 69 listed on
+  marked copies. No collision, no cut text, no empty box.
+
+Noted, not breakage:
+- Each profile page draws the gate twice, one above the other: travel-cockpit holds two login-gate apps (before the hero banner
+  and before my-trips), and account-statement holds the account-statement app (a gate when logged out) and a login-gate. That is
+  how the documents are written (from www's markup). Whether www shows both gates to a logged-out visitor was not checked: no
+  request to an airline host.
+- The hero banner and web-self-service apps load their scripts from www.lufthansa.com, so these renders, which refuse every
+  request off the host, draw them 0 px high. A visitor's browser loads them. Not checkable here.
+
+Item 2: ANA's heading order
+---------------------------
+delta-so71-com-faults.txt: 15 READY rows. Split the Columns Media block at its rows into two Columns Media blocks:
+- row 1, "padded h3-large": the three H3 cards in heading-small;
+- row 2, "padded h2-large": the H2 title cell, with its three card headings H4 -> H3 (the flow theme's H3 is
+  heading-copytext-large, 24 / 20 px bold).
+The outline is then H2, H3 x 3, H2, H3 x 3. Existing block options only: no rule, no commit needed. Gated against today's live
+copy: 30 of 30 page-widths, every heading's size and weight equal, heights -0.03 to -0.07 % (row 2 2 px higher). The narrower
+variant without padded on the second block passed 13 of 30 (down to -1.41 %). The rows need helper B's DA change.
+
+Item 3: the empty POI map boxes
+-------------------------------
+Cause: ours (blocks/poi-map/poi-map.js).
+- The block draws its 500 px view as soon as it is decorated. It looks up its points only when it comes within 300 px of the
+  viewport (whenNear, an IntersectionObserver).
+- A map whose points are not recorded is hidden only when that lookup comes back empty. On our hosts the recordings index is
+  the only source for pointsOfInterest, and the labels call to www is refused, retried, then read from recordings.
+- So the box's fate depends on the scroll. A load whose section showed only after the measurement scrolled back to the top
+  never came near: an empty, busy 500 px box. A load that passed it: the box gone.
+- /xx/es/first-class: neither of its two maps is recorded; 4 loads at 1440 gave 24,562 once and 23,514 three times (the
+  +-1,000 px of order 70). /xx/es/book-and-manage/stopover/neuschwanstein at 390: 3 of 3 loads kept the busy box (3,973 px).
+- For a visitor, the box stood empty until they scrolled near and the lookup ended, then the page jumped up by 500 px.
+  Checked on the served page: neuschwanstein at 390, the map scrolled into view, hidden within 1 s (3,973 -> 3,441 px).
+- The maps with recorded points (gb/en, de/en, de/de, at/de first-class) draw in every load; our renders refuse the OSM tiles,
+  so the sweep reads them as "empty" too.
+
+Fix: on lufthansa.com (body.brand-lufthansa; not TAP's sheet maps, not maps with point rows) the points are looked up at once
+and only the drawing waits for the viewport. A map without points is hidden from the start, whatever the scroll.
+- Checked by loading the fixed script into live's pages (the block's script served from the checkout):
+  - /xx/es/first-class at 1440: 23,514 in 4 of 4 loads;
+  - neuschwanstein at 390: 3,441 in 3 of 3 (the box gone);
+  - gb/en first-class (recorded): both maps drawn, 21,558 as served;
+  - an article with point rows: as served.
+- Test: test/poi-map-early-points-so71.test.mjs (no recording: hidden without coming near; recorded: shown, not drawn until
+  near; another brand: waits as before).
+- Reach: 206 documents with 218 maps without recorded points (poi-map-unrecorded-so71.txt): 172 stopover pages, 12
+  first-class, 12 100-years/destinations, 10 articles. Their final state is the one a visitor got before after scrolling (no
+  map); only the timing changes, and with it the measured heights where the box used to stay (-500 px per map).
+- www draws these maps with their points. Parity needs the 218 answers recorded (bd-record-api.mjs --set poi, requests to www):
+  listed, not done here.
