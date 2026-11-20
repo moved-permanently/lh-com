@@ -1,0 +1,68 @@
+# ema-lufthansa, standing order 54 (2026-11-20): items 2, 3 and 4. Item 1 is marked-so54-ema-lufthansa.tsv.
+# Nothing uploaded, previewed or published; DA read only; the collapse files not changed (ema-test's today).
+
+## Item 2: e56340a4 (ema-test, heading runs split per wish, lufthansa only) against every other brand's collapse
+# The change: splitHeadingRuns(), called from collapseHeadings only when brand === 'lufthansa'; the rest of the collapse unchanged
+#   (marker-collapse.mjs; the import bundles rebuilt with the same lines). It reads heading size markers ({heading-small} ...).
+# How: main's tools/importer/marker-collapse-cli.mjs --brand <brand>, at e56340a4's parent (bd13c509, a detached worktree in
+#   /tmp) and at main, on the same input, outputs compared byte for byte per document (cmp).
+# The inputs. DA copies of each brand (read only, admin.da.live/source):
+#   - none of them has headings of one level asking for different sizes by marker: these sites are token-free; the only
+#     tokens left are data placeholders ({n}, {origin}, {destination}, {duration}, {cabin});
+#   - so the copies picked are those whose headings of one level ask for different sizes by carrier: a level-scoped size
+#     style (h2-small, h2-large, h3-large ...) on some of the sections holding that level, or a block title size option
+#     beside other headings of the level. Up to 20 per brand. A brand with fewer gives what it has; to still test 20 of its
+#     copies, the rest are filled with its copies holding the most headings of one level (none asking for another size).
+#   ITA: a random 300 of its copies were read (20 found there); the other eight brands: every copy (status 200).
+# brand	DA copies read	with mixed size markers	candidates by carrier	picked	filled	parent vs main
+swiss	4660	0	57	20	0	20 of 20 identical, 0 different
+b2b	729	0	20	20	0	20 of 20 identical, 0 different
+austrian	2272	0	44	20	0	20 of 20 identical, 0 different
+brussels	1605	0	0	0	20	20 of 20 identical, 0 different
+ita	300	0	34	20	0	20 of 20 identical, 0 different
+discover	557	0	7	7	13	20 of 20 identical, 0 different
+tap	895	0	0	0	20	20 of 20 identical, 0 different
+airdolomiti	1563	0	0	0	20	20 of 20 identical, 0 different
+cargo	978	0	0	0	20	20 of 20 identical, 0 different
+# The stress test: e56340a4's own inputs, the kept lufthansa.com documents' marked .plain.html (61 of delta-so70-com-kept's 65
+#   kept here on 20 Nov while marked: the heading runs the change splits), collapsed with each brand at the parent and at main.
+# brand	documents	identical	different
+swiss	61	61	0
+b2b	61	61	0
+austrian	61	61	0
+brussels	61	61	0
+ita	61	61	0
+discover	61	61	0
+tap	61	61	0
+airdolomiti	61	61	0
+cargo	61	61	0
+lufthansa	61	46	15  (the change's own reach: expected to differ)
+# Result: identical for every other brand, on every input.
+
+## Item 3: can any other brand's collapse write the Spacer step xxl (a4bc3af)?
+# The collapse picks a separator's step from the brand theme's space.steps (themeFor(brand, pageType), scripts/style-markers.js);
+#   a brand without steps writes only "spacer" or "spacer l" (90 px or more). Checked per brand and page type, and by collapsing a
+#   test document with {spacer-400}, {spacer-150}, {spacer-90} and {spacer-40} at main with each brand.
+# brand	page types	largest step	can write xxl	the test document collapses to
+lufthansa	(default), flow, article, insights-tag	xxl 375	yes	spacer xxl spacer l spacer l-minus spacer
+swiss	(default), flow	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+b2b	(default), flow	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+austrian	(default), flow	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+brussels	(default), flow	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+ita	(default)	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+discover	(default), flow	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+tap	(default)	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+airdolomiti	(default)	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+cargo	(default)	none (L for 90 px or more)	no	spacer l spacer l spacer l spacer
+# Result: only lufthansa.com's steps have xxl; none of the nine other brands has steps, so none can write xxl. No proposal.
+#   Left as order 53 noted it: STEP_SPACE is shared, so a hand-written Spacer xxl on another site would draw 375 px there.
+
+## Item 4: the publish rounds on live against marked-so54
+# How: every 3 minutes, each of the 110 documents' live .plain.html Last-Modified (main--lh-com--moved-permanently.aem.live,
+#   HEAD); a document whose Last-Modified moved is published. Once a group had been quiet 6 minutes it was rendered on
+#   lufthansa.turnsthe.page at 1440 and 390 as item 1 (headings and heights) and set against its item 1 render:
+#   - a kept document against its marked copy: every heading's tag, size and weight, the height within 1 %; the ANA copies'
+#     three card headings as H4 accepted;
+#   - a carrier document against its switched page before the row: the headings must stay; the height moves by the ending the row
+#     restores (its marked copy was not kept).
+# Not published by the last check: 110 of 110: /at/de/book-and-manage/flights/ana, /at/de/first-class, /de/de/book-and-manage/flights/ana, /de/en/admission-rules, /de/en/book-and-manage/additional-services/get-your-guide, /de/en/book-and-manage/digital-self-services/airline-apps, /de/en/business-class-on-short-and-medium-haul, /de/en/business-terms-and-conditions, /de/en/check-in-baggage, /de/en/childrens-menus-on-board, /de/en/dangerous-dogs, /de/en/datenschutz, /de/en/during-your-trip/food-and-beverages/onboard-delights/faq, /de/en/exclusive-charter, /de/en/first-class-personal-assistant, /de/en/first-class-valet-parking-service, /de/en/flight-disruptions, /de/en/general-conditions-currency-conversion, /de/en/lufthansa-at-duesseldorf-airport, /de/en/lufthansa-at-vienna-airport, /de/en/lufthansa-corporate-customers, /de/en/lufthansa-express, /de/en/lufthansa-express-bus, /de/en/lufthansa-guide-service, /de/en/meetings-and-events-delegates, /de/en/meetings-and-events-organisers, /de/en/menus-travel-classes, /de/en/my-logbook, /de/en/onboard-delights, /de/en/online-check-in-info, /de/en/pre-check-in, /de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage, /de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries, /de/en/secure-flight, /de/en/security-check-time-slot, /de/en/sepa-terms-and-conditions, /de/en/sepa-terms-and-conditions-b, /de/en/services-munich-airport, /de/en/terms-of-use, /de/en/travel-agencies, /de/en/travel-expense-management, /de/en/travelling-with-animals, /de/en/travelling-with-special-requirements, /de/en/uebergepaeck, /de/en/upgrade-to-premium-economy-class, /de/en/wheelchair-batteries, /fr/fr/book-and-manage/flights/ana, /fr/fr/tips-senior-travellers, /gb/de/book-and-manage/additional-services/travel-insurances, /gb/en/autumn-campaign22, /gb/en/book-and-manage/additional-services/travel-insurances, /gb/en/book-and-manage/flights/ana, /gb/en/first-class, /xx/el/book-and-manage/flights/ana, /xx/el/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/el/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/el/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/el/tips-senior-travellers, /xx/es/book-and-manage/flights/ana, /xx/es/first-class, /xx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/es/tips-senior-travellers, /xx/fr/book-and-manage/flights/ana, /xx/fr/first-class, /xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/fr/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/fr/tips-senior-travellers, /xx/hk/book-and-manage/flights/ana, /xx/hk/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/hk/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/hk/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/hk/tips-senior-travellers, /xx/it/book-and-manage/flights/ana, /xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/it/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/it/tips-senior-travellers, /xx/ja/book-and-manage/flights/ana, /xx/ja/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/ja/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/ja/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/ja/tips-senior-travellers, /xx/ko/book-and-manage/flights/ana, /xx/ko/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/ko/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/ko/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/ko/tips-senior-travellers, /xx/pl/book-and-manage/flights/ana, /xx/pl/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/pl/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/pl/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/pl/tips-senior-travellers, /xx/pt/book-and-manage/flights/ana, /xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/pt/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/pt/tips-senior-travellers, /xx/ru/book-and-manage/flights/ana, /xx/ru/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/ru/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/ru/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/ru/tips-senior-travellers, /xx/zh/book-and-manage/flights/ana, /xx/zh/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment, /xx/zh/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment, /xx/zh/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment, /xx/zh/tips-senior-travellers
