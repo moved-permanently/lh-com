@@ -174,3 +174,43 @@ Rule 2 for ema-adobe - German page titles wider than a phone's column (PROPOSED)
   /at/de/articles/explore-the-world/picture-perfect-ny 8,840 -> 8,800), no flag came.
 - www's own handling of these titles (its CSS for H1 on phones) was not read tonight: no request to www. Neither form is
   proven to be www's.
+
+Batch 13 (on live; 295 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY, all at/de. Live census 01:38 CET: 295 with 0 markers, 5 still marked (held, not swept):
+  /at/de/book-and-manage/flights/ana, /at/de/business-class, /at/de/first-class, /at/de/lounges,
+  /at/de/meetings-and-events. Swept: 590 page-widths, all 200, all settled. Also rendered: 294 source copies (de/de).
+  Text points hit-tested: 107,491. Refused requests: 659.
+- Sideways scroll, never loaded, heading size: 0. Broken pictures: 2 in the sweep (/at/de/articles/tags/venice and
+  /at/de/book-and-manage/stopover at 1440). Read alone, both pictures load (stopover's media_12af426e....svg answers
+  200, image/svg+xml). Final 0.
+- Text over another element: 1 FAULT, Rule 1's: /at/de/mobility-partner-program-healthcare 1440 (and its de/de copy,
+  batch 10's), the sub-page nav over the title. Rule 1 reaches it. ARTEFACT or DESIGN:
+    - the overlay card teasers' stretched CTA link (113 documents);
+    - the blog overview's screen-reader status line (58);
+    - form selects over their labels (3);
+    - the flight-status selects;
+    - /at/de/cash-and-miles 390: the finder's tab labels under their neighbours. At 390 the tabs show icons only
+      (clip checked: four icons, no text drawn), and the hidden labels are what the probe hit.
+- Text cut: 113 documents, the overlay card teasers' list items (ARTEFACT, as batch 12). List size: 113 documents, the
+  blog overview's tag pills (DESIGN, as batch 12).
+- Text spill at 390: 4 documents.
+    - Three German H1s, which Rule 2 reaches: /at/de/articles/tags/miami ("Miami – sonnenverwöhnt..." +11 px),
+      /at/de/common/seatreservation-condtions/seat-reservations ("Sitzplatzreservierung" +14 px),
+      /at/de/informationen-zum-datenschutz ("Datenschutzhinweise" +16 px).
+    - One H2: /at/de/common/accessibility-statement ("Angabe der zuständigen ..." +11 px). FAULT. Rule 2 with h2 is
+      being gated (below).
+- Empty columns: 3 documents, the Columns Media empty text cells (CONTENT, as batch 07). Empty section:
+  /at/de/culinaryjourney (FUNCTION).
+- Off its source copy (de/de): 574 page-widths compared, 5 documents more than 15 % off. Each is the copies' own
+  text, not breakage. LISTED:
+    - /at/de/economy-class 1440 -16.5 % and /at/de/first-class-terminal 390 -16.1 %: de/de's heroes have an intro
+      paragraph, at/de's hero has the option narrow, as gb/en's against de/en.
+    - /at/de/handgepaeck 1440 +46.4 %: at/de has a section for departures from the USA that de/de has not.
+    - /at/de/book-and-manage/flights/giftvoucher -16.9 % at both widths: de/de has a section for the de market only
+      (data-markets="de").
+    - /at/de/book-and-manage/flights/lufthansa-voucher +281 % / +399 %: at/de shows the voucher terms as headings and
+      text (12 parts, open), de/de as an accordion of 12 closed items.
+  8 documents have no de/de document to compare (the offers-and-destination market pages and others).
+- Against its own marked copy before the batch: none on disk for batch 13.
+- Rows: 0.
