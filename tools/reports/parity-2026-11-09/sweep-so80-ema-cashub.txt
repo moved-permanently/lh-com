@@ -214,3 +214,36 @@ Batch 13 (on live; 295 of 300 documents swept)
   8 documents have no de/de document to compare (the offers-and-destination market pages and others).
 - Against its own marked copy before the batch: none on disk for batch 13.
 - Rows: 0.
+
+Batch 14 (on live; 295 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY: 223 xx/fr, 72 at/de swept, and 5 xx/fr held. Live census 01:56 CET: 9 still marked. The
+  helper's "so60 batch 14h: 4 held documents cleared" then cleared 4 of them, and the 02:16 CET census found 5:
+  /xx/fr/book-and-manage/flights/ana, /xx/fr/first-class, and the travel-with-needs cognitive-, hearing- and
+  visual-impairment pages. The 4 cleared ones (/at/de/tips-senior-travellers, /at/de/unterhaltung-an-bord,
+  /xx/fr/alleinreisende-kinder, /xx/fr/meetings-and-events) were swept after. Swept: 590 page-widths, all 200, all
+  settled. Also rendered: 72 de/de source copies. Text points hit-tested: 101,378.
+- Sideways scroll, never loaded, heading size: 0. Broken pictures: 3 in the sweep (/at/de/sondermahlzeiten 390,
+  /xx/fr/100-years/fleet 390, /xx/fr/economy-class 1440). Read alone: all load. Final 0.
+- Text over another element: Rule 1's fault on 3 more at/de pages at 1440 (upgrade-business-class-langstrecke,
+  upgrade-in-die-business-class, upgrade-premium-economy-class: the sub-page nav over the title). ARTEFACT or DESIGN:
+  the overlay card teasers' stretched link (French and German), the blog overview's screen-reader line, form fields
+  and the lounge finder's select over their labels, the search page's screen-reader sentence.
+- Text cut: 13 documents. The overlay card teasers' list items (ARTEFACT), and the related-articles titles' 3-line
+  clamp on the French articles ("Inspirée par Lufthansa ...", "L'art de s'envoler : ..."; DESIGN).
+- List size: 4 documents, the blog overview's tag pills (DESIGN).
+- Text spill at 390: 4 documents.
+    - Three German H1s, which Rule 2 reaches: the hearing- and visual-impairment pages ("Services für Fluggäste ..."
+      +4 / +7 px), /at/de/security-fast-lanes ("Bevorzugt und schnell ..." +14 px).
+    - One H2: /at/de/rail-fly-bedingungen ("3. Datenschutz/Datensicherheit" +16 px). FAULT, Rule 2's h2 form.
+- Empty columns: 4 documents, the Columns Media empty text cells (CONTENT, as batch 07). Empty section:
+  /xx/fr/culinaryjourney (FUNCTION).
+- Off its source copy: 144 page-widths compared (at/de against de/de; the xx/fr pages are sources), 2 documents more
+  than 15 % off. LISTED (the copies' own text):
+    - /at/de/rechnungsbeleg +36.4 % / +74.6 %: at/de's page has the H1 "Rechnungsbeleg (Passenger Receipt)" and an
+      intro, and de/de's a padded section without them.
+    - /at/de/shopping 1440 -15.8 %: de/de's hero has an intro, as gb/en's.
+- Against its own marked copy before the batch: /xx/fr/faq-data-security and /xx/fr/faq-password-security (order 78,
+  19 Nov, marked): 1440 2,029 -> 2,077 and 1,606 -> 1,654; 390 3,219 -> 3,267 and 2,085 -> 2,133. Every one is +48 px
+  (+1.5 % to +3.0 %), within 15 %, no flag before or after.
+- Rows: 0.
