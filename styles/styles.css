@@ -3019,3 +3019,14 @@ body.brand-lufthansa main:has(.article-header) .columns-media:has(.media-video +
 body.brand-lufthansa main > .section.breadcrumb-container:has(> .default-content-wrapper:last-child > p:last-child > picture):has(+ .section.column-view.flush.padded > .default-content-wrapper:first-child > p.full-width:first-child) {
   margin-bottom: 40px;
 }
+
+/* lufthansa.com: an H2 with one paragraph between it and a four-up Carousel Cards (the tag pages' "Dive Deeper With Our
+   Interest-based Episode" / "Tiefer eintauchen mit unseren Schwerpunktfolgen") is www's large headline, as its marked copy
+   drew it ({heading-large}: 40 of the 40 such headings of the switched batches outside an h2-small section; www's munich
+   recording at 1440: large and bold over two lines). The section style h2-small keeps its own size (standing order 64) */
+body.brand-lufthansa main > .section:not(.h2-small) > .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.four-up):has(> p:last-child) > h2:nth-last-child(2) {
+  margin-bottom: var(--heading-margin-xxl);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: var(--heading-large-weight, 700);
+  text-transform: var(--heading-large-transform, none);
+}

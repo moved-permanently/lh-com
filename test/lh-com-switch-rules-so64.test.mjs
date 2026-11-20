@@ -39,6 +39,14 @@ test('Rule 2: on phones a German page title breaks a word longer than the column
   assert.doesNotMatch(r.body, /hyphens/);
 });
 
+test('Dive Deeper: an H2, one paragraph, then a four-up Carousel Cards draws as heading-large (not in an h2-small section)', () => {
+  const r = ruleOf('body.brand-lufthansa main > .section:not(.h2-small) > .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.four-up):has(> p:last-child) > h2:nth-last-child(2)');
+  assert.ok(r, 'the rule is in styles.css');
+  assert.equal(r.media, '');
+  const large = css.match(/main :is\(h1, h2, h3, h4, h5, h6\)\.heading-large \{([^}]*)\}/)[1].trim().replace(/\s+/g, ' ');
+  assert.equal(r.body.replace(/\s+/g, ' '), large, 'the same declarations as .heading-large');
+});
+
 test('Rule 1 comes after the pull-up it overrides', () => {
   const pull = css.indexOf('body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper)');
   const rule = css.indexOf('body.brand-lufthansa main > .section.grey + .section.subpage-nav-container:last-child');
