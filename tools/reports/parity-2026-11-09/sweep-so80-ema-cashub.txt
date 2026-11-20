@@ -50,7 +50,7 @@ Batch 07 (on live; 299 of 300 documents swept)
 - Text spill: 3 documents at 390, a German H1 word wider than the column: /de/de/advance-seat-reservation
   ("Sitzplatzreservierung" 360 px in 346), /de/de/articles/explore-flying/best-airport-restaurants
   ("Flughafenrestaurants"), /de/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer (+5 px).
-  FAULT. See "Rule 2" (being gated across the batches).
+  FAULT, PROPOSED (Rule 2, below batch 12).
 - Empty columns: 4 documents at 1440 (/gb/en/first-class-terminal, /gb/en/tips-senior-travellers,
   /de/de/100-years/global-network: a Columns Media sidebar's empty text cell, 26 px; /gb/en/passengers-with-sensory-
   impairment: a nested-2 row whose two text cells are empty beside the app-store logos, 32 px). Nothing is drawn in
@@ -74,7 +74,7 @@ Batch 07 (on live; 299 of 300 documents swept)
   4 documents have no de/en document to compare (/gb/en/grouptravel, /gb/en/local-page/ski-campaign-2026, /gb/en/sale,
   /gb/en/unhide-fashion: 404 at de/en).
 - Against its own marked copy before the batch: none on disk for batch 07.
-- Rows: 2 READY (delta-so80-com-faults.txt). Rules: 1 proposed, 1 being gated.
+- Rows: 2 READY (delta-so80-com-faults.txt). Rules: Rule 1, and Rule 2 (below batch 12).
 
 Rule 1 for ema-adobe - the sub-page navigation's top (PROPOSED)
 ---------------------------------------------------------------
@@ -120,3 +120,57 @@ Item 2 - the help-center stage picture (shipped) and the seat-reservation FAQ ro
   it is. Already in the drop: lh-snapshots-069 (6 Nov, sha256 9f267317... checked) holds www's
   /de/de/common/seatreservation-condtions/refund. Its 8 maui-collapsible-item elements carry no expanded attribute,
   so on that capture www's de/de items were closed. If tonight's recording agrees, the rows are dropped.
+
+Batch 12 (on live; 300 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY, all at/de. Live census 00:50 CET: 300 with 0 markers, none held. Swept: 600 page-widths, all
+  200. Also rendered: their 300 de/de source copies (600 page-widths). Text points hit-tested: 111,624. Refused
+  requests: 3,527 (the article pages' widgets ask www's APIs).
+- Broken pictures, sideways scroll, heading size: 0. Never loaded / not settled: 1 in the sweep
+  (/at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul 390: 3 of 7 sections loaded, 5,410 px). Read
+  alone: settled, 7,406 px, the same as its de/de copy's 7,406. Final 0.
+- Text over another element: 0 FAULT. 14 documents flagged, all ARTEFACT or DESIGN:
+    - The overlay card teasers' titles ("Mehr Geschichten", "Lufthansa Insights") under their CTA link. That link's
+      ::after (inset -9999px, cards-teaser.css) makes the whole card the link and paints nothing.
+    - The blog overview's screen-reader status line (blog-overview-sr, 1 px, clip-path) under its result count.
+    - Form selects over their own labels.
+- Text cut: 272 documents. Two kinds, neither drawn wrong:
+    - the related-articles card titles' 3-line clamp (DESIGN, as batch 07);
+    - the overlay card teasers' list items, whose stretched link makes their scrollWidth 9,999 px inside overflow
+      hidden (ARTEFACT, order 77's).
+- Empty columns: 109 documents, the POI map's 500 px view of the article pages ("In my hood", "On the scene" ...).
+  The map draws once it nears the viewport (IntersectionObserver), after the sweep's quick scroll. Scrolled into
+  view and given 3 s, /at/de/articles/explore-the-world/in-my-hood-arroios-lissabon draws 9 OpenStreetMap tiles and
+  its pins at 1440 and 390. ARTEFACT.
+- List size: 10 documents, the blog overview's tag pills at 16 px beside 18 px card text: DESIGN (www's maui tags,
+  blog-overview.css).
+- Text spill: 3 documents at 390, German H1 words wider than the column:
+  /at/de/articles/highlights-european-championship/european-championship-2024-locations ("Europameisterschaft"
+  +8 px), .../european-championship-2024-quiz (+16 px),
+  /at/de/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes (+6 px). FAULT, PROPOSED
+  (Rule 2, with batch 07's three).
+- Off its source copy (de/de): 600 page-widths compared, 0 more than 15 % off after the re-read.
+- Against its own marked copy before the batch: none on disk for batch 12.
+- Rows: 0. Rules: Rule 2.
+
+Rule 2 for ema-adobe - German page titles wider than a phone's column (PROPOSED)
+-------------------------------------------------------------------------------
+- Fault: at 390 a German H1 word longer than the 346 px column runs out of it (36 px heading-large):
+  "Sitzplatzreservierung" 360 px, "Flughafenrestaurants", "Europameisterschaft". 6 documents in batches 07 and 12 (de/de
+  advance-seat-reservation, best-airport-restaurants, business-class-culinary-journey-with-johann-lafer; at/de's three
+  above). The H1s have hyphens: manual and overflow-wrap: normal.
+- Rule (the narrow form, recommended):
+    @media (width < 768px) {
+      body.brand-lufthansa main h1:lang(de) {
+        overflow-wrap: break-word;
+      }
+    }
+- Gate (injected in the same load), on every German document of batches 07 and 12 at 390 (413 page-widths): the 6
+  spills are gone and no flag came. On the 12 documents where the wider form below moved anything, the narrow form
+  moves 2 heights (+40 px: /de/de/advance-seat-reservation 13,762 -> 13,802, the euro 2024 quiz 3,519 -> 3,558) and
+  nothing else: the long word breaks at the column's edge without a hyphen.
+- The wider form adds hyphens: auto to the same rule, so the word is hyphenated: 6 spills gone, 12 heights move by
+  one line (±39-40 px: the 6 spill pages and 6 more H1s that hyphenation shortens by a line, e.g.
+  /at/de/articles/explore-the-world/picture-perfect-ny 8,840 -> 8,800), no flag came.
+- www's own handling of these titles (its CSS for H1 on phones) was not read tonight: no request to www. Neither form is
+  proven to be www's.
