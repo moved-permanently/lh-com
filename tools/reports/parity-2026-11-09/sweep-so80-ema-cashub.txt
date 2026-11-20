@@ -281,3 +281,25 @@ Batches 12 to 14 against their marked copies (ema-lufthansa's renders)
     batch 14: 590 compared, 13 off, the same xx/fr stopover partner pages (+500 / +547 to +550 px). ARTEFACT, as
       batch 13.
 - Batch 07 has no marked render. Batch 16's is in that file for its part.
+
+Batch 15 (on live; 291 of 300 documents swept)
+----------------------------------------------
+- Documents: 300 READY: 245 xx/es and 46 xx/fr swept. 9 still marked at the live census of 02:36 CET (held, not
+  swept): /xx/es/alleinreisende-kinder, /xx/es/book-and-manage/flights/ana, /xx/es/first-class,
+  /xx/es/meetings-and-events, the three xx/es travel-with-needs impairment pages, /xx/fr/tips-senior-travellers,
+  /xx/fr/unterhaltung-an-bord. Swept: 582 page-widths. Text points hit-tested: 99,932. The xx pages are sources: no
+  source comparison.
+- Answers: 1 page-width answered 500 in the sweep (/xx/es/data-collection-usa 1440). Read alone: 200, 5,975 px, no flag
+  (its 390 read 200 in the sweep). Final: all 200.
+- Sideways scroll, never loaded, heading size: 0. Broken pictures: 1 in the sweep
+  (/xx/es/prepare-for-your-trip/travelling-with-children/child-in-businessclass 1440). Read alone: loads. Final 0.
+- Text over another element: Rule 1's fault on /xx/fr/upgrade-premium-economy-class 1440 ("Un voyage, des options à
+  volonté" under the sub-page nav). ARTEFACT or DESIGN: the overlay card teasers' stretched link, the blog
+  overview's screen-reader line, the flight-status selects and form selects over their labels.
+- Text cut: 8 documents. The related-articles titles' 3-line clamp ("La inspiración de Lufthansa ...", DESIGN), and the
+  overlay card teasers' list items (ARTEFACT).
+- List size: 2 documents, the blog overview's tag pills (DESIGN). Empty columns: 2 (Columns Media empty text cells,
+  CONTENT). Empty section: /xx/es/culinaryjourney (FUNCTION). Text spill: 0.
+- Against its own marked copy before the batch: /xx/fr/support/support (order 78, 19 Nov, marked): 1440 13,541 ->
+  13,700 (+1.2 %), 390 7,456 -> 7,554 (+1.3 %). Within 15 %, no flag.
+- Rows: 0.
