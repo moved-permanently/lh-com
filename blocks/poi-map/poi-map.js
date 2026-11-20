@@ -602,14 +602,49 @@ export default function decorate(block) {
   }
   block.setAttribute('aria-busy', 'true');
 
+  // without points: no map (like the live component without an answer; here without the empty
+  // 500px box), the caption with it, the aside stays
+  let emptied = false;
+  const hideEmpty = (result, mark) => {
+    if (emptied) return;
+    emptied = true;
+    if (mark) markSource(block, result.sources, result.primary);
+    block.removeAttribute('aria-busy');
+    if (aside) {
+      main.remove();
+      block.classList.remove('poi-map-with-aside');
+    } else block.hidden = true;
+    block.dataset.lhSource = 'none';
+  };
+  // lufthansa.com (standing order 71): the points are looked up at once, only the drawing waits for
+  // the viewport. A map without recorded points kept its empty 500px box until it came near and
+  // went then: a page measured before the visitor scrolled there drew it, one measured after didn't
+  // (/xx/es/first-class: two maps, +-1,000 px between loads), and a visitor saw the page jump
+  // (authored points never come back empty: those maps wait as before)
+  const early = !tap && !authored.length && document.body.classList.contains('brand-lufthansa')
+    ? loadPoiMap(settings, authored, locale) : null;
+  if (early) {
+    early.then((result) => {
+      if (!result.points.length) hideEmpty(result, true);
+    }, () => {});
+  }
+
   return new Promise((resolve) => {
     whenNear(block, async () => {
+      if (emptied) {
+        resolve();
+        return;
+      }
       // brand tap: a sheet as the Source (TAP's destinations, ./poi-map-tap.js)
       const variant = tap ? await import('./poi-map-tap.js') : null;
       const sheet = Boolean(variant && variant.isSheetSource((config.source || {}).text));
       const result = sheet
         ? await variant.loadTapMap(config.source.text, locale.lang)
-        : await loadPoiMap(settings, authored, locale);
+        : await (early || loadPoiMap(settings, authored, locale));
+      if (emptied) {
+        resolve();
+        return;
+      }
       // authored row, then the live label (labels/common), then the built-in default
       const defaults = resolveLabels(DEFAULT_LABELS, {}, locale.lang);
       const labels = { ...defaults, ...result.labels };
@@ -628,13 +663,7 @@ export default function decorate(block) {
       }
       block.removeAttribute('aria-busy');
       if (!result.points.length) {
-        // like the live component without an answer: no map (here without the empty 500px box)
-        // the caption speaks of the map: it goes with it; the aside stays
-        if (aside) {
-          main.remove();
-          block.classList.remove('poi-map-with-aside');
-        } else block.hidden = true;
-        block.dataset.lhSource = 'none';
+        hideEmpty(result, false);
         resolve();
         return;
       }
